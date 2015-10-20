@@ -121,7 +121,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 //	Caso queira uma paginação que não esteja neste arquivo, crie no arquivo
 //  abaixo
 //	===========================================================================
-@import "extra/paginacao";
+@import "../extra/paginacao";
 
 //	============================================================================
 // 	CLASSES MONTADAS
