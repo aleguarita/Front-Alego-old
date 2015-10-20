@@ -18,26 +18,12 @@ PAGINAÇÃO
 // 	07/04/2015 | Criação do básico para trabalhar
 // 	21/08/2015 | Colocado dentro do padrão. Usando Flexbox
 // 	20/10/2015 | Inclusão de arquivo separado para o sistema
+// 							 Configurações básicas transferidas para base/config.scss
 //	============================================================================
 
 //	============================================================================
 // 	VARIÁVEIS
-//	---------------------------------------------------------------------------
-// 	Definições básicas
 //	============================================================================
-//	Escolhe o tipo de paginação a ser usada. Valores: basica | box
-//	----------------------------------------------------------------------------
-
-$paginacao-tipo: box;
-//	Define alinhamento da paginação. Valores: flex-start (esquerda) |
-//	flex-end (direita) | center
-//	----------------------------------------------------------------------------
-
-$paginacao-posicao: center;
-//	Variáveis pré-estabelecidas
-//	----------------------------------------------------------------------------
-
-$paginacao-fonte: .65rem; // tamanho da fonte
 $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 
 //	============================================================================

@@ -22,45 +22,9 @@ TABELAS
 // 	15/10/2015 | Definição de link em bloco
 // 	16/10/2015 | Ajustes na tabela de formulário
 //  20/10/2015 | Inclusão de tabelas do sistema
+// 							 Configurações básicas transferidas para base/config.scss
 //	===========================================================================
 
-//	===========================================================================
-// 	VARIÁVEIS
-//	---------------------------------------------------------------------------
-// 	Definições básicas
-//	===========================================================================
-//	Escolhe o tipo de tabela a ser usada. Valores: pontilhada | linha
-//	---------------------------------------------------------------------------
-$tab-escolhida: pontilhada;
-
-//	Define as variações. Valores: sim | não
-//	$tab--formulario: ativa a variação --form
-//	$tab--zebra: define se a tabela é zebrada ou não
-//  $tab-acao-link-bloco: o ícone é um bloco e ocupa a altura da célula
-// 	$tab-col--maximo: o valor máximo que pode ser ajustado através de
-// 		placeholder.
-//	---------------------------------------------------------------------------
-$tab--zebra: sim;
-$tab--form: não;
-$tab-acao-link-bloco: não;
-$tab-col--maximo: 600;
-
-//	Cria classes para definir as larguras das colunas. Coloque valor em pixels,
-//  mas sem unidade. Abaixo é criada a classe e o nome que vc escolheu aparece
-//  com dois traços. Exemplo: tab-col--classe_criada
-//	---------------------------------------------------------------------------
-//	Largura fixa
-$largura-tabela-col: (
-	acoes: 70,
-);
-//	Largura mínima
-$largura-tabela-col-min: (
-
-);
-//	Largura máxima
-$largura-tabela-col-max: (
-
-);
 //	===========================================================================
 // 	DEFINIÇÕES PADRÃO DE TABELA
 //	---------------------------------------------------------------------------
@@ -170,13 +134,6 @@ td {
 	}
 }
 
-//	===========================================================================
-//	TABELAS DO SISTEMA
-//	---------------------------------------------------------------------------
-//	Caso queira uma tabela que não esteja neste arquivo, crie no arquivo abaixo
-//	===========================================================================
-@import "../extra/tabelas";
-
 //  ===========================================================================
 //	CLASSES MONTADAS
 //  ===========================================================================
@@ -192,6 +149,13 @@ td {
 		@extend %tab--form;
 	}
 }
+
+//	===========================================================================
+//	TABELAS DO SISTEMA
+//	---------------------------------------------------------------------------
+//	Caso queira uma tabela que não esteja neste arquivo, crie no arquivo abaixo
+//	===========================================================================
+@import "../extra/tabelas";
 
 //  ===========================================================================
 //	CLASSES INTERNAS

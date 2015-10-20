@@ -1,0 +1,100 @@
+// =============================================================================
+// CONFIG
+// =============================================================================
+// FRONT-ALEGO | Framework da Assembleia Legislativa do Estado de Goiás
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 20/10/2015
+// -----------------------------------------------------------------------------
+// Define as diversas configurações do front-end da Alego.
+// Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
+// do tema usado das cores. ATENÇÃO: as cores devem ser definidas em outro
+// arquivo
+// -----------------------------------------------------------------------------
+// CHANGELOG
+// 20/10/2015 | Criação do arquivo e puxada as configurações de demais arquivos
+// =============================================================================
+
+// =============================================================================
+// TEMA DE CORES
+// -----------------------------------------------------------------------------
+// Escolha aqui qual o tema de cores usado. As cores devem ser definidas no
+// arquivo _cores.scss
+// =============================================================================
+
+// =============================================================================
+// GRID
+// -----------------------------------------------------------------------------
+// Definições básicas da grid
+// =============================================================================
+// $grid-qtd: a quantidade de grids usadas
+// $grid-margem: o espaço entre as grids
+// $grid-max: a largura máxima da grid
+// -----------------------------------------------------------------------------
+$grid-qtd: 12;
+$grid-margem: $calha; // definido no arquivo variaveis.scss
+$grid-max: rem(1600);
+
+// MAPA DAS SEÇÕES
+// -----------------------------------------------------------------------------
+// Inclua no mapa abaixo as seções (as classes) que você está criando e o número
+// de grids que ela ocupa
+// Para facilitar a leitura, salte uma linha para definir grupos
+// Exemplo:
+// $grid: (
+//   header-titulo: 10,
+//   header-sair: 2,
+//
+//   nav: 2,
+//   principal: 10,
+// );
+// -----------------------------------------------------------------------------
+$grid: (
+);
+
+// =============================================================================
+// PAGINAÇÃO
+// =============================================================================
+// Escolhe o tipo de paginação a ser usada. Valores: basica | box
+// -----------------------------------------------------------------------------
+$paginacao-tipo: box;
+
+//	Define alinhamento da paginação. Valores: flex-start (esquerda) |
+//	flex-end (direita) | center
+//	----------------------------------------------------------------------------
+$paginacao-posicao: center;
+$paginacao-fonte: .65rem; // tamanho da fonte
+
+// =============================================================================
+// TABELAS
+// =============================================================================
+// Escolhe o tipo de tabela a ser usada. Valores: pontilhada | linha
+// -----------------------------------------------------------------------------
+$tab-escolhida: pontilhada;
+
+//	Define as variações. Valores: sim | não
+//	$tab--zebra: define se a tabela é zebrada ou não
+//	$tab--formulario: ativa a variação --form
+//  $tab-acao-link-bloco: o ícone é um bloco e ocupa a altura da célula
+// 	$tab-col--maximo: o valor máximo que pode ser ajustado através de
+// 		placeholder.
+// -----------------------------------------------------------------------------
+$tab--zebra: sim;
+$tab--form: não;
+$tab-acao-link-bloco: não;
+$tab-col--maximo: 600;
+
+// Cria classes para definir as larguras das colunas. Coloque valor em pixels,
+// mas sem unidade. Abaixo é criada a classe e o nome que você escolheu aparece
+// com dois traços. Exemplo: tab-col--classe_criada
+// -----------------------------------------------------------------------------
+//	Largura fixa
+$largura-tabela-col: (
+	acoes: 70,
+);
+//	Largura mínima
+$largura-tabela-col-min: (
+);
+//	Largura máxima
+$largura-tabela-col-max: (
+);
