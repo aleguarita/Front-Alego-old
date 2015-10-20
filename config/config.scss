@@ -32,7 +32,7 @@
 // $grid-max: a largura máxima da grid
 // -----------------------------------------------------------------------------
 $grid-qtd: 12;
-$grid-margem: $calha; // definido no arquivo variaveis.scss
+$grid-margem: rem(10); // afeta a variávei $calha definida no arquivo variaveis.scss
 $grid-max: rem(1600);
 
 // MAPA DAS SEÇÕES

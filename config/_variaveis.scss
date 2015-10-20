@@ -34,7 +34,7 @@ $borda-separadora: 2px solid #fff;
 $borda-tracejada: 1px dashed cor($cor-borda);
 
 //	Margens
-$calha: rem(10);
+$calha: $grid-margem;
 $margem: $calha;
 
 // Transition
