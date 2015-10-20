@@ -1,0 +1,159 @@
+/*
+================================================================================
+PAGINAÇÃO
+================================================================================
+*/
+
+//	============================================================================
+//	Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	----------------------------------------------------------------------------
+//	paginacao.scss
+//	Criado em: 07/04/2015
+// 	Última alteração: 20/10/2015
+//	----------------------------------------------------------------------------
+//	Definição da paginação. Formata o tipo padrão gerado pelo Rails.
+//	----------------------------------------------------------------------------
+// 	Changelog
+// 	07/04/2015 | Criação do básico para trabalhar
+// 	21/08/2015 | Colocado dentro do padrão. Usando Flexbox
+// 	20/10/2015 | Inclusão de arquivo separado para o sistema
+//	============================================================================
+
+//	============================================================================
+// 	VARIÁVEIS
+//	---------------------------------------------------------------------------
+// 	Definições básicas
+//	============================================================================
+//	Escolhe o tipo de paginação a ser usada. Valores: basica | box
+//	----------------------------------------------------------------------------
+
+$paginacao-tipo: box;
+//	Define alinhamento da paginação. Valores: flex-start (esquerda) |
+//	flex-end (direita) | center
+//	----------------------------------------------------------------------------
+
+$paginacao-posicao: center;
+//	Variáveis pré-estabelecidas
+//	----------------------------------------------------------------------------
+
+$paginacao-fonte: .65rem; // tamanho da fonte
+$paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
+
+//	============================================================================
+// 	PLACEHOLDERS
+//	----------------------------------------------------------------------------
+// 	O tipo a ser usado. Mude na variável $paginacao-tipo, acima
+//	============================================================================
+%paginacao--basica {
+	%paginacao-item {
+		border-bottom: 2px solid transparent;
+	}
+	%paginacao-elemento-ativo {
+		border-bottom-color: cor($cor-paginacao);
+	}
+	.current {
+		box-shadow: $sombra-botao;
+	}
+	a {
+		&:hover {
+			@extend %paginacao-elemento-ativo;
+		}
+	}
+}
+
+%paginacao--box {
+	$borda-paginacao: 1px solid cor($cor-paginacao, clara);
+	%paginacao-item {
+		border-top: $borda-paginacao;
+		border-bottom: $borda-paginacao;
+	}
+	%paginacao-elemento-ativo {
+		outline: 2px solid cor($cor-paginacao, escura);
+		box-shadow: 0 0 8px cor($cor-sombra);
+	}
+	%paginacao-voltar {
+		border-left: $borda-paginacao;
+	}
+	%paginacao-avancar {
+		border-right: $borda-paginacao;
+	}
+	.prev {
+		border-right: $borda-paginacao;
+	}
+	.next {
+		border-left: $borda-paginacao;
+	}
+	.gap {
+		border-left: $borda-paginacao;
+		border-right: $borda-paginacao;
+	}
+	a {
+		&:hover {
+			background: cor($cor-paginacao, escura);
+			color: cor($cor-texto-variante);
+		}
+	}
+}
+
+//	Placeholders para sub-elementos.
+//	---------------------------------------------------------------------------
+%paginacao-item {
+	color: cor($cor-paginacao);
+	background: lighten(cor($cor-paginacao, clara), 70%);
+}
+%paginacao-elemento-ativo {
+	font-weight: bold;
+}
+%paginacao-navegar {
+	font-size: .95em;
+}
+%paginacao-voltar {
+	@extend %paginacao-navegar;
+}
+%paginacao-avancar {
+	@extend %paginacao-navegar;
+}
+
+//	===========================================================================
+//	PAGINAÇÃO DO SISTEMA
+//	---------------------------------------------------------------------------
+//	Caso queira uma paginação que não esteja neste arquivo, crie no arquivo
+//  abaixo
+//	===========================================================================
+@import "extra/paginacao";
+
+//	============================================================================
+// 	CLASSES MONTADAS
+//	============================================================================
+.pagination {
+	@extend %paginacao--#{$paginacao-tipo};
+	@extend %flex;
+	@include justify-content($paginacao-posicao);
+	@include align-items(flex-end);
+	font-size: $paginacao-fonte;
+	padding: .5rem 0;
+	.gap {
+		@extend %paginacao-item;
+		padding: $paginacao-padding;
+		color: cor($cor-paginacao, escura);
+	}
+	.prev, .first {
+		@extend %paginacao-voltar;
+	}
+	.next, .last {
+		@extend %paginacao-avancar;
+	}
+	a {
+		@extend %paginacao-item;
+		@extend %link-block;
+		color: cor($cor-paginacao);
+		padding: $paginacao-padding;
+	}
+	.current{
+		@extend %paginacao-item;
+		@extend %paginacao-elemento-ativo;
+		z-index: 2;
+		padding: $paginacao-padding;
+	}
+}

@@ -1,0 +1,154 @@
+/*
+===============================================================================
+GRID
+===============================================================================
+*/
+
+// ============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// ----------------------------------------------------------------------------
+// grid.scss
+// Criado em: 12/01/2015
+// Última alteração: 19/08/2015
+// ----------------------------------------------------------------------------
+// Este arquivo cria o sistema de grid, com uso de Flex-box
+// As configurações devem ficar no início do documento (editando as variáveis)
+// ----------------------------------------------------------------------------
+// Changelog
+// 12/01/2015 | Grid com sistema de float e utilizando mixin
+// 03/07/2015 | Flexbox
+// 19/08/2015 | Alterada a ordem dos elementos pra facilitar configurações
+// ============================================================================
+
+// ============================================================================
+//  SISTEMA DE GRIDS DINÂMICO E FLUÍDO
+// ----------------------------------------------------------------------------
+// Para utilizar este sistema, determine:
+// * a quantidade de colunas no sistema de grids ($grid-qtd);
+// * o tamanho máximo do container ($grid-max);
+// * a medida da calha ($grid-margem)
+// Estes valores estão no começo do arquivo, na seção "Variáveis"
+//
+// Por questão de organização e facilidade de alteração, a grid
+// fica dentro deste arquivo mesmo, no mapa $grid (evitando buscar em
+// diversos arquivos as medidas). Veja em "Seções do Sistema" pra saber como
+// usar.
+//
+// O @extend %pre-x serve para pular a quantidade de grids necessária entre
+// uma grid e outra.
+// Por exemplo: o logo do sistema ocupa 3 colunas e a opção de logout ocupa
+// 2 colunas. Entre um e outro tem espaço de 7 grids. Ao invés de criar um
+// div em branco com a medida de grid-7, extenda o .pre-7 no logout
+// ============================================================================
+
+// ============================================================================
+// VARIÁVEIS
+// ----------------------------------------------------------------------------
+// Atenção, $grid-margem e $grid-max devem fazer uso da mesma unidade de medida
+// Recomendação: "rem"
+// Para converter pixels em "rem", use a função rem
+// ============================================================================
+$grid-qtd: 12;
+$grid-margem: $calha; // definido no arquivo variaveis.scss
+$grid-max: rem(1600);
+  $grid-medida: 100% / $grid-qtd;
+  $grid-margem-porcento: ($grid-margem / $grid-max) * 100%;
+  $grid-medida-gutter-total: ($grid-margem-porcento * ($grid-qtd - 1))/12;
+  $grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
+
+// ============================================================================
+// SEÇÕES DO SISTEMA
+// ----------------------------------------------------------------------------
+// Inclua no mapa abaixo as seções (as classes) que você está criando e o número
+// de grids que ela ocupa
+// Para facilitar a leitura, salte uma linha para definir grupos
+// Exemplo:
+// $grid: (
+//   header-titulo: 10,
+//   header-sair: 2,
+//
+//   nav: 2,
+//   principal: 10,
+// );
+// ============================================================================
+$grid: (
+);
+
+// ============================================================================
+// CONTAINER
+// ----------------------------------------------------------------------------
+// Aqui é determinado o container. Este é o elemento pai que vai abrigar um
+// grupo de grids. Para cada linha de grid, utilize um .container
+// Existem duas opções de container:
+// .container: sistema sem margem
+// .container--gutter (ou .container--calha): sistema com margem entre as colunas
+// ============================================================================
+%container-basico {
+  @extend %flex;
+  @include flex-wrap;
+  margin: auto;
+  max-width: $grid-max;
+}
+.container {
+  @extend %container-basico;
+}
+.container--gutter, .container--calha {
+  @extend %container-basico;
+  padding: 0 $grid-margem;
+}
+// ============================================================================
+// GRIDS
+// ----------------------------------------------------------------------------
+// Gera as grids dinamicamente para uso com @extend. Não mude nada
+// ============================================================================
+%grid-total {
+  @include flex(1 0 100%);
+}
+%grid-gutter {
+  margin-right: $grid-margem-porcento;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+$i: 1;
+@while $i <= $grid-qtd {
+  %grid-#{$i} {
+    @extend %grid-total;
+    .container--gutter & {
+      @extend %grid-gutter;
+    }
+  }
+  $i: $i+1;
+}
+@include media-tipo(grande) {
+  $i: 1;
+  @while $i <= $grid-qtd {
+    $basis: $grid-medida * $i;
+    $basis-gutter: $grid-medida-com-gutter * $i;
+    %grid-#{$i} {
+      @include flex($i 0 $basis);
+      .container--gutter & {
+        @include flex($i 0 $basis-gutter);
+      }
+    }
+    %pre-#{$i} {
+      margin-left: $grid-medida * $i;
+      .container--gutter & {
+        margin-left: ($grid-medida-com-gutter + $grid-margem-porcento) * $i;
+      }
+    }
+    $i: $i+1;
+  }
+}
+
+//	===========================================================================
+//	Cria as classes e define as larguras e grid
+//	===========================================================================
+@each $classe, $medida in $grid {
+	.#{$classe} {
+		@extend %grid-#{$medida};
+	}
+}
+// esta variável pega a medida da área útil com tela no máximo quando se usa calha
+$area-util: $grid-max - ($calha * 2);

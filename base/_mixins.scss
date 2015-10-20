@@ -1,0 +1,208 @@
+// ============================================================================
+// MIXINS
+// ============================================================================
+
+//	===========================================================================
+//	Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	---------------------------------------------------------------------------
+//	mixins.scss
+//	Criado em: 13/01/2015
+//  Última alteração: 14/10/2015
+//	---------------------------------------------------------------------------
+//	Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
+//	parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
+//	mixin para a criação de grid).
+//
+//	Mixins que afetam diretamente um recurso específico como a tipografia ou
+//	formulários estarão nos arquivos respectivos (exemplos: selection em
+//	tipografia.scss e placeholder em formularios.scss)
+//
+//	Acrescente novos mixins sempre no final e com explicação do que fazem e
+//	deixe um comentário explicado para quê serve, como funciona e como usar
+//	IMPORTANTE: este comentário deve sempre começar com // e não /*
+//	---------------------------------------------------------------------------
+// 	Changelog
+// 	13/01/2015 | Criado arquivo básico
+// 	??/??/2015 | Incluído criação de prefixos.
+// 	??/??/2015 | Criado mixins para flexbox
+//	06/10/2015 | Aplicação do bourbon no sistema.
+// 	13/10/2015 | Eliminados mixins redundantes com os do bourbon.
+// 							 Importação de arquivo de mixins separado para o sistema
+//	14/10/2015 | Acrescentado mixin de centralizar caixa sem flexbox.
+//	===========================================================================
+
+//	===========================================================================
+//	MEDIA-QUERY
+//	---------------------------------------------------------------------------
+//	Para determinar propriedades responsivas, utilizando mobile-first.
+//	---------------------------------------------------------------------------
+// 	Como usar:
+// 	Este mixin faz uso da função breakpoint (ver o arquivo). Basta digitar o
+// 	mixin e chamar o breakpoint pré-estabelecido lá.
+//	.seletor {
+// 		@include media-tipo(medio) {
+// 			insira aqui a configuração
+// 		}
+// }
+//	===========================================================================
+@mixin media-tipo($breakpoint) {
+	@media (min-width: breakpoint($breakpoint)) {
+		@content;
+	}
+}
+
+//	===========================================================================
+//	PREFIXO
+//	---------------------------------------------------------------------------
+//	Acrescenta prefixo de browser no CSS3.
+//	Fonte: http://css-tricks.com/snippets/sass/mixin-prefix-properties/
+//	---------------------------------------------------------------------------
+//	Como usar:
+//	Por fazer uso de mapas, as $declaracoes devem aparecer dentro de parênteses
+//	separados por vírgula. Os prefixos não precisam dessa divisão.
+//	Exemplo:
+//	.seletor {
+//		@include prefixo((column-count: 3, column-row: 1.5em), webkit moz);
+//	}
+//	Para melhorar a leitura, separe com ENTER
+//	.seletor {
+//		@include prefixo((
+//			column-count: 3,
+//			column-row: 1.5em),
+//		webkit moz);
+//	}
+//	O ideal é usar este mixin dentro de outros, ao invés de usar direto no CSS.
+//	Desta forma, quando acontecer de cair algum prefixo, só precisa alterar em
+// 	Um lugar.
+//	===========================================================================
+@mixin prefixo($declaracoes, $prefixos: ()) {
+	@each $propriedade, $valor in $declaracoes {
+		@each $prefixo in $prefixos {
+			#{'-' + $prefixo + '-' + $propriedade}: $valor;
+		}
+		// Exibição padrão, sem prefixo
+		#{$propriedade}: $valor;
+	}
+}
+
+//	===========================================================================
+//	PLACEHOLDER
+//	---------------------------------------------------------------------------
+//	Faz o placeholder de formulários.
+//	Não estou usado o @prefixo acima pois a forma de usar prefixo é diferente
+//	---------------------------------------------------------------------------
+//	Como usar:
+//	.seletor {
+//		@include placeholder {
+//			formatação
+// 		}
+//	}
+//	===========================================================================
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {  /* Firefox 19+ */
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+}
+
+//	===========================================================================
+//	PREFIXOS MAIS COMUNS DE CSS3
+//	---------------------------------------------------------------------------
+//	Aplica os prefixos de CSS
+//	===========================================================================
+@mixin transform($transform) {
+	@include prefixo((transform: $transform), webkit);
+}
+@mixin transform-origin($origem) {
+	@include prefixo((transform-origin: $origem), webkit);
+}
+
+//	===========================================================================
+//	FLEXBOX
+//	---------------------------------------------------------------------------
+//	Inclui os prefixos para o funcionamento do Flexbox
+// 	Os valores padrão já pensa no uso mais comum (e é por isso que prefiro isso
+// 	ao bourbon).
+//	---------------------------------------------------------------------------
+// 	Como usar:
+// 	.classe {
+// 		@include flex-direction(column);
+// 	}
+//	===========================================================================
+// 	No flex container
+@mixin display-flex {
+	display: -webkit-flex;	// Safari
+	display:     -ms-flexbox;	// IE 10
+	display:         flex;
+}
+@mixin flex-direction($flex-direction: column) {
+	@include prefixo((flex-direction: $flex-direction), webkit);
+}
+@mixin flex-wrap($wrap: wrap) {
+	@include prefixo((flex-wrap: $wrap), webkit);
+}
+@mixin flex-flow($flex-direction: column, $flex-wrap: wrap) {
+	@include prefixo((flex-flow: $flex-direction $flex-wrap), webkit);
+}
+@mixin justify-content($justify-content: center) {
+	@include prefixo((justify-content: $justify-content), webkit);
+}
+@mixin align-items($align-items: center) {
+	@include prefixo((align-items: $align-items), webkit);
+}
+@mixin align-content($align-content: center) {
+	@include prefixo((align-content: $align-content), webkit);
+}
+
+//	No flex-item
+@mixin order($order: auto) {
+	@include prefixo((order: $order), webkit);
+}
+@mixin flex-grow($flex-grow: 1) {
+	@include prefixo((flex-grow: $flex-grow), webkit);
+}
+@mixin flex-shrink($flex-shrink: 1) {
+	@include prefixo((flex-shrink: $flex-shrink), webkit);
+}
+@mixin flex-basis($flex-basis: 100%) {
+	@include prefixo((flex-basis: $flex-basis), webkit);
+}
+@mixin flex($flex: 1) {
+	@include prefixo((flex: $flex), webkit);
+}
+@mixin align-self($align-self: auto) {
+	@include prefixo((align-self: $align-self), webkit);
+}
+
+//	===========================================================================
+//	CENTRALIZADOR DE CAIXA
+//	---------------------------------------------------------------------------
+//	Centraliza uma caixa em valor absoluto. Ótimo para login. A vantagem é que
+// 	por não usar de flexbox, o HTML fica mais limpo. Não precisa usar em modal
+// 	(que está usando flexbox)
+//	---------------------------------------------------------------------------
+// 	Os valores de $largura e $altura são opcionais. Se não utilizados
+//	===========================================================================
+@mixin centraliza-caixa($largura: null, $altura: null) {
+	width: $largura;
+	height: $altura;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%, -50%));
+}
+
+//	===========================================================================
+//	MIXINS DO SISTEMA
+//	---------------------------------------------------------------------------
+//	Eventuais mixins do sistema devem ser postos no arquivo abaixo. Caso seja
+// 	necessário criar um mixin global, crie e requisite a inclusão dele no
+// 	front-alego
+//	===========================================================================
+@import "extra/mixins";

@@ -1,0 +1,63 @@
+/*!
+	==============================================================================
+	FRONT-ALEGO | Framework da Assembleia Legislativa
+	Autor: Alessandro Guarita
+	Criado em: 07/01/2015
+	Última alteração: 19/10/2015
+	------------------------------------------------------------------------------
+*/
+// app.scss
+// Inclua neste arquivo somente chamadas para os demais arquivos,
+// usando @import
+// Coloque os demais elementos dentro das respectivas pastas:
+// 	/base
+// 		Contém os arquivos básicos do front-alego que não podem ser alterados
+// 		para o sistema atual. Se precisar alterar qualquer um deles, basta
+// 		substituir
+// 	/bourbon
+// 		Os arquivos do Bourbon para sistemas que não usem o Rails (e para a
+// 		a compilação de CSS).
+// 	/config
+// 		Contém os arquivos de configuração básica do sistema atual, como cores
+// 		e variáveis
+// 	/extra
+// 		Contém os arquivos similares ao do /base, mas que são personalizados
+// 		para o sistema atual (exemplo: uma tabela diferente do padrão).
+// 	/fontes
+// 		Contém as fontes do sistema. Aqui não tem scss nem nada
+// 	/info
+// 		As informações básicas do sistema, incluíndo a documentação e um arquivo
+// 		para visualizar os elementos usados
+// -----------------------------------------------------------------------------
+// Changelog:
+// 07/01/2015 | Primeira forma de organizar arquivos
+// 19/10/2015 | Nova estruturação de arquivos
+// =============================================================================
+
+// Bourbon: http://bourbon.io
+// Atenção: acrescentar a gem "bourbon" no Gemfile
+// @import "bourbon"; // (se usado no rails)
+@import "bourbon/bourbon"; // (se instalado o bourbon manualmente)
+
+// Reset CSS
+@import "base/reset";
+
+// Configuração básica
+// @import "config/config";
+
+// Arquivos básicos e de configuração gerais
+// NÃO ALTERE A ORDEM
+@import "config/cores";
+@import "base/fontes";
+@import "base/funcoes";
+@import "config/variaveis";
+@import "base/mixins";
+@import "base/placeholders";
+
+// Arquivos de configuração específicos
+@import "base/grid";
+@import "config/z-index";
+@import "config/tipografia";
+@import "config/simbolos";
+@import "base/paginacao";
+@import "base/tabelas";

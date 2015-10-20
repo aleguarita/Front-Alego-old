@@ -1,0 +1,372 @@
+/*
+===============================================================================
+CORES
+===============================================================================
+*/
+
+//	===========================================================================
+//	Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	---------------------------------------------------------------------------
+//	cores.scss
+//	Criado em: 07/01/2015
+//	---------------------------------------------------------------------------
+//	Aqui temos a paleta de cores, função para chamá-la e, o mais importante, os
+//	mapas com as cores do sistema (e sua função para chamar)
+//
+//	Acrescente cores à paleta no início deste arquivo, conforme a regra
+//	Acrescente elementos do sistema (e use somente eles) através de mapas
+//	===========================================================================
+
+
+//	===========================================================================
+//	PALETA DE CORES
+//	---------------------------------------------------------------------------
+//	Acrescente novas cores para seu sistema aqui
+//	Padrão:
+//
+//	nome-cor: (
+//		principal: #000,
+//		clara: #000,
+//		x-clara: #000,
+//		xx-clara: #000,
+//		escura: #000,
+//		x-escura: #000,
+//		xx-escura: #000,
+//	),
+//
+//	REGRA DE NOMEAÇÃO
+//	Uma variação "clara" ou "escura" SEMPRE deve aparecer no feminino, mesmo
+//	que o elemento seja masculino (ex: cor-titulo-clara e não cor-titulo-claro)
+//	use x para uma variação mais clara/escura e x para ainda mais clara/escura
+//	===========================================================================
+$paleta: (
+	padroes: (
+		branco: #fff,
+		preto: #000,
+		vermelho: #ed1c24,
+		verde: #39b54a,
+		amarelo: #f9bc16,
+		cinza-5: lighten(#000, 95),
+		cinza-10: lighten(#000, 90),
+		cinza-20: lighten(#000, 80),
+		cinza-30: lighten(#000, 70),
+		cinza-40: lighten(#000, 60),
+		cinza-50: lighten(#000, 50),
+		cinza-60: lighten(#000, 40),
+		cinza-70: lighten(#000, 30),
+		cinza-80: lighten(#000, 20),
+		cinza-90: lighten(#000, 10),
+	),
+	basica: ( //turquesa
+		principal: #00c5cd,
+		clara: #66dce1,
+		x-clara: #99e7e1,
+		xx-clara: #ccf3f5,
+		escura: #009da4,
+		x-escura: #006266,
+		xx-escura: #002729,
+	),
+	secundaria: ( //marrom
+		principal: #cd5800,
+		clara: #e19b66,
+		x-clara: #e7b799,
+		xx-clara: #f5decc,
+		escura: #a44600,
+		x-escura: #662c00,
+		xx-escura: #291200,
+	),
+);
+
+//	===========================================================================
+//	FUNÇÃO DE PALETA
+//	---------------------------------------------------------------------------
+//	Cria a função de paleta para uso neste mesmo arquivo.
+//	Para chamar a função, coloque paleta(nome-da-paleta, nome-do-tom)
+//	O tom "principal" é o padrão e, portanto, não há a necessidade de chamar
+//	o tom.
+//	===========================================================================
+@function paleta($cor, $tom: "principal") {
+	@if map-has-key(map-get($paleta, $cor), $tom) {
+		@return map-get(map-get($paleta, $cor), $tom);
+	}
+	@warn "Esta cor ou este tom não existe na paleta. Reveja seu código";
+	@return null;
+}
+
+//	===========================================================================
+//	FUNÇÃO DE COR
+//	---------------------------------------------------------------------------
+//	Cria a função de cor para uso neste mesmo arquivo.
+//	Para chamar a função, coloque cor(nome-da-paleta, nome-do-tom)
+//	O tom "principal" é o padrão e, portanto, não há a necessidade de chamar
+//	o tom.
+//	===========================================================================
+@function cor($cor, $tom: "principal") {
+	@return map-get($cor, $tom);
+}
+
+//	===========================================================================
+//	CORES DO SISTEMA
+//	---------------------------------------------------------------------------
+//	Modifique conforme a necessidade do seu sistema, alterando o elemento
+//	"principal", "clara" e "escura"
+//	Se precisar, crie mapas novos (exemplo: $borda-secundaria), mas não se
+//	esqueça de colocar os três elementos e que o nome dele deve começar com cor-
+
+//	Para chamar esta cor, use a função cor (no final do arquivo).
+//	Exemplos:
+//	background: cor($cor-fundo);
+//	color: cor($cor-texto, clara);
+//	===========================================================================
+
+//	ESTADOS DO SISTEMA
+//	---------------------------------------------------------------------------
+$cor-erro: (
+	principal: paleta(padroes, vermelho),
+	clara: #f0494f,
+	escura: #be1e2d,
+);
+$cor-urgente: (
+	principal: cor($cor-erro),
+	clara: cor($cor-erro, clara),
+	escura: cor($cor-erro, escura),
+);
+$cor-sucesso: (
+	principal: paleta(padroes, verde),
+	clara: #74cb80,
+	escura: #009444,
+);
+$cor-ok: (
+	principal: cor($cor-sucesso),
+	clara: cor($cor-sucesso, clara),
+	escura: cor($cor-sucesso, escura),
+);
+$cor-alerta: (
+	principal: paleta(padroes, amarelo),
+	clara: lighten(paleta(padroes, amarelo), 7),
+	escura: darken(paleta(padroes, amarelo), 5),
+);
+$cor-notice: (
+	principal: paleta(secundaria),
+	clara: paleta(secundaria, clara),
+	escura: paleta(secundaria, escura),
+);
+$cor-aviso: (
+	principal: cor($cor-notice),
+	clara: cor($cor-notice, clara),
+	escura: cor($cor-notice, escura),
+);
+
+//	TEXTO CORRIDO
+//	---------------------------------------------------------------------------
+$cor-texto: ( // para fundos claros
+  principal: paleta(padroes, preto),
+  clara: paleta(padroes, cinza-60),
+  escura: paleta(padroes, preto),
+);
+$cor-texto-variante: ( // para fundos escuros
+	principal: paleta(padroes, branco),
+	clara: paleta(padroes, branco),
+	escura: paleta(padroes, cinza-10),
+);
+
+//	DESTAQUE
+//	---------------------------------------------------------------------------
+$cor-destaque: (
+  principal: paleta(basica),
+  clara: paleta(basica, clara),
+  escura: paleta(basica, escura),
+);
+
+//	FUNDO
+//	---------------------------------------------------------------------------
+$cor-fundo: (
+	principal: paleta(basica),
+	clara: paleta(basica, clara),
+	escura: paleta(basica, escura),
+);
+$cor-fundo-variante: (
+	principal: paleta(secundaria),
+	clara: paleta(secundaria, clara),
+	escura: paleta(secundaria, escura),
+);
+$cor-fundo-pb: (
+	principal: paleta(padroes, cinza-70),
+	clara: paleta(padroes, cinza-40),
+	escura: paleta(padroes, preto),
+);
+
+//	BORDAS
+//	---------------------------------------------------------------------------
+$cor-borda: (
+	principal: paleta(basica),
+	clara: paleta(basica, clara),
+	escura: paleta(basica, escura),
+);
+$cor-borda-variante: (
+	principal: paleta(secundaria),
+	clara: paleta(secundaria, clara),
+	escura: paleta(secundaria, escura),
+);
+
+// 	TÍTULO
+//	---------------------------------------------------------------------------
+$cor-titulo: (
+	principal: cor($cor-destaque),
+	clara: cor($cor-destaque, clara),
+	escura: cor($cor-destaque, escura),
+);
+$cor-titulo-variante: (
+	principal: paleta(secundaria),
+	clara: paleta(secundaria, clara),
+	escura: paleta(secundaria, x-escura),
+);
+
+//	LINKS
+//	---------------------------------------------------------------------------
+$cor-link: (
+  principal: paleta(secundaria),
+  clara: paleta(secundaria, clara),
+  escura: paleta(secundaria, escura),
+);
+$cor-link-variante: (
+	principal: cor($cor-destaque),
+	clara: cor($cor-destaque, clara),
+	escura: cor($cor-destaque, escura),
+);
+
+//	PAGINAÇÃO
+//	---------------------------------------------------------------------------
+$cor-paginacao: (
+	principal: paleta(basica),
+	clara: paleta(basica, xx-clara),
+	escura: paleta(basica, escura),
+);
+
+//	LABEL
+//	---------------------------------------------------------------------------
+$cor-label: (
+  principal: cor($cor-texto),
+	clara: cor($cor-texto, clara),
+	escura: cor($cor-texto, escura),
+);
+
+//	INPUT
+//	---------------------------------------------------------------------------
+$cor-input: (
+	principal: cor($cor-borda),
+	clara: cor($cor-borda, clara),
+	escura: cor($cor-borda, escura),
+);
+$cor-input-borda: (
+	principal: cor($cor-input),
+	clara: cor($cor-input, clara),
+	escura: cor($cor-input, escura),
+);
+
+//	PLACEHOLDER
+//	---------------------------------------------------------------------------
+$cor-placeholder: (
+	principal: paleta(basica, x-clara),
+	clara: paleta(basica, xx-clara),
+	escura: paleta(basica),
+);
+
+//	BOTÃO
+//	---------------------------------------------------------------------------
+$cor-botao: (
+	principal: paleta(basica, escura),
+	clara: paleta(basica, clara),
+	escura: paleta(basica, escura),
+);
+$cor-botao-variante: (
+	principal: paleta(secundaria),
+	clara: paleta(secundaria, clara),
+	escura: paleta(secundaria, escura),
+);
+$cor-botao-texto: (
+	principal: cor($cor-texto),
+	clara: cor($cor-texto, clara),
+	escura: cor($cor-texto, escura),
+);
+$cor-botao-texto-variante: (
+	principal: cor($cor-texto-variante),
+	clara: cor($cor-texto-variante, clara),
+	escura: cor($cor-texto-variante, escura),
+);
+
+//	FUNDO TABELA
+//	---------------------------------------------------------------------------
+$cor-tabela-fundo: (
+	principal: paleta(basica, clara),
+	clara: paleta(basica, xx-clara),
+	escura: paleta(basica, escura),
+);
+$cor-tabela-fundo-variante: (
+	principal: cor($cor-fundo-variante),
+	clara: cor($cor-fundo-variante, clara),
+	escura: cor($cor-fundo-variante, escura),
+);
+
+//	TÍTULO TABELA
+//	---------------------------------------------------------------------------
+$cor-tabela-titulo: (
+	principal: cor($cor-titulo),
+	clara: cor($cor-titulo, clara),
+	escura: cor($cor-titulo, escura),
+);
+$cor-tabela-titulo-variante: (
+	principal: cor($cor-titulo-variante),
+	clara: cor($cor-titulo-variante, clara),
+	escura: cor($cor-titulo-variante, escura),
+);
+
+//	TEXTO TABELA
+//	---------------------------------------------------------------------------
+$cor-tabela-texto: (
+	principal: cor($cor-texto),
+	clara: cor($cor-texto, clara),
+	escura: cor($cor-texto, escura),
+);
+
+//	SOMBRAS
+//	---------------------------------------------------------------------------
+$cor-sombra: (
+	principal: paleta(padroes, preto),
+	clara: paleta(padroes, cinza-70),
+	escura: paleta(padroes, preto),
+);
+
+//	===========================================================================
+//	CLASSES COM CORES DE SISTEMA
+//	---------------------------------------------------------------------------
+//	Use quando precisar da cor de texto ou de fundo para indicativo de status
+//	---------------------------------------------------------------------------
+%texto-status--claro {
+	color: cor($cor-texto-variante);
+}
+%texto-status--escuro {
+	color: cor($cor-texto);
+}
+.texto-ok {
+	color: cor($cor-ok);
+}
+.texto-erro {
+	color: cor($cor-erro);
+}
+.texto-alerta {
+	color: cor($cor-alerta);
+}
+.fundo-ok {
+	background: cor($cor-ok);
+	@extend %texto-status--claro;
+}
+.fundo-erro {
+	background: cor($cor-erro);
+	@extend %texto-status--claro;
+}
+.fundo-alerta {
+	background: cor($cor-alerta);
+	@extend %texto-status--claro;
+}

@@ -1,0 +1,177 @@
+/*
+================================================================================
+TIPOGRAFIA
+================================================================================
+*/
+
+//	============================================================================
+//	Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	----------------------------------------------------------------------------
+//	tipografia.scss
+//	Criado em: 13/01/2015
+//	----------------------------------------------------------------------------
+//	Define os elementos básicos da tipografia e usa as variáveis criadas em
+//	fontes.scss
+//	============================================================================
+
+//	============================================================================
+//	TEXTO SELECIONADO
+//	----------------------------------------------------------------------------
+//	Este mixin serve para alterar o padrão do texto selecionado no browser
+//	(quando o usuário seleciona para copiar e colar, por exemplo)
+//	============================================================================
+@mixin texto-selecionado($fundo: #000, $texto: #fff) {
+	&::selection {
+		background-color: $fundo;
+		color: $texto;
+	}
+	&::-moz-selection {
+		background-color: $fundo;
+		color: $texto;
+	}
+}
+//	============================================================================
+//	VARIÁVEIS
+//	----------------------------------------------------------------------------
+//	Para uso nas tags e classes abaixo
+//	============================================================================
+$fonte-titulo: $fonte-serifa;
+$margem-bloco-titulo: 1em 0 .5em;
+$margem-bloco-texto: 1em 0;
+
+//	Modular scale no bourbon.io
+//	----------------------------------------------------------------------------
+$modular-scale-ratio: $major-second;
+$modular-font-size: 1.2rem;
+$tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
+
+//	============================================================================
+//	PLACEHOLDERS
+//	----------------------------------------------------------------------------
+//	Para uso nas tags e classes abaixo
+//	============================================================================
+//	Padrões
+%texto-padrao {
+	font-size: $tamanho-fonte-textos;
+	margin: $margem-bloco-texto;
+}
+%texto-titulo {
+	font-family: $fonte-serifa;
+	margin: $margem-bloco-titulo;
+	color: cor($cor-titulo);
+}
+
+// Variações de título
+%titulo-borda {
+	border-bottom: 1px solid;
+}
+
+// Variações de link
+%link-sem-sublinhado {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+%link-borda {
+	text-decoration: none;
+	border-bottom: 1px solid paleta(padroes, cinza-30);
+	&:hover {
+		border-color: inherit;
+		color: cor($cor-link);
+	}
+}
+%link-pontilhado {
+	@extend %link-borda;
+	border-bottom-style: dotted;
+	&:hover { color: cor($cor-link, escura); }
+}
+// =============================================================================
+// ALTERAÇÕES DOS TAGS
+// -----------------------------------------------------------------------------
+// Alteração básica. Evite alterar demais para que isso não afete em cascata
+// É preferível o uso de classes para isso (no final do arquivo)
+// =============================================================================
+body {
+	color: cor($cor-texto);
+	line-height: 1.6;
+	font-family: $fonte-sem-serifa;
+}
+h1 {
+	@extend %texto-titulo;
+	font-size: modular-scale(5, $modular-font-size);
+}
+h2 {
+	@extend %texto-titulo;
+	font-size: modular-scale(4, $modular-font-size);
+}
+h3 {
+	@extend %texto-titulo;
+	font-size: modular-scale(3, $modular-font-size);
+}
+h4 {
+	@extend %texto-titulo;
+	font-size: modular-scale(2, $modular-font-size);
+}
+h5 {
+	@extend %texto-titulo;
+	font-size: modular-scale(1, $modular-font-size);
+}
+h6 {
+	@extend %texto-titulo;
+	font-size: modular-scale(0, $modular-font-size);
+}
+p {
+	@extend %texto-padrao;
+}
+ul, ol, dl, table, blockquote, {
+	@extend %texto-padrao;
+}
+a {
+	color: cor($cor-link);
+	&:hover {
+		color: cor($cor-link, escura);
+	}
+}
+// =============================================================================
+// CLASSES PARA TIPOGRAFIA
+// =============================================================================
+
+//	ALTERAÇÃO DE TAMANHOS DE FONTES
+//	----------------------------------------------------------------------------
+//	Abaixo crio variantes de tamanho de fonte. Para acrescentar ou modificar,
+//	faça dentro do mapa $tamanho-fonte. As classes geradas devem ser usadas em
+//	elemento inline e não no elemento pai. Se por acaso você precisar de um
+//	elemento de bloco (como um parágrafo inteiro ou h1) com alteração de tamanho
+//	abra um span dentro do mesmo e coloque a classe.
+//	Exemplo:
+//	<p><span class="fonte-maior">Texto maior</span></p>
+//	----------------------------------------------------------------------------
+$tamanho-fonte: (
+	menor: modular-scale(-1, 1),
+	x-menor: modular-scale(-2, 1),
+	xx-menor: modular-scale(-3, 1),
+	maior: modular-scale(1, 1),
+	x-maior: modular-scale(2, 1),
+	xx-maior: modular-scale(3, 1),
+);
+
+@each $classe, $tamanho in $tamanho-fonte {
+	.fonte-#{$classe}, .text-#{$classe} {
+		font-size: $tamanho * 1em;
+	}
+}
+// 	CLASSES PARA ALTERAÇÃO DO TEXTO BÁSICO
+//	----------------------------------------------------------------------------
+.texto--caixa-alta, .texto--uppercase {
+	text-transform: uppercase;
+}
+
+//	CLASSES PARA ELEMENTOS DE TEXTO
+//	----------------------------------------------------------------------------
+//	Classes para alterar elementos padrão. Evite colocar cores, bordas, etc,
+//	dentro dos tags e dê preferência para classes ou para seletores como:
+// 	.artigo-padrao h1
+//  .artigo-padrao p
+//	----------------------------------------------------------------------------

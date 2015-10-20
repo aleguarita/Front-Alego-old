@@ -1,0 +1,289 @@
+/*
+===============================================================================
+TABELAS
+===============================================================================
+*/
+
+//	===========================================================================
+//	Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	---------------------------------------------------------------------------
+//	tabelas.scss
+//	Criado em: 05/02/2015
+//	Última alteração: 20/10/2015
+//	---------------------------------------------------------------------------
+//	Definições padrão das tabelas e classes modelo
+//	---------------------------------------------------------------------------
+//	Changelog
+//	05/02/2015 | Criada a base do arquivo
+//	15/09/2015 | Alterações estruturais, acréscimos de classes,
+// 							 placeholder para a largura da coluna, uso de variáveis para
+// 							 definições. Uso de uma classe de tabela, além de extensões
+// 	15/10/2015 | Definição de link em bloco
+// 	16/10/2015 | Ajustes na tabela de formulário
+//  20/10/2015 | Inclusão de tabelas do sistema
+//	===========================================================================
+
+//	===========================================================================
+// 	VARIÁVEIS
+//	---------------------------------------------------------------------------
+// 	Definições básicas
+//	===========================================================================
+//	Escolhe o tipo de tabela a ser usada. Valores: pontilhada | linha
+//	---------------------------------------------------------------------------
+$tab-escolhida: pontilhada;
+
+//	Define as variações. Valores: sim | não
+//	$tab--formulario: ativa a variação --form
+//	$tab--zebra: define se a tabela é zebrada ou não
+//  $tab-acao-link-bloco: o ícone é um bloco e ocupa a altura da célula
+// 	$tab-col--maximo: o valor máximo que pode ser ajustado através de
+// 		placeholder.
+//	---------------------------------------------------------------------------
+$tab--zebra: sim;
+$tab--form: não;
+$tab-acao-link-bloco: não;
+$tab-col--maximo: 600;
+
+//	Cria classes para definir as larguras das colunas. Coloque valor em pixels,
+//  mas sem unidade. Abaixo é criada a classe e o nome que vc escolheu aparece
+//  com dois traços. Exemplo: tab-col--classe_criada
+//	---------------------------------------------------------------------------
+//	Largura fixa
+$largura-tabela-col: (
+	acoes: 70,
+);
+//	Largura mínima
+$largura-tabela-col-min: (
+
+);
+//	Largura máxima
+$largura-tabela-col-max: (
+
+);
+//	===========================================================================
+// 	DEFINIÇÕES PADRÃO DE TABELA
+//	---------------------------------------------------------------------------
+// 	Definições básicas
+//	===========================================================================
+
+table {
+	width: 100%;
+}
+thead th {
+	font-family: $fonte-serifa;
+	text-align: left;
+	font-size: em(15, 14);
+}
+tr {
+	color: cor($cor-tabela-texto);
+	tbody & {
+		background: #fff;
+	}
+}
+th {
+	padding: .25em .45em;
+	text-transform: uppercase;
+}
+td {
+	line-height: 1;
+	padding: .5em;
+	font-size: em(12, 14);
+}
+
+//  ===========================================================================
+//	PLACEHOLDER PARA FORMATAR AS TABELAS
+//  ===========================================================================
+%tab--zebra {
+	tbody tr:nth-child(even) {
+		background: cor($cor-tabela-fundo, clara);
+		.tab-acoes {
+			background: darken(cor($cor-tabela-fundo, clara), 15%);
+		}
+	}
+}
+%tab--form {
+	tbody tr:nth-child(even) {
+		background: #fff;
+	}
+	td {
+		padding: 0 .25em;
+		border-left: 2px solid cor($cor-borda, clara);
+		&:last-child {
+			border-right: 2px solid cor($cor-borda, clara);
+		}
+	}
+	input:not([type="checkbox"]):not([type="radio"]),
+	textarea,
+	select {
+		@include placeholder {
+			color: cor($cor-borda, clara);
+			text-transform: uppercase;
+		}
+		border: 0;
+		background: #fff;
+		width: 100%;
+		padding: .25em;
+		font-family: $fonte-sem-serifa;
+		font-size: rem(14);
+		&:hover, &:focus {
+			border-color: cor($cor-borda, escura);
+			box-shadow: $sombra-padrao;
+		}
+	}
+}
+
+//  ===========================================================================
+//	TIPOS DE TABELA
+//  ===========================================================================
+%tab-pontilhada {
+	border-bottom: 2px solid cor($cor-borda);
+	thead tr {
+		color: cor($cor-tabela-titulo, escura);
+		border-bottom: 2px solid cor($cor-borda);
+	}
+	tbody tr {
+		border-bottom: $borda-tracejada;
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+	.tab-acoes {
+		background: cor($cor-tabela-fundo, clara);
+		border-left: 2px solid cor($cor-borda);
+	}
+}
+%tab-linha {
+	thead tr {
+		color: cor($cor-texto-variante);
+		background: cor($cor-tabela-fundo, escura);
+		border-bottom: 2px solid cor($cor-borda, clara);
+	}
+	tbody tr {
+		border-bottom: 1px solid cor($cor-borda, clara);
+		&:nth-child(odd) {
+			color: cor($cor-tabela-texto, clara);
+		}
+	}
+	.tab-acoes {
+		background: lighten(cor($cor-tabela-fundo, clara), 5%);
+	}
+}
+
+//	===========================================================================
+//	TABELAS DO SISTEMA
+//	---------------------------------------------------------------------------
+//	Caso queira uma tabela que não esteja neste arquivo, crie no arquivo abaixo
+//	===========================================================================
+@import "extra/tabelas";
+
+//  ===========================================================================
+//	CLASSES MONTADAS
+//  ===========================================================================
+.tab {
+	@extend %tab-#{$tab-escolhida};
+	@if $tab--zebra == "sim" {
+		@extend %tab--zebra;
+	}
+}
+@if $tab--form == "sim" {
+	.tab--form {
+		@extend .tab;
+		@extend %tab--form;
+	}
+}
+
+//  ===========================================================================
+//	CLASSES INTERNAS
+//  ===========================================================================
+//	Placeholders
+//	---------------------------------------------------------------------------
+//	Ícone de ações em bloco ou não (uso de $tab-acao-link-bloco)
+@if $tab-acao-link-bloco == sim {
+	%tab-acoes-icone {
+		display: inline-block;
+		padding: .5em;
+		&:hover {
+			color: cor($cor-texto-variante, clara);
+			background: darken(cor($cor-tabela-titulo, escura), 5%);
+		}
+	}
+	.tab-acoes {
+		padding: 0;
+	}
+} @else if $tab-acao-link-bloco == não {
+	%tab-acoes-icone {
+		margin-left: .5em;
+		margin-right: .5em;
+		&:hover {
+			color: darken(cor($cor-tabela-titulo, escura), 25%);
+		}
+	}
+	.tab-acoes {
+		button {
+			padding: 0;
+		}
+	}
+}
+
+// Ícone
+%tab-acoes-icone {
+	color: darken(cor($cor-tabela-titulo, escura), 5%);
+}
+//	Título da coluna de ações
+.tab-col--acoes {
+
+}
+//	Célula de ação
+.tab-acoes {
+	a {
+		@extend %tab-acoes-icone;
+		text-decoration: none;
+	}
+	button {
+		@extend %tab-acoes-icone;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		line-height: 1;
+	}
+}
+
+//  ===========================================================================
+//	TAMANHOS DE COLUNAS
+//	---------------------------------------------------------------------------
+//	A função a seguir cria uma série de extends para usar com largura de
+// 	colunas. Crie os nomes de classes com a base .tab-col--[nome-classe],
+// 	exemplo: .tab-col--usuario
+//  ===========================================================================
+$tab-col--inicial: 10;
+$tab-col--incremento: 1;
+$i: $tab-col--inicial;
+@while $i <= $tab-col--maximo {
+	%largura-col-#{$i} {
+		width: $i * rem(1);
+	}
+	%largura-col-min-#{$i} {
+		min-width: $i * rem(1);
+	}
+	%largura-col-max-#{$i} {
+		max-width: $i * rem(1);
+	}
+	$i: $i + $tab-col--incremento;
+}
+
+@each $col, $medida in $largura-tabela-col {
+	.tab-col--#{$col} {
+		@extend %largura-col-#{$medida};
+	}
+}
+@each $col, $medida in $largura-tabela-col-min {
+	.tab-col--#{$col} {
+		@extend %largura-col-min-#{$medida};
+	}
+}
+@each $col, $medida in $largura-tabela-col-max {
+	.tab-col--#{$col} {
+		@extend %largura-col-max-#{$medida};
+	}
+}

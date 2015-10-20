@@ -1,0 +1,101 @@
+// ============================================================================
+// CORES
+// ============================================================================
+
+//	===========================================================================
+//	Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	---------------------------------------------------------------------------
+//	funcoes.scss
+//	Criado em: 15/01/2015
+// 	Última alteração em: 19/10/2015
+//	---------------------------------------------------------------------------
+//	Este arquivo agrupa todos as funções utilizadas pelo sistema que já não façam
+//	parte de algum arquivo específico (por exemplo, o arquivo z-index tem uma
+//	função para determinar o z-index do elemento).
+//
+//	Funções que afetam diretamente um recurso específico como a tipografia ou
+//	formulários estarão nos arquivos respectivos (exemplo: cores em
+//	cores.scss)
+//
+//	Acrescente novas funções sempre no final e com explicação do que fazem e
+//	deixe um comentário explicado para quê serve, como funciona e como usar
+//	IMPORTANTE: este comentário deve sempre começar com // e não /*
+//	---------------------------------------------------------------------------
+// 	Changelog:
+//  15/01/2015 | Criado o arquivo com suas funções básicas
+//  14/10/2015 | Retiradas as funções em() e rem() pois elas existem
+//  						 dentro do Bourbon.
+//  19/10/2015 | Incluído importação de "funcoes.scss" que está dentro de extra
+//	===========================================================================
+
+//	===========================================================================
+//	DETECTA A COR DE FUNDO
+//	---------------------------------------------------------------------------
+//	Analisa o brilho da cor de fundo. Se for clara, coloca um texto escuro,
+//	se a cor de fundo for escura, escolhe um texto claro.
+//	Além da cor de fundo, você pode determinar as cores que vai voltar
+//	---------------------------------------------------------------------------
+//	$cor-fundo: a cor de fundo utilizada na análise
+//	$texto-claro: a cor clara do texto. Por padrão é branca.
+//	$texto-escuro: a cor escura do texto. Por padrão é preta.
+//	---------------------------------------------------------------------------
+//	Exemplo de uso:
+//	$fundo: paleta(padroes, preto);
+//	.classe {
+//		background: $fundo;
+//		color: cor-texto($fundo);
+//	}
+//	Neste exemplo a variável $fundo determina qual o fundo e a cor do texto
+//	é a padrão da função.
+//	===========================================================================
+
+@function cor-texto(
+	$cor-fundo,
+	$texto-claro: paleta(padroes, branco),
+	$texto-escuro: paleta(padroes, preto)
+	) {
+		@if (lightness($cor-fundo) > 50) {
+			@return $texto-escuro;
+		} @else {
+			@return $texto-claro;
+		}
+}
+
+//	===========================================================================
+//  BREAKPOINT
+//  ---------------------------------------------------------------------------
+//  Função para criação de media queries
+//	Alteranativamente existe um mixin pronto (em _mixins.scss) já pensando
+//	em mobile first.
+
+//	MEDIA QUERIES
+//	Ver: http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative
+//	===========================================================================
+$breakpoints: (
+  pequeno: rem(480),
+	medio: rem(768),
+	grande: rem(1024),
+	extra-grande: rem(1200),
+);
+
+@function breakpoint($media) {
+	@if map-has-key($breakpoints, $media) {
+		@return map-get($breakpoints, $media);
+	}
+	@warn "ERRO NO SASS"
+	+ "=================================================================="
+	+ "  Medida de Media Query (#{$media}) não encontrada"
+	+ "  Veja quais são as medidas em _variaveis.scss"
+	+ "==================================================================";
+	@return null;
+}
+
+//	===========================================================================
+//	FUNÇÕES DO SISTEMA
+//	---------------------------------------------------------------------------
+//	Eventuais funções do sistema devem ser postas no arquivo abaixo. Caso seja
+// 	necessário criar uma função global, crie e requisite a inclusão dela no
+// 	front-alego
+//	===========================================================================
+@import "extra/funcoes";

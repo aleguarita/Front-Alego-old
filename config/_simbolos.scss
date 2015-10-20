@@ -1,0 +1,180 @@
+/*
+================================================================================
+SÍMBOLOS
+================================================================================
+*/
+
+//	============================================================================
+//	Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	----------------------------------------------------------------------------
+//	simbolos.scss
+//	Criado em: 12/03/2015
+// 	Última alteração: 14/10/2015
+//	----------------------------------------------------------------------------
+//	Aqui cria-se os símbolos utilizando a fonte de símbolos
+//	----------------------------------------------------------------------------
+// 	Changelog
+// 	12/03/2015 | Lista os símbolos e cria as classes
+// 	06/10/2015 | Criado classes apensadas através de placeholder
+// 	14/10/2015 | Utilizado seletores [atr^=] e [atr$=] para criar variações de
+// 							 classes dos ícones. Este uso também dimimuiu o arquivo
+// 							 compilado final.
+//	============================================================================
+
+//	----------------------------------------------------------------------------
+//  Mapa de Ícones
+//	----------------------------------------------------------------------------
+$icones: (
+	abrir: "\f115",
+	adicionar: "\e07a",
+	ajuda: "\f059",
+	apontando: "\f0a4",
+	asterisco: "\f069",
+	aviso-destaque: "\e035",
+
+	cadeado-aberto: "\e1a6",
+	cadeado-fechado: "\e1a5",
+	cadeado: "\e1a4",
+	calendario: "\e03f",
+	calendario-2: "\e361",
+	calendario-3: "\e30f",
+	carregando: "\f110",
+	casa: "\f015",
+	celular: "\e170",
+	chat: "\e020",
+	chat-2: "\e01f",
+	chat-3: "\f075",
+	chat-4: "\f086",
+	chave: "\f084",
+	clipe: "\e1e1",
+	cone-seguranca: "\e053",
+	cracha: "\e010",
+	curtir: "\f087",
+
+	descurtir: "\f088",
+	desligar: "\f011",
+	documento: "\e038",
+	documento-2: "\e141",
+	download: "\f019",
+
+	engrenagem: "\f013",
+	envelope: "\e004",
+	equipe: "\f0c0",
+	erro: "\f057",
+	estrela-metade: "\e1eb",
+	estrela-vazia: "\e1ea",
+	estrela: "\e1ec",
+
+	facebook: "\e0f8",
+	fechar: "\e07b",
+	ferramentas: "\e02b",
+	figura: "\e128",
+	filtro: "\f0b0",
+	foto: "\e02e",
+
+	globo: "\e054",
+	google-mais: "\e0f9",
+	grafico-barra: "\e071",
+	grafico-linha: "\e06f",
+	grafico-pizza: "\e070",
+
+	impressora: "\f02f",
+	info: "\f05a",
+
+	janela-up: "\e057",
+	janela: "\e056",
+
+	lampada: "\e062",
+	lapis: "\e122",
+	link: "\f0c1",
+	livro: "\e037",
+	lixo: "\f014",
+	lixo-2: "\e0a1",
+	local: "\e012",
+	lupa: "\f002",
+
+	mais: "\f067",
+	megafone: "\e02f",
+	menos: "\f068",
+	monitor: "\e060",
+
+	nao-ok: "\f00d",
+	novo: "\e140",
+
+	ok-tique: "\f00c",
+	ok: "\f058",
+	olho-fechado: "\f070",
+	olho: "\f06e",
+	ordenar-baixo: "\f0dd",
+	ordenar-cima: "\f0de",
+	ordenar: "\f0dc",
+
+	pasta: "\f114",
+	pdf: "\e2ce",
+	pessoa: "\e190",
+	pessoa-2: "\e18c",
+	pessoa-3: "\e191",
+	prancheta: "\e066",
+	proibido: "\e2ff",
+
+	relogio: "\e03d",
+
+	sair: "\f08b",
+	salvar: "\e0a4",
+	seta-baixo: "\f0d7",
+	seta-cima: "\f0d8",
+	seta-direita: "\f0da",
+	seta-esquerda: "\f0d9",
+	seta-direita-dupla: "\f101", // NÃO COMENTE, ESTÁ EM USO
+	seta-esquerda-dupla: "\f100", // NÃO COMENTE, ESTÁ EM USO
+	seta-direita-fina: "\f105", // NÃO COMENTE, ESTÁ EM USO
+	seta-esquerda-fina: "\f104", // NÃO COMENTE, ESTÁ EM USO
+
+	tabela: "\f0ce",
+	tablet: "\e172",
+	teclado: "\e055",
+	telefone: "\e000",
+	twitter: "\e0f4",
+
+	x: "\e320",
+
+	zip: "\e2d2",
+);
+
+//	----------------------------------------------------------------------------
+//  Placeholders
+//	----------------------------------------------------------------------------
+%icone {
+	font-family: $fonte-simbolo;
+}
+%icone--espaco {
+	&::before {
+		margin-right: .5em;
+	}
+}
+%icone--link {
+	cursor: pointer;
+}
+//	----------------------------------------------------------------------------
+//  Cria as classes
+//	----------------------------------------------------------------------------
+[class^="ico"] {
+	@extend %icone;
+}
+@each $simbolo, $icone in $icones {
+	[class^="ico-#{$simbolo}"] {
+		&::before {
+			content: $icone;
+		}
+	}
+}
+//	----------------------------------------------------------------------------
+//  Classes adicionais
+//	----------------------------------------------------------------------------
+[class^="ico"][class$="--espaco"] {
+	@extend %icone--espaco;
+}
+[class^="ico"][class$="--link"] {
+	@extend %icone--link;
+}
