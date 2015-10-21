@@ -51,12 +51,12 @@ $cor-status: (
 	sucesso-escuro: #009444,                             ok-escuro: #009444,
 
 	//amarelos
-	alerta: paleta-padrao(amarelo),
-	alerta-claro: lighten(paleta-padrao(amarelo), 7),
-	alerta-escuro: darken(paleta-padrao(amarelo), 5),
+	alerta: paleta-padrao(amarelo),                      aviso:  paleta-padrao(amarelo),
+	alerta-claro: lighten(paleta-padrao(amarelo), 7),    aviso-claro: lighten(paleta-padrao(amarelo), 7),
+	alerta-escuro: darken(paleta-padrao(amarelo), 5),    aviso-escuro: darken(paleta-padrao(amarelo), 5),
 
 	//usado para avisos (como no toaster). Usa a paleta secundária
-	notice: paleta(secundaria),                          aviso: paleta(secundaria),
-	notice-claro: paleta(secundaria, clara),             aviso-claro: paleta(secundaria, clara),
-	notice-escuro: paleta(secundaria, escura),           aviso-escuro: paleta(secundaria, escura),
+	notice: paleta-padrao(cinza-70),
+	notice-claro: paleta-padrao(cinza-5),
+	notice-escuro: paleta-padrao(preto),
 );
