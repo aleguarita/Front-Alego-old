@@ -1,0 +1,66 @@
+/*
+================================================================================
+CLASSES FIXAS
+================================================================================
+*/
+
+//	============================================================================
+//	Front-Alego | Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	----------------------------------------------------------------------------
+//	classes.scss
+//	Criado em: 21/10/2015
+//	----------------------------------------------------------------------------
+//	Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
+//  sistema.
+//	----------------------------------------------------------------------------
+// 	Changelog
+// 	21/10/2015 | Criado o arquivo com as classes básicas
+//	============================================================================
+
+.oculta {
+  display: none;
+}
+
+//	===========================================================================
+//	CORES DE SISTEMA
+//	---------------------------------------------------------------------------
+//	Use quando precisar da cor de texto ou de fundo para indicativo de status
+//	---------------------------------------------------------------------------
+%texto-status--claro {
+	color: cor(texto, claro);
+}
+%texto-status--escuro {
+	color: cor(texto);
+}
+.texto-ok {
+	color: cor-status(ok);
+}
+.texto-erro {
+	color: cor-status(erro);
+}
+.texto-alerta {
+	color: cor-status(alerta);
+}
+.fundo-ok {
+	background: cor-status(ok);
+	@extend %texto-status--claro;
+}
+.fundo-erro {
+	background: cor-status(erro);
+	@extend %texto-status--claro;
+}
+.fundo-alerta {
+	background: cor-status(alerta);
+	@extend %texto-status--claro;
+}
+
+//	===========================================================================
+//	CLASSES DO SISTEMA
+//	---------------------------------------------------------------------------
+//	Classes do sistema devem ser postos no arquivo abaixo (ou no próprio
+//  arquivo do layout, conforme o caso).
+// 	Se perceber que determinada classe é útil para outros sistemas, crie e
+// 	requisite a inclusão dele no front-alego
+//	===========================================================================
+@import "../extra/classes";

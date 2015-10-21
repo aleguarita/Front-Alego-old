@@ -1,16 +1,12 @@
-/*
-===============================================================================
-CORES
-===============================================================================
-*/
-
+//	===========================================================================
+// 	CORES
 //	===========================================================================
 //	Framework da Assembleia Legislativa
 //	Autor: Alessandro Guarita
 //	---------------------------------------------------------------------------
 //	cores.scss
 //	Criado em: 07/01/2015
-// 	Última alteração: 20/10/2015
+// 	Última alteração: 21/10/2015
 //	---------------------------------------------------------------------------
 //	Aqui temos a paleta de cores, função para chamá-la e, o mais importante, os
 //	mapas com as cores do sistema (e sua função para chamar)
@@ -21,6 +17,7 @@ CORES
 //  CHANGELOG:
 // 	07/01/2015 | Criado o arquivo
 //  20/10/2015 | Alterado a forma de trabalhar
+//  21/10/2015 | Criação dos temas
 //	===========================================================================
 
 //	===========================================================================
@@ -91,9 +88,11 @@ $temas: (
 			padrao: paleta(basica),
 			claro: paleta(basica, clara),
 			escuro: paleta(basica, escura),
+			sombra: paleta-padrao(preto),
 		),
 		borda: (
-
+			padrao: paleta(basica),
+			variante: paleta(secundaria),
 		),
 	),
 	cores-monocromatico: (),
