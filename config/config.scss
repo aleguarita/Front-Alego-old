@@ -46,7 +46,11 @@ $grid-max: rem(1600);
 // -----------------------------------------------------------------------------
 // Escolha aqui qual o tema de cores usado. As cores devem ser definidas no
 // arquivo _cores.scss
+// -----------------------------------------------------------------------------
+// Temas disponíveis: principal | monocromatico | cinza
+// Ao acrescentar um tema, ou quiser alterar, basta mudar na variável abaixo
 // =============================================================================
+$cores-tema: principal;
 
 // MAPA DAS SEÇÕES
 // -----------------------------------------------------------------------------

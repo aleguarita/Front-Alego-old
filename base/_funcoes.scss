@@ -1,15 +1,13 @@
-// ============================================================================
-// CORES
-// ============================================================================
-
-//	===========================================================================
+//  ============================================================================
+//  FUNÇÕES
+//  ============================================================================
 //	Framework da Assembleia Legislativa
 //	Autor: Alessandro Guarita
-//	---------------------------------------------------------------------------
+//	----------------------------------------------------------------------------
 //	funcoes.scss
 //	Criado em: 15/01/2015
 // 	Última alteração em: 20/10/2015
-//	---------------------------------------------------------------------------
+//	----------------------------------------------------------------------------
 //	Este arquivo agrupa todos as funções utilizadas pelo sistema que já não façam
 //	parte de algum arquivo específico (por exemplo, o arquivo z-index tem uma
 //	função para determinar o z-index do elemento).
@@ -21,26 +19,56 @@
 //	Acrescente novas funções sempre no final e com explicação do que fazem e
 //	deixe um comentário explicado para quê serve, como funciona e como usar
 //	IMPORTANTE: este comentário deve sempre começar com // e não /*
-//	---------------------------------------------------------------------------
+//	----------------------------------------------------------------------------
 // 	Changelog:
 //  15/01/2015 | Criado o arquivo com suas funções básicas
 //  14/10/2015 | Retiradas as funções em() e rem() pois elas existem
 //  						 dentro do Bourbon.
 //  19/10/2015 | Incluído importação de "funcoes.scss" que está dentro de extra
 //  20/10/2015 | Mapa de breakpoints foi jogado em config.scss
-//	===========================================================================
+// 							 paleta() e cores() foram tirados de cores.scss
+// 							 criado cor-status() e paleta-basica()
+//	============================================================================
 
-//	===========================================================================
+//	============================================================================
+//	CORES | Paletas
+//	----------------------------------------------------------------------------
+// 	Funções de cores para chamar a cor da paleta
+//	Para chamar a função, coloque paleta(nome-da-paleta, nome-do-tom)
+//	O tom "principal" é o padrão e, portanto, não há a necessidade de chamar
+//	o tom.
+//  Exemplo: .classe { color: paleta(principal, clara); }
+//	----------------------------------------------------------------------------
+//  paleta() para as paletas personalizadas (cores.scss)
+//  paleta-padrao() para as cores padrão (cores_status.scss)
+//  cor-status() para cores de status
+//  cor() para usar dentro do sistema
+//	============================================================================
+@function paleta($cor, $tom: "principal") {
+	@return map-get(map-get($paleta, $cor), $tom);
+	@if map-has-key(map-get($paleta, $cor), $tom) {
+	}
+	@warn "Esta cor ou este tom não existe na paleta. Reveja seu código";
+	@return null;
+}
+@function paleta-padrao($cor) {
+	@return map-get($paleta-padrao, $cor);
+}
+@function cor-status($cor) {
+	@return map-get($cor-status, $cor);
+}
+
+//	============================================================================
 //	DETECTA A COR DE FUNDO
-//	---------------------------------------------------------------------------
+//	----------------------------------------------------------------------------
 //	Analisa o brilho da cor de fundo. Se for clara, coloca um texto escuro,
 //	se a cor de fundo for escura, escolhe um texto claro.
 //	Além da cor de fundo, você pode determinar as cores que vai voltar
-//	---------------------------------------------------------------------------
+//	----------------------------------------------------------------------------
 //	$cor-fundo: a cor de fundo utilizada na análise
 //	$texto-claro: a cor clara do texto. Por padrão é branca.
 //	$texto-escuro: a cor escura do texto. Por padrão é preta.
-//	---------------------------------------------------------------------------
+//	----------------------------------------------------------------------------
 //	Exemplo de uso:
 //	$fundo: paleta(padroes, preto);
 //	.classe {
@@ -49,12 +77,11 @@
 //	}
 //	Neste exemplo a variável $fundo determina qual o fundo e a cor do texto
 //	é a padrão da função.
-//	===========================================================================
-
+//	============================================================================
 @function cor-texto(
 	$cor-fundo,
-	$texto-claro: paleta(padroes, branco),
-	$texto-escuro: paleta(padroes, preto)
+	$texto-claro: paleta-padrao(branco),
+	$texto-escuro: paleta-padrao(preto)
 	) {
 		@if (lightness($cor-fundo) > 50) {
 			@return $texto-escuro;
@@ -70,7 +97,6 @@
 //	Alteranativamente existe um mixin pronto (em _mixins.scss) já pensando
 //	em mobile first.
 //	===========================================================================
-
 @function breakpoint($media) {
 	@if map-has-key($breakpoints, $media) {
 		@return map-get($breakpoints, $media);
