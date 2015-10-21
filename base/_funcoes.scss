@@ -33,31 +33,41 @@
 //	============================================================================
 //	CORES | Paletas
 //	----------------------------------------------------------------------------
-// 	Funções de cores para chamar a cor da paleta
-//	Para chamar a função, coloque paleta(nome-da-paleta, nome-do-tom)
-//	O tom "principal" é o padrão e, portanto, não há a necessidade de chamar
-//	o tom.
-//  Exemplo: .classe { color: paleta(principal, clara); }
+// 	Funções de cores para chamar as cores da paleta. São 4 funções para cada
+//  tipo especial de cor
 //	----------------------------------------------------------------------------
-//  paleta() para as paletas personalizadas (cores.scss)
 //  paleta-padrao() para as cores padrão (cores_status.scss)
-//  cor-status() para cores de status
-//  cor() para usar dentro do sistema
+//  exemplo:
+// 			color: paleta-padrao(cinza-50);
+//	----------------------------------------------------------------------------
+//  cor-status() para cores de status de sistema
+// 	exemplo:
+// 			background: cor-status(ok);
+//	----------------------------------------------------------------------------
+//  paleta() para as paletas personalizadas (cores.scss). Deve chamar a cor e
+//  o tom. Se não chamar o tom, assume-se o tom "principal"
+// 	exemplo:
+// 			background: paleta(basica, x-clara);
+//	----------------------------------------------------------------------------
+//  cor() para usar dentro do sistema e vai ser o mais usado. Este tema vai
+//  variar conforme o tema escolhido. Deve-se chamar o tipo a ser usado (texto,
+// 	fundo, borda) e qual o sub-tipo (exemplo: input). Se não definir, assume-se
+// 	o sub-tipo "padrão"
+// 	exemplo:
+// 			h1 { color: cor(texto, titulo); }
 //	============================================================================
-@function paleta($cor, $tom: "principal") {
-	@return map-get(map-get($paleta, $cor), $tom);
-	@if map-has-key(map-get($paleta, $cor), $tom) {
-	}
-	@warn "Esta cor ou este tom não existe na paleta. Reveja seu código";
-	@return null;
-}
 @function paleta-padrao($cor) {
 	@return map-get($paleta-padrao, $cor);
 }
 @function cor-status($cor) {
 	@return map-get($cor-status, $cor);
 }
-
+@function paleta($cor, $tom: "principal") {
+	@return map-get(map-get($paleta, $cor), $tom);
+}
+@function cor($tipo, $cor: "padrao") {
+	@return map-get(map-get(map-get($temas, cores-#{$cores-tema}), $tipo), $cor);
+}
 //	============================================================================
 //	DETECTA A COR DE FUNDO
 //	----------------------------------------------------------------------------

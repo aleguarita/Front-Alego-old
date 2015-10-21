@@ -72,28 +72,30 @@ $paleta: (
 //  $cores-monocromatico | Utiliza apenas a paleta principal
 //  $cores-cinza | Tema com tons de cinza.
 //	===========================================================================
-$cores-principal: (
-	texto: (
-		padrao: paleta-padrao(preto),
-		claro: paleta-padrao(branco),
-		medio: paleta-padrao(cinza-60),
-		destaque: paleta(secundaria),
-		titulo: paleta(secundaria),
-		link: paleta(basica),
-		link-hover: paleta(basica, clara),
-		label: paleta-padrao(preto),
-		label-variante: paleta(secundaria),
-		input: paleta-basica(preto),
-		placeholder: paleta(basica, x-clara),
-	),
-	fundo: (
-		padrao: paleta(basica),
-		claro: paleta(basica, clara),
-		escuro: paleta(basica, escura),
-	),
-	borda: (
+$temas: (
+	cores-principal: (
+		texto: (
+			padrao: paleta-padrao(preto),
+			claro: paleta-padrao(branco),
+			medio: paleta-padrao(cinza-60),
+			destaque: paleta(secundaria),
+			titulo: paleta(secundaria),
+			link: paleta(basica),
+			link-hover: paleta(basica, clara),
+			label: paleta-padrao(preto),
+			label-variante: paleta(secundaria),
+			input: paleta-padrao(preto),
+			placeholder: paleta(basica, x-clara),
+		),
+		fundo: (
+			padrao: paleta(basica),
+			claro: paleta(basica, clara),
+			escuro: paleta(basica, escura),
+		),
+		borda: (
 
+		),
 	),
+	cores-monocromatico: (),
+	cores-cinza: (),
 );
-$cores-monocromatico: ();
-$cores-cinza: ();
