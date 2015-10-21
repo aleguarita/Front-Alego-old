@@ -49,12 +49,12 @@
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
+@import "funcoes";
+@import "mixins";
 @import "cores_status";
 @import "../config/cores";
 @import "fontes";
-@import "funcoes";
 @import "../config/variaveis";
-@import "mixins";
 @import "placeholders";
 @import "classes";
 
