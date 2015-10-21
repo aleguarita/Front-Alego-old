@@ -10,7 +10,7 @@ TABELAS
 //	---------------------------------------------------------------------------
 //	tabelas.scss
 //	Criado em: 05/02/2015
-//	Última alteração: 20/10/2015
+//	Última alteração: 21/10/2015
 //	---------------------------------------------------------------------------
 //	Definições padrão das tabelas e classes modelo
 //	---------------------------------------------------------------------------
@@ -23,6 +23,7 @@ TABELAS
 // 	16/10/2015 | Ajustes na tabela de formulário
 //  20/10/2015 | Inclusão de tabelas do sistema
 // 							 Configurações básicas transferidas para base/config.scss
+//  21/10/2015 | Adequado ao esquema de temas
 //	===========================================================================
 
 //	===========================================================================
@@ -40,7 +41,7 @@ thead th {
 	font-size: em(15, 14);
 }
 tr {
-	color: cor($cor-tabela-texto);
+	color: cor(texto);
 	tbody & {
 		background: #fff;
 	}
@@ -60,9 +61,9 @@ td {
 //  ===========================================================================
 %tab--zebra {
 	tbody tr:nth-child(even) {
-		background: cor($cor-tabela-fundo, clara);
+		background: cor(tabela, fundo);
 		.tab-acoes {
-			background: darken(cor($cor-tabela-fundo, clara), 15%);
+			background: darken(cor(tabela, fundo), 15%);
 		}
 	}
 }
@@ -72,16 +73,16 @@ td {
 	}
 	td {
 		padding: 0 .25em;
-		border-left: 2px solid cor($cor-borda, clara);
+		border-left: 2px solid cor(tabela, borda-clara);
 		&:last-child {
-			border-right: 2px solid cor($cor-borda, clara);
+			border-right: 2px solid cor(tabela, borda-clara);
 		}
 	}
 	input:not([type="checkbox"]):not([type="radio"]),
 	textarea,
 	select {
 		@include placeholder {
-			color: cor($cor-borda, clara);
+			color: cor(tabela, borda-clara);
 			text-transform: uppercase;
 		}
 		border: 0;
@@ -91,7 +92,7 @@ td {
 		font-family: $fonte-sem-serifa;
 		font-size: rem(14);
 		&:hover, &:focus {
-			border-color: cor($cor-borda, escura);
+			border-color: cor(tabela, borda-escura);
 			box-shadow: $sombra-padrao;
 		}
 	}
@@ -101,10 +102,10 @@ td {
 //	TIPOS DE TABELA
 //  ===========================================================================
 %tab-pontilhada {
-	border-bottom: 2px solid cor($cor-borda);
+	border-bottom: 2px solid cor(tabela, borda);
 	thead tr {
-		color: cor($cor-tabela-titulo, escura);
-		border-bottom: 2px solid cor($cor-borda);
+		color: cor(tabela, titulo);
+		border-bottom: 2px solid cor(tabela, borda);
 	}
 	tbody tr {
 		border-bottom: $borda-tracejada;
@@ -113,24 +114,24 @@ td {
 		}
 	}
 	.tab-acoes {
-		background: cor($cor-tabela-fundo, clara);
-		border-left: 2px solid cor($cor-borda);
+		background: cor(tabela, fundo);
+		border-left: 2px solid cor(tabela, borda);
 	}
 }
 %tab-linha {
 	thead tr {
-		color: cor($cor-texto-variante);
-		background: cor($cor-tabela-fundo, escura);
-		border-bottom: 2px solid cor($cor-borda, clara);
+		color: cor(texto, claro);
+		background: cor(tabela, titulo);
+		border-bottom: 2px solid cor(tabela, borda-clara);
 	}
 	tbody tr {
-		border-bottom: 1px solid cor($cor-borda, clara);
+		border-bottom: 1px solid cor(tabela, borda-clara);
 		&:nth-child(odd) {
-			color: cor($cor-tabela-texto, clara);
+			color: cor(texto, medio);
 		}
 	}
 	.tab-acoes {
-		background: lighten(cor($cor-tabela-fundo, clara), 5%);
+		background: lighten(cor(tabela, fundo), 5%);
 	}
 }
 
@@ -168,8 +169,8 @@ td {
 		display: inline-block;
 		padding: .5em;
 		&:hover {
-			color: cor($cor-texto-variante, clara);
-			background: darken(cor($cor-tabela-titulo, escura), 5%);
+			color: cor(texto, clara);
+			background: darken(cor(tabela, titulo), 5%);
 		}
 	}
 	.tab-acoes {
@@ -180,7 +181,7 @@ td {
 		margin-left: .5em;
 		margin-right: .5em;
 		&:hover {
-			color: darken(cor($cor-tabela-titulo, escura), 25%);
+			color: darken(cor(tabela, titulo), 25%);
 		}
 	}
 	.tab-acoes {
@@ -192,7 +193,7 @@ td {
 
 // Ícone
 %tab-acoes-icone {
-	color: darken(cor($cor-tabela-titulo, escura), 5%);
+	color: darken(cor(tabela, titulo), 5%);
 }
 //	Título da coluna de ações
 .tab-col--acoes {

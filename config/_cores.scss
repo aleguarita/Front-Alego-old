@@ -110,7 +110,11 @@ $temas: (
 			texto-escuro: paleta(secundaria, escura),
 		),
 		tabela: (
-
+			borda: paleta(basica),
+			borda-clara: paleta(basica, clara),
+			borda-escura: paleta(basica, escura),
+			fundo: paleta(basica, xx-clara),
+			titulo: paleta(basica, x-escura),
 		),
 	),
 	monocromatico: (),
