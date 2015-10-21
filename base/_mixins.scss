@@ -205,7 +205,7 @@
 //	Este mixin serve para alterar o padrão do texto selecionado no browser
 //	(quando o usuário seleciona para copiar e colar, por exemplo)
 //	============================================================================
-@mixin texto-selecionado($fundo: #000, $texto: #fff) {
+@mixin texto-selecionado($fundo: cor(fundo, excuro), $texto: cor(texto, claro)) {
 	&::selection {
 		background-color: $fundo;
 		color: $texto;

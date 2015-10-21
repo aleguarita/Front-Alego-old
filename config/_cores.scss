@@ -79,6 +79,8 @@ $temas: (
 			titulo: paleta(secundaria),
 			link: paleta(basica),
 			link-hover: paleta(basica, clara),
+			link-escuro: paleta(basica, escura),
+			link-escuro-hover: paleta(basica),
 			label: paleta-padrao(preto),
 			label-variante: paleta(secundaria),
 			input: paleta-padrao(preto),
@@ -93,6 +95,9 @@ $temas: (
 		borda: (
 			padrao: paleta(basica),
 			variante: paleta(secundaria),
+			paginacao: paleta(secundaria),
+			paginacao-clara: paleta(secundaria, clara),
+			paginacao-escura: paleta(secundaria, escura),
 		),
 	),
 	cores-monocromatico: (),

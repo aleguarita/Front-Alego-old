@@ -8,30 +8,34 @@
 //	----------------------------------------------------------------------------
 //	variaveis.scss
 //	Criado em: 13/01/2015
+//  Última alteração em: 21/10/2015
 //	----------------------------------------------------------------------------
 //	Aqui você vai colocar as variáveis relativas ao seu sistema que não se
 //	encaixam em outro arquivo.
 //	Lembre-se: cores e tipografia tem seu próprio conjunto de variáveis.
+//	----------------------------------------------------------------------------
+//  Changelog:
+//  13/01/2015 | Criado o arquivo
+//  ??/??/2015 | Reorganizado
+//  21/10/2015 | Alteração para novo esquema de cores
 //	============================================================================
-
-//	Breakpoints:
-//	Ver no arquivo de funções
 
 // Sombras
 $sombra-nenhuma: none;
-$sombra-padrao: 0 0 3px fade-out(cor($cor-sombra), .3);
-$sombra-difusa: 0 0 10px fade-out(cor($cor-sombra), .7);
-$sombra-modal: 0 0 40px fade-out(cor($cor-sombra), .9);
-$sombra-toaster: 0 0 20px fade-out(cor($cor-sombra), .8);
-$sombra-botao: 0 0 6px fade-out(cor($cor-sombra, clara), .5);
-$sombra-texto: 1px 1px 0 fade-out(paleta(padroes, preto), .9);
+$sombra-simples: 0 0 1px fade-out(cor(fundo, sombra), .5);
+$sombra-padrao: 0 0 3px fade-out(cor(fundo, sombra), .3);
+$sombra-difusa: 0 0 10px fade-out(cor(fundo, sombra), .7);
+$sombra-modal: 0 0 40px fade-out(cor(fundo, sombra), .9);
+$sombra-toaster: 0 0 20px fade-out(cor(fundo, sombra), .8);
+$sombra-botao: 0 0 6px fade-out(paleta-padrao(cinza-70), .5);
+$sombra-texto: 1px 1px 0 fade-out(cor(fundo, sombra), .9);
 
 //	Bordas
 $borda-nenhuma: none;
-$borda-padrao: 1px solid cor($cor-borda);
-$borda-variante: 1px solid cor($cor-borda-variante);
+$borda-padrao: 1px solid cor(borda);
+$borda-variante: 1px solid cor(borda, variante);
 $borda-separadora: 2px solid #fff;
-$borda-tracejada: 1px dashed cor($cor-borda);
+$borda-tracejada: 1px dashed cor(borda);
 
 //	Margens
 $calha: $grid-margem;
