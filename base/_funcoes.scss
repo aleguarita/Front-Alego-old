@@ -66,7 +66,7 @@
 	@return map-get(map-get($paleta, $cor), $tom);
 }
 @function cor($tipo, $cor: "padrao") {
-	@return map-get(map-get(map-get($temas, cores-#{$cores-tema}), $tipo), $cor);
+	@return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);
 }
 //	============================================================================
 //	DETECTA A COR DE FUNDO

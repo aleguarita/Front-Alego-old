@@ -36,7 +36,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 		border-bottom: 2px solid transparent;
 	}
 	%paginacao-elemento-ativo {
-		border-bottom-color: cor($cor-paginacao);
+		border-bottom-color: cor(paginacao, borda);
 	}
 	.current {
 		box-shadow: $sombra-botao;
@@ -49,14 +49,14 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 }
 
 %paginacao--box {
-	$borda-paginacao: 1px solid cor($cor-paginacao, clara);
+	$borda-paginacao: 1px solid cor(paginacao, borda-clara);
 	%paginacao-item {
 		border-top: $borda-paginacao;
 		border-bottom: $borda-paginacao;
 	}
 	%paginacao-elemento-ativo {
-		outline: 2px solid cor($cor-paginacao, escura);
-		box-shadow: 0 0 8px cor($cor-sombra);
+		outline: 2px solid cor(paginacao, borda-escura);
+		box-shadow: 0 0 8px cor(fundo, sombra);
 	}
 	%paginacao-voltar {
 		border-left: $borda-paginacao;
@@ -76,8 +76,8 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	}
 	a {
 		&:hover {
-			background: cor($cor-paginacao, escura);
-			color: cor($cor-texto-variante);
+			background: cor(paginacao, fundo-escuro);
+			color: cor(texto, claro);
 		}
 	}
 }
@@ -85,8 +85,8 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 //	Placeholders para sub-elementos.
 //	---------------------------------------------------------------------------
 %paginacao-item {
-	color: cor($cor-paginacao);
-	background: lighten(cor($cor-paginacao, clara), 70%);
+	color: cor(paginacao, texto);
+	background: lighten(cor(paginacao, fundo-claro), 70%);
 }
 %paginacao-elemento-ativo {
 	font-weight: bold;
@@ -122,7 +122,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	.gap {
 		@extend %paginacao-item;
 		padding: $paginacao-padding;
-		color: cor($cor-paginacao, escura);
+		color: cor(paginacao, texto-escuro);
 	}
 	.prev, .first {
 		@extend %paginacao-voltar;
@@ -133,7 +133,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	a {
 		@extend %paginacao-item;
 		@extend %link-block;
-		color: cor($cor-paginacao);
+		color: cor(paginacao, texto);
 		padding: $paginacao-padding;
 	}
 	.current{

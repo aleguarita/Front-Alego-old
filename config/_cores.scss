@@ -18,6 +18,7 @@
 // 	07/01/2015 | Criado o arquivo
 //  20/10/2015 | Alterado a forma de trabalhar
 //  21/10/2015 | Criação dos temas
+// 	 						 Criação de grupos de elementos dentro dos temas
 //	===========================================================================
 
 //	===========================================================================
@@ -60,6 +61,8 @@ $paleta: (
 //	TEMAS DE COR
 //	---------------------------------------------------------------------------
 //	Cada mapa contém um pacote de cores para texto, fundo e borda.
+//  Além disso elementos que tem várias categorias diferentes, tem seu próprio
+//  grupo (como por exemplo paginação).
 // 	Para o sistema, edite o tema $cores-principal.
 // 	Acrescente temas conforme a necessidade. Por exemplo, é possível ter uma
 // 	uma paleta apenas para o Outubro Rosa ($cores-outubro-rosa).
@@ -70,7 +73,7 @@ $paleta: (
 //  $cores-cinza | Tema com tons de cinza.
 //	===========================================================================
 $temas: (
-	cores-principal: (
+	principal: (
 		texto: (
 			padrao: paleta-padrao(preto),
 			claro: paleta-padrao(branco),
@@ -95,11 +98,21 @@ $temas: (
 		borda: (
 			padrao: paleta(basica),
 			variante: paleta(secundaria),
-			paginacao: paleta(secundaria),
-			paginacao-clara: paleta(secundaria, clara),
-			paginacao-escura: paleta(secundaria, escura),
+		),
+		paginacao: (
+			borda: paleta(secundaria),
+			borda-clara: paleta(secundaria, clara),
+			borda-escura: paleta(secundaria, escura),
+			fundo: paleta(secundaria),
+			fundo-claro: paleta(secundaria, clara),
+			fundo-escuro: paleta(secundaria, escura),
+			texto: paleta(secundaria),
+			texto-escuro: paleta(secundaria, escura),
+		),
+		tabela: (
+
 		),
 	),
-	cores-monocromatico: (),
-	cores-cinza: (),
+	monocromatico: (),
+	cinza: (),
 );
