@@ -8,7 +8,7 @@
 //	---------------------------------------------------------------------------
 //	mixins.scss
 //	Criado em: 13/01/2015
-//  Última alteração: 14/10/2015
+//  Última alteração: 21/10/2015
 //	---------------------------------------------------------------------------
 //	Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 //	parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -30,6 +30,7 @@
 // 	13/10/2015 | Eliminados mixins redundantes com os do bourbon.
 // 							 Importação de arquivo de mixins separado para o sistema
 //	14/10/2015 | Acrescentado mixin de centralizar caixa sem flexbox.
+//  21/10/2015 | Acrescentado mixin de texto selecionado
 //	===========================================================================
 
 //	===========================================================================
@@ -196,6 +197,23 @@
 	top: 50%;
 	left: 50%;
 	@include transform(translate(-50%, -50%));
+}
+
+//	============================================================================
+//	TEXTO SELECIONADO
+//	----------------------------------------------------------------------------
+//	Este mixin serve para alterar o padrão do texto selecionado no browser
+//	(quando o usuário seleciona para copiar e colar, por exemplo)
+//	============================================================================
+@mixin texto-selecionado($fundo: #000, $texto: #fff) {
+	&::selection {
+		background-color: $fundo;
+		color: $texto;
+	}
+	&::-moz-selection {
+		background-color: $fundo;
+		color: $texto;
+	}
 }
 
 //	===========================================================================

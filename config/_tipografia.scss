@@ -16,22 +16,6 @@ TIPOGRAFIA
 //	============================================================================
 
 //	============================================================================
-//	TEXTO SELECIONADO
-//	----------------------------------------------------------------------------
-//	Este mixin serve para alterar o padrão do texto selecionado no browser
-//	(quando o usuário seleciona para copiar e colar, por exemplo)
-//	============================================================================
-@mixin texto-selecionado($fundo: #000, $texto: #fff) {
-	&::selection {
-		background-color: $fundo;
-		color: $texto;
-	}
-	&::-moz-selection {
-		background-color: $fundo;
-		color: $texto;
-	}
-}
-//	============================================================================
 //	VARIÁVEIS
 //	----------------------------------------------------------------------------
 //	Para uso nas tags e classes abaixo
