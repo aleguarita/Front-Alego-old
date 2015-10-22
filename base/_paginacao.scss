@@ -112,34 +112,38 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 //	============================================================================
 // 	CLASSES MONTADAS
 //	============================================================================
-.pagination {
-	@extend %paginacao--#{$paginacao-tipo};
-	@extend %flex;
-	@include justify-content($paginacao-posicao);
-	@include align-items(flex-end);
-	font-size: $paginacao-fonte;
-	padding: .5rem 0;
-	.gap {
-		@extend %paginacao-item;
-		padding: $paginacao-padding;
-		color: cor(paginacao, texto-escuro);
+@if $paginacao-usa == "sim" {
+	.pagination {
+		@extend %paginacao--#{$paginacao-tipo};
+		@extend %flex;
+		@include justify-content($paginacao-posicao);
+		@include align-items(flex-end);
+		font-size: $paginacao-fonte;
+		padding: .5rem 0;
+		.gap {
+			@extend %paginacao-item;
+			padding: $paginacao-padding;
+			color: cor(paginacao, texto-escuro);
+		}
+		.prev, .first {
+			@extend %paginacao-voltar;
+		}
+		.next, .last {
+			@extend %paginacao-avancar;
+		}
+		a {
+			@extend %paginacao-item;
+			@extend %link-block;
+			color: cor(paginacao, texto);
+			padding: $paginacao-padding;
+		}
+		.current{
+			@extend %paginacao-item;
+			@extend %paginacao-elemento-ativo;
+			z-index: 2;
+			padding: $paginacao-padding;
+		}
 	}
-	.prev, .first {
-		@extend %paginacao-voltar;
-	}
-	.next, .last {
-		@extend %paginacao-avancar;
-	}
-	a {
-		@extend %paginacao-item;
-		@extend %link-block;
-		color: cor(paginacao, texto);
-		padding: $paginacao-padding;
-	}
-	.current{
-		@extend %paginacao-item;
-		@extend %paginacao-elemento-ativo;
-		z-index: 2;
-		padding: $paginacao-padding;
-	}
+} @else {
+	/* Nada para ver aqui, bro */
 }

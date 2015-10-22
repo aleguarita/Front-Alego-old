@@ -66,12 +66,16 @@ $grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
   margin: auto;
   max-width: $grid-max;
 }
-.container {
-  @extend %container-basico;
-}
-.container--gutter, .container--calha {
-  @extend %container-basico;
-  padding: 0 $grid-margem;
+@if $grid-usa-container == "sim" {
+  .container {
+    @extend %container-basico;
+  }
+  .container--gutter, .container--calha {
+    @extend %container-basico;
+    padding: 0 $grid-margem;
+  }
+} @else {
+  /* GRID, SQN */
 }
 // ============================================================================
 // GRIDS

@@ -29,19 +29,6 @@ $breakpoints: (
 );
 
 // =============================================================================
-// GRID
-// -----------------------------------------------------------------------------
-// Definições básicas da grid
-// =============================================================================
-// $grid-qtd: a quantidade de grids usadas
-// $grid-margem: o espaço entre as grids
-// $grid-max: a largura máxima da grid
-// -----------------------------------------------------------------------------
-$grid-qtd: 12;
-$grid-margem: rem(10); // afeta a variávei $calha definida no arquivo variaveis.scss
-$grid-max: rem(1600);
-
-// =============================================================================
 // TEMA DE CORES
 // -----------------------------------------------------------------------------
 // Escolha aqui qual o tema de cores usado. As cores devem ser definidas no
@@ -51,6 +38,24 @@ $grid-max: rem(1600);
 // Ao acrescentar um tema, ou quiser alterar, basta mudar na variável abaixo
 // =============================================================================
 $cores-tema: principal;
+
+// =============================================================================
+// GRID
+// -----------------------------------------------------------------------------
+// Definições básicas da grid
+// =============================================================================
+// $grid-usa-container: sim | não. Define se vai usar as classes de container.
+//   Escolha "não" para não gerar a classe e assim deixar o CSS final mais leve
+// -----------------------------------------------------------------------------
+$grid-usa-container: sim;
+
+// $grid-qtd: a quantidade de grids usadas
+// $grid-margem: o espaço entre as grids
+// $grid-max: a largura máxima da grid
+// -----------------------------------------------------------------------------
+$grid-qtd: 12;
+$grid-margem: rem(10); // afeta a variávei $calha definida no arquivo variaveis.scss
+$grid-max: rem(1600);
 
 // MAPA DAS SEÇÕES
 // -----------------------------------------------------------------------------
@@ -72,6 +77,12 @@ $grid: (
 // =============================================================================
 // PAGINAÇÃO
 // =============================================================================
+// $paginacao-usa: sim | não. Define se vai usar as classes de .pagination.
+//   Escolha "não" para não gerar as classes e deixar o arquivo CSS final mais
+//   leve (também pode escolher não se tiver criado uma personalizada).
+// -----------------------------------------------------------------------------
+$paginacao-usa: sim;
+
 // Escolhe o tipo de paginação a ser usada. Valores: basica | box
 // -----------------------------------------------------------------------------
 $paginacao-tipo: box;
@@ -85,6 +96,12 @@ $paginacao-fonte: .65rem; // tamanho da fonte
 // =============================================================================
 // TABELAS
 // =============================================================================
+// $tab-usa: sim | não. Define se vai usar as classes .tab e .tab--form.
+//   Escolha "não" para deixar o arquivo final mais level, ou se estiver criando
+//   tabela personalizada.
+// -----------------------------------------------------------------------------
+$tab-usa: sim;
+
 // Escolhe o tipo de tabela a ser usada. Valores: pontilhada | linha
 // -----------------------------------------------------------------------------
 $tab-escolhida: pontilhada;

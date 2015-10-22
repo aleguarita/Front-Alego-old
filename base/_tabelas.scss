@@ -138,16 +138,18 @@ td {
 //  ===========================================================================
 //	CLASSES MONTADAS
 //  ===========================================================================
-.tab {
-	@extend %tab-#{$tab-escolhida};
-	@if $tab--zebra == "sim" {
-		@extend %tab--zebra;
+@if $tab-usa == "sim" {
+	.tab {
+		@extend %tab-#{$tab-escolhida};
+		@if $tab--zebra == "sim" {
+			@extend %tab--zebra;
+		}
 	}
-}
-@if $tab--form == "sim" {
-	.tab--form {
-		@extend .tab;
-		@extend %tab--form;
+	@if $tab--form == "sim" {
+		.tab--form {
+			@extend .tab;
+			@extend %tab--form;
+		}
 	}
 }
 
@@ -163,54 +165,56 @@ td {
 //  ===========================================================================
 //	Placeholders
 //	---------------------------------------------------------------------------
-//	Ícone de ações em bloco ou não (uso de $tab-acao-link-bloco)
-@if $tab-acao-link-bloco == sim {
-	%tab-acoes-icone {
-		display: inline-block;
-		padding: .5em;
-		&:hover {
-			color: cor(texto, clara);
-			background: darken(cor(tabela, titulo), 5%);
+@if $tab-usa == "sim" {
+	//	Ícone de ações em bloco ou não (uso de $tab-acao-link-bloco)
+	@if $tab-acao-link-bloco == sim {
+		%tab-acoes-icone {
+			display: inline-block;
+			padding: .5em;
+			&:hover {
+				color: cor(texto, clara);
+				background: darken(cor(tabela, titulo), 5%);
+			}
 		}
-	}
-	.tab-acoes {
-		padding: 0;
-	}
-} @else if $tab-acao-link-bloco == não {
-	%tab-acoes-icone {
-		margin-left: .5em;
-		margin-right: .5em;
-		&:hover {
-			color: darken(cor(tabela, titulo), 25%);
-		}
-	}
-	.tab-acoes {
-		button {
+		.tab-acoes {
 			padding: 0;
 		}
+	} @else if $tab-acao-link-bloco == não {
+		%tab-acoes-icone {
+			margin-left: .5em;
+			margin-right: .5em;
+			&:hover {
+				color: darken(cor(tabela, titulo), 25%);
+			}
+		}
+		.tab-acoes {
+			button {
+				padding: 0;
+			}
+		}
 	}
-}
 
-// Ícone
-%tab-acoes-icone {
-	color: darken(cor(tabela, titulo), 5%);
-}
-//	Título da coluna de ações
-.tab-col--acoes {
-
-}
-//	Célula de ação
-.tab-acoes {
-	a {
-		@extend %tab-acoes-icone;
-		text-decoration: none;
+	// Ícone
+	%tab-acoes-icone {
+		color: darken(cor(tabela, titulo), 5%);
 	}
-	button {
-		@extend %tab-acoes-icone;
-		background: transparent;
-		border: none;
-		cursor: pointer;
-		line-height: 1;
+	//	Título da coluna de ações
+	.tab-col--acoes {
+
+	}
+	//	Célula de ação
+	.tab-acoes {
+		a {
+			@extend %tab-acoes-icone;
+			text-decoration: none;
+		}
+		button {
+			@extend %tab-acoes-icone;
+			background: transparent;
+			border: none;
+			cursor: pointer;
+			line-height: 1;
+		}
 	}
 }
 
