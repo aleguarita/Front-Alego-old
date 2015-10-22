@@ -1,0 +1,139 @@
+/*
+================================================================================
+FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
+================================================================================
+*/
+
+//	============================================================================
+//	Framework da Assembleia Legislativa
+//	Autor: Alessandro Guarita
+//	----------------------------------------------------------------------------
+//	formularios.scss
+//	Criado em: 20/01/2015
+//	Última alteração: 14/09/2015
+//	----------------------------------------------------------------------------
+//	Este arquivo cria grupos de formulários para definições de tamanhos,
+//	formatação básica de objetos de formulários e várias outras coisas.
+//  Baseado na forma que o Rails chama os divs de formulário com o nome field.
+//	---------------------------------------------------------------------------
+//	Changelog
+//	v.1 - 20/01/2015 | Arquivo _colunas.scss com uso de inline-block e de grupos
+//										 tanto para texto quanto para formulário
+//	v.2 - 07/08/2015 | Eliminado a parte de texto e transformado em flexbox
+//	v.3 - 14/09/2015 | Transformado o arquivo em form_grupo.scss
+//	============================================================================
+
+//	============================================================================
+//	VARIÁVEIS
+//	============================================================================
+$campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
+
+//	============================================================================
+//	CONTAINER
+//	----------------------------------------------------------------------------
+//	Configura o elemento "pai" do formulário. Existem dois tipos: container
+//  corrido e container linha a linha.
+//	============================================================================
+
+//	PLACEHOLDER | OBJETO COMUM AOS CONTAINERS
+//	----------------------------------------------------------------------------
+%form-container-basico {
+  @extend %flex;
+  @include flex-wrap;
+  width: 100%;
+  margin-bottom: 1em;
+  #{$campos-texto},
+  select {
+    @include flex(1);
+  }
+}
+//	CONTAINER CORRIDO
+//	----------------------------------------------------------------------------
+//	Este é o container básico, usa margem negativa, o que impede o uso de fundo
+//	Mantém o código de HTML mais simples pois usa apenas um container para
+//	todos os elementos filhos
+//	----------------------------------------------------------------------------
+.form-container {
+  @extend %form-container-basico;
+  @include flex-wrap;
+  width: calc(100% + #{$calha});
+  margin-left: -$calha / 2;
+}
+//	CONTAINER LINHA A LINHA
+//	----------------------------------------------------------------------------
+//	Use para cada linha do formulário. É possível fazer uso de fundo.
+//	Aumenta a complexidade do HTML pois acrescenta muitos grupos de containers
+//	porém possibilita ter elementos filhos que se ajustam automaticamente
+//	----------------------------------------------------------------------------
+.form-container--linha {
+  @extend %form-container-basico;
+  & + & {
+    margin-top: $calha;
+  }
+  @media (min-width: breakpoint(pequeno)) {
+    *:first-child {
+      padding-left: 0;
+    }
+    *:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+//	============================================================================
+//	LARGURAS DOS CAMPOS DE FIELD
+//	----------------------------------------------------------------------------
+//	Configura os elementos field (ainda sem personalização). Gera classes
+//	automaticamente. O uso da classe "field" ocorre por conta do padrão do
+//	Rails que faz uso dessa classe.
+//	============================================================================
+
+//	OBJETO COMUM AOS FIELDS
+//	----------------------------------------------------------------------------
+%field {
+  @extend %flex;
+  padding: 0 ($calha / 2) $calha;
+}
+
+//  FIELDS
+//  ----------------------------------------------------------------------------
+//  Gera as classes básicas automaticamente. Para personalização dos elementos,
+//  vá abaixo. O ideal é formatar o mesmo elemento que recebe o .form-container
+//  ----------------------------------------------------------------------------
+$i: 1;
+$max: 12;
+$medida: 100% / $max;
+
+//	Cada um dos fields gerado automaticamente
+@while $i < $max {
+  .field-#{$i} {
+    @extend %field;
+    width: $medida * $i;
+  }
+  $i: $i + 1;
+}
+.field-#{$max} {
+  @extend %field;
+  width: 100%;
+}
+.field {
+  @extend %field;
+  @include flex(1);
+}
+.field--responsivo {
+  @media (max-width: breakpoint(pequeno)) {
+    width: 100%;
+  }
+}
+
+//  PRE
+//  ----------------------------------------------------------------------------
+//  Gera classes de espaçamento entre as colunas do formulário.
+//  ----------------------------------------------------------------------------
+$i: 1;
+@while $i < $max {
+  .pre-#{$i} {
+    margin-left: $medida * $i;
+  }
+  $i: $i + 1;
+}

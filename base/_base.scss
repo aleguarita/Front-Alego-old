@@ -45,7 +45,7 @@
 @import "reset";
 
 // Configuração básica
-@import "../config/config";
+@import "../config/_+config";
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
@@ -65,7 +65,7 @@
 @import "../config/simbolos";
 @import "paginacao";
 @import "tabelas";
-
+@import "form_grupo";
 
 
 
