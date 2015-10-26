@@ -122,6 +122,8 @@ $temas: (
 		card: (
 			fundo: paleta-padrao(branco),
 			borda: paleta(basica),
+			titulo: paleta(basica, x-escura),
+			destaque: paleta(basica, escura),
 		),
 	),
 	monocromatico: (),

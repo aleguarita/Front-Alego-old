@@ -75,25 +75,6 @@ $grid: (
 );
 
 // =============================================================================
-// PAGINAÇÃO
-// =============================================================================
-// $paginacao-usa: sim | não. Define se vai usar as classes de .pagination.
-//   Escolha "não" para não gerar as classes e deixar o arquivo CSS final mais
-//   leve (também pode escolher não se tiver criado uma personalizada).
-// -----------------------------------------------------------------------------
-$paginacao-usa: sim;
-
-// Escolhe o tipo de paginação a ser usada. Valores: basica | box
-// -----------------------------------------------------------------------------
-$paginacao-tipo: box;
-
-//	Define alinhamento da paginação. Valores: flex-start (esquerda) |
-//	flex-end (direita) | center
-//	----------------------------------------------------------------------------
-$paginacao-posicao: center;
-$paginacao-fonte: .65rem; // tamanho da fonte
-
-// =============================================================================
 // TABELAS
 // =============================================================================
 // $tab-usa: sim | não. Define se vai usar as classes .tab e .tab--form.
@@ -132,3 +113,37 @@ $largura-tabela-col-min: (
 //	Largura máxima
 $largura-tabela-col-max: (
 );
+
+// =============================================================================
+// PAGINAÇÃO
+// =============================================================================
+// $paginacao-usa: sim | não. Define se vai usar as classes de .pagination.
+//   Escolha "não" para não gerar as classes e deixar o arquivo CSS final mais
+//   leve (também pode escolher "não" se tiver criado uma personalizada, a sua
+//   classe, no arquivo extra, será impressa no arquivo CSS compilado).
+// -----------------------------------------------------------------------------
+$paginacao-usa: sim;
+
+// Escolhe o tipo de paginação a ser usada. Valores: basica | box
+// -----------------------------------------------------------------------------
+$paginacao-tipo: box;
+
+//	Define alinhamento da paginação. Valores: flex-start (esquerda) |
+//	flex-end (direita) | center
+//	----------------------------------------------------------------------------
+$paginacao-posicao: center;
+$paginacao-fonte: .65rem; // tamanho da fonte
+
+// =============================================================================
+// CARDS
+// =============================================================================
+// $cards-usa: sim | não. Define se vai usar as classes de .card.
+//   Escolha "não" para não gerar as classes e deixar o arquivo CSS final mais
+//   leve (também pode escolher "não" se tiver criado uma personalizada, a sua
+//   classe, no arquivo extra, será impressa no arquivo CSS compilado).
+// -----------------------------------------------------------------------------
+$card-usa: sim;
+
+// Escolha o tipo a ser usado. Valores: linha | pontilhado
+//	----------------------------------------------------------------------------
+$card-tipo: linha; // linha | pontilhado

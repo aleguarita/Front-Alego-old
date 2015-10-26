@@ -20,10 +20,6 @@ CARDS
 // 23/10/2015 | Criado o arquivo
 // =============================================================================
 
-// Configuração - coisa que vai pro config.scss
-$card-usa: sim;
-$card-tipo: linha; // linha | pontilhado
-
 // =============================================================================
 // VARIÁVEIS
 // =============================================================================
@@ -32,7 +28,7 @@ $card-padding: 0 $margem;
 // =============================================================================
 // PLACEHOLDERS | Configurações básicas
 // =============================================================================
-%card-basico {
+%card--basico {
   @extend %flex;
   @include flex-direction;
   background-color: cor(card, fundo);
@@ -41,23 +37,54 @@ $card-padding: 0 $margem;
     margin: 0;
     padding: $card-padding;
   }
+  h1 { font-size: modular-scale(3, $modular-font-size); }
   section {
     border-top: 1px cor(card, borda);
     padding: $margem/2 0;
     &:first-of-type {
-      border-top: none;
+      border-top-width: 0;
     }
+  }
+  main {
+    @include flex(1);
+  }
+  figure {
+    line-height: 0;
+  }
+  footer {
+    @extend %flex;
   }
 }
 
 // =============================================================================
 // PLACEHOLDERS | Tipos
 // =============================================================================
-%card-linha {
-  @extend %card-basico;
+%card--linha {
+  @extend %card--basico;
+  header {
+    background: cor(card, titulo);
+  }
+  h1 {
+    color: cor(texto, claro);
+  }
+  section {
+    border-top-style: solid;
+  }
+  footer {
+    padding: $margem;
+  }
 }
-%card-pontilhado {
-  @extend %card-basico;
+%card--pontilhado {
+  @extend %card--basico;
+  h1 {
+    color: cor(card, titulo);
+  }
+  section {
+    border-top-style: dashed;
+  }
+  header + main {
+    section:first-of-type { border-top-width: 1px; }
+  }
 }
 
 // =============================================================================
@@ -65,10 +92,35 @@ $card-padding: 0 $margem;
 // =============================================================================
 @if $card-usa == "sim" {
   .card {
-    @extend %card-#{$card-tipo};
+    @extend %card--#{$card-tipo};
   }
 }
 
 // =============================================================================
 // CLASSES | Variantes
 // =============================================================================
+// .card__linha-destaque é aplicado no section e faz com que o <strong> vire uma
+// caixa escura.
+// dentro dele deve ter um <strong> para o destaque e um <span> para o texto
+// -----------------------------------------------------------------------------
+@if $card-usa == "sim" {
+  .card .card__linha-destaque {
+    padding: 0;
+    p {
+      @extend %flex;
+      padding: 0;
+    }
+    strong, span { padding: $margem/2 $margem; }
+    strong {
+      background: cor(card, destaque);
+      color: cor(texto, claro);
+    }
+  }
+}
+
+// =============================================================================
+// CARDS DO SISTEMA
+// =============================================================================
+// Caso queira um card que não esteja neste arquivo, crie no arquivo abaixo
+// -----------------------------------------------------------------------------
+@import "../extra/cards";
