@@ -8,7 +8,7 @@
 //	---------------------------------------------------------------------------
 //	mixins.scss
 //	Criado em: 13/01/2015
-//  Última alteração: 21/10/2015
+//  Última alteração: 23/10/2015
 //	---------------------------------------------------------------------------
 //	Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 //	parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -31,6 +31,7 @@
 // 							 Importação de arquivo de mixins separado para o sistema
 //	14/10/2015 | Acrescentado mixin de centralizar caixa sem flexbox.
 //  21/10/2015 | Acrescentado mixin de texto selecionado
+//  23/10/2015 | Acrescentado mixin de grupo flex
 //	===========================================================================
 
 //	===========================================================================
@@ -197,6 +198,79 @@
 	top: 50%;
 	left: 50%;
 	@include transform(translate(-50%, -50%));
+}
+
+// GRUPO flex
+// ----------------------------------------------------------------------------
+// Cria um grupo de Flex-box de mesmo tamanho, igualmente distribuido.
+// ----------------------------------------------------------------------------
+// Variáveis e o que significam:
+//  $qtd
+//     Determina a quantidade de caixas por linha. VALOR OBRIGATÓRIO
+//  $margem
+//     Determina o espaço entre os elementos. Por padrão está 10px (convertido
+//     em rem).
+//     O valor pode ser 0 (sem margem)
+//  $largura
+//     A largura fixa do elemento. Use o valor que achar melhor.
+//     Valor opcional. Se não usar ele vai usar a porcentagem do elemento pai.
+//  $largura-minima
+//     A largura mínima do objeto. Use o valor que achar melhor.
+//     Use este elemento caso decida não determinar o valor da largura (deixando
+//     em porcentagem).
+//     Valor opcional. Se não usar, não acontece nada.
+// ----------------------------------------------------------------------------
+// Exemplos de uso:
+// .classe {
+//   @include grupo-flex(5); -> coloca 5 caixas por linha, com valores padrão
+//   @include grupo-flex(5, 20); -> 5 caixas/linha com margem de 20px
+//   @include grupo-flex(5, $largura: 300px); -> 5 caixas com largura 300px
+//   @include grupo-flex(5, $largura-minima: 300px); -> 5 caixas de no mínimo 300px
+// }
+//  ===========================================================================
+@mixin grupo-flex(
+  $qtd,
+  $margem-flex: $calha * 2,
+  $largura: null,
+  $largura-minima: null
+) {
+  // cálculos das medidas a serem usadas
+  // ----------------------------------------------------------
+  // largura de cada elemento SEM a margem
+  $largura-porcentagem: 100% / $qtd;
+  // converte a margem para rem
+  $margem: $margem-flex;
+  // calcula a quantidade total de margens aplicadas
+  // depois divide pela quantidade  de elementos
+  $total-margem: $margem * ($qtd - 1);
+  $medida-margem: $total-margem / $qtd;
+
+  // regras do elemento pai
+  // ----------------------------------------------------------
+  @extend %flex;
+  @include flex-wrap;
+  @include align-content(space-between);
+
+  // regras dos elementos filho
+  // ----------------------------------------------------------
+  > * {
+    margin: 0 $margem $margem 0;
+    // se a largura não for definida, pega a largura baseada em porcentagem
+    @if $largura == null {
+      max-width: calc(#{$largura-porcentagem} - #{$medida-margem});
+      width: calc(#{$largura-porcentagem} - #{$medida-margem});
+    } @else {
+      width: $largura;
+    }
+    // se a largura mínima for definida
+    @if $largura-minima != null {
+      min-width: $largura-minima;
+    }
+    // retira a margem da direita do elemento da direita
+    &:nth-child(#{$qtd}n) {
+      margin-right: 0;
+    }
+  }
 }
 
 //	============================================================================

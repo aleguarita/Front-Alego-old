@@ -1,0 +1,74 @@
+/*
+================================================================================
+CARDS
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// cards.scss
+// Criado em: 23/10/2015
+// -----------------------------------------------------------------------------
+// Definições padrão de cards e classes modelo
+// ATENÇÃO: aqui tem a configuração APENAS do card e não do grupo do elemento
+// pai. Caso queira criar um grupo de cards, crie um div pai no seu layout e
+// use o mixin grupo-flex()
+// -----------------------------------------------------------------------------
+// Changelog
+// 23/10/2015 | Criado o arquivo
+// =============================================================================
+
+// Configuração - coisa que vai pro config.scss
+$card-usa: sim;
+$card-tipo: linha; // linha | pontilhado
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$card-padding: 0 $margem;
+
+// =============================================================================
+// PLACEHOLDERS | Configurações básicas
+// =============================================================================
+%card-basico {
+  @extend %flex;
+  @include flex-direction;
+  background-color: cor(card, fundo);
+  box-shadow: $sombra-card;
+  h1, p {
+    margin: 0;
+    padding: $card-padding;
+  }
+  section {
+    border-top: 1px cor(card, borda);
+    padding: $margem/2 0;
+    &:first-of-type {
+      border-top: none;
+    }
+  }
+}
+
+// =============================================================================
+// PLACEHOLDERS | Tipos
+// =============================================================================
+%card-linha {
+  @extend %card-basico;
+}
+%card-pontilhado {
+  @extend %card-basico;
+}
+
+// =============================================================================
+// CLASSES | .card montado
+// =============================================================================
+@if $card-usa == "sim" {
+  .card {
+    @extend %card-#{$card-tipo};
+  }
+}
+
+// =============================================================================
+// CLASSES | Variantes
+// =============================================================================

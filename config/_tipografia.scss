@@ -68,13 +68,13 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 	border-bottom: 1px solid paleta-padrao(cinza-30);
 	&:hover {
 		border-color: inherit;
-		color: cor(texto, link);
+		color: cor(link);
 	}
 }
 %link-pontilhado {
 	@extend %link-borda;
 	border-bottom-style: dotted;
-	&:hover { color: cor(texto, link-escuro); }
+	&:hover { color: cor(link, escuro); }
 }
 // =============================================================================
 // ALTERAÇÕES DOS TAGS

@@ -58,13 +58,18 @@
 @import "placeholders";
 @import "classes";
 
-// Arquivos de configuração específicos
+// Arquivos de configuração estrutural
 @import "grid";
 @import "../config/z-index";
-@import "../config/tipografia";
 @import "../config/simbolos";
+
+// Formatação de objetos
+@import "../config/tipografia";
 @import "paginacao";
 @import "tabelas";
+@import "cards";
+
+// Formatação de formulários
 @import "form_grupo";
 
 
