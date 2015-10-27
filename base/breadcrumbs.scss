@@ -1,0 +1,110 @@
+/*
+================================================================================
+BREADCRUMBS
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// breadcrumbs.scss
+// Criado em: 27/10/2015
+// -----------------------------------------------------------------------------
+// Definições padrão de breadcrumbs e classes modelo
+// ATENÇÃO: a forma como o breadcrumb é chamado deve ser editado direto na view
+// e deve ser:
+// <ul class="breadcrumbs">
+//     <%= render_breadcrumbs :tag => :li, :separator => "" %>
+// </ul>
+// -----------------------------------------------------------------------------
+// Changelog
+// 27/10/2015 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$breadcrumbs--box__padding: .5em;
+
+// =============================================================================
+// PLACEHOLDER | BÁSICO
+// =============================================================================
+%breadcrumbs-basico {
+  @extend %lista-flex;
+  font-size: rem(11);
+  a {
+    color: inherit;
+    @extend %link-block;
+    &::after {
+      content: " > ";
+      font-weight: bold;
+      margin-left: .2em;
+    }
+  }
+  li {
+    color: cor(breadcrumbs, link);
+    &:last-child {
+      color: cor(breadcrumbs, atual);
+      font-weight: bold;
+    }
+  }
+}
+
+// =============================================================================
+// PLACEHOLDER | TIPOS
+// =============================================================================
+%breadcrumbs--simples {
+  @extend %breadcrumbs-basico;
+  li {
+    padding-left: .2em;
+  }
+  a {
+    &:after {
+      margin-right: .2em;
+    }
+    &:hover {
+      border-bottom: 1px dotted;
+    }
+  }
+}
+
+%breadcrumbs--box {
+  @extend %breadcrumbs-basico;
+  li {
+    border: 1px solid;
+    &:last-child {
+      outline: 1px solid;
+    }
+    &:not(:last-child) {
+      border-right-width: 0;
+    }
+  }
+  li:last-child {
+    padding: $breadcrumbs--box__padding;
+  }
+  a {
+    padding: $breadcrumbs--box__padding;
+    &:hover {
+      background: cor(breadcrumbs, link);
+      color: cor(texto, claro);
+    }
+  }
+}
+
+// =============================================================================
+// CLASSE MONTADA
+// =============================================================================
+@if $usa-breadcrumbs == "sim" {
+  .breadcrumbs {
+    @extend %breadcrumbs--#{$breadcrumbs-tipo};
+  }
+}
+
+
+// =============================================================================
+// BREADBRUMBS DO SISTEMA
+// =============================================================================
+// Caso queira um breadcrumb que não esteja neste arquivo, crie no arquivo abaixo
+// -----------------------------------------------------------------------------
+@import "../extra/breadcrumbs";

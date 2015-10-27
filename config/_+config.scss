@@ -147,3 +147,17 @@ $card-usa: sim;
 // Escolha o tipo a ser usado. Valores: linha | pontilhado
 //	----------------------------------------------------------------------------
 $card-tipo: linha; // linha | pontilhado
+
+// =============================================================================
+// BREADCRUMBS
+// =============================================================================
+// $breadcrumbs-usa: sim | não. Define se vai usar as classes de .breadcrumbs.
+//   Escolha "não" para não gerar as classes e deixar o arquivo CSS final mais
+//   leve (também pode escolher "não" se tiver criado uma personalizada, a sua
+//   classe, no arquivo extra, será impressa no arquivo CSS compilado).
+// -----------------------------------------------------------------------------
+$usa-breadcrumbs: sim;
+
+// Escolha o tipo a ser usado. Valores: simples | box
+//	----------------------------------------------------------------------------
+$breadcrumbs-tipo: simples; // simples | box

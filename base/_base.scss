@@ -65,9 +65,10 @@
 
 // Formatação de objetos
 @import "../config/tipografia";
-@import "paginacao";
 @import "tabelas";
+@import "paginacao";
 @import "cards";
+@import "breadcrumbs";
 
 // Formatação de formulários
 @import "form_grupo";

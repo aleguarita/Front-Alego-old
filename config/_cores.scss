@@ -63,7 +63,7 @@ $paleta: (
 //	Cada mapa contém um pacote de cores para texto, fundo e borda.
 //  Além disso elementos que tem várias categorias diferentes, tem seu próprio
 //  grupo (como por exemplo paginação).
-// 	Para o sistema, edite o tema $cores-principal.
+// 	Para o sistema atual, edite o tema $cores-principal.
 // 	Acrescente temas conforme a necessidade. Por exemplo, é possível ter uma
 // 	uma paleta apenas para o Outubro Rosa ($cores-outubro-rosa).
 //	---------------------------------------------------------------------------
@@ -118,6 +118,10 @@ $temas: (
 			fundo-escuro: paleta(secundaria, escura),
 			texto: paleta(secundaria),
 			texto-escuro: paleta(secundaria, escura),
+		),
+		breadcrumbs: (
+			link: paleta(secundaria, clara),
+			atual: paleta(secundaria, escura),
 		),
 		card: (
 			fundo: paleta-padrao(branco),

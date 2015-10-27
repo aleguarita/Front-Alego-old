@@ -3,7 +3,7 @@
    License: none (public domain)
    Alterado: Alessandro Guarita em 14/01/2015
    		Alterações: eliminados elementos que eram resetados por padrão
-   		(strong que fica sem negrito), tirar a lista de ol, ul
+   		(strong que fica sem negrito), tirar a lista de ol, ul. Imagem responsiva
 */
 
 html, body, div, span, applet, object, iframe,
@@ -43,4 +43,7 @@ table {
 }
 * {
 	box-sizing: border-box;
+}
+img {
+	max-width: 100%;
 }
