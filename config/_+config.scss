@@ -29,6 +29,23 @@ $breakpoints: (
 );
 
 // =============================================================================
+// USO DE CLASSES
+// -----------------------------------------------------------------------------
+// Valores: sim | não
+// Define se vai criar algumas classes. Ao escolher "não" as classes não vão ser
+// escritas no CSS final, deixando-o mais leve.
+// -----------------------------------------------------------------------------
+// Se você criar uma classe personalizada do zero, fará no arquivo referente na
+// página "extra". Neste caso, mesmo que abaixo apareça "não", sua classe vai
+// aparecer no CSS
+// =============================================================================
+$grid-usa-container: sim;
+$tab-usa: sim;
+$paginacao-usa: sim;
+$card-usa: sim;
+$breadcrumbs-usa: sim;
+
+// =============================================================================
 // TEMA DE CORES
 // -----------------------------------------------------------------------------
 // Escolha aqui qual o tema de cores usado. As cores devem ser definidas no
@@ -44,11 +61,6 @@ $cores-tema: principal;
 // -----------------------------------------------------------------------------
 // Definições básicas da grid
 // =============================================================================
-// $grid-usa-container: sim | não. Define se vai usar as classes de container.
-//   Escolha "não" para não gerar a classe e assim deixar o CSS final mais leve
-// -----------------------------------------------------------------------------
-$grid-usa-container: sim;
-
 // $grid-qtd: a quantidade de grids usadas
 // $grid-margem: o espaço entre as grids
 // $grid-max: a largura máxima da grid
@@ -77,12 +89,6 @@ $grid: (
 // =============================================================================
 // TABELAS
 // =============================================================================
-// $tab-usa: sim | não. Define se vai usar as classes .tab e .tab--form.
-//   Escolha "não" para deixar o arquivo final mais level, ou se estiver criando
-//   tabela personalizada.
-// -----------------------------------------------------------------------------
-$tab-usa: sim;
-
 // Escolhe o tipo de tabela a ser usada. Valores: pontilhada | linha
 // -----------------------------------------------------------------------------
 $tab-escolhida: pontilhada;
@@ -117,13 +123,6 @@ $largura-tabela-col-max: (
 // =============================================================================
 // PAGINAÇÃO
 // =============================================================================
-// $paginacao-usa: sim | não. Define se vai usar as classes de .pagination.
-//   Escolha "não" para não gerar as classes e deixar o arquivo CSS final mais
-//   leve (também pode escolher "não" se tiver criado uma personalizada, a sua
-//   classe, no arquivo extra, será impressa no arquivo CSS compilado).
-// -----------------------------------------------------------------------------
-$paginacao-usa: sim;
-
 // Escolhe o tipo de paginação a ser usada. Valores: basica | box
 // -----------------------------------------------------------------------------
 $paginacao-tipo: box;
@@ -137,13 +136,6 @@ $paginacao-fonte: .65rem; // tamanho da fonte
 // =============================================================================
 // CARDS
 // =============================================================================
-// $cards-usa: sim | não. Define se vai usar as classes de .card.
-//   Escolha "não" para não gerar as classes e deixar o arquivo CSS final mais
-//   leve (também pode escolher "não" se tiver criado uma personalizada, a sua
-//   classe, no arquivo extra, será impressa no arquivo CSS compilado).
-// -----------------------------------------------------------------------------
-$card-usa: sim;
-
 // Escolha o tipo a ser usado. Valores: linha | pontilhado
 //	----------------------------------------------------------------------------
 $card-tipo: linha; // linha | pontilhado
@@ -151,13 +143,6 @@ $card-tipo: linha; // linha | pontilhado
 // =============================================================================
 // BREADCRUMBS
 // =============================================================================
-// $breadcrumbs-usa: sim | não. Define se vai usar as classes de .breadcrumbs.
-//   Escolha "não" para não gerar as classes e deixar o arquivo CSS final mais
-//   leve (também pode escolher "não" se tiver criado uma personalizada, a sua
-//   classe, no arquivo extra, será impressa no arquivo CSS compilado).
-// -----------------------------------------------------------------------------
-$usa-breadcrumbs: sim;
-
 // Escolha o tipo a ser usado. Valores: simples | box
 //	----------------------------------------------------------------------------
 $breadcrumbs-tipo: simples; // simples | box

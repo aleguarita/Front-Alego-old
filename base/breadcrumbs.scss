@@ -95,7 +95,7 @@ $breadcrumbs--box__padding: .25em .5em;
 // =============================================================================
 // CLASSE MONTADA
 // =============================================================================
-@if $usa-breadcrumbs == "sim" {
+@if $breadcrumbs-usa == "sim" {
   .breadcrumbs {
     @extend %breadcrumbs--#{$breadcrumbs-tipo};
   }
