@@ -10,6 +10,7 @@ CARDS
 // -----------------------------------------------------------------------------
 // cards.scss
 // Criado em: 23/10/2015
+// Última alteração: 03/11/2015
 // -----------------------------------------------------------------------------
 // Definições padrão de cards e classes modelo
 // ATENÇÃO: aqui tem a configuração APENAS do card e não do grupo do elemento
@@ -18,12 +19,27 @@ CARDS
 // -----------------------------------------------------------------------------
 // Changelog
 // 23/10/2015 | Criado o arquivo
+// 03/11/2015 | Classes para os sub-itens. Usando BEM
 // =============================================================================
 
 // =============================================================================
 // VARIÁVEIS
 // =============================================================================
 $card-padding: 0 $margem;
+
+// =============================================================================
+// SUBITENS DO CARD
+// -----------------------------------------------------------------------------
+// Acrescente cada seção que vai receber uma classe. Ao criar a classe .card
+// será criado cada uma das classes sem o seletor aninhado
+// =============================================================================
+$card-sub: (
+  titulo,
+  imagem,
+  principal,
+  item,
+  footer,
+);
 
 // =============================================================================
 // PLACEHOLDERS | Configurações básicas
@@ -37,22 +53,25 @@ $card-padding: 0 $margem;
     margin: 0;
     padding: $card-padding;
   }
-  h1 { font-size: modular-scale(3, $modular-font-size); }
-  section {
-    border-top: 1px cor(card, borda);
-    padding: $margem/2 0;
-    &:first-of-type {
-      border-top-width: 0;
-    }
+  &__titulo {
+    h1 { font-size: modular-scale(3, $modular-font-size); }
   }
-  main {
+  &__imagem {
+      line-height: 0;
+  }
+  &__principal { // use no main
     @include flex(1);
   }
-  figure {
-    line-height: 0;
+  &__item {
+    padding: $margem/2 0;
+    border-top: 1px cor(card, borda);
+    &:first-child { border-width: 0; }
   }
-  footer {
+  &__footer {
     @extend %flex;
+    * + * {
+      margin-left: .5em;
+    }
   }
 }
 
@@ -61,16 +80,16 @@ $card-padding: 0 $margem;
 // =============================================================================
 %card--linha {
   @extend %card--basico;
-  header {
+  &__titulo {
     background: cor(card, titulo);
   }
   h1 {
     color: cor(texto, claro);
   }
-  section {
+  &__item {
     border-top-style: solid;
   }
-  footer {
+  &__footer {
     padding: $margem;
   }
 }
@@ -79,10 +98,10 @@ $card-padding: 0 $margem;
   h1 {
     color: cor(card, titulo);
   }
-  section {
+  &__item {
     border-top-style: dashed;
   }
-  header + main {
+  &__titulo + &__principal {
     section:first-of-type { border-top-width: 1px; }
   }
 }
@@ -93,6 +112,12 @@ $card-padding: 0 $margem;
 @if $card-usa == "sim" {
   .card {
     @extend %card--#{$card-tipo};
+    @each $item in $card-sub {
+      &__#{$item} {
+        @extend %card--basico__#{$item} !optional;
+        @extend %card--#{$card-tipo}__#{$item} !optional;
+      }
+    }
   }
 }
 
@@ -104,7 +129,8 @@ $card-padding: 0 $margem;
 // dentro dele deve ter um <strong> para o destaque e um <span> para o texto
 // -----------------------------------------------------------------------------
 @if $card-usa == "sim" {
-  .card .card__linha-destaque {
+  .card__item--destaque {
+    @extend .card__item;
     padding: 0;
     p {
       @extend %flex;
