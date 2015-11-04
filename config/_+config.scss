@@ -44,6 +44,7 @@ $tab-usa: sim;
 $paginacao-usa: sim;
 $card-usa: sim;
 $breadcrumbs-usa: sim;
+$toaster-usa: sim;
 
 // =============================================================================
 // TEMA DE CORES
@@ -138,12 +139,33 @@ $paginacao-fonte: .65rem; // tamanho da fonte
 // CARDS
 // =============================================================================
 // Escolha o tipo a ser usado. Valores: linha | pontilhado
-//	----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 $card-tipo: linha; // linha | pontilhado
 
 // =============================================================================
 // BREADCRUMBS
 // =============================================================================
 // Escolha o tipo a ser usado. Valores: simples | box
-//	----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 $breadcrumbs-tipo: simples; // simples | box
+
+// =============================================================================
+// TOASTER
+// =============================================================================
+// Escolha o tipo a ser usado. Valores: fundo | linha
+// -----------------------------------------------------------------------------
+$toaster-tipo: fundo;
+
+// $toaster-horizontal: define se começa à esquerda ou à direita.
+//   Valores: left | right
+// $toaster-vertical: define se começa em cima ou em baixo.
+//   Valores: top | bottom
+// $toaster-distancia: define a distância que começa da borda do browser.
+// $toaster-distancia-vertical: define o multiplicador da distância vertical.
+//   Use para quando for distanciar de algum elemento do layout (como por
+//   exemplo o cabeçalho ou o rodapé)
+// -----------------------------------------------------------------------------
+$toaster-horizontal: right;
+$toaster-vertical: bottom;
+$toaster-distancia: 2em;
+$toaster-distancia-vertical: 1;

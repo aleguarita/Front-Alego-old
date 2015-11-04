@@ -1,0 +1,134 @@
+/*
+================================================================================
+TOASTER
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// toaster.scss
+// Criado em: 20/03/2015
+// -----------------------------------------------------------------------------
+// Notificações do sistema. Aparecendo de baixo.
+// -----------------------------------------------------------------------------
+// Changelog
+// 20/03/2015 | Criado o arquivo
+//
+// =============================================================================
+
+// =============================================================================
+// CORES TOASTER
+// -----------------------------------------------------------------------------
+// Lista as cores do status
+// =============================================================================
+$tipos-toaster: (
+	success: sucesso,
+	error: erro,
+	alert: alerta,
+	info: notice,
+);
+
+// =============================================================================
+// PLACEHOLDERS | Tipos
+// =============================================================================
+%toaster {
+	@extend %lista-sem-marcador;
+	position: fixed;
+	margin: 0;
+	width: rem(300);
+	#{$toaster-horizontal}: $toaster-distancia;
+	#{$toaster-vertical}: $toaster-distancia * $toaster-distancia-vertical;
+	z-index: z(toaster);
+	li {
+		position: relative;
+		padding: 1.5em;
+		font-family: $fonte-sem-serifa;
+		text-align: center;
+		box-shadow: $sombra-toaster;
+		line-height: 1;
+		@if $toaster-vertical == "top" {
+			margin-bottom: $toaster-distancia * .75;
+		} @else if $toaster-vertical == "bottom" {
+			margin-top: $toaster-distancia * .75;
+		}
+	}
+	.close {
+		transition: $transition;
+		cursor: pointer;
+		position: absolute;
+		right: 1em;
+		top: -.8em;
+		display: block;
+		box-shadow: $sombra-toaster;
+		background: cor(texto, claro);
+		font-weight: bold;
+		font-size: 1.2em;
+		line-height: 1;
+	}
+}
+
+%toaster--fundo {
+	@extend %toaster;
+	li {
+		color: cor(texto, claro);
+		text-shadow: $sombra-texto;
+	}
+	.close {
+		border: 0;
+	}
+}
+%toaster--linha {
+	@extend %toaster;
+	li {
+		border: 3px solid;
+	}
+	.close {
+		border: 1px solid;
+	}
+}
+// =============================================================================
+// CLASSES | cores de toast
+// =============================================================================
+@if $toaster-usa =="sim" {
+  @each $status, $classe in $tipos-toaster {
+		%toaster {
+  		.#{$status} {
+  			.close {
+  				color: cor-status($classe);
+  				&:hover {
+  					background: cor-status(#{$classe}-escuro);
+						color: cor(texto, claro);
+  				}
+  			}
+  		}
+		}
+		%toaster--fundo {
+			.#{$status} {
+				background: cor-status($classe);
+			}
+		}
+		%toaster--linha {
+			.#{$status} {
+				color: cor-status(#{$classe}-escuro);
+			}
+		}
+  }
+}
+
+// =============================================================================
+// CLASSES | .toast montado
+// =============================================================================
+@if $toaster-usa == "sim" {
+  .toast {
+		@extend %toaster--#{$toaster-tipo};
+  }
+}
+
+// =============================================================================
+// TOASTER DO SISTEMA
+// =============================================================================
+// Caso queira criar um toaster ou modificar, faça no arquivo abaixo
+// -----------------------------------------------------------------------------
+@import "../extra/toaster";
