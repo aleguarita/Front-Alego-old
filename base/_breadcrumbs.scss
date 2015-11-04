@@ -75,13 +75,11 @@ $breadcrumbs--box__padding: .25em .5em;
     border: 1px solid;
     &:last-child {
       outline: 1px solid;
+      padding: $breadcrumbs--box__padding;
     }
     &:not(:last-child) {
       border-right-width: 0;
     }
-  }
-  li:last-child {
-    padding: $breadcrumbs--box__padding;
   }
   a {
     padding: $breadcrumbs--box__padding;
