@@ -10,7 +10,7 @@ TIPOGRAFIA
 //	----------------------------------------------------------------------------
 //	tipografia.scss
 //	Criado em: 13/01/2015
-// 	Última alteração em: 21/10/2015
+// 	Última alteração em: 04/11/2015
 //	----------------------------------------------------------------------------
 //	Define os elementos básicos da tipografia e usa as variáveis criadas em
 //	fontes.scss
@@ -18,6 +18,8 @@ TIPOGRAFIA
 // 	CHANGELOG
 //  13/01/2015 | Criado o arquivo
 // 	21/10/2015 | Alterado para a nova forma de trabalhar cores
+// 	04/11/2015 | Eliminada a margem superior para quando o item for o primeiro
+// 							 da lista
 //	============================================================================
 
 //	============================================================================
@@ -44,11 +46,17 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 %texto-padrao {
 	font-size: $tamanho-fonte-textos;
 	margin: $margem-bloco-texto;
+	&:first-child {
+		margin-top: 0;
+	}
 }
 %texto-titulo {
 	font-family: $fonte-serifa;
 	margin: $margem-bloco-titulo;
 	color: cor(texto, titulo);
+	&:first-child {
+		margin-top: 0;
+	}
 }
 
 // Variações de título
@@ -84,7 +92,7 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 // =============================================================================
 body {
 	color: cor(texto);
-	line-height: 1.6;
+	line-height: 1.5;
 	font-family: $fonte-sem-serifa;
 }
 h1 {
