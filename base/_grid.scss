@@ -10,7 +10,7 @@ GRID
 // ----------------------------------------------------------------------------
 // grid.scss
 // Criado em: 12/01/2015
-// Última alteração: 20/10/2015
+// Última alteração: 04/11/2015
 // ----------------------------------------------------------------------------
 // Este arquivo cria o sistema de grid, com uso de Flex-box
 // As configurações devem ficar no início do documento (editando as variáveis)
@@ -20,6 +20,11 @@ GRID
 // 03/07/2015 | Flexbox
 // 19/08/2015 | Alterada a ordem dos elementos pra facilitar configurações
 // 20/10/2015 | Configurações básicas transferidas para base/config.scss
+// 04/11/2015 | Alterado sistema de gutter usando o método "coruja lobotomizada"
+//              (* + *).
+//              Correções de erros (container de gutter/calha não colocava a
+//              margem, .container--calha não replicava tudo de
+//              .container--gutter)
 // ============================================================================
 
 // ============================================================================
@@ -73,6 +78,9 @@ $grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
   .container--gutter, .container--calha {
     @extend %container-basico;
     padding: 0 $grid-margem;
+    * + * {
+      margin-left: $grid-margem-porcento;
+    }
   }
 } @else {
   /* GRID, SQN */
@@ -95,9 +103,6 @@ $i: 1;
 @while $i <= $grid-qtd {
   %grid-#{$i} {
     @extend %grid-total;
-    .container--gutter & {
-      @extend %grid-gutter;
-    }
   }
   $i: $i+1;
 }
@@ -108,13 +113,13 @@ $i: 1;
     $basis-gutter: $grid-medida-com-gutter * $i;
     %grid-#{$i} {
       @include flex($i 0 $basis);
-      .container--gutter & {
+      .container--gutter &, .container--calha & {
         @include flex($i 0 $basis-gutter);
       }
     }
     %pre-#{$i} {
       margin-left: $grid-medida * $i;
-      .container--gutter & {
+      .container--gutter &, .container--calha & {
         margin-left: ($grid-medida-com-gutter + $grid-margem-porcento) * $i;
       }
     }
