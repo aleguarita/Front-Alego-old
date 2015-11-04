@@ -84,6 +84,7 @@ $grid-max: rem(1600);
 // );
 // -----------------------------------------------------------------------------
 $grid: (
+
 );
 
 // =============================================================================
@@ -107,7 +108,7 @@ $tab-col--maximo: 600;
 
 // Cria classes para definir as larguras das colunas. Coloque valor em pixels,
 // mas sem unidade. Abaixo é criada a classe e o nome que você escolheu aparece
-// com dois traços. Exemplo: tab-col--classe_criada
+// com dois traços. Exemplo: .col--classe_criada
 // -----------------------------------------------------------------------------
 //	Largura fixa
 $largura-tabela-col: (

@@ -10,7 +10,7 @@ TABELAS
 //	----------------------------------------------------------------------------
 //	tabelas.scss
 //	Criado em: 05/02/2015
-//	Última alteração: 21/10/2015
+//	Última alteração: 04/11/2015
 //	----------------------------------------------------------------------------
 //	Definições padrão das tabelas e classes modelo
 //	----------------------------------------------------------------------------
@@ -24,6 +24,8 @@ TABELAS
 //  20/10/2015 | Inclusão de tabelas do sistema
 // 							 Configurações básicas transferidas para base/config.scss
 //  21/10/2015 | Adequado ao esquema de temas
+// 	04/11/2015 | Adaptado para o uso de BEM.
+// 							 .tab-col--nome passou a ser apenas .col--nome
 //	============================================================================
 
 //	============================================================================
@@ -62,7 +64,7 @@ td {
 %tab--zebra {
 	tbody tr:nth-child(even) {
 		background: cor(tabela, fundo);
-		.tab-acoes {
+		.tab__acoes {
 			background: darken(cor(tabela, fundo), 15%);
 		}
 	}
@@ -113,7 +115,7 @@ td {
 			border-bottom: none;
 		}
 	}
-	.tab-acoes {
+	.tab__acoes {
 		background: cor(tabela, fundo);
 		border-left: 2px solid cor(tabela, borda);
 	}
@@ -130,7 +132,7 @@ td {
 			color: cor(texto, medio);
 		}
 	}
-	.tab-acoes {
+	.tab__acoes {
 		background: lighten(cor(tabela, fundo), 5%);
 	}
 }
@@ -176,7 +178,7 @@ td {
 				background: darken(cor(tabela, titulo), 5%);
 			}
 		}
-		.tab-acoes {
+		.tab__acoes {
 			padding: 0;
 		}
 	} @else if $tab-acao-link-bloco == não {
@@ -187,7 +189,7 @@ td {
 				color: darken(cor(tabela, titulo), 25%);
 			}
 		}
-		.tab-acoes {
+		.tab__acoes {
 			button {
 				padding: 0;
 			}
@@ -199,11 +201,11 @@ td {
 		color: darken(cor(tabela, titulo), 5%);
 	}
 	//	Título da coluna de ações
-	.tab-col--acoes {
+	.col--acoes {
 
 	}
 	//	Célula de ação
-	.tab-acoes {
+	.tab__acoes {
 		a {
 			@extend %tab-acoes-icone;
 			text-decoration: none;
@@ -242,17 +244,17 @@ $i: $tab-col--inicial;
 }
 
 @each $col, $medida in $largura-tabela-col {
-	.tab-col--#{$col} {
+	.col--#{$col} {
 		@extend %largura-col-#{$medida};
 	}
 }
 @each $col, $medida in $largura-tabela-col-min {
-	.tab-col--#{$col} {
+	.col--#{$col} {
 		@extend %largura-col-min-#{$medida};
 	}
 }
 @each $col, $medida in $largura-tabela-col-max {
-	.tab-col--#{$col} {
+	.col--#{$col} {
 		@extend %largura-col-max-#{$medida};
 	}
 }
