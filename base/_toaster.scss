@@ -10,12 +10,15 @@ TOASTER
 // -----------------------------------------------------------------------------
 // toaster.scss
 // Criado em: 20/03/2015
+// Última alteração em: 05/11/2015
 // -----------------------------------------------------------------------------
 // Notificações do sistema. Aparecendo de baixo.
 // -----------------------------------------------------------------------------
 // Changelog
 // 20/03/2015 | Criado o arquivo
-//
+// 04/11/2015 | Alteração para os novos padrões.
+// 						  Opção de escolha entre dois modelos.
+// 05/11/2015 | Incluído fundo branco no toaster de linha
 // =============================================================================
 
 // =============================================================================
@@ -83,6 +86,7 @@ $tipos-toaster: (
 	@extend %toaster;
 	li {
 		border: 3px solid;
+		background: cor(texto, claro);
 	}
 	.close {
 		border: 1px solid;
