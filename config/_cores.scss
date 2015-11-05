@@ -88,6 +88,7 @@ $temas: (
 		fundo: (
 			padrao: paleta(basica),
 			claro: paleta(basica, clara),
+			x-claro: paleta-padrao(branco),
 			escuro: paleta(basica, escura),
 			sombra: paleta-padrao(preto),
 		),
@@ -108,6 +109,11 @@ $temas: (
 			borda-escura: paleta(basica, escura),
 			fundo: paleta(basica, xx-clara),
 			titulo: paleta(basica, x-escura),
+		),
+		modal: (
+			fundo: paleta-padrao(branco),
+			titulo-fundo: paleta(basica, escura),
+			titulo-texto: paleta-padrao(cinza-70),
 		),
 		paginacao: (
 			borda: paleta(secundaria),

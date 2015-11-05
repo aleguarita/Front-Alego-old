@@ -30,8 +30,8 @@ $card-padding: 0 $margem;
 // =============================================================================
 // SUBITENS DO CARD
 // -----------------------------------------------------------------------------
-// Acrescente cada seção que vai receber uma classe. Ao criar a classe .card
-// será criada cada uma das classes sem o seletor aninhado
+// Aqui está cada seção que vai receber uma classe. Ao criar a classe .card
+// será criada cada uma das classes sem o seletor aninhado (ex.: .card--titulo)
 // =============================================================================
 $card-sub: (
   titulo,

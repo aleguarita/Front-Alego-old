@@ -65,7 +65,7 @@ $tipos-toaster: (
 		top: -.8em;
 		display: block;
 		box-shadow: $sombra-toaster;
-		background: cor(texto, claro);
+		background: cor(fundo, x-claro);
 		font-weight: bold;
 		font-size: 1.2em;
 		line-height: 1;
@@ -86,7 +86,7 @@ $tipos-toaster: (
 	@extend %toaster;
 	li {
 		border: 3px solid;
-		background: cor(texto, claro);
+		background: cor(fundo, x-claro);
 	}
 	.close {
 		border: 1px solid;
