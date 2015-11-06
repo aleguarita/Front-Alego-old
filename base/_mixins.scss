@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 23/10/2015
+// Última alteração: 06/11/2015
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -28,6 +28,7 @@
 // 14/10/2015 | Acrescentado mixin de centralizar caixa sem flexbox.
 // 21/10/2015 | Acrescentado mixin de texto selecionado
 // 23/10/2015 | Acrescentado mixin de grupo flex
+// 06/11/2015 | Alteração no mixin de centralizar caixa
 // =============================================================================
 //
 // =============================================================================
@@ -193,6 +194,8 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	max-width: 100%;
+	max-height: 100%;
 	@include transform(translate(-50%, -50%));
 }
 
