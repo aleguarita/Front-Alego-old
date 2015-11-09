@@ -10,17 +10,19 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 //	----------------------------------------------------------------------------
 //	formularios.scss
 //	Criado em: 20/01/2015
-//	Última alteração: 14/09/2015
+//	Última alteração: 09/11/2015
 //	----------------------------------------------------------------------------
 //	Este arquivo cria grupos de formulários para definições de tamanhos,
 //	formatação básica de objetos de formulários e várias outras coisas.
 //  Baseado na forma que o Rails chama os divs de formulário com o nome field.
 //	---------------------------------------------------------------------------
 //	Changelog
-//	v.1 - 20/01/2015 | Arquivo _colunas.scss com uso de inline-block e de grupos
-//										 tanto para texto quanto para formulário
-//	v.2 - 07/08/2015 | Eliminado a parte de texto e transformado em flexbox
-//	v.3 - 14/09/2015 | Transformado o arquivo em form_grupo.scss
+//	20/01/2015 | Arquivo _colunas.scss com uso de inline-block e de grupos
+//							 tanto para texto quanto para formulário
+//	07/08/2015 | Eliminado a parte de texto e transformado em flexbox
+//	14/09/2015 | Transformado o arquivo em form_grupo.scss
+//  09/11/2015 | Incluída opção de não criar as classes (através de config.scss)
+//               Ajuste no responsive
 //	============================================================================
 
 //	============================================================================
@@ -53,11 +55,13 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 //	Mantém o código de HTML mais simples pois usa apenas um container para
 //	todos os elementos filhos
 //	----------------------------------------------------------------------------
-.form-container {
-  @extend %form-container-basico;
-  @include flex-wrap;
-  width: calc(100% + #{$calha});
-  margin-left: -$calha / 2;
+@if $form-grupo-usa == "sim" {
+  .form-container {
+    @extend %form-container-basico;
+    @include flex-wrap;
+    width: calc(100% + #{$calha});
+    margin-left: -$calha / 2;
+  }
 }
 //	CONTAINER LINHA A LINHA
 //	----------------------------------------------------------------------------
@@ -65,17 +69,19 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 //	Aumenta a complexidade do HTML pois acrescenta muitos grupos de containers
 //	porém possibilita ter elementos filhos que se ajustam automaticamente
 //	----------------------------------------------------------------------------
-.form-container--linha {
-  @extend %form-container-basico;
-  & + & {
-    margin-top: $calha;
-  }
-  @media (min-width: breakpoint(pequeno)) {
-    *:first-child {
-      padding-left: 0;
+@if $form-grupo-usa == "sim" {
+  .form-container--linha {
+    @extend %form-container-basico;
+    & + & {
+      margin-top: $calha;
     }
-    *:last-child {
-      padding-right: 0;
+    @media (min-width: breakpoint(pequeno)) {
+      *:first-child {
+        padding-left: 0;
+      }
+      *:last-child {
+        padding-right: 0;
+      }
     }
   }
 }
@@ -104,25 +110,27 @@ $i: 1;
 $max: 12;
 $medida: 100% / $max;
 
-//	Cada um dos fields gerado automaticamente
-@while $i < $max {
-  .field-#{$i} {
-    @extend %field;
-    width: $medida * $i;
+@if $form-grupo-usa == "sim" {
+  //	Cada um dos fields gerado automaticamente
+  @while $i < $max {
+    .field-#{$i} {
+      @extend %field;
+      width: $medida * $i;
+    }
+    $i: $i + 1;
   }
-  $i: $i + 1;
-}
-.field-#{$max} {
-  @extend %field;
-  width: 100%;
-}
-.field {
-  @extend %field;
-  @include flex(1);
-}
-.field--responsivo {
-  @media (max-width: breakpoint(pequeno)) {
+  .field-#{$max} {
+    @extend %field;
     width: 100%;
+  }
+  .field {
+    @extend %field;
+    @include flex(1);
+  }
+  .field--responsivo {
+    @media (max-width: breakpoint(pequeno)) {
+      min-width: 100%;
+    }
   }
 }
 
@@ -131,9 +139,11 @@ $medida: 100% / $max;
 //  Gera classes de espaçamento entre as colunas do formulário.
 //  ----------------------------------------------------------------------------
 $i: 1;
-@while $i < $max {
-  .pre-#{$i} {
-    margin-left: $medida * $i;
+@if $form-grupo-usa-pre == "sim" {
+  @while $i < $max {
+    .pre-#{$i} {
+      margin-left: $medida * $i;
+    }
+    $i: $i + 1;
   }
-  $i: $i + 1;
 }
