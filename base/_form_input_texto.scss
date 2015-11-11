@@ -1,0 +1,154 @@
+/*
+================================================================================
+FORMULÁRIOS | INPUT[TEXT], TEXTAREA
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// form_input_texto.scss
+// Criado em: 09/11/2015
+// -----------------------------------------------------------------------------
+// Este arquivo formata os inputs de texto e sua relação com o label, e demais
+// elementos (placeholder, etc).
+// ----------------------------------------------------------------------------
+// Changelog
+// 09/11/2015 | Criação do arquivo
+// 10/11/2015 | Alterada forma de pensar. Ao invés de ser "automático" (com
+//              placeholder/mixin, criei uma classe própria pra melhorar a
+//              performance do CSS final)
+// =============================================================================
+$form-tipo: linha;
+$label-tipo: colado; // flutuante | colado
+$form-texto-usa: sim;
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$tamanho-fonte-form: $tamanho-fonte-textos;
+$borda-form: 1px cor(formulario);
+
+// =============================================================================
+// PLACEHOLDERS | CONTAINER
+// =============================================================================
+%form-texto--basico {
+  font-size: $tamanho-fonte-form;
+}
+
+// =============================================================================
+// PLACEHOLDERS | LABEL
+// =============================================================================
+%form-texto__label {
+  font-weight: bold;
+  @include order(-1);
+  cursor: pointer;
+  color: cor(formulario);
+}
+%form-texto__label--flutuante {
+  @include flex-wrap;
+  label {
+    @extend %form-texto__label;
+    width: 100%;
+  }
+}
+%form-texto__label--colado {
+  @include align-items(stretch);
+  label {
+    @extend %form-texto__label;
+    padding: 0 .65em;
+  }
+}
+
+// =============================================================================
+// PLACEHOLDER | INPUT, TEXTAREA
+// =============================================================================
+%form-texto__input {
+  input, textarea {
+    font-size: .9em;
+    @include placeholder {
+      text-transform: uppercase;
+      color: cor(formulario, placeholder);
+    }
+  }
+}
+
+// =============================================================================
+// MIXIN | INPUT, TEXTAREA
+// =============================================================================
+@mixin field-texto__field--borda-inferior($tipo, $cor: cor(formulario)) {
+  @if $label-tipo == "colado" {
+    label {
+      border-bottom: 1px $tipo $cor;
+    }
+  }
+  input, textarea {
+    border: 0;
+    border-bottom: 1px $tipo $cor;
+    &:focus {
+      border-bottom-color: darken($cor, 30%);
+      @if $label-tipo == "colado" {
+        & ~ label {
+          color: darken($cor, 30%);
+          border-bottom-color: darken($cor, 30%);
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// PLACEHOLDERS | TIPOS
+// =============================================================================
+%form-texto--pontilhado {
+  @include field-texto__field--borda-inferior(dotted);
+}
+%form-texto--linha {
+  @include field-texto__field--borda-inferior(solid);
+}
+%form-texto--caixa {
+  input, textarea {
+    border: 1px solid cor(formulario);
+    padding: .5em;
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 3px cor(formulario);
+    }
+  }
+  @if $label-tipo == "colado" {
+    label {
+      background: cor(formulario);
+      color: cor(texto, claro);
+      line-height: 2.2;
+    }
+    input, textarea {
+      &:focus ~ label {
+        background: darken(cor(formulario), 20%);
+      }
+    }
+  }
+}
+
+// =============================================================================
+// CLASSES
+// =============================================================================
+@if $form-texto-usa == "sim" {
+  .form-texto {
+    @extend %form-texto--basico;
+    @extend %form-texto--#{$form-tipo};
+    @extend %form-texto__label--#{$label-tipo};
+    @extend %form-texto__input;
+  }
+  .form-texto--label-inverso {
+    /* pensar num nome melhor */
+  }
+}
+
+// =============================================================================
+// INPUT[TEXT] E TEXTAREA DO SISTEMA
+// =============================================================================
+// Caso queira uma formatação que não esteja neste arquivo,
+// crie no arquivo abaixo
+// -----------------------------------------------------------------------------
+@import "../extra/form_input_texto";

@@ -102,7 +102,10 @@ $temas: (
 			escuro: paleta(basica, escura),
 			escuro-hover: paleta(basica),
 		),
-		formulario: (),
+		formulario: (
+			padrao: paleta(basica, escura),
+			placeholder: paleta(basica, clara),
+		),
 		tabela: (
 			borda: paleta(basica),
 			borda-clara: paleta(basica, clara),

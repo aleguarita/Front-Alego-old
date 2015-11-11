@@ -46,6 +46,8 @@ $paginacao-usa: sim;
 $card-usa: sim;
 $breadcrumbs-usa: sim;
 $toaster-usa: sim;
+$form-grupo-usa: sim; // grupos de formulários
+$form-grupo-usa-pre: não; // se cria classes para espaçar os formulários
 
 // =============================================================================
 // TEMA DE CORES
@@ -177,3 +179,10 @@ $toaster-horizontal: right;
 $toaster-vertical: bottom;
 $toaster-distancia: 2em;
 $toaster-distancia-vertical: 1;
+
+// =============================================================================
+// FORMULÁRIOS
+// =============================================================================
+// Escolha o tipo a ser usado. Valores: pontilhado | linha | caixa
+// -----------------------------------------------------------------------------
+$form-tipo: pontilhado;
