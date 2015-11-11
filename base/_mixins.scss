@@ -289,12 +289,3 @@
 		color: $texto;
 	}
 }
-
-// =============================================================================
-// MIXINS DO SISTEMA
-// -----------------------------------------------------------------------------
-// Eventuais mixins do sistema devem ser postos no arquivo abaixo. Caso seja
-// necessário criar um mixin global, crie e requisite a inclusão dele no
-// front-alego
-// =============================================================================
-@import "../extra/mixins";

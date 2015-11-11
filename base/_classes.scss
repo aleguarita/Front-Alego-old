@@ -54,13 +54,3 @@ CLASSES FIXAS
 	background: cor-status(alerta);
 	@extend %texto-status--claro;
 }
-
-//	===========================================================================
-//	CLASSES DO SISTEMA
-//	---------------------------------------------------------------------------
-//	Classes do sistema devem ser postos no arquivo abaixo (ou no próprio
-//  arquivo do layout, conforme o caso).
-// 	Se perceber que determinada classe é útil para outros sistemas, crie e
-// 	requisite a inclusão dele no front-alego
-//	===========================================================================
-@import "../extra/classes";

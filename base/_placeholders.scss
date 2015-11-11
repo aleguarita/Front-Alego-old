@@ -76,13 +76,3 @@ PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 %centraliza-caixa {
 	@include centraliza-caixa;
 }
-
-//	===========================================================================
-//	PLACEHOLDERS DO SISTEMA
-//	---------------------------------------------------------------------------
-//	Placeholders do sistema devem ser postos no arquivo abaixo (ou no próprio
-//  arquivo do layout, conforme o caso).
-// 	Se perceber que determinado placeholder é útil para outros sistemas, crie e
-// 	requisite a inclusão dele no front-alego
-//	===========================================================================
-@import "../extra/placeholders";

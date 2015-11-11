@@ -98,11 +98,3 @@ $breadcrumbs--box__padding: .25em .5em;
     @extend %breadcrumbs--#{$breadcrumbs-tipo};
   }
 }
-
-
-// =============================================================================
-// BREADBRUMBS DO SISTEMA
-// =============================================================================
-// Caso queira um breadcrumb que não esteja neste arquivo, crie no arquivo abaixo
-// -----------------------------------------------------------------------------
-@import "../extra/breadcrumbs";
