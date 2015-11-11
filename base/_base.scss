@@ -62,9 +62,9 @@
 @import "grid";
 @import "../config/z-index";
 @import "../config/simbolos";
+@import "../config/tipografia";
 
 // Formatação de objetos
-@import "../config/tipografia";
 @import "tabelas";
 @import "paginacao";
 @import "cards";
@@ -73,8 +73,10 @@
 @import "modal";
 
 // Formatação de formulários
+@import "form_comum";
 @import "form_tamanhos";
-@import "form_input_texto";
+@import "form_texto";
+@import "form_radio";
 
 
 

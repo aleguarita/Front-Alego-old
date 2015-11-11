@@ -48,6 +48,8 @@ $breadcrumbs-usa: sim;
 $toaster-usa: sim;
 $form-grupo-usa: sim; // grupos de formulários
 $form-grupo-usa-pre: não; // se cria classes para espaçar os formulários
+$form-texto-usa: sim; // input [text] e textarea
+
 
 // =============================================================================
 // TEMA DE CORES
@@ -186,3 +188,7 @@ $toaster-distancia-vertical: 1;
 // Escolha o tipo a ser usado. Valores: pontilhado | linha | caixa
 // -----------------------------------------------------------------------------
 $form-tipo: pontilhado;
+
+// $label-tipo: determina se o label vai ser na mesma linha ou se vai ter quebra
+//   Valores: flutuante | colado
+$label-tipo: colado;

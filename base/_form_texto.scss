@@ -20,15 +20,6 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 //              placeholder/mixin, criei uma classe própria pra melhorar a
 //              performance do CSS final)
 // =============================================================================
-$form-tipo: linha;
-$label-tipo: colado; // flutuante | colado
-$form-texto-usa: sim;
-
-// =============================================================================
-// VARIÁVEIS
-// =============================================================================
-$tamanho-fonte-form: $tamanho-fonte-textos;
-$borda-form: 1px cor(formulario);
 
 // =============================================================================
 // PLACEHOLDERS | CONTAINER
