@@ -25,7 +25,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // PLACEHOLDERS | CONTAINER
 // =============================================================================
 %form-texto--basico {
-  font-size: $tamanho-fonte-form;
+  @extend %form-base;
 }
 
 // =============================================================================
@@ -68,7 +68,11 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // =============================================================================
 // MIXIN | INPUT, TEXTAREA
 // =============================================================================
-@mixin field-texto__field--borda-inferior($tipo, $cor: cor(formulario)) {
+@mixin field-texto__field--borda-inferior(
+    $tipo,
+    $cor: cor(formulario),
+    $cor-destaque: cor(formulario, ativo)
+  ) {
   @if $label-tipo == "colado" {
     label {
       border-bottom: 1px $tipo $cor;
@@ -78,11 +82,11 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
     border: 0;
     border-bottom: 1px $tipo $cor;
     &:focus {
-      border-bottom-color: darken($cor, 30%);
+      border-bottom-color: $cor-destaque;
       @if $label-tipo == "colado" {
         & ~ label {
-          color: darken($cor, 30%);
-          border-bottom-color: darken($cor, 30%);
+          color: $cor-destaque;
+          border-bottom-color: $cor-destaque;
         }
       }
     }
@@ -106,17 +110,17 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
       outline: 0;
       box-shadow: 0 0 3px cor(formulario);
     }
+    @if $label-tipo == "colado" {
+      &:focus ~ label {
+        background: cor(formulario, ativo);
+      }
+    }
   }
   @if $label-tipo == "colado" {
     label {
       background: cor(formulario);
       color: cor(texto, claro);
       line-height: 2.2;
-    }
-    input, textarea {
-      &:focus ~ label {
-        background: darken(cor(formulario), 20%);
-      }
     }
   }
 }

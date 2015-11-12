@@ -1,0 +1,139 @@
+/*
+================================================================================
+FORMULÁRIOS | RADIO BUTTON, CHECKBOX
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// form_radio_check.scss
+// Criado em: 11/11/2015
+// -----------------------------------------------------------------------------
+// Este arquivo formata os radio buttons
+// ----------------------------------------------------------------------------
+// Changelog
+// 11/11/2015 | Criação do arquivo
+// =============================================================================
+
+// =============================================================================
+// PLACEHOLDERS | CONTAINER
+// =============================================================================
+%form-radio-check--basico {
+  @extend %form-base;
+  @if $form-radio-check-personaliza == "não" {
+    input + label {
+      margin-left: -1.5em;
+      padding-left: 2em;
+    }
+  }
+  @if $form-radio-check-personaliza == "sim" {
+    label {
+      @extend %flex;
+      @include align-items(center);
+      &::before {
+        color: transparent;
+        font-family: $fonte-simbolo;
+        width: 1em;
+        height: 1em;
+        margin-right: .5em;
+        border: 1px solid cor(formulario);
+        background: cor(fundo, x-claro);
+        // para centralizar o conteúdo
+        content: "\f111";
+        font-size: .6em;
+        padding: .2em;
+        line-height: .9;
+        text-align: center;
+      }
+    }
+    input {
+      display: none;
+      &:checked ~ label {
+        &::before {
+          border-color: cor(formulario, ativo);
+          color: cor(formulario, ativo);
+        }
+      }
+    }
+  }
+  label {
+    @include flex-grow(1);
+  }
+  input:checked ~ label {
+    font-weight: bold;
+    color: cor(formulario, ativo);
+  }
+}
+// =============================================================================
+// PLACEHOLDERS | LABEL (span/strong que simula)
+// =============================================================================
+%label-grupo-radio-check--comum {
+  font-weight: bold;
+}
+// =============================================================================
+// PLACEHOLDER | RADIO BUTTON
+// =============================================================================
+%form-radio {
+  @if $form-radio-check-personaliza == "sim" {
+    label {
+      &::before {
+        border-radius: 50%;
+      }
+    }
+    input:checked ~ label::before {
+      // content: "\f111";
+    }
+  }
+}
+// =============================================================================
+// PLACEHOLDER | CHECKBOX
+// =============================================================================
+%form-checkbox {
+  @if $form-radio-check-personaliza == "sim" {
+    input:checked ~ label::before {
+      content: "\e354";
+    }
+  }
+}
+// =============================================================================
+// PLACEHOLDERS | TIPOS
+// =============================================================================
+%form-radio-check--pontilhado {
+  label {
+    border-bottom: 1px dotted cor(formulario);
+  }
+}
+%form-radio-check--linha {
+  label {
+    border-bottom: 1px solid cor(formulario);
+  }
+}
+%form-radio-check--caixa {
+  label {
+    border: 1px solid cor(formulario);
+    &::before {
+      margin-left: .4em;
+    }
+  }
+  input:checked ~ label {
+    background: cor(formulario, fundo);
+  }
+}
+
+// =============================================================================
+// CLASSES
+// =============================================================================
+@if $form-texto-usa == "sim" {
+  .form-radio {
+    @extend %form-radio-check--basico;
+    @extend %form-radio-check--#{$form-tipo};
+    @extend %form-radio !optional;
+  }
+  .form-checkbox {
+    @extend %form-radio-check--basico;
+    @extend %form-radio-check--#{$form-tipo};
+    @extend %form-checkbox !optional;
+  }
+}
