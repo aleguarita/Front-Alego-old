@@ -1,0 +1,92 @@
+/*
+================================================================================
+FORMULÁRIOS | SELECT
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// form_select.scss
+// Criado em: 12/11/2015
+// -----------------------------------------------------------------------------
+// Este arquivo formata os radio buttons
+// ----------------------------------------------------------------------------
+// Changelog
+// 12/11/2015 | Criação do arquivo
+// =============================================================================
+
+// =============================================================================
+// PLACEHOLDERS | CONTAINER
+// =============================================================================
+%form-select--basico {
+  @extend %form-base;
+  position: relative;
+  select {
+    @include appearance(none);
+    background: cor(fundo, x-claro);
+    border: 0;
+    border-radius: 0;
+    line-height: 1.6;
+    font-size: 1em;
+    padding: .25em;
+    padding-right: 2em;
+  }
+}
+// =============================================================================
+// PLACEHOLDERS | ÍCONE (que substitui a seta)
+// =============================================================================
+%form-select__seta {
+  position: absolute;
+  right: calc(#{$calha} / 2);
+  pointer-events: none;
+  padding: $calha/4 .5em;
+  height: calc(100% - #{$calha});
+  &::before {
+    content: "\f107";
+    font-family: $fonte-simbolo;
+  }
+}
+// =============================================================================
+// PLACEHOLDERS | TIPOS
+// =============================================================================
+%form-select--pontilhado {
+  select {
+    border-bottom: $borda-form dotted;
+  }
+  %form-select__seta {
+    color: cor(formulario);
+  }
+}
+%form-select--linha {
+  select {
+    border-bottom: $borda-form solid;
+  }
+  %form-select__seta {
+    color: cor(formulario);
+  }
+}
+%form-select--caixa {
+  select {
+    border: $borda-form solid;
+    padding-left: .2em;
+  }
+  %form-select__seta {
+    color: cor(formulario, ativo);
+    background: cor(formulario, fundo);
+    border: $borda-form solid;
+  }
+}
+// =============================================================================
+// CLASSES
+// =============================================================================
+@if $form-usa == "sim" {
+  .form-select {
+    @extend %form-select--basico;
+    @extend %form-select--#{$form-tipo};
+    &__seta {
+      @extend %form-select__seta;
+    }
+  }
+}

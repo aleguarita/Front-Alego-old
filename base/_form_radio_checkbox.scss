@@ -33,14 +33,14 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
       @extend %flex;
       @include align-items(center);
       &::before {
-        color: transparent;
         font-family: $fonte-simbolo;
         width: 1em;
         height: 1em;
         margin-right: .5em;
-        border: 1px solid cor(formulario);
+        border: $borda-form solid;
         background: cor(fundo, x-claro);
         // para centralizar o conteúdo
+        color: transparent;
         content: "\f111";
         font-size: .6em;
         padding: .2em;
@@ -82,9 +82,6 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
         border-radius: 50%;
       }
     }
-    input:checked ~ label::before {
-      // content: "\f111";
-    }
   }
 }
 // =============================================================================
@@ -102,17 +99,17 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // =============================================================================
 %form-radio-check--pontilhado {
   label {
-    border-bottom: 1px dotted cor(formulario);
+    border-bottom: $borda-form dotted;
   }
 }
 %form-radio-check--linha {
   label {
-    border-bottom: 1px solid cor(formulario);
+    border-bottom: $borda-form solid;
   }
 }
 %form-radio-check--caixa {
   label {
-    border: 1px solid cor(formulario);
+    border: $borda-form solid;
     &::before {
       margin-left: .4em;
     }
@@ -125,7 +122,7 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // =============================================================================
 // CLASSES
 // =============================================================================
-@if $form-texto-usa == "sim" {
+@if $form-usa == "sim" {
   .form-radio {
     @extend %form-radio-check--basico;
     @extend %form-radio-check--#{$form-tipo};

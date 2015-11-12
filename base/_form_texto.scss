@@ -128,7 +128,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // =============================================================================
 // CLASSES
 // =============================================================================
-@if $form-texto-usa == "sim" {
+@if $form-usa == "sim" {
   .form-texto {
     @extend %form-texto--basico;
     @extend %form-texto--#{$form-tipo};
