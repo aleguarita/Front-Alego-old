@@ -1,6 +1,6 @@
 /*
 ================================================================================
-FORMULÁRIOS | BUSCA
+FORMULÁRIOS | data
 ================================================================================
 */
 
@@ -8,10 +8,10 @@ FORMULÁRIOS | BUSCA
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
-// form_busca.scss
+// form_data.scss
 // Criado em: 13/11/2015
 // -----------------------------------------------------------------------------
-// Este arquivo formata o campo de busca. Ele copia as configurações básicas
+// Este arquivo formata o campo de data. Ele copia as configurações básicas
 // do field de texto, além dos elementos do formulário comum.
 // ----------------------------------------------------------------------------
 // Changelog
@@ -22,7 +22,7 @@ FORMULÁRIOS | BUSCA
 // CLASSES
 // =============================================================================
 @if $form-usa == "sim" {
-  .form-busca {
+  .form-data, .form-calendario {
     @extend .form-texto;
     [class^="ico"] {
       @extend %form__botao-colado;

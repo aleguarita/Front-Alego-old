@@ -17,7 +17,7 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // 11/11/2015 | Criado o arquivo
 // =============================================================================
 
-$form-tipo: caixa;
+$form-tipo: linha;
 $label-tipo: colado;
 $form-radio-check-personaliza: sim;
 
@@ -62,6 +62,8 @@ $borda-form: 1px cor(formulario);
   }
   @else {
     color: cor(formulario);
+    background: cor(fundo, x-claro);
+    height: calc(100% - #{$calha} - 1px); // retira a borda
     &:hover {
       background: cor(formulario);
       color: cor(texto, claro);
