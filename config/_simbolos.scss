@@ -128,6 +128,8 @@ $icones: (
 	seta-esquerda: "\f0d9",
 	seta-direita-dupla: "\f101", // NÃO COMENTE, ESTÁ EM USO
 	seta-esquerda-dupla: "\f100", // NÃO COMENTE, ESTÁ EM USO
+	seta-baixo-fina: "\f107", // NÃO COMENTE, ESTÁ EM USO
+	seta-cima-fina: "\f106",
 	seta-direita-fina: "\f105", // NÃO COMENTE, ESTÁ EM USO
 	seta-esquerda-fina: "\f104", // NÃO COMENTE, ESTÁ EM USO
 
@@ -172,9 +174,9 @@ $icones: (
 //	----------------------------------------------------------------------------
 //  Classes adicionais
 //	----------------------------------------------------------------------------
-[class^="ico"][class$="--espaco"] {
+[class^="ico"][class*="--espaco"] {
 	@extend %icone--espaco;
 }
-[class^="ico"][class$="--link"] {
+[class^="ico"][class*="--link"] {
 	@extend %icone--link;
 }

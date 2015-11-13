@@ -17,7 +17,7 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // 11/11/2015 | Criado o arquivo
 // =============================================================================
 
-$form-tipo: linha;
+$form-tipo: caixa;
 $label-tipo: colado;
 $form-radio-check-personaliza: sim;
 
@@ -32,4 +32,5 @@ $borda-form: 1px cor(formulario);
 // =============================================================================
 %form-base {
   font-size: $tamanho-fonte-form;
+  min-height: 2.5rem;
 }

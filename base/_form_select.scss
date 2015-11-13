@@ -43,10 +43,6 @@ FORMULÁRIOS | SELECT
   pointer-events: none;
   padding: $calha/4 .5em;
   height: calc(100% - #{$calha});
-  &::before {
-    content: "\f107";
-    font-family: $fonte-simbolo;
-  }
 }
 // =============================================================================
 // PLACEHOLDERS | TIPOS
@@ -85,7 +81,7 @@ FORMULÁRIOS | SELECT
   .form-select {
     @extend %form-select--basico;
     @extend %form-select--#{$form-tipo};
-    &__seta {
+    [class^="ico"] {
       @extend %form-select__seta;
     }
   }
