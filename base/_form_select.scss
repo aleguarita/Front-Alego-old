@@ -11,7 +11,7 @@ FORMULÁRIOS | SELECT
 // form_select.scss
 // Criado em: 12/11/2015
 // -----------------------------------------------------------------------------
-// Este arquivo formata os radio buttons
+// Este arquivo formata o select
 // ----------------------------------------------------------------------------
 // Changelog
 // 12/11/2015 | Criação do arquivo
@@ -22,7 +22,6 @@ FORMULÁRIOS | SELECT
 // =============================================================================
 %form-select--basico {
   @extend %form-base;
-  position: relative;
   select {
     @include appearance(none);
     background: cor(fundo, x-claro);
@@ -38,11 +37,8 @@ FORMULÁRIOS | SELECT
 // PLACEHOLDERS | ÍCONE (que substitui a seta)
 // =============================================================================
 %form-select__seta {
-  position: absolute;
-  right: calc(#{$calha} / 2);
+  @extend %form__icone;
   pointer-events: none;
-  padding: $calha/4 .5em;
-  height: calc(100% - #{$calha});
 }
 // =============================================================================
 // PLACEHOLDERS | TIPOS

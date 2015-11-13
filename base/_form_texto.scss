@@ -57,11 +57,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // =============================================================================
 %form-texto__input {
   input, textarea {
-    font-size: .9em;
-    @include placeholder {
-      text-transform: uppercase;
-      color: cor(formulario, placeholder);
-    }
+    @extend %form__caixa-texto;
   }
 }
 
