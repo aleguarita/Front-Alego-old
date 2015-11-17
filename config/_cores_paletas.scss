@@ -1,0 +1,56 @@
+// =============================================================================
+// CORES | Paletas
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// cores.scss
+// Criado em: 07/01/2015
+// Última alteração: 17/11/2015
+// -----------------------------------------------------------------------------
+// Aqui temos a paleta de cores.
+// -----------------------------------------------------------------------------
+// CHANGELOG:
+// 07/01/2015 | Criado o arquivo
+// 20/10/2015 | Alterado a forma de trabalhar
+// 21/10/2015 | Criação dos temas
+//  						 Criação de grupos de elementos dentro dos temas
+// 17/11/2015 | Paleta de cores e temas desmembrados em arquivos separados
+// =============================================================================
+//
+// =============================================================================
+// PALETA DE CORES
+// -----------------------------------------------------------------------------
+// Acrescente novas cores para seu sistema aqui
+// Padrão:
+//
+// nome-cor: (
+// 	principal: #000,
+// 	clara: #000,
+// 	x-clara: #000,
+// 	xx-clara: #000,
+// 	escura: #000,
+// 	x-escura: #000,
+// 	xx-escura: #000,
+// ),
+// =============================================================================
+$paleta: (
+	basica: ( //turquesa
+		principal: #00c5cd,
+		clara: #66dce1,
+		x-clara: #99e7e1,
+		xx-clara: #ccf3f5,
+		escura: #009da4,
+		x-escura: #006266,
+		xx-escura: #002729,
+	),
+	secundaria: ( //marrom
+		principal: #cd5800,
+		clara: #e19b66,
+		x-clara: #e7b799,
+		xx-clara: #f5decc,
+		escura: #a44600,
+		x-escura: #662c00,
+		xx-escura: #291200,
+	),
+);

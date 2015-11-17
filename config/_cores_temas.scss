@@ -1,0 +1,129 @@
+// =============================================================================
+// CORES | Temas
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// cores.scss
+// Criado em: 07/01/2015
+// Última alteração: 17/11/2015
+// -----------------------------------------------------------------------------
+// Aqui fica os temas de cores. As paletas são definidas no arquivo
+// cores_paletas (e é neste arquivo que se acrescenta novas cores)
+// JAMAIS coloque uma cor diretamente em outro arquivo e sim chame através da
+// função cor(). Isso possibilita mudar o tema rapidamente através deste arquivo
+// Para alterar o tema faça isso no arquivo config
+// -----------------------------------------------------------------------------
+// CHANGELOG:
+// 07/01/2015 | Criado o arquivo
+// 20/10/2015 | Alterado a forma de trabalhar
+// 21/10/2015 | Criação dos temas
+//  						Criação de grupos de elementos dentro dos temas
+// 17/11/2015 | Separado paletas de temas
+// =============================================================================
+//
+// =============================================================================
+// TEMAS DE COR
+// -----------------------------------------------------------------------------
+// Cada mapa contém um pacote de cores para texto, fundo e borda.
+// Além disso, elementos que tem várias categorias diferentes, tem seu próprio
+// grupo (como por exemplo paginação).
+// Para o sistema atual, edite o tema $cores-principal.
+// Acrescente temas conforme a necessidade. Por exemplo, é possível ter uma
+// uma paleta apenas para o natal.
+// A cor chamada "padrao" é chamada automaticamente, sem precisar especificar
+// na função.
+// -----------------------------------------------------------------------------
+// Temas disponíveis:
+// principal | Tema padrão. Edite essa
+// monocromatico | Utiliza apenas a paleta principal
+// cinza | Tema com tons de cinza
+// alto-contraste | Tema de alto contraste para acessibilidade
+// bandeira-goiana | Tema com as cores da bandeira goiana
+// rosa | Tema para o Outubro Rosa
+// azul | Tema para o Novembro Azul
+// =============================================================================
+$temas: (
+	principal: (
+		texto: (
+			padrao: paleta-padrao(preto),
+			claro: paleta-padrao(branco),
+			medio: paleta-padrao(cinza-60),
+			destaque: paleta(secundaria),
+			titulo: paleta(secundaria),
+			label: paleta-padrao(preto),
+			label-variante: paleta(secundaria),
+			input: paleta-padrao(preto),
+			placeholder: paleta(basica, x-clara),
+		),
+		fundo: (
+			padrao: paleta(basica),
+			claro: paleta(basica, clara),
+			x-claro: paleta-padrao(branco),
+			escuro: paleta(basica, escura),
+			sombra: paleta-padrao(preto),
+		),
+		borda: (
+			padrao: paleta(basica),
+			variante: paleta(secundaria),
+		),
+		link: (
+			padrao: paleta(basica),
+			hover: paleta(basica, clara),
+			escuro: paleta(basica, escura),
+			escuro-hover: paleta(basica),
+		),
+		formulario: (
+			padrao: paleta(basica, escura),
+			placeholder: paleta(basica, clara),
+			ativo: paleta(basica, xx-escura),
+			fundo: paleta(basica, xx-clara),
+		),
+		botao: (
+			padrao: paleta(secundaria),
+			claro: paleta(secundaria, xx-clara),
+			escuro: paleta(secundaria, escura),
+			secundario: paleta(basica),
+			secundario-claro: paleta(basica, xx-clara),
+			secundario-escuro: paleta(basica, escura),
+		),
+		tabela: (
+			borda: paleta(basica),
+			borda-clara: paleta(basica, clara),
+			borda-escura: paleta(basica, escura),
+			fundo: paleta(basica, xx-clara),
+			titulo: paleta(basica, x-escura),
+		),
+		modal: (
+			fundo: paleta-padrao(branco),
+			titulo-fundo: paleta(basica, escura),
+			titulo-texto: paleta-padrao(cinza-70),
+		),
+		paginacao: (
+			borda: paleta(secundaria),
+			borda-clara: paleta(secundaria, clara),
+			borda-escura: paleta(secundaria, escura),
+			fundo: paleta(secundaria),
+			fundo-claro: paleta(secundaria, clara),
+			fundo-escuro: paleta(secundaria, escura),
+			texto: paleta(secundaria),
+			texto-escuro: paleta(secundaria, escura),
+		),
+		breadcrumbs: (
+			link: paleta(secundaria, clara),
+			atual: paleta(secundaria, escura),
+		),
+		card: (
+			fundo: paleta-padrao(branco),
+			borda: paleta(basica),
+			titulo: paleta(basica, x-escura),
+			destaque: paleta(basica, escura),
+		),
+	),
+	monocromatico: (),
+	cinza: (),
+	alto-contraste: (),
+	bandeira: (),
+	rosa: (),
+	azul: (),
+);

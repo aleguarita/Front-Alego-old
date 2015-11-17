@@ -5,12 +5,13 @@
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 19/10/2015
+	Última alteração: 17/11/2015
 	------------------------------------------------------------------------------
 */
 // app.scss
 // Inclua neste arquivo somente chamadas para os demais arquivos,
 // usando @import
+// NÃO COMENTE E NEM ALTERE A ORDEM ATUAL.
 // Coloque os demais elementos dentro das respectivas pastas:
 // 	/base
 // 		Contém os arquivos básicos do front-alego que não podem ser alterados
@@ -34,6 +35,9 @@
 // Changelog:
 // 07/01/2015 | Primeira forma de organizar arquivos
 // 19/10/2015 | Nova estruturação de arquivos
+// 17/11/2015 | Este arquivo foi movido para a pasta /config/ para que seja
+// 							possível manter duas pastas config diferentes (para sistemas
+// 							com substistema, como o SGU/Requisição de Acessos).
 // =============================================================================
 
 // Bourbon: http://bourbon.io
@@ -42,45 +46,46 @@
 @import "../bourbon/bourbon"; // (se instalado o bourbon manualmente)
 
 // Reset CSS
-@import "reset";
+@import "../base/reset";
 
 // Configuração básica
-@import "../config/_+config";
+@import "_+config";
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
-@import "funcoes";
-@import "mixins";
-@import "cores_status";
-@import "../config/cores";
-@import "fontes";
-@import "../config/variaveis";
-@import "placeholders";
-@import "classes";
+@import "../base/funcoes";
+@import "../base/mixins";
+@import "../base/cores_status";
+@import "cores_paletas";
+@import "cores_temas";
+@import "../base/fontes";
+@import "variaveis";
+@import "../base/placeholders";
+@import "../base/classes";
 
 // Arquivos de configuração estrutural
-@import "grid";
-@import "../config/z-index";
-@import "../config/simbolos";
-@import "../config/tipografia";
+@import "../base/grid";
+@import "z-index";
+@import "simbolos";
+@import "tipografia";
 
 // Formatação de objetos
-@import "tabelas";
-@import "paginacao";
-@import "cards";
-@import "breadcrumbs";
-@import "toaster";
-@import "modal";
+@import "../base/tabelas";
+@import "../base/paginacao";
+@import "../base/cards";
+@import "../base/breadcrumbs";
+@import "../base/toaster";
+@import "../base/modal";
 
 // Formatação de formulários
-@import "form_comum";
-@import "form_tamanhos";
-@import "form_texto";
-@import "form_radio_checkbox";
-@import "form_select";
-@import "form_busca";
-@import "form_data";
-@import "form_botoes";
+@import "../base/form_comum";
+@import "../base/form_tamanhos";
+@import "../base/form_texto";
+@import "../base/form_radio_checkbox";
+@import "../base/form_select";
+@import "../base/form_busca";
+@import "../base/form_data";
+@import "../base/form_botoes";
 
 
 
