@@ -49,6 +49,8 @@ $toaster-usa: sim;
 $form-grupo-usa: sim; // grupos de formulários
 $form-grupo-usa-pre: não; // se cria classes para espaçar os formulários
 $form-usa: sim;
+$botao-usa: sim;
+$botao-status-usa: sim;
 
 
 // =============================================================================
@@ -187,8 +189,21 @@ $toaster-distancia-vertical: 1;
 // =============================================================================
 // Escolha o tipo a ser usado. Valores: pontilhado | linha | caixa
 // -----------------------------------------------------------------------------
-$form-tipo: pontilhado;
+$form-tipo: linha;
 
 // $label-tipo: determina se o label vai ser na mesma linha ou se vai ter quebra
 //   Valores: flutuante | colado
 $label-tipo: colado;
+// $form-radio-check-personaliza: determina se vai usar o radio buttom ou
+// checkbox personalizado ou o padrão do navegador.
+//   Valores: sim | não
+$form-radio-check-personaliza: sim;
+
+// $botao-tipo e $botao-secundario: define o tipo de botão a ser usado se o
+// $botao-secundario for igual ao $botao-tipo ele ficará com outra cor
+//   Valores: simples, simples-1 | claro, claro-1 | escuro, escuro-1
+//   ($botao-secundario aceita "$botao-tipo" como valor)
+$botao-tipo: escuro-1;
+$botao-secundario: $botao-tipo;
+// Define se a sombra do botão vai ser da cor do texto ou se vai ser preta
+$botao-sombra-colorida: sim;

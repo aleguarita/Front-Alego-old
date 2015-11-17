@@ -108,6 +108,14 @@ $temas: (
 			ativo: paleta(basica, xx-escura),
 			fundo: paleta(basica, xx-clara),
 		),
+		botao: (
+			padrao: paleta(secundaria),
+			claro: paleta(secundaria, xx-clara),
+			escuro: paleta(secundaria, escura),
+			secundario: paleta(basica),
+			secundario-claro: paleta(basica, xx-clara),
+			secundario-escuro: paleta(basica, escura),
+		),
 		tabela: (
 			borda: paleta(basica),
 			borda-clara: paleta(basica, clara),

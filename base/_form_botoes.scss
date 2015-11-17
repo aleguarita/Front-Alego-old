@@ -1,0 +1,163 @@
+/*
+================================================================================
+FORMULÁRIO | BOTÕES
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// form_botoes.scss
+// Criado em: 15/01/2015
+// Última alteração em: 13/11/2015
+// -----------------------------------------------------------------------------
+// Definições de botões para formulários
+// ----------------------------------------------------------------------------
+// Changelog
+// 15/01/2015 | Criação do arquivo
+// 13/11/2015 | Arquivo reescrito usando os novos padrões
+// =============================================================================
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
+
+// =============================================================================
+// MIXINS
+// =============================================================================
+@mixin bt-claro($cor) {
+  background: $cor;
+  &:hover {
+    background: tint($cor, 75%);
+  }
+}
+@mixin bt-claro-gradient($cor) {
+  background: linear-gradient(to top, $cor, tint($cor, 50%));
+  &:hover {
+    background: tint($cor, 75%);
+  }
+}
+@mixin bt-escuro-gradient($cor, $cor-escura) {
+  background: linear-gradient(to top, $cor, tint($cor, 25%));
+  &:hover {
+    background: linear-gradient(to bottom, $cor-escura, tint($cor-escura, 25%));
+  }
+}
+// =============================================================================
+// PLACEHOLDERS | BASE
+// =============================================================================
+%bt-base {
+  padding: .5em 1em;
+  color: cor(botao);
+  cursor: pointer;
+  border: 1px solid;
+  font-size: .9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: $transition;
+}
+// =============================================================================
+// PLACEHOLDERS | TIPO SIMPLES
+// =============================================================================
+%bt-simples-base {
+  @extend %bt-base;
+  background: transparent;
+  &:hover {
+    box-shadow: $bt-sombra;
+  }
+}
+%bt-simples {
+  @extend %bt-simples-base;
+  border-color: transparent;
+}
+%bt-simples--secundario {
+  @extend %bt-simples;
+  color: cor(botao, secundario);
+}
+%bt-simples-1 {
+  @extend %bt-simples-base;
+  &:hover {
+    outline: 1px solid;
+  }
+}
+%bt-simples-1--secundario {
+  @extend %bt-simples-1;
+  color: cor(botao, secundario);
+}
+// =============================================================================
+// PLACEHOLDERS | TIPO CLARO
+// =============================================================================
+%bt-claro-base {
+  @extend %bt-base;
+  &:hover {
+    box-shadow: $bt-sombra;
+  }
+}
+%bt-claro {
+  @extend %bt-claro-base;
+  @include bt-claro(cor(botao, claro));
+}
+%bt-claro--secundario {
+  @extend %bt-claro-base;
+  @include bt-claro(cor(botao, secundario-claro));
+  color: cor(botao, secundario-escuro);
+}
+%bt-claro-1 {
+  @extend %bt-claro-base;
+  @include bt-claro-gradient(cor(botao, claro));
+}
+%bt-claro-1--secundario {
+  @extend %bt-claro-base;
+  @include bt-claro-gradient(cor(botao, secundario-claro));
+  color: cor(botao, secundario-escuro);
+}
+// =============================================================================
+// PLACEHOLDERS | TIPO ESCURO
+// =============================================================================
+%bt-escuro-base {
+  @extend %bt-base;
+  color: cor(texto, claro);
+}
+%bt-escuro {
+  @extend %bt-escuro-base;
+  background: cor(botao);
+  &:hover {
+    background: cor(botao, escuro);
+  }
+}
+%bt-escuro--secundario {
+  @extend %bt-escuro-base;
+  background: cor(botao, secundario);
+  &:hover {
+    background: cor(botao, secundario-escuro);
+  }
+}
+%bt-escuro-1 {
+  @extend %bt-escuro-base;
+  @include bt-escuro-gradient(cor(botao), cor(botao, escuro));
+  border-color: cor(botao, escuro);
+  text-shadow: $sombra-texto-relevo;
+}
+%bt-escuro-1--secundario {
+  @extend %bt-escuro-base;
+  @include bt-escuro-gradient(cor(botao, secundario), cor(botao, secundario-escuro));
+  border-color: cor(botao, secundario-escuro);
+  text-shadow: $sombra-texto-relevo;
+}
+// =============================================================================
+// CLASSE
+// =============================================================================
+@if $botao-usa == "sim" {
+  .bt {
+    @extend %bt-#{$botao-tipo}
+  }
+  .bt--secundario {
+    @if $botao-tipo == $botao-secundario {
+      @extend %bt-#{$botao-secundario}--secundario;
+    } @else {
+      @extend %bt-#{$botao-secundario};
+    }
+  }
+}

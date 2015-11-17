@@ -30,6 +30,7 @@ $sombra-modal: 0 0 40px fade-out(cor(fundo, sombra), .9);
 $sombra-toaster: 0 0 20px fade-out(cor(fundo, sombra), .8);
 $sombra-botao: 0 0 6px fade-out(paleta-padrao(cinza-70), .5);
 $sombra-texto: 1px 1px 0 fade-out(cor(fundo, sombra), .9);
+$sombra-texto-relevo: 0 -1px 0 fade-out(cor(texto), .35);
 
 //	Bordas
 $borda-nenhuma: none;
