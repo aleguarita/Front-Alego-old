@@ -50,8 +50,7 @@ $form-grupo-usa: sim; // grupos de formulários
 $form-grupo-usa-pre: não; // se cria classes para espaçar os formulários
 $form-usa: sim;
 $botao-usa: sim;
-$botao-status-usa: sim;
-
+$botao-secundario-usa: sim;
 
 // =============================================================================
 // TEMA DE CORES
@@ -203,7 +202,14 @@ $form-radio-check-personaliza: sim;
 // $botao-secundario for igual ao $botao-tipo ele ficará com outra cor
 //   Valores: simples, simples-1 | claro, claro-1 | escuro, escuro-1
 //   ($botao-secundario aceita "$botao-tipo" como valor)
-$botao-tipo: escuro-1;
+$botao-tipo: escuro;
 $botao-secundario: $botao-tipo;
 // Define se a sombra do botão vai ser da cor do texto ou se vai ser preta
 $botao-sombra-colorida: sim;
+// Define as classes adicionais de botão que são criadas. Ela segue o mesmo
+// padrão de $botao-secundario. COMENTE os que não for usar.
+$botoes-status: (
+  urgente,
+  ok,
+  aviso,
+);
