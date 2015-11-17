@@ -26,6 +26,7 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 //              Ajuste no responsive
 //              Nome alterado para form_tamanhos
 // 17/11/2015 | Utilizada nova forma chamar as classes
+//              Transferidos elementos direto para as classes de formulário
 // =============================================================================
 
 // =============================================================================
@@ -47,10 +48,6 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
   @include flex-wrap;
   width: 100%;
   margin-bottom: 1em;
-  #{$campos-texto},
-  select {
-    @include flex(1);
-  }
 }
 // CONTAINER CORRIDO
 // -----------------------------------------------------------------------------
@@ -100,7 +97,6 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 // OBJETO COMUM AOS FIELDS
 // -----------------------------------------------------------------------------
 %field {
-  @extend %flex;
   padding: 0 ($calha / 2) $calha;
 }
 

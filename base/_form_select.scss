@@ -19,13 +19,14 @@ FORMULÁRIOS | SELECT
 // Changelog
 // 12/11/2015 | Criação do arquivo
 // 17/11/2015 | Utilizada nova forma chamar as classes
+//              Incluído elementos "flex" que estavam em "form_tamanhos"
 // =============================================================================
 
 // =============================================================================
 // PLACEHOLDERS | CONTAINER
 // =============================================================================
 %form-select--basico {
-  @extend %form-base;
+  @extend %form-base--flex;
   select {
     @include appearance(none);
     background: cor(fundo, x-claro);

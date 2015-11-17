@@ -69,6 +69,14 @@
 @import "simbolos";
 @import "tipografia";
 
+// Formatação de formulários
+@import "../base/form_comum";
+@import "../base/form_tamanhos";
+@import "../base/form_texto";
+@import "../base/form_radio_checkbox";
+@import "../base/form_select";
+@import "../base/form_botoes";
+
 // Formatação de objetos
 @import "../base/tabelas";
 @import "../base/paginacao";
@@ -77,16 +85,6 @@
 @import "../base/toaster";
 @import "../base/modal";
 
-// Formatação de formulários
-@import "../base/form_comum";
-@import "../base/form_tamanhos";
-@import "../base/form_texto";
-@import "../base/form_radio_checkbox";
-@import "../base/form_select";
-@import "../base/form_busca";
-@import "../base/form_data";
-@import "../base/form_botoes";
-
 
 
 // Formatação básica
@@ -94,7 +92,6 @@
 // formatações
 // @import "objetos/animacoes";
 // @import "objetos/formularios";
-// @import "objetos/botoes";
 // @import "objetos/autocomplete";
 /*
 ADICIONAR ABRIR E FECHAR BLOCOS DE SEÇÕES AO ESTILO DO SGU. USAR O RESERVA DE

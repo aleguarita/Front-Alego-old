@@ -19,6 +19,7 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // Changelog
 // 11/11/2015 | Criado o arquivo
 // 17/11/2015 | Utilizada nova forma chamar as classes
+//              Incluído elementos "flex" que estavam em "form_tamanhos"
 // =============================================================================
 
 // =============================================================================
@@ -31,9 +32,16 @@ $borda-form: 1px cor(formulario);
 // PLACEHOLDERS
 // =============================================================================
 %form-base {
+  @extend %flex;
   font-size: $tamanho-fonte-form;
   min-height: 2.25rem;
   position: relative;
+}
+%form-base--flex {
+  @extend %form-base;
+  input, select {
+    @include flex(1);
+  }
 }
 %form__caixa-texto {
   @include appearance(none);

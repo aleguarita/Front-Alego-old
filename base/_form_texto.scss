@@ -16,6 +16,8 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
+// Inputs similares ao de texto também fazem uso dessa classe (exemplos:
+// data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
 // 09/11/2015 | Criação do arquivo
@@ -23,13 +25,15 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 //              placeholder/mixin, criei uma classe própria pra melhorar a
 //              performance do CSS final)
 // 17/11/2015 | Utilizada nova forma chamar as classes
+//              Agrupados arquivos similares como o de data e busca)
+//              Incluído elementos "flex" que estavam em "form_tamanhos"
 // =============================================================================
 
 // =============================================================================
 // PLACEHOLDERS | CONTAINER
 // =============================================================================
 %form-texto--basico {
-  @extend %form-base;
+  @extend %form-base--flex;
 }
 
 // =============================================================================
@@ -134,6 +138,9 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
     @extend %form-texto--#{$form-tipo};
     @extend %form-texto__label--#{$label-tipo};
     @extend %form-texto__input;
+  }
+  .form__ico {
+    @extend %form__botao-colado;
   }
   .form-texto--label-inverso {
     /* pensar num nome melhor */
