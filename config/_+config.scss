@@ -16,6 +16,32 @@
 // =============================================================================
 
 // =============================================================================
+// USO DE CLASSES
+// -----------------------------------------------------------------------------
+// Define se vai criar algumas classes. Caso não vá usar alguma função comente
+// o nome dentro do mapa $uso-classes, isso vai fazer com que as classes não
+// apareçam no arquivo CSS compilado, deixando-o mais leve.
+// -----------------------------------------------------------------------------
+// Se você precisa de uma classe personalizada do zero, faça no arquivo com
+// mesmo nome na pasta "extra". Neste caso, mesmo que abaixo esteja comentado,
+// a classe personalizada vai aparecer.
+// =============================================================================
+$uso-classes: (
+  grid-container,
+  tabela,
+  modal,
+  paginacao,
+  card,
+  breadcrumb,
+  toaster,
+  form-field, // grupos de formulários
+  // form-pre, // espaçamento entre formulários
+  form, // formulário
+  botao,
+  botao-secundario,
+);
+
+// =============================================================================
 // MEDIA QUERY | BREAKPOINTS
 // -----------------------------------------------------------------------------
 // Breakpoints utilizando rem. Utilizando na função breakpoint
@@ -27,30 +53,6 @@ $breakpoints: (
 	grande: rem(1024),
 	extra-grande: rem(1200),
 );
-
-// =============================================================================
-// USO DE CLASSES
-// -----------------------------------------------------------------------------
-// Valores: sim | não
-// Define se vai criar algumas classes. Ao escolher "não" as classes não vão ser
-// escritas no CSS final, deixando-o mais leve.
-// -----------------------------------------------------------------------------
-// Se você criar uma classe personalizada do zero, fará no arquivo referente na
-// página "extra". Neste caso, mesmo que abaixo apareça "não", sua classe vai
-// aparecer no CSS
-// =============================================================================
-$grid-usa-container: sim;
-$tab-usa: sim;
-$modal-usa: sim;
-$paginacao-usa: sim;
-$card-usa: sim;
-$breadcrumbs-usa: sim;
-$toaster-usa: sim;
-$form-grupo-usa: sim; // grupos de formulários
-$form-grupo-usa-pre: não; // se cria classes para espaçar os formulários
-$form-usa: sim;
-$botao-usa: sim;
-$botao-secundario-usa: sim;
 
 // =============================================================================
 // TEMA DE CORES

@@ -1,8 +1,10 @@
+@if index($uso-classes, form) {
 /*
 ================================================================================
 FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 ================================================================================
 */
+}
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -10,6 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
+// Última alteração em: 17/11/2015
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -19,6 +22,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // 10/11/2015 | Alterada forma de pensar. Ao invés de ser "automático" (com
 //              placeholder/mixin, criei uma classe própria pra melhorar a
 //              performance do CSS final)
+// 17/11/2015 | Utilizada nova forma chamar as classes
 // =============================================================================
 
 // =============================================================================
@@ -124,7 +128,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // =============================================================================
 // CLASSES
 // =============================================================================
-@if $form-usa == "sim" {
+@if index($uso-classes, form) {
   .form-texto {
     @extend %form-texto--basico;
     @extend %form-texto--#{$form-tipo};

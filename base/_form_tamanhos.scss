@@ -1,8 +1,10 @@
+@if index($uso-classes, form-field) {
 /*
 ================================================================================
 FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 ================================================================================
 */
+}
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -10,7 +12,7 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 // -----------------------------------------------------------------------------
 // form_tamanhos.scss
 // Criado em: 20/01/2015
-// Última alteração: 09/11/2015
+// Última alteração: 17/11/2015
 // -----------------------------------------------------------------------------
 // Este arquivo cria grupos de formulários para definições de tamanhos.
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
@@ -22,6 +24,8 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 // 14/09/2015 | Transformado o arquivo em form_grupo.scss
 // 09/11/2015 | Incluída opção de não criar as classes (através de config.scss)
 //              Ajuste no responsive
+//              Nome alterado para form_tamanhos
+// 17/11/2015 | Utilizada nova forma chamar as classes
 // =============================================================================
 
 // =============================================================================
@@ -54,7 +58,7 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 // Mantém o código de HTML mais simples pois usa apenas um container para
 // todos os elementos filhos
 // -----------------------------------------------------------------------------
-@if $form-grupo-usa == "sim" {
+@if index($uso-classes, form-field) {
   .form-container {
     @extend %form-container-basico;
     @include flex-wrap;
@@ -68,7 +72,7 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 // Aumenta a complexidade do HTML pois acrescenta muitos grupos de containers
 // porém possibilita ter elementos filhos que se ajustam automaticamente
 // -----------------------------------------------------------------------------
-@if $form-grupo-usa == "sim" {
+@if index($uso-classes, form-field) {
   .form-container--linha {
     @extend %form-container-basico;
     & + & {
@@ -109,7 +113,7 @@ $i: 1;
 $max: 12;
 $medida: 100% / $max;
 
-@if $form-grupo-usa == "sim" {
+@if index($uso-classes, form-field) {
   //	Cada um dos fields gerado automaticamente
   @while $i < $max {
     .field-#{$i} {
@@ -138,7 +142,7 @@ $medida: 100% / $max;
 // Gera classes de espaçamento entre as colunas do formulário.
 // -----------------------------------------------------------------------------
 $i: 1;
-@if $form-grupo-usa-pre == "sim" {
+@if index($uso-classes, form-pre) {
   @while $i < $max {
     .pre-#{$i} {
       margin-left: $medida * $i;

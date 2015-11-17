@@ -1,36 +1,37 @@
+@if index($uso-classes, paginacao) {
 /*
 ================================================================================
 PAGINAÇÃO
 ================================================================================
 */
+}
 
-//	============================================================================
-//	Framework da Assembleia Legislativa
-//	Autor: Alessandro Guarita
-//	----------------------------------------------------------------------------
-//	paginacao.scss
-//	Criado em: 07/04/2015
-// 	Última alteração: 20/10/2015
-//	----------------------------------------------------------------------------
-//	Definição da paginação. Formata o tipo padrão gerado pelo Rails.
-//	----------------------------------------------------------------------------
-// 	Changelog
-// 	07/04/2015 | Criação do básico para trabalhar
-// 	21/08/2015 | Colocado dentro do padrão. Usando Flexbox
-// 	20/10/2015 | Inclusão de arquivo separado para o sistema
-// 							 Configurações básicas transferidas para base/config.scss
-//	============================================================================
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// paginacao.scss
+// Criado em: 07/04/2015
+// Última alteração: 17/11/2015
+// -----------------------------------------------------------------------------
+// Definição da paginação. Formata o tipo padrão gerado pelo Rails.
+// -----------------------------------------------------------------------------
+// Changelog
+// 07/04/2015 | Criação do básico para trabalhar
+// 21/08/2015 | Colocado dentro do padrão. Usando Flexbox
+// 20/10/2015 | Inclusão de arquivo separado para o sistema
+// 						 Configurações básicas transferidas para base/config.scss
+// 17/11/2015 | Utilizada nova forma chamar as classes
+// =============================================================================
 
-//	============================================================================
-// 	VARIÁVEIS
-//	============================================================================
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
 $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 
-//	============================================================================
-// 	PLACEHOLDERS
-//	----------------------------------------------------------------------------
-// 	O tipo a ser usado. Mude na variável $paginacao-tipo, acima
-//	============================================================================
+// =============================================================================
+// PLACEHOLDER | TIPO BÁSICA
+// =============================================================================
 %paginacao--basica {
 	%paginacao-item {
 		border-bottom: 2px solid transparent;
@@ -48,6 +49,9 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	}
 }
 
+// =============================================================================
+// PLACEHOLDER | TIPO BOX
+// =============================================================================
 %paginacao--box {
 	$borda-paginacao: 1px solid cor(paginacao, borda-clara);
 	%paginacao-item {
@@ -82,8 +86,9 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	}
 }
 
-//	Placeholders para sub-elementos.
-//	---------------------------------------------------------------------------
+// =============================================================================
+// PLACEHOLDER | SUBELEMENTOS
+// =============================================================================
 %paginacao-item {
 	color: cor(paginacao, texto);
 	background: lighten(cor(paginacao, fundo-claro), 70%);
@@ -101,10 +106,10 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	@extend %paginacao-navegar;
 }
 
-//	============================================================================
-// 	CLASSES MONTADAS
-//	============================================================================
-@if $paginacao-usa == "sim" {
+// =============================================================================
+// CLASSES MONTADAS
+// =============================================================================
+@if index($uso-classes, paginacao) {
 	.pagination {
 		@extend %paginacao--#{$paginacao-tipo};
 		@extend %flex;
@@ -136,6 +141,4 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 			padding: $paginacao-padding;
 		}
 	}
-} @else {
-	/* Nada para ver aqui, bro */
 }

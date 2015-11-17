@@ -1,8 +1,10 @@
+@if index($uso-classes, grid-container) {
 /*
 ===============================================================================
 GRID
 ===============================================================================
 */
+}
 
 // ============================================================================
 // Framework da Assembleia Legislativa
@@ -10,7 +12,7 @@ GRID
 // ----------------------------------------------------------------------------
 // grid.scss
 // Criado em: 12/01/2015
-// Última alteração: 04/11/2015
+// Última alteração: 11/11/2015
 // ----------------------------------------------------------------------------
 // Este arquivo cria o sistema de grid, com uso de Flex-box
 // As configurações devem ficar no início do documento (editando as variáveis)
@@ -19,12 +21,13 @@ GRID
 // 12/01/2015 | Grid com sistema de float e utilizando mixin
 // 03/07/2015 | Flexbox
 // 19/08/2015 | Alterada a ordem dos elementos pra facilitar configurações
-// 20/10/2015 | Configurações básicas transferidas para base/config.scss
+// 20/10/2015 | Configurações básicas transferidas para /config.scss
 // 04/11/2015 | Alterado sistema de gutter usando o método "coruja lobotomizada"
 //              (* + *).
 //              Correções de erros (container de gutter/calha não colocava a
 //              margem, .container--calha não replicava tudo de
 //              .container--gutter)
+// 17/11/2015 | Utilizada nova forma chamar as classes
 // ============================================================================
 
 // ============================================================================
@@ -71,7 +74,7 @@ $grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
   margin: auto;
   max-width: $grid-max;
 }
-@if $grid-usa-container == "sim" {
+@if index($uso-classes, grid-container) {
   .container {
     @extend %container-basico;
   }
@@ -82,8 +85,6 @@ $grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
       margin-left: $grid-margem-porcento;
     }
   }
-} @else {
-  /* GRID, SQN */
 }
 // ============================================================================
 // GRIDS

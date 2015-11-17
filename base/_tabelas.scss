@@ -4,35 +4,36 @@ TABELAS
 ================================================================================
 */
 
-//	============================================================================
-//	Framework da Assembleia Legislativa
-//	Autor: Alessandro Guarita
-//	----------------------------------------------------------------------------
-//	tabelas.scss
-//	Criado em: 05/02/2015
-//	Última alteração: 04/11/2015
-//	----------------------------------------------------------------------------
-//	Definições padrão das tabelas e classes modelo
-//	----------------------------------------------------------------------------
-//	Changelog
-//	05/02/2015 | Criada a base do arquivo
-//	15/09/2015 | Alterações estruturais, acréscimos de classes,
-// 							 placeholder para a largura da coluna, uso de variáveis para
-// 							 definições. Uso de uma classe de tabela, além de extensões
-// 	15/10/2015 | Definição de link em bloco
-// 	16/10/2015 | Ajustes na tabela de formulário
-//  20/10/2015 | Inclusão de tabelas do sistema
-// 							 Configurações básicas transferidas para base/config.scss
-//  21/10/2015 | Adequado ao esquema de temas
-// 	04/11/2015 | Adaptado para o uso de BEM.
-// 							 .tab-col--nome passou a ser apenas .col--nome
-//	============================================================================
-
-//	============================================================================
-// 	DEFINIÇÕES PADRÃO DE TABELA
-//	----------------------------------------------------------------------------
-// 	Definições básicas
-//	============================================================================
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// tabelas.scss
+// Criado em: 05/02/2015
+// Última alteração: 17/11/2015
+// -----------------------------------------------------------------------------
+// Definições padrão das tabelas e classes modelo
+// -----------------------------------------------------------------------------
+// Changelog
+// 05/02/2015 | Criada a base do arquivo
+// 15/09/2015 | Alterações estruturais, acréscimos de classes,
+// 						 placeholder para a largura da coluna, uso de variáveis para
+// 						 definições. Uso de uma classe de tabela, além de extensões
+// 15/10/2015 | Definição de link em bloco
+// 16/10/2015 | Ajustes na tabela de formulário
+// 20/10/2015 | Inclusão de tabelas do sistema
+// 						 Configurações básicas transferidas para base/config.scss
+// 21/10/2015 | Adequado ao esquema de temas
+// 04/11/2015 | Adaptado para o uso de BEM.
+// 						 .tab-col--nome passou a ser apenas .col--nome
+// 17/11/2015 | Utilizada nova forma chamar as classes
+// =============================================================================
+//
+// =============================================================================
+// DEFINIÇÕES PADRÃO DE TABELA
+// -----------------------------------------------------------------------------
+// Definições básicas
+// =============================================================================
 
 table {
 	width: 100%;
@@ -58,9 +59,9 @@ td {
 	font-size: em(12, 14);
 }
 
-//  ============================================================================
-//	PLACEHOLDER PARA FORMATAR AS TABELAS
-//  ============================================================================
+// =============================================================================
+// PLACEHOLDER | BÁSICO
+// =============================================================================
 %tab--zebra {
 	tbody tr:nth-child(even) {
 		background: cor(tabela, fundo);
@@ -100,9 +101,9 @@ td {
 	}
 }
 
-//  ============================================================================
-//	TIPOS DE TABELA
-//  ============================================================================
+// =============================================================================
+// PLACEHOLDERS | TIPOS DE TABELA
+// =============================================================================
 %tab-pontilhada {
 	border-bottom: 2px solid cor(tabela, borda);
 	thead tr {
@@ -137,10 +138,10 @@ td {
 	}
 }
 
-//  ============================================================================
-//	CLASSES MONTADAS
-//  ============================================================================
-@if $tab-usa == "sim" {
+// =============================================================================
+// CLASSES MONTADAS
+// =============================================================================
+@if index($uso-classes, tabela) {
 	.tab {
 		@extend %tab-#{$tab-escolhida};
 		@if $tab--zebra == "sim" {
@@ -155,12 +156,12 @@ td {
 	}
 }
 
-//  ============================================================================
-//	CLASSES INTERNAS
-//  ============================================================================
-//	Placeholders
-//	----------------------------------------------------------------------------
-@if $tab-usa == "sim" {
+// =============================================================================
+// CLASSES INTERNAS
+// =============================================================================
+// Placeholders
+// -----------------------------------------------------------------------------
+@if index($uso-classes, tabela) {
 	//	Ícone de ações em bloco ou não (uso de $tab-acao-link-bloco)
 	@if $tab-acao-link-bloco == sim {
 		%tab-acoes-icone {
@@ -213,13 +214,13 @@ td {
 	}
 }
 
-//  ============================================================================
-//	TAMANHOS DE COLUNAS
-//	----------------------------------------------------------------------------
-//	A função a seguir cria uma série de extends para usar com largura de
-// 	colunas. Crie os nomes de classes com a base .tab-col--[nome-classe],
-// 	exemplo: .tab-col--usuario
-//  ============================================================================
+// =============================================================================
+// TAMANHOS DE COLUNAS
+// -----------------------------------------------------------------------------
+// A função a seguir cria uma série de extends para usar com largura de
+// colunas. Crie os nomes de classes com a base .tab-col--[nome-classe],
+// exemplo: .tab-col--usuario
+// =============================================================================
 $tab-col--inicial: 10;
 $tab-col--incremento: 1;
 $i: $tab-col--inicial;

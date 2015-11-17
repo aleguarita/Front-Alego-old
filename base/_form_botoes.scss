@@ -1,8 +1,10 @@
+@if index($uso-classes, botao) {
 /*
 ================================================================================
 FORMULÁRIO | BOTÕES
 ================================================================================
 */
+}
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -18,6 +20,7 @@ FORMULÁRIO | BOTÕES
 // 15/01/2015 | Criação do arquivo
 // 13/11/2015 | Arquivo reescrito usando os novos padrões
 // 17/11/2015 | Botões de status
+//              Utilizada nova forma chamar as classes
 // =============================================================================
 
 // =============================================================================
@@ -203,11 +206,16 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 // =============================================================================
 // CLASSE
 // =============================================================================
-@if $botao-usa == "sim" {
+@if index($uso-classes, botao) {
   .bt {
     @extend %bt-#{$botao-tipo}
   }
-  @if $botao-secundario-usa == "sim" {
+  @each $status in $botoes-status {
+    .bt--#{$status} {
+      @extend %bt-#{$botao-secundario}--#{$status};
+    }
+  }
+  @if index($uso-classes, botao-secundario) {
     .bt--secundario {
       @if $botao-tipo == $botao-secundario {
         @extend %bt-#{$botao-secundario}--secundario;
@@ -215,10 +223,5 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
         @extend %bt-#{$botao-secundario};
       }
     }
-  }
-}
-@each $status in $botoes-status {
-  .bt--#{$status} {
-    @extend %bt-#{$botao-secundario}--#{$status};
   }
 }

@@ -1,8 +1,10 @@
+@if index($uso-classes, card) {
 /*
 ================================================================================
-CARDS
+CARD
 ================================================================================
 */
+}
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -10,7 +12,7 @@ CARDS
 // -----------------------------------------------------------------------------
 // cards.scss
 // Criado em: 23/10/2015
-// Última alteração: 03/11/2015
+// Última alteração: 17/11/2015
 // -----------------------------------------------------------------------------
 // Definições padrão de cards e classes modelo
 // ATENÇÃO: aqui tem a configuração APENAS do card e não do grupo do elemento
@@ -20,6 +22,7 @@ CARDS
 // Changelog
 // 23/10/2015 | Criado o arquivo
 // 03/11/2015 | Classes para os sub-itens. Usando BEM
+// 17/11/2015 | Utilizada nova forma chamar as classes
 // =============================================================================
 
 // =============================================================================
@@ -109,7 +112,7 @@ $card-sub: (
 // =============================================================================
 // CLASSES | .card montado
 // =============================================================================
-@if $card-usa == "sim" {
+@if index($uso-classes, card) {
   .card {
     @extend %card--#{$card-tipo};
     @each $item in $card-sub {
@@ -128,7 +131,7 @@ $card-sub: (
 // caixa escura.
 // dentro dele deve ter um <strong> para o destaque e um <span> para o texto
 // -----------------------------------------------------------------------------
-@if $card-usa == "sim" {
+@if index($uso-classes, card) {
   .card__item--destaque {
     @extend .card__item;
     padding: 0;
