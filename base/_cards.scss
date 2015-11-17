@@ -60,7 +60,7 @@ $card-sub: (
     h1 { font-size: modular-scale(3, $modular-font-size); }
   }
   &__imagem {
-      line-height: 0;
+    line-height: 0;
   }
   &__principal { // use no main
     @include flex(1);
@@ -72,8 +72,11 @@ $card-sub: (
   }
   &__footer {
     @extend %flex;
-    * + * {
-      margin-left: .5em;
+    * {
+      @include flex(1);
+      + * {
+        margin-left: .5em;
+      }
     }
   }
 }
