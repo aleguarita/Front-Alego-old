@@ -27,18 +27,19 @@
 // a classe personalizada vai aparecer.
 // =============================================================================
 $uso-classes: (
-  grid-container,
-  tabela,
-  modal,
-  paginacao,
-  card,
-  breadcrumb,
-  toaster,
   form-field, // grupos de formulários
   // form-pre, // espaçamento entre formulários
   form, // formulário
   botao,
   botao-secundario,
+  autocomplete,
+  grid-container,
+  tabela,
+  card,
+  modal,
+  paginacao,
+  breadcrumb,
+  toaster,
 );
 
 // =============================================================================
