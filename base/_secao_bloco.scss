@@ -1,0 +1,129 @@
+@if index($uso-classes, secao-bloco) {
+/*
+================================================================================
+SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// form_radio_check.scss
+// Criado em: 18/11/2015
+// -----------------------------------------------------------------------------
+// Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
+// com uma seta indicativa.
+// Não faz uso de javascript e sim de label para funcionar.
+// Se estiver checado, não exibe conteúdo.
+// -----------------------------------------------------------------------------
+// Changelog
+// 18/11/2015 | Criação do arquivo
+// =============================================================================
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+
+// =============================================================================
+// PLACEHOLDER | BÁSICO
+// =============================================================================
+%secao-bloco {
+  border: 1px solid cor(secao-bloco);
+  &__header {
+    padding: $margem/2 $margem;
+    font-size: modular-scale($secao-bloco-titulo, $modular-font-size);
+    font-family: $fonte-serifa;
+    label {
+      @extend %flex;
+      cursor: pointer;
+    }
+  }
+  &__titulo {
+    @include flex(1);
+  }
+  &__icone {
+    @extend %icone;
+    display: block;
+    &::before {
+      content: "\f107";
+    }
+  }
+  &__conteudo {
+    padding: $margem;
+  }
+  & + & {
+    margin-top: 1px;
+  }
+}
+// =============================================================================
+// PLACEHOLDER | FUNÇÃO DE ABRIR E FECHAR
+// =============================================================================
+%secao-bloco__check {
+  display: none;
+  &:checked ~  {
+    .secao-bloco__header .secao-bloco__icone {
+      transform: rotate(-90deg);
+    }
+    .secao-bloco__conteudo {
+      display: none;
+    }
+  }
+}
+
+// =============================================================================
+// PLACEHOLDER | TIPOS
+// =============================================================================
+%secao-bloco--escuro {
+  @extend %secao-bloco !optional;
+  &__header {
+    @extend %secao-bloco__header !optional;
+    background: cor(secao-bloco);
+    color: cor(texto, claro);
+  }
+  &__icone {
+    @extend %secao-bloco__icone !optional;
+  }
+  &__conteudo {
+    @extend %secao-bloco__conteudo !optional;
+  }
+}
+%secao-bloco--claro {
+  @extend %secao-bloco !optional;
+  &__header {
+    @extend %secao-bloco__header !optional;
+  }
+  &__icone {
+    @extend %secao-bloco__icone !optional;
+  }
+  &__conteudo {
+    @extend %secao-bloco__conteudo !optional;
+  }
+}
+// =============================================================================
+// CLASSE MONTADA
+// =============================================================================
+@if index($uso-classes, secao-bloco) {
+  .secao-bloco {
+    @extend %secao-bloco--#{$secao-bloco-tipo} !optional;
+    &__header {
+      @extend %secao-bloco--#{$secao-bloco-tipo}__header !optional;
+      background: cor(secao-bloco, clara);
+      color: cor(secao-bloco);
+    }
+    &__titulo {
+      @extend %secao-bloco__titulo;
+    }
+    &__icone {
+      @extend %secao-bloco--#{$secao-bloco-tipo}__icone !optional;
+    }
+    &__conteudo {
+      @extend %secao-bloco--#{$secao-bloco-tipo}__conteudo !optional;
+      border-top: 1px dashed cor(secao-bloco);
+    }
+  }
+  .secao-bloco__check {
+    @extend %secao-bloco__check;
+  }
+}

@@ -40,6 +40,7 @@ $uso-classes: (
   paginacao,
   breadcrumb,
   toaster,
+  secao-bloco,
 );
 
 // =============================================================================
@@ -217,3 +218,13 @@ $botoes-status: (
   ok,
   aviso,
 );
+
+// =============================================================================
+// SEÇÃO BLOCO
+// =============================================================================
+// Escolha o tipo a ser usado. Valores: escuro | claro
+// -----------------------------------------------------------------------------
+$secao-bloco-tipo: claro; // escuro | claro
+
+// Determina o tamanho do título utilizando proporção áurea;
+$secao-bloco-titulo: 3;
