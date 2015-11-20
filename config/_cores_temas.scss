@@ -45,16 +45,13 @@
 // =============================================================================
 $temas: (
 	principal: (
+		//elementos genéricos
 		texto: (
 			padrao: paleta-padrao(preto),
 			claro: paleta-padrao(branco),
 			medio: paleta-padrao(cinza-50),
 			destaque: paleta(secundaria),
 			titulo: paleta(secundaria),
-			label: paleta-padrao(preto),
-			label-variante: paleta(secundaria),
-			input: paleta-padrao(preto),
-			placeholder: paleta(basica, x-clara),
 		),
 		fundo: (
 			padrao: paleta(basica),
@@ -67,6 +64,7 @@ $temas: (
 			padrao: paleta(basica),
 			variante: paleta(secundaria),
 		),
+		//elementos específicos
 		link: (
 			padrao: paleta(basica),
 			hover: paleta(basica, clara),
@@ -122,6 +120,11 @@ $temas: (
 		secao-bloco: (
 			padrao: paleta(basica, escura),
 			clara: paleta(basica, xx-clara),
+		),
+		lista: (
+			padrao: paleta(basica),
+			clara: paleta(basica, xx-clara),
+			escura: paleta(basica, x-escura),
 		),
 	),
 	monocromatico: (),

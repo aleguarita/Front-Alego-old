@@ -35,8 +35,9 @@ $uso-classes: (
   autocomplete,
   grid-container,
   tabela,
-  card,
   modal,
+  card,
+  lista,
   paginacao,
   breadcrumb,
   toaster,
@@ -104,7 +105,7 @@ $grid: (
 // =============================================================================
 // Escolhe o tipo de tabela a ser usada. Valores: pontilhada | linha
 // -----------------------------------------------------------------------------
-$tab-escolhida: pontilhada;
+$tab-tipo: pontilhada;
 
 //	Define as variações. Valores: sim | não
 //	$tab--zebra: define se a tabela é zebrada ou não
@@ -228,3 +229,11 @@ $secao-bloco-tipo: claro; // escuro | claro
 
 // Determina o tamanho do título utilizando proporção áurea;
 $secao-bloco-titulo: 3;
+// =============================================================================
+// LISTA
+// =============================================================================
+// Escolha o tipo a ser usado. Valores: pontilhada | linha
+// -----------------------------------------------------------------------------
+$lista-tipo: linha;
+$lista--zebra: não;
+$lista--sombra: não;

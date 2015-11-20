@@ -1,0 +1,92 @@
+@if index($uso-classes, lista) {
+/*
+================================================================================
+LISTA
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// form_input_texto.scss
+// Criado em: 20/11/2015
+// -----------------------------------------------------------------------------
+// Formata caixas de listas
+// ----------------------------------------------------------------------------
+// Changelog
+// 20/11/2015 | Criação do arquivo
+// =============================================================================
+
+// =============================================================================
+// PLACEHOLDER | BÁSICO
+// =============================================================================
+%lista-basico {
+  @extend %lista-sem-marcador;
+  @if $lista--sombra == "sim" {
+    box-shadow: $sombra-card;
+  }
+  li {
+    padding: .5rem .75rem;
+    background: cor(fundo, x-clara);
+    @if $lista--zebra == "sim" {
+      &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
+    }
+  }
+}
+%lista__titulo {
+  font-family: $fonte-serifa;
+  font-size: 1.6em;
+}
+
+// =============================================================================
+// PLACEHOLDER | TIPOS
+// =============================================================================
+%lista--linha {
+  @extend %lista-basico;
+  border: 1px solid cor(lista);
+  li {
+    border-bottom: 1px solid cor(lista);
+    &:last-child {
+      border-bottom-width: 0;
+    }
+  }
+  &__titulo {
+    @extend %lista__titulo;
+    background: cor(lista, escura);
+    color: cor(texto, claro);
+  }
+}
+%lista--pontilhada {
+  @extend %lista-basico;
+  li {
+    &:not(.lista__titulo) {
+      border-color: cor(lista);
+      border-width: 1px 2px;
+      border-style: dotted solid;
+    }
+    &:last-child {
+      border-bottom: 2px solid cor(lista);
+    }
+    &:nth-child(2) {
+      border-top-width: 0;
+    }
+  }
+  &__titulo {
+    @extend %lista__titulo;
+    border-bottom: 2px solid cor(lista);
+    color: cor(lista, escura);
+  }
+}
+// =============================================================================
+// CLASSE MONTADA
+// =============================================================================
+@if index($uso-classes, lista) {
+  .lista {
+    @extend %lista--#{$lista-tipo};
+  }
+}
+.lista__titulo {
+  @extend %lista--#{$lista-tipo}__titulo;
+}
