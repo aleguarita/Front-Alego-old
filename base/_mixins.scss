@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 06/11/2015
+// Última alteração: 20/11/2015
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -29,6 +29,7 @@
 // 21/10/2015 | Acrescentado mixin de texto selecionado
 // 23/10/2015 | Acrescentado mixin de grupo flex
 // 06/11/2015 | Alteração no mixin de centralizar caixa
+// 20/11/2015 | Inclusão do mixin de ocultar lista
 // =============================================================================
 //
 // =============================================================================
@@ -288,4 +289,22 @@
 		background-color: $fundo;
 		color: $texto;
 	}
+}
+
+// =============================================================================
+// LISTA OCULTA
+// -----------------------------------------------------------------------------
+// Para fazer listas que abrem e fecham, mas ainda exibem o título. O HTML deve
+// incluir um checkbox no mesmo nível hierárquico do conteúdo que será ocultado.
+// O conteúdo deve aparecer depois.
+// Este mixin deverá ser incluído dentro do seletor do checkbox.
+// -----------------------------------------------------------------------------
+// $conteudo: o nome da classe (sem o ponto) que será usada para o conteúdo.
+// =============================================================================
+@mixin lista-oculta($conteudo) {
+  display: none;
+  &:checked ~ .#{$conteudo} {
+    display: none;
+    outline: 1px solid red;
+  }
 }

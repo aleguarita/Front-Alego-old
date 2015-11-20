@@ -12,6 +12,7 @@ SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 18/11/2015
+// Última alteração: 20/11/2015
 // -----------------------------------------------------------------------------
 // Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
 // com uma seta indicativa.
@@ -20,11 +21,9 @@ SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
 // -----------------------------------------------------------------------------
 // Changelog
 // 18/11/2015 | Criação do arquivo
+// 20/11/2015 | Inclusão de mixin para fazer o abre e fecha
 // =============================================================================
 
-// =============================================================================
-// VARIÁVEIS
-// =============================================================================
 
 // =============================================================================
 // PLACEHOLDER | BÁSICO
@@ -61,13 +60,10 @@ SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
 // PLACEHOLDER | FUNÇÃO DE ABRIR E FECHAR
 // =============================================================================
 %secao-bloco__check {
-  display: none;
+  @include lista-oculta(secao-bloco__conteudo);
   &:checked ~  {
     .secao-bloco__header .secao-bloco__icone {
       transform: rotate(-90deg);
-    }
-    .secao-bloco__conteudo {
-      display: none;
     }
   }
 }
