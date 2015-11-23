@@ -12,7 +12,7 @@ TOASTER
 // -----------------------------------------------------------------------------
 // toaster.scss
 // Criado em: 20/03/2015
-// Última alteração em: 17/11/2015
+// Última alteração em: 23/11/2015
 // -----------------------------------------------------------------------------
 // Notificações do sistema. Aparecendo de baixo.
 // -----------------------------------------------------------------------------
@@ -22,6 +22,8 @@ TOASTER
 // 						  Opção de escolha entre dois modelos.
 // 05/11/2015 | Incluído fundo branco no toaster de linha
 // 17/11/2015 | Utilizada nova forma chamar as classes
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
 // =============================================================================
 
 // =============================================================================
@@ -75,7 +77,7 @@ $tipos-toaster: (
 	}
 }
 
-%toaster--fundo {
+%toaster--tipo-1 {
 	@extend %toaster;
 	li {
 		color: cor(texto, claro);
@@ -85,7 +87,7 @@ $tipos-toaster: (
 		border: 0;
 	}
 }
-%toaster--linha {
+%toaster--tipo-2 {
 	@extend %toaster;
 	li {
 		border: 3px solid;

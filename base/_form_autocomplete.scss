@@ -11,11 +11,14 @@ FORMULÁRIOS | AUTOCOMPLETE
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 17/11/2015
+// Última alteração em: 23/11/2015
 // -----------------------------------------------------------------------------
 //	Definições padrão do autocomplete (elemento RAILS/jquery-ui)
 // ----------------------------------------------------------------------------
 // Changelog
 // 17/11/2015 | Criação do arquivo
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
 // =============================================================================
 
 // =============================================================================
@@ -46,7 +49,7 @@ FORMULÁRIOS | AUTOCOMPLETE
 // =============================================================================
 // PLACEHOLDER | TIPOS
 // =============================================================================
-%autocomplete--pontilhado {
+%autocomplete--tipo-1 {
   @include autocomplete-base;
   border-bottom: 1px dotted cor(formulario);
   li {
@@ -54,7 +57,7 @@ FORMULÁRIOS | AUTOCOMPLETE
     border-bottom: 1px dotted tint(cor(formulario, placeholder), 20%);
   }
 }
-%autocomplete--linha {
+%autocomplete--tipo-2 {
   @include autocomplete-base;
   border-bottom: 1px solid cor(formulario);
   li {
@@ -62,7 +65,7 @@ FORMULÁRIOS | AUTOCOMPLETE
     border-bottom: 1px solid tint(cor(formulario, placeholder), 20%);
   }
 }
-%autocomplete--caixa {
+%autocomplete--tipo-3 {
   @include autocomplete-base;
   border: 1px solid cor(formulario);
   border-top-width: 0;

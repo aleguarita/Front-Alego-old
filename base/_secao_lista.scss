@@ -1,7 +1,7 @@
-@if index($uso-classes, secao-bloco) {
+@if index($uso-classes, secao-lista) {
 /*
 ================================================================================
-SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
+SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 ================================================================================
 */
 }
@@ -12,7 +12,7 @@ SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 18/11/2015
-// Última alteração: 20/11/2015
+// Última alteração: 23/11/2015
 // -----------------------------------------------------------------------------
 // Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
 // com uma seta indicativa.
@@ -22,17 +22,20 @@ SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
 // Changelog
 // 18/11/2015 | Criação do arquivo
 // 20/11/2015 | Inclusão de mixin para fazer o abre e fecha
+// 23/11/2015 | Mudado nomes de secao-bloco para secao-lista
+//              Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
 // =============================================================================
 
 
 // =============================================================================
 // PLACEHOLDER | BÁSICO
 // =============================================================================
-%secao-bloco {
-  border: 1px solid cor(secao-bloco);
+%secao-lista {
+  border: 1px solid cor(secao-lista);
   &__header {
     padding: $margem/2 $margem;
-    font-size: modular-scale($secao-bloco-titulo, $modular-font-size);
+    font-size: modular-scale($secao-lista-titulo, $modular-font-size);
     font-family: $fonte-serifa;
     label {
       @extend %flex;
@@ -59,10 +62,10 @@ SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
 // =============================================================================
 // PLACEHOLDER | FUNÇÃO DE ABRIR E FECHAR
 // =============================================================================
-%secao-bloco__check {
-  @include lista-oculta(secao-bloco__conteudo);
+%secao-lista__check {
+  @include lista-oculta(secao-lista__conteudo);
   &:checked ~  {
-    .secao-bloco__header .secao-bloco__icone {
+    .secao-lista__header .secao-lista__icone {
       transform: rotate(-90deg);
     }
   }
@@ -71,55 +74,55 @@ SEÇÃO BLOCO | Exibe e oculta conteúdo, mostrando título
 // =============================================================================
 // PLACEHOLDER | TIPOS
 // =============================================================================
-%secao-bloco--escuro {
-  @extend %secao-bloco !optional;
+%secao-lista--tipo-1 {
+  @extend %secao-lista !optional;
   &__header {
-    @extend %secao-bloco__header !optional;
-    background: cor(secao-bloco);
+    @extend %secao-lista__header !optional;
+    background: cor(secao-lista);
     color: cor(texto, claro);
   }
   &__icone {
-    @extend %secao-bloco__icone !optional;
+    @extend %secao-lista__icone !optional;
   }
   &__conteudo {
-    @extend %secao-bloco__conteudo !optional;
+    @extend %secao-lista__conteudo !optional;
   }
 }
-%secao-bloco--claro {
-  @extend %secao-bloco !optional;
+%secao-lista--tipo-2 {
+  @extend %secao-lista !optional;
   &__header {
-    @extend %secao-bloco__header !optional;
+    @extend %secao-lista__header !optional;
   }
   &__icone {
-    @extend %secao-bloco__icone !optional;
+    @extend %secao-lista__icone !optional;
   }
   &__conteudo {
-    @extend %secao-bloco__conteudo !optional;
+    @extend %secao-lista__conteudo !optional;
   }
 }
 // =============================================================================
 // CLASSE MONTADA
 // =============================================================================
-@if index($uso-classes, secao-bloco) {
-  .secao-bloco {
-    @extend %secao-bloco--#{$secao-bloco-tipo} !optional;
+@if index($uso-classes, secao-lista) {
+  .secao-lista {
+    @extend %secao-lista--#{$secao-lista-tipo} !optional;
     &__header {
-      @extend %secao-bloco--#{$secao-bloco-tipo}__header !optional;
-      background: cor(secao-bloco, clara);
-      color: cor(secao-bloco);
+      @extend %secao-lista--#{$secao-lista-tipo}__header !optional;
+      background: cor(secao-lista, clara);
+      color: cor(secao-lista);
     }
     &__titulo {
-      @extend %secao-bloco__titulo;
+      @extend %secao-lista__titulo;
     }
     &__icone {
-      @extend %secao-bloco--#{$secao-bloco-tipo}__icone !optional;
+      @extend %secao-lista--#{$secao-lista-tipo}__icone !optional;
     }
     &__conteudo {
-      @extend %secao-bloco--#{$secao-bloco-tipo}__conteudo !optional;
-      border-top: 1px dashed cor(secao-bloco);
+      @extend %secao-lista--#{$secao-lista-tipo}__conteudo !optional;
+      border-top: 1px dashed cor(secao-lista);
     }
   }
-  .secao-bloco__check {
-    @extend %secao-bloco__check;
+  .secao-lista__check {
+    @extend %secao-lista__check;
   }
 }

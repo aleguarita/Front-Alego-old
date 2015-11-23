@@ -12,7 +12,7 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 17/11/2015
+// Última alteração em: 23/11/2015
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // ----------------------------------------------------------------------------
@@ -20,6 +20,8 @@ FORMULÁRIOS | SELECT
 // 12/11/2015 | Criação do arquivo
 // 17/11/2015 | Utilizada nova forma chamar as classes
 //              Incluído elementos "flex" que estavam em "form_tamanhos"
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
 // =============================================================================
 
 // =============================================================================
@@ -48,7 +50,7 @@ FORMULÁRIOS | SELECT
 // =============================================================================
 // PLACEHOLDERS | TIPOS
 // =============================================================================
-%form-select--pontilhado {
+%form-select--tipo-1 {
   select {
     border-bottom: $borda-form dotted;
   }
@@ -56,7 +58,7 @@ FORMULÁRIOS | SELECT
     color: cor(formulario);
   }
 }
-%form-select--linha {
+%form-select--tipo-2 {
   select {
     border-bottom: $borda-form solid;
   }
@@ -64,7 +66,7 @@ FORMULÁRIOS | SELECT
     color: cor(formulario);
   }
 }
-%form-select--caixa {
+%form-select--tipo-3 {
   select {
     border: $borda-form solid;
     padding-left: .2em;

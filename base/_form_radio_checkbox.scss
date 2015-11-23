@@ -12,13 +12,15 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 11/11/2015
-// Última alteração em: 17/11/2015
+// Última alteração em: 23/11/2015
 // -----------------------------------------------------------------------------
 // Este arquivo formata os radio buttons
 // ----------------------------------------------------------------------------
 // Changelog
 // 11/11/2015 | Criação do arquivo
 // 17/11/2015 | Utilizada nova forma chamar as classes
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
 // =============================================================================
 
 // =============================================================================
@@ -101,17 +103,17 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // =============================================================================
 // PLACEHOLDERS | TIPOS
 // =============================================================================
-%form-radio-check--pontilhado {
+%form-radio-check--tipo-1 {
   label {
     border-bottom: $borda-form dotted;
   }
 }
-%form-radio-check--linha {
+%form-radio-check--tipo-2 {
   label {
     border-bottom: $borda-form solid;
   }
 }
-%form-radio-check--caixa {
+%form-radio-check--tipo-3 {
   label {
     border: $borda-form solid;
     &::before {

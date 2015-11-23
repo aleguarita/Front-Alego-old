@@ -10,7 +10,7 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 17/11/2015
+// Última alteração: 23/11/2015
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
@@ -27,6 +27,8 @@ TABELAS
 // 04/11/2015 | Adaptado para o uso de BEM.
 // 						 .tab-col--nome passou a ser apenas .col--nome
 // 17/11/2015 | Utilizada nova forma chamar as classes
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
 // =============================================================================
 //
 // =============================================================================
@@ -104,7 +106,23 @@ td {
 // =============================================================================
 // PLACEHOLDERS | TIPOS DE TABELA
 // =============================================================================
-%tab-pontilhada {
+%tab-tipo-1 {
+	thead tr {
+		color: cor(texto, claro);
+		background: cor(tabela, titulo);
+		border-bottom: 2px solid cor(tabela, borda-clara);
+	}
+	tbody tr {
+		border-bottom: 1px solid cor(tabela, borda-clara);
+		&:nth-child(odd) {
+			color: cor(texto, medio);
+		}
+	}
+	.tab__acoes {
+		background: lighten(cor(tabela, fundo), 5%);
+	}
+}
+%tab-tipo-2 {
 	border-bottom: 2px solid cor(tabela, borda);
 	thead tr {
 		color: cor(tabela, titulo);
@@ -119,22 +137,6 @@ td {
 	.tab__acoes {
 		background: cor(tabela, fundo);
 		border-left: 2px solid cor(tabela, borda);
-	}
-}
-%tab-linha {
-	thead tr {
-		color: cor(texto, claro);
-		background: cor(tabela, titulo);
-		border-bottom: 2px solid cor(tabela, borda-clara);
-	}
-	tbody tr {
-		border-bottom: 1px solid cor(tabela, borda-clara);
-		&:nth-child(odd) {
-			color: cor(texto, medio);
-		}
-	}
-	.tab__acoes {
-		background: lighten(cor(tabela, fundo), 5%);
 	}
 }
 

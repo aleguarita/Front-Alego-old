@@ -5,6 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
+// Última alteração em: 28/11/2015
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +14,7 @@
 // -----------------------------------------------------------------------------
 // CHANGELOG
 // 20/10/2015 | Criação do arquivo e puxada as configurações de demais arquivos
+// 28/11/2015 | Alterada a forma dos tipos de nomes específicos para "tipo-x"
 // =============================================================================
 
 // =============================================================================
@@ -103,9 +105,9 @@ $grid: (
 // =============================================================================
 // TABELAS
 // =============================================================================
-// Escolhe o tipo de tabela a ser usada. Valores: pontilhada | linha
+// Escolhe o tipo de tabela a ser usada. Valores: tipo-1 | tipo-2
 // -----------------------------------------------------------------------------
-$tab-tipo: pontilhada;
+$tab-tipo: tipo-1;
 
 //	Define as variações. Valores: sim | não
 //	$tab--zebra: define se a tabela é zebrada ou não
@@ -137,9 +139,9 @@ $largura-tabela-col-max: (
 // =============================================================================
 // PAGINAÇÃO
 // =============================================================================
-// Escolhe o tipo de paginação a ser usada. Valores: basica | box
+// Escolhe o tipo de paginação a ser usada. Valores: tipo-1 | tipo-2
 // -----------------------------------------------------------------------------
-$paginacao-tipo: box;
+$paginacao-tipo: tipo-1;
 
 //	Define alinhamento da paginação. Valores: flex-start (esquerda) |
 //	flex-end (direita) | center
@@ -150,30 +152,30 @@ $paginacao-fonte: .65rem; // tamanho da fonte
 // =============================================================================
 // MODAL
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: sutil | janela
+// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
 // -----------------------------------------------------------------------------
-$modal-tipo: janela;
+$modal-tipo: tipo-1;
 
 // =============================================================================
 // CARDS
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: linha | pontilhado
+// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
 // -----------------------------------------------------------------------------
-$card-tipo: linha; // linha | pontilhado
+$card-tipo: tipo-1;
 
 // =============================================================================
 // BREADCRUMBS
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: simples | box
+// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
 // -----------------------------------------------------------------------------
-$breadcrumbs-tipo: simples; // simples | box
+$breadcrumbs-tipo: tipo-1;
 
 // =============================================================================
 // TOASTER
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: fundo | linha
+// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
 // -----------------------------------------------------------------------------
-$toaster-tipo: fundo;
+$toaster-tipo: tipo-1;
 
 // $toaster-horizontal: define se começa à esquerda ou à direita.
 //   Valores: left | right
@@ -192,9 +194,9 @@ $toaster-distancia-vertical: 1;
 // =============================================================================
 // FORMULÁRIOS
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: pontilhado | linha | caixa
+// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2 | tipo-3
 // -----------------------------------------------------------------------------
-$form-tipo: linha;
+$form-tipo: tipo-1;
 
 // $label-tipo: determina se o label vai ser na mesma linha ou se vai ter quebra
 //   Valores: flutuante | colado
@@ -206,9 +208,9 @@ $form-radio-check-personaliza: sim;
 
 // $botao-tipo e $botao-secundario: define o tipo de botão a ser usado se o
 // $botao-secundario for igual ao $botao-tipo ele ficará com outra cor
-//   Valores: simples, simples-1 | claro, claro-1 | escuro, escuro-1
+//   Valores: tipo-1 até tipo-6
 //   ($botao-secundario aceita "$botao-tipo" como valor)
-$botao-tipo: escuro;
+$botao-tipo: tipo-5;
 $botao-secundario: $botao-tipo;
 // Define se a sombra do botão vai ser da cor do texto ou se vai ser preta
 $botao-sombra-colorida: sim;
@@ -221,14 +223,14 @@ $botoes-status: (
 );
 
 // =============================================================================
-// SEÇÃO BLOCO
+// SEÇÃO LISTA
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: escuro | claro
+// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
 // -----------------------------------------------------------------------------
-$secao-bloco-tipo: claro; // escuro | claro
+$secao-lista-tipo: tipo-1; // escuro | claro
 
 // Determina o tamanho do título utilizando proporção áurea;
-$secao-bloco-titulo: 3;
+$secao-lista-titulo: 3;
 // =============================================================================
 // LISTA
 // =============================================================================

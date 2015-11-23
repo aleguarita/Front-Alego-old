@@ -12,7 +12,7 @@ CARD
 // -----------------------------------------------------------------------------
 // cards.scss
 // Criado em: 23/10/2015
-// Última alteração: 17/11/2015
+// Última alteração: 23/11/2015
 // -----------------------------------------------------------------------------
 // Definições padrão de cards e classes modelo
 // ATENÇÃO: aqui tem a configuração APENAS do card e não do grupo do elemento
@@ -23,6 +23,8 @@ CARD
 // 23/10/2015 | Criado o arquivo
 // 03/11/2015 | Classes para os sub-itens. Usando BEM
 // 17/11/2015 | Utilizada nova forma chamar as classes
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
 // =============================================================================
 
 // =============================================================================
@@ -84,7 +86,7 @@ $card-sub: (
 // =============================================================================
 // PLACEHOLDERS | Tipos
 // =============================================================================
-%card--linha {
+%card--tipo-1 {
   @extend %card--basico;
   &__titulo {
     background: cor(card, titulo);
@@ -99,7 +101,7 @@ $card-sub: (
     padding: $margem;
   }
 }
-%card--pontilhado {
+%card--tipo-2 {
   @extend %card--basico;
   h1 {
     color: cor(card, titulo);

@@ -12,14 +12,14 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 17/11/2015
+// Última alteração em: 23/11/2015
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // ----------------------------------------------------------------------------
 // Changelog
 // 15/01/2015 | Criação do arquivo
 // 13/11/2015 | Arquivo reescrito usando os novos padrões
-// 17/11/2015 | Botões de status
+// 23/11/2015 | Botões de status
 //              Utilizada nova forma chamar as classes
 // =============================================================================
 
@@ -64,7 +64,7 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   transition: $transition;
 }
 // =============================================================================
-// PLACEHOLDERS | TIPO SIMPLES
+// PLACEHOLDERS | TIPO SIMPLES (tipo-1 e tipo-2)
 // =============================================================================
 %bt-simples-base {
   @extend %bt-base;
@@ -75,11 +75,11 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 }
 // BOTÃO PRINCIPAL
 // -----------------------------------------------------------------------------
-%bt-simples {
+%bt-tipo-1 {
   @extend %bt-simples-base;
   border-color: transparent;
 }
-%bt-simples-1 {
+%bt-tipo-2 {
   @extend %bt-simples-base;
   &:hover {
     outline: 1px solid;
@@ -87,28 +87,28 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 }
 // BOTÃO SECUNDÁRIO
 // -----------------------------------------------------------------------------
-%bt-simples--secundario {
-  @extend %bt-simples;
+%bt-tipo-1--secundario {
+  @extend %bt-tipo-1;
   color: cor(botao, secundario);
 }
-%bt-simples-1--secundario {
-  @extend %bt-simples-1;
+%bt-tipo-2--secundario {
+  @extend %bt-tipo-2;
   color: cor(botao, secundario);
 }
 // BOTÃO STATUS
 // -----------------------------------------------------------------------------
 @each $status in $botoes-status {
-  %bt-simples--#{$status} {
-    @extend %bt-simples;
+  %bt-tipo-1--#{$status} {
+    @extend %bt-tipo-1;
     color: cor-status(#{$status});
   }
-  %bt-simples-1--#{$status} {
-    @extend %bt-simples-1;
+  %bt-tipo-2--#{$status} {
+    @extend %bt-tipo-2;
     color: cor-status(#{$status});
   }
 }
 // =============================================================================
-// PLACEHOLDERS | TIPO CLARO
+// PLACEHOLDERS | TIPO CLARO (tipo 3 e 4)
 // =============================================================================
 %bt-claro-base {
   @extend %bt-base;
@@ -118,22 +118,22 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 }
 // BOTÃO PRINCIPAL
 // -----------------------------------------------------------------------------
-%bt-claro {
+%bt-tipo-3 {
   @extend %bt-claro-base;
   @include bt-claro(cor(botao, claro));
 }
-%bt-claro-1 {
+%bt-tipo-4 {
   @extend %bt-claro-base;
   @include bt-claro-gradient(cor(botao, claro));
 }
 // BOTÃO SECUNDÁRIO
 // -----------------------------------------------------------------------------
-%bt-claro--secundario {
+%bt-tipo-3--secundario {
   @extend %bt-claro-base;
   @include bt-claro(cor(botao, secundario-claro));
   color: cor(botao, secundario-escuro);
 }
-%bt-claro-1--secundario {
+%bt-tipo-4--secundario {
   @extend %bt-claro-base;
   @include bt-claro-gradient(cor(botao, secundario-claro));
   color: cor(botao, secundario-escuro);
@@ -141,19 +141,19 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 // BOTÃO STATUS
 // -----------------------------------------------------------------------------
 @each $status in $botoes-status {
-  %bt-claro--#{$status} {
+  %bt-tipo-3--#{$status} {
     @extend %bt-claro-base;
     @include bt-claro(tint(cor-status(#{$status}-claro), 50%));
     color: shade(cor-status(#{$status}-escuro), 20%);
   }
-  %bt-claro-1--#{$status} {
+  %bt-tipo-4--#{$status} {
     @extend %bt-claro-base;
     @include bt-claro-gradient(tint(cor-status(#{$status}-claro), 50%));
     color: shade(cor-status(#{$status}-escuro), 20%);
   }
 }
 // =============================================================================
-// PLACEHOLDERS | TIPO ESCURO
+// PLACEHOLDERS | TIPO ESCURO (Tipo 5 e 6)
 // =============================================================================
 %bt-escuro-base {
   @extend %bt-base;
@@ -161,28 +161,28 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 }
 // BOTÃO PRINCIPAL
 // -----------------------------------------------------------------------------
-%bt-escuro {
+%bt-tipo-5 {
   @extend %bt-escuro-base;
   background: cor(botao);
   &:hover {
     background: cor(botao, escuro);
   }
 }
-%bt-escuro-1 {
+%bt-tipo-6 {
   @extend %bt-escuro-base;
   @include bt-escuro-gradient(cor(botao), cor(botao, escuro));
   border-color: cor(botao, escuro);
 }
 // BOTÃO SECUNDÁRIO
 // -----------------------------------------------------------------------------
-%bt-escuro--secundario {
+%bt-tipo-5--secundario {
   @extend %bt-escuro-base;
   background: cor(botao, secundario);
   &:hover {
     background: cor(botao, secundario-escuro);
   }
 }
-%bt-escuro-1--secundario {
+%bt-tipo-6--secundario {
   @extend %bt-escuro-base;
   @include bt-escuro-gradient(cor(botao, secundario), cor(botao, secundario-escuro));
   border-color: cor(botao, secundario-escuro);
@@ -190,14 +190,14 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 // BOTÃO STATUS
 // -----------------------------------------------------------------------------
 @each $status in $botoes-status {
-  %bt-escuro--#{$status} {
+  %bt-tipo-5--#{$status} {
     @extend %bt-escuro-base;
     background: shade(cor-status(#{$status}), 10%);
     &:hover {
       background: shade(cor-status(#{$status}-escuro), 10%);
     }
   }
-  %bt-escuro-1--#{$status} {
+  %bt-tipo-6--#{$status} {
     @extend %bt-escuro-base;
     @include bt-escuro-gradient(shade(cor-status(#{$status}), 10%), shade(cor-status(#{$status}-escuro), 10%));
     border-color: cor-status(#{$status}-escuro);
