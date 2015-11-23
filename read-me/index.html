@@ -22,16 +22,39 @@
     </header>
 
     <main class="container">
-      <section>
-        <h1>Front-Alego</h1>
-        <p>Framework da Assembleia Legislativa do Estado de Goiás. Desenvolvido ao longo de 2015 pela Seção de Programação Web com o objetivo de padronizar o CSS e facilitar a criação do front-end dos sistemas.</p>
-        <p>Estes arquivos do <em>read-me</em> fazem uso do Front-Alego em seu estado quase que bruto (sem alterações nas configurações básicas) e servem de modelo para visualizar o projeto atual. As alterações que você fizer no sistema serão refletivas aqui, basta compilar o CSS novamente. Configurações específicas são encontradas no <samp class="arquivo">info.scss</samp> nesta mesma pasta. Compile este arquivo depois de aplicar suas configurações</p>
-        <p>Arquivos nesta pasta:</p>
-        <dl class="lista-definicao">
-          <dt><a href="doc.html">Documentação</a></dt><dd>Regras de padronização e como usar o Front-Alego.</dd>
-          <dt><a href="elementos.html">Elementos</a></dt><dd>Exibe os elementos disponíveis e quais foram escolhidos.</dd>
-          <dt>info.scss</dt><dd>Folha de estilo para formatar os arquivos de html da pasta. Lembre-se de converter o arquivo depois que alterar as configurações básicas.</dd>
-        </dl>
+      <section class="principal">
+        <article>
+          <h1>Front-Alego</h1>
+          <p>Framework da Assembleia Legislativa do Estado de Goiás. Desenvolvido ao longo de 2015 pela Seção de Programação Web com o objetivo de padronizar o CSS e facilitar a criação do front-end dos sistemas.</p>
+          <p>Estes arquivos do <em>read-me</em> fazem uso do Front-Alego em seu estado quase que bruto (sem alterações nas configurações básicas) e servem de modelo para visualizar o projeto atual. As alterações que você fizer no sistema serão refletivas aqui, desde que você compile o CSS novamente. Configurações específicas são encontradas no <samp class="arquivo">info.scss</samp> nesta mesma pasta. Compile este arquivo depois de aplicar suas configurações</p>
+          <p>Arquivos nesta pasta:</p>
+          <dl class="lista-definicao">
+            <dt><a href="doc.html">Documentação</a></dt><dd>Regras de padronização e como usar o Front-Alego.</dd>
+            <dt><a href="elementos.html">Elementos</a></dt><dd>Exibe os elementos disponíveis e quais foram escolhidos.</dd>
+            <dt>info.scss</dt><dd>Folha de estilo para formatar os arquivos de html da pasta. Lembre-se de converter o arquivo depois que alterar as configurações básicas.</dd>
+          </dl>
+        </article>
+        <article>
+          <h2>Aplicando o Front-Alego</h2>
+          <p>Depois de criado o layout em um programa de imagem (existe um arquivo do Illustrator preparado para estes padrões) copie todas as pastas para a pasta <samp class="pasta">stylesheets</samp> do projeto (exceto a pasta <samp class="pasta">bourbon</samp>).</p>
+          <p>A pastas são:</p>
+          <dl class="lista-definicao">
+            <dt><samp class="pasta">base</samp></dt><dd>Esta pasta contém todos os arquivos imutáveis do CSS. <strong class="texto-erro">Não modifique nenhum destes arquivos!</strong></dd>
+            <dt><samp class="pasta">bourbon</samp></dt><dd>O bourbon para caso o projeto não seja rails. Do contrário use a gem e não esta pasta.</dd>
+            <dt><samp class="pasta">config</samp></dt><dd>Os arquivos de configuração do próprio CSS, incluindo cores, quais classes serão escritas no arquivo final, z-index, etc. Para mais detalhes, cheque a <a href="doc.html">documentação</a>.</dd>
+            <dt><samp class="pasta">extra</samp></dt><dd>Esta pasta está vazia e serve para personalizar elementos que aparecem na pasta <samp class="pasta">base</samp>. Os arquivos devem ser importados manualmente no arquivo <samp class="arquivo">config/_base.scss</samp>.</dd>
+            <dt><samp class="pasta">fontes</samp></dt><dd>As fontes do sistema.</dd>
+            <dt><samp class="pasta">read-me</samp></dt><dd>Contém a documentação. Ver mais detalhes acima.</dd>
+          </dl>
+          <p>Crie o arquivo básico para o CSS fora de qualquer pasta (<samp class="arquivo">app.scss</samp>) e dentro dele inclua:</p>
+          <code>
+            @import "config/base";
+          </code>
+        </article>
+        <article>
+          <h2>Dois sistemas com a mesma base de estilo</h2>
+          <p>Caso aconteça de termos dois sistemas diferentes mas que utilizam da mesma pasta <samp class="pasta">stylesheets</samp> (como aconteceu com o SGU e Requisição de Sistemas) duplique as pastas <samp class="arquivo">config</samp> e <samp class="arquivo">extra</samp> renomeando-as. Lembre-se de importar o arquivo <samp class="arquivo">base</samp> correto dentro do CSS.</p>
+        </article>
       </section>
     </main>
 
