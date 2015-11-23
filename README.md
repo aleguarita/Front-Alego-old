@@ -1,12 +1,17 @@
 # Front-Alego
-Base para front-end da Alego
+Framework da Assembleia Legislativa do Estado de Goiás. Desenvolvido ao longo de 2015 pela Seção de Programação Web com o objetivo de padronizar o CSS e facilitar a criação do front-end dos sistemas.
 
-Pastas:
-.root: ficam apenas os arquivos de scss relativos ao projeto em si (exemplo: app.scss, login.scss, admin.scss)
-/base: ficam os arquivos geral do Front-Alego e não podem ser mudados.
-/bourbon: os arquivos do bourbon. Apenas para o caso de não estar em projeto Rails. Esta pasta foi incluída aqui para poder
-  compilar os arquivos da pasta /info
-/config: os arquivos de configuração próprios do sistema que está sendo usado
-/extra: arquivos iguais aos da pasta /base, mas que são exclusivos do sistema atual
-/fontes: as fontes do sistema
-/info: as instruções de como usar e o arquivo de visualização dos elementos do sistema.
+Os arquivos presentes no *read-me* fazem uso do [Front-Alego] em seu estado quase que bruto (sem alterações nas configurações básicas) e servem de modelo para visualizar o projeto atual. As alterações que você fizer no sistema serão refletivas nos arquivos da pasta, bastando compilar o CSS novamente. Configurações específicas são encontradas no `info.scss` nesta mesma pasta. Compile este arquivo depois de aplicar suas configurações.
+
+Os arquivos na pasta *read-me* são:
+
+* `index.html`: uma adaptação deste mesmo arquivo.
+* `doc.html`: regras de padronização e como usar o Front-Alego.
+* `elementos.html`: exibe os elementos disponíveis e quais foram escolhidos.
+* `info.scss`: folha de estilo para formatar os arquivos de html da pasta. Lembre-se de converter o arquivo depois que alterar as configurações básicas.
+
+Para converter o scss para css use:
+
+```
+sass info.scss info.css --style expanded
+```

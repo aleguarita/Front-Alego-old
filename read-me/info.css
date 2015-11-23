@@ -1,0 +1,1530 @@
+@charset "UTF-8";
+/*
+================================================================================
+FRONT-ALEGO
+--------------------------------------------------------------------------------
+Arquivo de CSS modelo utilizado na documentação. Use o arquivo SCSS base desta
+pasta (info.scss) para ver como foi utilizado e também para acrescentar
+eventuais elementos para visualizar o arquivo final.
+Não se esqueça de compilar
+--------------------------------------------------------------------------------
+Criado em: 23/11/2015
+================================================================================
+A PARTIR DAQUI É O CSS GENÉRICO DO FRONT-END
+================================================================================
+*/
+/*!
+	==============================================================================
+	FRONT-ALEGO | Framework da Assembleia Legislativa
+	Autor: Alessandro Guarita
+	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
+	------------------------------------------------------------------------------
+	Criado em: 07/01/2015
+	Última alteração: 17/11/2015
+	------------------------------------------------------------------------------
+*/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   Alterado: Alessandro Guarita em 14/01/2015
+   		Alterações: eliminados elementos que eram resetados por padrão
+   		(strong que fica sem negrito), tirar a lista de ol, ul. Imagem responsiva
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, main {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*
+================================================================================
+FONTES
+================================================================================
+*/
+@font-face {
+  font-family: 'serifa-titulo';
+  src: url("fontes/serifatitulo-regular-webfont.eot");
+  src: url("fontes/serifatitulo-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/serifatitulo-regular-webfont.woff") format("woff"), url("fontes/serifatitulo-regular-webfont.ttf") format("truetype"), url("fontes/serifatitulo-regular-webfont.svg#serifa-titulo") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fontes/OpenSans-Regular-webfont.eot");
+  src: url("fontes/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-Regular-webfont.woff") format("woff"), url("fontes/OpenSans-Regular-webfont.ttf") format("truetype"), url("fontes/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fontes/OpenSans-Italic-webfont.eot");
+  src: url("fontes/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-Italic-webfont.woff") format("woff"), url("fontes/OpenSans-Italic-webfont.ttf") format("truetype"), url("fontes/OpenSans-Italic-webfont.svg#OpenSansItalic") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fontes/OpenSans-Bold-webfont.eot");
+  src: url("fontes/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-Bold-webfont.woff") format("woff"), url("fontes/OpenSans-Bold-webfont.ttf") format("truetype"), url("fontes/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fontes/OpenSans-BoldItalic-webfont.eot");
+  src: url("fontes/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-BoldItalic-webfont.woff") format("woff"), url("fontes/OpenSans-BoldItalic-webfont.ttf") format("truetype"), url("fontes/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic") format("svg");
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'font-alego';
+  src: url("fontes/font-alego.eot");
+  src: url("fontes/font-alego.eot?#iefix") format("embedded-opentype"), url("fontes/font-alego.woff") format("woff"), url("fontes/font-alego.ttf") format("truetype"), url("fontes/font-alego.svg#font-alego") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+================================================================================
+PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
+================================================================================
+*/
+.breadcrumbs, .header__menu ul, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.breadcrumbs, .header__menu ul, .ui-autocomplete, .toast, .lista {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pagination a, .breadcrumbs a, .modal__fechar a {
+  display: block;
+  text-decoration: none;
+}
+
+/*
+================================================================================
+CLASSES FIXAS
+================================================================================
+*/
+.oculta, .modal--oculta {
+  display: none;
+}
+
+.fundo-ok, .fundo-erro, .fundo-alerta {
+  color: #fff;
+}
+
+.texto-ok {
+  color: #39b54a;
+}
+
+.texto-erro {
+  color: #ed1c24;
+}
+
+.texto-alerta {
+  color: #f9bc16;
+}
+
+.fundo-ok {
+  background: #39b54a;
+}
+
+.fundo-erro {
+  background: #ed1c24;
+}
+
+.fundo-alerta {
+  background: #f9bc16;
+}
+
+/*
+===============================================================================
+GRID
+===============================================================================
+*/
+.container, .container--gutter, .container--calha {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 100rem;
+}
+
+.container--gutter, .container--calha {
+  padding: 0 0.625rem;
+}
+.container--gutter * + *, .container--calha * + * {
+  margin-left: 0.625%;
+}
+
+/*
+================================================================================
+SÍMBOLOS
+================================================================================
+*/
+[class^="ico"] {
+  font-family: "font-alego";
+}
+
+[class^="ico"][class*="--espaco"]::before {
+  margin-right: .5em;
+}
+
+[class^="ico"][class*="--link"] {
+  cursor: pointer;
+}
+
+[class^="ico-abrir"]::before {
+  content: "";
+}
+
+[class^="ico-adicionar"]::before {
+  content: "";
+}
+
+[class^="ico-ajuda"]::before {
+  content: "";
+}
+
+[class^="ico-apontando"]::before {
+  content: "";
+}
+
+[class^="ico-asterisco"]::before {
+  content: "";
+}
+
+[class^="ico-aviso-destaque"]::before {
+  content: "";
+}
+
+[class^="ico-cadeado-aberto"]::before {
+  content: "";
+}
+
+[class^="ico-cadeado-fechado"]::before {
+  content: "";
+}
+
+[class^="ico-cadeado"]::before {
+  content: "";
+}
+
+[class^="ico-calendario"]::before {
+  content: "";
+}
+
+[class^="ico-calendario-2"]::before {
+  content: "";
+}
+
+[class^="ico-calendario-3"]::before {
+  content: "";
+}
+
+[class^="ico-carregando"]::before {
+  content: "";
+}
+
+[class^="ico-casa"]::before {
+  content: "";
+}
+
+[class^="ico-celular"]::before {
+  content: "";
+}
+
+[class^="ico-chat"]::before {
+  content: "";
+}
+
+[class^="ico-chat-2"]::before {
+  content: "";
+}
+
+[class^="ico-chat-3"]::before {
+  content: "";
+}
+
+[class^="ico-chat-4"]::before {
+  content: "";
+}
+
+[class^="ico-chave"]::before {
+  content: "";
+}
+
+[class^="ico-clipe"]::before {
+  content: "";
+}
+
+[class^="ico-cone-seguranca"]::before {
+  content: "";
+}
+
+[class^="ico-cracha"]::before {
+  content: "";
+}
+
+[class^="ico-curtir"]::before {
+  content: "";
+}
+
+[class^="ico-descurtir"]::before {
+  content: "";
+}
+
+[class^="ico-desligar"]::before {
+  content: "";
+}
+
+[class^="ico-documento"]::before {
+  content: "";
+}
+
+[class^="ico-documento-2"]::before {
+  content: "";
+}
+
+[class^="ico-download"]::before {
+  content: "";
+}
+
+[class^="ico-engrenagem"]::before {
+  content: "";
+}
+
+[class^="ico-envelope"]::before {
+  content: "";
+}
+
+[class^="ico-equipe"]::before {
+  content: "";
+}
+
+[class^="ico-erro"]::before {
+  content: "";
+}
+
+[class^="ico-estrela-metade"]::before {
+  content: "";
+}
+
+[class^="ico-estrela-vazia"]::before {
+  content: "";
+}
+
+[class^="ico-estrela"]::before {
+  content: "";
+}
+
+[class^="ico-facebook"]::before {
+  content: "";
+}
+
+[class^="ico-fechar"]::before {
+  content: "";
+}
+
+[class^="ico-ferramentas"]::before {
+  content: "";
+}
+
+[class^="ico-figura"]::before {
+  content: "";
+}
+
+[class^="ico-filtro"]::before {
+  content: "";
+}
+
+[class^="ico-foto"]::before {
+  content: "";
+}
+
+[class^="ico-globo"]::before {
+  content: "";
+}
+
+[class^="ico-google-mais"]::before {
+  content: "";
+}
+
+[class^="ico-grafico-barra"]::before {
+  content: "";
+}
+
+[class^="ico-grafico-linha"]::before {
+  content: "";
+}
+
+[class^="ico-grafico-pizza"]::before {
+  content: "";
+}
+
+[class^="ico-impressora"]::before {
+  content: "";
+}
+
+[class^="ico-info"]::before {
+  content: "";
+}
+
+[class^="ico-janela-up"]::before {
+  content: "";
+}
+
+[class^="ico-janela"]::before {
+  content: "";
+}
+
+[class^="ico-lampada"]::before {
+  content: "";
+}
+
+[class^="ico-lapis"]::before {
+  content: "";
+}
+
+[class^="ico-link"]::before {
+  content: "";
+}
+
+[class^="ico-livro"]::before {
+  content: "";
+}
+
+[class^="ico-lixo"]::before {
+  content: "";
+}
+
+[class^="ico-lixo-2"]::before {
+  content: "";
+}
+
+[class^="ico-local"]::before {
+  content: "";
+}
+
+[class^="ico-lupa"]::before {
+  content: "";
+}
+
+[class^="ico-mais"]::before {
+  content: "";
+}
+
+[class^="ico-megafone"]::before {
+  content: "";
+}
+
+[class^="ico-menos"]::before {
+  content: "";
+}
+
+[class^="ico-monitor"]::before {
+  content: "";
+}
+
+[class^="ico-nao-ok"]::before {
+  content: "";
+}
+
+[class^="ico-novo"]::before {
+  content: "";
+}
+
+[class^="ico-ok-tique"]::before {
+  content: "";
+}
+
+[class^="ico-ok"]::before {
+  content: "";
+}
+
+[class^="ico-olho-fechado"]::before {
+  content: "";
+}
+
+[class^="ico-olho"]::before {
+  content: "";
+}
+
+[class^="ico-ordenar-baixo"]::before {
+  content: "";
+}
+
+[class^="ico-ordenar-cima"]::before {
+  content: "";
+}
+
+[class^="ico-ordenar"]::before {
+  content: "";
+}
+
+[class^="ico-pasta"]::before {
+  content: "";
+}
+
+[class^="ico-pdf"]::before {
+  content: "";
+}
+
+[class^="ico-pessoa"]::before {
+  content: "";
+}
+
+[class^="ico-pessoa-2"]::before {
+  content: "";
+}
+
+[class^="ico-pessoa-3"]::before {
+  content: "";
+}
+
+[class^="ico-prancheta"]::before {
+  content: "";
+}
+
+[class^="ico-proibido"]::before {
+  content: "";
+}
+
+[class^="ico-relogio"]::before {
+  content: "";
+}
+
+[class^="ico-sair"]::before {
+  content: "";
+}
+
+[class^="ico-salvar"]::before {
+  content: "";
+}
+
+[class^="ico-seta-baixo"]::before {
+  content: "";
+}
+
+[class^="ico-seta-cima"]::before {
+  content: "";
+}
+
+[class^="ico-seta-direita"]::before {
+  content: "";
+}
+
+[class^="ico-seta-esquerda"]::before {
+  content: "";
+}
+
+[class^="ico-seta-direita-dupla"]::before {
+  content: "";
+}
+
+[class^="ico-seta-esquerda-dupla"]::before {
+  content: "";
+}
+
+[class^="ico-seta-baixo-fina"]::before {
+  content: "";
+}
+
+[class^="ico-seta-cima-fina"]::before {
+  content: "";
+}
+
+[class^="ico-seta-direita-fina"]::before {
+  content: "";
+}
+
+[class^="ico-seta-esquerda-fina"]::before {
+  content: "";
+}
+
+[class^="ico-tabela"]::before {
+  content: "";
+}
+
+[class^="ico-tablet"]::before {
+  content: "";
+}
+
+[class^="ico-teclado"]::before {
+  content: "";
+}
+
+[class^="ico-telefone"]::before {
+  content: "";
+}
+
+[class^="ico-twitter"]::before {
+  content: "";
+}
+
+[class^="ico-x"]::before {
+  content: "";
+}
+
+[class^="ico-zip"]::before {
+  content: "";
+}
+
+/*
+================================================================================
+TIPOGRAFIA
+================================================================================
+*/
+p, ul, ol, dl, table, blockquote {
+  font-size: 0.8428rem;
+  margin: 1em 0;
+}
+p:first-child, ul:first-child, ol:first-child, dl:first-child, table:first-child, blockquote:first-child {
+  margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  margin: 1em 0 0.5em;
+  color: #cd5800;
+}
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  margin-top: 0;
+}
+
+body {
+  color: #000;
+  line-height: 1.5;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+}
+
+h1 {
+  font-size: 2.16244rem;
+}
+
+h2 {
+  font-size: 1.92217rem;
+}
+
+h3 {
+  font-size: 1.70859rem;
+}
+
+h4 {
+  font-size: 1.51875rem;
+}
+
+h5 {
+  font-size: 1.35rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+.fonte-menor, .text-menor {
+  font-size: 0.88889em;
+}
+
+.fonte-x-menor, .text-x-menor {
+  font-size: 0.79012em;
+}
+
+.fonte-xx-menor, .text-xx-menor {
+  font-size: 0.70233em;
+}
+
+.fonte-maior, .text-maior {
+  font-size: 1.125em;
+}
+
+.fonte-x-maior, .text-x-maior {
+  font-size: 1.26563em;
+}
+
+.fonte-xx-maior, .text-xx-maior {
+  font-size: 1.42383em;
+}
+
+.texto--caixa-alta, .texto--uppercase {
+  text-transform: uppercase;
+}
+
+/*
+================================================================================
+FORMULÁRIOS | ELEMENTOS COMUM
+================================================================================
+*/
+.form-texto, .form-select, .form-radio, .form-checkbox {
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+
+.form-texto input, .form-select input, .form-texto select, .form-select select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.form-texto input, .form-texto textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  font-size: .9em;
+}
+.form-texto input::-webkit-input-placeholder, .form-texto textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #66dce1;
+}
+.form-texto input::-moz-placeholder, .form-texto textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: uppercase;
+  color: #66dce1;
+}
+.form-texto input:-ms-input-placeholder, .form-texto textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #66dce1;
+}
+
+.form__ico, .form-select [class^="ico"] {
+  position: absolute;
+  right: calc(0.625rem / 2);
+  height: calc(100% - 0.625rem);
+  padding: 0.15625rem 0.5em;
+}
+
+.form__ico {
+  cursor: pointer;
+  color: #009da4;
+  background: #fff;
+  height: calc(100% - 0.625rem - 1px);
+}
+.form__ico:hover {
+  background: #009da4;
+  color: #fff;
+}
+
+/*
+================================================================================
+FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
+================================================================================
+*/
+.form-container, .form-container--linha {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.form-container {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: calc(100% + 0.625rem);
+  margin-left: -0.3125rem;
+}
+
+.form-container--linha + .form-container--linha {
+  margin-top: 0.625rem;
+}
+@media (min-width: 30rem) {
+  .form-container--linha *:first-child {
+    padding-left: 0;
+  }
+  .form-container--linha *:last-child {
+    padding-right: 0;
+  }
+}
+
+.field-1, .field-2, .field-3, .field-4, .field-5, .field-6, .field-7, .field-8, .field-9, .field-10, .field-11, .field-12, .field {
+  padding: 0 0.3125rem 0.625rem;
+}
+
+.field-1 {
+  width: 8.33333%;
+}
+
+.field-2 {
+  width: 16.66667%;
+}
+
+.field-3 {
+  width: 25%;
+}
+
+.field-4 {
+  width: 33.33333%;
+}
+
+.field-5 {
+  width: 41.66667%;
+}
+
+.field-6 {
+  width: 50%;
+}
+
+.field-7 {
+  width: 58.33333%;
+}
+
+.field-8 {
+  width: 66.66667%;
+}
+
+.field-9 {
+  width: 75%;
+}
+
+.field-10 {
+  width: 83.33333%;
+}
+
+.field-11 {
+  width: 91.66667%;
+}
+
+.field-12 {
+  width: 100%;
+}
+
+.field {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+@media (max-width: 30rem) {
+  .field--responsivo {
+    min-width: 100%;
+  }
+}
+
+/*
+================================================================================
+FORMULÁRIOS | INPUT[TEXT], TEXTAREA
+================================================================================
+*/
+.form-texto label {
+  font-weight: bold;
+  -webkit-order: -1;
+  order: -1;
+  cursor: pointer;
+  color: #009da4;
+}
+
+.form-texto {
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.form-texto label {
+  padding: 0 .65em;
+}
+
+.form-texto label {
+  border-bottom: 1px dotted #009da4;
+}
+.form-texto input, .form-texto textarea {
+  border: 0;
+  border-bottom: 1px dotted #009da4;
+}
+.form-texto input:focus, .form-texto textarea:focus {
+  border-bottom-color: #002729;
+}
+.form-texto input:focus ~ label, .form-texto textarea:focus ~ label {
+  color: #002729;
+  border-bottom-color: #002729;
+}
+
+.form-texto--label-inverso {
+  /* pensar num nome melhor */
+}
+
+/*
+================================================================================
+FORMULÁRIOS | RADIO BUTTON, CHECKBOX
+================================================================================
+*/
+.form-radio label, .form-checkbox label {
+  -webkit-align-items: center;
+  align-items: center;
+}
+.form-radio label::before, .form-checkbox label::before {
+  font-family: "font-alego";
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  border: 1px #009da4 solid;
+  background: #fff;
+  color: transparent;
+  content: "\f111";
+  font-size: .6em;
+  padding: .2em;
+  line-height: .9;
+  text-align: center;
+}
+.form-radio input, .form-checkbox input {
+  display: none;
+}
+.form-radio input:checked ~ label::before, .form-checkbox input:checked ~ label::before {
+  border-color: #002729;
+  color: #002729;
+}
+.form-radio label, .form-checkbox label {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+.form-radio input:checked ~ label, .form-checkbox input:checked ~ label {
+  font-weight: bold;
+  color: #002729;
+}
+
+.form-radio label::before {
+  border-radius: 50%;
+}
+
+.form-checkbox input:checked ~ label::before {
+  content: "\e354";
+}
+
+.form-radio label, .form-checkbox label {
+  border-bottom: 1px #009da4 dotted;
+}
+
+/*
+================================================================================
+FORMULÁRIOS | SELECT
+================================================================================
+*/
+.form-select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+}
+
+.form-select [class^="ico"] {
+  pointer-events: none;
+}
+
+.form-select select {
+  border-bottom: 1px #009da4 dotted;
+}
+.form-select [class^="ico"] {
+  color: #009da4;
+}
+
+/*
+================================================================================
+FORMULÁRIO | BOTÕES
+================================================================================
+*/
+.bt, .bt--secundario, .bt--urgente, .bt--ok, .bt--aviso {
+  padding: .5em 1em;
+  color: #cd5800;
+  cursor: pointer;
+  border: 1px solid;
+  font-size: .9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.5s ease 0s;
+}
+
+.bt, .bt--secundario, .bt--urgente, .bt--ok, .bt--aviso {
+  color: #fff;
+}
+
+.bt {
+  background: #cd5800;
+}
+.bt:hover {
+  background: #a44600;
+}
+
+.bt--secundario {
+  background: #00c5cd;
+}
+.bt--secundario:hover {
+  background: #009da4;
+}
+
+.bt--urgente {
+  background: #d51920;
+}
+.bt--urgente:hover {
+  background: #ab1b29;
+}
+
+.bt--ok {
+  background: #33a343;
+}
+.bt--ok:hover {
+  background: #00853d;
+}
+
+.bt--aviso {
+  background: #e0a914;
+}
+.bt--aviso:hover {
+  background: #d79f05;
+}
+
+/*
+================================================================================
+FORMULÁRIOS | AUTOCOMPLETE
+================================================================================
+*/
+.ui-autocomplete {
+  position: absolute !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px dotted #009da4;
+}
+.ui-autocomplete li {
+  padding: .25em .5em;
+  cursor: pointer;
+  background: #fff;
+  color: gray;
+  font-size: .85em;
+  border-bottom: 1px dotted #85e3e7;
+}
+.ui-autocomplete li:hover {
+  color: #000;
+}
+.ui-autocomplete li:last-child {
+  border-bottom: 0;
+}
+
+.ui-helper-hidden-accessible {
+  display: none !important;
+}
+
+/*
+================================================================================
+TABELAS
+================================================================================
+*/
+table {
+  width: 100%;
+}
+
+thead th {
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  text-align: left;
+  font-size: 1.07143em;
+}
+
+tr {
+  color: #000;
+}
+tbody tr {
+  background: #fff;
+}
+
+th {
+  padding: .25em .45em;
+  text-transform: uppercase;
+}
+
+td {
+  line-height: 1;
+  padding: .5em;
+  font-size: 0.85714em;
+}
+
+.tab tbody tr:nth-child(even) {
+  background: #ccf3f5;
+}
+.tab tbody tr:nth-child(even) .tab__acoes {
+  background: #8ce4e8;
+}
+
+.tab thead tr {
+  color: #fff;
+  background: #006266;
+  border-bottom: 2px solid #66dce1;
+}
+.tab tbody tr {
+  border-bottom: 1px solid #66dce1;
+}
+.tab tbody tr:nth-child(odd) {
+  color: gray;
+}
+.tab .tab__acoes {
+  background: #e1f8f9;
+}
+
+.tab__acoes a, .tab__acoes button {
+  margin-left: .5em;
+  margin-right: .5em;
+}
+.tab__acoes a:hover, .tab__acoes button:hover {
+  color: black;
+}
+
+.tab__acoes button {
+  padding: 0;
+}
+
+.tab__acoes a, .tab__acoes button {
+  color: #00494d;
+}
+
+.tab__acoes a {
+  text-decoration: none;
+}
+.tab__acoes button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.col--acoes {
+  width: 4.375rem;
+}
+
+/*
+================================================================================
+PAGINAÇÃO
+================================================================================
+*/
+.pagination .gap, .pagination a, .pagination .current {
+  border-bottom: 2px solid transparent;
+}
+.pagination a:hover, .pagination .current {
+  border-bottom-color: #cd5800;
+}
+.pagination .current {
+  box-shadow: 0 0 6px rgba(77, 77, 77, 0.5);
+}
+
+.pagination .gap, .pagination a, .pagination .current {
+  color: #cd5800;
+  background: white;
+}
+
+.pagination a:hover, .pagination .current {
+  font-weight: bold;
+}
+
+.pagination .prev, .pagination .first, .pagination .next, .pagination .last {
+  font-size: .95em;
+}
+
+.pagination {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+  font-size: 0.65rem;
+  padding: .5rem 0;
+}
+.pagination .gap {
+  padding: 0.26rem 0.65rem;
+  color: #a44600;
+}
+.pagination a {
+  color: #cd5800;
+  padding: 0.26rem 0.65rem;
+}
+.pagination .current {
+  z-index: 2;
+  padding: 0.26rem 0.65rem;
+}
+
+/*
+================================================================================
+CARD
+================================================================================
+*/
+.card {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.card h1, .card p {
+  margin: 0;
+  padding: 0 0.625rem;
+}
+.card__titulo h1 {
+  font-size: 1.70859rem;
+}
+.card__imagem {
+  line-height: 0;
+}
+.card__principal {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.card__item, .card__item--destaque {
+  padding: 0.3125rem 0;
+  border-top: 1px #00c5cd;
+}
+.card__item:first-child, .card__item--destaque:first-child {
+  border-width: 0;
+}
+.card__footer * {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.card__footer * + * {
+  margin-left: .5em;
+}
+
+.card__titulo {
+  background: #006266;
+}
+.card h1 {
+  color: #fff;
+}
+.card__item, .card__item--destaque {
+  border-top-style: solid;
+}
+.card__footer {
+  padding: 0.625rem;
+}
+
+.card__item--destaque {
+  padding: 0;
+}
+.card__item--destaque p {
+  padding: 0;
+}
+.card__item--destaque strong, .card__item--destaque span {
+  padding: 0.3125rem 0.625rem;
+}
+.card__item--destaque strong {
+  background: #009da4;
+  color: #fff;
+}
+
+/*
+================================================================================
+BREADCRUMBS
+================================================================================
+*/
+.breadcrumbs {
+  font-size: 0.6875rem;
+}
+.breadcrumbs a {
+  color: inherit;
+}
+.breadcrumbs a::after {
+  content: " > ";
+  font-weight: bold;
+  margin-left: .2em;
+}
+.breadcrumbs li {
+  color: #e19b66;
+}
+.breadcrumbs li:last-child {
+  color: #a44600;
+  font-weight: bold;
+}
+
+.breadcrumbs li {
+  padding-left: .2em;
+}
+.breadcrumbs a:after {
+  margin-right: .2em;
+}
+.breadcrumbs a:hover {
+  border-bottom: 1px dotted;
+}
+
+/*
+================================================================================
+TOASTER
+================================================================================
+*/
+.toast {
+  position: fixed;
+  margin: 0;
+  width: 18.75rem;
+  right: 2em;
+  bottom: 2em;
+  z-index: 5;
+}
+.toast li {
+  position: relative;
+  padding: 1.5em;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  margin-top: 1.5em;
+}
+.toast .close {
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: -.8em;
+  display: block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.toast li {
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.toast .close {
+  border: 0;
+}
+
+.toast .success .close {
+  color: #39b54a;
+}
+.toast .success .close:hover {
+  background: #009444;
+  color: #fff;
+}
+
+.toast .error .close {
+  color: #ed1c24;
+}
+.toast .error .close:hover {
+  background: #be1e2d;
+  color: #fff;
+}
+
+.toast .alert .close {
+  color: #f9bc16;
+}
+.toast .alert .close:hover {
+  background: #efb106;
+  color: #fff;
+}
+
+.toast .info .close {
+  color: #4d4d4d;
+}
+.toast .info .close:hover {
+  background: #000;
+  color: #fff;
+}
+
+/*
+================================================================================
+MODAL
+================================================================================
+*/
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 4;
+  overflow: hidden;
+}
+
+.modal__janela {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+@media (max-width: 48rem) {
+  .modal__janela {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (min-width: 48rem) {
+  .modal__janela {
+    max-width: 85%;
+  }
+}
+
+.modal__titulo {
+  padding: 0.625rem 1.25rem;
+}
+.modal__titulo h1 {
+  text-transform: uppercase;
+  font-size: 1.375rem;
+}
+
+.modal__fechar a {
+  transition: all 0.5s ease 0s;
+}
+
+.modal__conteudo {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  padding: 1.25rem;
+}
+
+.modal__acoes {
+  padding: 1.25rem;
+  text-align: right;
+}
+.modal__acoes * + * {
+  margin-left: 1.25rem;
+}
+
+.modal .modal__titulo {
+  -webkit-align-items: baseline;
+  align-items: baseline;
+  background: #009da4;
+}
+.modal .modal__titulo h1 {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  color: #fff;
+  margin: 0;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+}
+.modal .modal__fechar a {
+  color: #fff;
+}
+.modal .modal__fechar a:hover {
+  text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+/*
+================================================================================
+LISTA
+================================================================================
+*/
+.lista li {
+  padding: .5rem .75rem;
+}
+
+.lista__titulo {
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  font-size: 1.6em;
+}
+
+.lista {
+  border: 1px solid #00c5cd;
+}
+.lista li {
+  border-bottom: 1px solid #00c5cd;
+}
+.lista li:last-child {
+  border-bottom-width: 0;
+}
+.lista__titulo {
+  background: #006266;
+  color: #fff;
+}
+
+/*
+================================================================================
+INÍCIO DO CSS ESPECÍFICO DO READ-ME
+================================================================================
+*/
+/*
+================================================================================
+CLASSES
+================================================================================
+*/
+/*
+================================================================================
+HEADER
+================================================================================
+*/
+.header {
+  display: fixed;
+  background: #009da4;
+  text-align: center;
+  border-bottom: 1px solid #00c5cd;
+  box-shadow: 0 0 3px #000;
+}
+.header__menu {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header__menu ul {
+  margin: 0;
+}
+.header__menu li {
+  padding: .25em .5em;
+  font-weight: bold;
+}
+.header__menu__titulo {
+  background: rgba(0, 0, 0, 0.7);
+  color: #cd5800;
+}
+.header__menu a, .header__menu__ativo {
+  text-decoration: none;
+  font-size: .9em;
+  color: #fff;
+  opacity: .8;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+.header__menu a:hover {
+  opacity: 1;
+}
+.header__menu__ativo {
+  opacity: .6;
+  font-weight: normal;
+}
+
+/*
+================================================================================
+ÁREA PRINCIPAL | menu
+================================================================================
+*/
+/*
+================================================================================
+ÁREA PRINCIPAL | conteúdo
+================================================================================
+*/
+
+/*# sourceMappingURL=info.css.map */
