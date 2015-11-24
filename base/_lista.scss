@@ -12,12 +12,19 @@ LISTA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 20/11/2015
+// Última alteração em: 24/11/2015
 // -----------------------------------------------------------------------------
 // Formata caixas de listas
 // ----------------------------------------------------------------------------
 // Changelog
 // 20/11/2015 | Criação do arquivo
+// 24/11/2015 | Acrescentado lista para link que ocupa a célula inteira
 // =============================================================================
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$lista-padding: .5rem .75rem;
 
 // =============================================================================
 // PLACEHOLDER | BÁSICO
@@ -28,8 +35,8 @@ LISTA
     box-shadow: $sombra-card;
   }
   li {
-    padding: .5rem .75rem;
-    background: cor(fundo, x-clara);
+    padding: $lista-padding;
+    background: cor(fundo, x-claro);
     @if $lista--zebra == "sim" {
       &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
     }
@@ -85,8 +92,18 @@ LISTA
 @if index($uso-classes, lista) {
   .lista {
     @extend %lista--#{$lista-tipo};
+    &__titulo {
+      @extend %lista--#{$lista-tipo}__titulo;
+    }
+    &--link {
+      @extend %lista--#{$lista-tipo};
+      li {
+        padding: 0;
+      }
+      a {
+        @extend %link-block;
+        padding: $lista-padding;
+      }
+    }
   }
-}
-.lista__titulo {
-  @extend %lista--#{$lista-tipo}__titulo;
 }
