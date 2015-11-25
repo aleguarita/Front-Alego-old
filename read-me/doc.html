@@ -23,15 +23,139 @@
 
     <main class="container">
       <nav class="menu">
-        <ul>
-          <li><a href="#arquivos">Arquivos</a></li>
+        <ul class="lista--link">
+          <li><a href="#illustrator">Illustrator</a></li>
+          <li><a href="#regras">Regras de padronização</a></li>
         </ul>
       </nav>
       <section class="principal">
-        <article id="arquivos">
-          1. padrões para criação
-          2. como importar
+        <article id="illustrator">
+          <h1>Illustrator</h1>
+          <p>O layout deve ser gerado no Illustrator prioritariamente. Existe um arquivo modelo pronto para isso. Neste arquivo existem layers prontas com os elementos além das paletas igual à usada no sistema atual.</p>
+          <p>As cores da paleta são globais e alteram os elementos automaticamente. Para criar uma nova paleta siga o mesmo padrão, inclusive de nome, para que possa ser transcrito no arquivo de configuração do Front-Alego.</p>
         </article>
+        <article id="regras">
+          <h1>Regras de padronização</h1>
+          <h2>BEM - Bloco, Elemento, Modificador</h2>
+          <p>Estamos utilizando a regra do <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" class="link--pontilhado link--externo" target="blank">BEM</a> para nomear as classes.</p>
+          <dl class="lista-definicao">
+            <dt>Bloco</dt><dd>O bloco é o elemento pai, principal. Procure usar nome relevante e de fácil identificação. Se precisar separar palavras do nome, use apenas um traço: <samp>-</samp></dd>
+            <dt>Elemento</dt><dd>É o elemento filho do bloco. Ele deve ser aparecer logo depois do bloco e separado com dois sublinhados: <samp>__</samp></dd>
+            <dt>Modificador</dt><dd>Uma variação do bloco ou elemento. Deve ser separada com dois traços: <samp>--</samp></dd>
+          </dl>
+          <h3>Exemplo</h3>
+          <p>Imagine a seguinte estrutura: você tem uma caixa com um cabeçalho, um corpo com lista e formulário e um rodapé com ações.</p>
+          <p>Os nomes seriam:</p>
+          <ul class="lista-itens">
+            <li>Caixa: <samp>.box</samp></li>
+            <li>Cabeçalho: <samp>.box__cabecalho</samp> ou <samp>.box__header</samp></li>
+            <li>Corpo: <samp>.box__main</samp> ou <samp>.box__corpo</samp></li>
+            <li>Rodapé: <samp>.box__footer</samp> ou <samp>.box__rodape</samp>.</li>
+            <li>Formulário: <samp>.box__form</samp> ou <samp>.box__main__form</samp>. A primeira opção é melhor, a menos que você tenha mais de um formulário dentro da caixa e ela tenha formatações diferentes.</li>
+            <li>Tabela: <samp>.box__tab</samp> ou <samp>.box__main__tab</samp>.</li>
+          </ul>
+          <p>Se tivéssemos uma caixa com variação (exemplo: urgente), ela seria <samp>.box--urgente</samp>.</p>
+          <p>Se você tivesse uma tabela com os dados maior poderia ser <samp>.box__tab--maior</samp>.</p>
+          <h3>Filhos pegam o nome variante do pai?</h3>
+          <p>Não. Os elementos filhos fazem uso do nome do elemento pai <strong>sem</strong> o modificador e o CSS é formatado com uso de descendente:</p>
+          <code class="codigo--html">
+            <header>HTML</header>
+            <section>
+              <p>&lt;div class="box--urgente"&gt;</p>
+              <p class="recuo-1">&lt;section class="box__tab"&gt;</p>
+              <p class="recuo-2">&lt;...&gt;</p>
+              <p class="recuo-1">&lt;/section&gt;</p>
+              <p>&lt;/div&gt;</p>
+            </section>
+          </code>
+          <code class="codigo--css">
+            <header>CSS</header>
+            <section>
+              <p>.box__tab { ... } /* TODOS os .box__tab */</p>
+              <p>.box--urgente { ... }</p>
+              <p>.box--urgente .box__tab { ... } /* Os box__tab que são filhos do .box--urgente</p>
+            </section>
+          </code>
+          <p>É melhor desta forma do que termos uma classe <samp>.box--urgente__tab</samp>. Primeiro porque nem sempre teremos configuração específica do elemento filho quando ele estiver dentro do pai (e teremos que extender uma classe com a outra). Segundo porque diminui a quantidade de classes usadas no sistema.</p>
+          <p>O grande defeito dessa abordagem é o uso de seletores descendentes (ver mais abaixo).</p>
+          <h3>BEM no SASS</h3>
+          <p>O SASS facilita a criação dos elementos filhos e variantes, inclusive com a opção de retrair e expandir o código diretamente no editor. Para isso funcionar basta usar o símbolo de ampersand (<samp>&</samp>).</p>
+          <code class="codigo--sass">
+            <header>SASS</header>
+            <p>.box {</p>
+            <p class="recuo-1">&__header { ... }</p>
+            <p class="recuo-1">&__main { ... }</p>
+            <p class="recuo-1">&--urgente {</p>
+              <p class="recuo-2">@extend .box;</p>
+              <p class="recuo-2">...</p>
+            <p class="recuo-1">}</p>
+            <p>}</p>
+          </code>
+          <p>Isso vai resultar em:</p>
+          <code class="codigo--css">
+            <header>CSS</header>
+            <p>.box, .box--urgente { ... }</p>
+            <p>.box__header { ... }</p>
+            <p>.box__main { ... }</p>
+            <p>.box--urgente { ... }</p>
+          </code>
+
+          <h2>Nomes de classes</h2>
+          <p>Jamais use nas classes específicas elementos de formatação. Estes devem aparecer como classe adicional ou modificador de classe (<samp>--mod</samp>).</p>
+          <p>Exemplo: se você tiver um card que deve aparecer alinhado na esquerda da página, não use <samp>.card-alinha-esquerda</samp> e sim <samp>.card--esquerda</samp> ou ainda duas classes (<samp>.card</samp> e <samp>.float-left</samp>).</p>
+          <p>Para elementos comuns de formatação use as seguintes simplificações:</p>
+          <dl class="lista-definicao">
+            <dt>bt</dt><dd>botão</dd>
+            <dt>tab</dt><dd>tabela</dd>
+            <dt>ico</dt><dd>ícone, símbolo</dd>
+            <dt>form</dt><dd>formulário</dd>
+          </dl>
+
+          <h2>Organização dos arquivos SCSS</h2>
+          <p>Como explicado <a href="index.html#aplicando">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="pasta">/extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Por outro lado, somente os placeholders e classes que são de uso global (em mais de um arquivo scss) devem vir na pasta extra.</p>
+          <h3>Comentários</h3>
+          <p>O arquivo deve ser totalmente comentado ao estilo SASS para identificar seus trechos.</p>
+          <p>Ele deve abrir com um comentário maior com o nome do sistema, o usuário que criou o arquivo e a data de criação. Veja como exemplo o CSS usado neste arquivo:</p>
+          <code class="codigo--sass">
+            <p>================================================================================</p>
+            <p>FRONT-ALEGO</p>
+            <p>--------------------------------------------------------------------------------</p>
+            <p>Arquivo de CSS modelo utilizado na documentação. Use o arquivo SCSS base desta</p>
+            <p>pasta (info.scss) para ver como foi utilizado e também para acrescentar</p>
+            <p>eventuais elementos para visualizar o arquivo final.</p>
+            <p>Não se esqueça de compilar</p>
+            <p>--------------------------------------------------------------------------------</p>
+            <p>Autor: Alessandro Guarita</p>
+            <p>Criado em: 23/11/2015</p>
+            <p>================================================================================</p>
+          </code>
+          <p>Cada parte do arquivo deve ser separada com comentários usando sinal de igual até aproximadamente 80 caracteres. E o nome deve ser em caixa alta. Exemplo:</p>
+          <code class="codigo--sass">
+            <p>// =============================================================================</p>
+            <p>// HEADER</p>
+            <p>// =============================================================================</p>
+          </code>
+          <p>Sub-seções são separadas da mesma forma acima, mas com uso de traço no lugar do igual. No comentário coloque o nome do elemento pai e separe com pipe (<samp>|</samp>):</p>
+          <code>
+            <p>// -----------------------------------------------------------------------------</p>
+            <p>// HEADER | MENU</p>
+            <p>// -----------------------------------------------------------------------------</p>
+          </code>
+          <h3>Ordem dos elementos</h3>
+          <p>Os elementos dentro de um arquivo devem obedecer a seguinte ordem (sempre comentado, conforme explicado acima):</p>
+          <ol class="lista-ordenada">
+            <li>Variáveis e mapas gerais</li>
+            <li>Placeholders gerais</li>
+            <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica)</li>
+            <li>Seções do site (header, menu, principal, footer)</li>
+          </ol>
+          <blockquote class="aviso--dica">
+            Variáveis e placeholders podem aparecer dentro de uma seção do site no CSS, caso não se repitam em nenhum lugar. Neste caso ficaria assim para facilitar a localização e modificação.
+          </blockquote>
+          <h2>Seletores descendentes e aninhamento de código</h2>
+          <p>Evite o máximo possível CSS com seletor descendente (<samp>.classe1 .classe2</samp>). Este seletor diminui a performance do browser e aumenta a especifidade do código. Por esta mesma razão evite grandes aninhamentos de código no SASS. Esta regra, no entanto, tem exceções (uma delas já mostrada acima, no BEM). Mas mesmo assim, tenha no máximo dois descendentes e aninhamento (exemplo: <samp>.tab td</samp> e não <samp>.tab tr td</samp>).</p>
+        </article>
+
       </section>
 
     </main>

@@ -7,6 +7,7 @@ pasta (info.scss) para ver como foi utilizado e também para acrescentar
 eventuais elementos para visualizar o arquivo final.
 Não se esqueça de compilar
 --------------------------------------------------------------------------------
+Autor: Alessandro Guarita
 Criado em: 23/11/2015
 ================================================================================
 A PARTIR DAQUI É O CSS GENÉRICO DO FRONT-END
@@ -25,25 +26,136 @@ INÍCIO DO CSS ESPECÍFICO DO READ-ME
 */
 
 // =============================================================================
-// VARIÁVEIS
+// VARIÁVEIS GLOBAIS
 // =============================================================================
+
+/*
+================================================================================
+PLACEHOLDERS GLOBAIS
+================================================================================
+*/
+%codigo {
+  border-radius: 3px;
+  padding: .2em .4em;
+  background: paleta-padrao(cinza-5);
+  border: 1px solid paleta-padrao(cinza-30);
+}
+
+/*
+================================================================================
+TAGS
+--------------------------------------------------------------------------------
+Estes tags foram modificados sem classes pois são mais raros de serem utilizados
+================================================================================
+*/
+samp {
+  @extend %codigo;
+  color: cor-status(erro-claro);
+}
 
 /*
 ================================================================================
 CLASSES
 ================================================================================
 */
+// -----------------------------------------------------------------------------
+// Container
+// -----------------------------------------------------------------------------
+%container-basico {
+  max-width: 80rem;
+}
+// -----------------------------------------------------------------------------
+// Links
+// -----------------------------------------------------------------------------
+.link--pontilhado {
+  @extend %link-pontilhado;
+  font-weight: bold;
+  font-size: .85em;
+  color: cor(link, escuro);
+  text-transform: uppercase;
+  &:hover {
+    color: cor(link, escuro-hover);
+  }
+}
+.link--externo {
+  &::after {
+    font-family: $fonte-simbolo;
+    font-size: .7em;
+    content: "\e014";
+    margin-left: .15em;
+    vertical-align: super;
+  }
+}
+// -----------------------------------------------------------------------------
+// Ícone de arquivo/pasta
+// -----------------------------------------------------------------------------
 %pasta-arquivo {
-
+  color: paleta-padrao(cinza-70);
+  &::before {
+    font-family: $fonte-simbolo;
+    margin-right: .2em;
+    font-size: .75em;
+  }
 }
 .arquivo {
-
+  @extend %pasta-arquivo;
+  &::before {
+    content: "\e140";
+    vertical-align: text-bottom;
+  }
 }
 .pasta {
+  @extend %pasta-arquivo;
+  &::before {
+    content: "\f07b";
+    vertical-align: middle;
+  }
+}
+// -----------------------------------------------------------------------------
+// Listas
+// -----------------------------------------------------------------------------
+$largura-dt: 12em;
+.lista-definicao {
+  @include grupo-flex(2, 0);
+  dt, dd {
+    padding: .4em;
+    border: 1px solid tint(cor(borda), 20%);
+    margin-bottom: .5em;
+  }
+  dt {
+    text-align: right;
+    width: $largura-dt;
+    background: tint(cor(fundo, claro), 60%);
+    border-radius: 3px 0 0 3px;
+    samp {
+      border: 0;
+      background: transparent;
+      padding: 0;
+    }
+  }
+  dd {
+    width: calc(100% - #{$largura-dt});
+    border-radius: 0 3px 3px 0;
+    border-left-width: 0;
+  }
+}
+.lista-itens {
 
 }
-.lista-definicao {
+.lista-ordenada {
 
+}
+// -----------------------------------------------------------------------------
+// Bloco de avisos
+// -----------------------------------------------------------------------------
+.aviso {
+  /* ai */
+  &--dica {
+    @extend .aviso;
+  }
+  &--grave {
+    @extend .aviso;
+  }
 }
 /*
 ================================================================================
@@ -51,11 +163,12 @@ HEADER
 ================================================================================
 */
 .header {
-  display: fixed;
+  position: fixed;
   background: cor(fundo, escuro);
   text-align: center;
   border-bottom: 1px solid cor(borda);
   box-shadow: 0 0 3px cor(fundo, sombra);
+  width: 100%;
   &__menu {
     @include display-flex;
     ul {
@@ -90,11 +203,43 @@ HEADER
 }
 /*
 ================================================================================
+ÁREA PRINCIPAL | main
+================================================================================
+*/
+main {
+  // padding-top: 3em;
+}
+/*
+================================================================================
 ÁREA PRINCIPAL | menu
 ================================================================================
 */
+.menu {
+  position: fixed;
+  width: 11em;
+  top: 3em;
+  a {
+    color: cor(lista, escura);
+    font-weight: bold;
+    font-size: .9em;
+    // padding:
+    transition: $transition;
+    &:hover {
+      background: cor(lista);
+      color: cor(texto, claro);
+    }
+  }
+}
 /*
 ================================================================================
 ÁREA PRINCIPAL | conteúdo
 ================================================================================
 */
+.principal {
+  .menu + & {
+    margin-left: 12em;
+  }
+  article {
+    padding-top: 3em;
+  }
+}
