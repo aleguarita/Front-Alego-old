@@ -54,6 +54,7 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 	font-family: $fonte-serifa;
 	margin: $margem-bloco-titulo;
 	color: cor(texto, titulo);
+	line-height: 1.2;
 	&:first-child {
 		margin-top: 0;
 	}
