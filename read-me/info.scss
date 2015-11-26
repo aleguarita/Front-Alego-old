@@ -17,6 +17,7 @@ A PARTIR DAQUI É O CSS GENÉRICO DO FRONT-END
 // =============================================================================
 // IMPORTAÇÃO DO FRONT-ALEGO
 // =============================================================================
+@import "fontes"; // Este arquivo precisa ser importado por conta do endereço da pasta
 @import "../config/base";
 
 /*
@@ -28,6 +29,8 @@ INÍCIO DO CSS ESPECÍFICO DO READ-ME
 // =============================================================================
 // VARIÁVEIS GLOBAIS
 // =============================================================================
+$rd: 3px; // arredondamento
+$pd: .2rem; // padding
 
 /*
 ================================================================================
@@ -35,8 +38,7 @@ PLACEHOLDERS GLOBAIS
 ================================================================================
 */
 %codigo {
-  border-radius: 3px;
-  padding: .2em .4em;
+  border-radius: $rd;
   background: paleta-padrao(cinza-5);
   border: 1px solid paleta-padrao(cinza-30);
 }
@@ -50,6 +52,7 @@ Estes tags foram modificados sem classes pois são mais raros de serem utilizado
 */
 samp {
   @extend %codigo;
+  padding: .2em .4em;
   color: cor-status(erro-claro);
 }
 
@@ -63,11 +66,12 @@ CLASSES
 // -----------------------------------------------------------------------------
 %container-basico {
   max-width: 80rem;
+  padding: 0 $pd * 3;
 }
 // -----------------------------------------------------------------------------
 // Links
 // -----------------------------------------------------------------------------
-.link--pontilhado {
+.link--readme {
   @extend %link-pontilhado;
   font-weight: bold;
   font-size: .85em;
@@ -115,6 +119,7 @@ CLASSES
 // Listas
 // -----------------------------------------------------------------------------
 $largura-dt: 12em;
+$largura-dt-pq: 9em;
 .lista-definicao {
   @include grupo-flex(2, 0);
   dt, dd {
@@ -126,17 +131,23 @@ $largura-dt: 12em;
     text-align: right;
     width: $largura-dt;
     background: tint(cor(fundo, claro), 60%);
-    border-radius: 3px 0 0 3px;
+    border-radius: $rd 0 0 $rd;
     samp {
       border: 0;
       background: transparent;
       padding: 0;
     }
+    @media (max-width: breakpoint(pequeno)) {
+      width: $largura-dt-pq;
+    }
   }
   dd {
     width: calc(100% - #{$largura-dt});
-    border-radius: 0 3px 3px 0;
+    border-radius: 0 $rd $rd 0;
     border-left-width: 0;
+    @media (max-width: breakpoint(pequeno)) {
+      width: calc(100% - #{$largura-dt-pq});
+    }
   }
 }
 .lista-itens {
@@ -146,15 +157,103 @@ $largura-dt: 12em;
 
 }
 // -----------------------------------------------------------------------------
+// Código
+// -----------------------------------------------------------------------------
+%codigo-bloco {
+  @extend %codigo;
+  display: block;
+  margin: 1em 0;
+  overflow-x: auto;
+  header {
+    background: fade-out(paleta-padrao(preto), .2);
+    border-radius: $rd $rd 0 0;
+    padding: $pd $pd*2;
+    font-family: $fonte-sem-serifa;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: cor(texto, claro);
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 $pd * 2;
+    &:first-of-type {
+      margin-top: $pd;
+    }
+    &:last-child {
+      margin-bottom: $pd;
+    }
+  }
+}
+%codigo-css {
+  border-color: cor(borda, variante);
+  background: tint(cor(borda, variante), 90%);
+}
+.codigo--html {
+  @extend %codigo-bloco;
+  border-color: cor(borda);
+  background: tint(cor(borda), 90%);
+}
+.codigo--css {
+  @extend %codigo-bloco;
+  @extend %codigo-css;
+}
+.codigo--sass {
+  @extend %codigo-bloco;
+  @extend %codigo-css;
+}
+// -----------------------------------------------------------------------------
+// Recuos
+// -----------------------------------------------------------------------------
+$i: 1;
+@while $i <= 5 {
+  .recuo-#{$i} {
+    margin-left: $i + ($pd * 2);
+  }
+  $i: $i + 1;
+}
+
+// -----------------------------------------------------------------------------
 // Bloco de avisos
 // -----------------------------------------------------------------------------
 .aviso {
-  /* ai */
+  font-size: 1.2em;
+  border-left: 4px solid;
+  padding-left: $pd * 5;
+  color: cor(texto, medio);
+  @at-root {
+    %dica-aviso {
+      position: relative;
+      padding-left: 2.25rem;
+      &::before {
+        position: absolute;
+        display: block;
+        left: 0;
+        height: 100%;
+        font-family: $fonte-simbolo;
+        text-align: center;
+        width: 1.75rem;
+      }
+    }
+  }
   &--dica {
     @extend .aviso;
+    @extend %dica-aviso;
+    color: cor-status(sucesso-escuro);
+    &::before {
+      content: "\e084";
+      background: fade-out(cor-status(sucesso-claro), .85);
+    }
   }
   &--grave {
     @extend .aviso;
+    @extend %dica-aviso;
+    color: cor-status(erro);
+    &::before {
+      content: "\e035";
+      background: fade-out(cor-status(erro-claro), .85);
+    }
   }
 }
 /*
@@ -169,6 +268,7 @@ HEADER
   border-bottom: 1px solid cor(borda);
   box-shadow: 0 0 3px cor(fundo, sombra);
   width: 100%;
+  z-index: z(topo);
   &__menu {
     @include display-flex;
     ul {
@@ -207,7 +307,7 @@ HEADER
 ================================================================================
 */
 main {
-  // padding-top: 3em;
+
 }
 /*
 ================================================================================
@@ -215,14 +315,16 @@ main {
 ================================================================================
 */
 .menu {
-  position: fixed;
-  width: 11em;
   top: 3em;
+  position: relative;
+  @media (min-width: breakpoint(pequeno)) {
+    position: fixed;
+    width: 11em;
+  }
   a {
     color: cor(lista, escura);
     font-weight: bold;
     font-size: .9em;
-    // padding:
     transition: $transition;
     &:hover {
       background: cor(lista);
@@ -237,9 +339,11 @@ main {
 */
 .principal {
   .menu + & {
-    margin-left: 12em;
+    @media (min-width: breakpoint(pequeno)) {
+      margin-left: 12em;
+    }
   }
   article {
-    padding-top: 3em;
+    padding-top: 2.5em;
   }
 }
