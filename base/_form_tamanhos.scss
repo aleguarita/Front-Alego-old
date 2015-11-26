@@ -18,15 +18,15 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
 // -----------------------------------------------------------------------------
 // Changelog
-// 20/01/2015 | Arquivo _colunas.scss com uso de inline-block e de grupos
-// 						 tanto para texto quanto para formulário
-// 07/08/2015 | Eliminado a parte de texto e transformado em flexbox
-// 14/09/2015 | Transformado o arquivo em form_grupo.scss
+// 17/11/2015 | Utilizada nova forma chamar as classes
+//              Transferidos elementos direto para as classes de formulário
 // 09/11/2015 | Incluída opção de não criar as classes (através de config.scss)
 //              Ajuste no responsive
 //              Nome alterado para form_tamanhos
-// 17/11/2015 | Utilizada nova forma chamar as classes
-//              Transferidos elementos direto para as classes de formulário
+// 14/09/2015 | Transformado o arquivo em form_grupo.scss
+// 07/08/2015 | Eliminado a parte de texto e transformado em flexbox
+// 20/01/2015 | Arquivo _colunas.scss com uso de inline-block e de grupos
+// 						 tanto para texto quanto para formulário
 // =============================================================================
 
 // =============================================================================

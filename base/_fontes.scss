@@ -4,23 +4,23 @@ FONTES
 ================================================================================
 */
 
-//	============================================================================
-//	Framework da Assembleia Legislativa
-//	Autor: Alessandro Guarita
-//	----------------------------------------------------------------------------
-//	fonts.scss
-//	Criado em: 13/01/2015
-//	----------------------------------------------------------------------------
-//	Este arquivo puxa as fontes do sistema.
-//	No final são definidas as variáveis padrão pelos tipos de fonte (serifa,
-//	símbolo, etc)
-//	============================================================================
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// fonts.scss
+// Criado em: 13/01/2015
+// -----------------------------------------------------------------------------
+// Este arquivo puxa as fontes do sistema.
+// No final são definidas as variáveis padrão pelos tipos de fonte (serifa,
+// símbolo, etc)
+// =============================================================================
 
-//  ============================================================================
-//   CHAMANDO AS FONTES
-//   ---------------------------------------------------------------------------
-//   Puxa as fontes do sistema
-//   ===========================================================================
+// =============================================================================
+// CHAMANDO AS FONTES
+// -----------------------------------------------------------------------------
+// Puxa as fontes do sistema
+// =============================================================================
 
 //	Para usar esta fonte no computador, ela é a Patua One
 $diretorio: "fontes/";
@@ -95,12 +95,12 @@ $diretorio: "fontes/";
     font-style: normal;
 }
 
-//	============================================================================
-//	VARIÁVEIS
-//	----------------------------------------------------------------------------
-//	Estas são as variáveis para chamar a fonte. Elas são utilizadas no arquivo
-//	tipografia.scss
-//	============================================================================
+// =============================================================================
+// VARIÁVEIS
+// -----------------------------------------------------------------------------
+// Estas são as variáveis para chamar a fonte. Elas são utilizadas no arquivo
+// tipografia.scss
+// =============================================================================
 $fonte-serifa: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
 $fonte-sem-serifa: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
 $fonte-monoespacada: "consolas", "courier new", courier, freemono, "liberation mono", monospace;
