@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 28/11/2015
+// Última alteração em: 26/11/2015
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,24 +13,20 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
-// 28/11/2015 | Alterada a forma dos tipos de nomes específicos para "tipo-x"
+// 26/11/2015 | Retirado breakpoints e colocado em arquivo separado
+// 23/11/2015 | Alterada a forma dos tipos de nomes específicos para "tipo-x"
 // 20/10/2015 | Criação do arquivo e puxada as configurações de demais arquivos
 // =============================================================================
 
 // =============================================================================
 // USO DE CLASSES
 // -----------------------------------------------------------------------------
-// Define se vai criar algumas classes. Caso não vá usar alguma função comente
-// o nome dentro do mapa $uso-classes, isso vai fazer com que as classes não
-// apareçam no arquivo CSS compilado, deixando-o mais leve.
-// -----------------------------------------------------------------------------
-// Se você precisa de uma classe personalizada do zero, faça no arquivo com
-// mesmo nome na pasta "extra". Neste caso, mesmo que abaixo esteja comentado,
-// a classe personalizada vai aparecer.
+// Comente as mais usadas.
+// Para mais detalhes veja o arquivo read-me/doc.html#config
 // =============================================================================
 $uso-classes: (
-  form-field, // grupos de formulários
-  // form-pre, // espaçamento entre formulários
+  form-field,
+  // form-pre,
   form, // formulário
   botao,
   botao-secundario,
@@ -44,19 +40,6 @@ $uso-classes: (
   breadcrumb,
   toaster,
   secao-bloco,
-);
-
-// =============================================================================
-// MEDIA QUERY | BREAKPOINTS
-// -----------------------------------------------------------------------------
-// Breakpoints utilizando rem. Utilizando na função breakpoint
-// Ver: http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative
-// =============================================================================
-$breakpoints: (
-  pequeno: rem(480),
-	medio: rem(768),
-	grande: rem(1024),
-	extra-grande: rem(1200),
 );
 
 // =============================================================================

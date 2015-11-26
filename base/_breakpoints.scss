@@ -1,0 +1,23 @@
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// breakpoints.scss
+// Criado em: 26/11/2015
+// -----------------------------------------------------------------------------
+// Este arquivo contém o mapa de breakpoints. Não foi colocado dentro do arquivo
+// de variáveis pois deve aparecer antes dos mixins e funções (que fazem uso
+// dela)
+// -----------------------------------------------------------------------------
+// Changelog
+// 26/11/2015 | Retirado do arquivo de config.scss para deixá-lo mais leve e
+//              de fácil manipulação, uma vez que a intenção é que não se crie
+//              mais breakpoints.
+// =============================================================================
+
+$breakpoints: (
+  pequeno: rem(480),
+	medio: rem(768),
+	grande: rem(1024),
+	extra-grande: rem(1200),
+);
