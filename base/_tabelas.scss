@@ -150,7 +150,7 @@ td {
 			@extend %tab--zebra;
 		}
 	}
-	@if $tab--form == "sim" {
+	@if index($uso-classes, tabela-form) {
 		.tab--form {
 			@extend .tab;
 			@extend %tab--form;

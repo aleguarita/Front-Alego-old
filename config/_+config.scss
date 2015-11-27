@@ -27,12 +27,13 @@
 $uso-classes: (
   form-field,
   // form-pre,
-  form, // formulário
+  form,
   botao,
   botao-secundario,
   autocomplete,
   grid-container,
   tabela,
+  tabela-form,
   modal,
   card,
   lista,
@@ -44,27 +45,14 @@ $uso-classes: (
 
 // =============================================================================
 // TEMA DE CORES
-// -----------------------------------------------------------------------------
-// Escolha aqui qual o tema de cores usado. As cores devem ser definidas no
-// arquivo _cores.scss
-// -----------------------------------------------------------------------------
-// Temas disponíveis: principal | monocromatico | cinza | alto-contraste |
-//                    bandeira-goiana | rosa | azul
-// Ao acrescentar um tema, ou quiser alterar, basta mudar na variável abaixo
 // =============================================================================
 $cores-tema: principal;
 
 // =============================================================================
 // GRID
-// -----------------------------------------------------------------------------
-// Definições básicas da grid
 // =============================================================================
-// $grid-qtd: a quantidade de grids usadas
-// $grid-margem: o espaço entre as grids
-// $grid-max: a largura máxima da grid
-// -----------------------------------------------------------------------------
 $grid-qtd: 12;
-$grid-margem: rem(10); // afeta a variávei $calha definida no arquivo variaveis.scss
+$grid-margem: rem(10);
 $grid-max: rem(1600);
 
 // MAPA DAS SEÇÕES
@@ -91,28 +79,12 @@ $grid: (
 // Escolhe o tipo de tabela a ser usada. Valores: tipo-1 | tipo-2
 // -----------------------------------------------------------------------------
 $tab-tipo: tipo-1;
-
-//	Define as variações. Valores: sim | não
-//	$tab--zebra: define se a tabela é zebrada ou não
-//	$tab--formulario: ativa a variação --form
-//  $tab-acao-link-bloco: o ícone é um bloco e ocupa a altura da célula
-// 	$tab-col--maximo: o valor máximo que pode ser ajustado através de
-// 		placeholder.
-// -----------------------------------------------------------------------------
 $tab--zebra: sim;
-$tab--form: não;
 $tab-acao-link-bloco: não;
 $tab-col--maximo: 600;
-
-// Cria classes para definir as larguras das colunas. Coloque valor em pixels,
-// mas sem unidade. Abaixo é criada a classe e o nome que você escolheu aparece
-// com dois traços. Exemplo: .col--classe_criada
-// -----------------------------------------------------------------------------
-//	Largura fixa
 $largura-tabela-col: (
 	acoes: 70,
 );
-//	Largura mínima
 $largura-tabela-col-min: (
 );
 //	Largura máxima
