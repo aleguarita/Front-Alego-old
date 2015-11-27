@@ -71,7 +71,7 @@ CLASSES
 // -----------------------------------------------------------------------------
 // Links
 // -----------------------------------------------------------------------------
-.link--readme {
+%link-basico {
   @extend %link-pontilhado;
   font-weight: bold;
   font-size: .85em;
@@ -81,7 +81,11 @@ CLASSES
     color: cor(link, escuro-hover);
   }
 }
+.link--readme {
+  @extend %link-basico;
+}
 .link--externo {
+  @extend %link-basico;
   &::after {
     font-family: $fonte-simbolo;
     font-size: .7em;
@@ -157,7 +161,7 @@ $largura-dt-pq: 9em;
 
 }
 // -----------------------------------------------------------------------------
-// Código
+// Fragmentos de código
 // -----------------------------------------------------------------------------
 %codigo-bloco {
   @extend %codigo;
@@ -256,6 +260,24 @@ $i: 1;
     }
   }
 }
+// -----------------------------------------------------------------------------
+// Teclas de atalho
+// -----------------------------------------------------------------------------
+.tecla-atalho {
+
+}
+// -----------------------------------------------------------------------------
+// Códigos selecionados
+// -----------------------------------------------------------------------------
+$codigo-selecionado: (
+  tab-col--maximo: $tab-col--maximo,
+);
+@each $classe, $valor in $codigo-selecionado {
+  .codigo-#{$classe} {
+    &::before { content: "#{$valor}"; }
+  }
+}
+
 /*
 ================================================================================
 HEADER

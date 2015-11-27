@@ -26,18 +26,26 @@
         <ul class="lista--link">
           <li><a href="#illustrator">Illustrator</a></li>
           <li><a href="#regras">Regras de padronização</a></li>
+          <li><a href="#config">Configurações básicas</a></li>
+          <li><a href="">Cores</a></li>
+          <li><a href="">Grid</a></li>
         </ul>
       </nav>
       <section class="principal">
         <article id="illustrator">
-          <h1>Illustrator</h1>
+          <header>
+            <h1>Illustrator</h1>
+          </header>
           <p>O layout deve ser gerado no Illustrator prioritariamente. Existe um arquivo modelo pronto para isso. Neste arquivo existem layers prontas com os elementos além das paletas igual à usada no sistema atual.</p>
           <p>As cores da paleta são globais e alteram os elementos automaticamente. Para criar uma nova paleta siga o mesmo padrão, inclusive de nome, para que possa ser transcrito no arquivo de configuração do Front-Alego.</p>
         </article>
+
         <article id="regras">
-          <h1>Regras de padronização</h1>
-          <h2>BEM - Bloco, Elemento, Modificador</h2>
-          <p>Estamos utilizando a regra do <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" class="link--readme link--externo" target="blank">BEM</a> para nomear as classes.</p>
+          <header>
+            <h1>Regras de padronização</h1>
+          </header>
+          <h2 id="regras__bem">BEM - Bloco, Elemento, Modificador</h2>
+          <p>Estamos utilizando a regra do <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" class="link--externo" target="_blank">BEM</a> para nomear as classes.</p>
           <dl class="lista-definicao">
             <dt>Bloco</dt><dd>O bloco é o elemento pai, principal. Procure usar nome relevante e de fácil identificação. Se precisar separar palavras do nome, use apenas um traço: <samp>-</samp></dd>
             <dt>Elemento</dt><dd>É o elemento filho do bloco. Ele deve ser aparecer logo depois do bloco e separado com dois sublinhados: <samp>__</samp></dd>
@@ -100,7 +108,7 @@
             <p>.box--urgente { ... }</p>
           </code>
 
-          <h2>Nomes de classes</h2>
+          <h2 id="regras__classes">Nomes de classes</h2>
           <p>Jamais use nas classes específicas elementos de formatação. Estes devem aparecer como classe adicional ou modificador de classe (<samp>--mod</samp>).</p>
           <p>Exemplo: se você tiver um card que deve aparecer alinhado na esquerda da página, não use <samp>.card-alinha-esquerda</samp> e sim <samp>.card--esquerda</samp> ou ainda duas classes (<samp>.card</samp> e <samp>.float-left</samp>).</p>
           <p>Para elementos comuns de formatação use as seguintes simplificações:</p>
@@ -111,7 +119,7 @@
             <dt>form</dt><dd>formulário</dd>
           </dl>
 
-          <h2>Organização dos arquivos SCSS</h2>
+          <h2 id="regras__sass">Organização dos arquivos SCSS</h2>
           <p>Como explicado <a href="index.html#aplicando">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="pasta">/extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Por outro lado, somente os placeholders e classes que são de uso global (em mais de um arquivo scss) devem vir na pasta extra.</p>
           <h3>Comentários</h3>
           <p>O arquivo deve ser totalmente comentado ao estilo SASS para identificar seus trechos.</p>
@@ -152,10 +160,140 @@
           <blockquote class="aviso--dica">
             Variáveis e placeholders podem aparecer dentro de uma seção do site no CSS, caso não se repitam em nenhum lugar. Neste caso ficaria assim para facilitar a localização e modificação.
           </blockquote>
-          <h2>Seletores descendentes e aninhamento de código</h2>
+          <h3>Atualização emergencial</h3>
+          <p>Você conhece a situação: você tem que fazer uma alteração <strong class="texto-erro">pra ontem</strong>. Por mais que o objetivo do <strong>Front-Alego™</strong> seja organizar os arquivos, isso pode levar um tempo que não se dispõe. Neste caso haverá uma quebra das regras, temporariamente. Neste caso, siga os passos:</p>
+          <ol>
+            <li>Crie um arquivo chamado <samp class="arquivo">ajustes.scss</samp> na pasta <samp class="pasta">extras</samp></li>
+            <li>Escreva um comentário indicando para quê é essa alteração e seu nome</li>
+            <li>Escreva as regras. Não tenha medo de usar <samp>!important</samp> e outras regras <strike>escrotas</strike> pouco apropriadas</li>
+            <li>No final do arquivo principal do seu CSS que a regra tem que ser aplicada dê um importe para o arquivo:
+              <code class="codigo--sass">
+                <p>@import "extras/ajustes"</p>
+              </code>
+            </li>
+            <li>Teste</li>
+            <li>Commite o trabalho</li>
+            <li>Depois que a corda saiu do seu pescoço insira as alterações nos lugares corretos e com as regras de boas condutas aplicadas</li>
+            <li>Delete o <samp>@import</samp> para o arquivo de ajustes (pode deletar o conteúdo dos ajustes também)</li>
+          </ol>
+
+          <h2 id="regras__seletores">Seletores descendentes e aninhamento de código</h2>
           <p>Evite o máximo possível CSS com seletor descendente (<samp>.classe1 .classe2</samp>). Este seletor diminui a performance do browser e aumenta a especifidade do código. Por esta mesma razão evite grandes aninhamentos de código no SASS. Esta regra, no entanto, tem exceções (uma delas já mostrada acima, no BEM). Mas mesmo assim, tenha no máximo dois descendentes e aninhamento (exemplo: <samp>.tab td</samp> e não <samp>.tab tr td</samp>).</p>
+
+          <h2 id="regras__medidas">Medidas relativas</h2>
+          <p>Para que o sistema seja adaptável, sempre use medidas relativas. Jamais use valores em pixels (a exceção é tamanho de imagens e vídeos externos). Para os demais casos use <samp>em</samp>, <samp>rem</samp>, <samp>%</samp>, <samp>vw</samp>, etc.</p>
+          <h3>REM vs. EM</h3>
+          <p>Sabendo da diferença entre ambos (<samp>rem</samp> é relativo ao tamanho da fonte do root e <samp>em</samp> é relativo ao tamanho da fonte do elemento pai), use os dois quando adequado. Dicas:</p>
+          <ul class="lista-itens">
+            <li>Tamanho da fonte que é para ser relativa ao tamanho pai, use <samp>em</samp>. Exemplo: um link, um destaque ou mesmo todo um bloco de textos.</li>
+            <li>Tamanho de fonte que é para se manter com o mesmo tamanho, indepdente do tamanho do elemento pai, use <samp>rem</samp>. Exemplo: título da página.</li>
+            <li>Margens costumam ser mais adequado utilizar <samp>rem</samp> para manter a consistência.</li>
+            <li>Paddings, por outro lado, é mais adequado usar <samp>em</samp> para que o espaço interno cresça conforme se aumenta a fonte. Exceção: se você tem um elemento com dois tamanho de fonte diferentes, manter o padding em <samp>rem</samp> ajuda a manter a consistência. (exemplo: tabela)</li>
+          </ul>
+          <blockquote class="aviso--dica">
+            Existem funções no bourbon que convertem o valor de pixels para <samp>rem</samp> ou <samp>em</samp>. Basta usar a função <samp>rem()</samp> ou <samp>em()</samp>
+          </blockquote>
+
+          <h2 id="regras__media-query">Media Queries</h2>
+          <p>O uso de <em>Media queries</em> para fazer sites responsivos não usa medidas em pixels mais sim em <samp>rem</samp>, pois assim se adapta inclusive ao zoom dado pelo usuário.</p>
+          <p>Ver mais detalhes sobre isso <a href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative" class="link--externo" target="_blank">neste artigo</a>.</p>
+          <p>A ideia básica é parar de usar medidas de dispositivos específicos (que a cada momento tem novos) e trabalhar com a medida da tela em si.</p>
+          <blockquote class="aviso--grave">
+            Sempre use o sistema de media-query descrito aqui (fazendo uso da função <samp>breakpoint</samp>). E nunca, jamais, escreva uma medida que não esteja descrita no mapa <samp>$breakpoints</samp>.
+          </blockquote>
         </article>
 
+        <article id="config">
+          <header>
+            <h1>Config</h1>
+            <p><span class="arquivo">config/_+config.scss</span></p>
+          </header>
+          <p>O arquivo de configuração permite escolher a formatação básica do seu projeto. Em muitos casos você escrevará o valor a ser usado. Se o valor for "sim" ou "não" o valor relevante é o <strong>sim</strong> e qualquer valor diferente é entendido como <strong>não</strong>.</p>
+          <h2 id="config__classes">Uso de Classes</h2>
+          <p>O mapa <samp>$uso-classes</samp> define se vai criar algumas classes. Caso não vá usar alguma função comente o nome dentro do mapa (<span class="tecla-atalho">cmd</span> + <span class="tecla-atalho">/</span>), isso vai fazer com que as classes não apareçam no arquivo CSS compilado, deixando-o mais leve.</p>
+          <p>As classes criadas nos arquivos adicionais na pasta <samp class="pasta">extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>.</p>
+          <dl class="lista-definicao">
+            <dt><samp>form-field</samp></dt><dd>Grupo de formulários. Serve para definir a largura deles, com um sistema similar ao de grids (com classes de <samp>grid-1</samp> até <samp>grid-12</samp>)</dd>
+            <dt><samp>form-pre</samp></dt><dd>Espaçamento entre os formulários. Cada <samp>pre-x</samp> dá o mesmo espaço de uma "grid" de formulário. Por ser algo de uso raro, por padrão já vem comentado</dd>
+            <dt><samp>form</samp></dt><dd>Formatação dos tags básicos de formulário, incluindo sua relação entre <samp>label</samp> e <samp>input</samp>. Inclui formatação de campos de textos (e derivados dos HTML 5), caixa de texto, radiobutton, checkbox e select.</dd>
+            <dt><samp>botao</samp></dt><dd>Botões de formulário</dd>
+            <dt><samp>botao-secundario</samp></dt><dd>Caso seja necessário dois tipos diferentes de botão</dd>
+            <dt><samp>autocomplete</samp></dt><dd>Formulário de autocomplete</dd>
+            <dt><samp>grid-container</samp></dt><dd>As classes de container de grid</dd>
+            <dt><samp>tabela</samp></dt><dd>Classe de tabela</dd>
+            <dt><samp>tabela-form</samp></dt><dd>A classe secundária <samp>.tab--form</samp>. Se a tabela (acima) estiver comentada, esta não será escrita.</dd>
+            <dt><samp>modal</samp></dt><dd>Classe da modal</dd>
+            <dt><samp>card</samp></dt><dd>Classe dos cards</dd>
+            <dt><samp>lista</samp></dt><dd>Classes para a formatação de listas (o menu deste arquivo faz uso)</dd>
+            <dt><samp>paginacao</samp></dt><dd>Formata a paginação</dd>
+            <dt><samp>breadcrumb</samp></dt><dd>Formata o breadcrumb</dd>
+            <dt><samp>toaster</samp></dt><dd>Formata os toasters do sistema</dd>
+            <dt><samp>secao-bloco</samp></dt><dd>Seções que podem ser fechadas, ocultando o conteúdo e mostrando o título, formando uma lista de seções</dd>
+          </dl>
+          <blockquote class="aviso--grave">
+            Apenas comente! Não altere os nomes em hipótese nenhuma (do contrário será o mesmo efeito de comentar e a classe não será criada)
+          </blockquote>
+
+          <h2 id="config__tema">Tema de cores</h2>
+          <!-- LINK -->
+          <p>Defina qual o tema de cor utilizado. Veja mais detalhes sobre isso em cores. Abaixo uma explicação dos valores aceitos em <samp>$cores-tema</samp> e seus possíveis usos:</p>
+          <dl class="lista-definicao">
+            <dt>principal</dt>
+              <dd>O tema padrão e definido originalmente para o sistema</dd>
+            <dt>monocromatico</dt><dd>Faz uso de apenas a paleta principal do sistema</dd>
+            <dt>cinza</dt>
+              <dd>Utiliza apenas tons de cinza</dd>
+            <dt>auto-contraste</dt>
+              <dd>Tons escuros e claros em auto contraste, para acessbilidade</dd>
+            <dt>bandeira-goiana</dt>
+              <dd>Faz uso das três cores da bandeira goiana</dd>
+            <dt>rosa</dt>
+              <dd>Usa principalmente tons de rosa. Para o Outubro Rosa</dd>
+            <dt>azul</dt>
+              <dd>Usa principalmente tons de azul. Para o Novembro Azul</dd>
+          </dl>
+          <p>Caso você crie algum tema novo, basta alterar a variável <samp>$cores-tema</samp> para o tema novo.</p>
+
+          <h2 id="config__grid">Grid</h2>
+          <!-- LINK -->
+          <p>Defina aqui os detalhes da grid. Veja mais detalhes sobre isso em grids.</p>
+          <dl class="lista-definicao">
+            <dt><samp>$grid-qtd</samp></dt>
+              <dd>O maior valor de grid (<samp>grid-#</samp>) disponível. Por padrão são <strong>12</strong> grids (melhor valor de se trabalhar por ser divísivel por 3 e 4).</dd>
+            <dt><samp>$grid-margem</samp></dt>
+              <dd>A margem entre as grids. Por padrão é o equivalente a 10px convertidos para <samp>rem</samp>. <strong class="texto-erro">Atenção:</strong> afeta a variável <samp>$calha</samp></dd>
+            <dt><samp>$grid-max</samp></dt>
+              <dd>O tamanho máximo da grid na tela (<samp>max-width</samp>). Quando a tela for maior que essa medida, fica centralizado (usa no <samp>.container</samp>)</dd>
+            <dt><samp>$grid</samp></dt>
+              <dd>Neste mapa coloque as seções do site (a classe usada) e a quantidade de grids que ocupa. Exemplo: <samp>header-titulo: 10,</samp></dd>
+          </dl>
+
+          <h2 id="config__tab">Tabelas</h2>
+          <p>Configurações de tabela.</p>
+          <dl class="lista-definicao">
+            <dt><samp>$tab-tipo</samp></dt>
+              <dd>Tipos de tabela: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+            <dt><samp>$tab-zebra</samp></dt>
+              <dd>Determina se a tabela é zebrada ou não: <samp>sim</samp> | <samp>não</samp></dd>
+            <dt><samp>$tab-acao-link-bloco</samp></dt>
+              <dd>O ícone de ação aparece como um bloco, possibilitando o hover ocupar uma área maior</dd>
+            <dt><samp>$tab-col--maximo</samp></dt>
+              <dd>O valor máximo do placeholder criado para determinar as largras das colunas. O valor atual é <strong><span class="codigo-tab-col--maximo"></span></strong>, o que quer dizer que a maior coluna vai ter <span class="codigo-tab-col--maximo"></span>px (devidamente convertido para rem)</dd>
+            <dt><samp>$largura-tabela-col</samp></dt>
+              <dd>Mapa de classes para determinar a largura das colunas. Coloque o nome e valor e separe por vírgula. Exemplo: <samp>nome: 10,</samp>. O valor deve ser em pixels mas sem unidade.</dd>
+            <dt><samp>$largura-tabela-col-min</samp></dt>
+              <dd>Mapa de classes para determinar a largura <strong>mínima</strong> das colunas.</dd>
+            <dt><samp>$largura-tabela-col-max</samp></dt>
+              <dd>Mapa de classes para determinar a largura <strong>máxima</strong> das colunas.</dd>
+            <dt><samp></samp></dt>
+              <dd></dd>
+            <dt><samp></samp></dt>
+              <dd></dd>
+            <dt><samp></samp></dt>
+              <dd></dd>
+          </dl>
+
+        </article>
       </section>
 
     </main>

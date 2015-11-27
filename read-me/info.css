@@ -68,7 +68,7 @@ FONTES
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 17/11/2015
+	Última alteração: 26/11/2015
 	------------------------------------------------------------------------------
 */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -670,19 +670,19 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
   margin-top: 0;
 }
 
-.link--readme {
+.link--readme, .link--externo {
   text-decoration: none;
   border-bottom: 1px solid #b3b3b3;
 }
-.link--readme:hover {
+.link--readme:hover, .link--externo:hover {
   border-color: inherit;
   color: #00c5cd;
 }
 
-.link--readme {
+.link--readme, .link--externo {
   border-bottom-style: dotted;
 }
-.link--readme:hover {
+.link--readme:hover, .link--externo:hover {
   color: #009da4;
 }
 
@@ -1134,25 +1134,73 @@ td {
   font-size: 0.85714em;
 }
 
-.tab tbody tr:nth-child(even) {
+.tab tbody tr:nth-child(even), .tab--form tbody tr:nth-child(even) {
   background: #ccf3f5;
 }
-.tab tbody tr:nth-child(even) .tab__acoes {
+.tab tbody tr:nth-child(even) .tab__acoes, .tab--form tbody tr:nth-child(even) .tab__acoes {
   background: #8ce4e8;
 }
 
-.tab thead tr {
+.tab--form tbody tr:nth-child(even) {
+  background: #fff;
+}
+.tab--form td {
+  padding: 0 .25em;
+  border-left: 2px solid #66dce1;
+}
+.tab--form td:last-child {
+  border-right: 2px solid #66dce1;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"]),
+.tab--form textarea,
+.tab--form select {
+  border: 0;
+  background: #fff;
+  width: 100%;
+  padding: .25em;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  font-size: 0.875rem;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"])::-webkit-input-placeholder,
+.tab--form textarea::-webkit-input-placeholder,
+.tab--form select::-webkit-input-placeholder {
+  color: #66dce1;
+  text-transform: uppercase;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"])::-moz-placeholder,
+.tab--form textarea::-moz-placeholder,
+.tab--form select::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #66dce1;
+  text-transform: uppercase;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"]):-ms-input-placeholder,
+.tab--form textarea:-ms-input-placeholder,
+.tab--form select:-ms-input-placeholder {
+  color: #66dce1;
+  text-transform: uppercase;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"]):hover, .tab--form input:not([type="checkbox"]):not([type="radio"]):focus,
+.tab--form textarea:hover,
+.tab--form textarea:focus,
+.tab--form select:hover,
+.tab--form select:focus {
+  border-color: #009da4;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.tab thead tr, .tab--form thead tr {
   color: #fff;
   background: #006266;
   border-bottom: 2px solid #66dce1;
 }
-.tab tbody tr {
+.tab tbody tr, .tab--form tbody tr {
   border-bottom: 1px solid #66dce1;
 }
-.tab tbody tr:nth-child(odd) {
+.tab tbody tr:nth-child(odd), .tab--form tbody tr:nth-child(odd) {
   color: gray;
 }
-.tab .tab__acoes {
+.tab .tab__acoes, .tab--form .tab__acoes {
   background: #e1f8f9;
 }
 
@@ -1571,13 +1619,13 @@ CLASSES
   padding: 0 0.6rem;
 }
 
-.link--readme {
+.link--readme, .link--externo {
   font-weight: bold;
   font-size: .85em;
   color: #009da4;
   text-transform: uppercase;
 }
-.link--readme:hover {
+.link--readme:hover, .link--externo:hover {
   color: #00c5cd;
 }
 
@@ -1743,6 +1791,10 @@ CLASSES
 .aviso--grave::before {
   content: "\e035";
   background: rgba(240, 73, 79, 0.15);
+}
+
+.codigo-tab-col--maximo::before {
+  content: "600";
 }
 
 /*
