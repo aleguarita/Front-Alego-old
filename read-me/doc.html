@@ -27,8 +27,8 @@
           <li><a href="#illustrator">Illustrator</a></li>
           <li><a href="#regras">Regras de padronização</a></li>
           <li><a href="#config">Configurações básicas</a></li>
-          <li><a href="">Cores</a></li>
-          <li><a href="">Grid</a></li>
+          <li><a href="#cores">Cores</a></li>
+          <li><a href="#grid">Grid</a></li>
         </ul>
       </nav>
       <section class="principal">
@@ -209,6 +209,7 @@
             <p><span class="arquivo">config/_+config.scss</span></p>
           </header>
           <p>O arquivo de configuração permite escolher a formatação básica do seu projeto. Em muitos casos você escrevará o valor a ser usado. Se o valor for "sim" ou "não" o valor relevante é o <strong>sim</strong> e qualquer valor diferente é entendido como <strong>não</strong>.</p>
+
           <h2 id="config__classes">Uso de Classes</h2>
           <p>O mapa <samp>$uso-classes</samp> define se vai criar algumas classes. Caso não vá usar alguma função comente o nome dentro do mapa (<span class="tecla-atalho">cmd</span> + <span class="tecla-atalho">/</span>), isso vai fazer com que as classes não apareçam no arquivo CSS compilado, deixando-o mais leve.</p>
           <p>As classes criadas nos arquivos adicionais na pasta <samp class="pasta">extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>.</p>
@@ -285,14 +286,88 @@
               <dd>Mapa de classes para determinar a largura <strong>mínima</strong> das colunas.</dd>
             <dt><samp>$largura-tabela-col-max</samp></dt>
               <dd>Mapa de classes para determinar a largura <strong>máxima</strong> das colunas.</dd>
-            <dt><samp></samp></dt>
-              <dd></dd>
-            <dt><samp></samp></dt>
-              <dd></dd>
-            <dt><samp></samp></dt>
-              <dd></dd>
           </dl>
 
+          <h2 id="config__pag">Paginação</h2>
+          <p>Configuração da paginação</p>
+          <dl class="lista-definicao">
+            <dt><samp>$paginacao-tipo</samp></dt><dd>Tipos de paginação: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+            <dt><samp>$paginacao-posicao</samp></dt><dd>Define o alinhamento (se aparece à direita, centralizado ou à esquerda). Use os valores de flex-box: <samp>flex-start</samp> (à esquerda) | <samp>center</samp> | <samp>flex-end</samp> (à direita)</dd>
+            <dt><samp>$paginacao-fonte</samp></dt><dd>O tamanho da fonte da paginação.</dd>
+          </dl>
+
+          <h2 id="config__modal">Modal</h2>
+          <p>Define as configurações da modal.</p>
+          <dl class="lista-definicao">
+            <dt><samp>$modal-tipo</samp></dt><dd>Define o tipo da paginação: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+          </dl>
+
+          <h2 id="config__card">Card</h2>
+          <p>Define a configuração dos cards.</p>
+          <dl class="lista-definicao">
+            <dt><samp>$card-tipo</samp></dt><dd>Tipo de card: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+          </dl>
+
+          <h2 id="config__toaster">Toaster</h2>
+          <p>Configurações do Toaster.</p>
+          <dl class="lista-definicao">
+            <dt><samp>$toaster-tipo</samp></dt>
+              <dd>Tipo de toaster: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+            <dt><samp>$toaster-horizontal</samp></dt>
+              <dd>Define se vai aparecer à esquerda ou à direita da página. Valores: <samp>right</samp> | <samp>left</samp></dd>
+            <dt><samp>$toaster-vertical</samp></dt>
+              <dd>Define se o toaster vai aparecer de cima ou de baixo. Valores: <samp>top</samp> | <samp>bottom</samp></dd>
+            <dt><samp>$toaster-distancia</samp></dt>
+              <dd>Define a distância que começa da extremidade do browser. Use medidas <samp>em</samp> ou <samp>rem</samp></dd>
+            <dt><samp>$toaster-distancia-vertical</samp></dt>
+              <dd>Um multiplicador para a distância vertical. Isso é usado para distanciar o toaster do rodapé (se aparecer de baixo) ou do cabeçalho (se estiver vindo de cima) sem ocultar estes elementos.</dd>
+          </dl>
+
+          <h2 id="config__form">Formulários</h2>
+          <p>Configuração dos formulários</p>
+          <dl class="lista-definicao">
+            <dt><samp>$form-tipo</samp></dt>
+              <dd>Tipo de formulário: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp></dd>
+            <dt><samp>$label-tipo</samp></dt>
+              <dd>Define se o label vai ser na mesma linha do input ou se vai ter quebra de linha. Valores: <samp>flutuante</samp> (quebra de linha) | <samp>colado</samp> (na mesma linha)</dd>
+            <dt><samp>$form-radio-check-personaliza</samp></dt>
+              <dd>Determina se vai usar formatação personalizada nos radio button e checkbox ou se vai usar o padrão do browser. Valores <samp>sim</samp> | <samp>não</samp></dd>
+            <dt><samp>$botao-tipo</samp></dt>
+              <dd>Determina o tipo de botão a ser usado. Valores: <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
+            <dt><samp>$botao-secundario</samp></dt>
+              <dd>Determina o tipo secundário de botão. Se for o mesmo tipo do acima, aparecerá com outra cor. Valores: <samp>$botao-tipo</samp> ou <samp>$tipo-1</samp> até <samp>$tipo-6</samp></dd>
+            <dt><samp>$botao-sombra-colorida</samp></dt>
+              <dd>Define se a sombra vai ser colorida, da cor do texto. <samp>sim</samp> | <samp>não</samp></dd>
+            <dt><samp>$botoes-status</samp></dt>
+              <dd>Não crie classes neste mapa (pois vai dar erro), apenas comente as que não for usar. Usam o mesmo tipo do <samp>$botao-secundario</samp></dd>
+          </dl>
+
+          <h2 id="config__secao-lista">Seção Lista</h2>
+          <p>Exibe as seções em listas. Ao clicar no item da lista, exibe o conteúdo.</p>
+          <dl class="lista-definicao">
+            <dt><samp>$secao-lista-tipo</samp></dt>
+              <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+            <dt><samp>$secao-lista-titulo</samp></dt>
+              <dd>Define o tamanho do título da tabela usando a função <samp>modular-scale()</samp> do <a href="http://bourbon.io/docs/#modular-scale" target="_blank" class="link--externo">Bourbon</a></dd>
+          </dl>
+
+          <h2 id="config__lista">Lista</h2>
+          <dl class="lista-definicao">
+            <dt><samp>$lista-tipo</samp></dt>
+              <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+            <dt><samp>$lista--zebra</samp></dt>
+              <dd>Define se a lista vai ser zebrada. Valores: <samp>sim</samp> | <samp>não</samp></dd>
+            <dt><samp>$lista--sombra</samp></dt>
+              <dd>Define se a lista vai ter sombra. Valores: <samp>sim</samp> | <samp>não</samp></dd>
+          </dl>
+        </article>
+
+        <article id="cores">
+
+        </article>
+
+        <article id="grid">
+          
         </article>
       </section>
 
