@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 26/11/2015
+// Última alteração em: 30/11/2015
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 30/11/2015 | Explicação dos tipos está no read-me
 // 26/11/2015 | Retirado breakpoints e colocado em arquivo separado
 // 23/11/2015 | Alterada a forma dos tipos de nomes específicos para "tipo-x"
 // 20/10/2015 | Criação do arquivo e puxada as configurações de demais arquivos
@@ -76,9 +77,7 @@ $grid: (
 // =============================================================================
 // TABELAS
 // =============================================================================
-// Escolhe o tipo de tabela a ser usada. Valores: tipo-1 | tipo-2
-// -----------------------------------------------------------------------------
-$tab-tipo: tipo-1;
+$tab-tipo: tipo-1; // 2 tipos
 $tab--zebra: sim;
 $tab-acao-link-bloco: não;
 $tab-col--maximo: 600;
@@ -94,53 +93,29 @@ $largura-tabela-col-max: (
 // =============================================================================
 // PAGINAÇÃO
 // =============================================================================
-// Escolhe o tipo de paginação a ser usada. Valores: tipo-1 | tipo-2
-// -----------------------------------------------------------------------------
-$paginacao-tipo: tipo-1;
-
-//	Define alinhamento da paginação. Valores: flex-start (esquerda) |
-//	flex-end (direita) | center
-//	----------------------------------------------------------------------------
+$paginacao-tipo: tipo-1; // 2 tipos
 $paginacao-posicao: center;
-$paginacao-fonte: .65rem; // tamanho da fonte
+$paginacao-fonte: .65rem;
 
 // =============================================================================
 // MODAL
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
-// -----------------------------------------------------------------------------
-$modal-tipo: tipo-1;
+$modal-tipo: tipo-1; // 2 tipos
 
 // =============================================================================
 // CARDS
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
-// -----------------------------------------------------------------------------
-$card-tipo: tipo-1;
+$card-tipo: tipo-1; // 2 tipos
 
 // =============================================================================
 // BREADCRUMBS
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
-// -----------------------------------------------------------------------------
-$breadcrumbs-tipo: tipo-1;
+$breadcrumbs-tipo: tipo-1; // 2 tipos
 
 // =============================================================================
 // TOASTER
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
-// -----------------------------------------------------------------------------
-$toaster-tipo: tipo-1;
-
-// $toaster-horizontal: define se começa à esquerda ou à direita.
-//   Valores: left | right
-// $toaster-vertical: define se começa em cima ou em baixo.
-//   Valores: top | bottom
-// $toaster-distancia: define a distância que começa da borda do browser.
-// $toaster-distancia-vertical: define o multiplicador da distância vertical.
-//   Use para quando for distanciar de algum elemento do layout (como por
-//   exemplo o cabeçalho ou o rodapé)
-// -----------------------------------------------------------------------------
+$toaster-tipo: tipo-1; // 2 tipos
 $toaster-horizontal: right;
 $toaster-vertical: bottom;
 $toaster-distancia: 2em;
@@ -149,28 +124,12 @@ $toaster-distancia-vertical: 1;
 // =============================================================================
 // FORMULÁRIOS
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2 | tipo-3
-// -----------------------------------------------------------------------------
-$form-tipo: tipo-1;
-
-// $label-tipo: determina se o label vai ser na mesma linha ou se vai ter quebra
-//   Valores: flutuante | colado
+$form-tipo: tipo-1; // 3 tipos
 $label-tipo: colado;
-// $form-radio-check-personaliza: determina se vai usar o radio buttom ou
-// checkbox personalizado ou o padrão do navegador.
-//   Valores: sim | não
 $form-radio-check-personaliza: sim;
-
-// $botao-tipo e $botao-secundario: define o tipo de botão a ser usado se o
-// $botao-secundario for igual ao $botao-tipo ele ficará com outra cor
-//   Valores: tipo-1 até tipo-6
-//   ($botao-secundario aceita "$botao-tipo" como valor)
-$botao-tipo: tipo-5;
-$botao-secundario: $botao-tipo;
-// Define se a sombra do botão vai ser da cor do texto ou se vai ser preta
+$botao-tipo: tipo-5; // 6 tipos
+$botao-secundario: $botao-tipo; // 6 tipos + $botao-tipo
 $botao-sombra-colorida: sim;
-// Define as classes adicionais de botão que são criadas. Ela segue o mesmo
-// padrão de $botao-secundario. COMENTE os que não for usar.
 $botoes-status: (
   urgente,
   ok,
@@ -180,17 +139,12 @@ $botoes-status: (
 // =============================================================================
 // SEÇÃO LISTA
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: tipo-1 | tipo-2
-// -----------------------------------------------------------------------------
-$secao-lista-tipo: tipo-1; // escuro | claro
-
-// Determina o tamanho do título utilizando proporção áurea;
+$secao-lista-tipo: tipo-1; // 2 tipos
 $secao-lista-titulo: 3;
+
 // =============================================================================
 // LISTA
 // =============================================================================
-// Escolha o tipo a ser usado. Valores: pontilhada | linha
-// -----------------------------------------------------------------------------
-$lista-tipo: linha;
+$lista-tipo: tipo-1; // 2 tipos
 $lista--zebra: não;
 $lista--sombra: não;
