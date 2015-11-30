@@ -113,12 +113,12 @@ $tipos-toaster: (
   			}
   		}
 		}
-		%toaster--fundo {
+		%toaster--tipo-1 {
 			.#{$status} {
 				background: cor-status($classe);
 			}
 		}
-		%toaster--linha {
+		%toaster--tipo-2 {
 			.#{$status} {
 				color: cor-status(#{$classe}-escuro);
 			}
