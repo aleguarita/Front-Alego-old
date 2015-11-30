@@ -12,11 +12,13 @@ LISTA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 20/11/2015
-// Última alteração em: 24/11/2015
+// Última alteração em: 30/11/2015
 // -----------------------------------------------------------------------------
 // Formata caixas de listas
 // ----------------------------------------------------------------------------
 // Changelog
+// 30/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
 // 24/11/2015 | Acrescentado lista para link que ocupa a célula inteira
 // 20/11/2015 | Criação do arquivo
 // =============================================================================
@@ -50,22 +52,7 @@ $lista-padding: .5rem .75rem;
 // =============================================================================
 // PLACEHOLDER | TIPOS
 // =============================================================================
-%lista--linha {
-  @extend %lista-basico;
-  border: 1px solid cor(lista);
-  li {
-    border-bottom: 1px solid cor(lista);
-    &:last-child {
-      border-bottom-width: 0;
-    }
-  }
-  &__titulo {
-    @extend %lista__titulo;
-    background: cor(lista, escura);
-    color: cor(texto, claro);
-  }
-}
-%lista--pontilhada {
+%lista--tipo-1 {
   @extend %lista-basico;
   li {
     &:not(.lista__titulo) {
@@ -84,6 +71,21 @@ $lista-padding: .5rem .75rem;
     @extend %lista__titulo;
     border-bottom: 2px solid cor(lista);
     color: cor(lista, escura);
+  }
+}
+%lista--tipo-2 {
+  @extend %lista-basico;
+  border: 1px solid cor(lista);
+  li {
+    border-bottom: 1px solid cor(lista);
+    &:last-child {
+      border-bottom-width: 0;
+    }
+  }
+  &__titulo {
+    @extend %lista__titulo;
+    background: cor(lista, escura);
+    color: cor(texto, claro);
   }
 }
 // =============================================================================
