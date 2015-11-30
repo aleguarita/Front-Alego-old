@@ -54,6 +54,21 @@ $lista-padding: .5rem .75rem;
 // =============================================================================
 %lista--tipo-1 {
   @extend %lista-basico;
+  border: 1px solid cor(lista);
+  li {
+    border-bottom: 1px solid cor(lista);
+    &:last-child {
+      border-bottom-width: 0;
+    }
+  }
+  &__titulo {
+    @extend %lista__titulo;
+    background: cor(lista, escura);
+    color: cor(texto, claro);
+  }
+}
+%lista--tipo-2 {
+  @extend %lista-basico;
   li {
     &:not(.lista__titulo) {
       border-color: cor(lista);
@@ -71,21 +86,6 @@ $lista-padding: .5rem .75rem;
     @extend %lista__titulo;
     border-bottom: 2px solid cor(lista);
     color: cor(lista, escura);
-  }
-}
-%lista--tipo-2 {
-  @extend %lista-basico;
-  border: 1px solid cor(lista);
-  li {
-    border-bottom: 1px solid cor(lista);
-    &:last-child {
-      border-bottom-width: 0;
-    }
-  }
-  &__titulo {
-    @extend %lista__titulo;
-    background: cor(lista, escura);
-    color: cor(texto, claro);
   }
 }
 // =============================================================================
