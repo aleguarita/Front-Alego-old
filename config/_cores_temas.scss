@@ -36,7 +36,6 @@
 // -----------------------------------------------------------------------------
 // Temas disponíveis:
 // principal | Tema padrão. Edite essa
-// monocromatico | Utiliza apenas a paleta principal
 // cinza | Tema com tons de cinza
 // alto-contraste | Tema de alto contraste para acessibilidade
 // bandeira-goiana | Tema com as cores da bandeira goiana
@@ -92,6 +91,11 @@ $temas: (
 			fundo: paleta(basica, xx-clara),
 			titulo: paleta(basica, x-escura),
 		),
+		lista: (
+			padrao: paleta(basica),
+			clara: paleta(basica, xx-clara),
+			escura: paleta(basica, x-escura),
+		),
 		modal: (
 			fundo: paleta-padrao(branco),
 			titulo-fundo: paleta(basica, escura),
@@ -121,13 +125,8 @@ $temas: (
 			padrao: paleta(basica, escura),
 			clara: paleta(basica, xx-clara),
 		),
-		lista: (
-			padrao: paleta(basica),
-			clara: paleta(basica, xx-clara),
-			escura: paleta(basica, x-escura),
-		),
+		//elementos do sistema
 	),
-	monocromatico: (),
 	cinza: (),
 	alto-contraste: (),
 	bandeira: (),
