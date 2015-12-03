@@ -16,6 +16,7 @@
 // -----------------------------------------------------------------------------
 // CHANGELOG:
 // 03/12/2015 | Reduzida paleta de paginação para três elementos
+// 							Acrescentado tema cinza
 // 17/11/2015 | Separado paletas de temas
 // 21/10/2015 | Criação dos temas
 //  						Criação de grupos de elementos dentro dos temas
@@ -187,18 +188,18 @@ $temas: (
 			escura: paleta-padrao(cinza-85),
 		),
 		breadcrumbs: (
-			link: paleta(secundaria, clara),
-			atual: paleta(secundaria, escura),
+			link: paleta-padrao(cinza-25),
+			atual: paleta-padrao(cinza-75),
 		),
 		card: (
 			fundo: paleta-padrao(branco),
-			borda: paleta(basica),
-			titulo: paleta(basica, x-escura),
-			destaque: paleta(basica, escura),
+			borda: paleta-padrao(cinza-50),
+			titulo: paleta-padrao(cinza-75),
+			destaque: paleta-padrao(cinza-80),
 		),
 		secao-lista: (
-			padrao: paleta(basica, escura),
-			clara: paleta(basica, xx-clara),
+			padrao: paleta-padrao(cinza-65),
+			clara: paleta-padrao(cinza-35),
 		),
 		//elementos do sistema
 	),

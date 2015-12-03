@@ -50,6 +50,9 @@ TAGS
 Estes tags foram modificados sem classes pois são mais raros de serem utilizados
 ================================================================================
 */
+body {
+  background: cor(fundo, x-claro);
+}
 samp {
   @extend %codigo;
   padding: .2em .4em;
