@@ -38,6 +38,7 @@
           </header>
           <p>O layout deve ser gerado no Illustrator prioritariamente. Existe um arquivo modelo pronto para isso. Neste arquivo existem layers prontas com os elementos além das paletas igual à usada no sistema atual.</p>
           <p>As cores da paleta são globais e alteram os elementos automaticamente. Para criar uma nova paleta siga o mesmo padrão, inclusive de nome, para que possa ser transcrito no arquivo de configuração do Front-Alego.</p>
+          <p>Quando alterar ou criar uma nova paleta, comece pela quarta cor (a cor do meio) de cada paleta e crie as três variantes mais claras (as 3 primeiras) e as três variantes mais escuras (as 3 últimas).</p>
         </article>
 
         <article id="regras">
@@ -229,7 +230,7 @@
             <dt><samp>paginacao</samp></dt><dd>Formata a paginação</dd>
             <dt><samp>breadcrumb</samp></dt><dd>Formata o breadcrumb</dd>
             <dt><samp>toaster</samp></dt><dd>Formata os toasters do sistema</dd>
-            <dt><samp>secao-bloco</samp></dt><dd>Seções que podem ser fechadas, ocultando o conteúdo e mostrando o título, formando uma lista de seções</dd>
+            <dt><samp>secao-lista</samp></dt><dd>Seções que podem ser fechadas, ocultando o conteúdo e mostrando o título, formando uma lista de seções</dd>
           </dl>
           <blockquote class="aviso--grave">
             Apenas comente! Não altere os nomes em hipótese nenhuma (do contrário será o mesmo efeito de comentar e a classe não será criada)
@@ -363,11 +364,156 @@
         </article>
 
         <article id="cores">
+          <header>
+            <h1>Cores</h1>
+            <p><a href="elementos.html#cores" class="link--readme">Ver os elementos</a></p>
+          </header>
+          <p>O <strong>Front-Alego™</strong> trabalha com as cores em dois arquivos distintos, cada qual com sua função. <samp class="arquivo">config/_cores-paletas.scss</samp> e <samp class="arquivo">_cores-temas.scss</samp>. Este método permite que as cores do sistema sejam alteradas com o mínimo de esforço, além de possibilitar o uso de temas conforme necessiadades especiais.</p>
+          <blockquote class="aviso--grave">
+            <strong>Todas</strong> as cores devem ser definidas aqui. Jamais chame uma cor em outro CSS usando hexadecimal, nome de cor ou variável!
+          </blockquote>
 
+          <h2 id="cores__paletas">Paletas</h2>
+          <p><samp class="arquivo">config/_cores_paletas.scss</samp></p>
+          <p>Neste arquivo você irá configurar as paletas usadas pelo sistema. Atualmente temos duas paletas principais (<samp>basica</samp> e <samp>secundaria</samp>), mas você pode acrescentar conforme a necessidade. As demais paletas são para temas específicos. Você pode alterar, mas tome cuidado.</p>
+          <p>Cada paleta representa uma matiz principal e deve ter um nome fácil de lembrar, com um comentário indicando qual a cor principal (apenas para facilitar a lembrança, é possível ver todas as paletas <a href="elementos.html#cores__paleta" class="link--readme">aqui</a>). Sempre comece alterando as já estabelecidas e acrescente novas conforme a necessidade.</p>
+          <p>A paleta deve ser composta por mais 6 variantes desta matiz <samp>principal</samp>, sendo 3 cores mais claras (<samp>clara</samp>, <samp>x-clara</samp> e <samp>xx-clara</samp>) e 3 mais escuras (<samp>escura</samp>, <samp>x-escura</samp> e <samp>xx-escura</samp>). <strong class="texto-erro">Jamais coloque matizes diferentes dentro de um grupo, pois isso pode gerar incosistência visual.</strong></p>
+          <p>Cada grupo de matizes deve aparecer dentro do mapa <samp>$paleta</samp>. Cada qual separado por vírgula e, dentro dele, cada variante, também separado por vírgula. Confuso? Veja o código abaixo:</p>
+          <code class="codigo--sass">
+            <p>$paleta: (</p>
+              <p class="recuo-1">basica: ( //comentário identificando a cor</p>
+                <p class="recuo-2">principal: #hex,</p>
+                <p class="recuo-2">clara: #hex,</p>
+                <p class="recuo-2">x-clara: #hex,</p>
+                <p class="recuo-2">xx-clara: #hex,</p>
+                <p class="recuo-2">escura: #hex,</p>
+                <p class="recuo-2">x-escura: #hex,</p>
+                <p class="recuo-2">xx-escura: #hex,</p>
+              <p class="recuo-1">),</p>
+              <p class="recuo-1">secundaria: ( ... ),</p>
+              <p class="recuo-1">nova-cor: ( ... ),</p>
+            <p>);</p>
+          </code>
+          <p>Segue a lista indicativa de matizes criadas até o momento:</p>
+          <dl class="lista-definicao">
+            <dt><samp>basica</samp></dt>
+              <dd>A cor básica/principal do sistema. Altere esta no seu sistema como cor principal.</dd>
+            <dt><samp>secundaria</samp></dt>
+              <dd>A cor secundária/destaque do sistema. Altere esta cor no seu sistema como cor secundária.</dd>
+            <dt><samp></samp></dt>
+              <dd></dd>
+            <dt><samp></samp></dt>
+              <dd></dd>
+          </dl>
+          <h3>Paleta Padrão e Cores de Status</h3>
+          <p>Estas paletas são fixas e fica dentro da pasta <samp class="pasta">base</samp>, mas contém uma série de cores úteis a serem chamadas no CSS e no tema.</p>
+          <p>A <samp>$paleta-padrao</samp> contém as seguintes cores (<a href="elementos.html#cores__paleta-padrao" class="link--readme">Ver aqui</a>):</p>
+          <dl class="lista-definicao">
+            <dt><samp>branco</samp></dt>
+              <dd>branco mesmo, ué</dd>
+            <dt><samp>preto</samp></dt>
+              <dd>back in black</dd>
+            <dt><samp>vermelho</samp></dt>
+              <dd>para definir status, ver abaixo</dd>
+            <dt><samp>verde</samp></dt>
+              <dd>para definir status, ver abaixo</dd>
+            <dt><samp>amarelo</samp></dt>
+              <dd>para definir status, ver abaixo</dd>
+            <dt><samp>cinza-5</samp> até <samp>cinza-95</samp></dt>
+              <dd>20 tons de cinza</dd>
+          </dl>
+          <p>A paleta <samp>$cor-status</samp> já estabelece as cores de status e podem ser chamadas diretamente no CSS, mesmo que não estabelecido nos temas (pois são globais).</p>
+          <p>Elas são divididas em quatro elementos principais com variantes <samp>-claro</samp> e <samp>-escuro</samp> (<!-- LINK <--><a href="" class="link--readme"></a></-->):</p>
+          <dl class="lista-definicao">
+            <dt><samp>erro</samp> e <samp>urgente</samp></dt>
+              <dd>Cores vermelhas.</dd>
+            <dt><samp>sucesso</samp> e <samp>ok</samp></dt>
+              <dd>Cores verdes.</dd>
+            <dt><samp>alerta</samp> e <samp>aviso</samp></dt>
+              <dd>Cores amarelas</dd>
+            <dt><samp>notice</samp></dt>
+              <dd>Cores cinza. Usada no toaster apenas.</dd>
+          </dl>
+
+          <h2 id="cores__temas">Temas</h2>
+          <p><samp class="arquivo">config/_cores_temas.scss</samp></p>
+          <p>Neste arquivo ficam os temas de cores do sistema. Você pode criar vários outros temas e alterar no <a href="#config__tema" class="link--readme">arquivo de configuração</a>. Ao escolher um tema, as cores do sistema mudam de acordo. É possível, inclusive, ter mais de uma lista de estilos compilada com temas diferentes.</p>
+          <p>Assim como acontece com a <samp>$paleta</samp>, os temas estão agrupados dentro de um mapa chamado <samp>$temas</samp>. Dentro deste mapa teremos um sub-mapa para cada tema, que são (por padrão):</p>
+          <dl class="lista-definicao">
+            <dt><samp>principal</samp></dt>
+              <dd>O tema padrão do sistema. Se você não for usar outro tema, basta alterar somente este.</dd>
+            <dt><samp>cinza</samp></dt>
+              <dd>Este tema faz uso apenas de tons de cinza. Pode ser útil em um momento de prototipação.</dd>
+            <dt><samp>alto-contraste</samp></dt>
+              <dd>Um tema com cores bem contranstantes, pensando em acessibilidade.</dd>
+            <dt><samp>bandeira</samp></dt>
+              <dd>Faz uso das cores da bandeira de Goiás. Para utilizar em sistemas mais institucionais ou eventos do Estado.</dd>
+            <dt><samp>rosa</samp></dt>
+              <dd>Tema com predominância das cores rosa. Para o Outubro Rosa, por exemplo.</dd>
+            <dt><samp>azul</samp></dt>
+              <dd>Tema com predominância das cores azuis. Para o Novembro Azul, por exemplo.</dd>
+          </dl>
+          <p>Acrescente novo mapa conforme a necessidade. Duplique o mapa <samp>principal</samp> e trabalhe nele (um exemplo de possibilidade para isso é um tema de Natal).</p>
+          <p>Dentro de cada tema existem diversos mapas com suas cores específicas. Podemos dividir estes mapas em três categorias, <strong>elementos genéricos</strong> (que são usados em qualquer contexto), <strong>elementos específicos</strong> (que são usados dentro de um contexto específico e já está sendo sendo usado dentro das configurações do Front-Alego, em arquivos próprios) e <strong>elementos do sistema</strong> que são os elementos criados para o seu sistema (exemplo: menu, cabeçalho). Cada uma destas categorias estão separadas por um comentário com seu nome.</p>
+          <blockquote class="aviso--grave">
+            Sempre que você precisar de uma cor para um elemento não declarado, crie este mapa dentro de <strong>CADA</strong> tema abaixo do comentário <samp>//elementos do sistema</samp>. Acrescente as cores dentro deste mapa conforme a necessidade.
+          </blockquote>
+          <blockquote class="aviso--dica">
+            Dentro de cada mapa a cor <samp>padrao</samp> será chamada pela função <samp>cor()</samp> sem que se especifique qual é. Use, portanto, para a cor principal daquele elemento.
+          </blockquote>
+          <dl class="lista-definicao">
+            <dt><samp>texto</samp></dt>
+              <dd><em>Elemento genérico</em>. Cores para serem usadas em textos. <samp>padrao</samp>, <samp>claro</samp>, <samp>medio</samp>, <samp>destaque</samp>, <samp>titulo</samp></dd>
+            <dt><samp>fundo</samp></dt>
+              <dd><em>Elemento genérico</em>. Cores para serem usadas em fundos. <samp>padrao</samp>, <samp>claro</samp>, <samp>x-claro</samp>, <samp>escuro</samp>,<samp>sombra</samp> (cor da sombra, não é um fundo, mas achei colocar aqui e evitar uma categoria própria).</dd>
+            <dt><samp>borda</samp></dt>
+              <dd><em>Elemento genérico</em>. As cores das bordas. Lembre-se que, por padrão, se não declarar a cor da borda ela será, por padrão, a do texto. <samp>padrao</samp>, <samp>variante</samp>.</dd>
+            <dt><samp>link</samp></dt>
+              <dd><em>Elemento específico</em>. Define as cores do link, com duas variações. <samp>padrao</samp>, <samp>hover</samp>; <samp>escuro</samp> e <samp>escuro-hover</samp></dd>
+            <dt><samp>formulario</samp></dt>
+              <dd><em>Elemento específico</em>. Cores do formulário. <samp>padrao</samp>, <samp>placeholder</samp> (usado no texto do placeholder do formulário), <samp>ativo</samp> (usado quando o formulário está focado ou com o mouse em cima), <samp>fundo</samp>.</dd>
+            <dt><samp>botao</samp></dt>
+              <dd><em>Elemento específico</em>. Dois grupos de cores usadas nos botões. <samp>padrao</samp>, <samp>claro</samp>, <samp>escuro</samp>, <samp>secundario</samp>, <samp>secundario-claro</samp>, <samp>secundario-escuro</samp></dd>
+            <dt><samp>tabela</samp></dt>
+              <dd><em>Elemento específico</em>. Elementos das tabelas. <samp>borda</samp>, <samp>borda-clara</samp>, <samp>borda-escura</samp>, <samp>fundo</samp>, <samp>titulo</samp></dd>
+            <dt><samp>lista</samp></dt>
+              <dd><em>Elemento específico</em>. Listas formatadas. <samp>padrao</samp>, <samp>clara</samp>, <samp>escura</samp></dd>
+            <dt><samp>modal</samp></dt>
+              <dd><em>Elemento específico</em>. Cores das modais. <samp>fundo</samp>, <samp>titulo-fundo</samp>, <samp>titulo-texto</samp></dd>
+            <dt><samp>paginacao</samp></dt>
+              <dd><em>Elemento específico</em>. Cores da paginação. <samp>borda</samp>, <samp>borda-clara</samp>, <samp>borda-escura</samp>, <samp>fundo</samp>, <samp>fundo-claro</samp>, <samp>fundo-escuro</samp>, <samp>texto</samp>, <samp>texto-escuro</samp></dd>
+            <dt><samp>breadcrumbs</samp></dt>
+              <dd><em>Elemento específico</em>. Cores dos breadcrumbs. <samp>link</samp>, <samp>atual</samp></dd>
+            <dt><samp>card</samp></dt>
+              <dd><em>Elemento específico</em>. Elementos dos cards. <samp>fundo</samp>, <samp>borda</samp>, <samp>titulo</samp>, <samp>destaque</samp></dd>
+            <dt><samp>secao-lista</samp></dt>
+              <dd><em>Elemento específico</em>. Blocos de conteúdo que podem ser ocultados, virando uma lista. <samp>padrao</samp>, <samp>clara</samp></dd>
+          </dl>
+
+          <h3>Inserindo cores dentro do tema</h3>
+          <p>Para chamar as cores <strong>dentro dos temas</strong>, vai depender se ela vem da <samp>$paleta</samp> que você configurou <a href="#cores__paletas" class="link--readme">aqui</a> ou se faz parte da <samp>$paleta-padrao</samp>. Cada qual usa uma função SASS, conforme listado abaixo:</p>
+          <dl class="lista-definicao">
+            <dt><samp>paleta-padrao()</samp></dt>
+              <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp></dd>
+            <dt><samp>paleta()</samp></dt>
+              <dd>Para chamar as cores que você criou na paleta. Por exemplo, você quer chamar a variação <em>x-escura</em> da cor cor <em>basica</em>, você deveria escrever <samp>paleta(basica, x-escura)</samp>. A variação <strong>principal</strong> não precisa ser específicada (por exemplo, a cor <em>principal</em> da <em>secundária</em> seria: <samp>paleta(secundaria)</samp>)</dd>
+          </dl>
+
+          <h3>Inserindo as cores no SASS</h3>
+          <p>Como explicado anteriormente, você só poderá usar as cores definidas nos temas. Para chamar uma cor, use uma das duas funções abaixo:</p>
+          <dl class="lista-definicao">
+            <dt><samp>cor-status()</samp></dt>
+              <dd>Para chamar uma das cores de status, conforme definido anteriormente. <strong class="texto--urgente">Não use para formatação de interface, somente use para reais status</strong>. Exemplo: você quer alertar que o campo preenchido está com erro. <samp>color: cor-status(erro)</samp></dd>
+            <dt><samp>cor()</samp></dt>
+              <dd>Principal função para chamar as cores na interface. Cada elemento tem um conjunto de cores a ser chamado, além dos genéricos (conforme já explicado anteriormente). Exemplo: seu texto vai ser um texto destaque. <samp>cor(texto, destaque)</samp>. A cor <samp>padrao</samp> de cada conjunto não precisa ser chamada, ou seja, o texto padrão seria: <samp>cor(texto)</samp>.</dd>
+          </dl>
         </article>
 
         <article id="grid">
-          
+          <header>
+            <h1>Grid</h1>
+          </header>
+
         </article>
       </section>
 

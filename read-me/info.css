@@ -162,13 +162,13 @@ FONTES
 PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 ================================================================================
 */
-.breadcrumbs, .header__menu ul, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .lista-definicao {
+.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.breadcrumbs, .header__menu ul, .ui-autocomplete, .toast, .lista, .lista--link {
+.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .ui-autocomplete, .toast, .lista, .lista--link {
   list-style: none;
   padding-left: 0;
 }
@@ -239,7 +239,7 @@ GRID
 SÍMBOLOS
 ================================================================================
 */
-[class^="ico"] {
+[class^="ico"], .secao-lista__icone {
   font-family: "font-alego";
 }
 
@@ -1436,12 +1436,20 @@ TOASTER
   color: #fff;
 }
 
+.toast .success {
+  background: #39b54a;
+}
+
 .toast .error .close {
   color: #ed1c24;
 }
 .toast .error .close:hover {
   background: #be1e2d;
   color: #fff;
+}
+
+.toast .error {
+  background: #ed1c24;
 }
 
 .toast .alert .close {
@@ -1452,12 +1460,20 @@ TOASTER
   color: #fff;
 }
 
+.toast .alert {
+  background: #f9bc16;
+}
+
 .toast .info .close {
   color: #4d4d4d;
 }
 .toast .info .close:hover {
   background: #000;
   color: #fff;
+}
+
+.toast .info {
+  background: #4d4d4d;
 }
 
 /*
@@ -1543,6 +1559,63 @@ MODAL
 }
 .modal .modal__fechar a:hover {
   text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+/*
+================================================================================
+SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
+================================================================================
+*/
+.secao-lista {
+  border: 1px solid #009da4;
+}
+.secao-lista__header {
+  padding: 0.3125rem 0.625rem;
+  font-size: 1.70859rem;
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+}
+.secao-lista__header label {
+  cursor: pointer;
+}
+.secao-lista__titulo {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.secao-lista__icone {
+  display: block;
+}
+.secao-lista__icone::before {
+  content: "\f107";
+}
+.secao-lista__conteudo {
+  padding: 0.625rem;
+}
+.secao-lista + .secao-lista {
+  margin-top: 1px;
+}
+
+.secao-lista__check {
+  display: none;
+}
+.secao-lista__check:checked ~ .secao-lista__conteudo {
+  display: none;
+  outline: 1px solid red;
+}
+.secao-lista__check:checked ~ .secao-lista__header .secao-lista__icone {
+  transform: rotate(-90deg);
+}
+
+.secao-lista__header {
+  background: #009da4;
+  color: #fff;
+}
+
+.secao-lista__header {
+  background: #ccf3f5;
+  color: #009da4;
+}
+.secao-lista__conteudo {
+  border-top: 1px dashed #009da4;
 }
 
 /*
@@ -1885,6 +1958,888 @@ HEADER
 }
 .principal article {
   padding-top: 2.5em;
+}
+
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO
+================================================================================
+*/
+/*
+--------------------------------------------------------------------------------
+CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
+--------------------------------------------------------------------------------
+*/
+.escolha--tema::before {
+  content: "principal";
+}
+
+/*
+--------------------------------------------------------------------------------
+CORES | CLASSE BÁSICA
+--------------------------------------------------------------------------------
+*/
+.demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: space-between;
+  align-content: space-between;
+}
+.demo__paleta > *, .demo__paleta--basica > *, .demo__paleta--secundaria > * {
+  margin: 0 0.625rem 0.625rem 0;
+  max-width: calc(14.28571% - 0.53571rem);
+  width: calc(14.28571% - 0.53571rem);
+}
+.demo__paleta > *:nth-child(7n), .demo__paleta--basica > *:nth-child(7n), .demo__paleta--secundaria > *:nth-child(7n) {
+  margin-right: 0;
+}
+.demo__paleta li, .demo__paleta--basica li, .demo__paleta--secundaria li {
+  line-height: 1;
+}
+.demo__paleta .cor, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor {
+  width: 100%;
+  height: 45px;
+  display: block;
+  margin-bottom: .2em;
+}
+.demo__paleta .funcao, .demo__paleta--basica .funcao, .demo__paleta--secundaria .funcao {
+  font-size: .7em;
+  font-family: "consolas", "courier new", courier, freemono, "liberation mono", monospace;
+}
+.demo__paleta .funcao::before, .demo__paleta--basica .funcao::before, .demo__paleta--secundaria .funcao::before {
+  display: block;
+}
+
+/*
+--------------------------------------------------------------------------------
+CORES | PALETA PADRÃO
+--------------------------------------------------------------------------------
+*/
+.demo__cor--branco .cor {
+  background: #fff;
+}
+.demo__cor--branco .funcao::before {
+  content: "paleta-padrao(branco)";
+}
+
+.demo__cor--preto .cor {
+  background: #000;
+}
+.demo__cor--preto .funcao::before {
+  content: "paleta-padrao(preto)";
+}
+
+.demo__cor--vermelho .cor {
+  background: #ed1c24;
+}
+.demo__cor--vermelho .funcao::before {
+  content: "paleta-padrao(vermelho)";
+}
+
+.demo__cor--verde .cor {
+  background: #39b54a;
+}
+.demo__cor--verde .funcao::before {
+  content: "paleta-padrao(verde)";
+}
+
+.demo__cor--amarelo .cor {
+  background: #f9bc16;
+}
+.demo__cor--amarelo .funcao::before {
+  content: "paleta-padrao(amarelo)";
+}
+
+.demo__cor--cinza-5 .cor {
+  background: #f2f2f2;
+}
+.demo__cor--cinza-5 .funcao::before {
+  content: "paleta-padrao(cinza-5)";
+}
+
+.demo__cor--cinza-10 .cor {
+  background: #e6e6e6;
+}
+.demo__cor--cinza-10 .funcao::before {
+  content: "paleta-padrao(cinza-10)";
+}
+
+.demo__cor--cinza-15 .cor {
+  background: #d9d9d9;
+}
+.demo__cor--cinza-15 .funcao::before {
+  content: "paleta-padrao(cinza-15)";
+}
+
+.demo__cor--cinza-20 .cor {
+  background: #cccccc;
+}
+.demo__cor--cinza-20 .funcao::before {
+  content: "paleta-padrao(cinza-20)";
+}
+
+.demo__cor--cinza-25 .cor {
+  background: #bfbfbf;
+}
+.demo__cor--cinza-25 .funcao::before {
+  content: "paleta-padrao(cinza-25)";
+}
+
+.demo__cor--cinza-30 .cor {
+  background: #b3b3b3;
+}
+.demo__cor--cinza-30 .funcao::before {
+  content: "paleta-padrao(cinza-30)";
+}
+
+.demo__cor--cinza-35 .cor {
+  background: #a6a6a6;
+}
+.demo__cor--cinza-35 .funcao::before {
+  content: "paleta-padrao(cinza-35)";
+}
+
+.demo__cor--cinza-40 .cor {
+  background: #999999;
+}
+.demo__cor--cinza-40 .funcao::before {
+  content: "paleta-padrao(cinza-40)";
+}
+
+.demo__cor--cinza-45 .cor {
+  background: #8c8c8c;
+}
+.demo__cor--cinza-45 .funcao::before {
+  content: "paleta-padrao(cinza-45)";
+}
+
+.demo__cor--cinza-50 .cor {
+  background: gray;
+}
+.demo__cor--cinza-50 .funcao::before {
+  content: "paleta-padrao(cinza-50)";
+}
+
+.demo__cor--cinza-55 .cor {
+  background: #737373;
+}
+.demo__cor--cinza-55 .funcao::before {
+  content: "paleta-padrao(cinza-55)";
+}
+
+.demo__cor--cinza-60 .cor {
+  background: #666666;
+}
+.demo__cor--cinza-60 .funcao::before {
+  content: "paleta-padrao(cinza-60)";
+}
+
+.demo__cor--cinza-65 .cor {
+  background: #595959;
+}
+.demo__cor--cinza-65 .funcao::before {
+  content: "paleta-padrao(cinza-65)";
+}
+
+.demo__cor--cinza-70 .cor {
+  background: #4d4d4d;
+}
+.demo__cor--cinza-70 .funcao::before {
+  content: "paleta-padrao(cinza-70)";
+}
+
+.demo__cor--cinza-75 .cor {
+  background: #404040;
+}
+.demo__cor--cinza-75 .funcao::before {
+  content: "paleta-padrao(cinza-75)";
+}
+
+.demo__cor--cinza-80 .cor {
+  background: #333333;
+}
+.demo__cor--cinza-80 .funcao::before {
+  content: "paleta-padrao(cinza-80)";
+}
+
+.demo__cor--cinza-85 .cor {
+  background: #262626;
+}
+.demo__cor--cinza-85 .funcao::before {
+  content: "paleta-padrao(cinza-85)";
+}
+
+.demo__cor--cinza-90 .cor {
+  background: #1a1a1a;
+}
+.demo__cor--cinza-90 .funcao::before {
+  content: "paleta-padrao(cinza-90)";
+}
+
+.demo__cor--cinza-95 .cor {
+  background: #0d0d0d;
+}
+.demo__cor--cinza-95 .funcao::before {
+  content: "paleta-padrao(cinza-95)";
+}
+
+/*
+--------------------------------------------------------------------------------
+CORES | CORES STATUS
+--------------------------------------------------------------------------------
+*/
+.demo__cor--erro .cor {
+  background: #ed1c24;
+}
+.demo__cor--erro .funcao::before {
+  content: "cor-status(erro)";
+}
+
+.demo__cor--urgente .cor {
+  background: #ed1c24;
+}
+.demo__cor--urgente .funcao::before {
+  content: "cor-status(urgente)";
+}
+
+.demo__cor--erro-claro .cor {
+  background: #f0494f;
+}
+.demo__cor--erro-claro .funcao::before {
+  content: "cor-status(erro-claro)";
+}
+
+.demo__cor--urgente-claro .cor {
+  background: #f0494f;
+}
+.demo__cor--urgente-claro .funcao::before {
+  content: "cor-status(urgente-claro)";
+}
+
+.demo__cor--erro-escuro .cor {
+  background: #be1e2d;
+}
+.demo__cor--erro-escuro .funcao::before {
+  content: "cor-status(erro-escuro)";
+}
+
+.demo__cor--urgente-escuro .cor {
+  background: #be1e2d;
+}
+.demo__cor--urgente-escuro .funcao::before {
+  content: "cor-status(urgente-escuro)";
+}
+
+.demo__cor--sucesso .cor {
+  background: #39b54a;
+}
+.demo__cor--sucesso .funcao::before {
+  content: "cor-status(sucesso)";
+}
+
+.demo__cor--ok .cor {
+  background: #39b54a;
+}
+.demo__cor--ok .funcao::before {
+  content: "cor-status(ok)";
+}
+
+.demo__cor--sucesso-claro .cor {
+  background: #74cb80;
+}
+.demo__cor--sucesso-claro .funcao::before {
+  content: "cor-status(sucesso-claro)";
+}
+
+.demo__cor--ok-claro .cor {
+  background: #74cb80;
+}
+.demo__cor--ok-claro .funcao::before {
+  content: "cor-status(ok-claro)";
+}
+
+.demo__cor--sucesso-escuro .cor {
+  background: #009444;
+}
+.demo__cor--sucesso-escuro .funcao::before {
+  content: "cor-status(sucesso-escuro)";
+}
+
+.demo__cor--ok-escuro .cor {
+  background: #009444;
+}
+.demo__cor--ok-escuro .funcao::before {
+  content: "cor-status(ok-escuro)";
+}
+
+.demo__cor--alerta .cor {
+  background: #f9bc16;
+}
+.demo__cor--alerta .funcao::before {
+  content: "cor-status(alerta)";
+}
+
+.demo__cor--aviso .cor {
+  background: #f9bc16;
+}
+.demo__cor--aviso .funcao::before {
+  content: "cor-status(aviso)";
+}
+
+.demo__cor--alerta-claro .cor {
+  background: #fac639;
+}
+.demo__cor--alerta-claro .funcao::before {
+  content: "cor-status(alerta-claro)";
+}
+
+.demo__cor--aviso-claro .cor {
+  background: #fac639;
+}
+.demo__cor--aviso-claro .funcao::before {
+  content: "cor-status(aviso-claro)";
+}
+
+.demo__cor--alerta-escuro .cor {
+  background: #efb106;
+}
+.demo__cor--alerta-escuro .funcao::before {
+  content: "cor-status(alerta-escuro)";
+}
+
+.demo__cor--aviso-escuro .cor {
+  background: #efb106;
+}
+.demo__cor--aviso-escuro .funcao::before {
+  content: "cor-status(aviso-escuro)";
+}
+
+.demo__cor--notice .cor {
+  background: #4d4d4d;
+}
+.demo__cor--notice .funcao::before {
+  content: "cor-status(notice)";
+}
+
+.demo__cor--notice-claro .cor {
+  background: #f2f2f2;
+}
+.demo__cor--notice-claro .funcao::before {
+  content: "cor-status(notice-claro)";
+}
+
+.demo__cor--notice-escuro .cor {
+  background: #000;
+}
+.demo__cor--notice-escuro .funcao::before {
+  content: "cor-status(notice-escuro)";
+}
+
+/*
+--------------------------------------------------------------------------------
+CORES | PALETA
+--------------------------------------------------------------------------------
+*/
+.demo__paleta--basica .demo__cor--principal .cor {
+  background: #00c5cd;
+}
+.demo__paleta--basica .demo__cor--principal .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__paleta--basica .demo__cor--principal .funcao::before {
+  content: "paleta(basica)";
+}
+.demo__paleta--basica .demo__cor--clara .cor {
+  background: #66dce1;
+}
+.demo__paleta--basica .demo__cor--clara .funcao::before {
+  content: "paleta(basica, clara)";
+}
+.demo__paleta--basica .demo__cor--x-clara .cor {
+  background: #99e7e1;
+}
+.demo__paleta--basica .demo__cor--x-clara .funcao::before {
+  content: "paleta(basica, x-clara)";
+}
+.demo__paleta--basica .demo__cor--xx-clara .cor {
+  background: #ccf3f5;
+}
+.demo__paleta--basica .demo__cor--xx-clara .funcao::before {
+  content: "paleta(basica, xx-clara)";
+}
+.demo__paleta--basica .demo__cor--escura .cor {
+  background: #009da4;
+}
+.demo__paleta--basica .demo__cor--escura .funcao::before {
+  content: "paleta(basica, escura)";
+}
+.demo__paleta--basica .demo__cor--x-escura .cor {
+  background: #006266;
+}
+.demo__paleta--basica .demo__cor--x-escura .funcao::before {
+  content: "paleta(basica, x-escura)";
+}
+.demo__paleta--basica .demo__cor--xx-escura .cor {
+  background: #002729;
+}
+.demo__paleta--basica .demo__cor--xx-escura .funcao::before {
+  content: "paleta(basica, xx-escura)";
+}
+
+.demo__paleta--secundaria .demo__cor--principal .cor {
+  background: #cd5800;
+}
+.demo__paleta--secundaria .demo__cor--principal .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__paleta--secundaria .demo__cor--principal .funcao::before {
+  content: "paleta(secundaria)";
+}
+.demo__paleta--secundaria .demo__cor--clara .cor {
+  background: #e19b66;
+}
+.demo__paleta--secundaria .demo__cor--clara .funcao::before {
+  content: "paleta(secundaria, clara)";
+}
+.demo__paleta--secundaria .demo__cor--x-clara .cor {
+  background: #e7b799;
+}
+.demo__paleta--secundaria .demo__cor--x-clara .funcao::before {
+  content: "paleta(secundaria, x-clara)";
+}
+.demo__paleta--secundaria .demo__cor--xx-clara .cor {
+  background: #f5decc;
+}
+.demo__paleta--secundaria .demo__cor--xx-clara .funcao::before {
+  content: "paleta(secundaria, xx-clara)";
+}
+.demo__paleta--secundaria .demo__cor--escura .cor {
+  background: #a44600;
+}
+.demo__paleta--secundaria .demo__cor--escura .funcao::before {
+  content: "paleta(secundaria, escura)";
+}
+.demo__paleta--secundaria .demo__cor--x-escura .cor {
+  background: #662c00;
+}
+.demo__paleta--secundaria .demo__cor--x-escura .funcao::before {
+  content: "paleta(secundaria, x-escura)";
+}
+.demo__paleta--secundaria .demo__cor--xx-escura .cor {
+  background: #291200;
+}
+.demo__paleta--secundaria .demo__cor--xx-escura .funcao::before {
+  content: "paleta(secundaria, xx-escura)";
+}
+
+/*
+--------------------------------------------------------------------------------
+CORES | TEMA ESCOLHIDO
+--------------------------------------------------------------------------------
+*/
+.demo__cor__texto--padrao .cor {
+  background: #000;
+}
+.demo__cor__texto--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__texto--padrao .funcao::before {
+  content: "cor(texto)";
+}
+
+.demo__cor__texto--claro .cor {
+  background: #fff;
+}
+.demo__cor__texto--claro .funcao::before {
+  content: "cor(texto, claro)";
+}
+
+.demo__cor__texto--medio .cor {
+  background: gray;
+}
+.demo__cor__texto--medio .funcao::before {
+  content: "cor(texto, medio)";
+}
+
+.demo__cor__texto--destaque .cor {
+  background: #cd5800;
+}
+.demo__cor__texto--destaque .funcao::before {
+  content: "cor(texto, destaque)";
+}
+
+.demo__cor__texto--titulo .cor {
+  background: #cd5800;
+}
+.demo__cor__texto--titulo .funcao::before {
+  content: "cor(texto, titulo)";
+}
+
+.demo__cor__fundo--padrao .cor {
+  background: #00c5cd;
+}
+.demo__cor__fundo--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__fundo--padrao .funcao::before {
+  content: "cor(fundo)";
+}
+
+.demo__cor__fundo--claro .cor {
+  background: #66dce1;
+}
+.demo__cor__fundo--claro .funcao::before {
+  content: "cor(fundo, claro)";
+}
+
+.demo__cor__fundo--x-claro .cor {
+  background: #fff;
+}
+.demo__cor__fundo--x-claro .funcao::before {
+  content: "cor(fundo, x-claro)";
+}
+
+.demo__cor__fundo--escuro .cor {
+  background: #009da4;
+}
+.demo__cor__fundo--escuro .funcao::before {
+  content: "cor(fundo, escuro)";
+}
+
+.demo__cor__fundo--sombra .cor {
+  background: #000;
+}
+.demo__cor__fundo--sombra .funcao::before {
+  content: "cor(fundo, sombra)";
+}
+
+.demo__cor__borda--padrao .cor {
+  background: #00c5cd;
+}
+.demo__cor__borda--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__borda--padrao .funcao::before {
+  content: "cor(borda)";
+}
+
+.demo__cor__borda--variante .cor {
+  background: #cd5800;
+}
+.demo__cor__borda--variante .funcao::before {
+  content: "cor(borda, variante)";
+}
+
+.demo__cor__link--padrao .cor {
+  background: #00c5cd;
+}
+.demo__cor__link--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__link--padrao .funcao::before {
+  content: "cor(link)";
+}
+
+.demo__cor__link--hover .cor {
+  background: #66dce1;
+}
+.demo__cor__link--hover .funcao::before {
+  content: "cor(link, hover)";
+}
+
+.demo__cor__link--escuro .cor {
+  background: #009da4;
+}
+.demo__cor__link--escuro .funcao::before {
+  content: "cor(link, escuro)";
+}
+
+.demo__cor__link--escuro-hover .cor {
+  background: #00c5cd;
+}
+.demo__cor__link--escuro-hover .funcao::before {
+  content: "cor(link, escuro-hover)";
+}
+
+.demo__cor__formulario--padrao .cor {
+  background: #009da4;
+}
+.demo__cor__formulario--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__formulario--padrao .funcao::before {
+  content: "cor(formulario)";
+}
+
+.demo__cor__formulario--placeholder .cor {
+  background: #66dce1;
+}
+.demo__cor__formulario--placeholder .funcao::before {
+  content: "cor(formulario, placeholder)";
+}
+
+.demo__cor__formulario--ativo .cor {
+  background: #002729;
+}
+.demo__cor__formulario--ativo .funcao::before {
+  content: "cor(formulario, ativo)";
+}
+
+.demo__cor__formulario--fundo .cor {
+  background: #ccf3f5;
+}
+.demo__cor__formulario--fundo .funcao::before {
+  content: "cor(formulario, fundo)";
+}
+
+.demo__cor__botao--padrao .cor {
+  background: #cd5800;
+}
+.demo__cor__botao--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__botao--padrao .funcao::before {
+  content: "cor(botao)";
+}
+
+.demo__cor__botao--claro .cor {
+  background: #f5decc;
+}
+.demo__cor__botao--claro .funcao::before {
+  content: "cor(botao, claro)";
+}
+
+.demo__cor__botao--escuro .cor {
+  background: #a44600;
+}
+.demo__cor__botao--escuro .funcao::before {
+  content: "cor(botao, escuro)";
+}
+
+.demo__cor__botao--secundario .cor {
+  background: #00c5cd;
+}
+.demo__cor__botao--secundario .funcao::before {
+  content: "cor(botao, secundario)";
+}
+
+.demo__cor__botao--secundario-claro .cor {
+  background: #ccf3f5;
+}
+.demo__cor__botao--secundario-claro .funcao::before {
+  content: "cor(botao, secundario-claro)";
+}
+
+.demo__cor__botao--secundario-escuro .cor {
+  background: #009da4;
+}
+.demo__cor__botao--secundario-escuro .funcao::before {
+  content: "cor(botao, secundario-escuro)";
+}
+
+.demo__cor__tabela--borda .cor {
+  background: #00c5cd;
+}
+.demo__cor__tabela--borda .funcao::before {
+  content: "cor(tabela, borda)";
+}
+
+.demo__cor__tabela--borda-clara .cor {
+  background: #66dce1;
+}
+.demo__cor__tabela--borda-clara .funcao::before {
+  content: "cor(tabela, borda-clara)";
+}
+
+.demo__cor__tabela--borda-escura .cor {
+  background: #009da4;
+}
+.demo__cor__tabela--borda-escura .funcao::before {
+  content: "cor(tabela, borda-escura)";
+}
+
+.demo__cor__tabela--fundo .cor {
+  background: #ccf3f5;
+}
+.demo__cor__tabela--fundo .funcao::before {
+  content: "cor(tabela, fundo)";
+}
+
+.demo__cor__tabela--titulo .cor {
+  background: #006266;
+}
+.demo__cor__tabela--titulo .funcao::before {
+  content: "cor(tabela, titulo)";
+}
+
+.demo__cor__lista--padrao .cor {
+  background: #00c5cd;
+}
+.demo__cor__lista--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__lista--padrao .funcao::before {
+  content: "cor(lista)";
+}
+
+.demo__cor__lista--clara .cor {
+  background: #ccf3f5;
+}
+.demo__cor__lista--clara .funcao::before {
+  content: "cor(lista, clara)";
+}
+
+.demo__cor__lista--escura .cor {
+  background: #006266;
+}
+.demo__cor__lista--escura .funcao::before {
+  content: "cor(lista, escura)";
+}
+
+.demo__cor__modal--fundo .cor {
+  background: #fff;
+}
+.demo__cor__modal--fundo .funcao::before {
+  content: "cor(modal, fundo)";
+}
+
+.demo__cor__modal--titulo-fundo .cor {
+  background: #009da4;
+}
+.demo__cor__modal--titulo-fundo .funcao::before {
+  content: "cor(modal, titulo-fundo)";
+}
+
+.demo__cor__modal--titulo-texto .cor {
+  background: #4d4d4d;
+}
+.demo__cor__modal--titulo-texto .funcao::before {
+  content: "cor(modal, titulo-texto)";
+}
+
+.demo__cor__paginacao--borda .cor {
+  background: #cd5800;
+}
+.demo__cor__paginacao--borda .funcao::before {
+  content: "cor(paginacao, borda)";
+}
+
+.demo__cor__paginacao--borda-clara .cor {
+  background: #e19b66;
+}
+.demo__cor__paginacao--borda-clara .funcao::before {
+  content: "cor(paginacao, borda-clara)";
+}
+
+.demo__cor__paginacao--borda-escura .cor {
+  background: #a44600;
+}
+.demo__cor__paginacao--borda-escura .funcao::before {
+  content: "cor(paginacao, borda-escura)";
+}
+
+.demo__cor__paginacao--fundo .cor {
+  background: #cd5800;
+}
+.demo__cor__paginacao--fundo .funcao::before {
+  content: "cor(paginacao, fundo)";
+}
+
+.demo__cor__paginacao--fundo-claro .cor {
+  background: #e19b66;
+}
+.demo__cor__paginacao--fundo-claro .funcao::before {
+  content: "cor(paginacao, fundo-claro)";
+}
+
+.demo__cor__paginacao--fundo-escuro .cor {
+  background: #a44600;
+}
+.demo__cor__paginacao--fundo-escuro .funcao::before {
+  content: "cor(paginacao, fundo-escuro)";
+}
+
+.demo__cor__paginacao--texto .cor {
+  background: #cd5800;
+}
+.demo__cor__paginacao--texto .funcao::before {
+  content: "cor(paginacao, texto)";
+}
+
+.demo__cor__paginacao--texto-escuro .cor {
+  background: #a44600;
+}
+.demo__cor__paginacao--texto-escuro .funcao::before {
+  content: "cor(paginacao, texto-escuro)";
+}
+
+.demo__cor__breadcrumbs--link .cor {
+  background: #e19b66;
+}
+.demo__cor__breadcrumbs--link .funcao::before {
+  content: "cor(breadcrumbs, link)";
+}
+
+.demo__cor__breadcrumbs--atual .cor {
+  background: #a44600;
+}
+.demo__cor__breadcrumbs--atual .funcao::before {
+  content: "cor(breadcrumbs, atual)";
+}
+
+.demo__cor__card--fundo .cor {
+  background: #fff;
+}
+.demo__cor__card--fundo .funcao::before {
+  content: "cor(card, fundo)";
+}
+
+.demo__cor__card--borda .cor {
+  background: #00c5cd;
+}
+.demo__cor__card--borda .funcao::before {
+  content: "cor(card, borda)";
+}
+
+.demo__cor__card--titulo .cor {
+  background: #006266;
+}
+.demo__cor__card--titulo .funcao::before {
+  content: "cor(card, titulo)";
+}
+
+.demo__cor__card--destaque .cor {
+  background: #009da4;
+}
+.demo__cor__card--destaque .funcao::before {
+  content: "cor(card, destaque)";
+}
+
+.demo__cor__secao-lista--padrao .cor {
+  background: #009da4;
+}
+.demo__cor__secao-lista--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__secao-lista--padrao .funcao::before {
+  content: "cor(secao-lista)";
+}
+
+.demo__cor__secao-lista--clara .cor {
+  background: #ccf3f5;
+}
+.demo__cor__secao-lista--clara .funcao::before {
+  content: "cor(secao-lista, clara)";
 }
 
 /*# sourceMappingURL=info.css.map */

@@ -369,3 +369,165 @@ main {
     padding-top: 2.5em;
   }
 }
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO
+================================================================================
+*/
+#demo {
+
+}
+/*
+--------------------------------------------------------------------------------
+CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
+--------------------------------------------------------------------------------
+*/
+%escolha-base {
+  font-weight: bold;
+}
+.escolha {
+  &--tema {
+    &::before { content: "#{$cores-tema}"; }
+  }
+}
+
+// ----------------------------------------------------------------------------
+// CORES | PALETAS/TONS
+// ----------------------------------------------------------------------------
+$cores-paleta: (
+  basica,
+  secundaria,
+  // Insira o nome das paletas adicionais aqui
+);
+$tons: (principal, clara, x-clara, xx-clara, escura, x-escura, xx-escura);
+$tema-texto: (padrao, claro, medio, destaque, titulo);
+$tema-fundo: (padrao, claro, x-claro, escuro, sombra);
+$tema-borda: (padrao, variante);
+$tema-link: (padrao, hover, escuro, escuro-hover);
+$tema-formulario: (padrao, placeholder, ativo, fundo);
+$tema-botao: (padrao, claro, escuro, secundario, secundario-claro, secundario-escuro);
+$tema-tabela: (borda, borda-clara, borda-escura, fundo, titulo);
+$tema-lista: (padrao, clara, escura);
+$tema-modal: (fundo, titulo-fundo, titulo-texto);
+$tema-paginacao: (borda, borda-clara, borda-escura, fundo, fundo-claro, fundo-escuro, texto, texto-escuro);
+$tema-breadcrumbs: (link, atual);
+$tema-card: (fundo, borda, titulo, destaque);
+$tema-secao-lista: (padrao, clara);
+/*
+--------------------------------------------------------------------------------
+CORES | CLASSE BÁSICA
+--------------------------------------------------------------------------------
+*/
+.demo__paleta {
+  $qt: 7;
+  @extend %lista-flex;
+  @include grupo-flex($qt, rem(10));
+  li {
+    line-height: 1;
+  }
+  .cor {
+    width: 100%;
+    height: 45px;
+    display: block;
+    margin-bottom: .2em;
+  }
+  .funcao {
+    font-size: .7em;
+    font-family: $fonte-monoespacada;
+    &::before {
+      display: block;
+    }
+  }
+  @each $paleta, $item in $cores-paleta {
+    &--#{$paleta} {
+      @extend .demo__paleta;
+    }
+  }
+}
+/*
+--------------------------------------------------------------------------------
+CORES | PALETA PADRÃO
+--------------------------------------------------------------------------------
+*/
+@each $cor, $item in $paleta-padrao {
+  .demo__cor--#{$cor} {
+    .cor { background: $item; }
+    .funcao {
+      &::before {
+        content: "paleta-padrao(#{$cor})";
+      }
+    }
+  }
+}
+/*
+--------------------------------------------------------------------------------
+CORES | CORES STATUS
+--------------------------------------------------------------------------------
+*/
+@each $cor, $item in $cor-status {
+  .demo__cor--#{$cor} {
+    .cor { background: $item; }
+    .funcao {
+      &::before {
+        content: "cor-status(#{$cor})"
+      }
+    }
+  }
+}
+/*
+--------------------------------------------------------------------------------
+CORES | PALETA
+--------------------------------------------------------------------------------
+*/
+@each $paleta, $item in $cores-paleta {
+  .demo__paleta--#{$paleta} {
+    @each $tom in $tons {
+      .demo__cor--#{$tom} {
+        .cor { background: paleta(#{$paleta}, #{$tom}); }
+        .funcao {
+          @if $tom == principal {
+            font-weight: bold;
+            font-size: .8em;
+            &::before { content: "paleta(#{$paleta})"; }
+          } @else {
+            &::before { content: "paleta(#{$paleta}, #{$tom})"; }
+          }
+        }
+      }
+    }
+  }
+}
+/*
+--------------------------------------------------------------------------------
+CORES | TEMA ESCOLHIDO
+--------------------------------------------------------------------------------
+*/
+@mixin classes-paleta($item, $tema) {
+  @each $tipo in $tema {
+    .demo__cor__#{$item}--#{$tipo} {
+      .cor { background: cor(#{$item}, #{$tipo}); }
+      .funcao {
+        @if $tipo == padrao {
+          font-weight: bold;
+          font-size: .8em;
+          &::before { content: "cor(#{$item})" }
+        } @else {
+          &::before { content: "cor(#{$item}, #{$tipo})" }
+        }
+      }
+    }
+  }
+}
+@include classes-paleta(texto, $tema-texto);
+@include classes-paleta(fundo, $tema-fundo);
+@include classes-paleta(borda, $tema-borda);
+@include classes-paleta(link, $tema-link);
+@include classes-paleta(formulario, $tema-formulario);
+@include classes-paleta(botao, $tema-botao);
+@include classes-paleta(tabela, $tema-tabela);
+@include classes-paleta(lista, $tema-lista);
+@include classes-paleta(modal, $tema-modal);
+@include classes-paleta(paginacao, $tema-paginacao);
+@include classes-paleta(breadcrumbs, $tema-breadcrumbs);
+@include classes-paleta(card, $tema-card);
+@include classes-paleta(secao-lista, $tema-secao-lista);

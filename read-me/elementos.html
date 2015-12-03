@@ -25,11 +25,12 @@
       <nav class="menu">
         <ul class="lista--link">
           <li><a href="#tipografia">Tipografia</a></li>
+          <li><a href="#cores">Cores</a></li>
         </ul>
       </nav>
       <section class="principal">
         <article id="tipografia">
-          <header>Tipografia</header>
+          <header><h1>Tipografia</h1></header>
           <h1>h1. Lorem ipsum dolor sit amet</h1>
           <h2>h2. Lorem ipsum dolor sit amet</h2>
           <h3>h3. Lorem ipsum dolor sit amet</h3>
@@ -50,6 +51,180 @@
           <p>
             <strong>Negrito</strong>. <em>Empashis (itálico)</em>. <u>Sublinhado</u>. <a href="al.go.leg.br" target="_blank">Link padrão</a>
           </p>
+          <!-- ACRESCENTAR CLASSES E PLACEHOLDERS AQUI -->
+        </article>
+
+        <article id="cores">
+          <header><h1>Cores</h1></header>
+          <p><a href="doc.html#cores" class="link--readme">Documentação</a></p>
+          <h2 id="cores__paleta-padrao">Paleta Padrão</h2>
+          <ul class="demo__paleta">
+            <li class="demo__cor--branco"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--preto"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--vermelho"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--verde"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--amarelo"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-5"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-10"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-15"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-20"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-25"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-30"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-35"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-40"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-45"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-50"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-55"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-60"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-65"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-70"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-75"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-80"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-85"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-90"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--cinza-95"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+
+          <h2 id="cores__status">Cores de status</h2>
+          <ul class="demo__paleta">
+            <li class="demo__cor--erro-claro"><span class="cor"></span><span class="funcao">cor-status(urgente-claro)</span></li>
+            <li class="demo__cor--erro"><span class="cor"></span><span class="funcao">cor-status(urgente)</span></li>
+            <li class="demo__cor--erro-escuro"><span class="cor"></span><span class="funcao">cor-status(urgente-escuro)</span></li>
+          </ul>
+          <ul class="demo__paleta">
+            <li class="demo__cor--sucesso-claro"><span class="cor"></span><span class="funcao">cor-status(ok-claro)</span></li>
+            <li class="demo__cor--sucesso"><span class="cor"></span><span class="funcao">cor-status(ok)</span></li>
+            <li class="demo__cor--sucesso-escuro"><span class="cor"></span><span class="funcao">cor-status(ok-escuro)</span></li>
+          </ul>
+          <ul class="demo__paleta">
+            <li class="demo__cor--alerta-claro"><span class="cor"></span><span class="funcao">cor-status(aviso-claro)</span></li>
+            <li class="demo__cor--alerta"><span class="cor"></span><span class="funcao">cor-status(aviso)</span></li>
+            <li class="demo__cor--alerta-escuro"><span class="cor"></span><span class="funcao">cor-status(aviso-escuro)</span></li>
+          </ul>
+          <ul class="demo__paleta">
+            <li class="demo__cor--notice-claro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--notice"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--notice-escuro"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+
+          <h2 id="cores__paleta">Paleta</h2>
+          <p>Se acrescentar mais cores, abra o arquivo <samp class="arquivo">read-me/elementos.html</samp> e duplique a lista e acrescente o modificador <samp>--nome-paleta</samp>. Depois abra o <samp class="arquivo">read-me/info.scss</samp> e acrescente o nome da paleta no mapa <samp>$cores-paleta</samp> (e recompile o arquivo).</p>
+          <ul class="demo__paleta--basica">
+            <li class="demo__cor--xx-clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--x-clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--principal"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--escura"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--x-escura"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--xx-escura"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <ul class="demo__paleta--secundaria">
+            <li class="demo__cor--xx-clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--x-clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--principal"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--escura"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--x-escura"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor--xx-escura"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+
+          <h2 id="cores__tema">Temas</h2>
+          <p>O tema selecionado atualmente é o <samp class="escolha--tema"></samp>. Abaixo está todos os temas previamente cadastrados no tema atual, inclusive elementos específicos (exemplo: tabela), que podem servir de referência para quando você precisar alterar/criar alguma variação. Você pode ir diretamente nos modelos de cada elemento para ver como as cores funcionam nele, inclusive se mudar o tema. Se quiser visualizar elementos do sistema que você criou, coloque-os manualmente no HTML/CSS (nem tudo vem de mão beijada, sabe?).</p>
+          <blockquote class="aviso--dica">
+            Lembre-se de recompilar o arquivo <samp class="pasta">read-me/info.scss</samp> para aplicar a mudança de tema
+          </blockquote>
+          <h3>Tema <span class="escolha--tema"></span>: Texto</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__texto--padrao"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__texto--claro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__texto--medio"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__texto--destaque"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__texto--titulo"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Fundo</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__fundo--padrao"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__fundo--claro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__fundo--x-claro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__fundo--escuro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__fundo--sombra"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Borda</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__borda--padrao"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__borda--variante"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Link</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__link--padrao"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__link--hover"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__link--escuro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__link--escuro-hover"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Formulário</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__formulario--padrao"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__formulario--placeholder"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__formulario--ativo"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__formulario--fundo"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Botão</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__botao--padrao"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__botao--claro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__botao--escuro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__botao--secundario"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__botao--secundario-claro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__botao--secundario-escuro"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Tabela</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__tabela--borda"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__tabela--borda-clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__tabela--borda-escura"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__tabela--fundo"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__tabela--titulo"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Lista</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__lista--padrao"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__lista--clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__lista--escura"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Modal</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__modal--fundo"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__modal--titulo-fundo"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__modal--titulo--texto"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Paginação</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__paginacao--borda"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__paginacao--borda-clara"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__paginacao--borda-escura"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__paginacao--fundo"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__paginacao--fundo-claro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__paginacao--fundo-escuro"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__paginacao--texto"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__paginacao--texto-escuro"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Breadcrumbs</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__breadcrumbs--link"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__breadcrumbs--atual"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Card</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__card--fundo"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__card--borda"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__card--titulo"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__card--destaque"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
+          <h3>Tema <span class="escolha--tema"></span>: Seção Lista</h3>
+          <ul class="demo__paleta">
+            <li class="demo__cor__secao-lista--padrao"><span class="cor"></span><span class="funcao"></span></li>
+            <li class="demo__cor__secao-lista--clara"><span class="cor"></span><span class="funcao"></span></li>
+          </ul>
         </article>
       </section>
     </main>
