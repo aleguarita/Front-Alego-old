@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // cores.scss
 // Criado em: 07/01/2015
-// Última alteração: 17/11/2015
+// Última alteração: 03/12/2015
 // -----------------------------------------------------------------------------
 // Aqui fica os temas de cores. As paletas são definidas no arquivo
 // cores_paletas (e é neste arquivo que se acrescenta novas cores)
@@ -15,6 +15,7 @@
 // Para alterar o tema faça isso no arquivo config
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 03/12/2015 | Reduzida paleta de paginação para três elementos
 // 17/11/2015 | Separado paletas de temas
 // 21/10/2015 | Criação dos temas
 //  						Criação de grupos de elementos dentro dos temas
@@ -102,14 +103,9 @@ $temas: (
 			titulo-texto: paleta-padrao(cinza-70),
 		),
 		paginacao: (
-			borda: paleta(secundaria),
-			borda-clara: paleta(secundaria, clara),
-			borda-escura: paleta(secundaria, escura),
-			fundo: paleta(secundaria),
-			fundo-claro: paleta(secundaria, clara),
-			fundo-escuro: paleta(secundaria, escura),
-			texto: paleta(secundaria),
-			texto-escuro: paleta(secundaria, escura),
+			padrao: paleta(secundaria),
+			clara: paleta(secundaria, clara),
+			escura: paleta(secundaria, escura),
 		),
 		breadcrumbs: (
 			link: paleta(secundaria, clara),
@@ -127,7 +123,85 @@ $temas: (
 		),
 		//elementos do sistema
 	),
-	cinza: (),
+	cinza: (
+		//elementos genéricos
+		texto: (
+			padrao: paleta-padrao(preto),
+			claro: paleta-padrao(branco),
+			medio: paleta-padrao(cinza-50),
+			destaque: paleta-padrao(cinza-35),
+			titulo: paleta-padrao(cinza-55),
+		),
+		fundo: (
+			padrao: paleta-padrao(cinza-50),
+			claro: paleta-padrao(cinza-25),
+			x-claro: paleta-padrao(branco),
+			escuro: paleta-padrao(cinza-85),
+			sombra: paleta-padrao(preto),
+		),
+		borda: (
+			padrao: paleta-padrao(cinza-45),
+			variante: paleta-padrao(cinza-65),
+		),
+		//elementos específicos
+		link: (
+			padrao: paleta-padrao(cinza-60),
+			hover: paleta-padrao(cinza-40),
+			escuro: paleta-padrao(cinza-70),
+			escuro-hover: paleta-padrao(cinza-60),
+		),
+		formulario: (
+			padrao: paleta-padrao(cinza-65),
+			placeholder: paleta-padrao(cinza-25),
+			ativo: paleta-padrao(cinza-80),
+			fundo: paleta-padrao(cinza-15),
+		),
+		botao: (
+			padrao: paleta-padrao(cinza-50),
+			claro: paleta-padrao(cinza-35),
+			escuro: paleta-padrao(cinza-65),
+			secundario: paleta-padrao(cinza-35),
+			secundario-claro: paleta-padrao(cinza-15),
+			secundario-escuro: paleta-padrao(cinza-50),
+		),
+		tabela: (
+			borda: paleta-padrao(cinza-75),
+			borda-clara: paleta-padrao(cinza-50),
+			borda-escura: paleta-padrao(preto),
+			fundo: paleta-padrao(cinza-5),
+			titulo: paleta-padrao(cinza-65),
+		),
+		lista: (
+			padrao: paleta-padrao(cinza-50),
+			clara: paleta-padrao(cinza-25),
+			escura: paleta-padrao(cinza-85),
+		),
+		modal: (
+			fundo: paleta-padrao(branco),
+			titulo-fundo: paleta-padrao(cinza-85),
+			titulo-texto: paleta-padrao(cinza-70),
+		),
+		paginacao: (
+			padrao: paleta-padrao(cinza-50),
+			clara: paleta-padrao(cinza-25),
+			escura: paleta-padrao(cinza-85),
+		),
+		breadcrumbs: (
+			link: paleta(secundaria, clara),
+			atual: paleta(secundaria, escura),
+		),
+		card: (
+			fundo: paleta-padrao(branco),
+			borda: paleta(basica),
+			titulo: paleta(basica, x-escura),
+			destaque: paleta(basica, escura),
+		),
+		secao-lista: (
+			padrao: paleta(basica, escura),
+			clara: paleta(basica, xx-clara),
+		),
+		//elementos do sistema
+	),
 	alto-contraste: (),
 	bandeira: (),
 	rosa: (),

@@ -2726,60 +2726,29 @@ CORES | TEMA ESCOLHIDO
   content: "cor(modal, titulo-texto)";
 }
 
-.demo__cor__paginacao--borda .cor {
+.demo__cor__paginacao--padrao .cor {
   background: #cd5800;
 }
-.demo__cor__paginacao--borda .funcao::before {
-  content: "cor(paginacao, borda)";
+.demo__cor__paginacao--padrao .funcao {
+  font-weight: bold;
+  font-size: .8em;
+}
+.demo__cor__paginacao--padrao .funcao::before {
+  content: "cor(paginacao)";
 }
 
-.demo__cor__paginacao--borda-clara .cor {
+.demo__cor__paginacao--clara .cor {
   background: #e19b66;
 }
-.demo__cor__paginacao--borda-clara .funcao::before {
-  content: "cor(paginacao, borda-clara)";
+.demo__cor__paginacao--clara .funcao::before {
+  content: "cor(paginacao, clara)";
 }
 
-.demo__cor__paginacao--borda-escura .cor {
+.demo__cor__paginacao--escura .cor {
   background: #a44600;
 }
-.demo__cor__paginacao--borda-escura .funcao::before {
-  content: "cor(paginacao, borda-escura)";
-}
-
-.demo__cor__paginacao--fundo .cor {
-  background: #cd5800;
-}
-.demo__cor__paginacao--fundo .funcao::before {
-  content: "cor(paginacao, fundo)";
-}
-
-.demo__cor__paginacao--fundo-claro .cor {
-  background: #e19b66;
-}
-.demo__cor__paginacao--fundo-claro .funcao::before {
-  content: "cor(paginacao, fundo-claro)";
-}
-
-.demo__cor__paginacao--fundo-escuro .cor {
-  background: #a44600;
-}
-.demo__cor__paginacao--fundo-escuro .funcao::before {
-  content: "cor(paginacao, fundo-escuro)";
-}
-
-.demo__cor__paginacao--texto .cor {
-  background: #cd5800;
-}
-.demo__cor__paginacao--texto .funcao::before {
-  content: "cor(paginacao, texto)";
-}
-
-.demo__cor__paginacao--texto-escuro .cor {
-  background: #a44600;
-}
-.demo__cor__paginacao--texto-escuro .funcao::before {
-  content: "cor(paginacao, texto-escuro)";
+.demo__cor__paginacao--escura .funcao::before {
+  content: "cor(paginacao, escura)";
 }
 
 .demo__cor__breadcrumbs--link .cor {

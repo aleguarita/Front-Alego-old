@@ -12,11 +12,12 @@ PAGINAÇÃO
 // -----------------------------------------------------------------------------
 // paginacao.scss
 // Criado em: 07/04/2015
-// Última alteração: 23/11/2015
+// Última alteração: 03/11/2015
 // -----------------------------------------------------------------------------
 // Definição da paginação. Formata o tipo padrão gerado pelo Rails.
 // -----------------------------------------------------------------------------
 // Changelog
+// 03/12/2015 | Reduzida a paleta para 3 elementos
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -39,7 +40,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 		border-bottom: 2px solid transparent;
 	}
 	%paginacao-elemento-ativo {
-		border-bottom-color: cor(paginacao, borda);
+		border-bottom-color: cor(paginacao);
 	}
 	.current {
 		box-shadow: $sombra-botao;
@@ -55,13 +56,13 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 // PLACEHOLDER | TIPO 2 (BOX)
 // =============================================================================
 %paginacao--tipo-2 {
-	$borda-paginacao: 1px solid cor(paginacao, borda-clara);
+	$borda-paginacao: 1px solid cor(paginacao, clara);
 	%paginacao-item {
 		border-top: $borda-paginacao;
 		border-bottom: $borda-paginacao;
 	}
 	%paginacao-elemento-ativo {
-		outline: 2px solid cor(paginacao, borda-escura);
+		outline: 2px solid cor(paginacao, escura);
 		box-shadow: 0 0 8px cor(fundo, sombra);
 	}
 	%paginacao-voltar {
@@ -82,7 +83,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	}
 	a {
 		&:hover {
-			background: cor(paginacao, fundo-escuro);
+			background: cor(paginacao, escura);
 			color: cor(texto, claro);
 		}
 	}
@@ -92,8 +93,8 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 // PLACEHOLDER | SUBELEMENTOS
 // =============================================================================
 %paginacao-item {
-	color: cor(paginacao, texto);
-	background: lighten(cor(paginacao, fundo-claro), 70%);
+	color: cor(paginacao);
+	background: lighten(cor(paginacao, clara), 70%);
 }
 %paginacao-elemento-ativo {
 	font-weight: bold;
@@ -122,7 +123,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 		.gap {
 			@extend %paginacao-item;
 			padding: $paginacao-padding;
-			color: cor(paginacao, texto-escuro);
+			color: cor(paginacao, escura);
 		}
 		.prev, .first {
 			@extend %paginacao-voltar;
@@ -133,7 +134,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 		a {
 			@extend %paginacao-item;
 			@extend %link-block;
-			color: cor(paginacao, texto);
+			color: cor(paginacao);
 			padding: $paginacao-padding;
 		}
 		.current{
