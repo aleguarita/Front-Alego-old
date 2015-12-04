@@ -65,7 +65,7 @@ PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 // 	sozinho. Normalmente seria algo como:
 // 	li > a { @extend %link-block; }
 //	============================================================================
-%link-block {
+%link-block, %link-bloco, %link-caixa {
 	display: block;
 	text-decoration: none;
 }

@@ -156,7 +156,7 @@ $tamanho-fonte: (
 );
 
 @each $classe, $tamanho in $tamanho-fonte {
-	.fonte-#{$classe}, .text-#{$classe} {
+	.fonte--#{$classe}, .text--#{$classe} {
 		font-size: $tamanho * 1em;
 	}
 }
