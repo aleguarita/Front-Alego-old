@@ -385,13 +385,19 @@ main {
 CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
 --------------------------------------------------------------------------------
 */
+@mixin escolha($mod, $classe) {
+  &--#{$mod} {
+    &::before { content: "#{$classe}"; }
+  }
+}
 %escolha-base {
   font-weight: bold;
 }
 .escolha {
-  &--tema {
-    &::before { content: "#{$cores-tema}"; }
-  }
+  @include escolha(tema, $cores-tema);
+  @include escolha(grid-margem, $grid-margem);
+  @include escolha(grid-max, $grid-max);
+  @include escolha(grid-qtd, $grid-qtd);
 }
 
 // ----------------------------------------------------------------------------

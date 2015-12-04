@@ -513,7 +513,69 @@
           <header>
             <h1>Grid</h1>
           </header>
-
+          <p>O sistema de grid foi pensando para escrever a menor quantidade possível de classes no CSS final e também fácil de mudar a quantidade de grids, sem ficar percorrendo o HTML à procura de classes de grid. As grids foram compostas com flexbox. Mesmo que você não utilize as grids, pode fazer uso das classes de <samp>.container</samp>.</p>
+          <p class="texto-erro">Este sistema está sendo depreciado e está aqui para retrocompatibilidade. O flexbox possibilita a formatação bem mais simples disso. Para centralizar o conteúdo (tarefa destinada ao <samp>.container</samp>) basta usar padding e assim evitamos uma <samp>&lt;div&gt;</samp> desnecessária.</p>
+          <h2 id="grid__container">Containers</h2>
+          <p>Estas classes são usadas em algum elemento pai (normalmente <samp>&lt;div&gt;</samp>) para centralizar o conteúdo e determinar que ele é flex. Ele também pode ser usado mesmo que os elementos filhos não façam uso do sistema de grid.</p>
+          <h3>Classes e placeholder de container</h3>
+          <dl class="lista-definicao">
+            <dt><samp>%container-basico</samp></dt>
+              <dd>Este é o elemento comum das classes de <samp>.container</samp>. Ela configura o flex, além de deixar como uma caixa no centro. Você pode extender este placeholder para utilizar um <samp>.container</samp> sem ter uma classe a mais para isso.</dd>
+            <dt><samp>.container</samp></dt>
+              <dd>A classe básica de container. Use para as grids que não tenham margem entre si (ficam colada) ou apenas quando você quer centralizar o conteúdo com o tamanho máximo.</dd>
+            <dt><samp>.container--calha</samp></dt>
+              <dd>Acrescenta espaço horizontal entre os elementos filhos, criando a margem entre as colunas.</dd>
+            <dt><samp>.container--gutter</samp></dt>
+              <dd>Igual ao <samp>.container--calha</samp> acima.</dd>
+          </dl>
+          <h3>Configurando o container</h3>
+          <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos do container:</p>
+          <dl class="lista-definicao">
+            <dt><samp>$uso-classes</samp></dt>
+              <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes</dd>
+            <dt><samp>$grid-margem</samp></dt>
+              <dd>Esta será a medida da margem entre os grids e o padding, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
+            <dt><samp>$grid-max</samp></dt>
+              <dd>Determina o tamanho máximo que a o container vai ter. Acima disso ele fica centralizado. <strong>Valor atual</strong>: <samp class="escolha--grid-max"></samp></dd>
+          </dl>
+          <h2 id="grid__grid">Grids</h2>
+          <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de placeholders.</p>
+          <h3>Configurando as grids</h3>
+          <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
+          <dl class="lista-definicao">
+            <dt><samp>$grid-qtd</samp></dt>
+              <dd>Determina a quantidade máxima de <samp>%grid-x</samp> criadas. Cada uma delas é equivalente a uma <samp>.grid-x</samp> no modelo clássico de grids. <strong>Valor atual</strong>: <samp class="escolha--grid-qtd"></samp></dd>
+            <dt><samp>$grid-margem</samp></dt>
+              <dd>Esta será a medida da margem entre os grids e o padding do container, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
+            <dt><samp>$grid: ();</samp></dt>
+              <dd>Neste mapa você vai incluir o nome das classes e a quantiade de grids que ela ocupa. Ver mais detalhes abaixo.</dd>
+          </dl>
+          <h3>Determinando quantas grids o elemento ocupa</h3>
+          <p>Em um sistema de grid tradicional você insere uma classe <samp>grid-x</samp> no elemento que precisa ocupar "x" medidas de grid. Ao invés de trabalhar desta forma, cada elemento receberá um nome de classe conforme explicado seguindo as <a href="#regras" class="link--readme">regras</a>.</p>
+          <p>Depois disso coloque a classe dentro do mapa <samp>$grid</samp> localizado dentro do arquivo <samp class="arquivo">config/+_config</samp> e especifique a quantidade de grids que ela ocuparia.</p>
+          <p>Como exemplo, imagine um layout simples com um menu, uma área principal e uma coluna lateral. O menu ocuparia 2 grids, a área principal 7 grids e a coluna lateral ocuparia 3 grids. Normalmente o código seria:</p>
+          <code class="codigo--html">
+            <header>HTML - grid tradicional</header>
+            <p>&lt;nav class="menu grid-2"&gt; ... &lt;/nav&gt;</p>
+            <p>&lt;div class="principal grid-7"&gt; ... &lt;/div&gt;</p>
+            <p>&lt;aside class="lateral grid-3"&gt; ... &lt;/aside&gt;</p>
+          </code>
+          <p>Com o sistema de grid usado no Front-Alego, ficaria:</p>
+          <code class="codigo--html">
+            <header>HTML</header>
+            <p>&lt;nav class="menu"&gt; ... &lt;/nav&gt;</p>
+            <p>&lt;div class="principal"&gt; ... &lt;/div&gt;</p>
+            <p>&lt;aside class="lateral"&gt; ... &lt;/aside&gt;</p>
+          </code>
+          <code class="codigo--sass">
+            <header>SASS</header>
+            <p>$grid: (</p>
+            <p class="recuo-1">menu: 2,</p>
+            <p class="recuo-1">principal: 7,</p>
+            <p class="recuo-1">lateral: 3,</p>
+            <p>)</p>
+          </code>
+          <p>Ao compiltar o CSS, o SASS vai aplicar os placeholders em cada uma das classes.</p>
         </article>
       </section>
 

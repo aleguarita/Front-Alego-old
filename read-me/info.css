@@ -188,7 +188,7 @@ CLASSES FIXAS
 }
 
 .fundo-ok, .fundo-erro, .fundo-alerta {
-  color: #000;
+  color: #fff;
 }
 
 .texto-ok {
@@ -216,9 +216,9 @@ CLASSES FIXAS
 }
 
 /*
-===============================================================================
+================================================================================
 GRID
-===============================================================================
+================================================================================
 */
 .container, .container--gutter, .container--calha {
   -webkit-flex-wrap: wrap;
@@ -663,7 +663,7 @@ p:first-child, ul:first-child, ol:first-child, dl:first-child, table:first-child
 h1, h2, h3, h4, h5, h6 {
   font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
   margin: 1em 0 0.5em;
-  color: #e7b799;
+  color: #cd5800;
   line-height: 1.2;
 }
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
@@ -687,7 +687,7 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
 }
 
 body {
-  color: #fff;
+  color: #000;
   line-height: 1.5;
   font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
 }
@@ -793,12 +793,12 @@ FORMULÁRIOS | ELEMENTOS COMUM
 .form__ico {
   cursor: pointer;
   color: #009da4;
-  background: #000;
+  background: #fff;
   height: calc(100% - 0.625rem - 1px);
 }
 .form__ico:hover {
   background: #009da4;
-  color: #000;
+  color: #fff;
 }
 
 /*
@@ -950,7 +950,7 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
   height: 1em;
   margin-right: .5em;
   border: 1px #009da4 solid;
-  background: #000;
+  background: #fff;
   color: transparent;
   content: "\f111";
   font-size: .6em;
@@ -997,7 +997,7 @@ FORMULÁRIOS | SELECT
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  background: #000;
+  background: #fff;
   border: 0;
   border-radius: 0;
   line-height: 1.6;
@@ -1034,7 +1034,7 @@ FORMULÁRIO | BOTÕES
 }
 
 .bt, .bt--secundario, .bt--urgente, .bt--ok, .bt--aviso {
-  color: #000;
+  color: #fff;
 }
 
 .bt {
@@ -1079,19 +1079,19 @@ FORMULÁRIOS | AUTOCOMPLETE
 */
 .ui-autocomplete {
   position: absolute !important;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-bottom: 1px dotted #009da4;
 }
 .ui-autocomplete li {
   padding: .25em .5em;
   cursor: pointer;
-  background: #000;
+  background: #fff;
   color: gray;
   font-size: .85em;
   border-bottom: 1px dotted #85e3e7;
 }
 .ui-autocomplete li:hover {
-  color: #fff;
+  color: #000;
 }
 .ui-autocomplete li:last-child {
   border-bottom: 0;
@@ -1117,7 +1117,7 @@ thead th {
 }
 
 tr {
-  color: #fff;
+  color: #000;
 }
 tbody tr {
   background: #fff;
@@ -1186,11 +1186,11 @@ td {
 .tab--form select:hover,
 .tab--form select:focus {
   border-color: #009da4;
-  box-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
 }
 
 .tab thead tr, .tab--form thead tr {
-  color: #000;
+  color: #fff;
   background: #006266;
   border-bottom: 2px solid #66dce1;
 }
@@ -1292,7 +1292,7 @@ CARD
   -webkit-flex-direction: column;
   flex-direction: column;
   background-color: #fff;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 .card h1, .card p {
   margin: 0;
@@ -1327,7 +1327,7 @@ CARD
   background: #006266;
 }
 .card h1 {
-  color: #000;
+  color: #fff;
 }
 .card__item, .card__item--destaque {
   border-top-style: solid;
@@ -1347,7 +1347,7 @@ CARD
 }
 .card__item--destaque strong {
   background: #009da4;
-  color: #000;
+  color: #fff;
 }
 
 /*
@@ -1402,7 +1402,7 @@ TOASTER
   padding: 1.5em;
   font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
   text-align: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   line-height: 1;
   margin-top: 1.5em;
 }
@@ -1413,16 +1413,16 @@ TOASTER
   right: 1em;
   top: -.8em;
   display: block;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  background: #000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
   font-weight: bold;
   font-size: 1.2em;
   line-height: 1;
 }
 
 .toast li {
-  color: #000;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 .toast .close {
   border: 0;
@@ -1433,7 +1433,7 @@ TOASTER
 }
 .toast .success .close:hover {
   background: #009444;
-  color: #000;
+  color: #fff;
 }
 
 .toast .success {
@@ -1445,7 +1445,7 @@ TOASTER
 }
 .toast .error .close:hover {
   background: #be1e2d;
-  color: #000;
+  color: #fff;
 }
 
 .toast .error {
@@ -1457,7 +1457,7 @@ TOASTER
 }
 .toast .alert .close:hover {
   background: #efb106;
-  color: #000;
+  color: #fff;
 }
 
 .toast .alert {
@@ -1469,7 +1469,7 @@ TOASTER
 }
 .toast .info .close:hover {
   background: #000;
-  color: #000;
+  color: #fff;
 }
 
 .toast .info {
@@ -1500,8 +1500,8 @@ MODAL
   max-height: 100%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background: #000;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   overflow: auto;
 }
 @media (max-width: 48rem) {
@@ -1550,15 +1550,15 @@ MODAL
 .modal .modal__titulo h1 {
   -webkit-flex-grow: 1;
   flex-grow: 1;
-  color: #000;
+  color: #fff;
   margin: 0;
   font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
 }
 .modal .modal__fechar a {
-  color: #000;
+  color: #fff;
 }
 .modal .modal__fechar a:hover {
-  text-shadow: 0 0 7px rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
 }
 
 /*
@@ -1607,7 +1607,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 
 .secao-lista__header {
   background: #009da4;
-  color: #000;
+  color: #fff;
 }
 
 .secao-lista__header {
@@ -1625,7 +1625,7 @@ LISTA
 */
 .lista li, .lista--link li {
   padding: 0.5rem 0.75rem;
-  background: #000;
+  background: #fff;
 }
 
 .lista__titulo {
@@ -1644,7 +1644,7 @@ LISTA
 }
 .lista__titulo {
   background: #006266;
-  color: #000;
+  color: #fff;
 }
 
 .lista--link li {
@@ -1678,7 +1678,7 @@ Estes tags foram modificados sem classes pois são mais raros de serem utilizado
 ================================================================================
 */
 body {
-  background: #000;
+  background: #fff;
 }
 
 samp {
@@ -1755,7 +1755,7 @@ CLASSES
 .lista-definicao dt {
   text-align: right;
   width: 12em;
-  background: #99d8db;
+  background: #c2f1f3;
   border-radius: 3px 0 0 3px;
 }
 .lista-definicao dt samp {
@@ -1792,7 +1792,7 @@ CLASSES
   font-size: 1.1em;
   text-transform: uppercase;
   font-weight: bold;
-  color: #000;
+  color: #fff;
 }
 .codigo--html p, .codigo--css p, .codigo--sass p {
   margin-top: 0;
@@ -1881,10 +1881,10 @@ HEADER
 */
 .header {
   position: fixed;
-  background: #66dce1;
+  background: #009da4;
   text-align: center;
   border-bottom: 1px solid #00c5cd;
-  box-shadow: 0 0 3px #fff;
+  box-shadow: 0 0 3px #000;
   width: 100%;
   z-index: 3;
 }
@@ -1902,14 +1902,14 @@ HEADER
 }
 .header__menu__titulo {
   background: rgba(0, 0, 0, 0.7);
-  color: #ccf3f5;
+  color: #cd5800;
 }
 .header__menu a, .header__menu__ativo {
   text-decoration: none;
   font-size: .9em;
-  color: #000;
+  color: #fff;
   opacity: .8;
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
 .header__menu a:hover {
   opacity: 1;
@@ -1947,7 +1947,7 @@ HEADER
 }
 .menu a:hover {
   background: #00c5cd;
-  color: #000;
+  color: #fff;
 }
 
 /*
@@ -1975,7 +1975,16 @@ CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
 --------------------------------------------------------------------------------
 */
 .escolha--tema::before {
-  content: "alto-contraste";
+  content: "principal";
+}
+.escolha--grid-margem::before {
+  content: "0.625rem";
+}
+.escolha--grid-max::before {
+  content: "100rem";
+}
+.escolha--grid-qtd::before {
+  content: "12";
 }
 
 /*
@@ -2444,7 +2453,7 @@ CORES | TEMA ESCOLHIDO
 --------------------------------------------------------------------------------
 */
 .demo__cor__texto--padrao .cor {
-  background: #fff;
+  background: #000;
 }
 .demo__cor__texto--padrao .funcao {
   font-weight: bold;
@@ -2455,7 +2464,7 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__texto--claro .cor {
-  background: #000;
+  background: #fff;
 }
 .demo__cor__texto--claro .funcao::before {
   content: "cor(texto, claro)";
@@ -2469,21 +2478,21 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__texto--destaque .cor {
-  background: #ccf3f5;
+  background: #cd5800;
 }
 .demo__cor__texto--destaque .funcao::before {
   content: "cor(texto, destaque)";
 }
 
 .demo__cor__texto--titulo .cor {
-  background: #e7b799;
+  background: #cd5800;
 }
 .demo__cor__texto--titulo .funcao::before {
   content: "cor(texto, titulo)";
 }
 
 .demo__cor__fundo--padrao .cor {
-  background: #66dce1;
+  background: #00c5cd;
 }
 .demo__cor__fundo--padrao .funcao {
   font-weight: bold;
@@ -2494,28 +2503,28 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__fundo--claro .cor {
-  background: #009da4;
+  background: #66dce1;
 }
 .demo__cor__fundo--claro .funcao::before {
   content: "cor(fundo, claro)";
 }
 
 .demo__cor__fundo--x-claro .cor {
-  background: #000;
+  background: #fff;
 }
 .demo__cor__fundo--x-claro .funcao::before {
   content: "cor(fundo, x-claro)";
 }
 
 .demo__cor__fundo--escuro .cor {
-  background: #66dce1;
+  background: #009da4;
 }
 .demo__cor__fundo--escuro .funcao::before {
   content: "cor(fundo, escuro)";
 }
 
 .demo__cor__fundo--sombra .cor {
-  background: #fff;
+  background: #000;
 }
 .demo__cor__fundo--sombra .funcao::before {
   content: "cor(fundo, sombra)";
