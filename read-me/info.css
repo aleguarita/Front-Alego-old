@@ -168,7 +168,7 @@ PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
   display: flex;
 }
 
-.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .ui-autocomplete, .toast, .lista, .lista--link {
+.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .ui-autocomplete, .toast, .lista, .lista--link, .lista-sem-marcador {
   list-style: none;
   padding-left: 0;
 }
@@ -187,31 +187,31 @@ CLASSES FIXAS
   display: none;
 }
 
-.fundo-ok, .fundo-erro, .fundo-alerta {
+.fundo--ok, .fundo--erro, .fundo--alerta {
   color: #fff;
 }
 
-.texto-ok {
+.texto--ok {
   color: #39b54a;
 }
 
-.texto-erro {
+.texto--erro {
   color: #ed1c24;
 }
 
-.texto-alerta {
+.texto--alerta {
   color: #f9bc16;
 }
 
-.fundo-ok {
+.fundo--ok {
   background: #39b54a;
 }
 
-.fundo-erro {
+.fundo--erro {
   background: #ed1c24;
 }
 
-.fundo-alerta {
+.fundo--alerta {
   background: #f9bc16;
 }
 
@@ -670,19 +670,30 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
   margin-top: 0;
 }
 
-.link--readme, .link--externo {
+.titulo-borda {
+  border-bottom: 1px solid;
+}
+
+.link-sem-sublinhado {
+  text-decoration: none;
+}
+.link-sem-sublinhado:hover {
+  text-decoration: underline;
+}
+
+.link--readme, .link--externo, .link-pontilhado, .link-borda {
   text-decoration: none;
   border-bottom: 1px solid #b3b3b3;
 }
-.link--readme:hover, .link--externo:hover {
+.link--readme:hover, .link--externo:hover, .link-pontilhado:hover, .link-borda:hover {
   border-color: inherit;
   color: #00c5cd;
 }
 
-.link--readme, .link--externo {
+.link--readme, .link--externo, .link-pontilhado {
   border-bottom-style: dotted;
 }
-.link--readme:hover, .link--externo:hover {
+.link--readme:hover, .link--externo:hover, .link-pontilhado:hover {
   color: #009da4;
 }
 
@@ -716,27 +727,27 @@ h6 {
   font-size: 1.2rem;
 }
 
-.fonte-menor, .text-menor {
+.fonte--menor, .text--menor {
   font-size: 0.88889em;
 }
 
-.fonte-x-menor, .text-x-menor {
+.fonte--x-menor, .text--x-menor {
   font-size: 0.79012em;
 }
 
-.fonte-xx-menor, .text-xx-menor {
+.fonte--xx-menor, .text--xx-menor {
   font-size: 0.70233em;
 }
 
-.fonte-maior, .text-maior {
+.fonte--maior, .text--maior {
   font-size: 1.125em;
 }
 
-.fonte-x-maior, .text-x-maior {
+.fonte--x-maior, .text--x-maior {
   font-size: 1.26563em;
 }
 
-.fonte-xx-maior, .text-xx-maior {
+.fonte--xx-maior, .text--xx-maior {
   font-size: 1.42383em;
 }
 

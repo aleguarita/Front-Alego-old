@@ -24,13 +24,14 @@
     <main class="container" id="demo">
       <nav class="menu">
         <ul class="lista--link">
-          <li><a href="#tipografia">Tipografia</a></li>
+          <li><a href="#tipografia">Tipografia básica</a></li>
+          <li><a href="#tipografia--modificada">Tipografia modificada</a></li>
           <li><a href="#cores">Cores</a></li>
         </ul>
       </nav>
       <section class="principal">
         <article id="tipografia">
-          <header><h1>Tipografia</h1></header>
+          <header><h1>Tipografia básica (sem classes/placeholders)</h1></header>
           <h1>h1. Lorem ipsum dolor sit amet</h1>
           <h2>h2. Lorem ipsum dolor sit amet</h2>
           <h3>h3. Lorem ipsum dolor sit amet</h3>
@@ -51,7 +52,33 @@
           <p>
             <strong>Negrito</strong>. <em>Empashis (itálico)</em>. <u>Sublinhado</u>. <a href="al.go.leg.br" target="_blank">Link padrão</a>
           </p>
-          <!-- ACRESCENTAR CLASSES E PLACEHOLDERS AQUI -->
+        </article>
+
+        <article id="tipografia--modificada">
+          <header><h1>Tipografia modificada (com classes/placeholders)</h1></header>
+          <main>
+            <h1 class="titulo-borda">h1. %titulo-borda</h1>
+            <p><a href="al.go.leg.br" class="link-sem-sublinhado">%link-sem-sublinhado</a></p>
+            <p><a href="al.go.leg.br" class="link-borda">%link-borda</a></p>
+            <p><a href="al.go.leg.br" class="link-pontilhado">%link-pontilhado</a></p>
+            <p>Tamanho padrão</p>
+            <p><span class="fonte--menor">Tamanho menor</span></p>
+            <p><span class="fonte--x-menor">Tamanho x-menor</span></p>
+            <p><span class="fonte--xx-menor">Tamanho xx-menor</span></p>
+            <p><span class="fonte--maior">Tamanho maior</span></p>
+            <p><span class="fonte--x-maior">Tamanho x-maior</span></p>
+            <p><span class="fonte--xx-maior">Tamanho xx-maior</span></p>
+            <p><span class="texto--caixa-alta">Texto modificado para caixa alta</span></p>
+            <p><span class="texto--ok">Texto ok</span></p>
+            <p><span class="texto--erro">Texto erro</span></p>
+            <p><span class="texto--alerta">Texto alerta</span></p>
+            <p><span class="fundo--ok">Fundo ok</span></p>
+            <p><span class="fundo--erro">Fundo erro</span></p>
+            <p><span class="fundo--alerta">Fundo alerta</span></p>
+            <ul class="lista-sem-marcador">
+              <li>Lista sem marcadores</li>
+              <li>Lista sem marcadores</li>
+            </ul>
         </article>
 
         <article id="cores">
