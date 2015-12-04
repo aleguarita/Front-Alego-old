@@ -33,24 +33,24 @@ CLASSES FIXAS
 %texto-status--escuro {
 	color: cor(texto);
 }
-.texto-ok {
+.texto--ok {
 	color: cor-status(ok);
 }
-.texto-erro {
+.texto--erro {
 	color: cor-status(erro);
 }
-.texto-alerta {
+.texto--alerta {
 	color: cor-status(alerta);
 }
-.fundo-ok {
+.fundo--ok {
 	background: cor-status(ok);
 	@extend %texto-status--claro;
 }
-.fundo-erro {
+.fundo--erro {
 	background: cor-status(erro);
 	@extend %texto-status--claro;
 }
-.fundo-alerta {
+.fundo--alerta {
 	background: cor-status(alerta);
 	@extend %texto-status--claro;
 }
