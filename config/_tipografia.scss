@@ -4,87 +4,43 @@ TIPOGRAFIA
 ================================================================================
 */
 
-//	============================================================================
-//	Framework da Assembleia Legislativa
-//	Autor: Alessandro Guarita
-//	----------------------------------------------------------------------------
-//	tipografia.scss
-//	Criado em: 13/01/2015
-// 	Última alteração em: 04/11/2015
-//	----------------------------------------------------------------------------
-//	Define os elementos básicos da tipografia e usa as variáveis criadas em
-//	fontes.scss
-//	----------------------------------------------------------------------------
-// 	CHANGELOG
-// 	04/11/2015 | Eliminada a margem superior para quando o item for o primeiro
-// 							 da lista
-// 	21/10/2015 | Alterado para a nova forma de trabalhar cores
-//  13/01/2015 | Criado o arquivo
-//	============================================================================
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// tipografia.scss
+// Criado em: 07/12/2015
+// Última alteração em: 04/11/2015
+// -----------------------------------------------------------------------------
+// Define os elementos básicos da tipografia e usa as variáveis criadas em
+// fontes.scss
+// -----------------------------------------------------------------------------
+// CHANGELOG
+// 07/12/2015 | Retirado line-height do <body> pois estava se mostrando
+//              problemático
+//              Alterações de tags aparece antes dos placeholders
+// 04/11/2015 | Eliminada a margem superior para quando o item for o primeiro
+// 						  da lista
+// 21/10/2015 | Alterado para a nova forma de trabalhar cores
+// 13/01/2015 | Criado o arquivo
+// =============================================================================
 
-//	============================================================================
-//	VARIÁVEIS
-//	----------------------------------------------------------------------------
-//	Para uso nas tags e classes abaixo
-//	============================================================================
+// =============================================================================
+// VARIÁVEIS
+// -----------------------------------------------------------------------------
+// Para uso nas tags e classes abaixo
+// =============================================================================
 $fonte-titulo: $fonte-serifa;
 $margem-bloco-titulo: 1em 0 .5em;
 $margem-bloco-texto: 1em 0;
 
-//	Modular scale no bourbon.io
-//	----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// Modular scale no bourbon.io
+// -----------------------------------------------------------------------------
 $modular-scale-ratio: $major-second;
 $modular-font-size: 1.2rem;
 $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 
-//	============================================================================
-//	PLACEHOLDERS
-//	----------------------------------------------------------------------------
-//	Para uso nas tags e classes abaixo
-//	============================================================================
-//	Padrões
-%texto-padrao {
-	font-size: $tamanho-fonte-textos;
-	margin: $margem-bloco-texto;
-	&:first-child {
-		margin-top: 0;
-	}
-}
-%texto-titulo {
-	font-family: $fonte-serifa;
-	margin: $margem-bloco-titulo;
-	color: cor(texto, titulo);
-	line-height: 1.2;
-	&:first-child {
-		margin-top: 0;
-	}
-}
-
-// Variações de título
-%titulo-borda {
-	border-bottom: 1px solid;
-}
-
-// Variações de link
-%link-sem-sublinhado {
-	text-decoration: none;
-	&:hover {
-		text-decoration: underline;
-	}
-}
-%link-borda {
-	text-decoration: none;
-	border-bottom: 1px solid paleta-padrao(cinza-30);
-	&:hover {
-		border-color: inherit;
-		color: cor(link);
-	}
-}
-%link-pontilhado {
-	@extend %link-borda;
-	border-bottom-style: dotted;
-	&:hover { color: cor(link, escuro); }
-}
 // =============================================================================
 // ALTERAÇÕES DOS TAGS
 // -----------------------------------------------------------------------------
@@ -93,7 +49,6 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 // =============================================================================
 body {
 	color: cor(texto);
-	line-height: 1.5;
 	font-family: $fonte-sem-serifa;
 }
 h1 {
@@ -120,32 +75,87 @@ h6 {
 	@extend %texto-titulo;
 	font-size: modular-scale(0, $modular-font-size);
 }
-p {
-	@extend %texto-padrao;
-}
-ul, ol, dl, table, blockquote, {
+p, ul, ol, dl, table, blockquote, {
 	@extend %texto-padrao;
 }
 a {
-	color: cor(texto, link);
+	color: cor(link);
 	&:hover {
-		color: cor(texto, link-hover);
+		color: cor(link, hover);
 	}
+}
+
+// =============================================================================
+// PLACEHOLDERS
+// -----------------------------------------------------------------------------
+// Para uso nas tags e classes abaixo
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// PADRÕES | EVITE ALTERAR AQUI COM PROPRIEDADES NOVAS
+// -----------------------------------------------------------------------------
+%texto-padrao {
+	font-size: $tamanho-fonte-textos;
+	margin: $margem-bloco-texto;
+	line-height: 1.5;
+	&:first-child {
+		margin-top: 0;
+	}
+}
+%texto-titulo {
+	font-family: $fonte-serifa;
+	margin: $margem-bloco-titulo;
+	color: cor(texto, titulo);
+	line-height: 1.2;
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Variações de título
+// -----------------------------------------------------------------------------
+%titulo-borda {
+	border-bottom: 1px solid;
+}
+
+// -----------------------------------------------------------------------------
+// Variações de link
+// -----------------------------------------------------------------------------
+%link-sem-sublinhado {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+%link-borda {
+	text-decoration: none;
+	border-bottom: 1px solid paleta-padrao(cinza-30);
+	&:hover {
+		border-color: inherit;
+		color: cor(link);
+	}
+}
+%link-pontilhado {
+	@extend %link-borda;
+	border-bottom-style: dotted;
+	&:hover { color: cor(link, escuro); }
 }
 // =============================================================================
 // CLASSES PARA TIPOGRAFIA
 // =============================================================================
 
-//	ALTERAÇÃO DE TAMANHOS DE FONTES
-//	----------------------------------------------------------------------------
-//	Abaixo crio variantes de tamanho de fonte. Para acrescentar ou modificar,
-//	faça dentro do mapa $tamanho-fonte. As classes geradas devem ser usadas em
-//	elemento inline e não no elemento pai. Se por acaso você precisar de um
-//	elemento de bloco (como um parágrafo inteiro ou h1) com alteração de tamanho
-//	abra um span dentro do mesmo e coloque a classe.
-//	Exemplo:
-//	<p><span class="fonte-maior">Texto maior</span></p>
-//	----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// ALTERAÇÃO DE TAMANHOS DE FONTES
+// -----------------------------------------------------------------------------
+// Abaixo crio variantes de tamanho de fonte. Para acrescentar ou modificar,
+// faça dentro do mapa $tamanho-fonte. As classes geradas devem ser usadas em
+// elemento inline e não no elemento pai. Se por acaso você precisar de um
+// elemento de bloco (como um parágrafo inteiro ou h1) com alteração de tamanho
+// abra um span dentro do mesmo e coloque a classe.
+// Exemplo:
+// <p><span class="fonte-maior">Texto maior</span></p>
+// -----------------------------------------------------------------------------
 $tamanho-fonte: (
 	menor: modular-scale(-1, 1),
 	x-menor: modular-scale(-2, 1),
@@ -160,16 +170,18 @@ $tamanho-fonte: (
 		font-size: $tamanho * 1em;
 	}
 }
-// 	CLASSES PARA ALTERAÇÃO DO TEXTO BÁSICO
-//	----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// CLASSES PARA ALTERAÇÃO DO TEXTO BÁSICO
+// -----------------------------------------------------------------------------
 .texto--caixa-alta, .texto--uppercase {
 	text-transform: uppercase;
 }
 
-//	CLASSES PARA ELEMENTOS DE TEXTO
-//	----------------------------------------------------------------------------
-//	Classes para alterar elementos padrão. Evite colocar cores, bordas, etc,
-//	dentro dos tags e dê preferência para classes ou para seletores como:
-// 	.artigo-padrao h1
-//  .artigo-padrao p
-//	----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// CLASSES PARA ELEMENTOS DE TEXTO
+// -----------------------------------------------------------------------------
+// Classes para alterar elementos padrão. Evite colocar cores, bordas, etc,
+// dentro dos tags e dê preferência para classes ou para seletores como:
+// .artigo-padrao h1
+// .artigo-padrao p
+// -----------------------------------------------------------------------------
