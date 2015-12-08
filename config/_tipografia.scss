@@ -9,13 +9,14 @@ TIPOGRAFIA
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // tipografia.scss
-// Criado em: 07/12/2015
-// Última alteração em: 04/11/2015
+// Criado em: 13/01/2015
+// Última alteração em: 08/12/2015
 // -----------------------------------------------------------------------------
 // Define os elementos básicos da tipografia e usa as variáveis criadas em
 // fontes.scss
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 08/12/2015 | As classes foram movidas para config/classes.scss
 // 07/12/2015 | Retirado line-height do <body> pois estava se mostrando
 //              problemático
 //              Alterações de tags aparece antes dos placeholders
@@ -115,73 +116,27 @@ a {
 // -----------------------------------------------------------------------------
 // Variações de título
 // -----------------------------------------------------------------------------
-%titulo-borda {
+%titulo--borda {
 	border-bottom: 1px solid;
 }
 
 // -----------------------------------------------------------------------------
 // Variações de link
 // -----------------------------------------------------------------------------
-%link-sem-sublinhado {
+%link--sem-sublinhado {
 	text-decoration: none;
-	&:hover {
-		text-decoration: underline;
-	}
+	&:hover { text-decoration: underline; }
 }
-%link-borda {
-	text-decoration: none;
+%link--borda {
 	border-bottom: 1px solid paleta-padrao(cinza-30);
+	text-decoration: none;
 	&:hover {
 		border-color: inherit;
 		color: cor(link);
 	}
 }
-%link-pontilhado {
-	@extend %link-borda;
+%link--pontilhado {
+	@extend %link--borda;
 	border-bottom-style: dotted;
 	&:hover { color: cor(link, escuro); }
 }
-// =============================================================================
-// CLASSES PARA TIPOGRAFIA
-// =============================================================================
-
-// -----------------------------------------------------------------------------
-// ALTERAÇÃO DE TAMANHOS DE FONTES
-// -----------------------------------------------------------------------------
-// Abaixo crio variantes de tamanho de fonte. Para acrescentar ou modificar,
-// faça dentro do mapa $tamanho-fonte. As classes geradas devem ser usadas em
-// elemento inline e não no elemento pai. Se por acaso você precisar de um
-// elemento de bloco (como um parágrafo inteiro ou h1) com alteração de tamanho
-// abra um span dentro do mesmo e coloque a classe.
-// Exemplo:
-// <p><span class="fonte-maior">Texto maior</span></p>
-// -----------------------------------------------------------------------------
-$tamanho-fonte: (
-	menor: modular-scale(-1, 1),
-	x-menor: modular-scale(-2, 1),
-	xx-menor: modular-scale(-3, 1),
-	maior: modular-scale(1, 1),
-	x-maior: modular-scale(2, 1),
-	xx-maior: modular-scale(3, 1),
-);
-
-@each $classe, $tamanho in $tamanho-fonte {
-	.fonte--#{$classe}, .text--#{$classe} {
-		font-size: $tamanho * 1em;
-	}
-}
-// -----------------------------------------------------------------------------
-// CLASSES PARA ALTERAÇÃO DO TEXTO BÁSICO
-// -----------------------------------------------------------------------------
-.texto--caixa-alta, .texto--uppercase {
-	text-transform: uppercase;
-}
-
-// -----------------------------------------------------------------------------
-// CLASSES PARA ELEMENTOS DE TEXTO
-// -----------------------------------------------------------------------------
-// Classes para alterar elementos padrão. Evite colocar cores, bordas, etc,
-// dentro dos tags e dê preferência para classes ou para seletores como:
-// .artigo-padrao h1
-// .artigo-padrao p
-// -----------------------------------------------------------------------------

@@ -10,11 +10,13 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
+// Alterado em: 08/12/2015
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/12/2015 | Tiradas classes da tipografia
 // 21/10/2015 | Criado o arquivo com as classes básicas
 // =============================================================================
 
@@ -24,8 +26,6 @@ CLASSES FIXAS
 
 // =============================================================================
 // CORES DE SISTEMA
-// -----------------------------------------------------------------------------
-// Use quando precisar da cor de texto ou de fundo para indicativo de status
 // =============================================================================
 %texto-status--claro {
 	color: cor(texto, claro);
@@ -53,4 +53,28 @@ CLASSES FIXAS
 .fundo--alerta {
 	background: cor-status(alerta);
 	@extend %texto-status--claro;
+}
+
+// =============================================================================
+// TIPOGRAFIA
+// =============================================================================
+.texto--caixa-alta, .texto--uppercase {
+	text-transform: uppercase;
+}
+// -----------------------------------------------------------------------------
+// TAMANHO DAS FONTES
+// -----------------------------------------------------------------------------
+$tamanho-fonte: (
+	menor: modular-scale(-1, 1),
+	x-menor: modular-scale(-2, 1),
+	xx-menor: modular-scale(-3, 1),
+	maior: modular-scale(1, 1),
+	x-maior: modular-scale(2, 1),
+	xx-maior: modular-scale(3, 1),
+);
+
+@each $classe, $tamnho in $tamanho-fonte {
+	.fonte--#{$classe}, .text--#{$classe} {
+		font-size: $tamanho * 1em;
+	}
 }
