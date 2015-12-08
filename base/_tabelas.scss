@@ -10,11 +10,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 23/11/2015
+// Última alteração: 08/12/2015
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/12/2015 | Retirada variável de borda
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -129,7 +130,7 @@ td {
 		border-bottom: 2px solid cor(tabela, borda);
 	}
 	tbody tr {
-		border-bottom: $borda-tracejada;
+		border-bottom: 1px dashed cor(tabela, borda);
 		&:last-of-type {
 			border-bottom: none;
 		}
