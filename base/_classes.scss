@@ -73,7 +73,7 @@ $tamanho-fonte: (
 	xx-maior: modular-scale(3, 1),
 );
 
-@each $classe, $tamnho in $tamanho-fonte {
+@each $classe, $tamanho in $tamanho-fonte {
 	.fonte--#{$classe}, .text--#{$classe} {
 		font-size: $tamanho * 1em;
 	}
