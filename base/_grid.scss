@@ -12,12 +12,14 @@ GRID
 // -----------------------------------------------------------------------------
 // grid.scss
 // Criado em: 12/01/2015
-// Última alteração: 11/11/2015
+// Última alteração: 08/12/2015
 // -----------------------------------------------------------------------------
 // Este arquivo cria o sistema de grid, com uso de Flex-box
 // As configurações devem ficar no início do documento (editando as variáveis)
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/12/2015 | Usado o seletor > para a coruja lobotomizada (pois da forma que
+//              estava, aplicava a todos os elementos inferiores ao gutter)
 // 17/11/2015 | Utilizada nova forma chamar as classes
 // 04/11/2015 | Alterado sistema de gutter usando o método "coruja lobotomizada"
 //              (* + *).
@@ -81,7 +83,7 @@ $grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
   .container--gutter, .container--calha {
     @extend %container-basico;
     padding: 0 $grid-margem;
-    * + * {
+    > * + * {
       margin-left: $grid-margem-porcento;
     }
   }
