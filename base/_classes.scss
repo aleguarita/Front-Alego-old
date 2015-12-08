@@ -16,12 +16,16 @@ CLASSES FIXAS
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
-// 08/12/2015 | Tiradas classes da tipografia
+// 08/12/2015 | Tiradas classes da tipografia e inseridas aqui
+//              Criada classe "pointer"
 // 21/10/2015 | Criado o arquivo com as classes básicas
 // =============================================================================
 
 .oculta {
   display: none;
+}
+.pointer {
+  cursor: pointer;
 }
 
 // =============================================================================
