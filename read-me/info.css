@@ -652,54 +652,8 @@ SÍMBOLOS
 TIPOGRAFIA
 ================================================================================
 */
-p, ul, ol, dl, table, blockquote {
-  font-size: 0.8428rem;
-  margin: 1em 0;
-}
-p:first-child, ul:first-child, ol:first-child, dl:first-child, table:first-child, blockquote:first-child {
-  margin-top: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
-  margin: 1em 0 0.5em;
-  color: #cd5800;
-  line-height: 1.2;
-}
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
-  margin-top: 0;
-}
-
-.titulo-borda {
-  border-bottom: 1px solid;
-}
-
-.link-sem-sublinhado {
-  text-decoration: none;
-}
-.link-sem-sublinhado:hover {
-  text-decoration: underline;
-}
-
-.link--readme, .link--externo, .link-pontilhado, .link-borda {
-  text-decoration: none;
-  border-bottom: 1px solid #b3b3b3;
-}
-.link--readme:hover, .link--externo:hover, .link-pontilhado:hover, .link-borda:hover {
-  border-color: inherit;
-  color: #00c5cd;
-}
-
-.link--readme, .link--externo, .link-pontilhado {
-  border-bottom-style: dotted;
-}
-.link--readme:hover, .link--externo:hover, .link-pontilhado:hover {
-  color: #009da4;
-}
-
 body {
   color: #000;
-  line-height: 1.5;
   font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
 }
 
@@ -725,6 +679,59 @@ h5 {
 
 h6 {
   font-size: 1.2rem;
+}
+
+a {
+  color: #00c5cd;
+}
+a:hover {
+  color: #66dce1;
+}
+
+p, ul, ol, dl, table, blockquote {
+  font-size: 0.8428rem;
+  margin: 1em 0;
+  line-height: 1.5;
+}
+p:first-child, ul:first-child, ol:first-child, dl:first-child, table:first-child, blockquote:first-child {
+  margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  margin: 1em 0 0.5em;
+  color: #cd5800;
+  line-height: 1.2;
+}
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  margin-top: 0;
+}
+
+.titulo--borda {
+  border-bottom: 1px solid;
+}
+
+.link--sem-sublinhado {
+  text-decoration: none;
+}
+.link--sem-sublinhado:hover {
+  text-decoration: underline;
+}
+
+.link--readme, .link--externo, .link--pontilhado, .link--borda {
+  border-bottom: 1px solid #b3b3b3;
+  text-decoration: none;
+}
+.link--readme:hover, .link--externo:hover, .link--pontilhado:hover, .link--borda:hover {
+  border-color: inherit;
+  color: #00c5cd;
+}
+
+.link--readme, .link--externo, .link--pontilhado {
+  border-bottom-style: dotted;
+}
+.link--readme:hover, .link--externo:hover, .link--pontilhado:hover {
+  color: #009da4;
 }
 
 .fonte--menor, .text--menor {

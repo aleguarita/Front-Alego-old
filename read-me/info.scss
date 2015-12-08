@@ -75,7 +75,7 @@ CLASSES
 // Links
 // -----------------------------------------------------------------------------
 %link-basico {
-  @extend %link-pontilhado;
+  @extend %link--pontilhado;
   font-weight: bold;
   font-size: .85em;
   color: cor(link, escuro);
@@ -386,10 +386,10 @@ main {
 @mixin classe($classe) {
   .#{$classe} { @extend %#{$classe}; }
 }
-@include classe(titulo-borda);
-@include classe(link-sem-sublinhado);
-@include classe(link-borda);
-@include classe(link-pontilhado);
+@include classe(titulo--borda);
+@include classe(link--sem-sublinhado);
+@include classe(link--borda);
+@include classe(link--pontilhado);
 @include classe(lista-sem-marcador);
 /*
 --------------------------------------------------------------------------------

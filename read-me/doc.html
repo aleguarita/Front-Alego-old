@@ -30,6 +30,8 @@
           <li><a href="#cores">Cores</a></li>
           <li><a href="#grid">Grid</a></li>
           <li><a href="#z-index">z-index</a></li>
+          <li><a href="#tipografia">Tipografia</a></li>
+          <li><a href="#simbolos">Símbolos</a></li>
         </ul>
       </nav>
       <section class="principal">
@@ -47,162 +49,157 @@
             <h1>Regras de padronização</h1>
           </header>
           <h2 id="regras__bem">BEM - Bloco, Elemento, Modificador</h2>
-          <p>Estamos utilizando a regra do <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" class="link--externo" target="_blank">BEM</a> para nomear as classes.</p>
-          <dl class="lista-definicao">
-            <dt>Bloco</dt><dd>O bloco é o elemento pai, principal. Procure usar nome relevante e de fácil identificação. Se precisar separar palavras do nome, use apenas um traço: <samp>-</samp></dd>
-            <dt>Elemento</dt><dd>É o elemento filho do bloco. Ele deve ser aparecer logo depois do bloco e separado com dois sublinhados: <samp>__</samp></dd>
-            <dt>Modificador</dt><dd>Uma variação do bloco ou elemento. Deve ser separada com dois traços: <samp>--</samp></dd>
-          </dl>
-          <h3>Exemplo</h3>
-          <p>Imagine a seguinte estrutura: você tem uma caixa com um cabeçalho, um corpo com lista e formulário e um rodapé com ações.</p>
-          <p>Os nomes seriam:</p>
-          <ul class="lista-itens">
-            <li>Caixa: <samp>.box</samp></li>
-            <li>Cabeçalho: <samp>.box__cabecalho</samp> ou <samp>.box__header</samp></li>
-            <li>Corpo: <samp>.box__main</samp> ou <samp>.box__corpo</samp></li>
-            <li>Rodapé: <samp>.box__footer</samp> ou <samp>.box__rodape</samp>.</li>
-            <li>Formulário: <samp>.box__form</samp> ou <samp>.box__main__form</samp>. A primeira opção é melhor, a menos que você tenha mais de um formulário dentro da caixa e ela tenha formatações diferentes.</li>
-            <li>Tabela: <samp>.box__tab</samp> ou <samp>.box__main__tab</samp>.</li>
-          </ul>
-          <p>Se tivéssemos uma caixa com variação (exemplo: urgente), ela seria <samp>.box--urgente</samp>.</p>
-          <p>Se você tivesse uma tabela com os dados maior poderia ser <samp>.box__tab--maior</samp>.</p>
-          <h3>Filhos pegam o nome variante do pai?</h3>
-          <p>Não. Os elementos filhos fazem uso do nome do elemento pai <strong>sem</strong> o modificador e o CSS é formatado com uso de descendente:</p>
-          <code class="codigo--html">
-            <header>HTML</header>
-            <section>
-              <p>&lt;div class="box--urgente"&gt;</p>
-              <p class="recuo-1">&lt;section class="box__tab"&gt;</p>
-              <p class="recuo-2">&lt;...&gt;</p>
-              <p class="recuo-1">&lt;/section&gt;</p>
-              <p>&lt;/div&gt;</p>
-            </section>
-          </code>
-          <code class="codigo--css">
-            <header>CSS</header>
-            <section>
-              <p>.box__tab { ... } /* TODOS os .box__tab */</p>
-              <p>.box--urgente { ... }</p>
-              <p>.box--urgente .box__tab { ... } /* Os box__tab que são filhos do .box--urgente</p>
-            </section>
-          </code>
-          <p>É melhor desta forma do que termos uma classe <samp>.box--urgente__tab</samp>. Primeiro porque nem sempre teremos configuração específica do elemento filho quando ele estiver dentro do pai (e teremos que extender uma classe com a outra). Segundo porque diminui a quantidade de classes usadas no sistema.</p>
-          <p>O grande defeito dessa abordagem é o uso de seletores descendentes (ver mais abaixo).</p>
-          <h3>BEM no SASS</h3>
-          <p>O SASS facilita a criação dos elementos filhos e variantes, inclusive com a opção de retrair e expandir o código diretamente no editor. Para isso funcionar basta usar o símbolo de ampersand (<samp>&</samp>).</p>
-          <code class="codigo--sass">
-            <header>SASS</header>
-            <p>.box {</p>
-            <p class="recuo-1">&__header { ... }</p>
-            <p class="recuo-1">&__main { ... }</p>
-            <p class="recuo-1">&--urgente {</p>
-              <p class="recuo-2">@extend .box;</p>
-              <p class="recuo-2">...</p>
-            <p class="recuo-1">}</p>
-            <p>}</p>
-          </code>
-          <p>Isso vai resultar em:</p>
-          <code class="codigo--css">
-            <header>CSS</header>
-            <p>.box, .box--urgente { ... }</p>
-            <p>.box__header { ... }</p>
-            <p>.box__main { ... }</p>
-            <p>.box--urgente { ... }</p>
-          </code>
-
-          <h2 id="regras__classes">Nomes de classes</h2>
-          <p>Jamais use nas classes específicas elementos de formatação. Estes devem aparecer como classe adicional ou modificador de classe (<samp>--mod</samp>).</p>
-          <p>Exemplo: se você tiver um card que deve aparecer alinhado na esquerda da página, não use <samp>.card-alinha-esquerda</samp> e sim <samp>.card--esquerda</samp> ou ainda duas classes (<samp>.card</samp> e <samp>.float-left</samp>).</p>
-          <p>Para elementos comuns de formatação use as seguintes simplificações:</p>
-          <dl class="lista-definicao">
-            <dt>bt</dt><dd>botão</dd>
-            <dt>tab</dt><dd>tabela</dd>
-            <dt>ico</dt><dd>ícone, símbolo</dd>
-            <dt>form</dt><dd>formulário</dd>
-          </dl>
-
-          <h2 id="regras__sass">Organização dos arquivos SCSS</h2>
-          <p>Como explicado <a href="index.html#aplicando">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="pasta">/extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Por outro lado, somente os placeholders e classes que são de uso global (em mais de um arquivo scss) devem vir na pasta extra.</p>
-          <h3>Comentários</h3>
-          <p>O arquivo deve ser totalmente comentado ao estilo SASS para identificar seus trechos.</p>
-          <p>Ele deve abrir com um comentário maior com o nome do sistema, o usuário que criou o arquivo e a data de criação. Veja como exemplo o CSS usado neste arquivo:</p>
-          <code class="codigo--sass">
-            <p>================================================================================</p>
-            <p>FRONT-ALEGO</p>
-            <p>--------------------------------------------------------------------------------</p>
-            <p>Arquivo de CSS modelo utilizado na documentação. Use o arquivo SCSS base desta</p>
-            <p>pasta (info.scss) para ver como foi utilizado e também para acrescentar</p>
-            <p>eventuais elementos para visualizar o arquivo final.</p>
-            <p>Não se esqueça de compilar</p>
-            <p>--------------------------------------------------------------------------------</p>
-            <p>Autor: Alessandro Guarita</p>
-            <p>Criado em: 23/11/2015</p>
-            <p>================================================================================</p>
-          </code>
-          <p>Cada parte do arquivo deve ser separada com comentários usando sinal de igual até aproximadamente 80 caracteres. E o nome deve ser em caixa alta. Exemplo:</p>
-          <code class="codigo--sass">
-            <p>// =============================================================================</p>
-            <p>// HEADER</p>
-            <p>// =============================================================================</p>
-          </code>
-          <p>Sub-seções são separadas da mesma forma acima, mas com uso de traço no lugar do igual. No comentário coloque o nome do elemento pai e separe com pipe (<samp>|</samp>):</p>
-          <code class="codigo--sass">
-            <p>// -----------------------------------------------------------------------------</p>
-            <p>// HEADER | MENU</p>
-            <p>// -----------------------------------------------------------------------------</p>
-          </code>
-          <h3>Ordem dos elementos</h3>
-          <p>Os elementos dentro de um arquivo devem obedecer a seguinte ordem (sempre comentado, conforme explicado acima):</p>
-          <ol class="lista-ordenada">
-            <li>Variáveis e mapas gerais</li>
-            <li>Placeholders gerais</li>
-            <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica)</li>
-            <li>Seções do site (header, menu, principal, footer)</li>
-          </ol>
-          <blockquote class="aviso--dica">
-            Variáveis e placeholders podem aparecer dentro de uma seção do site no CSS, caso não se repitam em nenhum lugar. Neste caso ficaria assim para facilitar a localização e modificação.
-          </blockquote>
-          <h3>Atualização emergencial</h3>
-          <p>Você conhece a situação: você tem que fazer uma alteração <strong class="texto-erro">pra ontem</strong>. Por mais que o objetivo do <strong>Front-Alego™</strong> seja organizar os arquivos, isso pode levar um tempo que não se dispõe. Neste caso haverá uma quebra das regras, temporariamente. Neste caso, siga os passos:</p>
-          <ol>
-            <li>Crie um arquivo chamado <samp class="arquivo">ajustes.scss</samp> na pasta <samp class="pasta">extras</samp></li>
-            <li>Escreva um comentário indicando para quê é essa alteração e seu nome</li>
-            <li>Escreva as regras. Não tenha medo de usar <samp>!important</samp> e outras regras <strike>escrotas</strike> pouco apropriadas</li>
-            <li>No final do arquivo principal do seu CSS que a regra tem que ser aplicada dê um importe para o arquivo:
-              <code class="codigo--sass">
-                <p>@import "extras/ajustes"</p>
+            <p>Estamos utilizando a regra do <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/" class="link--externo" target="_blank">BEM</a> para nomear as classes.</p>
+            <dl class="lista-definicao">
+              <dt>Bloco</dt><dd>O bloco é o elemento pai, principal. Procure usar nome relevante e de fácil identificação. Se precisar separar palavras do nome, use apenas um traço: <samp>-</samp></dd>
+              <dt>Elemento</dt><dd>É o elemento filho do bloco. Ele deve ser aparecer logo depois do bloco e separado com dois sublinhados: <samp>__</samp></dd>
+              <dt>Modificador</dt><dd>Uma variação do bloco ou elemento. Deve ser separada com dois traços: <samp>--</samp></dd>
+            </dl>
+            <h3>Exemplo</h3>
+              <p>Imagine a seguinte estrutura: você tem uma caixa com um cabeçalho, um corpo com lista e formulário e um rodapé com ações.</p>
+              <p>Os nomes seriam:</p>
+              <ul class="lista-itens">
+                <li>Caixa: <samp>.box</samp></li>
+                <li>Cabeçalho: <samp>.box__cabecalho</samp> ou <samp>.box__header</samp></li>
+                <li>Corpo: <samp>.box__main</samp> ou <samp>.box__corpo</samp></li>
+                <li>Rodapé: <samp>.box__footer</samp> ou <samp>.box__rodape</samp>.</li>
+                <li>Formulário: <samp>.box__form</samp> ou <samp>.box__main__form</samp>. A primeira opção é melhor, a menos que você tenha mais de um formulário dentro da caixa e ela tenha formatações diferentes.</li>
+                <li>Tabela: <samp>.box__tab</samp> ou <samp>.box__main__tab</samp>.</li>
+              </ul>
+              <p>Se tivéssemos uma caixa com variação (exemplo: urgente), ela seria <samp>.box--urgente</samp>.</p>
+              <p>Se você tivesse uma tabela com os dados maior poderia ser <samp>.box__tab--maior</samp>.</p>
+            <h3>Filhos pegam o nome variante do pai?</h3>
+              <p>Não. Os elementos filhos fazem uso do nome do elemento pai <strong>sem</strong> o modificador e o CSS é formatado com uso de descendente:</p>
+              <code class="codigo--html">
+                <header>HTML</header>
+                <section>
+                  <p>&lt;div class="box--urgente"&gt;</p>
+                  <p class="recuo-1">&lt;section class="box__tab"&gt;</p>
+                  <p class="recuo-2">&lt;...&gt;</p>
+                  <p class="recuo-1">&lt;/section&gt;</p>
+                  <p>&lt;/div&gt;</p>
+                </section>
               </code>
-            </li>
-            <li>Teste</li>
-            <li>Commite o trabalho</li>
-            <li>Depois que a corda saiu do seu pescoço insira as alterações nos lugares corretos e com as regras de boas condutas aplicadas</li>
-            <li>Delete o <samp>@import</samp> para o arquivo de ajustes (pode deletar o conteúdo dos ajustes também)</li>
-          </ol>
-
+              <code class="codigo--css">
+                <header>CSS</header>
+                <section>
+                  <p>.box__tab { ... } /* TODOS os .box__tab */</p>
+                  <p>.box--urgente { ... }</p>
+                  <p>.box--urgente .box__tab { ... } /* Os box__tab que são filhos do .box--urgente</p>
+                </section>
+              </code>
+              <p>É melhor desta forma do que termos uma classe <samp>.box--urgente__tab</samp>. Primeiro porque nem sempre teremos configuração específica do elemento filho quando ele estiver dentro do pai (e teremos que extender uma classe com a outra). Segundo porque diminui a quantidade de classes usadas no sistema.</p>
+              <p>O grande defeito dessa abordagem é o uso de seletores descendentes (ver mais abaixo).</p>
+            <h3>BEM no SASS</h3>
+              <p>O SASS facilita a criação dos elementos filhos e variantes, inclusive com a opção de retrair e expandir o código diretamente no editor. Para isso funcionar basta usar o símbolo de ampersand (<samp>&</samp>).</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.box {</p>
+                <p class="recuo-1">&__header { ... }</p>
+                <p class="recuo-1">&__main { ... }</p>
+                <p class="recuo-1">&--urgente {</p>
+                  <p class="recuo-2">@extend .box;</p>
+                  <p class="recuo-2">...</p>
+                <p class="recuo-1">}</p>
+                <p>}</p>
+              </code>
+              <p>Isso vai resultar em:</p>
+              <code class="codigo--css">
+                <header>CSS</header>
+                <p>.box, .box--urgente { ... }</p>
+                <p>.box__header { ... }</p>
+                <p>.box__main { ... }</p>
+                <p>.box--urgente { ... }</p>
+              </code>
+          <h2 id="regras__classes">Nomes de classes</h2>
+            <p>Jamais use nas classes específicas elementos de formatação. Estes devem aparecer como classe adicional ou modificador de classe (<samp>--mod</samp>).</p>
+            <p>Exemplo: se você tiver um card que deve aparecer alinhado na esquerda da página, não use <samp>.card-alinha-esquerda</samp> e sim <samp>.card--esquerda</samp> ou ainda duas classes (<samp>.card</samp> e <samp>.float-left</samp>).</p>
+            <p>Para elementos comuns de formatação use as seguintes simplificações:</p>
+            <dl class="lista-definicao">
+              <dt>bt</dt><dd>botão</dd>
+              <dt>tab</dt><dd>tabela</dd>
+              <dt>ico</dt><dd>ícone, símbolo</dd>
+              <dt>form</dt><dd>formulário</dd>
+            </dl>
+          <h2 id="regras__sass">Organização dos arquivos SCSS</h2>
+            <p>Como explicado <a href="index.html#aplicando">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="pasta">/extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Por outro lado, somente os placeholders e classes que são de uso global (em mais de um arquivo scss) devem vir na pasta extra.</p>
+            <h3>Comentários</h3>
+              <p>O arquivo deve ser totalmente comentado ao estilo SASS para identificar seus trechos.</p>
+              <p>Ele deve abrir com um comentário maior com o nome do sistema, o usuário que criou o arquivo e a data de criação. Veja como exemplo o CSS usado neste arquivo:</p>
+              <code class="codigo--sass">
+                <p>================================================================================</p>
+                <p>FRONT-ALEGO</p>
+                <p>--------------------------------------------------------------------------------</p>
+                <p>Arquivo de CSS modelo utilizado na documentação. Use o arquivo SCSS base desta</p>
+                <p>pasta (info.scss) para ver como foi utilizado e também para acrescentar</p>
+                <p>eventuais elementos para visualizar o arquivo final.</p>
+                <p>Não se esqueça de compilar</p>
+                <p>--------------------------------------------------------------------------------</p>
+                <p>Autor: Alessandro Guarita</p>
+                <p>Criado em: 23/11/2015</p>
+                <p>================================================================================</p>
+              </code>
+              <p>Cada parte do arquivo deve ser separada com comentários usando sinal de igual até aproximadamente 80 caracteres. E o nome deve ser em caixa alta. Exemplo:</p>
+              <code class="codigo--sass">
+                <p>// =============================================================================</p>
+                <p>// HEADER</p>
+                <p>// =============================================================================</p>
+              </code>
+              <p>Sub-seções são separadas da mesma forma acima, mas com uso de traço no lugar do igual. No comentário coloque o nome do elemento pai e separe com pipe (<samp>|</samp>):</p>
+              <code class="codigo--sass">
+                <p>// -----------------------------------------------------------------------------</p>
+                <p>// HEADER | MENU</p>
+                <p>// -----------------------------------------------------------------------------</p>
+              </code>
+            <h3>Ordem dos elementos</h3>
+              <p>Os elementos dentro de um arquivo devem obedecer a seguinte ordem (sempre comentado, conforme explicado acima):</p>
+              <ol class="lista-ordenada">
+                <li>Variáveis e mapas gerais</li>
+                <li>Placeholders gerais</li>
+                <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica)</li>
+                <li>Seções do site (header, menu, principal, footer)</li>
+              </ol>
+              <blockquote class="aviso--dica">
+                Variáveis e placeholders podem aparecer dentro de uma seção do site no CSS, caso não se repitam em nenhum lugar. Neste caso ficaria assim para facilitar a localização e modificação.
+              </blockquote>
+            <h3>Atualização emergencial</h3>
+              <p>Você conhece a situação: você tem que fazer uma alteração <strong class="texto-erro">pra ontem</strong>. Por mais que o objetivo do <strong>Front-Alego™</strong> seja organizar os arquivos, isso pode levar um tempo que não se dispõe. Neste caso haverá uma quebra das regras, temporariamente. Neste caso, siga os passos:</p>
+              <ol>
+                <li>Crie um arquivo chamado <samp class="arquivo">ajustes.scss</samp> na pasta <samp class="pasta">extras</samp></li>
+                <li>Escreva um comentário indicando para quê é essa alteração e seu nome</li>
+                <li>Escreva as regras. Não tenha medo de usar <samp>!important</samp> e outras regras <strike>escrotas</strike> pouco apropriadas</li>
+                <li>No final do arquivo principal do seu CSS que a regra tem que ser aplicada dê um importe para o arquivo:
+                  <code class="codigo--sass">
+                    <p>@import "extras/ajustes"</p>
+                  </code>
+                </li>
+                <li>Teste</li>
+                <li>Commite o trabalho</li>
+                <li>Depois que a corda saiu do seu pescoço insira as alterações nos lugares corretos e com as regras de boas condutas aplicadas</li>
+                <li>Delete o <samp>@import</samp> para o arquivo de ajustes (pode deletar o conteúdo dos ajustes também)</li>
+              </ol>
           <h2 id="regras__seletores">Seletores descendentes e aninhamento de código</h2>
-          <p>Evite o máximo possível CSS com seletor descendente (<samp>.classe1 .classe2</samp>). Este seletor diminui a performance do browser e aumenta a especifidade do código. Por esta mesma razão evite grandes aninhamentos de código no SASS. Esta regra, no entanto, tem exceções (uma delas já mostrada acima, no BEM). Mas mesmo assim, tenha no máximo dois descendentes e aninhamento (exemplo: <samp>.tab td</samp> e não <samp>.tab tr td</samp>).</p>
-
+            <p>Evite o máximo possível CSS com seletor descendente (<samp>.classe1 .classe2</samp>). Este seletor diminui a performance do browser e aumenta a especifidade do código. Por esta mesma razão evite grandes aninhamentos de código no SASS. Esta regra, no entanto, tem exceções (uma delas já mostrada acima, no BEM). Mas mesmo assim, tenha no máximo dois descendentes e aninhamento (exemplo: <samp>.tab td</samp> e não <samp>.tab tr td</samp>).</p>
           <h2 id="regras__medidas">Medidas relativas</h2>
-          <p>Para que o sistema seja adaptável, sempre use medidas relativas. Jamais use valores em pixels (a exceção é tamanho de imagens e vídeos externos). Para os demais casos use <samp>em</samp>, <samp>rem</samp>, <samp>%</samp>, <samp>vw</samp>, etc.</p>
+            <p>Para que o sistema seja adaptável, sempre use medidas relativas. Jamais use valores em pixels (a exceção é tamanho de imagens e vídeos externos). Para os demais casos use <samp>em</samp>, <samp>rem</samp>, <samp>%</samp>, <samp>vw</samp>, etc.</p>
           <h3>REM vs. EM</h3>
-          <p>Sabendo da diferença entre ambos (<samp>rem</samp> é relativo ao tamanho da fonte do root e <samp>em</samp> é relativo ao tamanho da fonte do elemento pai), use os dois quando adequado. Dicas:</p>
-          <ul class="lista-itens">
-            <li>Tamanho da fonte que é para ser relativa ao tamanho pai, use <samp>em</samp>. Exemplo: um link, um destaque ou mesmo todo um bloco de textos.</li>
-            <li>Tamanho de fonte que é para se manter com o mesmo tamanho, indepdente do tamanho do elemento pai, use <samp>rem</samp>. Exemplo: título da página.</li>
-            <li>Margens costumam ser mais adequado utilizar <samp>rem</samp> para manter a consistência.</li>
-            <li>Paddings, por outro lado, é mais adequado usar <samp>em</samp> para que o espaço interno cresça conforme se aumenta a fonte. Exceção: se você tem um elemento com dois tamanho de fonte diferentes, manter o padding em <samp>rem</samp> ajuda a manter a consistência. (exemplo: tabela)</li>
-          </ul>
-          <blockquote class="aviso--dica">
-            Existem funções no bourbon que convertem o valor de pixels para <samp>rem</samp> ou <samp>em</samp>. Basta usar a função <samp>rem()</samp> ou <samp>em()</samp>
-          </blockquote>
-
+            <p>Sabendo da diferença entre ambos (<samp>rem</samp> é relativo ao tamanho da fonte do root e <samp>em</samp> é relativo ao tamanho da fonte do elemento pai), use os dois quando adequado. Dicas:</p>
+            <ul class="lista-itens">
+              <li>Tamanho da fonte que é para ser relativa ao tamanho pai, use <samp>em</samp>. Exemplo: um link, um destaque ou mesmo todo um bloco de textos.</li>
+              <li>Tamanho de fonte que é para se manter com o mesmo tamanho, indepdente do tamanho do elemento pai, use <samp>rem</samp>. Exemplo: título da página.</li>
+              <li>Margens costumam ser mais adequado utilizar <samp>rem</samp> para manter a consistência.</li>
+              <li>Paddings, por outro lado, é mais adequado usar <samp>em</samp> para que o espaço interno cresça conforme se aumenta a fonte. Exceção: se você tem um elemento com dois tamanho de fonte diferentes, manter o padding em <samp>rem</samp> ajuda a manter a consistência. (exemplo: tabela)</li>
+            </ul>
+            <blockquote class="aviso--dica">
+              Existem funções no bourbon que convertem o valor de pixels para <samp>rem</samp> ou <samp>em</samp>. Basta usar a função <samp>rem()</samp> ou <samp>em()</samp>
+            </blockquote>
           <h2 id="regras__media-query">Media Queries</h2>
-          <p>O uso de <em>Media queries</em> para fazer sites responsivos não usa medidas em pixels mais sim em <samp>rem</samp>, pois assim se adapta inclusive ao zoom dado pelo usuário.</p>
-          <p>Ver mais detalhes sobre isso <a href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative" class="link--externo" target="_blank">neste artigo</a>.</p>
-          <p>A ideia básica é parar de usar medidas de dispositivos específicos (que a cada momento tem novos) e trabalhar com a medida da tela em si.</p>
-          <blockquote class="aviso--grave">
-            Sempre use o sistema de media-query descrito aqui (fazendo uso da função <samp>breakpoint</samp>). E nunca, jamais, escreva uma medida que não esteja descrita no mapa <samp>$breakpoints</samp>.
-          </blockquote>
+            <p>O uso de <em>Media queries</em> para fazer sites responsivos não usa medidas em pixels mais sim em <samp>rem</samp>, pois assim se adapta inclusive ao zoom dado pelo usuário.</p>
+            <p>Ver mais detalhes sobre isso <a href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative" class="link--externo" target="_blank">neste artigo</a>.</p>
+            <p>A ideia básica é parar de usar medidas de dispositivos específicos (que a cada momento tem novos) e trabalhar com a medida da tela em si.</p>
+            <blockquote class="aviso--grave">
+              Sempre use o sistema de media-query descrito aqui (fazendo uso da função <samp>breakpoint</samp>). E nunca, jamais, escreva uma medida que não esteja descrita no mapa <samp>$breakpoints</samp>.
+            </blockquote>
         </article>
 
         <article id="config">
@@ -213,155 +210,145 @@
           <p>O arquivo de configuração permite escolher a formatação básica do seu projeto. Em muitos casos você escrevará o valor a ser usado. Se o valor for "sim" ou "não" o valor relevante é o <strong>sim</strong> e qualquer valor diferente é entendido como <strong>não</strong>.</p>
 
           <h2 id="config__classes">Uso de Classes</h2>
-          <p>O mapa <samp>$uso-classes</samp> define se vai criar algumas classes. Caso não vá usar alguma função comente o nome dentro do mapa (<span class="tecla-atalho">cmd</span> + <span class="tecla-atalho">/</span>), isso vai fazer com que as classes não apareçam no arquivo CSS compilado, deixando-o mais leve.</p>
-          <p>As classes criadas nos arquivos adicionais na pasta <samp class="pasta">extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>.</p>
-          <dl class="lista-definicao">
-            <dt><samp>form-field</samp></dt><dd>Grupo de formulários. Serve para definir a largura deles, com um sistema similar ao de grids (com classes de <samp>grid-1</samp> até <samp>grid-12</samp>)</dd>
-            <dt><samp>form-pre</samp></dt><dd>Espaçamento entre os formulários. Cada <samp>pre-x</samp> dá o mesmo espaço de uma "grid" de formulário. Por ser algo de uso raro, por padrão já vem comentado</dd>
-            <dt><samp>form</samp></dt><dd>Formatação dos tags básicos de formulário, incluindo sua relação entre <samp>label</samp> e <samp>input</samp>. Inclui formatação de campos de textos (e derivados dos HTML 5), caixa de texto, radiobutton, checkbox e select.</dd>
-            <dt><samp>botao</samp></dt><dd>Botões de formulário</dd>
-            <dt><samp>botao-secundario</samp></dt><dd>Caso seja necessário dois tipos diferentes de botão</dd>
-            <dt><samp>autocomplete</samp></dt><dd>Formulário de autocomplete</dd>
-            <dt><samp>grid-container</samp></dt><dd>As classes de container de grid</dd>
-            <dt><samp>tabela</samp></dt><dd>Classe de tabela</dd>
-            <dt><samp>tabela-form</samp></dt><dd>A classe secundária <samp>.tab--form</samp>. Se a tabela (acima) estiver comentada, esta não será escrita.</dd>
-            <dt><samp>modal</samp></dt><dd>Classe da modal</dd>
-            <dt><samp>card</samp></dt><dd>Classe dos cards</dd>
-            <dt><samp>lista</samp></dt><dd>Classes para a formatação de listas (o menu deste arquivo faz uso)</dd>
-            <dt><samp>paginacao</samp></dt><dd>Formata a paginação</dd>
-            <dt><samp>breadcrumb</samp></dt><dd>Formata o breadcrumb</dd>
-            <dt><samp>toaster</samp></dt><dd>Formata os toasters do sistema</dd>
-            <dt><samp>secao-lista</samp></dt><dd>Seções que podem ser fechadas, ocultando o conteúdo e mostrando o título, formando uma lista de seções</dd>
-          </dl>
-          <blockquote class="aviso--grave">
-            Apenas comente! Não altere os nomes em hipótese nenhuma (do contrário será o mesmo efeito de comentar e a classe não será criada)
-          </blockquote>
-
+            <p>O mapa <samp>$uso-classes</samp> define se vai criar algumas classes. Caso não vá usar alguma função comente o nome dentro do mapa (<span class="tecla-atalho">cmd</span> + <span class="tecla-atalho">/</span>), isso vai fazer com que as classes não apareçam no arquivo CSS compilado, deixando-o mais leve.</p>
+            <p>As classes criadas nos arquivos adicionais na pasta <samp class="pasta">extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>.</p>
+            <dl class="lista-definicao">
+              <dt><samp>form-field</samp></dt><dd>Grupo de formulários. Serve para definir a largura deles, com um sistema similar ao de grids (com classes de <samp>grid-1</samp> até <samp>grid-12</samp>)</dd>
+              <dt><samp>form-pre</samp></dt><dd>Espaçamento entre os formulários. Cada <samp>pre-x</samp> dá o mesmo espaço de uma "grid" de formulário. Por ser algo de uso raro, por padrão já vem comentado</dd>
+              <dt><samp>form</samp></dt><dd>Formatação dos tags básicos de formulário, incluindo sua relação entre <samp>label</samp> e <samp>input</samp>. Inclui formatação de campos de textos (e derivados dos HTML 5), caixa de texto, radiobutton, checkbox e select.</dd>
+              <dt><samp>botao</samp></dt><dd>Botões de formulário</dd>
+              <dt><samp>botao-secundario</samp></dt><dd>Caso seja necessário dois tipos diferentes de botão</dd>
+              <dt><samp>autocomplete</samp></dt><dd>Formulário de autocomplete</dd>
+              <dt><samp>grid-container</samp></dt><dd>As classes de container de grid</dd>
+              <dt><samp>tabela</samp></dt><dd>Classe de tabela</dd>
+              <dt><samp>tabela-form</samp></dt><dd>A classe secundária <samp>.tab--form</samp>. Se a tabela (acima) estiver comentada, esta não será escrita.</dd>
+              <dt><samp>modal</samp></dt><dd>Classe da modal</dd>
+              <dt><samp>card</samp></dt><dd>Classe dos cards</dd>
+              <dt><samp>lista</samp></dt><dd>Classes para a formatação de listas (o menu deste arquivo faz uso)</dd>
+              <dt><samp>paginacao</samp></dt><dd>Formata a paginação</dd>
+              <dt><samp>breadcrumb</samp></dt><dd>Formata o breadcrumb</dd>
+              <dt><samp>toaster</samp></dt><dd>Formata os toasters do sistema</dd>
+              <dt><samp>secao-lista</samp></dt><dd>Seções que podem ser fechadas, ocultando o conteúdo e mostrando o título, formando uma lista de seções</dd>
+            </dl>
+            <blockquote class="aviso--grave">
+              Apenas comente! Não altere os nomes em hipótese nenhuma (do contrário será o mesmo efeito de comentar e a classe não será criada)
+            </blockquote>
           <h2 id="config__tema">Tema de cores</h2>
-          <!-- LINK -->
-          <p>Defina qual o tema de cor utilizado. Veja mais detalhes sobre isso em cores. Abaixo uma explicação dos valores aceitos em <samp>$cores-tema</samp> e seus possíveis usos:</p>
-          <dl class="lista-definicao">
-            <dt>principal</dt>
-              <dd>O tema padrão e definido originalmente para o sistema</dd>
-            <dt>monocromatico</dt><dd>Faz uso de apenas a paleta principal do sistema</dd>
-            <dt>cinza</dt>
-              <dd>Utiliza apenas tons de cinza</dd>
-            <dt>auto-contraste</dt>
-              <dd>Tons escuros e claros em auto contraste, para acessbilidade</dd>
-            <dt>bandeira-goiana</dt>
-              <dd>Faz uso das três cores da bandeira goiana</dd>
-            <dt>rosa</dt>
-              <dd>Usa principalmente tons de rosa. Para o Outubro Rosa</dd>
-            <dt>azul</dt>
-              <dd>Usa principalmente tons de azul. Para o Novembro Azul</dd>
-          </dl>
-          <p>Caso você crie algum tema novo, basta alterar a variável <samp>$cores-tema</samp> para o tema novo.</p>
-
+            <!-- LINK -->
+            <p>Defina qual o tema de cor utilizado. Veja mais detalhes sobre isso em cores. Abaixo uma explicação dos valores aceitos em <samp>$cores-tema</samp> e seus possíveis usos:</p>
+            <dl class="lista-definicao">
+              <dt>principal</dt>
+                <dd>O tema padrão e definido originalmente para o sistema</dd>
+              <dt>monocromatico</dt><dd>Faz uso de apenas a paleta principal do sistema</dd>
+              <dt>cinza</dt>
+                <dd>Utiliza apenas tons de cinza</dd>
+              <dt>auto-contraste</dt>
+                <dd>Tons escuros e claros em auto contraste, para acessbilidade</dd>
+              <dt>bandeira-goiana</dt>
+                <dd>Faz uso das três cores da bandeira goiana</dd>
+              <dt>rosa</dt>
+                <dd>Usa principalmente tons de rosa. Para o Outubro Rosa</dd>
+              <dt>azul</dt>
+                <dd>Usa principalmente tons de azul. Para o Novembro Azul</dd>
+            </dl>
+            <p>Caso você crie algum tema novo, basta alterar a variável <samp>$cores-tema</samp> para o tema novo.</p>
           <h2 id="config__grid">Grid</h2>
-          <!-- LINK -->
-          <p>Defina aqui os detalhes da grid. Veja mais detalhes sobre isso em grids.</p>
-          <dl class="lista-definicao">
-            <dt><samp>$grid-qtd</samp></dt>
-              <dd>O maior valor de grid (<samp>grid-#</samp>) disponível. Por padrão são <strong>12</strong> grids (melhor valor de se trabalhar por ser divísivel por 3 e 4).</dd>
-            <dt><samp>$grid-margem</samp></dt>
-              <dd>A margem entre as grids. Por padrão é o equivalente a 10px convertidos para <samp>rem</samp>. <strong class="texto-erro">Atenção:</strong> afeta a variável <samp>$calha</samp></dd>
-            <dt><samp>$grid-max</samp></dt>
-              <dd>O tamanho máximo da grid na tela (<samp>max-width</samp>). Quando a tela for maior que essa medida, fica centralizado (usa no <samp>.container</samp>)</dd>
-            <dt><samp>$grid</samp></dt>
-              <dd>Neste mapa coloque as seções do site (a classe usada) e a quantidade de grids que ocupa. Exemplo: <samp>header-titulo: 10,</samp></dd>
-          </dl>
-
+            <!-- LINK -->
+            <p>Defina aqui os detalhes da grid. Veja mais detalhes sobre isso em grids.</p>
+            <dl class="lista-definicao">
+              <dt><samp>$grid-qtd</samp></dt>
+                <dd>O maior valor de grid (<samp>grid-#</samp>) disponível. Por padrão são <strong>12</strong> grids (melhor valor de se trabalhar por ser divísivel por 3 e 4).</dd>
+              <dt><samp>$grid-margem</samp></dt>
+                <dd>A margem entre as grids. Por padrão é o equivalente a 10px convertidos para <samp>rem</samp>. <strong class="texto-erro">Atenção:</strong> afeta a variável <samp>$calha</samp></dd>
+              <dt><samp>$grid-max</samp></dt>
+                <dd>O tamanho máximo da grid na tela (<samp>max-width</samp>). Quando a tela for maior que essa medida, fica centralizado (usa no <samp>.container</samp>)</dd>
+              <dt><samp>$grid</samp></dt>
+                <dd>Neste mapa coloque as seções do site (a classe usada) e a quantidade de grids que ocupa. Exemplo: <samp>header-titulo: 10,</samp></dd>
+            </dl>
           <h2 id="config__tab">Tabelas</h2>
-          <p>Configurações de tabela.</p>
-          <dl class="lista-definicao">
-            <dt><samp>$tab-tipo</samp></dt>
-              <dd>Tipos de tabela: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
-            <dt><samp>$tab-zebra</samp></dt>
-              <dd>Determina se a tabela é zebrada ou não: <samp>sim</samp> | <samp>não</samp></dd>
-            <dt><samp>$tab-acao-link-bloco</samp></dt>
-              <dd>O ícone de ação aparece como um bloco, possibilitando o hover ocupar uma área maior</dd>
-            <dt><samp>$tab-col--maximo</samp></dt>
-              <dd>O valor máximo do placeholder criado para determinar as largras das colunas. O valor atual é <strong><span class="codigo-tab-col--maximo"></span></strong>, o que quer dizer que a maior coluna vai ter <span class="codigo-tab-col--maximo"></span>px (devidamente convertido para rem)</dd>
-            <dt><samp>$largura-tabela-col</samp></dt>
-              <dd>Mapa de classes para determinar a largura das colunas. Coloque o nome e valor e separe por vírgula. Exemplo: <samp>nome: 10,</samp>. O valor deve ser em pixels mas sem unidade.</dd>
-            <dt><samp>$largura-tabela-col-min</samp></dt>
-              <dd>Mapa de classes para determinar a largura <strong>mínima</strong> das colunas.</dd>
-            <dt><samp>$largura-tabela-col-max</samp></dt>
-              <dd>Mapa de classes para determinar a largura <strong>máxima</strong> das colunas.</dd>
-          </dl>
-
+            <p>Configurações de tabela.</p>
+            <dl class="lista-definicao">
+              <dt><samp>$tab-tipo</samp></dt>
+                <dd>Tipos de tabela: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+              <dt><samp>$tab-zebra</samp></dt>
+                <dd>Determina se a tabela é zebrada ou não: <samp>sim</samp> | <samp>não</samp></dd>
+              <dt><samp>$tab-acao-link-bloco</samp></dt>
+                <dd>O ícone de ação aparece como um bloco, possibilitando o hover ocupar uma área maior</dd>
+              <dt><samp>$tab-col--maximo</samp></dt>
+                <dd>O valor máximo do placeholder criado para determinar as largras das colunas. O valor atual é <strong><span class="codigo-tab-col--maximo"></span></strong>, o que quer dizer que a maior coluna vai ter <span class="codigo-tab-col--maximo"></span>px (devidamente convertido para rem)</dd>
+              <dt><samp>$largura-tabela-col</samp></dt>
+                <dd>Mapa de classes para determinar a largura das colunas. Coloque o nome e valor e separe por vírgula. Exemplo: <samp>nome: 10,</samp>. O valor deve ser em pixels mas sem unidade.</dd>
+              <dt><samp>$largura-tabela-col-min</samp></dt>
+                <dd>Mapa de classes para determinar a largura <strong>mínima</strong> das colunas.</dd>
+              <dt><samp>$largura-tabela-col-max</samp></dt>
+                <dd>Mapa de classes para determinar a largura <strong>máxima</strong> das colunas.</dd>
+            </dl>
           <h2 id="config__pag">Paginação</h2>
-          <p>Configuração da paginação</p>
-          <dl class="lista-definicao">
-            <dt><samp>$paginacao-tipo</samp></dt><dd>Tipos de paginação: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
-            <dt><samp>$paginacao-posicao</samp></dt><dd>Define o alinhamento (se aparece à direita, centralizado ou à esquerda). Use os valores de flex-box: <samp>flex-start</samp> (à esquerda) | <samp>center</samp> | <samp>flex-end</samp> (à direita)</dd>
-            <dt><samp>$paginacao-fonte</samp></dt><dd>O tamanho da fonte da paginação.</dd>
-          </dl>
-
+            <p>Configuração da paginação</p>
+            <dl class="lista-definicao">
+              <dt><samp>$paginacao-tipo</samp></dt><dd>Tipos de paginação: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+              <dt><samp>$paginacao-posicao</samp></dt><dd>Define o alinhamento (se aparece à direita, centralizado ou à esquerda). Use os valores de flex-box: <samp>flex-start</samp> (à esquerda) | <samp>center</samp> | <samp>flex-end</samp> (à direita)</dd>
+              <dt><samp>$paginacao-fonte</samp></dt><dd>O tamanho da fonte da paginação.</dd>
+            </dl>
           <h2 id="config__modal">Modal</h2>
-          <p>Define as configurações da modal.</p>
-          <dl class="lista-definicao">
-            <dt><samp>$modal-tipo</samp></dt><dd>Define o tipo da paginação: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
-          </dl>
-
+            <p>Define as configurações da modal.</p>
+            <dl class="lista-definicao">
+              <dt><samp>$modal-tipo</samp></dt><dd>Define o tipo da paginação: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+            </dl>
           <h2 id="config__card">Card</h2>
-          <p>Define a configuração dos cards.</p>
-          <dl class="lista-definicao">
-            <dt><samp>$card-tipo</samp></dt><dd>Tipo de card: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
-          </dl>
-
+            <p>Define a configuração dos cards.</p>
+            <dl class="lista-definicao">
+              <dt><samp>$card-tipo</samp></dt><dd>Tipo de card: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+            </dl>
           <h2 id="config__toaster">Toaster</h2>
-          <p>Configurações do Toaster.</p>
-          <dl class="lista-definicao">
-            <dt><samp>$toaster-tipo</samp></dt>
-              <dd>Tipo de toaster: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
-            <dt><samp>$toaster-horizontal</samp></dt>
-              <dd>Define se vai aparecer à esquerda ou à direita da página. Valores: <samp>right</samp> | <samp>left</samp></dd>
-            <dt><samp>$toaster-vertical</samp></dt>
-              <dd>Define se o toaster vai aparecer de cima ou de baixo. Valores: <samp>top</samp> | <samp>bottom</samp></dd>
-            <dt><samp>$toaster-distancia</samp></dt>
-              <dd>Define a distância que começa da extremidade do browser. Use medidas <samp>em</samp> ou <samp>rem</samp></dd>
-            <dt><samp>$toaster-distancia-vertical</samp></dt>
-              <dd>Um multiplicador para a distância vertical. Isso é usado para distanciar o toaster do rodapé (se aparecer de baixo) ou do cabeçalho (se estiver vindo de cima) sem ocultar estes elementos.</dd>
-          </dl>
-
+            <p>Configurações do Toaster.</p>
+            <dl class="lista-definicao">
+              <dt><samp>$toaster-tipo</samp></dt>
+                <dd>Tipo de toaster: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+              <dt><samp>$toaster-horizontal</samp></dt>
+                <dd>Define se vai aparecer à esquerda ou à direita da página. Valores: <samp>right</samp> | <samp>left</samp></dd>
+              <dt><samp>$toaster-vertical</samp></dt>
+                <dd>Define se o toaster vai aparecer de cima ou de baixo. Valores: <samp>top</samp> | <samp>bottom</samp></dd>
+              <dt><samp>$toaster-distancia</samp></dt>
+                <dd>Define a distância que começa da extremidade do browser. Use medidas <samp>em</samp> ou <samp>rem</samp></dd>
+              <dt><samp>$toaster-distancia-vertical</samp></dt>
+                <dd>Um multiplicador para a distância vertical. Isso é usado para distanciar o toaster do rodapé (se aparecer de baixo) ou do cabeçalho (se estiver vindo de cima) sem ocultar estes elementos.</dd>
+            </dl>
           <h2 id="config__form">Formulários</h2>
-          <p>Configuração dos formulários</p>
-          <dl class="lista-definicao">
-            <dt><samp>$form-tipo</samp></dt>
-              <dd>Tipo de formulário: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp></dd>
-            <dt><samp>$label-tipo</samp></dt>
-              <dd>Define se o label vai ser na mesma linha do input ou se vai ter quebra de linha. Valores: <samp>flutuante</samp> (quebra de linha) | <samp>colado</samp> (na mesma linha)</dd>
-            <dt><samp>$form-radio-check-personaliza</samp></dt>
-              <dd>Determina se vai usar formatação personalizada nos radio button e checkbox ou se vai usar o padrão do browser. Valores <samp>sim</samp> | <samp>não</samp></dd>
-            <dt><samp>$botao-tipo</samp></dt>
-              <dd>Determina o tipo de botão a ser usado. Valores: <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
-            <dt><samp>$botao-secundario</samp></dt>
-              <dd>Determina o tipo secundário de botão. Se for o mesmo tipo do acima, aparecerá com outra cor. Valores: <samp>$botao-tipo</samp> ou <samp>$tipo-1</samp> até <samp>$tipo-6</samp></dd>
-            <dt><samp>$botao-sombra-colorida</samp></dt>
-              <dd>Define se a sombra vai ser colorida, da cor do texto. <samp>sim</samp> | <samp>não</samp></dd>
-            <dt><samp>$botoes-status</samp></dt>
-              <dd>Não crie classes neste mapa (pois vai dar erro), apenas comente as que não for usar. Usam o mesmo tipo do <samp>$botao-secundario</samp></dd>
-          </dl>
-
+            <p>Configuração dos formulários</p>
+            <dl class="lista-definicao">
+              <dt><samp>$form-tipo</samp></dt>
+                <dd>Tipo de formulário: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp></dd>
+              <dt><samp>$label-tipo</samp></dt>
+                <dd>Define se o label vai ser na mesma linha do input ou se vai ter quebra de linha. Valores: <samp>flutuante</samp> (quebra de linha) | <samp>colado</samp> (na mesma linha)</dd>
+              <dt><samp>$form-radio-check-personaliza</samp></dt>
+                <dd>Determina se vai usar formatação personalizada nos radio button e checkbox ou se vai usar o padrão do browser. Valores <samp>sim</samp> | <samp>não</samp></dd>
+              <dt><samp>$botao-tipo</samp></dt>
+                <dd>Determina o tipo de botão a ser usado. Valores: <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
+              <dt><samp>$botao-secundario</samp></dt>
+                <dd>Determina o tipo secundário de botão. Se for o mesmo tipo do acima, aparecerá com outra cor. Valores: <samp>$botao-tipo</samp> ou <samp>$tipo-1</samp> até <samp>$tipo-6</samp></dd>
+              <dt><samp>$botao-sombra-colorida</samp></dt>
+                <dd>Define se a sombra vai ser colorida, da cor do texto. <samp>sim</samp> | <samp>não</samp></dd>
+              <dt><samp>$botoes-status</samp></dt>
+                <dd>Não crie classes neste mapa (pois vai dar erro), apenas comente as que não for usar. Usam o mesmo tipo do <samp>$botao-secundario</samp></dd>
+            </dl>
           <h2 id="config__secao-lista">Seção Lista</h2>
-          <p>Exibe as seções em listas. Ao clicar no item da lista, exibe o conteúdo.</p>
-          <dl class="lista-definicao">
-            <dt><samp>$secao-lista-tipo</samp></dt>
-              <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
-            <dt><samp>$secao-lista-titulo</samp></dt>
-              <dd>Define o tamanho do título da tabela usando a função <samp>modular-scale()</samp> do <a href="http://bourbon.io/docs/#modular-scale" target="_blank" class="link--externo">Bourbon</a></dd>
-          </dl>
-
+            <p>Exibe as seções em listas. Ao clicar no item da lista, exibe o conteúdo.</p>
+            <dl class="lista-definicao">
+              <dt><samp>$secao-lista-tipo</samp></dt>
+                <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+              <dt><samp>$secao-lista-titulo</samp></dt>
+                <dd>Define o tamanho do título da tabela usando a função <samp>modular-scale()</samp> do <a href="http://bourbon.io/docs/#modular-scale" target="_blank" class="link--externo">Bourbon</a></dd>
+            </dl>
           <h2 id="config__lista">Lista</h2>
-          <dl class="lista-definicao">
-            <dt><samp>$lista-tipo</samp></dt>
-              <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
-            <dt><samp>$lista--zebra</samp></dt>
-              <dd>Define se a lista vai ser zebrada. Valores: <samp>sim</samp> | <samp>não</samp></dd>
-            <dt><samp>$lista--sombra</samp></dt>
-              <dd>Define se a lista vai ter sombra. Valores: <samp>sim</samp> | <samp>não</samp></dd>
-          </dl>
+            <dl class="lista-definicao">
+              <dt><samp>$lista-tipo</samp></dt>
+                <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
+              <dt><samp>$lista--zebra</samp></dt>
+                <dd>Define se a lista vai ser zebrada. Valores: <samp>sim</samp> | <samp>não</samp></dd>
+              <dt><samp>$lista--sombra</samp></dt>
+                <dd>Define se a lista vai ter sombra. Valores: <samp>sim</samp> | <samp>não</samp></dd>
+            </dl>
         </article>
 
         <article id="cores">
@@ -373,141 +360,137 @@
           <blockquote class="aviso--grave">
             <strong>Todas</strong> as cores devem ser definidas aqui. Jamais chame uma cor em outro CSS usando hexadecimal, nome de cor ou variável!
           </blockquote>
-
           <h2 id="cores__paletas">Paletas</h2>
-          <p><samp class="arquivo">config/_cores_paletas.scss</samp></p>
-          <p>Neste arquivo você irá configurar as paletas usadas pelo sistema. Atualmente temos duas paletas principais (<samp>basica</samp> e <samp>secundaria</samp>), mas você pode acrescentar conforme a necessidade. As demais paletas são para temas específicos. Você pode alterar, mas tome cuidado.</p>
-          <p>Cada paleta representa uma matiz principal e deve ter um nome fácil de lembrar, com um comentário indicando qual a cor principal (apenas para facilitar a lembrança, é possível ver todas as paletas <a href="elementos.html#cores__paleta" class="link--readme">aqui</a>). Sempre comece alterando as já estabelecidas e acrescente novas conforme a necessidade.</p>
-          <p>A paleta deve ser composta por mais 6 variantes desta matiz <samp>principal</samp>, sendo 3 cores mais claras (<samp>clara</samp>, <samp>x-clara</samp> e <samp>xx-clara</samp>) e 3 mais escuras (<samp>escura</samp>, <samp>x-escura</samp> e <samp>xx-escura</samp>). <strong class="texto-erro">Jamais coloque matizes diferentes dentro de um grupo, pois isso pode gerar incosistência visual.</strong></p>
-          <p>Cada grupo de matizes deve aparecer dentro do mapa <samp>$paleta</samp>. Cada qual separado por vírgula e, dentro dele, cada variante, também separado por vírgula. Confuso? Veja o código abaixo:</p>
-          <code class="codigo--sass">
-            <p>$paleta: (</p>
-              <p class="recuo-1">basica: ( //comentário identificando a cor</p>
-                <p class="recuo-2">principal: #hex,</p>
-                <p class="recuo-2">clara: #hex,</p>
-                <p class="recuo-2">x-clara: #hex,</p>
-                <p class="recuo-2">xx-clara: #hex,</p>
-                <p class="recuo-2">escura: #hex,</p>
-                <p class="recuo-2">x-escura: #hex,</p>
-                <p class="recuo-2">xx-escura: #hex,</p>
-              <p class="recuo-1">),</p>
-              <p class="recuo-1">secundaria: ( ... ),</p>
-              <p class="recuo-1">nova-cor: ( ... ),</p>
-            <p>);</p>
-          </code>
-          <p>Segue a lista indicativa de matizes criadas até o momento:</p>
-          <dl class="lista-definicao">
-            <dt><samp>basica</samp></dt>
-              <dd>A cor básica/principal do sistema. Altere esta no seu sistema como cor principal.</dd>
-            <dt><samp>secundaria</samp></dt>
-              <dd>A cor secundária/destaque do sistema. Altere esta cor no seu sistema como cor secundária.</dd>
-            <dt><samp></samp></dt>
-              <dd></dd>
-            <dt><samp></samp></dt>
-              <dd></dd>
-          </dl>
-          <h3>Paleta Padrão e Cores de Status</h3>
-          <p>Estas paletas são fixas e fica dentro da pasta <samp class="pasta">base</samp>, mas contém uma série de cores úteis a serem chamadas no CSS e no tema.</p>
-          <p>A <samp>$paleta-padrao</samp> contém as seguintes cores (<a href="elementos.html#cores__paleta-padrao" class="link--readme">Ver aqui</a>):</p>
-          <dl class="lista-definicao">
-            <dt><samp>branco</samp></dt>
-              <dd>branco mesmo, ué</dd>
-            <dt><samp>preto</samp></dt>
-              <dd>back in black</dd>
-            <dt><samp>vermelho</samp></dt>
-              <dd>para definir status, ver abaixo</dd>
-            <dt><samp>verde</samp></dt>
-              <dd>para definir status, ver abaixo</dd>
-            <dt><samp>amarelo</samp></dt>
-              <dd>para definir status, ver abaixo</dd>
-            <dt><samp>cinza-5</samp> até <samp>cinza-95</samp></dt>
-              <dd>20 tons de cinza</dd>
-          </dl>
-          <p>A paleta <samp>$cor-status</samp> já estabelece as cores de status e podem ser chamadas diretamente no CSS, mesmo que não estabelecido nos temas (pois são globais).</p>
-          <p>Elas são divididas em quatro elementos principais com variantes <samp>-claro</samp> e <samp>-escuro</samp> (<!-- LINK <--><a href="" class="link--readme"></a></-->):</p>
-          <dl class="lista-definicao">
-            <dt><samp>erro</samp> e <samp>urgente</samp></dt>
-              <dd>Cores vermelhas.</dd>
-            <dt><samp>sucesso</samp> e <samp>ok</samp></dt>
-              <dd>Cores verdes.</dd>
-            <dt><samp>alerta</samp> e <samp>aviso</samp></dt>
-              <dd>Cores amarelas</dd>
-            <dt><samp>notice</samp></dt>
-              <dd>Cores cinza. Usada no toaster apenas.</dd>
-          </dl>
-
+            <p><samp class="arquivo">config/_cores_paletas.scss</samp></p>
+            <p>Neste arquivo você irá configurar as paletas usadas pelo sistema. Atualmente temos duas paletas principais (<samp>basica</samp> e <samp>secundaria</samp>), mas você pode acrescentar conforme a necessidade. As demais paletas são para temas específicos. Você pode alterar, mas tome cuidado.</p>
+            <p>Cada paleta representa uma matiz principal e deve ter um nome fácil de lembrar, com um comentário indicando qual a cor principal (apenas para facilitar a lembrança, é possível ver todas as paletas <a href="elementos.html#cores__paleta" class="link--readme">aqui</a>). Sempre comece alterando as já estabelecidas e acrescente novas conforme a necessidade.</p>
+            <p>A paleta deve ser composta por mais 6 variantes desta matiz <samp>principal</samp>, sendo 3 cores mais claras (<samp>clara</samp>, <samp>x-clara</samp> e <samp>xx-clara</samp>) e 3 mais escuras (<samp>escura</samp>, <samp>x-escura</samp> e <samp>xx-escura</samp>). <strong class="texto-erro">Jamais coloque matizes diferentes dentro de um grupo, pois isso pode gerar incosistência visual.</strong></p>
+            <p>Cada grupo de matizes deve aparecer dentro do mapa <samp>$paleta</samp>. Cada qual separado por vírgula e, dentro dele, cada variante, também separado por vírgula. Confuso? Veja o código abaixo:</p>
+            <code class="codigo--sass">
+              <p>$paleta: (</p>
+                <p class="recuo-1">basica: ( //comentário identificando a cor</p>
+                  <p class="recuo-2">principal: #hex,</p>
+                  <p class="recuo-2">clara: #hex,</p>
+                  <p class="recuo-2">x-clara: #hex,</p>
+                  <p class="recuo-2">xx-clara: #hex,</p>
+                  <p class="recuo-2">escura: #hex,</p>
+                  <p class="recuo-2">x-escura: #hex,</p>
+                  <p class="recuo-2">xx-escura: #hex,</p>
+                <p class="recuo-1">),</p>
+                <p class="recuo-1">secundaria: ( ... ),</p>
+                <p class="recuo-1">nova-cor: ( ... ),</p>
+              <p>);</p>
+            </code>
+            <p>Segue a lista indicativa de matizes criadas até o momento:</p>
+            <dl class="lista-definicao">
+              <dt><samp>basica</samp></dt>
+                <dd>A cor básica/principal do sistema. Altere esta no seu sistema como cor principal.</dd>
+              <dt><samp>secundaria</samp></dt>
+                <dd>A cor secundária/destaque do sistema. Altere esta cor no seu sistema como cor secundária.</dd>
+              <dt><samp></samp></dt>
+                <dd></dd>
+              <dt><samp></samp></dt>
+                <dd></dd>
+            </dl>
+            <h3>Paleta Padrão e Cores de Status</h3>
+              <p>Estas paletas são fixas e fica dentro da pasta <samp class="pasta">base</samp>, mas contém uma série de cores úteis a serem chamadas no CSS e no tema.</p>
+              <p>A <samp>$paleta-padrao</samp> contém as seguintes cores (<a href="elementos.html#cores__paleta-padrao" class="link--readme">Ver aqui</a>):</p>
+              <dl class="lista-definicao">
+                <dt><samp>branco</samp></dt>
+                  <dd>branco mesmo, ué</dd>
+                <dt><samp>preto</samp></dt>
+                  <dd>back in black</dd>
+                <dt><samp>vermelho</samp></dt>
+                  <dd>para definir status, ver abaixo</dd>
+                <dt><samp>verde</samp></dt>
+                  <dd>para definir status, ver abaixo</dd>
+                <dt><samp>amarelo</samp></dt>
+                  <dd>para definir status, ver abaixo</dd>
+                <dt><samp>cinza-5</samp> até <samp>cinza-95</samp></dt>
+                  <dd>20 tons de cinza</dd>
+              </dl>
+              <p>A paleta <samp>$cor-status</samp> já estabelece as cores de status e podem ser chamadas diretamente no CSS, mesmo que não estabelecido nos temas (pois são globais).</p>
+              <p>Elas são divididas em quatro elementos principais com variantes <samp>-claro</samp> e <samp>-escuro</samp> (<!-- LINK <--><a href="" class="link--readme"></a></-->):</p>
+              <dl class="lista-definicao">
+                <dt><samp>erro</samp> e <samp>urgente</samp></dt>
+                  <dd>Cores vermelhas.</dd>
+                <dt><samp>sucesso</samp> e <samp>ok</samp></dt>
+                  <dd>Cores verdes.</dd>
+                <dt><samp>alerta</samp> e <samp>aviso</samp></dt>
+                  <dd>Cores amarelas</dd>
+                <dt><samp>notice</samp></dt>
+                  <dd>Cores cinza. Usada no toaster apenas.</dd>
+              </dl>
           <h2 id="cores__temas">Temas</h2>
-          <p><samp class="arquivo">config/_cores_temas.scss</samp></p>
-          <p>Neste arquivo ficam os temas de cores do sistema. Você pode criar vários outros temas e alterar no <a href="#config__tema" class="link--readme">arquivo de configuração</a>. Ao escolher um tema, as cores do sistema mudam de acordo. É possível, inclusive, ter mais de uma lista de estilos compilada com temas diferentes.</p>
-          <p>Assim como acontece com a <samp>$paleta</samp>, os temas estão agrupados dentro de um mapa chamado <samp>$temas</samp>. Dentro deste mapa teremos um sub-mapa para cada tema, que são (por padrão):</p>
-          <dl class="lista-definicao">
-            <dt><samp>principal</samp></dt>
-              <dd>O tema padrão do sistema. Se você não for usar outro tema, basta alterar somente este.</dd>
-            <dt><samp>cinza</samp></dt>
-              <dd>Este tema faz uso apenas de tons de cinza. Pode ser útil em um momento de prototipação.</dd>
-            <dt><samp>alto-contraste</samp></dt>
-              <dd>Um tema com cores bem contranstantes, pensando em acessibilidade.</dd>
-            <dt><samp>bandeira</samp></dt>
-              <dd>Faz uso das cores da bandeira de Goiás. Para utilizar em sistemas mais institucionais ou eventos do Estado.</dd>
-            <dt><samp>rosa</samp></dt>
-              <dd>Tema com predominância das cores rosa. Para o Outubro Rosa, por exemplo.</dd>
-            <dt><samp>azul</samp></dt>
-              <dd>Tema com predominância das cores azuis. Para o Novembro Azul, por exemplo.</dd>
-          </dl>
-          <p>Acrescente novo mapa conforme a necessidade. Duplique o mapa <samp>principal</samp> e trabalhe nele (um exemplo de possibilidade para isso é um tema de Natal).</p>
-          <p>Dentro de cada tema existem diversos mapas com suas cores específicas. Podemos dividir estes mapas em três categorias, <strong>elementos genéricos</strong> (que são usados em qualquer contexto), <strong>elementos específicos</strong> (que são usados dentro de um contexto específico e já está sendo sendo usado dentro das configurações do Front-Alego, em arquivos próprios) e <strong>elementos do sistema</strong> que são os elementos criados para o seu sistema (exemplo: menu, cabeçalho). Cada uma destas categorias estão separadas por um comentário com seu nome.</p>
-          <blockquote class="aviso--grave">
-            Sempre que você precisar de uma cor para um elemento não declarado, crie este mapa dentro de <strong>CADA</strong> tema abaixo do comentário <samp>//elementos do sistema</samp>. Acrescente as cores dentro deste mapa conforme a necessidade.
-          </blockquote>
-          <blockquote class="aviso--dica">
-            Dentro de cada mapa a cor <samp>padrao</samp> será chamada pela função <samp>cor()</samp> sem que se especifique qual é. Use, portanto, para a cor principal daquele elemento.
-          </blockquote>
-          <dl class="lista-definicao">
-            <dt><samp>texto</samp></dt>
-              <dd><em>Elemento genérico</em>. Cores para serem usadas em textos. <samp>padrao</samp>, <samp>claro</samp>, <samp>medio</samp>, <samp>destaque</samp>, <samp>titulo</samp></dd>
-            <dt><samp>fundo</samp></dt>
-              <dd><em>Elemento genérico</em>. Cores para serem usadas em fundos. <samp>padrao</samp>, <samp>claro</samp>, <samp>x-claro</samp>, <samp>escuro</samp>,<samp>sombra</samp> (cor da sombra, não é um fundo, mas achei colocar aqui e evitar uma categoria própria).</dd>
-            <dt><samp>borda</samp></dt>
-              <dd><em>Elemento genérico</em>. As cores das bordas. Lembre-se que, por padrão, se não declarar a cor da borda ela será, por padrão, a do texto. <samp>padrao</samp>, <samp>variante</samp>.</dd>
-            <dt><samp>link</samp></dt>
-              <dd><em>Elemento específico</em>. Define as cores do link, com duas variações. <samp>padrao</samp>, <samp>hover</samp>; <samp>escuro</samp> e <samp>escuro-hover</samp></dd>
-            <dt><samp>formulario</samp></dt>
-              <dd><em>Elemento específico</em>. Cores do formulário. <samp>padrao</samp>, <samp>placeholder</samp> (usado no texto do placeholder do formulário), <samp>ativo</samp> (usado quando o formulário está focado ou com o mouse em cima), <samp>fundo</samp>.</dd>
-            <dt><samp>botao</samp></dt>
-              <dd><em>Elemento específico</em>. Dois grupos de cores usadas nos botões. <samp>padrao</samp>, <samp>claro</samp>, <samp>escuro</samp>, <samp>secundario</samp>, <samp>secundario-claro</samp>, <samp>secundario-escuro</samp></dd>
-            <dt><samp>tabela</samp></dt>
-              <dd><em>Elemento específico</em>. Elementos das tabelas. <samp>borda</samp>, <samp>borda-clara</samp>, <samp>borda-escura</samp>, <samp>fundo</samp>, <samp>titulo</samp></dd>
-            <dt><samp>lista</samp></dt>
-              <dd><em>Elemento específico</em>. Listas formatadas. <samp>padrao</samp>, <samp>clara</samp>, <samp>escura</samp></dd>
-            <dt><samp>modal</samp></dt>
-              <dd><em>Elemento específico</em>. Cores das modais. <samp>fundo</samp>, <samp>titulo-fundo</samp>, <samp>titulo-texto</samp></dd>
-            <dt><samp>paginacao</samp></dt>
-              <dd><em>Elemento específico</em>. Cores da paginação. <samp>padrao</samp>, <samp>clara</samp>, <samp>escura</samp></dd>
-            <dt><samp>breadcrumbs</samp></dt>
-              <dd><em>Elemento específico</em>. Cores dos breadcrumbs. <samp>link</samp>, <samp>atual</samp></dd>
-            <dt><samp>card</samp></dt>
-              <dd><em>Elemento específico</em>. Elementos dos cards. <samp>fundo</samp>, <samp>borda</samp>, <samp>titulo</samp>, <samp>destaque</samp></dd>
-            <dt><samp>secao-lista</samp></dt>
-              <dd><em>Elemento específico</em>. Blocos de conteúdo que podem ser ocultados, virando uma lista. <samp>padrao</samp>, <samp>clara</samp></dd>
-          </dl>
-
+            <p><samp class="arquivo">config/_cores_temas.scss</samp></p>
+            <p>Neste arquivo ficam os temas de cores do sistema. Você pode criar vários outros temas e alterar no <a href="#config__tema" class="link--readme">arquivo de configuração</a>. Ao escolher um tema, as cores do sistema mudam de acordo. É possível, inclusive, ter mais de uma lista de estilos compilada com temas diferentes.</p>
+            <p>Assim como acontece com a <samp>$paleta</samp>, os temas estão agrupados dentro de um mapa chamado <samp>$temas</samp>. Dentro deste mapa teremos um sub-mapa para cada tema, que são (por padrão):</p>
+            <dl class="lista-definicao">
+              <dt><samp>principal</samp></dt>
+                <dd>O tema padrão do sistema. Se você não for usar outro tema, basta alterar somente este.</dd>
+              <dt><samp>cinza</samp></dt>
+                <dd>Este tema faz uso apenas de tons de cinza. Pode ser útil em um momento de prototipação.</dd>
+              <dt><samp>alto-contraste</samp></dt>
+                <dd>Um tema com cores bem contranstantes, pensando em acessibilidade.</dd>
+              <dt><samp>bandeira</samp></dt>
+                <dd>Faz uso das cores da bandeira de Goiás. Para utilizar em sistemas mais institucionais ou eventos do Estado.</dd>
+              <dt><samp>rosa</samp></dt>
+                <dd>Tema com predominância das cores rosa. Para o Outubro Rosa, por exemplo.</dd>
+              <dt><samp>azul</samp></dt>
+                <dd>Tema com predominância das cores azuis. Para o Novembro Azul, por exemplo.</dd>
+            </dl>
+            <p>Acrescente novo mapa conforme a necessidade. Duplique o mapa <samp>principal</samp> e trabalhe nele (um exemplo de possibilidade para isso é um tema de Natal).</p>
+            <p>Dentro de cada tema existem diversos mapas com suas cores específicas. Podemos dividir estes mapas em três categorias, <strong>elementos genéricos</strong> (que são usados em qualquer contexto), <strong>elementos específicos</strong> (que são usados dentro de um contexto específico e já está sendo sendo usado dentro das configurações do Front-Alego, em arquivos próprios) e <strong>elementos do sistema</strong> que são os elementos criados para o seu sistema (exemplo: menu, cabeçalho). Cada uma destas categorias estão separadas por um comentário com seu nome.</p>
+            <blockquote class="aviso--grave">
+              Sempre que você precisar de uma cor para um elemento não declarado, crie este mapa dentro de <strong>CADA</strong> tema abaixo do comentário <samp>//elementos do sistema</samp>. Acrescente as cores dentro deste mapa conforme a necessidade.
+            </blockquote>
+            <blockquote class="aviso--dica">
+              Dentro de cada mapa a cor <samp>padrao</samp> será chamada pela função <samp>cor()</samp> sem que se especifique qual é. Use, portanto, para a cor principal daquele elemento.
+            </blockquote>
+            <dl class="lista-definicao">
+              <dt><samp>texto</samp></dt>
+                <dd><em>Elemento genérico</em>. Cores para serem usadas em textos. <samp>padrao</samp>, <samp>claro</samp>, <samp>medio</samp>, <samp>destaque</samp>, <samp>titulo</samp></dd>
+              <dt><samp>fundo</samp></dt>
+                <dd><em>Elemento genérico</em>. Cores para serem usadas em fundos. <samp>padrao</samp>, <samp>claro</samp>, <samp>x-claro</samp>, <samp>escuro</samp>,<samp>sombra</samp> (cor da sombra, não é um fundo, mas achei colocar aqui e evitar uma categoria própria).</dd>
+              <dt><samp>borda</samp></dt>
+                <dd><em>Elemento genérico</em>. As cores das bordas. Lembre-se que, por padrão, se não declarar a cor da borda ela será, por padrão, a do texto. <samp>padrao</samp>, <samp>variante</samp>.</dd>
+              <dt><samp>link</samp></dt>
+                <dd><em>Elemento específico</em>. Define as cores do link, com duas variações. <samp>padrao</samp>, <samp>hover</samp>; <samp>escuro</samp> e <samp>escuro-hover</samp></dd>
+              <dt><samp>formulario</samp></dt>
+                <dd><em>Elemento específico</em>. Cores do formulário. <samp>padrao</samp>, <samp>placeholder</samp> (usado no texto do placeholder do formulário), <samp>ativo</samp> (usado quando o formulário está focado ou com o mouse em cima), <samp>fundo</samp>.</dd>
+              <dt><samp>botao</samp></dt>
+                <dd><em>Elemento específico</em>. Dois grupos de cores usadas nos botões. <samp>padrao</samp>, <samp>claro</samp>, <samp>escuro</samp>, <samp>secundario</samp>, <samp>secundario-claro</samp>, <samp>secundario-escuro</samp></dd>
+              <dt><samp>tabela</samp></dt>
+                <dd><em>Elemento específico</em>. Elementos das tabelas. <samp>borda</samp>, <samp>borda-clara</samp>, <samp>borda-escura</samp>, <samp>fundo</samp>, <samp>titulo</samp></dd>
+              <dt><samp>lista</samp></dt>
+                <dd><em>Elemento específico</em>. Listas formatadas. <samp>padrao</samp>, <samp>clara</samp>, <samp>escura</samp></dd>
+              <dt><samp>modal</samp></dt>
+                <dd><em>Elemento específico</em>. Cores das modais. <samp>fundo</samp>, <samp>titulo-fundo</samp>, <samp>titulo-texto</samp></dd>
+              <dt><samp>paginacao</samp></dt>
+                <dd><em>Elemento específico</em>. Cores da paginação. <samp>padrao</samp>, <samp>clara</samp>, <samp>escura</samp></dd>
+              <dt><samp>breadcrumbs</samp></dt>
+                <dd><em>Elemento específico</em>. Cores dos breadcrumbs. <samp>link</samp>, <samp>atual</samp></dd>
+              <dt><samp>card</samp></dt>
+                <dd><em>Elemento específico</em>. Elementos dos cards. <samp>fundo</samp>, <samp>borda</samp>, <samp>titulo</samp>, <samp>destaque</samp></dd>
+              <dt><samp>secao-lista</samp></dt>
+                <dd><em>Elemento específico</em>. Blocos de conteúdo que podem ser ocultados, virando uma lista. <samp>padrao</samp>, <samp>clara</samp></dd>
+            </dl>
           <h3>Inserindo cores dentro do tema</h3>
-          <p>Para chamar as cores <strong>dentro dos temas</strong>, vai depender se ela vem da <samp>$paleta</samp> que você configurou <a href="#cores__paletas" class="link--readme">aqui</a> ou se faz parte da <samp>$paleta-padrao</samp>. Cada qual usa uma função SASS, conforme listado abaixo:</p>
-          <dl class="lista-definicao">
-            <dt><samp>paleta-padrao()</samp></dt>
-              <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp></dd>
-            <dt><samp>paleta()</samp></dt>
-              <dd>Para chamar as cores que você criou na paleta. Por exemplo, você quer chamar a variação <em>x-escura</em> da cor cor <em>basica</em>, você deveria escrever <samp>paleta(basica, x-escura)</samp>. A variação <strong>principal</strong> não precisa ser específicada (por exemplo, a cor <em>principal</em> da <em>secundária</em> seria: <samp>paleta(secundaria)</samp>)</dd>
-          </dl>
-
+            <p>Para chamar as cores <strong>dentro dos temas</strong>, vai depender se ela vem da <samp>$paleta</samp> que você configurou <a href="#cores__paletas" class="link--readme">aqui</a> ou se faz parte da <samp>$paleta-padrao</samp>. Cada qual usa uma função SASS, conforme listado abaixo:</p>
+            <dl class="lista-definicao">
+              <dt><samp>paleta-padrao()</samp></dt>
+                <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp></dd>
+              <dt><samp>paleta()</samp></dt>
+                <dd>Para chamar as cores que você criou na paleta. Por exemplo, você quer chamar a variação <em>x-escura</em> da cor cor <em>basica</em>, você deveria escrever <samp>paleta(basica, x-escura)</samp>. A variação <strong>principal</strong> não precisa ser específicada (por exemplo, a cor <em>principal</em> da <em>secundária</em> seria: <samp>paleta(secundaria)</samp>)</dd>
+            </dl>
           <h3>Inserindo as cores no SASS</h3>
-          <p>Como explicado anteriormente, você só poderá usar as cores definidas nos temas. Para chamar uma cor, use uma das duas funções abaixo:</p>
-          <dl class="lista-definicao">
-            <dt><samp>cor-status()</samp></dt>
-              <dd>Para chamar uma das cores de status, conforme definido anteriormente. <strong class="texto--urgente">Não use para formatação de interface, somente use para reais status</strong>. Exemplo: você quer alertar que o campo preenchido está com erro. <samp>color: cor-status(erro)</samp></dd>
-            <dt><samp>cor()</samp></dt>
-              <dd>Principal função para chamar as cores na interface. Cada elemento tem um conjunto de cores a ser chamado, além dos genéricos (conforme já explicado anteriormente). Exemplo: seu texto vai ser um texto destaque. <samp>cor(texto, destaque)</samp>. A cor <samp>padrao</samp> de cada conjunto não precisa ser chamada, ou seja, o texto padrão seria: <samp>cor(texto)</samp>.</dd>
-          </dl>
+            <p>Como explicado anteriormente, você só poderá usar as cores definidas nos temas. Para chamar uma cor, use uma das duas funções abaixo:</p>
+            <dl class="lista-definicao">
+              <dt><samp>cor-status()</samp></dt>
+                <dd>Para chamar uma das cores de status, conforme definido anteriormente. <strong class="texto--urgente">Não use para formatação de interface, somente use para reais status</strong>. Exemplo: você quer alertar que o campo preenchido está com erro. <samp>color: cor-status(erro)</samp></dd>
+              <dt><samp>cor()</samp></dt>
+                <dd>Principal função para chamar as cores na interface. Cada elemento tem um conjunto de cores a ser chamado, além dos genéricos (conforme já explicado anteriormente). Exemplo: seu texto vai ser um texto destaque. <samp>cor(texto, destaque)</samp>. A cor <samp>padrao</samp> de cada conjunto não precisa ser chamada, ou seja, o texto padrão seria: <samp>cor(texto)</samp>.</dd>
+            </dl>
         </article>
 
         <article id="grid">
@@ -517,74 +500,66 @@
           <p>O sistema de grid foi pensando para escrever a menor quantidade possível de classes no CSS final e também fácil de mudar a quantidade de grids, sem ficar percorrendo o HTML à procura de classes de grid. As grids foram compostas com flexbox. Mesmo que você não utilize as grids, pode fazer uso das classes de <samp>.container</samp>.</p>
           <p class="texto-erro">Este sistema está sendo depreciado e está aqui para retrocompatibilidade. O flexbox possibilita a formatação bem mais simples disso. Para centralizar o conteúdo (tarefa destinada ao <samp>.container</samp>) basta usar padding e assim evitamos uma <samp>&lt;div&gt;</samp> desnecessária.</p>
           <h2 id="grid__container">Containers</h2>
-          <p>Estas classes são usadas em algum elemento pai (normalmente <samp>&lt;div&gt;</samp>) para centralizar o conteúdo e determinar que ele é flex. Ele também pode ser usado mesmo que os elementos filhos não façam uso do sistema de grid.</p>
-          <h3>Classes e placeholder de container</h3>
-          <dl class="lista-definicao">
-            <dt><samp>%container-basico</samp></dt>
-              <dd>Este é o elemento comum das classes de <samp>.container</samp>. Ela configura o flex, além de deixar como uma caixa no centro. Você pode extender este placeholder para utilizar um <samp>.container</samp> sem ter uma classe a mais para isso.</dd>
-            <dt><samp>.container</samp></dt>
-              <dd>A classe básica de container. Use para as grids que não tenham margem entre si (ficam colada) ou apenas quando você quer centralizar o conteúdo com o tamanho máximo.</dd>
-            <dt><samp>.container--calha</samp></dt>
-              <dd>Acrescenta espaço horizontal entre os elementos filhos, criando a margem entre as colunas.</dd>
-            <dt><samp>.container--gutter</samp></dt>
-              <dd>Igual ao <samp>.container--calha</samp> acima.</dd>
-          </dl>
-          <h3>Configurando o container</h3>
-          <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos do container:</p>
-          <dl class="lista-definicao">
-            <dt><samp>$uso-classes</samp></dt>
-              <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes</dd>
-            <dt><samp>$grid-margem</samp></dt>
-              <dd>Esta será a medida da margem entre os grids e o padding, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
-            <dt><samp>$grid-max</samp></dt>
-              <dd>Determina o tamanho máximo que a o container vai ter. Acima disso ele fica centralizado. <strong>Valor atual</strong>: <samp class="escolha--grid-max"></samp></dd>
-          </dl>
+            <p>Estas classes são usadas em algum elemento pai (normalmente <samp>&lt;div&gt;</samp>) para centralizar o conteúdo e determinar que ele é flex. Ele também pode ser usado mesmo que os elementos filhos não façam uso do sistema de grid.</p>
+            <h3>Classes e placeholder de container</h3>
+              <dl class="lista-definicao">
+                <dt><samp>%container-basico</samp></dt>
+                  <dd>Este é o elemento comum das classes de <samp>.container</samp>. Ela configura o flex, além de deixar como uma caixa no centro. Você pode extender este placeholder para utilizar um <samp>.container</samp> sem ter uma classe a mais para isso.</dd>
+                <dt><samp>.container</samp></dt>
+                  <dd>A classe básica de container. Use para as grids que não tenham margem entre si (ficam colada) ou apenas quando você quer centralizar o conteúdo com o tamanho máximo.</dd>
+                <dt><samp>.container--calha</samp></dt>
+                  <dd>Acrescenta espaço horizontal entre os elementos filhos, criando a margem entre as colunas.</dd>
+                <dt><samp>.container--gutter</samp></dt>
+                  <dd>Igual ao <samp>.container--calha</samp> acima.</dd>
+              </dl>
+            <h3>Configurando o container</h3>
+              <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos do container:</p>
+              <dl class="lista-definicao">
+                <dt><samp>$uso-classes</samp></dt>
+                  <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes</dd>
+                <dt><samp>$grid-margem</samp></dt>
+                  <dd>Esta será a medida da margem entre os grids e o padding, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
+                <dt><samp>$grid-max</samp></dt>
+                  <dd>Determina o tamanho máximo que a o container vai ter. Acima disso ele fica centralizado. <strong>Valor atual</strong>: <samp class="escolha--grid-max"></samp></dd>
+              </dl>
           <h2 id="grid__grid">Grids</h2>
-          <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de placeholders.</p>
+            <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de placeholders.</p>
           <h3>Configurando as grids</h3>
-          <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
-          <dl class="lista-definicao">
-            <dt><samp>$grid-qtd</samp></dt>
-              <dd>Determina a quantidade máxima de <samp>%grid-x</samp> criadas. Cada uma delas é equivalente a uma <samp>.grid-x</samp> no modelo clássico de grids. <strong>Valor atual</strong>: <samp class="escolha--grid-qtd"></samp></dd>
-            <dt><samp>$grid-margem</samp></dt>
-              <dd>Esta será a medida da margem entre os grids e o padding do container, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
-            <dt><samp>$grid: ();</samp></dt>
-              <dd>Neste mapa você vai incluir o nome das classes e a quantiade de grids que ela ocupa. Ver mais detalhes abaixo.</dd>
-          </dl>
+            <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
+            <dl class="lista-definicao">
+              <dt><samp>$grid-qtd</samp></dt>
+                <dd>Determina a quantidade máxima de <samp>%grid-x</samp> criadas. Cada uma delas é equivalente a uma <samp>.grid-x</samp> no modelo clássico de grids. <strong>Valor atual</strong>: <samp class="escolha--grid-qtd"></samp></dd>
+              <dt><samp>$grid-margem</samp></dt>
+                <dd>Esta será a medida da margem entre os grids e o padding do container, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
+              <dt><samp>$grid: ();</samp></dt>
+                <dd>Neste mapa você vai incluir o nome das classes e a quantiade de grids que ela ocupa. Ver mais detalhes abaixo.</dd>
+            </dl>
           <h3>Determinando quantas grids o elemento ocupa</h3>
-          <p>Em um sistema de grid tradicional você insere uma classe <samp>grid-x</samp> no elemento que precisa ocupar "x" medidas de grid. Ao invés de trabalhar desta forma, cada elemento receberá um nome de classe conforme explicado seguindo as <a href="#regras" class="link--readme">regras</a>.</p>
-          <p>Depois disso coloque a classe dentro do mapa <samp>$grid</samp> localizado dentro do arquivo <samp class="arquivo">config/+_config</samp> e especifique a quantidade de grids que ela ocuparia.</p>
-          <p>Como exemplo, imagine um layout simples com um menu, uma área principal e uma coluna lateral. O menu ocuparia 2 grids, a área principal 7 grids e a coluna lateral ocuparia 3 grids. Normalmente o código seria:</p>
-          <code class="codigo--html">
-            <header>HTML - grid tradicional</header>
-            <p>&lt;nav class="menu grid-2"&gt; ... &lt;/nav&gt;</p>
-            <p>&lt;div class="principal grid-7"&gt; ... &lt;/div&gt;</p>
-            <p>&lt;aside class="lateral grid-3"&gt; ... &lt;/aside&gt;</p>
-          </code>
-          <p>Com o sistema de grid usado no Front-Alego, ficaria:</p>
-          <code class="codigo--html">
-            <header>HTML</header>
-            <p>&lt;nav class="menu"&gt; ... &lt;/nav&gt;</p>
-            <p>&lt;div class="principal"&gt; ... &lt;/div&gt;</p>
-            <p>&lt;aside class="lateral"&gt; ... &lt;/aside&gt;</p>
-          </code>
-          <code class="codigo--sass">
-            <header>SASS</header>
-            <p>$grid: (</p>
-            <p class="recuo-1">menu: 2,</p>
-            <p class="recuo-1">principal: 7,</p>
-            <p class="recuo-1">lateral: 3,</p>
-            <p>)</p>
-          </code>
-          <p>Ao compiltar o CSS, o SASS vai aplicar os placeholders em cada uma das classes.</p>
-        </article>
-
-        <article id="simbolos">
-          <header><h1>Símbolos</h1></header>
-        </article>
-
-        <article id="tipografia">
-          <header><h1>Tipografia</h1></header>
+            <p>Em um sistema de grid tradicional você insere uma classe <samp>grid-x</samp> no elemento que precisa ocupar "x" medidas de grid. Ao invés de trabalhar desta forma, cada elemento receberá um nome de classe conforme explicado seguindo as <a href="#regras" class="link--readme">regras</a>.</p>
+            <p>Depois disso coloque a classe dentro do mapa <samp>$grid</samp> localizado dentro do arquivo <samp class="arquivo">config/+_config</samp> e especifique a quantidade de grids que ela ocuparia.</p>
+            <p>Como exemplo, imagine um layout simples com um menu, uma área principal e uma coluna lateral. O menu ocuparia 2 grids, a área principal 7 grids e a coluna lateral ocuparia 3 grids. Normalmente o código seria:</p>
+            <code class="codigo--html">
+              <header>HTML - grid tradicional</header>
+              <p>&lt;nav class="menu grid-2"&gt; ... &lt;/nav&gt;</p>
+              <p>&lt;div class="principal grid-7"&gt; ... &lt;/div&gt;</p>
+              <p>&lt;aside class="lateral grid-3"&gt; ... &lt;/aside&gt;</p>
+            </code>
+            <p>Com o sistema de grid usado no Front-Alego, ficaria:</p>
+            <code class="codigo--html">
+              <header>HTML</header>
+              <p>&lt;nav class="menu"&gt; ... &lt;/nav&gt;</p>
+              <p>&lt;div class="principal"&gt; ... &lt;/div&gt;</p>
+              <p>&lt;aside class="lateral"&gt; ... &lt;/aside&gt;</p>
+            </code>
+            <code class="codigo--sass">
+              <header>SASS</header>
+              <p>$grid: (</p>
+              <p class="recuo-1">menu: 2,</p>
+              <p class="recuo-1">principal: 7,</p>
+              <p class="recuo-1">lateral: 3,</p>
+              <p>)</p>
+            </code>
+            <p>Ao compiltar o CSS, o SASS vai aplicar os placeholders em cada uma das classes.</p>
         </article>
 
         <article id="z-index">
@@ -621,6 +596,86 @@
             <p>}</p>
           </code>
         </article>
+
+        <article id="tipografia">
+          <header>
+            <h1>Tipografia</h1>
+            <p><span class="arquivo">config/_tipografia.scss</span></p>
+          </header>
+          <p>Este arquivo contém a configuração básica dos elementos tipográficos, incluindo variações.</p>
+          <blockquote class="aviso--grave">
+            Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>&lt;.artigo-padrao h1&gt;</samp>)
+          </blockquote>
+          <h2 id="tipografia__fontes">Chamando fontes</h2>
+            <p>Dentro do arquivo <samp class="arquivo">base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
+            <dl class="lista-definicao">
+              <dt><samp>$fonte-serifa</samp></dt>
+                <dd>Fonte com serifa: variação da Patua One</dd>
+              <dt><samp>$fonte-sem-serifa</samp></dt>
+                <dd>Fonte sem serifa: OpenSans</dd>
+              <dt><samp>$fonte-monoespacada</samp></dt>
+                <dd>Fonte monoespaçada: Consolas</dd>
+              <dt><samp>$fonte-simbolo</samp></dt>
+                <dd>Fonte de símbolos da Assembleia</dd>
+            </dl>
+          <h2 id="tipografia__variaveis">Variáveis</h2>
+            <p>As três primeiras variáveis determinam configurações básicas do texto:</p>
+            <dl class="lista-definicao">
+              <dt><samp>$fonte-titulo</samp></dt>
+                <dd>Qual a fonte padrão para os títulos do sistema. Por padrão é a <samp>$fonte-serifa</samp></dd>
+              <dt><samp>$margem-bloco-titulo</samp></dt>
+                <dd>Define a margem dos títulos <samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp></dd>
+              <dt><samp>$margem-bloco-texto</samp></dt>
+                <dd>Define a margem dos elementos de texto e similares. Incluindo tabelas e listas</dd>
+            </dl>
+            <p>As três variáveis seguintes determinam o tamanho do texto baseado no <samp>modular-scale</samp> do <a href="http://bourbon.io/docs/#modular-scale" class="link--externo">Bourbon</a>.</p>
+            <dl class="lista-definicao">
+              <dt><samp>$modular-scale-ratio</samp></dt>
+                <dd>Modifica o valor padrão estabelecido pelo Bourbon.</dd>
+              <dt><samp>$modular-font-size</samp></dt>
+                <dd>O tamanho base a ser usado pelo <samp>modular-scale()</samp></dd>
+              <dt><samp>$tamanho-fonte-textos</samp></dt>
+                <dd>A variação do tamanho de texto padrão (inclui tabelas e listas) baseado no <samp>modular-scale()</samp></dd>
+            </dl>
+          <h2 id="tipografia__basica">Formatação básica/padrão</h2>
+            <p>Você pode ver a formatação aplicada <a href="elementos.html#tipografia" class="link--readme">aqui</a>.</p>
+            <p>Os tags básicos são alterados neste arquivo. Basicamente temos tamanho de fonte, margem, entrelinha, família e as <a href="#cores" class="link--readme">cores</a> dos elementos determinados pelo tema.</p>
+          <h2 id="tipografia__alterada">Formatação personalizada</h2>
+            <p>Para ver a formatação aplicada <a href="elementos.html#tipografia--modificada" class="link--readme">aqui</a>.</p>
+            <p>Sempre que for criar estilos mais personalizados (como com uso de bordas e sombras), procure utilizar classes ou seletores descendentes (lembre-se de não abusar de elementos descendentes. Mantenha a regra de no máximo um nível).</p>
+            <p>O arquivo já tem alguns placeholders prontos para uso. Use-os como modelo ou modifique-os.</p>
+            <h3>Placeholders padrão</h3>
+              <p>Estes dois placeholders são padrão e afetam os elementos mais básicos. Altere apenas o necessário (que já são as propriedades que já aparecem aqui):</p>
+              <dl class="lista-definicao">
+                <dt><samp>%texto-padrao</samp></dt>
+                  <dd>Configurações básicas do corpo de texto, listas e tabelas.</dd>
+                <dt><samp>%texto-titulo</samp></dt>
+                  <dd>Configuração básica do texto dos títulos.</dd>
+              </dl>
+            <h3>Demais placeholders</h3>
+              <p>Estes são placeholders para usar em classes ou seletores descedentes que formatam.</p>
+              <dl class="lista-definicao">
+                <dt><samp>%titulo--borda</samp></dt>
+                  <dd>Aplica uma borda na parte inferior do título, que fica com a mesma cor do texto.</dd>
+                <dt><samp>%link--sem-sublinhado</samp></dt>
+                  <dd>Tira o sublinhado do link e aplica quando passa ou mouse por cima</dd>
+                <dt><samp>%link--borda</samp></dt>
+                  <dd>Tira o sublinhado e substitui por uma borda fina e cinza. Quando passa o mouse por cima, o sublinhado fica da cor do link (que não muda de cor).</dd>
+                <dt><samp>%link--pontilhado</samp></dt>
+                  <dd>Igual ao de cima, mas com a diferença que a borda é pontilhada e o link escurece ao passar por cima</dd>
+              </dl>
+
+        </article>
+
+        <article id="simbolos">
+          <header>
+            <h1>Símbolos</h1>
+            <p><samp class="arquivo">config/_simbolos</samp></p>
+          </header>
+
+        </article>
+
+
 
       </section>
 
