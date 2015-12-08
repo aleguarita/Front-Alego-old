@@ -162,13 +162,13 @@ FONTES
 PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 ================================================================================
 */
-.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao {
+.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .ui-autocomplete, .toast, .lista, .lista--link, .lista-sem-marcador {
+.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .ui-autocomplete, .toast, .lista, .lista--link, .lista-sem-marcador {
   list-style: none;
   padding-left: 0;
 }
@@ -185,6 +185,10 @@ CLASSES FIXAS
 */
 .oculta, .modal--oculta {
   display: none;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .fundo--ok, .fundo--erro, .fundo--alerta {
@@ -215,6 +219,34 @@ CLASSES FIXAS
   background: #f9bc16;
 }
 
+.texto--caixa-alta, .texto--uppercase {
+  text-transform: uppercase;
+}
+
+.fonte--menor, .text--menor {
+  font-size: 0.75019em;
+}
+
+.fonte--x-menor, .text--x-menor {
+  font-size: 0.56278em;
+}
+
+.fonte--xx-menor, .text--xx-menor {
+  font-size: 0.42219em;
+}
+
+.fonte--maior, .text--maior {
+  font-size: 1.333em;
+}
+
+.fonte--x-maior, .text--x-maior {
+  font-size: 1.77689em;
+}
+
+.fonte--xx-maior, .text--xx-maior {
+  font-size: 2.36859em;
+}
+
 /*
 ================================================================================
 GRID
@@ -230,7 +262,7 @@ GRID
 .container--gutter, .container--calha {
   padding: 0 0.625rem;
 }
-.container--gutter * + *, .container--calha * + * {
+.container--gutter > * + *, .container--calha > * + * {
   margin-left: 0.625%;
 }
 
@@ -239,412 +271,503 @@ GRID
 SÍMBOLOS
 ================================================================================
 */
-[class^="ico"], .secao-lista__icone {
+.ico-abrir::before {
   font-family: "font-alego";
-}
-
-[class^="ico"][class*="--espaco"]::before {
-  margin-right: .5em;
-}
-
-[class^="ico"][class*="--link"] {
-  cursor: pointer;
-}
-
-[class^="ico-abrir"]::before {
   content: "";
 }
 
-[class^="ico-adicionar"]::before {
+.ico-adicionar::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-ajuda"]::before {
+.ico-ajuda::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-apontando"]::before {
+.ico-apontando::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-asterisco"]::before {
+.ico-asterisco::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-aviso-destaque"]::before {
+.ico-aviso-destaque::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-cadeado-aberto"]::before {
+.ico-cadeado-aberto::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-cadeado-fechado"]::before {
+.ico-cadeado-fechado::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-cadeado"]::before {
+.ico-cadeado::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-calendario"]::before {
+.ico-calendario::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-calendario-2"]::before {
+.ico-calendario-2::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-calendario-3"]::before {
+.ico-calendario-3::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-carregando"]::before {
+.ico-carregando::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-casa"]::before {
+.ico-casa::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-celular"]::before {
+.ico-celular::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-chat"]::before {
+.ico-chat::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-chat-2"]::before {
+.ico-chat-2::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-chat-3"]::before {
+.ico-chat-3::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-chat-4"]::before {
+.ico-chat-4::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-chave"]::before {
+.ico-chave::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-clipe"]::before {
+.ico-clipe::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-cone-seguranca"]::before {
+.ico-cone-seguranca::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-cracha"]::before {
+.ico-cracha::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-curtir"]::before {
+.ico-curtir::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-descurtir"]::before {
+.ico-descurtir::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-desligar"]::before {
+.ico-desligar::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-documento"]::before {
+.ico-documento::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-documento-2"]::before {
+.ico-documento-2::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-download"]::before {
+.ico-download::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-engrenagem"]::before {
+.ico-engrenagem::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-envelope"]::before {
+.ico-envelope::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-equipe"]::before {
+.ico-equipe::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-erro"]::before {
+.ico-erro::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-estrela-metade"]::before {
+.ico-estrela-metade::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-estrela-vazia"]::before {
+.ico-estrela-vazia::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-estrela"]::before {
+.ico-estrela::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-facebook"]::before {
+.ico-facebook::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-fechar"]::before {
+.ico-fechar::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-ferramentas"]::before {
+.ico-ferramentas::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-figura"]::before {
+.ico-figura::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-filtro"]::before {
+.ico-filtro::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-foto"]::before {
+.ico-foto::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-globo"]::before {
+.ico-globo::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-google-mais"]::before {
+.ico-google-mais::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-grafico-barra"]::before {
+.ico-grafico-barra::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-grafico-linha"]::before {
+.ico-grafico-linha::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-grafico-pizza"]::before {
+.ico-grafico-pizza::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-impressora"]::before {
+.ico-impressora::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-info"]::before {
+.ico-info::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-janela-up"]::before {
+.ico-janela-up::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-janela"]::before {
+.ico-janela::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-lampada"]::before {
+.ico-lampada::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-lapis"]::before {
+.ico-lapis::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-link"]::before {
+.ico-link::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-livro"]::before {
+.ico-livro::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-lixo"]::before {
+.ico-lixo::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-lixo-2"]::before {
+.ico-lixo-2::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-local"]::before {
+.ico-local::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-lupa"]::before {
+.ico-lupa::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-mais"]::before {
+.ico-mais::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-megafone"]::before {
+.ico-megafone::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-menos"]::before {
+.ico-menos::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-monitor"]::before {
+.ico-monitor::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-nao-ok"]::before {
+.ico-nao-ok::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-novo"]::before {
+.ico-novo::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-ok-tique"]::before {
+.ico-ok-tique::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-ok"]::before {
+.ico-ok::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-olho-fechado"]::before {
+.ico-olho-fechado::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-olho"]::before {
+.ico-olho::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-ordenar-baixo"]::before {
+.ico-ordenar-baixo::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-ordenar-cima"]::before {
+.ico-ordenar-cima::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-ordenar"]::before {
+.ico-ordenar::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-pasta"]::before {
+.ico-pasta::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-pdf"]::before {
+.ico-pdf::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-pessoa"]::before {
+.ico-pessoa::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-pessoa-2"]::before {
+.ico-pessoa-2::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-pessoa-3"]::before {
+.ico-pessoa-3::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-prancheta"]::before {
+.ico-prancheta::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-proibido"]::before {
+.ico-proibido::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-relogio"]::before {
+.ico-relogio::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-sair"]::before {
+.ico-sair::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-salvar"]::before {
+.ico-salvar::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-baixo"]::before {
+.ico-seta-baixo::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-cima"]::before {
+.ico-seta-cima::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-direita"]::before {
+.ico-seta-direita::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-esquerda"]::before {
+.ico-seta-esquerda::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-direita-dupla"]::before {
+.ico-seta-direita-dupla::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-esquerda-dupla"]::before {
+.ico-seta-esquerda-dupla::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-baixo-fina"]::before {
+.ico-seta-baixo-fina::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-cima-fina"]::before {
+.ico-seta-cima-fina::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-direita-fina"]::before {
+.ico-seta-direita-fina::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-seta-esquerda-fina"]::before {
+.ico-seta-esquerda-fina::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-tabela"]::before {
+.ico-tabela::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-tablet"]::before {
+.ico-tablet::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-teclado"]::before {
+.ico-teclado::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-telefone"]::before {
+.ico-telefone::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-twitter"]::before {
+.ico-twitter::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-x"]::before {
+.ico-x::before {
+  font-family: "font-alego";
   content: "";
 }
 
-[class^="ico-zip"]::before {
+.ico-zip::before {
+  font-family: "font-alego";
   content: "";
+}
+
+.ico--espaco::before {
+  margin-right: .5em;
 }
 
 /*
@@ -732,34 +855,6 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
 }
 .link--readme:hover, .link--externo:hover, .link--pontilhado:hover {
   color: #009da4;
-}
-
-.fonte--menor, .text--menor {
-  font-size: 0.88889em;
-}
-
-.fonte--x-menor, .text--x-menor {
-  font-size: 0.79012em;
-}
-
-.fonte--xx-menor, .text--xx-menor {
-  font-size: 0.70233em;
-}
-
-.fonte--maior, .text--maior {
-  font-size: 1.125em;
-}
-
-.fonte--x-maior, .text--x-maior {
-  font-size: 1.26563em;
-}
-
-.fonte--xx-maior, .text--xx-maior {
-  font-size: 1.42383em;
-}
-
-.texto--caixa-alta, .texto--uppercase {
-  text-transform: uppercase;
 }
 
 /*
@@ -1601,6 +1696,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 }
 .secao-lista__icone {
   display: block;
+  font-family: "font-alego";
 }
 .secao-lista__icone::before {
   content: "\f107";
@@ -1682,7 +1778,7 @@ INÍCIO DO CSS ESPECÍFICO DO READ-ME
 PLACEHOLDERS GLOBAIS
 ================================================================================
 */
-samp, .codigo--html, .codigo--css, .codigo--sass {
+samp, .codigo--html, .codigo--css, .codigo--sass, .demo__simbolos .icone {
   border-radius: 3px;
   background: #f2f2f2;
   border: 1px solid #b3b3b3;
@@ -2005,6 +2101,14 @@ CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
   content: "12";
 }
 
+.funcao {
+  font-size: .7em;
+  font-family: "consolas", "courier new", courier, freemono, "liberation mono", monospace;
+}
+.funcao::before {
+  display: block;
+}
+
 /*
 --------------------------------------------------------------------------------
 CORES | CLASSE BÁSICA
@@ -2032,13 +2136,6 @@ CORES | CLASSE BÁSICA
   height: 45px;
   display: block;
   margin-bottom: .2em;
-}
-.demo__paleta .funcao, .demo__paleta--basica .funcao, .demo__paleta--secundaria .funcao {
-  font-size: .7em;
-  font-family: "consolas", "courier new", courier, freemono, "liberation mono", monospace;
-}
-.demo__paleta .funcao::before, .demo__paleta--basica .funcao::before, .demo__paleta--secundaria .funcao::before {
-  display: block;
 }
 
 /*
@@ -2840,6 +2937,843 @@ CORES | TEMA ESCOLHIDO
 }
 .demo__cor__secao-lista--clara .funcao::before {
   content: "cor(secao-lista, clara)";
+}
+
+/*
+--------------------------------------------------------------------------------
+SÍMBOLOS | LISTA BÁSICA
+--------------------------------------------------------------------------------
+*/
+.demo__simbolos {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: space-between;
+  align-content: space-between;
+}
+.demo__simbolos > * {
+  margin: 0 0.625rem 0.625rem 0;
+  max-width: calc(8.33333% - 0.57292rem);
+  width: calc(8.33333% - 0.57292rem);
+}
+.demo__simbolos > *:nth-child(12n) {
+  margin-right: 0;
+}
+.demo__simbolos li {
+  line-height: 1;
+}
+.demo__simbolos .icone {
+  width: 100%;
+  display: block;
+  margin-bottom: .2em;
+  font-size: 3rem;
+  padding: .2em;
+  text-align: center;
+}
+.demo__simbolos .icone::before {
+  content: "?";
+}
+.demo__simbolos .funcao {
+  text-align: center;
+}
+.demo__simbolos .funcao::before {
+  content: "sem ícone";
+}
+
+/*
+--------------------------------------------------------------------------------
+SÍMBOLOS | SÍMBOLOS
+--------------------------------------------------------------------------------
+*/
+.demo__ico-abrir .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-abrir .funcao::before {
+  content: ".ico-abrir";
+}
+
+.demo__ico-adicionar .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-adicionar .funcao::before {
+  content: ".ico-adicionar";
+}
+
+.demo__ico-ajuda .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-ajuda .funcao::before {
+  content: ".ico-ajuda";
+}
+
+.demo__ico-apontando .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-apontando .funcao::before {
+  content: ".ico-apontando";
+}
+
+.demo__ico-asterisco .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-asterisco .funcao::before {
+  content: ".ico-asterisco";
+}
+
+.demo__ico-aviso-destaque .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-aviso-destaque .funcao::before {
+  content: ".ico-aviso-destaque";
+}
+
+.demo__ico-cadeado-aberto .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-cadeado-aberto .funcao::before {
+  content: ".ico-cadeado-aberto";
+}
+
+.demo__ico-cadeado-fechado .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-cadeado-fechado .funcao::before {
+  content: ".ico-cadeado-fechado";
+}
+
+.demo__ico-cadeado .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-cadeado .funcao::before {
+  content: ".ico-cadeado";
+}
+
+.demo__ico-calendario .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-calendario .funcao::before {
+  content: ".ico-calendario";
+}
+
+.demo__ico-calendario-2 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-calendario-2 .funcao::before {
+  content: ".ico-calendario-2";
+}
+
+.demo__ico-calendario-3 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-calendario-3 .funcao::before {
+  content: ".ico-calendario-3";
+}
+
+.demo__ico-carregando .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-carregando .funcao::before {
+  content: ".ico-carregando";
+}
+
+.demo__ico-casa .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-casa .funcao::before {
+  content: ".ico-casa";
+}
+
+.demo__ico-celular .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-celular .funcao::before {
+  content: ".ico-celular";
+}
+
+.demo__ico-chat .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-chat .funcao::before {
+  content: ".ico-chat";
+}
+
+.demo__ico-chat-2 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-chat-2 .funcao::before {
+  content: ".ico-chat-2";
+}
+
+.demo__ico-chat-3 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-chat-3 .funcao::before {
+  content: ".ico-chat-3";
+}
+
+.demo__ico-chat-4 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-chat-4 .funcao::before {
+  content: ".ico-chat-4";
+}
+
+.demo__ico-chave .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-chave .funcao::before {
+  content: ".ico-chave";
+}
+
+.demo__ico-clipe .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-clipe .funcao::before {
+  content: ".ico-clipe";
+}
+
+.demo__ico-cone-seguranca .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-cone-seguranca .funcao::before {
+  content: ".ico-cone-seguranca";
+}
+
+.demo__ico-cracha .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-cracha .funcao::before {
+  content: ".ico-cracha";
+}
+
+.demo__ico-curtir .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-curtir .funcao::before {
+  content: ".ico-curtir";
+}
+
+.demo__ico-descurtir .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-descurtir .funcao::before {
+  content: ".ico-descurtir";
+}
+
+.demo__ico-desligar .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-desligar .funcao::before {
+  content: ".ico-desligar";
+}
+
+.demo__ico-documento .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-documento .funcao::before {
+  content: ".ico-documento";
+}
+
+.demo__ico-documento-2 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-documento-2 .funcao::before {
+  content: ".ico-documento-2";
+}
+
+.demo__ico-download .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-download .funcao::before {
+  content: ".ico-download";
+}
+
+.demo__ico-engrenagem .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-engrenagem .funcao::before {
+  content: ".ico-engrenagem";
+}
+
+.demo__ico-envelope .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-envelope .funcao::before {
+  content: ".ico-envelope";
+}
+
+.demo__ico-equipe .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-equipe .funcao::before {
+  content: ".ico-equipe";
+}
+
+.demo__ico-erro .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-erro .funcao::before {
+  content: ".ico-erro";
+}
+
+.demo__ico-estrela-metade .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-estrela-metade .funcao::before {
+  content: ".ico-estrela-metade";
+}
+
+.demo__ico-estrela-vazia .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-estrela-vazia .funcao::before {
+  content: ".ico-estrela-vazia";
+}
+
+.demo__ico-estrela .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-estrela .funcao::before {
+  content: ".ico-estrela";
+}
+
+.demo__ico-facebook .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-facebook .funcao::before {
+  content: ".ico-facebook";
+}
+
+.demo__ico-fechar .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-fechar .funcao::before {
+  content: ".ico-fechar";
+}
+
+.demo__ico-ferramentas .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-ferramentas .funcao::before {
+  content: ".ico-ferramentas";
+}
+
+.demo__ico-figura .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-figura .funcao::before {
+  content: ".ico-figura";
+}
+
+.demo__ico-filtro .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-filtro .funcao::before {
+  content: ".ico-filtro";
+}
+
+.demo__ico-foto .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-foto .funcao::before {
+  content: ".ico-foto";
+}
+
+.demo__ico-globo .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-globo .funcao::before {
+  content: ".ico-globo";
+}
+
+.demo__ico-google-mais .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-google-mais .funcao::before {
+  content: ".ico-google-mais";
+}
+
+.demo__ico-grafico-barra .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-grafico-barra .funcao::before {
+  content: ".ico-grafico-barra";
+}
+
+.demo__ico-grafico-linha .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-grafico-linha .funcao::before {
+  content: ".ico-grafico-linha";
+}
+
+.demo__ico-grafico-pizza .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-grafico-pizza .funcao::before {
+  content: ".ico-grafico-pizza";
+}
+
+.demo__ico-impressora .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-impressora .funcao::before {
+  content: ".ico-impressora";
+}
+
+.demo__ico-info .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-info .funcao::before {
+  content: ".ico-info";
+}
+
+.demo__ico-janela-up .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-janela-up .funcao::before {
+  content: ".ico-janela-up";
+}
+
+.demo__ico-janela .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-janela .funcao::before {
+  content: ".ico-janela";
+}
+
+.demo__ico-lampada .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-lampada .funcao::before {
+  content: ".ico-lampada";
+}
+
+.demo__ico-lapis .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-lapis .funcao::before {
+  content: ".ico-lapis";
+}
+
+.demo__ico-link .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-link .funcao::before {
+  content: ".ico-link";
+}
+
+.demo__ico-livro .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-livro .funcao::before {
+  content: ".ico-livro";
+}
+
+.demo__ico-lixo .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-lixo .funcao::before {
+  content: ".ico-lixo";
+}
+
+.demo__ico-lixo-2 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-lixo-2 .funcao::before {
+  content: ".ico-lixo-2";
+}
+
+.demo__ico-local .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-local .funcao::before {
+  content: ".ico-local";
+}
+
+.demo__ico-lupa .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-lupa .funcao::before {
+  content: ".ico-lupa";
+}
+
+.demo__ico-mais .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-mais .funcao::before {
+  content: ".ico-mais";
+}
+
+.demo__ico-megafone .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-megafone .funcao::before {
+  content: ".ico-megafone";
+}
+
+.demo__ico-menos .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-menos .funcao::before {
+  content: ".ico-menos";
+}
+
+.demo__ico-monitor .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-monitor .funcao::before {
+  content: ".ico-monitor";
+}
+
+.demo__ico-nao-ok .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-nao-ok .funcao::before {
+  content: ".ico-nao-ok";
+}
+
+.demo__ico-novo .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-novo .funcao::before {
+  content: ".ico-novo";
+}
+
+.demo__ico-ok-tique .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-ok-tique .funcao::before {
+  content: ".ico-ok-tique";
+}
+
+.demo__ico-ok .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-ok .funcao::before {
+  content: ".ico-ok";
+}
+
+.demo__ico-olho-fechado .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-olho-fechado .funcao::before {
+  content: ".ico-olho-fechado";
+}
+
+.demo__ico-olho .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-olho .funcao::before {
+  content: ".ico-olho";
+}
+
+.demo__ico-ordenar-baixo .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-ordenar-baixo .funcao::before {
+  content: ".ico-ordenar-baixo";
+}
+
+.demo__ico-ordenar-cima .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-ordenar-cima .funcao::before {
+  content: ".ico-ordenar-cima";
+}
+
+.demo__ico-ordenar .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-ordenar .funcao::before {
+  content: ".ico-ordenar";
+}
+
+.demo__ico-pasta .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-pasta .funcao::before {
+  content: ".ico-pasta";
+}
+
+.demo__ico-pdf .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-pdf .funcao::before {
+  content: ".ico-pdf";
+}
+
+.demo__ico-pessoa .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-pessoa .funcao::before {
+  content: ".ico-pessoa";
+}
+
+.demo__ico-pessoa-2 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-pessoa-2 .funcao::before {
+  content: ".ico-pessoa-2";
+}
+
+.demo__ico-pessoa-3 .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-pessoa-3 .funcao::before {
+  content: ".ico-pessoa-3";
+}
+
+.demo__ico-prancheta .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-prancheta .funcao::before {
+  content: ".ico-prancheta";
+}
+
+.demo__ico-proibido .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-proibido .funcao::before {
+  content: ".ico-proibido";
+}
+
+.demo__ico-relogio .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-relogio .funcao::before {
+  content: ".ico-relogio";
+}
+
+.demo__ico-sair .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-sair .funcao::before {
+  content: ".ico-sair";
+}
+
+.demo__ico-salvar .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-salvar .funcao::before {
+  content: ".ico-salvar";
+}
+
+.demo__ico-seta-baixo .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-baixo .funcao::before {
+  content: ".ico-seta-baixo";
+}
+
+.demo__ico-seta-cima .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-cima .funcao::before {
+  content: ".ico-seta-cima";
+}
+
+.demo__ico-seta-direita .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-direita .funcao::before {
+  content: ".ico-seta-direita";
+}
+
+.demo__ico-seta-esquerda .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-esquerda .funcao::before {
+  content: ".ico-seta-esquerda";
+}
+
+.demo__ico-seta-direita-dupla .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-direita-dupla .funcao::before {
+  content: ".ico-seta-direita-dupla";
+}
+
+.demo__ico-seta-esquerda-dupla .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-esquerda-dupla .funcao::before {
+  content: ".ico-seta-esquerda-dupla";
+}
+
+.demo__ico-seta-baixo-fina .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-baixo-fina .funcao::before {
+  content: ".ico-seta-baixo-fina";
+}
+
+.demo__ico-seta-cima-fina .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-cima-fina .funcao::before {
+  content: ".ico-seta-cima-fina";
+}
+
+.demo__ico-seta-direita-fina .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-direita-fina .funcao::before {
+  content: ".ico-seta-direita-fina";
+}
+
+.demo__ico-seta-esquerda-fina .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-seta-esquerda-fina .funcao::before {
+  content: ".ico-seta-esquerda-fina";
+}
+
+.demo__ico-tabela .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-tabela .funcao::before {
+  content: ".ico-tabela";
+}
+
+.demo__ico-tablet .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-tablet .funcao::before {
+  content: ".ico-tablet";
+}
+
+.demo__ico-teclado .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-teclado .funcao::before {
+  content: ".ico-teclado";
+}
+
+.demo__ico-telefone .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-telefone .funcao::before {
+  content: ".ico-telefone";
+}
+
+.demo__ico-twitter .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-twitter .funcao::before {
+  content: ".ico-twitter";
+}
+
+.demo__ico-x .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-x .funcao::before {
+  content: ".ico-x";
+}
+
+.demo__ico-zip .icone::before {
+  font-family: "font-alego";
+  content: "";
+}
+.demo__ico-zip .funcao::before {
+  content: ".ico-zip";
 }
 
 /*# sourceMappingURL=info.css.map */

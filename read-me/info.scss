@@ -410,7 +410,13 @@ CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
   @include escolha(grid-max, $grid-max);
   @include escolha(grid-qtd, $grid-qtd);
 }
-
+.funcao {
+  font-size: .7em;
+  font-family: $fonte-monoespacada;
+  &::before {
+    display: block;
+  }
+}
 // ----------------------------------------------------------------------------
 // CORES | PALETAS/TONS
 // ----------------------------------------------------------------------------
@@ -450,13 +456,6 @@ CORES | CLASSE BÁSICA
     height: 45px;
     display: block;
     margin-bottom: .2em;
-  }
-  .funcao {
-    font-size: .7em;
-    font-family: $fonte-monoespacada;
-    &::before {
-      display: block;
-    }
   }
   @each $paleta, $item in $cores-paleta {
     &--#{$paleta} {
@@ -551,3 +550,48 @@ CORES | TEMA ESCOLHIDO
 @include classes-paleta(breadcrumbs, $tema-breadcrumbs);
 @include classes-paleta(card, $tema-card);
 @include classes-paleta(secao-lista, $tema-secao-lista);
+/*
+--------------------------------------------------------------------------------
+SÍMBOLOS | LISTA BÁSICA
+--------------------------------------------------------------------------------
+*/
+.demo__simbolos {
+  $qt: 12;
+  @extend %lista-flex;
+  @include grupo-flex($qt, rem(10));
+  li {
+    line-height: 1;
+  }
+  .icone {
+    @extend %codigo;
+    width: 100%;
+    display: block;
+    margin-bottom: .2em;
+    font-size: 3rem;
+    padding: .2em;
+    text-align: center;
+    &::before {
+      content: "?";
+    }
+  }
+  .funcao {
+    text-align: center;
+    &::before { content: "sem ícone"; }
+  }
+}
+/*
+--------------------------------------------------------------------------------
+SÍMBOLOS | SÍMBOLOS
+--------------------------------------------------------------------------------
+*/
+@each $classe, $ico in $icones {
+  .demo__ico-#{$classe} {
+    .icone {
+      &::before {
+        font-family: $fonte-simbolo;
+        content: "#{$ico}";
+      }
+    }
+    .funcao { &::before { content: ".ico-#{$classe}"; } }
+  }
+}
