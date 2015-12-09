@@ -274,6 +274,24 @@ $i: 1;
 // -----------------------------------------------------------------------------
 $codigo-selecionado: (
   tab-col--maximo: $tab-col--maximo,
+  sombra-nenhuma: $sombra-nenhuma,
+  sombra-simples: $sombra-simples,
+  sombra-padrao: $sombra-padrao,
+  sombra-difusa: $sombra-difusa,
+  sombra-card: $sombra-card,
+  sombra-modal: $sombra-modal,
+  sombra-toaster: $sombra-toaster,
+  sombra-botao: $sombra-botao,
+  sombra-texto: $sombra-texto,
+  sombra-texto-relevo: $sombra-texto-relevo,
+  borda-nenhuma: $borda-nenhuma,
+  borda-padrao: $borda-padrao,
+  borda-variante: $borda-variante,
+  grid-margem: $grid-margem,
+  calha: '$grid-margem',
+  margem: '$calha',
+  transition: $transition,
+  rd: $rd,
 );
 @each $classe, $valor in $codigo-selecionado {
   .codigo-#{$classe} {

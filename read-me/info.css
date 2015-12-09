@@ -1988,6 +1988,78 @@ CLASSES
   content: "600";
 }
 
+.codigo-sombra-nenhuma::before {
+  content: "none";
+}
+
+.codigo-sombra-simples::before {
+  content: "0 0 1px rgba(0, 0, 0, 0.5)";
+}
+
+.codigo-sombra-padrao::before {
+  content: "0 0 3px rgba(0, 0, 0, 0.7)";
+}
+
+.codigo-sombra-difusa::before {
+  content: "0 0 10px rgba(0, 0, 0, 0.3)";
+}
+
+.codigo-sombra-card::before {
+  content: "0 0 20px rgba(0, 0, 0, 0.3)";
+}
+
+.codigo-sombra-modal::before {
+  content: "0 0 40px rgba(0, 0, 0, 0.1)";
+}
+
+.codigo-sombra-toaster::before {
+  content: "0 0 20px rgba(0, 0, 0, 0.2)";
+}
+
+.codigo-sombra-botao::before {
+  content: "0 0 6px rgba(77, 77, 77, 0.5)";
+}
+
+.codigo-sombra-texto::before {
+  content: "1px 1px 0 rgba(0, 0, 0, 0.1)";
+}
+
+.codigo-sombra-texto-relevo::before {
+  content: "0 -1px 1px rgba(0, 0, 0, 0.75)";
+}
+
+.codigo-borda-nenhuma::before {
+  content: "none";
+}
+
+.codigo-borda-padrao::before {
+  content: "1px solid #00c5cd";
+}
+
+.codigo-borda-variante::before {
+  content: "1px solid #cd5800";
+}
+
+.codigo-grid-margem::before {
+  content: "0.625rem";
+}
+
+.codigo-calha::before {
+  content: "$grid-margem";
+}
+
+.codigo-margem::before {
+  content: "$calha";
+}
+
+.codigo-transition::before {
+  content: "all 0.5s ease 0s";
+}
+
+.codigo-rd::before {
+  content: "3px";
+}
+
 /*
 ================================================================================
 HEADER
