@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 23/11/2015
+// Última alteração em: 09/12/2015
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 09/12/2015 | Inclusão do label
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -57,6 +58,11 @@ FORMULÁRIOS | SELECT
   %form-select__seta {
     color: cor(formulario);
   }
+  @if $label-tipo == "colado" {
+    label {
+      border-bottom: 1px dotted cor(formulario);
+    }
+  }
 }
 %form-select--tipo-2 {
   select {
@@ -65,11 +71,28 @@ FORMULÁRIOS | SELECT
   %form-select__seta {
     color: cor(formulario);
   }
+  @if $label-tipo == "colado" {
+    label {
+      border-bottom: 1px solid cor(formulario);
+    }
+  }
 }
 %form-select--tipo-3 {
   select {
     border: $borda-form solid;
     padding-left: .2em;
+    @if $label-tipo == "colado" {
+      &:focus ~ label {
+        background: cor(formulario, ativo);
+      }
+    }
+  }
+  @if $label-tipo == "colado" {
+    label {
+      background: cor(formulario);
+      color: cor(texto, claro);
+      line-height: 2.2;
+    }
   }
   %form-select__seta {
     color: cor(formulario, ativo);
@@ -84,6 +107,7 @@ FORMULÁRIOS | SELECT
   .form-select {
     @extend %form-select--basico;
     @extend %form-select--#{$form-tipo};
+    @extend %form-texto__label--#{$label-tipo};
     [class^="ico"] {
       @extend %form-select__seta;
     }

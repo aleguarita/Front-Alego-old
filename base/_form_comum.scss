@@ -11,12 +11,13 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 17/11/2015
+// Última alteração em: 09/12/2015
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 09/12/2015 | Acréscimo do textarea para expandir
 // 17/11/2015 | Utilizada nova forma chamar as classes
 //              Incluído elementos "flex" que estavam em "form_tamanhos"
 // 11/11/2015 | Criado o arquivo
@@ -39,7 +40,7 @@ $borda-form: 1px cor(formulario);
 }
 %form-base--flex {
   @extend %form-base;
-  input, select {
+  input, textarea, select {
     @include flex(1);
   }
 }
@@ -56,7 +57,7 @@ $borda-form: 1px cor(formulario);
   position: absolute;
   right: calc(#{$calha} / 2);
   height: calc(100% - #{$calha}); // subtrai o padding do container
-  padding: $calha/4 .5em;
+  padding: $calha/2 .5em;
 }
 %form__botao-colado {
   @extend %form__icone;

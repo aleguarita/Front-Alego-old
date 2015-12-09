@@ -61,7 +61,7 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   font-size: .9rem;
   font-weight: bold;
   text-transform: uppercase;
-  transition: $transition;
+  transition: background 0.5s ease 0s;
 }
 // =============================================================================
 // PLACEHOLDERS | TIPO SIMPLES (tipo-1 e tipo-2)
