@@ -401,6 +401,8 @@ main {
 // -----------------------------------------------------------------------------
 // CLASSES DE PLACEHOLDERS
 // -----------------------------------------------------------------------------
+// Converte um placeholder em classe
+// -----------------------------------------------------------------------------
 @mixin classe($classe) {
   .#{$classe} { @extend %#{$classe}; }
 }
@@ -611,5 +613,84 @@ SÍMBOLOS | SÍMBOLOS
       }
     }
     .funcao { &::before { content: ".ico-#{$classe}"; } }
+  }
+}
+/*
+--------------------------------------------------------------------------------
+VARIÁVEIS | DEMONSTRAÇÃO | lista básica
+--------------------------------------------------------------------------------
+*/
+.demo__variaveis {
+  $qt: 8;
+  @extend %lista-flex;
+  @include grupo-flex($qt, $calha);
+  li {
+    line-height: 1;
+    @extend %flex;
+    @include flex-wrap;
+  }
+  .caixa {
+    @include flex(1);
+    height: rem(70);
+    padding: 1em;
+    background: tint(cor(fundo, claro), 75%);
+    margin-bottom: .2em;
+    text-align: center;
+  }
+  .funcao {
+    width: 100%;
+    text-align: center;
+  }
+}
+// -----------------------------------------------------------------------------
+// VARIÁVEIS | DEMONSTRAÇÃO | lista de variáveis
+// -----------------------------------------------------------------------------
+$variaveis: (
+  // Sombras
+  sombra-nenhuma: $sombra-nenhuma,
+  sombra-padrao: $sombra-padrao,
+  sombra-simples: $sombra-simples,
+  sombra-difusa: $sombra-difusa,
+  sombra-texto: $sombra-texto,
+  sombra-texto-relevo: $sombra-texto-relevo,
+  sombra-card: $sombra-card,
+  sombra-modal: $sombra-modal,
+  sombra-toaster: $sombra-toaster,
+  sombra-botao: $sombra-botao,
+  // Bordas
+  borda-nenhuma: $borda-nenhuma,
+  borda-padrao: $borda-padrao,
+  borda-variante: $borda-variante,
+  //	Margens
+  transition: $transition,
+  // Raio de arredondamento
+  rd: $rd,
+);
+// -----------------------------------------------------------------------------
+// VARIÁVEIS | DEMONSTRAÇÃO | classes geradas
+// -----------------------------------------------------------------------------
+@each $var, $valor in $variaveis {
+  .demo__var--#{$var} {
+    .funcao { &::before { content: "$#{$var}"; } }
+    @if str-slice($var, 1, 6) == "sombra" {
+      .caixa { box-shadow: $valor; }
+    }
+    @if str-slice($var, 1, 5) == "borda" {
+      .caixa { border: $valor; }
+    }
+    @if $var == "transition" {
+      .caixa {
+        transition: $transition;
+        &:hover {
+          background: tint(cor(fundo, escuro), 15%);
+        }
+      }
+    }
+    @if $var == "rd" {
+      .caixa {
+        background: tint(cor(fundo, claro),25%);
+        border-radius: $rd;
+      }
+    }
   }
 }

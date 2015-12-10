@@ -162,13 +162,13 @@ FONTES
 PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 ================================================================================
 */
-.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao {
+.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__variaveis li {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .ui-autocomplete, .toast, .lista, .lista--link, .lista-sem-marcador {
+.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .ui-autocomplete, .toast, .lista, .lista--link, .lista-sem-marcador {
   list-style: none;
   padding-left: 0;
 }
@@ -778,6 +778,7 @@ TIPOGRAFIA
 body {
   color: #000;
   font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  word-wrap: break-word;
 }
 
 h1 {
@@ -868,7 +869,7 @@ FORMULÁRIOS | ELEMENTOS COMUM
   position: relative;
 }
 
-.form-texto input, .form-select input, .form-texto select, .form-select select {
+.form-texto input, .form-select input, .form-texto textarea, .form-select textarea, .form-texto select, .form-select select {
   -webkit-flex: 1;
   flex: 1;
 }
@@ -900,7 +901,7 @@ FORMULÁRIOS | ELEMENTOS COMUM
   position: absolute;
   right: calc(0.625rem / 2);
   height: calc(100% - 0.625rem);
-  padding: 0.15625rem 0.5em;
+  padding: 0.3125rem 0.5em;
 }
 
 .form__ico {
@@ -1013,7 +1014,7 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 ================================================================================
 */
-.form-texto label {
+.form-texto label, .form-select label {
   font-weight: bold;
   -webkit-order: -1;
   order: -1;
@@ -1021,11 +1022,11 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
   color: #009da4;
 }
 
-.form-texto {
+.form-texto, .form-select {
   -webkit-align-items: stretch;
   align-items: stretch;
 }
-.form-texto label {
+.form-texto label, .form-select label {
   padding: 0 .65em;
 }
 
@@ -1129,6 +1130,9 @@ FORMULÁRIOS | SELECT
 .form-select [class^="ico"] {
   color: #009da4;
 }
+.form-select label {
+  border-bottom: 1px dotted #009da4;
+}
 
 /*
 ================================================================================
@@ -1143,7 +1147,7 @@ FORMULÁRIO | BOTÕES
   font-size: .9rem;
   font-weight: bold;
   text-transform: uppercase;
-  transition: all 0.5s ease 0s;
+  transition: background 0.5s ease 0s;
 }
 
 .bt, .bt--secundario, .bt--urgente, .bt--ok, .bt--aviso {
@@ -3846,6 +3850,153 @@ SÍMBOLOS | SÍMBOLOS
 }
 .demo__ico-zip .funcao::before {
   content: ".ico-zip";
+}
+
+/*
+--------------------------------------------------------------------------------
+VARIÁVEIS | DEMONSTRAÇÃO | lista básica
+--------------------------------------------------------------------------------
+*/
+.demo__variaveis {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: space-between;
+  align-content: space-between;
+}
+.demo__variaveis > * {
+  margin: 0 0.625rem 0.625rem 0;
+  max-width: calc(12.5% - 0.54688rem);
+  width: calc(12.5% - 0.54688rem);
+}
+.demo__variaveis > *:nth-child(8n) {
+  margin-right: 0;
+}
+.demo__variaveis li {
+  line-height: 1;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.demo__variaveis .caixa {
+  -webkit-flex: 1;
+  flex: 1;
+  height: 4.375rem;
+  padding: 1em;
+  background: #d9f6f8;
+  margin-bottom: .2em;
+  text-align: center;
+}
+.demo__variaveis .funcao {
+  width: 100%;
+  text-align: center;
+}
+
+.demo__var--sombra-nenhuma .funcao::before {
+  content: "$sombra-nenhuma";
+}
+.demo__var--sombra-nenhuma .caixa {
+  box-shadow: none;
+}
+
+.demo__var--sombra-padrao .funcao::before {
+  content: "$sombra-padrao";
+}
+.demo__var--sombra-padrao .caixa {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.demo__var--sombra-simples .funcao::before {
+  content: "$sombra-simples";
+}
+.demo__var--sombra-simples .caixa {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.demo__var--sombra-difusa .funcao::before {
+  content: "$sombra-difusa";
+}
+.demo__var--sombra-difusa .caixa {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.demo__var--sombra-texto .funcao::before {
+  content: "$sombra-texto";
+}
+.demo__var--sombra-texto .caixa {
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.demo__var--sombra-texto-relevo .funcao::before {
+  content: "$sombra-texto-relevo";
+}
+.demo__var--sombra-texto-relevo .caixa {
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.75);
+}
+
+.demo__var--sombra-card .funcao::before {
+  content: "$sombra-card";
+}
+.demo__var--sombra-card .caixa {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.demo__var--sombra-modal .funcao::before {
+  content: "$sombra-modal";
+}
+.demo__var--sombra-modal .caixa {
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+.demo__var--sombra-toaster .funcao::before {
+  content: "$sombra-toaster";
+}
+.demo__var--sombra-toaster .caixa {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.demo__var--sombra-botao .funcao::before {
+  content: "$sombra-botao";
+}
+.demo__var--sombra-botao .caixa {
+  box-shadow: 0 0 6px rgba(77, 77, 77, 0.5);
+}
+
+.demo__var--borda-nenhuma .funcao::before {
+  content: "$borda-nenhuma";
+}
+.demo__var--borda-nenhuma .caixa {
+  border: none;
+}
+
+.demo__var--borda-padrao .funcao::before {
+  content: "$borda-padrao";
+}
+.demo__var--borda-padrao .caixa {
+  border: 1px solid #00c5cd;
+}
+
+.demo__var--borda-variante .funcao::before {
+  content: "$borda-variante";
+}
+.demo__var--borda-variante .caixa {
+  border: 1px solid #cd5800;
+}
+
+.demo__var--transition .funcao::before {
+  content: "$transition";
+}
+.demo__var--transition .caixa {
+  transition: all 0.5s ease 0s;
+}
+.demo__var--transition .caixa:hover {
+  background: #26acb2;
+}
+
+.demo__var--rd .funcao::before {
+  content: "$rd";
+}
+.demo__var--rd .caixa {
+  background: #8ce5e9;
+  border-radius: 3px;
 }
 
 /*# sourceMappingURL=info.css.map */
