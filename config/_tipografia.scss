@@ -10,12 +10,14 @@ TIPOGRAFIA
 // -----------------------------------------------------------------------------
 // tipografia.scss
 // Criado em: 13/01/2015
-// Última alteração em: 08/12/2015
+// Última alteração em: 10/12/2015
 // -----------------------------------------------------------------------------
 // Define os elementos básicos da tipografia e usa as variáveis criadas em
 // fontes.scss
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 10/12/2015 | Acrescentado word-wrap no body para evitar que strings muito
+// 							longas em algum elemento filho, exceda o limite
 // 08/12/2015 | As classes foram movidas para config/classes.scss
 // 07/12/2015 | Retirado line-height do <body> pois estava se mostrando
 //              problemático
@@ -51,6 +53,7 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 body {
 	color: cor(texto);
 	font-family: $fonte-sem-serifa;
+	word-wrap: break-word;
 }
 h1 {
 	@extend %texto-titulo;
