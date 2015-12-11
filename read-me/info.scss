@@ -329,6 +329,7 @@ HEADER
     a, &__ativo {
       text-decoration: none;
       font-size: .9em;
+      font-weight: bold;
       color: cor(texto, claro);
       opacity: .8;
       text-shadow: 1px 1px 0 fade-out(cor(fundo, sombra), .8);
@@ -339,8 +340,8 @@ HEADER
       }
     }
     &__ativo {
-      opacity: .6;
-      font-weight: normal;
+      opacity: 1;
+      font-weight: bold;
     }
   }
 }

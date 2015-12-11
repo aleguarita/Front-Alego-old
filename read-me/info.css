@@ -2097,6 +2097,7 @@ HEADER
 .header__menu a, .header__menu__ativo {
   text-decoration: none;
   font-size: .9em;
+  font-weight: bold;
   color: #fff;
   opacity: .8;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
@@ -2105,8 +2106,8 @@ HEADER
   opacity: 1;
 }
 .header__menu__ativo {
-  opacity: .6;
-  font-weight: normal;
+  opacity: 1;
+  font-weight: bold;
 }
 
 /*
