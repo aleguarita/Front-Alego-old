@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 26/11/2015
+	Última alteração: 11/12/2015
 	------------------------------------------------------------------------------
 */
 // app.scss
@@ -33,6 +33,7 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 11/12/2015 | Arquivo de cores unificados
 // 26/11/2015 | Criado breakpoints.scss para facilitar o uso do config.scss
 // 17/11/2015 | Este arquivo foi movido para a pasta /config/ para que seja
 // 							possível manter duas pastas config diferentes (para sistemas
@@ -58,8 +59,7 @@
 @import "../base/funcoes";
 @import "../base/mixins";
 @import "../base/cores_status";
-@import "cores_paletas";
-@import "cores_temas";
+@import "cores";
 @import "../base/fontes";
 @import "variaveis";
 @import "../base/placeholders";

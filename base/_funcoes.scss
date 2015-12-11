@@ -1,69 +1,76 @@
-//  ============================================================================
-//  FUNÇÕES
-//  ============================================================================
-//	Framework da Assembleia Legislativa
-//	Autor: Alessandro Guarita
-//	----------------------------------------------------------------------------
-//	funcoes.scss
-//	Criado em: 15/01/2015
-// 	Última alteração em: 20/10/2015
-//	----------------------------------------------------------------------------
-//	Este arquivo agrupa todos as funções utilizadas pelo sistema que já não façam
-//	parte de algum arquivo específico (por exemplo, o arquivo z-index tem uma
-//	função para determinar o z-index do elemento).
+// =============================================================================
+// FUNÇÕES
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// funcoes.scss
+// Criado em: 15/01/2015
+// Última alteração em: 11/12/2015
+// -----------------------------------------------------------------------------
+// Este arquivo agrupa todos as funções utilizadas pelo sistema que já não façam
+// parte de algum arquivo específico (por exemplo, o arquivo z-index tem uma
+// função para determinar o z-index do elemento).
 //
-//	Funções que afetam diretamente um recurso específico como a tipografia ou
-//	formulários estarão nos arquivos respectivos (exemplo: cores em
-//	cores.scss)
+// Funções que afetam diretamente um recurso específico como a tipografia ou
+// formulários estarão nos arquivos respectivos (exemplo: cores em
+// cores.scss)
 //
-//	Acrescente novas funções sempre no final e com explicação do que fazem e
-//	deixe um comentário explicado para quê serve, como funciona e como usar
-//	IMPORTANTE: este comentário deve sempre começar com // e não /*
-//	----------------------------------------------------------------------------
-// 	Changelog:
-//  20/10/2015 | Mapa de breakpoints foi jogado em config.scss
-// 							 paleta() e cores() foram tirados de cores.scss
-// 							 criado cor-status() e paleta-basica()
-//  19/10/2015 | Incluído importação de "funcoes.scss" que está dentro de extra
-//  14/10/2015 | Retiradas as funções em() e rem() pois elas existem
-//  						 dentro do Bourbon.
-//  15/01/2015 | Criado o arquivo com suas funções básicas
-//	============================================================================
+// Acrescente novas funções sempre no final e com explicação do que fazem e
+// deixe um comentário explicado para quê serve, como funciona e como usar
+// IMPORTANTE: este comentário deve sempre começar com // e não /*
+// -----------------------------------------------------------------------------
+// Changelog:
+// 11/12/2015 | Nova função de paleta
+// 20/10/2015 | Mapa de breakpoints foi jogado em config.scss
+// 						  paleta() e cores() foram tirados de cores.scss
+// 						  criado cor-status() e paleta-basica()
+// 19/10/2015 | Incluído importação de "funcoes.scss" que está dentro de extra
+// 14/10/2015 | Retiradas as funções em() e rem() pois elas existem
+// 						  dentro do Bourbon.
+// 15/01/2015 | Criado o arquivo com suas funções básicas
+// =============================================================================
 
-//	============================================================================
-//	CORES | Paletas
-//	----------------------------------------------------------------------------
-// 	Funções de cores para chamar as cores da paleta. São 4 funções para cada
-//  tipo especial de cor
-//	----------------------------------------------------------------------------
-//  paleta-padrao() para as cores padrão (cores_status.scss)
-//  exemplo:
-// 			color: paleta-padrao(cinza-50);
-//	----------------------------------------------------------------------------
-//  cor-status() para cores de status de sistema
-// 	exemplo:
-// 			background: cor-status(ok);
-//	----------------------------------------------------------------------------
-//  paleta() para as paletas personalizadas (cores.scss). Deve chamar a cor e
-//  o tom. Se não chamar o tom, assume-se o tom "principal"
-// 	exemplo:
-// 			background: paleta(basica, x-clara);
-//	----------------------------------------------------------------------------
-//  cor() para usar dentro do sistema e vai ser o mais usado. Este tema vai
-//  variar conforme o tema escolhido. Deve-se chamar o tipo a ser usado (texto,
-// 	fundo, borda) e qual o sub-tipo (exemplo: input). Se não definir, assume-se
-// 	o sub-tipo "padrão"
-// 	exemplo:
-// 			h1 { color: cor(texto, titulo); }
-//	============================================================================
+// =============================================================================
+// CORES | Paletas
+// -----------------------------------------------------------------------------
+// Funções de cores para chamar as cores da paleta. São 4 funções para cada
+// tipo especial de cor
+// -----------------------------------------------------------------------------
+// paleta-padrao() para as cores padrão (cores_status.scss)
+// exemplo:
+// 		color: paleta-padrao(cinza-50);
+// -----------------------------------------------------------------------------
+// cor-status() para cores de status de sistema
+// exemplo:
+// 		background: cor-status(ok);
+// -----------------------------------------------------------------------------
+// paleta() para as paletas personalizadas (cores.scss). Deve chamar a cor e
+// o tom. Se não chamar o tom, assume-se o tom "principal"
+// exemplo:
+// 		background: paleta(basica, x-clara);
+// -----------------------------------------------------------------------------
+// cor() para usar dentro do sistema e vai ser o mais usado. Este tema vai
+// variar conforme o tema escolhido. Deve-se chamar o tipo a ser usado (texto,
+// fundo, borda) e qual o sub-tipo (exemplo: input). Se não definir, assume-se
+// o sub-tipo "padrão"
+// exemplo:
+// 		h1 { color: cor(texto, titulo); }
+// =============================================================================
 @function paleta-padrao($cor) {
 	@return map-get($paleta-padrao, $cor);
 }
 @function cor-status($cor) {
 	@return map-get($cor-status, $cor);
 }
-@function paleta($cor, $tom: "principal") {
-	@return map-get(map-get($paleta, $cor), $tom);
+@function paleta($cor, $tipo: null, $valor: 0) {
+  @if $tipo == null {
+    @return map-get($paleta, $cor);
+  } @else if str-slice($tipo, 1, 1) == "c" {
+    @return tint(map-get($paleta, $cor), strip-units($valor) * 1%);
+  } @else if str-slice($tipo, 1, 1) == "e" {
+    @return shade(map-get($paleta, $cor), strip-units($valor) * 1%);
+  }
 }
 @function cor($tipo, $cor: "padrao") {
 	@return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);

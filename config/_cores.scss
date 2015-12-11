@@ -1,12 +1,12 @@
 // =============================================================================
-// CORES | Temas
+// CORES
 // =============================================================================
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // cores.scss
 // Criado em: 07/01/2015
-// Última alteração: 03/12/2015
+// Última alteração: 11/12/2015
 // -----------------------------------------------------------------------------
 // Aqui fica os temas de cores. As paletas são definidas no arquivo
 // cores_paletas (e é neste arquivo que se acrescenta novas cores)
@@ -15,6 +15,10 @@
 // Para alterar o tema faça isso no arquivo config
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 11/12/2015 | A paleta de cores agora aceita apenas um cor de cada e a função
+// 							cor() cria as variações tonais.
+// 							Arquivos _cores_paletas.scss e _cores_temas.scss mesclados
+// 							em apenas um arquivo: _cores.scss
 // 03/12/2015 | Reduzida paleta de paginação para três elementos
 // 							Acrescentado tema cinza
 // 17/11/2015 | Separado paletas de temas
@@ -23,7 +27,18 @@
 // 20/10/2015 | Alterado a forma de trabalhar
 // 07/01/2015 | Criado o arquivo
 // =============================================================================
-//
+
+// =============================================================================
+// PALETA DE CORES
+// -----------------------------------------------------------------------------
+// Só há a necessidade de acrescentar uma cor por tema. Evite nomes de cores,
+// pois facilita mudança mais brusca de cores (quando mudar o tema não é o ideal)
+// =============================================================================
+$paleta: (
+	basica: #00c5cd, //turquesa
+	secundaria: #cd5800, //marrom
+);
+
 // =============================================================================
 // TEMAS DE COR
 // -----------------------------------------------------------------------------
@@ -56,9 +71,9 @@ $temas: (
 		),
 		fundo: (
 			padrao: paleta(basica),
-			claro: paleta(basica, clara),
+			claro: paleta(basica, clara, 25%),
 			x-claro: paleta-padrao(branco),
-			escuro: paleta(basica, escura),
+			escuro: paleta(basica, escura, 25%),
 			sombra: paleta-padrao(preto),
 		),
 		borda: (
@@ -68,59 +83,59 @@ $temas: (
 		//elementos específicos
 		link: (
 			padrao: paleta(basica),
-			hover: paleta(basica, clara),
-			escuro: paleta(basica, escura),
+			hover: paleta(basica, clara, 25%),
+			escuro: paleta(basica, escura, 25%),
 			escuro-hover: paleta(basica),
 		),
 		formulario: (
-			padrao: paleta(basica, escura),
-			placeholder: paleta(basica, clara),
-			ativo: paleta(basica, xx-escura),
-			fundo: paleta(basica, xx-clara),
+			padrao: paleta(basica, escura, 25%),
+			placeholder: paleta(basica, clara, 25%),
+			ativo: paleta(basica, escura, 75%),
+			fundo: paleta(basica, clara, 75%),
 		),
 		botao: (
 			padrao: paleta(secundaria),
-			claro: paleta(secundaria, xx-clara),
-			escuro: paleta(secundaria, escura),
+			claro: paleta(secundaria, clara, 75%),
+			escuro: paleta(secundaria, escura, 25%),
 			secundario: paleta(basica),
-			secundario-claro: paleta(basica, xx-clara),
-			secundario-escuro: paleta(basica, escura),
+			secundario-claro: paleta(basica, clara, 75%),
+			secundario-escuro: paleta(basica, escura, 25%),
 		),
 		tabela: (
 			borda: paleta(basica),
-			borda-clara: paleta(basica, clara),
-			borda-escura: paleta(basica, escura),
-			fundo: paleta(basica, xx-clara),
-			titulo: paleta(basica, x-escura),
+			borda-clara: paleta(basica, clara, 25%),
+			borda-escura: paleta(basica, escura, 25%),
+			fundo: paleta(basica, clara, 75%),
+			titulo: paleta(basica, escura, 50%),
 		),
 		lista: (
 			padrao: paleta(basica),
-			clara: paleta(basica, xx-clara),
-			escura: paleta(basica, x-escura),
+			clara: paleta(basica, clara, 75%),
+			escura: paleta(basica, escura, 50%),
 		),
 		modal: (
 			fundo: paleta-padrao(branco),
-			titulo-fundo: paleta(basica, escura),
+			titulo-fundo: paleta(basica, escura, 25%),
 			titulo-texto: paleta-padrao(cinza-70),
 		),
 		paginacao: (
 			padrao: paleta(secundaria),
-			clara: paleta(secundaria, clara),
-			escura: paleta(secundaria, escura),
+			clara: paleta(secundaria, clara, 25%),
+			escura: paleta(secundaria, escura, 25%),
 		),
 		breadcrumbs: (
-			link: paleta(secundaria, clara),
-			atual: paleta(secundaria, escura),
+			link: paleta(secundaria, clara, 25%),
+			atual: paleta(secundaria, escura, 25%),
 		),
 		card: (
 			fundo: paleta-padrao(branco),
 			borda: paleta(basica),
-			titulo: paleta(basica, x-escura),
-			destaque: paleta(basica, escura),
+			titulo: paleta(basica, escura, 50%),
+			destaque: paleta(basica, escura, 25%),
 		),
 		secao-lista: (
-			padrao: paleta(basica, escura),
-			clara: paleta(basica, xx-clara),
+			padrao: paleta(basica, escura, 25%),
+			clara: paleta(basica, clara, 75%),
 		),
 		//elementos do sistema
 	),
