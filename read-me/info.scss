@@ -464,25 +464,25 @@ $tema-secao-lista: (padrao, clara);
 CORES | CLASSE BÁSICA
 --------------------------------------------------------------------------------
 */
-.demo__paleta {
-  $qt: 7;
-  @extend %lista-flex;
-  @include grupo-flex($qt, rem(10));
-  li {
-    line-height: 1;
-  }
-  .cor {
-    width: 100%;
-    height: 45px;
-    display: block;
-    margin-bottom: .2em;
-  }
-  @each $paleta, $item in $cores-paleta {
-    &--#{$paleta} {
-      @extend .demo__paleta;
-    }
-  }
-}
+// .demo__paleta {
+//   $qt: 7;
+//   @extend %lista-flex;
+//   @include grupo-flex($qt, rem(10));
+//   li {
+//     line-height: 1;
+//   }
+//   .cor {
+//     width: 100%;
+//     height: 45px;
+//     display: block;
+//     margin-bottom: .2em;
+//   }
+//   @each $paleta, $item in $cores-paleta {
+//     &--#{$paleta} {
+//       @extend .demo__paleta;
+//     }
+//   }
+// }
 /*
 --------------------------------------------------------------------------------
 CORES | PALETA PADRÃO
@@ -518,24 +518,24 @@ CORES | CORES STATUS
 CORES | PALETA
 --------------------------------------------------------------------------------
 */
-@each $paleta, $item in $cores-paleta {
-  .demo__paleta--#{$paleta} {
-    @each $tom in $tons {
-      .demo__cor--#{$tom} {
-        .cor { background: paleta(#{$paleta}, #{$tom}); }
-        .funcao {
-          @if $tom == principal {
-            font-weight: bold;
-            font-size: .8em;
-            &::before { content: "paleta(#{$paleta})"; }
-          } @else {
-            &::before { content: "paleta(#{$paleta}, #{$tom})"; }
-          }
-        }
-      }
-    }
-  }
-}
+// @each $paleta, $item in $cores-paleta {
+//   .demo__paleta--#{$paleta} {
+//     @each $tom in $tons {
+//       .demo__cor--#{$tom} {
+//         .cor { background: paleta(#{$paleta}, #{$tom}); }
+//         .funcao {
+//           @if $tom == principal {
+//             font-weight: bold;
+//             font-size: .8em;
+//             &::before { content: "paleta(#{$paleta})"; }
+//           } @else {
+//             &::before { content: "paleta(#{$paleta}, #{$tom})"; }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 /*
 --------------------------------------------------------------------------------
 CORES | TEMA ESCOLHIDO

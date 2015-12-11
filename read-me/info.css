@@ -68,7 +68,7 @@ FONTES
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 26/11/2015
+	Última alteração: 11/12/2015
 	------------------------------------------------------------------------------
 */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -162,13 +162,13 @@ FONTES
 PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 ================================================================================
 */
-.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__variaveis li {
+.breadcrumbs, .header__menu ul, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__variaveis li {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .ui-autocomplete, .toast, .lista, .lista--link, .lista-sem-marcador {
+.breadcrumbs, .header__menu ul, .demo__simbolos, .demo__variaveis, .ui-autocomplete, .toast, .lista, .lista--link, .lista-sem-marcador {
   list-style: none;
   padding-left: 0;
 }
@@ -809,7 +809,7 @@ a {
   color: #00c5cd;
 }
 a:hover {
-  color: #66dce1;
+  color: #40d4da;
 }
 
 p, ul, ol, dl, table, blockquote {
@@ -855,7 +855,7 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
   border-bottom-style: dotted;
 }
 .link--readme:hover, .link--externo:hover, .link--pontilhado:hover {
-  color: #009da4;
+  color: #00949a;
 }
 
 /*
@@ -885,16 +885,16 @@ FORMULÁRIOS | ELEMENTOS COMUM
 }
 .form-texto input::-webkit-input-placeholder, .form-texto textarea::-webkit-input-placeholder {
   text-transform: uppercase;
-  color: #66dce1;
+  color: #40d4da;
 }
 .form-texto input::-moz-placeholder, .form-texto textarea::-moz-placeholder {
   /* Firefox 19+ */
   text-transform: uppercase;
-  color: #66dce1;
+  color: #40d4da;
 }
 .form-texto input:-ms-input-placeholder, .form-texto textarea:-ms-input-placeholder {
   text-transform: uppercase;
-  color: #66dce1;
+  color: #40d4da;
 }
 
 .form__ico, .form-select [class^="ico"] {
@@ -906,12 +906,12 @@ FORMULÁRIOS | ELEMENTOS COMUM
 
 .form__ico {
   cursor: pointer;
-  color: #009da4;
+  color: #00949a;
   background: #fff;
   height: calc(100% - 0.625rem - 1px);
 }
 .form__ico:hover {
-  background: #009da4;
+  background: #00949a;
   color: #fff;
 }
 
@@ -1019,7 +1019,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
   -webkit-order: -1;
   order: -1;
   cursor: pointer;
-  color: #009da4;
+  color: #00949a;
 }
 
 .form-texto, .form-select {
@@ -1031,18 +1031,18 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 }
 
 .form-texto label {
-  border-bottom: 1px dotted #009da4;
+  border-bottom: 1px dotted #00949a;
 }
 .form-texto input, .form-texto textarea {
   border: 0;
-  border-bottom: 1px dotted #009da4;
+  border-bottom: 1px dotted #00949a;
 }
 .form-texto input:focus, .form-texto textarea:focus {
-  border-bottom-color: #002729;
+  border-bottom-color: #003133;
 }
 .form-texto input:focus ~ label, .form-texto textarea:focus ~ label {
-  color: #002729;
-  border-bottom-color: #002729;
+  color: #003133;
+  border-bottom-color: #003133;
 }
 
 .form-texto--label-inverso {
@@ -1063,7 +1063,7 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
   width: 1em;
   height: 1em;
   margin-right: .5em;
-  border: 1px #009da4 solid;
+  border: 1px #00949a solid;
   background: #fff;
   color: transparent;
   content: "\f111";
@@ -1076,8 +1076,8 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
   display: none;
 }
 .form-radio input:checked ~ label::before, .form-checkbox input:checked ~ label::before {
-  border-color: #002729;
-  color: #002729;
+  border-color: #003133;
+  color: #003133;
 }
 .form-radio label, .form-checkbox label {
   -webkit-flex-grow: 1;
@@ -1085,7 +1085,7 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 }
 .form-radio input:checked ~ label, .form-checkbox input:checked ~ label {
   font-weight: bold;
-  color: #002729;
+  color: #003133;
 }
 
 .form-radio label::before {
@@ -1097,7 +1097,7 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 }
 
 .form-radio label, .form-checkbox label {
-  border-bottom: 1px #009da4 dotted;
+  border-bottom: 1px #00949a dotted;
 }
 
 /*
@@ -1125,13 +1125,13 @@ FORMULÁRIOS | SELECT
 }
 
 .form-select select {
-  border-bottom: 1px #009da4 dotted;
+  border-bottom: 1px #00949a dotted;
 }
 .form-select [class^="ico"] {
-  color: #009da4;
+  color: #00949a;
 }
 .form-select label {
-  border-bottom: 1px dotted #009da4;
+  border-bottom: 1px dotted #00949a;
 }
 
 /*
@@ -1158,14 +1158,14 @@ FORMULÁRIO | BOTÕES
   background: #cd5800;
 }
 .bt:hover {
-  background: #a44600;
+  background: #9a4200;
 }
 
 .bt--secundario {
   background: #00c5cd;
 }
 .bt--secundario:hover {
-  background: #009da4;
+  background: #00949a;
 }
 
 .bt--urgente {
@@ -1197,7 +1197,7 @@ FORMULÁRIOS | AUTOCOMPLETE
 .ui-autocomplete {
   position: absolute !important;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border-bottom: 1px dotted #009da4;
+  border-bottom: 1px dotted #00949a;
 }
 .ui-autocomplete li {
   padding: .25em .5em;
@@ -1205,7 +1205,7 @@ FORMULÁRIOS | AUTOCOMPLETE
   background: #fff;
   color: gray;
   font-size: .85em;
-  border-bottom: 1px dotted #85e3e7;
+  border-bottom: 1px dotted #66dde1;
 }
 .ui-autocomplete li:hover {
   color: #000;
@@ -1252,10 +1252,10 @@ td {
 }
 
 .tab tbody tr:nth-child(even), .tab--form tbody tr:nth-child(even) {
-  background: #ccf3f5;
+  background: #bff1f3;
 }
 .tab tbody tr:nth-child(even) .tab__acoes, .tab--form tbody tr:nth-child(even) .tab__acoes {
-  background: #8ce4e8;
+  background: #7fe3e7;
 }
 
 .tab--form tbody tr:nth-child(even) {
@@ -1263,10 +1263,10 @@ td {
 }
 .tab--form td {
   padding: 0 .25em;
-  border-left: 2px solid #66dce1;
+  border-left: 2px solid #40d4da;
 }
 .tab--form td:last-child {
-  border-right: 2px solid #66dce1;
+  border-right: 2px solid #40d4da;
 }
 .tab--form input:not([type="checkbox"]):not([type="radio"]),
 .tab--form textarea,
@@ -1281,20 +1281,20 @@ td {
 .tab--form input:not([type="checkbox"]):not([type="radio"])::-webkit-input-placeholder,
 .tab--form textarea::-webkit-input-placeholder,
 .tab--form select::-webkit-input-placeholder {
-  color: #66dce1;
+  color: #40d4da;
   text-transform: uppercase;
 }
 .tab--form input:not([type="checkbox"]):not([type="radio"])::-moz-placeholder,
 .tab--form textarea::-moz-placeholder,
 .tab--form select::-moz-placeholder {
   /* Firefox 19+ */
-  color: #66dce1;
+  color: #40d4da;
   text-transform: uppercase;
 }
 .tab--form input:not([type="checkbox"]):not([type="radio"]):-ms-input-placeholder,
 .tab--form textarea:-ms-input-placeholder,
 .tab--form select:-ms-input-placeholder {
-  color: #66dce1;
+  color: #40d4da;
   text-transform: uppercase;
 }
 .tab--form input:not([type="checkbox"]):not([type="radio"]):hover, .tab--form input:not([type="checkbox"]):not([type="radio"]):focus,
@@ -1302,23 +1302,23 @@ td {
 .tab--form textarea:focus,
 .tab--form select:hover,
 .tab--form select:focus {
-  border-color: #009da4;
+  border-color: #00949a;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
 }
 
 .tab thead tr, .tab--form thead tr {
   color: #fff;
-  background: #006266;
-  border-bottom: 2px solid #66dce1;
+  background: #006367;
+  border-bottom: 2px solid #40d4da;
 }
 .tab tbody tr, .tab--form tbody tr {
-  border-bottom: 1px solid #66dce1;
+  border-bottom: 1px solid #40d4da;
 }
 .tab tbody tr:nth-child(odd), .tab--form tbody tr:nth-child(odd) {
   color: gray;
 }
 .tab .tab__acoes, .tab--form .tab__acoes {
-  background: #e1f8f9;
+  background: #d4f6f7;
 }
 
 .tab__acoes a, .tab__acoes button {
@@ -1334,7 +1334,7 @@ td {
 }
 
 .tab__acoes a, .tab__acoes button {
-  color: #00494d;
+  color: #004a4e;
 }
 
 .tab__acoes a {
@@ -1389,7 +1389,7 @@ PAGINAÇÃO
 }
 .pagination .gap {
   padding: 0.26rem 0.65rem;
-  color: #a44600;
+  color: #9a4200;
 }
 .pagination a {
   color: #cd5800;
@@ -1441,7 +1441,7 @@ CARD
 }
 
 .card__titulo {
-  background: #006266;
+  background: #006367;
 }
 .card h1 {
   color: #fff;
@@ -1463,7 +1463,7 @@ CARD
   padding: 0.3125rem 0.625rem;
 }
 .card__item--destaque strong {
-  background: #009da4;
+  background: #00949a;
   color: #fff;
 }
 
@@ -1484,10 +1484,10 @@ BREADCRUMBS
   margin-left: .2em;
 }
 .breadcrumbs li {
-  color: #e19b66;
+  color: #da8240;
 }
 .breadcrumbs li:last-child {
-  color: #a44600;
+  color: #9a4200;
   font-weight: bold;
 }
 
@@ -1662,7 +1662,7 @@ MODAL
 .modal .modal__titulo {
   -webkit-align-items: baseline;
   align-items: baseline;
-  background: #009da4;
+  background: #00949a;
 }
 .modal .modal__titulo h1 {
   -webkit-flex-grow: 1;
@@ -1684,7 +1684,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 ================================================================================
 */
 .secao-lista {
-  border: 1px solid #009da4;
+  border: 1px solid #00949a;
 }
 .secao-lista__header {
   padding: 0.3125rem 0.625rem;
@@ -1724,16 +1724,16 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 }
 
 .secao-lista__header {
-  background: #009da4;
+  background: #00949a;
   color: #fff;
 }
 
 .secao-lista__header {
-  background: #ccf3f5;
-  color: #009da4;
+  background: #bff1f3;
+  color: #00949a;
 }
 .secao-lista__conteudo {
-  border-top: 1px dashed #009da4;
+  border-top: 1px dashed #00949a;
 }
 
 /*
@@ -1761,7 +1761,7 @@ LISTA
   border-bottom-width: 0;
 }
 .lista__titulo {
-  background: #006266;
+  background: #006367;
   color: #fff;
 }
 
@@ -1817,7 +1817,7 @@ CLASSES
 .link--readme, .link--externo {
   font-weight: bold;
   font-size: .85em;
-  color: #009da4;
+  color: #00949a;
   text-transform: uppercase;
 }
 .link--readme:hover, .link--externo:hover {
@@ -1873,7 +1873,7 @@ CLASSES
 .lista-definicao dt {
   text-align: right;
   width: 12em;
-  background: #c2f1f3;
+  background: #b3eef0;
   border-radius: 3px 0 0 3px;
 }
 .lista-definicao dt samp {
@@ -2071,7 +2071,7 @@ HEADER
 */
 .header {
   position: fixed;
-  background: #009da4;
+  background: #00949a;
   text-align: center;
   border-bottom: 1px solid #00c5cd;
   box-shadow: 0 0 3px #000;
@@ -2130,7 +2130,7 @@ HEADER
   }
 }
 .menu a {
-  color: #006266;
+  color: #006367;
   font-weight: bold;
   font-size: .9em;
   transition: all 0.5s ease 0s;
@@ -2190,30 +2190,6 @@ CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
 CORES | CLASSE BÁSICA
 --------------------------------------------------------------------------------
 */
-.demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria {
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-align-content: space-between;
-  align-content: space-between;
-}
-.demo__paleta > *, .demo__paleta--basica > *, .demo__paleta--secundaria > * {
-  margin: 0 0.625rem 0.625rem 0;
-  max-width: calc(14.28571% - 0.53571rem);
-  width: calc(14.28571% - 0.53571rem);
-}
-.demo__paleta > *:nth-child(7n), .demo__paleta--basica > *:nth-child(7n), .demo__paleta--secundaria > *:nth-child(7n) {
-  margin-right: 0;
-}
-.demo__paleta li, .demo__paleta--basica li, .demo__paleta--secundaria li {
-  line-height: 1;
-}
-.demo__paleta .cor, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor {
-  width: 100%;
-  height: 45px;
-  display: block;
-  margin-bottom: .2em;
-}
-
 /*
 --------------------------------------------------------------------------------
 CORES | PALETA PADRÃO
@@ -2544,100 +2520,6 @@ CORES | CORES STATUS
 CORES | PALETA
 --------------------------------------------------------------------------------
 */
-.demo__paleta--basica .demo__cor--principal .cor {
-  background: #00c5cd;
-}
-.demo__paleta--basica .demo__cor--principal .funcao {
-  font-weight: bold;
-  font-size: .8em;
-}
-.demo__paleta--basica .demo__cor--principal .funcao::before {
-  content: "paleta(basica)";
-}
-.demo__paleta--basica .demo__cor--clara .cor {
-  background: #66dce1;
-}
-.demo__paleta--basica .demo__cor--clara .funcao::before {
-  content: "paleta(basica, clara)";
-}
-.demo__paleta--basica .demo__cor--x-clara .cor {
-  background: #99e7e1;
-}
-.demo__paleta--basica .demo__cor--x-clara .funcao::before {
-  content: "paleta(basica, x-clara)";
-}
-.demo__paleta--basica .demo__cor--xx-clara .cor {
-  background: #ccf3f5;
-}
-.demo__paleta--basica .demo__cor--xx-clara .funcao::before {
-  content: "paleta(basica, xx-clara)";
-}
-.demo__paleta--basica .demo__cor--escura .cor {
-  background: #009da4;
-}
-.demo__paleta--basica .demo__cor--escura .funcao::before {
-  content: "paleta(basica, escura)";
-}
-.demo__paleta--basica .demo__cor--x-escura .cor {
-  background: #006266;
-}
-.demo__paleta--basica .demo__cor--x-escura .funcao::before {
-  content: "paleta(basica, x-escura)";
-}
-.demo__paleta--basica .demo__cor--xx-escura .cor {
-  background: #002729;
-}
-.demo__paleta--basica .demo__cor--xx-escura .funcao::before {
-  content: "paleta(basica, xx-escura)";
-}
-
-.demo__paleta--secundaria .demo__cor--principal .cor {
-  background: #cd5800;
-}
-.demo__paleta--secundaria .demo__cor--principal .funcao {
-  font-weight: bold;
-  font-size: .8em;
-}
-.demo__paleta--secundaria .demo__cor--principal .funcao::before {
-  content: "paleta(secundaria)";
-}
-.demo__paleta--secundaria .demo__cor--clara .cor {
-  background: #e19b66;
-}
-.demo__paleta--secundaria .demo__cor--clara .funcao::before {
-  content: "paleta(secundaria, clara)";
-}
-.demo__paleta--secundaria .demo__cor--x-clara .cor {
-  background: #e7b799;
-}
-.demo__paleta--secundaria .demo__cor--x-clara .funcao::before {
-  content: "paleta(secundaria, x-clara)";
-}
-.demo__paleta--secundaria .demo__cor--xx-clara .cor {
-  background: #f5decc;
-}
-.demo__paleta--secundaria .demo__cor--xx-clara .funcao::before {
-  content: "paleta(secundaria, xx-clara)";
-}
-.demo__paleta--secundaria .demo__cor--escura .cor {
-  background: #a44600;
-}
-.demo__paleta--secundaria .demo__cor--escura .funcao::before {
-  content: "paleta(secundaria, escura)";
-}
-.demo__paleta--secundaria .demo__cor--x-escura .cor {
-  background: #662c00;
-}
-.demo__paleta--secundaria .demo__cor--x-escura .funcao::before {
-  content: "paleta(secundaria, x-escura)";
-}
-.demo__paleta--secundaria .demo__cor--xx-escura .cor {
-  background: #291200;
-}
-.demo__paleta--secundaria .demo__cor--xx-escura .funcao::before {
-  content: "paleta(secundaria, xx-escura)";
-}
-
 /*
 --------------------------------------------------------------------------------
 CORES | TEMA ESCOLHIDO
@@ -2694,7 +2576,7 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__fundo--claro .cor {
-  background: #66dce1;
+  background: #40d4da;
 }
 .demo__cor__fundo--claro .funcao::before {
   content: "cor(fundo, claro)";
@@ -2708,7 +2590,7 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__fundo--escuro .cor {
-  background: #009da4;
+  background: #00949a;
 }
 .demo__cor__fundo--escuro .funcao::before {
   content: "cor(fundo, escuro)";
@@ -2751,14 +2633,14 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__link--hover .cor {
-  background: #66dce1;
+  background: #40d4da;
 }
 .demo__cor__link--hover .funcao::before {
   content: "cor(link, hover)";
 }
 
 .demo__cor__link--escuro .cor {
-  background: #009da4;
+  background: #00949a;
 }
 .demo__cor__link--escuro .funcao::before {
   content: "cor(link, escuro)";
@@ -2772,7 +2654,7 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__formulario--padrao .cor {
-  background: #009da4;
+  background: #00949a;
 }
 .demo__cor__formulario--padrao .funcao {
   font-weight: bold;
@@ -2783,21 +2665,21 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__formulario--placeholder .cor {
-  background: #66dce1;
+  background: #40d4da;
 }
 .demo__cor__formulario--placeholder .funcao::before {
   content: "cor(formulario, placeholder)";
 }
 
 .demo__cor__formulario--ativo .cor {
-  background: #002729;
+  background: #003133;
 }
 .demo__cor__formulario--ativo .funcao::before {
   content: "cor(formulario, ativo)";
 }
 
 .demo__cor__formulario--fundo .cor {
-  background: #ccf3f5;
+  background: #bff1f3;
 }
 .demo__cor__formulario--fundo .funcao::before {
   content: "cor(formulario, fundo)";
@@ -2815,14 +2697,14 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__botao--claro .cor {
-  background: #f5decc;
+  background: #f3d5bf;
 }
 .demo__cor__botao--claro .funcao::before {
   content: "cor(botao, claro)";
 }
 
 .demo__cor__botao--escuro .cor {
-  background: #a44600;
+  background: #9a4200;
 }
 .demo__cor__botao--escuro .funcao::before {
   content: "cor(botao, escuro)";
@@ -2836,14 +2718,14 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__botao--secundario-claro .cor {
-  background: #ccf3f5;
+  background: #bff1f3;
 }
 .demo__cor__botao--secundario-claro .funcao::before {
   content: "cor(botao, secundario-claro)";
 }
 
 .demo__cor__botao--secundario-escuro .cor {
-  background: #009da4;
+  background: #00949a;
 }
 .demo__cor__botao--secundario-escuro .funcao::before {
   content: "cor(botao, secundario-escuro)";
@@ -2857,28 +2739,28 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__tabela--borda-clara .cor {
-  background: #66dce1;
+  background: #40d4da;
 }
 .demo__cor__tabela--borda-clara .funcao::before {
   content: "cor(tabela, borda-clara)";
 }
 
 .demo__cor__tabela--borda-escura .cor {
-  background: #009da4;
+  background: #00949a;
 }
 .demo__cor__tabela--borda-escura .funcao::before {
   content: "cor(tabela, borda-escura)";
 }
 
 .demo__cor__tabela--fundo .cor {
-  background: #ccf3f5;
+  background: #bff1f3;
 }
 .demo__cor__tabela--fundo .funcao::before {
   content: "cor(tabela, fundo)";
 }
 
 .demo__cor__tabela--titulo .cor {
-  background: #006266;
+  background: #006367;
 }
 .demo__cor__tabela--titulo .funcao::before {
   content: "cor(tabela, titulo)";
@@ -2896,14 +2778,14 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__lista--clara .cor {
-  background: #ccf3f5;
+  background: #bff1f3;
 }
 .demo__cor__lista--clara .funcao::before {
   content: "cor(lista, clara)";
 }
 
 .demo__cor__lista--escura .cor {
-  background: #006266;
+  background: #006367;
 }
 .demo__cor__lista--escura .funcao::before {
   content: "cor(lista, escura)";
@@ -2917,7 +2799,7 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__modal--titulo-fundo .cor {
-  background: #009da4;
+  background: #00949a;
 }
 .demo__cor__modal--titulo-fundo .funcao::before {
   content: "cor(modal, titulo-fundo)";
@@ -2942,28 +2824,28 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__paginacao--clara .cor {
-  background: #e19b66;
+  background: #da8240;
 }
 .demo__cor__paginacao--clara .funcao::before {
   content: "cor(paginacao, clara)";
 }
 
 .demo__cor__paginacao--escura .cor {
-  background: #a44600;
+  background: #9a4200;
 }
 .demo__cor__paginacao--escura .funcao::before {
   content: "cor(paginacao, escura)";
 }
 
 .demo__cor__breadcrumbs--link .cor {
-  background: #e19b66;
+  background: #da8240;
 }
 .demo__cor__breadcrumbs--link .funcao::before {
   content: "cor(breadcrumbs, link)";
 }
 
 .demo__cor__breadcrumbs--atual .cor {
-  background: #a44600;
+  background: #9a4200;
 }
 .demo__cor__breadcrumbs--atual .funcao::before {
   content: "cor(breadcrumbs, atual)";
@@ -2984,21 +2866,21 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__card--titulo .cor {
-  background: #006266;
+  background: #006367;
 }
 .demo__cor__card--titulo .funcao::before {
   content: "cor(card, titulo)";
 }
 
 .demo__cor__card--destaque .cor {
-  background: #009da4;
+  background: #00949a;
 }
 .demo__cor__card--destaque .funcao::before {
   content: "cor(card, destaque)";
 }
 
 .demo__cor__secao-lista--padrao .cor {
-  background: #009da4;
+  background: #00949a;
 }
 .demo__cor__secao-lista--padrao .funcao {
   font-weight: bold;
@@ -3009,7 +2891,7 @@ CORES | TEMA ESCOLHIDO
 }
 
 .demo__cor__secao-lista--clara .cor {
-  background: #ccf3f5;
+  background: #bff1f3;
 }
 .demo__cor__secao-lista--clara .funcao::before {
   content: "cor(secao-lista, clara)";
@@ -3881,7 +3763,7 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   flex: 1;
   height: 4.375rem;
   padding: 1em;
-  background: #d9f6f8;
+  background: #cff4f6;
   margin-bottom: .2em;
   text-align: center;
 }
@@ -3988,14 +3870,14 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   transition: all 0.5s ease 0s;
 }
 .demo__var--transition .caixa:hover {
-  background: #26acb2;
+  background: #26a4a9;
 }
 
 .demo__var--rd .funcao::before {
   content: "$rd";
 }
 .demo__var--rd .caixa {
-  background: #8ce5e9;
+  background: #70dfe3;
   border-radius: 3px;
 }
 
