@@ -446,7 +446,6 @@ $cores-paleta: (
   secundaria,
   // Insira o nome das paletas adicionais aqui
 );
-$tons: (principal, clara, x-clara, xx-clara, escura, x-escura, xx-escura);
 $tema-texto: (padrao, claro, medio, destaque, titulo);
 $tema-fundo: (padrao, claro, x-claro, escuro, sombra);
 $tema-borda: (padrao, variante);
@@ -465,25 +464,25 @@ $tema-secao-lista: (padrao, clara);
 CORES | CLASSE BÁSICA
 --------------------------------------------------------------------------------
 */
-// .demo__paleta {
-//   $qt: 7;
-//   @extend %lista-flex;
-//   @include grupo-flex($qt, rem(10));
-//   li {
-//     line-height: 1;
-//   }
-//   .cor {
-//     width: 100%;
-//     height: 45px;
-//     display: block;
-//     margin-bottom: .2em;
-//   }
-//   @each $paleta, $item in $cores-paleta {
-//     &--#{$paleta} {
-//       @extend .demo__paleta;
-//     }
-//   }
-// }
+.demo__paleta {
+  $qt: 7;
+  @extend %lista-flex;
+  @include grupo-flex($qt, rem(10));
+  li {
+    line-height: 1;
+  }
+  @each $paleta, $item in $cores-paleta {
+    &--#{$paleta} {
+      @extend %lista-flex;
+    }
+  }
+}
+.cor {
+  width: 100%;
+  height: 45px;
+  display: block;
+  margin-bottom: .2em;
+}
 /*
 --------------------------------------------------------------------------------
 CORES | PALETA PADRÃO
@@ -519,24 +518,47 @@ CORES | CORES STATUS
 CORES | PALETA
 --------------------------------------------------------------------------------
 */
-// @each $paleta, $item in $cores-paleta {
-//   .demo__paleta--#{$paleta} {
-//     @each $tom in $tons {
-//       .demo__cor--#{$tom} {
-//         .cor { background: paleta(#{$paleta}, #{$tom}); }
-//         .funcao {
-//           @if $tom == principal {
-//             font-weight: bold;
-//             font-size: .8em;
-//             &::before { content: "paleta(#{$paleta})"; }
-//           } @else {
-//             &::before { content: "paleta(#{$paleta}, #{$tom})"; }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+@each $paleta, $item in $cores-paleta {
+  .demo__paleta--#{$paleta} {
+    .demo__cor--principal {
+      @include flex(2);
+      @include order(1);
+      background: paleta(#{$paleta});
+      .funcao {
+
+      }
+    }
+    $c: 1;
+    @while $c <=10 {
+      $d: $c + 10;
+      $x: $c * 10;
+      $y: 110 - $x;
+      li:nth-child(#{$c}) {
+        @include order(0);
+        background: paleta(#{$paleta}, clara, $y);
+      }
+      li:nth-child(#{$d}) {
+        @include order(2);
+        background: paleta(#{$paleta}, escura, $x);
+      }
+      $c: $c + 1;
+    }
+  }
+}
+.demo__cor {
+  @include flex(1);
+  transition: $transition;
+  &--principal {
+    transition: $transition;
+  }
+  &:hover {
+    @include flex(5);
+    & ~ .demo__cor--principal {
+      @include flex(1);
+    }
+  }
+}
+
 /*
 --------------------------------------------------------------------------------
 CORES | TEMA ESCOLHIDO
