@@ -183,12 +183,12 @@
                   Variáveis e placeholders podem aparecer dentro de uma seção do site no CSS, caso não se repitam em nenhum lugar. Neste caso ficaria assim para facilitar a localização e modificação.
                 </blockquote>
               <h3>Atualização emergencial</h3>
-                <p>Você conhece a situação: você tem que fazer uma alteração <strong class="texto-erro">pra ontem</strong>. Por mais que o objetivo do <strong>Front-Alego™</strong> seja organizar os arquivos, isso pode levar um tempo que não se dispõe. Neste caso haverá uma quebra das regras, temporariamente. Neste caso, siga os passos:</p>
+                <p>Você conhece a situação: você tem que fazer uma alteração <strong class="texto-erro">pra ontem</strong>. Por mais que o objetivo do <strong>Front-Alego™</strong> seja organizar os arquivos, isso pode levar um tempo que não se dispõe. Neste caso haverá uma quebra das regras, temporariamente. Mas mesmo quebrando regras, temos regras, porque aqui não é a Casa da Mãe Joana. Siga os passos:</p>
                 <ol>
                   <li>Crie um arquivo chamado <samp class="arquivo">ajustes.scss</samp> na pasta <samp class="pasta">extras</samp></li>
                   <li>Escreva um comentário indicando para quê é essa alteração e seu nome</li>
                   <li>Escreva as regras. Não tenha medo de usar <samp>!important</samp> e outras regras <strike>escrotas</strike> pouco apropriadas</li>
-                  <li>No final do arquivo principal do seu CSS que a regra tem que ser aplicada dê um importe para o arquivo:
+                  <li>No final do arquivo principal do seu CSS que a regra tem que ser aplicada dê um import para o arquivo:
                     <code class="codigo--sass">
                       <p>@import "extras/ajustes"</p>
                     </code>
@@ -644,104 +644,126 @@
           <header>
             <h1>Grid</h1>
           </header>
-          <p>O sistema de grid foi pensando para escrever a menor quantidade possível de classes no CSS final e também fácil de mudar a quantidade de grids, sem ficar percorrendo o HTML à procura de classes de grid. As grids foram compostas com flexbox. Mesmo que você não utilize as grids, pode fazer uso das classes de <samp>.container</samp>.</p>
-          <p class="texto-erro">Este sistema está sendo depreciado e está aqui para retrocompatibilidade. O flexbox possibilita a formatação bem mais simples disso. Para centralizar o conteúdo (tarefa destinada ao <samp>.container</samp>) basta usar padding e assim evitamos uma <samp>&lt;div&gt;</samp> desnecessária.</p>
-          <h2 id="grid__container">Containers</h2>
-            <p>Estas classes são usadas em algum elemento pai (normalmente <samp>&lt;div&gt;</samp>) para centralizar o conteúdo e determinar que ele é flex. Ele também pode ser usado mesmo que os elementos filhos não façam uso do sistema de grid.</p>
-            <h3>Classes e placeholder de container</h3>
+          <section class="secao-lista">
+            <input type="checkbox" id="grid__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="grid__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>O sistema de grid foi pensando para escrever a menor quantidade possível de classes no CSS final e também fácil de mudar a quantidade de grids, sem ficar percorrendo o HTML à procura de classes de grid. As grids foram compostas com flexbox. Mesmo que você não utilize as grids, pode fazer uso das classes de <samp>.container</samp>.</p>
+              <p class="texto-erro">Este sistema está sendo depreciado e está aqui para retrocompatibilidade. O flexbox possibilita a formatação bem mais simples disso. Para centralizar o conteúdo (tarefa destinada ao <samp>.container</samp>) basta usar padding e assim evitamos uma <samp>&lt;div&gt;</samp> desnecessária.</p>
+              <h2 id="grid__container">Containers</h2>
+              <p>Estas classes são usadas em algum elemento pai (normalmente <samp>&lt;div&gt;</samp>) para centralizar o conteúdo e determinar que ele é flex. Ele também pode ser usado mesmo que os elementos filhos não façam uso do sistema de grid.</p>
+              <h3>Classes e placeholder de container</h3>
               <dl class="lista-definicao">
                 <dt><samp>%container-basico</samp></dt>
-                  <dd>Este é o elemento comum das classes de <samp>.container</samp>. Ela configura o flex, além de deixar como uma caixa no centro. Você pode extender este placeholder para utilizar um <samp>.container</samp> sem ter uma classe a mais para isso.</dd>
+                <dd>Este é o elemento comum das classes de <samp>.container</samp>. Ela configura o flex, além de deixar como uma caixa no centro. Você pode extender este placeholder para utilizar um <samp>.container</samp> sem ter uma classe a mais para isso.</dd>
                 <dt><samp>.container</samp></dt>
-                  <dd>A classe básica de container. Use para as grids que não tenham margem entre si (ficam colada) ou apenas quando você quer centralizar o conteúdo com o tamanho máximo.</dd>
+                <dd>A classe básica de container. Use para as grids que não tenham margem entre si (ficam colada) ou apenas quando você quer centralizar o conteúdo com o tamanho máximo.</dd>
                 <dt><samp>.container--calha</samp></dt>
-                  <dd>Acrescenta espaço horizontal entre os elementos filhos, criando a margem entre as colunas.</dd>
+                <dd>Acrescenta espaço horizontal entre os elementos filhos, criando a margem entre as colunas.</dd>
                 <dt><samp>.container--gutter</samp></dt>
-                  <dd>Igual ao <samp>.container--calha</samp> acima.</dd>
+                <dd>Igual ao <samp>.container--calha</samp> acima.</dd>
               </dl>
-            <h3>Configurando o container</h3>
+              <h3>Configurando o container</h3>
               <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos do container:</p>
               <dl class="lista-definicao">
                 <dt><samp>$uso-classes</samp></dt>
-                  <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes</dd>
+                <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes</dd>
                 <dt><samp>$grid-margem</samp></dt>
-                  <dd>Esta será a medida da margem entre os grids e o padding, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
+                <dd>Esta será a medida da margem entre os grids e o padding, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
                 <dt><samp>$grid-max</samp></dt>
-                  <dd>Determina o tamanho máximo que a o container vai ter. Acima disso ele fica centralizado. <strong>Valor atual</strong>: <samp class="escolha--grid-max"></samp></dd>
+                <dd>Determina o tamanho máximo que a o container vai ter. Acima disso ele fica centralizado. <strong>Valor atual</strong>: <samp class="escolha--grid-max"></samp></dd>
               </dl>
-          <h2 id="grid__grid">Grids</h2>
-            <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de placeholders.</p>
-          <h3>Configurando as grids</h3>
-            <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
-            <dl class="lista-definicao">
-              <dt><samp>$grid-qtd</samp></dt>
+              <h2 id="grid__grid">Grids</h2>
+              <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de placeholders.</p>
+              <h3>Configurando as grids</h3>
+              <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
+              <dl class="lista-definicao">
+                <dt><samp>$grid-qtd</samp></dt>
                 <dd>Determina a quantidade máxima de <samp>%grid-x</samp> criadas. Cada uma delas é equivalente a uma <samp>.grid-x</samp> no modelo clássico de grids. <strong>Valor atual</strong>: <samp class="escolha--grid-qtd"></samp></dd>
-              <dt><samp>$grid-margem</samp></dt>
+                <dt><samp>$grid-margem</samp></dt>
                 <dd>Esta será a medida da margem entre os grids e o padding do container, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
-              <dt><samp>$grid: ();</samp></dt>
+                <dt><samp>$grid: ();</samp></dt>
                 <dd>Neste mapa você vai incluir o nome das classes e a quantidade de grids que ela ocupa. Ver mais detalhes abaixo.</dd>
-            </dl>
-          <h3>Determinando quantas grids o elemento ocupa</h3>
-            <p>Em um sistema de grid tradicional você insere uma classe <samp>grid-x</samp> no elemento que precisa ocupar "x" medidas de grid. Ao invés de trabalhar desta forma, cada elemento receberá um nome de classe conforme explicado seguindo as <a href="#regras" class="link--readme">regras</a>.</p>
-            <p>Depois disso coloque a classe dentro do mapa <samp>$grid</samp> localizado dentro do arquivo <samp class="arquivo">config/+_config</samp> e especifique a quantidade de grids que ela ocuparia.</p>
-            <p>Como exemplo, imagine um layout simples com um menu, uma área principal e uma coluna lateral. O menu ocuparia 2 grids, a área principal 7 grids e a coluna lateral ocuparia 3 grids. Normalmente o código seria:</p>
-            <code class="codigo--html">
-              <header>HTML - grid tradicional</header>
-              <p>&lt;nav class="menu grid-2"&gt; ... &lt;/nav&gt;</p>
-              <p>&lt;div class="principal grid-7"&gt; ... &lt;/div&gt;</p>
-              <p>&lt;aside class="lateral grid-3"&gt; ... &lt;/aside&gt;</p>
-            </code>
-            <p>Com o sistema de grid usado no Front-Alego, ficaria:</p>
-            <code class="codigo--html">
-              <header>HTML</header>
-              <p>&lt;nav class="menu"&gt; ... &lt;/nav&gt;</p>
-              <p>&lt;div class="principal"&gt; ... &lt;/div&gt;</p>
-              <p>&lt;aside class="lateral"&gt; ... &lt;/aside&gt;</p>
-            </code>
-            <code class="codigo--sass">
-              <header>SASS</header>
-              <p>$grid: (</p>
-              <p class="recuo-1">menu: 2,</p>
-              <p class="recuo-1">principal: 7,</p>
-              <p class="recuo-1">lateral: 3,</p>
-              <p>)</p>
-            </code>
-            <p>Ao compiltar o CSS, o SASS vai aplicar os placeholders em cada uma das classes.</p>
+              </dl>
+              <h3>Determinando quantas grids o elemento ocupa</h3>
+              <p>Em um sistema de grid tradicional você insere uma classe <samp>grid-x</samp> no elemento que precisa ocupar "x" medidas de grid. Ao invés de trabalhar desta forma, cada elemento receberá um nome de classe conforme explicado seguindo as <a href="#regras" class="link--readme">regras</a>.</p>
+              <p>Depois disso coloque a classe dentro do mapa <samp>$grid</samp> localizado dentro do arquivo <samp class="arquivo">config/+_config</samp> e especifique a quantidade de grids que ela ocuparia.</p>
+              <p>Como exemplo, imagine um layout simples com um menu, uma área principal e uma coluna lateral. O menu ocuparia 2 grids, a área principal 7 grids e a coluna lateral ocuparia 3 grids. Normalmente o código seria:</p>
+              <code class="codigo--html">
+                <header>HTML - grid tradicional</header>
+                <p>&lt;nav class="menu grid-2"&gt; ... &lt;/nav&gt;</p>
+                <p>&lt;div class="principal grid-7"&gt; ... &lt;/div&gt;</p>
+                <p>&lt;aside class="lateral grid-3"&gt; ... &lt;/aside&gt;</p>
+              </code>
+              <p>Com o sistema de grid usado no Front-Alego, ficaria:</p>
+              <code class="codigo--html">
+                <header>HTML</header>
+                <p>&lt;nav class="menu"&gt; ... &lt;/nav&gt;</p>
+                <p>&lt;div class="principal"&gt; ... &lt;/div&gt;</p>
+                <p>&lt;aside class="lateral"&gt; ... &lt;/aside&gt;</p>
+              </code>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>$grid: (</p>
+                <p class="recuo-1">menu: 2,</p>
+                <p class="recuo-1">principal: 7,</p>
+                <p class="recuo-1">lateral: 3,</p>
+                <p>)</p>
+              </code>
+              <p>Ao compiltar o CSS, o SASS vai aplicar os placeholders em cada uma das classes.</p>
+            </section>
+          </section>
         </article>
 
         <article id="z-index">
           <header><h1>z-index</h1></header>
           <p><samp class="arquivo">config/z-index.scss</samp></p>
-          <p>Nunca use <samp>z-index</samp> diretamente no CSS, pois isso deixa a manutenção ruim, além de usarmos números aleatórios (como o clássico <samp>z-index: 99999;</samp>).</p>
-          <p>No arquivo <samp class="arquivo">z-index</samp> você vai inserir os elementos com os nomes dele. Para isso inclua os elementos no mapa <samp>$z</samp>. A ordem que os elementos aparecem é o valor do z-index. O primeiro elemento vai receber <samp>z-index: 1</samp> e assim por diante. O mapa já vem com alguns elementos pensando nessa ordem:</p>
-          <code class="codigo--sass">
-            <header>SASS</header>
-            <p>$z: (</p>
-              <p class="recuo-1">conteudo,</p>
-              <p class="recuo-1">rodape,</p>
-              <p class="recuo-1">topo,</p>
-              <p class="recuo-1">modal,</p>
-              <p class="recuo-1">toaster,</p>
-            <p>);</p>
-          </code>
-          <p>No entanto, colocar estes elementos não basta, você deve indicar no seletor qual o nível que ele ocupa. Para isso, chama através da função <samp>z()</samp>. Dentro do parênteses você coloca o mesmo nome do elemento do mapa <samp>$z</samp>. Por exemplo:</p>
-          <code class="codigo--sass">
-            <header>SASS</header>
-            <p>.header {</p>
-              <p class="recuo-1">...</p>
-              <p class="recuo-1">z(topo);</p>
-              <p class="recuo-1">...</p>
-            <p>}</p>
-          </code>
-          <p>Se você olhar no mapa <samp>$z</samp>, vai perceber que <samp>topo</samp> é o terceiro elemento, o que resulta no seguinte CSS:</p>
-          <code class="codigo--css">
-            <header>CSS</header>
-            <p>.header {</p>
-              <p class="recuo-1">...</p>
-              <p class="recuo-1">z-index: 3;</p>
-              <p class="recuo-1">...</p>
-            <p>}</p>
-          </code>
+          <section class="secao-lista">
+            <input type="checkbox" id="z-index__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="z-index__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Nunca use <samp>z-index</samp> diretamente no CSS, pois isso deixa a manutenção ruim, além de usarmos números aleatórios (como o clássico <samp>z-index: 99999;</samp>).</p>
+              <p>No arquivo <samp class="arquivo">z-index</samp> você vai inserir os elementos com os nomes dele. Para isso inclua os elementos no mapa <samp>$z</samp>. A ordem que os elementos aparecem é o valor do z-index. O primeiro elemento vai receber <samp>z-index: 1</samp> e assim por diante. O mapa já vem com alguns elementos pensando nessa ordem:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>$z: (</p>
+                <p class="recuo-1">conteudo,</p>
+                <p class="recuo-1">rodape,</p>
+                <p class="recuo-1">topo,</p>
+                <p class="recuo-1">modal,</p>
+                <p class="recuo-1">toaster,</p>
+                <p>);</p>
+              </code>
+              <p>No entanto, colocar estes elementos não basta, você deve indicar no seletor qual o nível que ele ocupa. Para isso, chama através da função <samp>z()</samp>. Dentro do parênteses você coloca o mesmo nome do elemento do mapa <samp>$z</samp>. Por exemplo:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.header {</p>
+                  <p class="recuo-1">...</p>
+                  <p class="recuo-1">z(topo);</p>
+                  <p class="recuo-1">...</p>
+                  <p>}</p>
+                </code>
+                <p>Se você olhar no mapa <samp>$z</samp>, vai perceber que <samp>topo</samp> é o terceiro elemento, o que resulta no seguinte CSS:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.header {</p>
+                    <p class="recuo-1">...</p>
+                    <p class="recuo-1">z-index: 3;</p>
+                    <p class="recuo-1">...</p>
+                    <p>}</p>
+                  </code>
+            </section>
+          </section>
         </article>
 
         <article id="tipografia">
@@ -749,68 +771,144 @@
             <h1>Tipografia</h1>
             <p><span class="arquivo">config/_tipografia.scss</span></p>
           </header>
-          <p>Este arquivo contém a configuração básica dos elementos tipográficos, incluindo variações.</p>
-          <blockquote class="aviso--grave">
-            Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>&lt;.artigo-padrao h1&gt;</samp>)
-          </blockquote>
-          <h2 id="tipografia__fontes">Chamando fontes</h2>
-            <p>Dentro do arquivo <samp class="arquivo">base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
-            <dl class="lista-definicao">
-              <dt><samp>$fonte-serifa</samp></dt>
+          <section class="secao-lista">
+            <input type="checkbox" id="tipografia__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="tipografia__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Este arquivo contém a configuração básica dos elementos tipográficos, incluindo variações.</p>
+              <blockquote class="aviso--grave">
+                Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>&lt;.artigo-padrao h1&gt;</samp>)
+              </blockquote>
+              <h2 id="tipografia__fontes">Chamando fontes</h2>
+              <p>Dentro do arquivo <samp class="arquivo">base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
+              <dl class="lista-definicao">
+                <dt><samp>$fonte-serifa</samp></dt>
                 <dd>Fonte com serifa: variação da Patua One</dd>
-              <dt><samp>$fonte-sem-serifa</samp></dt>
+                <dt><samp>$fonte-sem-serifa</samp></dt>
                 <dd>Fonte sem serifa: OpenSans</dd>
-              <dt><samp>$fonte-monoespacada</samp></dt>
+                <dt><samp>$fonte-monoespacada</samp></dt>
                 <dd>Fonte monoespaçada: Consolas</dd>
-              <dt><samp>$fonte-simbolo</samp></dt>
+                <dt><samp>$fonte-simbolo</samp></dt>
                 <dd>Fonte de símbolos da Assembleia</dd>
-            </dl>
-          <h2 id="tipografia__variaveis">Variáveis</h2>
-            <p>As três primeiras variáveis determinam configurações básicas do texto:</p>
-            <dl class="lista-definicao">
-              <dt><samp>$fonte-titulo</samp></dt>
+              </dl>
+              <h2 id="tipografia__variaveis">Variáveis</h2>
+              <p>As três primeiras variáveis determinam configurações básicas do texto:</p>
+              <dl class="lista-definicao">
+                <dt><samp>$fonte-titulo</samp></dt>
                 <dd>Qual a fonte padrão para os títulos do sistema. Por padrão é a <samp>$fonte-serifa</samp></dd>
-              <dt><samp>$margem-bloco-titulo</samp></dt>
+                <dt><samp>$margem-bloco-titulo</samp></dt>
                 <dd>Define a margem dos títulos <samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp></dd>
-              <dt><samp>$margem-bloco-texto</samp></dt>
+                <dt><samp>$margem-bloco-texto</samp></dt>
                 <dd>Define a margem dos elementos de texto e similares. Incluindo tabelas e listas</dd>
-            </dl>
-            <p>As três variáveis seguintes determinam o tamanho do texto baseado no <samp>modular-scale</samp> do <a href="http://bourbon.io/docs/#modular-scale" class="link--externo">Bourbon</a>.</p>
-            <dl class="lista-definicao">
-              <dt><samp>$modular-scale-ratio</samp></dt>
+              </dl>
+              <p>As três variáveis seguintes determinam o tamanho do texto baseado no <samp>modular-scale</samp> do <a href="http://bourbon.io/docs/#modular-scale" class="link--externo">Bourbon</a>.</p>
+              <dl class="lista-definicao">
+                <dt><samp>$modular-scale-ratio</samp></dt>
                 <dd>Modifica o valor padrão estabelecido pelo Bourbon.</dd>
-              <dt><samp>$modular-font-size</samp></dt>
+                <dt><samp>$modular-font-size</samp></dt>
                 <dd>O tamanho base a ser usado pelo <samp>modular-scale()</samp></dd>
-              <dt><samp>$tamanho-fonte-textos</samp></dt>
+                <dt><samp>$tamanho-fonte-textos</samp></dt>
                 <dd>A variação do tamanho de texto padrão (inclui tabelas e listas) baseado no <samp>modular-scale()</samp></dd>
-            </dl>
-          <h2 id="tipografia__basica">Formatação básica/padrão</h2>
-            <p>Você pode ver a formatação aplicada <a href="elementos.html#tipografia" class="link--readme">aqui</a>.</p>
-            <p>Os tags básicos são alterados neste arquivo. Basicamente temos tamanho de fonte, margem, entrelinha, família e as <a href="#cores" class="link--readme">cores</a> dos elementos determinados pelo tema.</p>
-          <h2 id="tipografia__alterada">Formatação personalizada</h2>
-            <p>Para ver a formatação aplicada <a href="elementos.html#tipografia--modificada" class="link--readme">aqui</a>.</p>
-            <p>Sempre que for criar estilos mais personalizados (como com uso de bordas e sombras), procure utilizar classes ou seletores descendentes (lembre-se de não abusar de elementos descendentes. Mantenha a regra de no máximo um nível).</p>
-            <p>O arquivo já tem alguns placeholders prontos para uso. Use-os como modelo ou modifique-os.</p>
-            <h3>Placeholders padrão</h3>
+              </dl>
+              <h2 id="tipografia__basica">Formatação básica/padrão</h2>
+              <p>Os tags básicos são alterados neste arquivo. Basicamente temos tamanho de fonte, margem, entrelinha, família e as <a href="#cores" class="link--readme">cores</a> dos elementos determinados pelo tema.</p>
+              <h2 id="tipografia__alterada">Formatação personalizada</h2>
+              <p>Sempre que for criar estilos mais personalizados (como com uso de bordas e sombras), procure utilizar classes ou seletores descendentes (lembre-se de não abusar de elementos descendentes. Mantenha a regra de no máximo um nível).</p>
+              <p>O arquivo já tem alguns placeholders prontos para uso. Use-os como modelo ou modifique-os.</p>
+              <h3>Placeholders padrão</h3>
               <p>Estes dois placeholders são padrão e afetam os elementos mais básicos. Altere apenas o necessário (que já são as propriedades que já aparecem aqui):</p>
               <dl class="lista-definicao">
                 <dt><samp>%texto-padrao</samp></dt>
-                  <dd>Configurações básicas do corpo de texto, listas e tabelas.</dd>
+                <dd>Configurações básicas do corpo de texto, listas e tabelas.</dd>
                 <dt><samp>%texto-titulo</samp></dt>
-                  <dd>Configuração básica do texto dos títulos.</dd>
+                <dd>Configuração básica do texto dos títulos.</dd>
               </dl>
-            <h3>Demais placeholders</h3>
+              <h3>Demais placeholders</h3>
               <p>Estes são placeholders para usar em classes ou seletores descedentes que formatam.</p>
               <dl class="lista-definicao">
                 <dt><samp>%titulo--borda</samp></dt>
-                  <dd>Aplica uma borda na parte inferior do título, que fica com a mesma cor do texto.</dd>
+                <dd>Aplica uma borda na parte inferior do título, que fica com a mesma cor do texto.</dd>
                 <dt><samp>%link--sem-sublinhado</samp></dt>
-                  <dd>Tira o sublinhado do link e aplica quando passa ou mouse por cima</dd>
+                <dd>Tira o sublinhado do link e aplica quando passa ou mouse por cima</dd>
                 <dt><samp>%link--borda</samp></dt>
-                  <dd>Tira o sublinhado e substitui por uma borda fina e cinza. Quando passa o mouse por cima, o sublinhado fica da cor do link (que não muda de cor).</dd>
+                <dd>Tira o sublinhado e substitui por uma borda fina e cinza. Quando passa o mouse por cima, o sublinhado fica da cor do link (que não muda de cor).</dd>
                 <dt><samp>%link--pontilhado</samp></dt>
-                  <dd>Igual ao de cima, mas com a diferença que a borda é pontilhada e o link escurece ao passar por cima</dd>
+                <dd>Igual ao de cima, mas com a diferença que a borda é pontilhada e o link escurece ao passar por cima</dd>
               </dl>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="tipografia__demo--basica" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="tipografia__demo--basica">
+                <span class="secao-lista__titulo">Demonstração | Tipografia Básica</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <header><h1>Tipografia básica (sem classes/placeholders)</h1></header>
+              <h1>h1. Lorem ipsum dolor sit amet</h1>
+              <h2>h2. Lorem ipsum dolor sit amet</h2>
+              <h3>h3. Lorem ipsum dolor sit amet</h3>
+              <h4>h4. Lorem ipsum dolor sit amet</h4>
+              <h5>h5. Lorem ipsum dolor sit amet</h5>
+              <h6>h6. Lorem ipsum dolor sit amet</h6>
+              <p>
+                <strong>Parágrafo comum.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <ul>
+                <li>Lista</li>
+                <li>Lista</li>
+              </ul>
+              <ol>
+                <li>Lista</li>
+                <li>Lista</li>
+              </ol>
+              <p>
+                <strong>Negrito</strong>. <em>Empashis (itálico)</em>. <u>Sublinhado</u>. <a href="al.go.leg.br" target="_blank">Link padrão</a>
+              </p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="tipografia__demo--modificada" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="tipografia__demo--modificada">
+                <span class="secao-lista__titulo">Demonstração | Tipografia Modificada</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <header><h1>Tipografia modificada (com classes/placeholders)</h1></header>
+              <main>
+                <h1 class="titulo-borda">h1. %titulo--borda</h1>
+                <p><a href="al.go.leg.br" class="link--sem-sublinhado">%link--sem-sublinhado</a></p>
+                <p><a href="al.go.leg.br" class="link--borda">%link--borda</a></p>
+                <p><a href="al.go.leg.br" class="link--pontilhado">%link--pontilhado</a></p>
+                <p>Tamanho padrão</p>
+                <p><samp>.fonte--menor</samp> <span class="fonte--menor">Tamanho menor</span></p>
+                <p><samp>.fonte--x-menor</samp> <span class="fonte--x-menor">Tamanho x-menor</span></p>
+                <p><samp>.fonte--xx-menor</samp> <span class="fonte--xx-menor">Tamanho xx-menor</span></p>
+                <p><samp>.fonte--maior</samp> <span class="fonte--maior">Tamanho maior</span></p>
+                <p><samp>.fonte--x-maior</samp> <span class="fonte--x-maior">Tamanho x-maior</span></p>
+                <p><samp>.fonte--xx-maior</samp> <span class="fonte--xx-maior">Tamanho xx-maior</span></p>
+                <p><samp>.texto--caixa-alta</samp> <span class="texto--caixa-alta">Texto modificado para caixa alta</span></p>
+                <p><samp>.texto--ok</samp> <span class="texto--ok">Texto ok</span></p>
+                <p><samp>.texto--erro</samp> <span class="texto--erro">Texto erro</span></p>
+                <p><samp>.texto--alerta</samp> <span class="texto--alerta">Texto alerta</span></p>
+                <p><samp>.fundo--ok</samp> <span class="fundo--ok">Fundo ok</span></p>
+                <p><samp>.fundo--erro</samp> <span class="fundo--erro">Fundo erro</span></p>
+                <p><samp>.fundo--alerta</samp> <span class="fundo--alerta">Fundo alerta</span></p>
+                <ul class="lista-sem-marcador">
+                  <li>Lista sem marcadores</li>
+                  <li>Lista sem marcadores</li>
+                </ul>
+            </section>
+          </section>
         </article>
 
         <article id="simbolos">
@@ -818,18 +916,158 @@
             <h1>Símbolos</h1>
             <p><samp class="arquivo">config/_simbolos.scss</samp></p>
           </header>
-          <p>Este arquivo contém todos os símbolos usados no Front-Alego e classe para uso com eles.</p>
-          <h2 id="simbolos__icones">Lista de Ícones</h2>
-            <p>O mapa <samp>$icones</samp> lista todos os ícones usados. Para acrescentar um novo olhe o ícone na lista de ícones da fonte e crie o nome da classe. Siga o padrão de organização (sempre em ordem alfabética e cada letra separada por espaços).</p>
-            <p><strong class="texto--erro">Tamanho do arquivo:</strong> este arquivo gera um CSS final imenso pois cada símbolo no mapa cria-se 4 linhas de CSS. Quando for fazer sites externos, a recomendação é comentar os símbolos não usados (com <samp>//</samp>) e deixar o arquivo menor. Um comentário ao lado do símbolo mostra quais são as classes estão sempre em uso, não comente essas.</p>
-          <h2 id="simbolos__classes">Classes</h2>
-          <p><a href="elementos.html#simbolos" class="link--readme">Veja a lista completa de ícones.</a> <span class="texto--erro">Ícones comentados deixarão um quadrado vazio e se você criar novos ícones, abra o arquivo elementos.html e insira manualmente.</span></p>
-          <dl class="lista-definicao">
-            <dt><samp>.ico-</samp></dt>
-              <dd>Todo ícone começa com <samp>.ico-</samp>. O nome que aparece depois do <samp>.ico-</samp> é o mesmo que aparece no mapa <samp>$icones</samp> (por exemplo: <samp>.ico-pdf</samp>).</dd>
-            <dt><samp>.ico--espaco</samp></dt>
-              <dd>Acrescenta um espaço antes do ícone (para quando você usa um texto dentro do <samp>&lt;span&gt;</samp>)</dd>
-          </dl>
+          <section class="secao-lista">
+            <input type="checkbox" id="simbolos__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="simbolos__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Este arquivo contém todos os símbolos usados no Front-Alego e classe para uso com eles.</p>
+              <h2 id="simbolos__icones">Lista de Ícones</h2>
+              <p>O mapa <samp>$icones</samp> lista todos os ícones usados. Para acrescentar um novo olhe o ícone na lista de ícones da fonte e crie o nome da classe. Siga o padrão de organização (sempre em ordem alfabética e cada letra separada por espaços).</p>
+              <p><strong class="texto--erro">Tamanho do arquivo:</strong> este arquivo gera um CSS final imenso pois cada símbolo no mapa cria-se 4 linhas de CSS. Quando for fazer sites externos, a recomendação é comentar os símbolos não usados (com <samp>//</samp>) e deixar o arquivo menor. Um comentário ao lado do símbolo mostra quais são as classes estão sempre em uso, não comente essas.</p>
+              <h2 id="simbolos__classes">Classes</h2>
+              <dl class="lista-definicao">
+                <dt><samp>.ico-</samp></dt>
+                <dd>Todo ícone começa com <samp>.ico-</samp>. O nome que aparece depois do <samp>.ico-</samp> é o mesmo que aparece no mapa <samp>$icones</samp> (por exemplo: <samp>.ico-pdf</samp>).</dd>
+                <dt><samp>.ico--espaco</samp></dt>
+                <dd>Acrescenta um espaço antes do ícone (para quando você usa um texto dentro do <samp>&lt;span&gt;</samp>)</dd>
+              </dl>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="simbolo__demo" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="simbolo__demo">
+                <span class="secao-lista__titulo">Demonstração | Ícones utilizados</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Se quiser ver mais símbolos, abra o <samp class="arquivo">read-me/elementos.html</samp> acrescente no final da lista as classes que você criou. Os "buracos" que aparecerem é por que a classe foi retirada do CSS por performance, mas continuou no HTML</p>
+              <ul class="demo__simbolos">
+                <li class="demo__ico-abrir"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-adicionar"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-ajuda"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-apontando"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-asterisco"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-aviso-destaque"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-cadeado-aberto"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-cadeado-fechado"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-cadeado"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-calendario"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-calendario-2"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-calendario-3"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-carregando"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-casa"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-celular"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-chat"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-chat-2"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-chat-3"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-chat-4"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-chave"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-clipe"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-cone-seguranca"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-cracha"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-curtir"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-descurtir"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-desligar"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-documento"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-documento-2"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-download"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-engrenagem"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-envelope"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-equipe"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-erro"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-estrela-metade"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-estrela-vazia"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-estrela"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-facebook"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-fechar"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-ferramentas"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-figura"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-filtro"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-foto"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-globo"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-google-mais"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-grafico-barra"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-grafico-linha"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-grafico-pizza"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-impressora"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-info"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-janela-up"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-janela"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-lampada"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-lapis"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-link"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-livro"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-lixo"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-lixo-2"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-local"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-lupa"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-mais"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-megafone"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-menos"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-monitor"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-nao-ok"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-novo"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-ok-tique"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-ok"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-olho-fechado"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-olho"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-ordenar-baixo"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-ordenar-cima"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-ordenar"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-pasta"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-pdf"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-pessoa"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-pessoa-2"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-pessoa-3"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-prancheta"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-proibido"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-relogio"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-sair"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-salvar"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-baixo"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-cima"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-direita"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-esquerda"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-direita-dupla"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-esquerda-dupla"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-baixo-fina"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-cima-fina"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-direita-fina"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-seta-esquerda-fina"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-tabela"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-tablet"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-teclado"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-telefone"><span class="icone"></span><span class="funcao"></span></li>
+                <li class="demo__ico-twitter"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-x"><span class="icone"></span><span class="funcao"></span></li>
+
+                <li class="demo__ico-zip"><span class="icone"></span><span class="funcao"></span></li>
+              </ul>
+            </section>
+          </section>
         </article>
 
         <article id="variaveis">
@@ -837,49 +1075,89 @@
             <h1>Variáveis</h1>
             <p><samp class="arquivo">config/_variaveis.scss</samp></p>
           </header>
-          <p><a href="elementos.html#variaveis">Veja as variáveis aplicadas (exceto margens).</a></p>
-          <p>Todas as variáveis globais do sistema devem ficar neste arquivo. Ele já vem com um conjunto de variáveis prontas para uso, bastando modificar conforme a necessidade do sistema. Note que diversas delas já estão, inclusive, sendo usadas (por exemplo: <samp>$sombra-modal</samp>).</p>
-          <dl class="lista-definicao">
-            <dt><samp>$sombra-nenhuma</samp></dt>
-              <dd><samp class="codigo-sombra-nenhuma"></samp>. Use para eliminar a sombra do elemento (exemplo: o estágio hover de um botão).</dd>
-            <dt><samp>$sombra-padrao</samp></dt>
-              <dd><samp class="codigo-sombra-padrao"></samp>. Use como padrão.</dd>
-            <dt><samp>$sombra-simples</samp></dt>
-              <dd><samp class="codigo-sombra-simples"></samp>. Sombra mais discreta para caixas.</dd>
-            <dt><samp>$sombra-difusa</samp></dt>
-              <dd><samp class="codigo-sombra-difusa"></samp></dd>
-            <dt><samp>$sombra-texto</samp></dt>
-              <dd><samp class="codigo-sombra-texto"></samp>. Use no texto.</dd>
-            <dt><samp>$sombra-texto-relevo</samp></dt>
-              <dd><samp class="codigo-sombra-texto-relevo"></samp>. Use no texto para fazer o efeito de relevo.</dd>
-            <dt><samp>$sombra-card</samp></dt>
-              <dd><samp class="codigo-sombra-card"></samp></dd>
-            <dt><samp>$sombra-modal</samp></dt>
-              <dd><samp class="codigo-sombra-modal"></samp></dd>
-            <dt><samp>$sombra-toaster</samp></dt>
-              <dd><samp class="codigo-sombra-toaster"></samp></dd>
-            <dt><samp>$sombra-botao</samp></dt>
-              <dd><samp class="codigo-sombra-botao"></samp></dd>
-            <dt><samp>%borda-nenhuma</samp></dt>
-              <dd><samp class="codigo-borda-nenhuma"></samp>. Retira a borda do elemento.</dd>
-            <dt><samp>$borda-padrao</samp></dt>
-              <dd><samp class="codigo-borda-padrao"></samp>. A borda padrão dos elementos.</dd>
-            <dt><samp>$borda-variante</samp></dt>
-              <dd><samp class="codigo-borda-variante"></samp>. Borda variante (com a outra cor de borda)</dd>
-            <dt><samp>$calha</samp></dt>
-              <dd><samp class="codigo-calha"></samp>. A variável <samp>$grid-margem</samp> foi definida em grid e é <samp class="codigo-grid-margem"></samp>. Use para dar espaço entre os elementos.</dd>
-            <dt><samp>$margem</samp></dt>
-              <dd><samp class="codigo-margem"></samp>. Use esta variável como margem padrão dos elementos, gereando consistência. Se necessário use multiplicadores para valores maior (exemplo: <samp>margin: $margem * 2;</samp>)</dd>
-            <dt><samp>$transition</samp></dt>
-              <dd><samp class="codigo-transition"></samp>. Animação de transição básica</dd>
-            <dt><samp>$rd</samp></dt>
-              <dd><samp class="codigo-rd"></samp>. Use como raio de arredondamento padrão (em <samp>border-radius</samp>). Esta variável tem o nome menos semântico para facilitar na escrita.</dd>
-          </dl>
+          <section class="secao-lista">
+            <input type="checkbox" id="variaveis__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="variaveis__doc">
+                <span class="secao-lista__titulo">Documentacão</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Todas as variáveis globais do sistema devem ficar neste arquivo. Ele já vem com um conjunto de variáveis prontas para uso, bastando modificar conforme a necessidade do sistema. Note que diversas delas já estão, inclusive, sendo usadas (por exemplo: <samp>$sombra-modal</samp>).</p>
+              <dl class="lista-definicao">
+                <dt><samp>$sombra-nenhuma</samp></dt>
+                <dd><samp class="codigo-sombra-nenhuma"></samp>. Use para eliminar a sombra do elemento (exemplo: o estágio hover de um botão).</dd>
+                <dt><samp>$sombra-padrao</samp></dt>
+                <dd><samp class="codigo-sombra-padrao"></samp>. Use como padrão.</dd>
+                <dt><samp>$sombra-simples</samp></dt>
+                <dd><samp class="codigo-sombra-simples"></samp>. Sombra mais discreta para caixas.</dd>
+                <dt><samp>$sombra-difusa</samp></dt>
+                <dd><samp class="codigo-sombra-difusa"></samp></dd>
+                <dt><samp>$sombra-texto</samp></dt>
+                <dd><samp class="codigo-sombra-texto"></samp>. Use no texto.</dd>
+                <dt><samp>$sombra-texto-relevo</samp></dt>
+                <dd><samp class="codigo-sombra-texto-relevo"></samp>. Use no texto para fazer o efeito de relevo.</dd>
+                <dt><samp>$sombra-card</samp></dt>
+                <dd><samp class="codigo-sombra-card"></samp></dd>
+                <dt><samp>$sombra-modal</samp></dt>
+                <dd><samp class="codigo-sombra-modal"></samp></dd>
+                <dt><samp>$sombra-toaster</samp></dt>
+                <dd><samp class="codigo-sombra-toaster"></samp></dd>
+                <dt><samp>$sombra-botao</samp></dt>
+                <dd><samp class="codigo-sombra-botao"></samp></dd>
+                <dt><samp>%borda-nenhuma</samp></dt>
+                <dd><samp class="codigo-borda-nenhuma"></samp>. Retira a borda do elemento.</dd>
+                <dt><samp>$borda-padrao</samp></dt>
+                <dd><samp class="codigo-borda-padrao"></samp>. A borda padrão dos elementos.</dd>
+                <dt><samp>$borda-variante</samp></dt>
+                <dd><samp class="codigo-borda-variante"></samp>. Borda variante (com a outra cor de borda)</dd>
+                <dt><samp>$calha</samp></dt>
+                <dd><samp class="codigo-calha"></samp>. A variável <samp>$grid-margem</samp> foi definida em grid e é <samp class="codigo-grid-margem"></samp>. Use para dar espaço entre os elementos.</dd>
+                <dt><samp>$margem</samp></dt>
+                <dd><samp class="codigo-margem"></samp>. Use esta variável como margem padrão dos elementos, gereando consistência. Se necessário use multiplicadores para valores maior (exemplo: <samp>margin: $margem * 2;</samp>)</dd>
+                <dt><samp>$transition</samp></dt>
+                <dd><samp class="codigo-transition"></samp>. Animação de transição básica</dd>
+                <dt><samp>$rd</samp></dt>
+                <dd><samp class="codigo-rd"></samp>. Use como raio de arredondamento padrão (em <samp>border-radius</samp>). Esta variável tem o nome menos semântico para facilitar na escrita.</dd>
+              </dl>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="variaveis__demo" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="variaveis__demo">
+                <span class="secao-lista__titulo">Demonstração</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Apesar de ter sido usado uma caixa para demonstrar as variáveis, elas podem ser usadas em outros elementos (como texto, por exemplo).</p>
+              <p>A variável <samp>$calha</samp> está sendo aplicada como espaço horizontal entre os elementos abaixo.</p>
+              <ul class="demo__variaveis">
+                <li class="demo__var--sombra-nenhuma"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-padrao"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-simples"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-difusa"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-texto"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-texto-relevo"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-card"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-modal"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-toaster"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--sombra-botao"><span class="caixa"></span><span class="funcao"></span></li>
+
+                <li class="demo__var--borda-nenhuma"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--borda-padrao"><span class="caixa"></span><span class="funcao"></span></li>
+                <li class="demo__var--borda-variante"><span class="caixa"></span><span class="funcao"></span></li>
+
+                <li class="demo__var--transition"><span class="caixa">passe o mouse</span><span class="funcao"></span></li>
+
+                <li class="demo__var--rd"><span class="caixa"></span><span class="funcao"></span></li>
+              </ul>
+            </section>
+          </section>
         </article>
-
       </section>
-
     </main>
-
   </body>
 </html>
