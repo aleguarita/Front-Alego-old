@@ -162,7 +162,7 @@ FONTES
 PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 ================================================================================
 */
-.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__variaveis li {
+.breadcrumbs, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor, .demo__variaveis li {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -2064,6 +2064,14 @@ CLASSES
   content: "3px";
 }
 
+.codigo-paleta--basica::before {
+  content: "basica";
+}
+
+.codigo-paleta--secundaria::before {
+  content: "secundaria";
+}
+
 /*
 ================================================================================
 HEADER
@@ -2547,236 +2555,440 @@ CORES | PALETA
 --------------------------------------------------------------------------------
 */
 .demo__paleta--basica .demo__cor--principal {
-  -webkit-flex: 2;
-  flex: 2;
+  -webkit-flex: 5;
+  flex: 5;
   -webkit-order: 1;
   order: 1;
   background: #00c5cd;
+}
+.demo__paleta--basica .demo__cor--principal .funcao {
+  font-size: 0.8em;
+}
+.demo__paleta--basica .demo__cor--principal .funcao::before {
+  content: "paleta(basica)";
 }
 .demo__paleta--basica li:nth-child(1) {
   -webkit-order: 0;
   order: 0;
   background: white;
 }
+.demo__paleta--basica li:nth-child(1) .funcao::before {
+  content: "paleta(basica, clara, 100)";
+}
 .demo__paleta--basica li:nth-child(11) {
   -webkit-order: 2;
   order: 2;
   background: #00b1b9;
+}
+.demo__paleta--basica li:nth-child(11) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(11) .funcao::before {
+  content: "paleta(basica, escura, 100)";
 }
 .demo__paleta--basica li:nth-child(2) {
   -webkit-order: 0;
   order: 0;
   background: #e6f9fa;
 }
+.demo__paleta--basica li:nth-child(2) .funcao::before {
+  content: "paleta(basica, clara, 90)";
+}
 .demo__paleta--basica li:nth-child(12) {
   -webkit-order: 2;
   order: 2;
   background: #009ea4;
+}
+.demo__paleta--basica li:nth-child(12) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(12) .funcao::before {
+  content: "paleta(basica, escura, 90)";
 }
 .demo__paleta--basica li:nth-child(3) {
   -webkit-order: 0;
   order: 0;
   background: #ccf3f5;
 }
+.demo__paleta--basica li:nth-child(3) .funcao::before {
+  content: "paleta(basica, clara, 80)";
+}
 .demo__paleta--basica li:nth-child(13) {
   -webkit-order: 2;
   order: 2;
   background: #008a90;
+}
+.demo__paleta--basica li:nth-child(13) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(13) .funcao::before {
+  content: "paleta(basica, escura, 80)";
 }
 .demo__paleta--basica li:nth-child(4) {
   -webkit-order: 0;
   order: 0;
   background: #b3eef0;
 }
+.demo__paleta--basica li:nth-child(4) .funcao::before {
+  content: "paleta(basica, clara, 70)";
+}
 .demo__paleta--basica li:nth-child(14) {
   -webkit-order: 2;
   order: 2;
   background: #00767b;
+}
+.demo__paleta--basica li:nth-child(14) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(14) .funcao::before {
+  content: "paleta(basica, escura, 70)";
 }
 .demo__paleta--basica li:nth-child(5) {
   -webkit-order: 0;
   order: 0;
   background: #99e8eb;
 }
+.demo__paleta--basica li:nth-child(5) .funcao::before {
+  content: "paleta(basica, clara, 60)";
+}
 .demo__paleta--basica li:nth-child(15) {
   -webkit-order: 2;
   order: 2;
   background: #006367;
+}
+.demo__paleta--basica li:nth-child(15) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(15) .funcao::before {
+  content: "paleta(basica, escura, 60)";
 }
 .demo__paleta--basica li:nth-child(6) {
   -webkit-order: 0;
   order: 0;
   background: #80e2e6;
 }
+.demo__paleta--basica li:nth-child(6) .funcao::before {
+  content: "paleta(basica, clara, 50)";
+}
 .demo__paleta--basica li:nth-child(16) {
   -webkit-order: 2;
   order: 2;
   background: #004f52;
+}
+.demo__paleta--basica li:nth-child(16) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(16) .funcao::before {
+  content: "paleta(basica, escura, 50)";
 }
 .demo__paleta--basica li:nth-child(7) {
   -webkit-order: 0;
   order: 0;
   background: #66dce1;
 }
+.demo__paleta--basica li:nth-child(7) .funcao::before {
+  content: "paleta(basica, clara, 40)";
+}
 .demo__paleta--basica li:nth-child(17) {
   -webkit-order: 2;
   order: 2;
   background: #003b3e;
+}
+.demo__paleta--basica li:nth-child(17) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(17) .funcao::before {
+  content: "paleta(basica, escura, 40)";
 }
 .demo__paleta--basica li:nth-child(8) {
   -webkit-order: 0;
   order: 0;
   background: #4dd6dc;
 }
+.demo__paleta--basica li:nth-child(8) .funcao::before {
+  content: "paleta(basica, clara, 30)";
+}
 .demo__paleta--basica li:nth-child(18) {
   -webkit-order: 2;
   order: 2;
   background: #002729;
+}
+.demo__paleta--basica li:nth-child(18) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(18) .funcao::before {
+  content: "paleta(basica, escura, 30)";
 }
 .demo__paleta--basica li:nth-child(9) {
   -webkit-order: 0;
   order: 0;
   background: #33d1d7;
 }
+.demo__paleta--basica li:nth-child(9) .funcao::before {
+  content: "paleta(basica, clara, 20)";
+}
 .demo__paleta--basica li:nth-child(19) {
   -webkit-order: 2;
   order: 2;
-  background: #001415;
+  background: #001414;
+}
+.demo__paleta--basica li:nth-child(19) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(19) .funcao::before {
+  content: "paleta(basica, escura, 20)";
 }
 .demo__paleta--basica li:nth-child(10) {
   -webkit-order: 0;
   order: 0;
-  background: #1acbd2;
+  background: #19cbd2;
+}
+.demo__paleta--basica li:nth-child(10) .funcao::before {
+  content: "paleta(basica, clara, 10)";
 }
 .demo__paleta--basica li:nth-child(20) {
   -webkit-order: 2;
   order: 2;
   background: black;
 }
+.demo__paleta--basica li:nth-child(20) .funcao {
+  color: #fff;
+}
+.demo__paleta--basica li:nth-child(20) .funcao::before {
+  content: "paleta(basica, escura, 10)";
+}
+.demo__paleta--basica .funcao {
+  font-size: 0;
+  margin: auto;
+}
 
 .demo__paleta--secundaria .demo__cor--principal {
-  -webkit-flex: 2;
-  flex: 2;
+  -webkit-flex: 5;
+  flex: 5;
   -webkit-order: 1;
   order: 1;
   background: #cd5800;
+}
+.demo__paleta--secundaria .demo__cor--principal .funcao {
+  font-size: 0.8em;
+}
+.demo__paleta--secundaria .demo__cor--principal .funcao::before {
+  content: "paleta(secundaria)";
 }
 .demo__paleta--secundaria li:nth-child(1) {
   -webkit-order: 0;
   order: 0;
   background: white;
 }
+.demo__paleta--secundaria li:nth-child(1) .funcao::before {
+  content: "paleta(secundaria, clara, 100)";
+}
 .demo__paleta--secundaria li:nth-child(11) {
   -webkit-order: 2;
   order: 2;
   background: #b94f00;
+}
+.demo__paleta--secundaria li:nth-child(11) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(11) .funcao::before {
+  content: "paleta(secundaria, escura, 100)";
 }
 .demo__paleta--secundaria li:nth-child(2) {
   -webkit-order: 0;
   order: 0;
   background: #faeee6;
 }
+.demo__paleta--secundaria li:nth-child(2) .funcao::before {
+  content: "paleta(secundaria, clara, 90)";
+}
 .demo__paleta--secundaria li:nth-child(12) {
   -webkit-order: 2;
   order: 2;
   background: #a44600;
+}
+.demo__paleta--secundaria li:nth-child(12) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(12) .funcao::before {
+  content: "paleta(secundaria, escura, 90)";
 }
 .demo__paleta--secundaria li:nth-child(3) {
   -webkit-order: 0;
   order: 0;
   background: #f5decc;
 }
+.demo__paleta--secundaria li:nth-child(3) .funcao::before {
+  content: "paleta(secundaria, clara, 80)";
+}
 .demo__paleta--secundaria li:nth-child(13) {
   -webkit-order: 2;
   order: 2;
   background: #903e00;
+}
+.demo__paleta--secundaria li:nth-child(13) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(13) .funcao::before {
+  content: "paleta(secundaria, escura, 80)";
 }
 .demo__paleta--secundaria li:nth-child(4) {
   -webkit-order: 0;
   order: 0;
   background: #f0cdb3;
 }
+.demo__paleta--secundaria li:nth-child(4) .funcao::before {
+  content: "paleta(secundaria, clara, 70)";
+}
 .demo__paleta--secundaria li:nth-child(14) {
   -webkit-order: 2;
   order: 2;
   background: #7b3500;
+}
+.demo__paleta--secundaria li:nth-child(14) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(14) .funcao::before {
+  content: "paleta(secundaria, escura, 70)";
 }
 .demo__paleta--secundaria li:nth-child(5) {
   -webkit-order: 0;
   order: 0;
   background: #ebbc99;
 }
+.demo__paleta--secundaria li:nth-child(5) .funcao::before {
+  content: "paleta(secundaria, clara, 60)";
+}
 .demo__paleta--secundaria li:nth-child(15) {
   -webkit-order: 2;
   order: 2;
   background: #672c00;
+}
+.demo__paleta--secundaria li:nth-child(15) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(15) .funcao::before {
+  content: "paleta(secundaria, escura, 60)";
 }
 .demo__paleta--secundaria li:nth-child(6) {
   -webkit-order: 0;
   order: 0;
   background: #e6ac80;
 }
+.demo__paleta--secundaria li:nth-child(6) .funcao::before {
+  content: "paleta(secundaria, clara, 50)";
+}
 .demo__paleta--secundaria li:nth-child(16) {
   -webkit-order: 2;
   order: 2;
   background: #522300;
+}
+.demo__paleta--secundaria li:nth-child(16) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(16) .funcao::before {
+  content: "paleta(secundaria, escura, 50)";
 }
 .demo__paleta--secundaria li:nth-child(7) {
   -webkit-order: 0;
   order: 0;
   background: #e19b66;
 }
+.demo__paleta--secundaria li:nth-child(7) .funcao::before {
+  content: "paleta(secundaria, clara, 40)";
+}
 .demo__paleta--secundaria li:nth-child(17) {
   -webkit-order: 2;
   order: 2;
   background: #3e1a00;
+}
+.demo__paleta--secundaria li:nth-child(17) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(17) .funcao::before {
+  content: "paleta(secundaria, escura, 40)";
 }
 .demo__paleta--secundaria li:nth-child(8) {
   -webkit-order: 0;
   order: 0;
   background: #dc8a4d;
 }
+.demo__paleta--secundaria li:nth-child(8) .funcao::before {
+  content: "paleta(secundaria, clara, 30)";
+}
 .demo__paleta--secundaria li:nth-child(18) {
   -webkit-order: 2;
   order: 2;
   background: #291200;
+}
+.demo__paleta--secundaria li:nth-child(18) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(18) .funcao::before {
+  content: "paleta(secundaria, escura, 30)";
 }
 .demo__paleta--secundaria li:nth-child(9) {
   -webkit-order: 0;
   order: 0;
   background: #d77933;
 }
+.demo__paleta--secundaria li:nth-child(9) .funcao::before {
+  content: "paleta(secundaria, clara, 20)";
+}
 .demo__paleta--secundaria li:nth-child(19) {
   -webkit-order: 2;
   order: 2;
-  background: #150900;
+  background: #140900;
+}
+.demo__paleta--secundaria li:nth-child(19) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(19) .funcao::before {
+  content: "paleta(secundaria, escura, 20)";
 }
 .demo__paleta--secundaria li:nth-child(10) {
   -webkit-order: 0;
   order: 0;
-  background: #d2691a;
+  background: #d26919;
+}
+.demo__paleta--secundaria li:nth-child(10) .funcao::before {
+  content: "paleta(secundaria, clara, 10)";
 }
 .demo__paleta--secundaria li:nth-child(20) {
   -webkit-order: 2;
   order: 2;
   background: black;
 }
+.demo__paleta--secundaria li:nth-child(20) .funcao {
+  color: #fff;
+}
+.demo__paleta--secundaria li:nth-child(20) .funcao::before {
+  content: "paleta(secundaria, escura, 10)";
+}
+.demo__paleta--secundaria .funcao {
+  font-size: 0;
+  margin: auto;
+}
 
 .demo__cor {
   -webkit-flex: 1;
   flex: 1;
-  transition: all 0.5s ease 0s;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 }
 .demo__cor--principal {
-  transition: all 0.5s ease 0s;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 }
 .demo__cor:hover {
   -webkit-flex: 5;
   flex: 5;
 }
+.demo__cor:hover .funcao {
+  font-size: 0.8em;
+}
 .demo__cor:hover ~ .demo__cor--principal {
   -webkit-flex: 1;
   flex: 1;
+  font-size: 0;
 }
 
 /*

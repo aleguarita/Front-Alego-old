@@ -298,6 +298,12 @@ $codigo-selecionado: (
     &::before { content: "#{$valor}"; }
   }
 }
+// paleta de cores
+@each $classe, $valor in $paleta {
+  .codigo-paleta--#{$classe} {
+    &::before { content: "#{$classe}"; }
+  }
+}
 
 /*
 ================================================================================
@@ -518,14 +524,18 @@ CORES | CORES STATUS
 CORES | PALETA
 --------------------------------------------------------------------------------
 */
+$paleta-fonte: .8em;
 @each $paleta, $item in $cores-paleta {
   .demo__paleta--#{$paleta} {
     .demo__cor--principal {
-      @include flex(2);
+      @include flex(5);
       @include order(1);
       background: paleta(#{$paleta});
       .funcao {
-
+        font-size: $paleta-fonte;
+        &::before {
+          content: "paleta(#{$paleta})";
+        }
       }
     }
     $c: 1;
@@ -536,25 +546,47 @@ CORES | PALETA
       li:nth-child(#{$c}) {
         @include order(0);
         background: paleta(#{$paleta}, clara, $y);
+        .funcao {
+          &::before {
+            content: "paleta(#{$paleta}, clara, #{$y})";
+          }
+        }
       }
       li:nth-child(#{$d}) {
         @include order(2);
         background: paleta(#{$paleta}, escura, $x);
+        .funcao {
+          color: paleta-padrao(branco);
+          &::before {
+            content: "paleta(#{$paleta}, escura, #{$y})";
+          }
+        }
       }
       $c: $c + 1;
+    }
+    .funcao {
+      font-size: 0;
+      margin: auto;
+    }
+    .cor {
+      @extend %flex;
     }
   }
 }
 .demo__cor {
   @include flex(1);
-  transition: $transition;
+  transition:  all .5s $ease-out-quad 0s;
   &--principal {
-    transition: $transition;
+    transition: all .5s $ease-out-quad 0s;
   }
   &:hover {
     @include flex(5);
+    .funcao {
+      font-size: $paleta-fonte;
+    }
     & ~ .demo__cor--principal {
       @include flex(1);
+      font-size: 0;
     }
   }
 }

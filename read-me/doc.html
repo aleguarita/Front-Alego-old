@@ -396,31 +396,14 @@
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>O <strong>Front-Alego™</strong> trabalha com as cores em dois arquivos distintos, cada qual com sua função. <samp class="arquivo">config/_cores-paletas.scss</samp> e <samp class="arquivo">_cores-temas.scss</samp>. Este método permite que as cores do sistema sejam alteradas com o mínimo de esforço, além de possibilitar o uso de temas conforme necessidades especiais.</p>
+              <p>O <strong>Front-Alego™</strong> trabalha com as cores de duas formas: através de uma paleta de cores que pode ser chamadas por nomes específicos (exemplo <samp>básica</samp>) e através de um tema que pode alterar todas as cores do sistema, sem precisar mudar a paleta, mantendo a harmonia.</p>
+              <p>As cores ganham variações clara e escura através de uma função baseada no <a href="http://bourbon.io/docs/#tint-shade" target="_blank" class="link--externo">Bourbon.</a></p>
               <blockquote class="aviso--grave">
                 <strong>Todas</strong> as cores devem ser definidas aqui. Jamais chame uma cor em outro CSS usando hexadecimal, nome de cor ou variável!
               </blockquote>
               <h2 id="cores__paletas">Paletas</h2>
-                <p><samp class="arquivo">config/_cores_paletas.scss</samp></p>
-                <p>Neste arquivo você irá configurar as paletas usadas pelo sistema. Atualmente temos duas paletas principais (<samp>basica</samp> e <samp>secundaria</samp>), mas você pode acrescentar conforme a necessidade. As demais paletas são para temas específicos. Você pode alterar, mas tome cuidado.</p>
-                <p>Cada paleta representa uma matiz principal e deve ter um nome fácil de lembrar, com um comentário indicando qual a cor principal (apenas para facilitar a lembrança, é possível ver todas as paletas <a href="elementos.html#cores__paleta" class="link--readme">aqui</a>). Sempre comece alterando as já estabelecidas e acrescente novas conforme a necessidade.</p>
-                <p>A paleta deve ser composta por mais 6 variantes desta matiz <samp>principal</samp>, sendo 3 cores mais claras (<samp>clara</samp>, <samp>x-clara</samp> e <samp>xx-clara</samp>) e 3 mais escuras (<samp>escura</samp>, <samp>x-escura</samp> e <samp>xx-escura</samp>). <strong class="texto-erro">Jamais coloque matizes diferentes dentro de um grupo, pois isso pode gerar inconsistência visual.</strong></p>
-                <p>Cada grupo de matizes deve aparecer dentro do mapa <samp>$paleta</samp>. Cada qual separado por vírgula e, dentro dele, cada variante, também separado por vírgula. Confuso? Veja o código abaixo:</p>
-                <code class="codigo--sass">
-                  <p>$paleta: (</p>
-                    <p class="recuo-1">basica: ( //comentário identificando a cor</p>
-                      <p class="recuo-2">principal: #hex,</p>
-                      <p class="recuo-2">clara: #hex,</p>
-                      <p class="recuo-2">x-clara: #hex,</p>
-                      <p class="recuo-2">xx-clara: #hex,</p>
-                      <p class="recuo-2">escura: #hex,</p>
-                      <p class="recuo-2">x-escura: #hex,</p>
-                      <p class="recuo-2">xx-escura: #hex,</p>
-                    <p class="recuo-1">),</p>
-                    <p class="recuo-1">secundaria: ( ... ),</p>
-                    <p class="recuo-1">nova-cor: ( ... ),</p>
-                  <p>);</p>
-                </code>
+                <p>Neste arquivo você irá configurar as cores usadas pelo sistema. Atualmente temos duas cores principais (<samp>basica</samp> e <samp>secundaria</samp>), mas você pode acrescentar conforme a necessidade. As demais cores são para temas específicos. Você pode alterar, mas tome cuidado.</p>
+                <p>Cada cor representa uma matiz principal e deve ter um nome fácil de lembrar, com um comentário indicando qual a cor (apenas para facilitar a lembrança, é possível ver todas as paletas <a href="#cores__paleta" class="link--readme">aqui</a>). Sempre comece alterando as já estabelecidas e acrescente novas conforme a necessidade.</p>
                 <p>Segue a lista indicativa de matizes criadas até o momento:</p>
                 <dl class="lista-definicao">
                   <dt><samp>basica</samp></dt>
@@ -434,7 +417,7 @@
                 </dl>
                 <h3>Paleta Padrão e Cores de Status</h3>
                   <p>Estas paletas são fixas e fica dentro da pasta <samp class="pasta">base</samp>, mas contém uma série de cores úteis a serem chamadas no CSS e no tema.</p>
-                  <p>A <samp>$paleta-padrao</samp> contém as seguintes cores (<a href="elementos.html#cores__paleta-padrao" class="link--readme">Ver aqui</a>):</p>
+                  <p>A <samp>$paleta-padrao</samp> contém as seguintes cores (<a href="#cores__paleta-padrao" class="link--readme">Ver aqui</a>):</p>
                   <dl class="lista-definicao">
                     <dt><samp>branco</samp></dt>
                       <dd>branco mesmo, ué</dd>
@@ -521,7 +504,7 @@
                     <dt><samp>paleta-padrao()</samp></dt>
                       <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp></dd>
                     <dt><samp>paleta()</samp></dt>
-                      <dd>Para chamar as cores que você criou na paleta. Por exemplo, você quer chamar a variação <em>x-escura</em> da cor cor <em>basica</em>, você deveria escrever <samp>paleta(basica, x-escura)</samp>. A variação <strong>principal</strong> não precisa ser específicada (por exemplo, a cor <em>principal</em> da <em>secundária</em> seria: <samp>paleta(secundaria)</samp>)</dd>
+                      <dd>Esta função é para chamar as cores que você criou na <samp>$paleta</samp>. Para chamar a cor pura, escreva <samp>paleta(nome-cor)</samp>. Para chamar as variações claras, chame com <samp>paleta(nome-cor, clara, $valor)</samp>. O <samp>$valor</samp> pode ir de <samp>1</samp> a <samp>100</samp>. Para chamar cores escuras chame com <samp>paleta(nome-cor, escura, $valor)</samp></dd>
                   </dl>
                 <h3>Inserindo as cores no SASS</h3>
                   <p>Como explicado anteriormente, você só poderá usar as cores definidas nos temas. Para chamar uma cor, use uma das duas funções abaixo:</p>
@@ -533,7 +516,7 @@
                   </dl>
             </section>
           </section>
-          <section class="secao-lista">
+          <section class="secao-lista" id="cores__paleta-padrao">
             <input type="checkbox" id="cores__demo--paleta-padrao" class="secao-lista__check" checked="checked">
             <header class="secao-lista__header">
               <label for="cores__demo--paleta-padrao">
@@ -593,7 +576,7 @@
                 </ul>
             </section>
           </section>
-          <section class="secao-lista">
+          <section class="secao-lista" id="cores__paleta">
             <input type="checkbox" id="cores__demo--paleta" class="secao-lista__check" checked="checked">
             <header class="secao-lista__header">
               <label for="cores__demo--paleta">
@@ -603,51 +586,53 @@
             </header>
             <section class="secao-lista__conteudo">
               <p>Se acrescentar mais cores, abra o arquivo <samp class="arquivo">read-me/elementos.html</samp> e duplique a lista e acrescente o modificador <samp>--nome-paleta</samp>. Depois abra o <samp class="arquivo">read-me/info.scss</samp> e acrescente o nome da paleta no mapa <samp>$cores-paleta</samp> (e recompile o arquivo).</p>
+              <!-- <h2>Paleta <span class="codigo-paleta--basica"></span></h2> -->
               <ul class="demo__paleta--basica">
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor--principal"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor--principal"><span class="cor"><span class="funcao"></span></span></li>
               </ul>
+              <!-- <h2>Paleta <span class="codigo-paleta--secundaria"></span></h2> -->
               <ul class="demo__paleta--secundaria">
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor"><span class="cor"></span><span class="funcao"></span></li>
-                <li class="demo__cor--principal"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+                <li class="demo__cor--principal"><span class="cor"><span class="funcao"></span></span></li>
 
               </ul>
             </section>
