@@ -60,9 +60,6 @@
 @function paleta-padrao($cor) {
 	@return map-get($paleta-padrao, $cor);
 }
-@function cor-status($cor) {
-	@return map-get($cor-status, $cor);
-}
 @function paleta($cor, $tipo: null, $valor: 0) {
   @if $tipo == null {
     @return map-get($paleta, $cor);
@@ -71,6 +68,9 @@
   } @else if str-slice($tipo, 1, 1) == "e" {
     @return shade(map-get($paleta, $cor), strip-units($valor) * 1%);
   }
+}
+@function cor-status($cor) {
+	@return map-get($cor-status, $cor);
 }
 @function cor($tipo, $cor: "padrao") {
 	@return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);
