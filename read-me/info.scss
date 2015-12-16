@@ -381,6 +381,9 @@ main {
     position: fixed;
     width: 11em;
   }
+  ul {
+    margin: 0;
+  }
   a {
     color: cor(lista, escura);
     font-weight: bold;
@@ -389,6 +392,23 @@ main {
     &:hover {
       background: cor(lista);
       color: cor(texto, claro);
+    }
+  }
+  input:checked ~ {
+    ul.lista--link { display: none; }
+    .menu__subtitulo .secao-lista__icone {
+      transform: rotate(-90deg);
+    }
+  }
+  &__subtitulo {
+    label {
+      @include display-flex;
+      cursor: pointer;
+      padding: $lista-padding;
+      font-size: 1rem;
+    }
+    .secao-lista__titulo {
+      font-family: $fonte-sem-serifa;
     }
   }
 }

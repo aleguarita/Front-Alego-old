@@ -1732,6 +1732,9 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
   background: #bff1f3;
   color: #00949a;
 }
+.secao-lista__icone {
+  transition: all 0.5s ease 0s;
+}
 .secao-lista__conteudo {
   border-top: 1px dashed #00949a;
 }
@@ -2151,6 +2154,9 @@ HEADER
     width: 11em;
   }
 }
+.menu ul {
+  margin: 0;
+}
 .menu a {
   color: #006367;
   font-weight: bold;
@@ -2160,6 +2166,23 @@ HEADER
 .menu a:hover {
   background: #00c5cd;
   color: #fff;
+}
+.menu input:checked ~ ul.lista--link {
+  display: none;
+}
+.menu input:checked ~ .menu__subtitulo .secao-lista__icone {
+  transform: rotate(-90deg);
+}
+.menu__subtitulo label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+}
+.menu__subtitulo .secao-lista__titulo {
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
 }
 
 /*

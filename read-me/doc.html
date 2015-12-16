@@ -22,20 +22,62 @@
 
     <main class="container">
       <nav class="menu">
-        <ul class="lista--link">
-          <li><a href="#illustrator">Illustrator</a></li>
-          <li><a href="#regras">Regras de padronização</a></li>
-          <li><a href="#config">Configurações básicas</a></li>
-          <li><a href="#cores">Cores</a></li>
-          <li><a href="#grid">Grid</a></li>
-          <li><a href="#z-index">z-index</a></li>
-          <li><a href="#tipografia">Tipografia</a></li>
-          <li><a href="#simbolos">Símbolos</a></li>
-          <li><a href="#variaveis">Variáveis</a></li>
-          <li><a href="#responsive">Sendo responsivo</a></li>
-          <li><a href="#funcoes">Funções</a></li>
-          <li><a href="#mixins">Mixins</a></li>
-        </ul>
+        <div class="menu__grupo">
+          <input type="checkbox" id="menu__regras" class="secao-lista__check">
+          <div class="menu__subtitulo lista__titulo">
+            <label for="menu__regras">
+              <span class="secao-lista__titulo">Básico</span>
+              <span class="secao-lista__icone"></span>
+            </label>
+          </div>
+          <ul class="lista--link">
+            <li><a href="#illustrator">Illustrator</a></li>
+            <li><a href="#regras">Regras de padronização</a></li>
+            <li><a href="#config">Configurações básicas</a></li>
+          </ul>
+        </div>
+        <div class="menu__grupo">
+          <input type="checkbox" id="menu__config" class="secao-lista__check">
+          <div class="menu__subtitulo lista__titulo">
+            <label for="menu__config">
+              <span class="secao-lista__titulo">Configurações</span>
+              <span class="secao-lista__icone"></span>
+            </label>
+          </div>
+          <ul class="lista--link">
+            <li><a href="#cores">Cores</a></li>
+            <li><a href="#grid">Grid</a></li>
+            <li><a href="#z-index">z-index</a></li>
+            <li><a href="#tipografia">Tipografia</a></li>
+            <li><a href="#simbolos">Símbolos</a></li>
+            <li><a href="#variaveis">Variáveis</a></li>
+            <li><a href="#responsive">Sendo responsivo</a></li>
+          </ul>
+        </div>
+        <div class="menu__grupo">
+          <input type="checkbox" id="menu__elementos" class="secao-lista__check">
+          <div class="menu__subtitulo lista__titulo">
+            <label for="menu__elementos">
+              <span class="secao-lista__titulo">Elementos</span>
+              <span class="secao-lista__icone"></span>
+            </label>
+          </div>
+          <ul class="lista--link">
+          </ul>
+        </div>
+        <div class="menu__grupo">
+          <input type="checkbox" id="menu__listas" class="secao-lista__check">
+          <div class="menu__subtitulo lista__titulo">
+            <label for="menu__listas">
+              <span class="secao-lista__titulo">Listas</span>
+              <span class="secao-lista__icone"></span>
+            </label>
+          </div>
+          <ul class="lista--link">
+            <li><a href="#funcoes">Funções</a></li>
+            <li><a href="#mixins">Mixins</a></li>
+          </ul>
+        </div>
       </nav>
       <section class="principal">
         <article id="illustrator">
