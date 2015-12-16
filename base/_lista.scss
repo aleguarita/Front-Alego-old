@@ -12,11 +12,12 @@ LISTA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 20/11/2015
-// Última alteração em: 30/11/2015
+// Última alteração em: 16/12/2015
 // -----------------------------------------------------------------------------
 // Formata caixas de listas
 // ----------------------------------------------------------------------------
 // Changelog
+// 16/12/2015 | Correções de bugs
 // 30/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 24/11/2015 | Acrescentado lista para link que ocupa a célula inteira
@@ -38,9 +39,11 @@ $lista-padding: .5rem .75rem;
   }
   li {
     padding: $lista-padding;
-    background: cor(fundo, x-claro);
-    @if $lista--zebra == "sim" {
-      &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
+    &:not(.lista__titulo) {
+      background: cor(fundo, x-claro);
+      @if $lista--zebra == "sim" {
+        &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
+      }
     }
   }
 }
@@ -94,18 +97,18 @@ $lista-padding: .5rem .75rem;
 @if index($uso-classes, lista) {
   .lista {
     @extend %lista--#{$lista-tipo};
-    &__titulo {
-      @extend %lista--#{$lista-tipo}__titulo;
-    }
     &--link {
       @extend %lista--#{$lista-tipo};
       li {
         padding: 0;
       }
-      a {
+      a, span {
         @extend %link-block;
         padding: $lista-padding;
       }
+    }
+    &__titulo {
+      @extend %lista--#{$lista-tipo}__titulo;
     }
   }
 }
