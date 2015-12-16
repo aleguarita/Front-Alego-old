@@ -31,26 +31,6 @@
 // ??/??/2015 | Incluído criação de prefixos.
 // 13/01/2015 | Criado arquivo básico
 // =============================================================================
-//
-// =============================================================================
-// MEDIA-QUERY
-// -----------------------------------------------------------------------------
-// Para determinar propriedades responsivas, utilizando mobile-first.
-// -----------------------------------------------------------------------------
-// Como usar:
-// Este mixin faz uso da função breakpoint (ver o arquivo). Basta digitar o
-// mixin e chamar o breakpoint pré-estabelecido lá.
-// .seletor {
-// 	@include media-tipo(medio) {
-// 		insira aqui a configuração
-// 	}
-// }
-// =============================================================================
-@mixin media-tipo($breakpoint) {
-	@media (min-width: breakpoint($breakpoint)) {
-		@content;
-	}
-}
 
 // =============================================================================
 // PREFIXO
@@ -83,6 +63,26 @@
 		}
 		// Exibição padrão, sem prefixo
 		#{$propriedade}: $valor;
+	}
+}
+
+// =============================================================================
+// MEDIA-QUERY
+// -----------------------------------------------------------------------------
+// Para determinar propriedades responsivas, utilizando mobile-first.
+// -----------------------------------------------------------------------------
+// Como usar:
+// Este mixin faz uso da função breakpoint (ver o arquivo). Basta digitar o
+// mixin e chamar o breakpoint pré-estabelecido lá.
+// .seletor {
+// 	@include media-tipo(medio) {
+// 		insira aqui a configuração
+// 	}
+// }
+// =============================================================================
+@mixin media-tipo($breakpoint) {
+	@media (min-width: breakpoint($breakpoint)) {
+		@content;
 	}
 }
 
@@ -187,7 +187,8 @@
 // por não usar de flexbox, o HTML fica mais limpo. Não precisa usar em modal
 // (que está usando flexbox)
 // -----------------------------------------------------------------------------
-// Os valores de $largura e $altura são opcionais. Se não utilizados
+// Os valores de $largura e $altura são opcionais. Se não utilizados a caixa
+// vai crescer conforme o conteúdo
 // =============================================================================
 @mixin centraliza-caixa($largura: null, $altura: null) {
 	width: $largura;
@@ -280,7 +281,7 @@
 // Este mixin serve para alterar o padrão do texto selecionado no browser
 // (quando o usuário seleciona para copiar e colar, por exemplo)
 // =============================================================================
-@mixin texto-selecionado($fundo: cor(fundo, excuro), $texto: cor(texto, claro)) {
+@mixin texto-selecionado($fundo: cor(fundo, escuro), $texto: cor(texto, claro)) {
 	&::selection {
 		background-color: $fundo;
 		color: $texto;
@@ -305,6 +306,5 @@
   display: none;
   &:checked ~ .#{$conteudo} {
     display: none;
-    outline: 1px solid red;
   }
 }
