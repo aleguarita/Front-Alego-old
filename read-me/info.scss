@@ -52,6 +52,9 @@ Estes tags foram modificados sem classes pois são mais raros de serem utilizado
 */
 body {
   background: cor(fundo, x-claro);
+  * {
+    @include texto-selecionado;
+  }
 }
 samp {
   @extend %codigo;

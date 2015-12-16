@@ -1803,6 +1803,14 @@ Estes tags foram modificados sem classes pois são mais raros de serem utilizado
 body {
   background: #fff;
 }
+body *::selection {
+  background-color: #00949a;
+  color: #fff;
+}
+body *::-moz-selection {
+  background-color: #00949a;
+  color: #fff;
+}
 
 samp {
   padding: .2em .4em;
