@@ -173,7 +173,7 @@ PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
   padding-left: 0;
 }
 
-.pagination a, .breadcrumbs a, .modal__fechar a, .lista--link a {
+.pagination a, .breadcrumbs a, .modal__fechar a, .lista--link a, .lista--link span {
   display: block;
   text-decoration: none;
 }
@@ -1743,6 +1743,8 @@ LISTA
 */
 .lista li, .lista--link li {
   padding: 0.5rem 0.75rem;
+}
+.lista li:not(.lista__titulo), .lista--link li:not(.lista__titulo) {
   background: #fff;
 }
 
@@ -1768,7 +1770,7 @@ LISTA
 .lista--link li {
   padding: 0;
 }
-.lista--link a {
+.lista--link a, .lista--link span {
   padding: 0.5rem 0.75rem;
 }
 
@@ -1802,6 +1804,15 @@ body {
 samp {
   padding: .2em .4em;
   color: #f0494f;
+}
+
+article {
+  border-bottom: 1px solid #cd5800;
+  padding-bottom: 3.75rem;
+}
+article:last-of-type {
+  border-bottom-width: 0;
+  padding-bottom: 0;
 }
 
 /*
@@ -2131,6 +2142,8 @@ HEADER
 .menu {
   top: 3em;
   position: relative;
+  overflow-y: auto;
+  max-height: 100vh;
 }
 @media (min-width: 30rem) {
   .menu {

@@ -32,6 +32,9 @@
           <li><a href="#tipografia">Tipografia</a></li>
           <li><a href="#simbolos">Símbolos</a></li>
           <li><a href="#variaveis">Variáveis</a></li>
+          <li><a href="#responsive">Sendo responsivo</a></li>
+          <li><a href="#funcoes">Funções</a></li>
+          <li><a href="#mixins">Mixins</a></li>
         </ul>
       </nav>
       <section class="principal">
@@ -1156,6 +1159,113 @@
               </ul>
             </section>
           </section>
+        </article>
+
+        <article id="responsive">
+          <header>
+            <h1>Sendo responsivo</h1>
+          </header>
+          <section class="secao-lista">
+            <input type="checkbox" id="responsive__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="responsive__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Sempre que for chamar uma media query, você não o fará da maneira tradicional. Para chamar uma media query você vai chamar através da função <samp>breakpoint()</samp></p>
+              <dl class="lista-definicao">
+                <dt><samp>breakpoint()</samp></dt>
+                  <dd>Procura o valor de <samp>medida</samp> no mapa <samp>$breakpoints</samp> para retornar um valor para a media query.</dd>
+              </dl>
+              <p>O mapa <samp>$breakpoints</samp> contém os valores a serem usados dentro da media-query, que são:</p>
+              <dl class="lista-definicao">
+                <dt><samp>pequeno</samp></dt>
+                  <dd>Atinge dispositivos de tela pequena, como smartphones.</dd>
+                <dt><samp>medio</samp></dt>
+                  <dd>Atinge a medida média, que pode ser tablet em pé (retrato) ou smartphone na horizontal.</dd>
+                <dt><samp>grande</samp></dt>
+                  <dd>Pega de telas de tablet na horizontal para cima.</dd>
+                <dt><samp>extra-grande</samp></dt>
+                  <dd>Pega medidas de notebook para cima.</dd>
+              </dl>
+              <p>Quando você especifica <samp>min-width</samp> você vai estar selecionando um valor maior que aquele. Portanto, <samp>min-width: pequeno</samp> vai pegar acima da tela pequena (mas ela não está incluída), assim como <samp>min-width: medio</samp> vai pegar telas maiores que as médias.</p>
+              <p>Quando você especifica um valor com a de <samp>max-width</samp> ele vai pegar daquela medida para baixo. Por exemplo <samp>max-width: pequeno</samp> vai pegar somente telas pequenas, enquanto <samp>max-width: medio</samp> vai pegar de tamanho médio para baixo.</p>
+              <p>Para chamar a media query você pode digitar <samp>@media</samp> da maneira tradicional ou utilizar o mixin <samp>media-tipo</samp>:</p>
+              <dl class="lista-definicao">
+                <dt><samp>media-tipo(medida)</samp></dt>
+                  <dd>Este mixin chama a media query pensando na técnica <em>mobile first</em> (utilizando <samp>min-width<samp>). A <samp>medida</samp> é uma das descritas na lista acima.</dd>
+              </dl>
+              <h2>Como trabalhar Media Query</h2>
+              <p>No caso de <strong>mobile first</strong> basta usar o mixin:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.classe {</p>
+                  <p class="recuo-1">...</p>
+                  <p class="recuo-1">@include media-tipo(pequeno) {</p>
+                    <p class="recuo-2">...</p>
+                  <p class="recuo-1">}</p>
+                <p>}</p>
+              </code>
+              <p>Se preferir não trabalhar com o mixin, basta escrever assim:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.classe {</p>
+                  <p class="recuo-1">...</p>
+                  <p class="recuo-1">@media (min-width: breakpoint(pequeno)) {</p>
+                    <p class="recuo-2">...</p>
+                  <p class="recuo-1">}</p>
+                <p>}</p>
+              </code>
+              <p>Se não for o caso de <strong>mobile first</strong>, pode ser:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.classe {</p>
+                  <p class="recuo-1">...</p>
+                  <p class="recuo-1">@media (max-width: breakpoint(pequeno)) {</p>
+                    <p class="recuo-2">...</p>
+                  <p class="recuo-1">}</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+        </article>
+
+        <article id="funcoes">
+          <header>
+            <h1>Funções</h1>
+          </header>
+          <section class="secao-lista">
+            <input type="checkbox" id="funcoes__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="funcoes__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Algumas funções são usadas em partes específicas do Front-Alego e outra é para uso dentro seu CSS.</p>
+              <dl class="lista-definicao">
+                <dt><samp>paleta-padrao(cor)</samp></dt>
+                  <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp>. <strong>Use somente dentro do arquivo <samp class="arquivo">config/cores.scss</samp></strong></dd>
+                <dt><samp>paleta(cor, tipo, valor)</samp></dt>
+                  <dd>Esta função é para chamar as cores que você criou na <samp>$paleta</samp>. Para chamar a cor pura, escreva <samp>paleta(nome-cor)</samp>. Para chamar as variações claras, chame com <samp>paleta(nome-cor, clara, $valor)</samp>. O <samp>$valor</samp> pode ir de <samp>1</samp> a <samp>100</samp>. Para chamar cores escuras chame com <samp>paleta(nome-cor, escura, $valor)</samp>. <strong>Use somente dentro do arquivo <samp class="arquivo">config/cores.scss</samp></strong></dd>
+                <dt><samp>cor-status(cor)</samp></dt>
+                  <dd>Para chamar as cores de status. Podem ser usadas diretamente no CSS. <a href="#cores__paletas" class="link--readme">Veja mais detalhes aqui</a></dd>
+                <dt><samp>cor(tipo, cor)</samp></dt>
+                  <dd>Principal função para chamar as cores na interface. Cada elemento tem um conjunto de cores a ser chamado, além dos genéricos (conforme já explicado anteriormente). Exemplo: seu texto vai ser um texto destaque. <samp>cor(texto, destaque)</samp>. A cor <samp>padrao</samp> de cada conjunto não precisa ser chamada, ou seja, o texto padrão seria: <samp>cor(texto)</samp></dd>
+                <dt><samp>cor-texto(cor-fundo, texto-claro, texto-escuro)</samp></dt>
+                  <dd>Esta função analisa a <samp>cor-fundo</samp> declarada e se ela for escura retorna o que você declarou em <samp>texto-claro</samp> e se for clara, o que você declarou em <samp>texto-escuro</samp></dd>
+                <dt><samp>breakpoint(medida)</samp></dt>
+                  <dd>Procura o valor de <samp>medida</samp> no mapa <samp>$breakpoints</samp> para retornar um valor para a media query. Veja mais em <a href="#responsive" class="link--readme">Sendo responsivo</a></dd>
+              </dl>
+            </section>
+          </section>
+        </article>
+
+        <article id="mixins">
+
         </article>
       </section>
     </main>

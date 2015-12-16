@@ -58,6 +58,14 @@ samp {
   padding: .2em .4em;
   color: cor-status(erro-claro);
 }
+article {
+  border-bottom: $borda-variante;
+  padding-bottom: 6 * $margem;
+  &:last-of-type {
+    border-bottom-width: 0;
+    padding-bottom: 0;
+  }
+}
 
 /*
 ================================================================================
@@ -367,6 +375,8 @@ main {
 .menu {
   top: 3em;
   position: relative;
+  overflow-y: auto;
+  max-height: 100vh;
   @media (min-width: breakpoint(pequeno)) {
     position: fixed;
     width: 11em;
