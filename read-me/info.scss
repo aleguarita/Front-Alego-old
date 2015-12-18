@@ -231,6 +231,12 @@ $i: 1;
   }
   $i: $i + 1;
 }
+// -----------------------------------------------------------------------------
+// Espaços entre parágrafos
+// -----------------------------------------------------------------------------
+.espaco-2 {
+  margin: $margem * 2 0 !important;
+}
 
 // -----------------------------------------------------------------------------
 // Bloco de avisos
@@ -306,6 +312,12 @@ $codigo-selecionado: (
 );
 @each $classe, $valor in $codigo-selecionado {
   .codigo-#{$classe} {
+    &::before { content: "#{$valor}"; }
+  }
+}
+// breakpoints
+@each $classe, $valor in $breakpoints {
+  .codigo-bp--#{$classe} {
     &::before { content: "#{$valor}"; }
   }
 }
@@ -781,4 +793,15 @@ $variaveis: (
       }
     }
   }
+}
+
+
+/*
+BLA
+*/
+.padrao {
+@include flex;
+}
+.personalizado {
+@include flex(3);
 }

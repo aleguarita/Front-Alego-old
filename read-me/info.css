@@ -1717,7 +1717,6 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 }
 .secao-lista__check:checked ~ .secao-lista__conteudo {
   display: none;
-  outline: 1px solid red;
 }
 .secao-lista__check:checked ~ .secao-lista__header .secao-lista__icone {
   transform: rotate(-90deg);
@@ -1976,6 +1975,10 @@ CLASSES
   margin-left: 5.4rem;
 }
 
+.espaco-2 {
+  margin: 1.25rem 0 !important;
+}
+
 .aviso, .aviso--dica, .aviso--grave {
   font-size: 1.2em;
   border-left: 4px solid;
@@ -2084,6 +2087,22 @@ CLASSES
 
 .codigo-rd::before {
   content: "3px";
+}
+
+.codigo-bp--pequeno::before {
+  content: "30rem";
+}
+
+.codigo-bp--medio::before {
+  content: "48rem";
+}
+
+.codigo-bp--grande::before {
+  content: "64rem";
+}
+
+.codigo-bp--extra-grande::before {
+  content: "75rem";
 }
 
 .codigo-paleta--basica::before {
@@ -4394,6 +4413,19 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
 .demo__var--rd .caixa {
   background: #70dfe3;
   border-radius: 3px;
+}
+
+/*
+BLA
+*/
+.padrao {
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.personalizado {
+  -webkit-flex: 3;
+  flex: 3;
 }
 
 /*# sourceMappingURL=info.css.map */
