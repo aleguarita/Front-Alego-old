@@ -232,7 +232,7 @@
 // =============================================================================
 @mixin grupo-flex(
   $qtd,
-  $margem-flex: $calha * 2,
+  $margem: $calha * 2,
   $largura: null,
   $largura-minima: null
 ) {
@@ -240,8 +240,6 @@
   // ---------------------------------------------------------------------------
   // largura de cada elemento SEM a margem
   $largura-porcentagem: 100% / $qtd;
-  // converte a margem para rem
-  $margem: $margem-flex;
   // calcula a quantidade total de margens aplicadas
   // depois divide pela quantidade  de elementos
   $total-margem: $margem * ($qtd - 1);

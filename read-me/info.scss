@@ -799,9 +799,6 @@ $variaveis: (
 /*
 BLA
 */
-.padrao {
-@include flex;
-}
-.personalizado {
-@include flex(3);
+.check-lista {
+@include lista-oculta(conteudo-demo);
 }

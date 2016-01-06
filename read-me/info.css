@@ -4418,14 +4418,11 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
 /*
 BLA
 */
-.padrao {
-  -webkit-flex: 1;
-  flex: 1;
+.check-lista {
+  display: none;
 }
-
-.personalizado {
-  -webkit-flex: 3;
-  flex: 3;
+.check-lista:checked ~ .conteudo-demo {
+  display: none;
 }
 
 /*# sourceMappingURL=info.css.map */

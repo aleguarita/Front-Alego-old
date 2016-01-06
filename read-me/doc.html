@@ -1489,11 +1489,12 @@
             <input type="checkbox" id="mixins__transform" class="secao-lista__check" checked="checked">
             <header class="secao-lista__header">
               <label for="mixins__transform">
-                <span class="secao-lista__titulo">transform()</span>
+                <span class="secao-lista__titulo">CSS 3 - Transform</span>
                 <span class="secao-lista__icone"></span>
               </label>
             </header>
             <section class="secao-lista__conteudo">
+              <h2>transform()</h2>
               <p>Aplica os prefixos de CSS para a propriedade transform. Apesar de existir um mixim similar no Bourbon, o dele coloca muito prefixo, o do Front-Alego é mais atual e enxuto.</p>
               <p><strong>Sintaxe: </strong> <samp>@include transform($transform)</samp></p>
               <dl class="lista-definicao">
@@ -1515,49 +1516,41 @@
                   <p class="recuo-1">transform: translate(20px, 20px);</p>
                 <p>}</p>
               </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins__transform-origin" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins__transform-origin">
-                <span class="secao-lista__titulo">transform-origin()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
+              <h2>transform-origin()</h2>
               <p>Aplica os prefixos de CSS para a propriedade transform-origin. Apesar de existir um mixim similar no Bourbon, o dele coloca muito prefixo, o do Front-Alego é mais atual e enxuto.</p>
               <p><strong>Sintaxe: </strong> <samp>@include transform-origin($origem);</samp></p>
               <dl class="lista-definicao">
                 <dt><samp>$origem</samp></dt>
-                  <dd>Qual a origem da transformação. <a href="http://www.w3schools.com/cssref/css3_pr_transform-origin.asp" class="link--externo" target="_blank">Ver no w3school</a>.</dd>
+                <dd>Qual a origem da transformação. <a href="http://www.w3schools.com/cssref/css3_pr_transform-origin.asp" class="link--externo" target="_blank">Ver no w3school</a>.</dd>
               </dl>
               <p>Veja um exemplo:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
                 <p>.seletor {</p>
                   <p class="recuo-1">@include transform-origin(right 0);</p>
-                <p>}</p>
-              </code>
-              <p>Este é o resultado:</p>
-              <code class="codigo--css">
-                <header>CSS</header>
-                <p>.seletor {</p>
-                  <p class="recuo-1">-webkit-transform-origin: right 0;</p>
-                  <p class="recuo-1">transform-origin: right 0;</p>
-                <p>}</p>
-              </code>
+                  <p>}</p>
+                </code>
+                <p>Este é o resultado:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.seletor {</p>
+                    <p class="recuo-1">-webkit-transform-origin: right 0;</p>
+                    <p class="recuo-1">transform-origin: right 0;</p>
+                  <p>}</p>
+                </code>
             </section>
           </section>
           <section class="secao-lista">
             <input type="checkbox" id="mixins__display-flex" class="secao-lista__check" checked="checked">
             <header class="secao-lista__header">
               <label for="mixins__display-flex">
-                <span class="secao-lista__titulo">display-flex</span>
+                <span class="secao-lista__titulo">Flexbox</span>
                 <span class="secao-lista__icone"></span>
               </label>
             </header>
             <section class="secao-lista__conteudo">
+              <h2>No elemento pai (flex-container)</h2>
+              <h3>display-flex</h3>
               <p>Coloca o elemento com <samp>display: flex</samp>. Deve ser no elemento pai. Este mixin não precisa de parâmetros. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
               <p><strong>Sintaxe: </strong> <samp>@include display-flex;</samp></p>
               <code class="codigo--sass">
@@ -1575,22 +1568,12 @@
                   <p class="recuo-1">display: flex;</p>
                 <p>}</p>
               </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins__flex-direction" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins__flex-direction">
-                <span class="secao-lista__titulo">flex-direction()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
+              <h3>flex-direction()</h3>
               <p>Determina a direção do conteúdo do flexbox. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
               <p><strong>Sintaxe: </strong> <samp>@include display-direction($flex-direction);</samp></p>
               <dl class="lista-definicao">
                 <dt><samp>$flex-direction</samp></dt>
-                  <dd>A direção a ser aplicada. O valor padrão é <samp>column</samp></dd>
+                <dd>A direção a ser aplicada. O valor padrão é <samp>column</samp></dd>
               </dl>
               <code class="codigo--sass">
                 <header>SASS</header>
@@ -1613,22 +1596,12 @@
                   <p class="recuo-1">flex-direction: row;</p>
                 <p>}</p>
               </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins__flex-wrap" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins__flex-wrap">
-                <span class="secao-lista__titulo">flex-wrap()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
+              <h3>flex-wrap()</h3>
               <p>Determina se os itens ficarão em apenas uma linha ou várias. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
               <p><strong>Sintaxe: </strong> <samp>@include flex-wrap($wrap);</samp></p>
               <dl class="lista-definicao">
                 <dt><samp>$wrap</samp></dt>
-                  <dd>Valor a ser passado para definir a quebra. O valor padrão é <samp>wrap</samp>.</dd>
+                <dd>Valor a ser passado para definir a quebra. O valor padrão é <samp>wrap</samp>.</dd>
               </dl>
               <code class="codigo--sass">
                 <header>SASS</header>
@@ -1638,254 +1611,501 @@
                 <p>.valor-personalizado {</p>
                   <p class="recuo-1">@include flex-wrap(wrap-reserve);</p>
                 <p>}</p>
-              </code>
-              <p>Compilado:</p>
-              <code class="codigo--css">
-                <header>CSS</header>
-                <p>.valor-padrao {</p>
-                  <p class="recuo-1">-webkit-flex-wrap: wrap;</p>
-                  <p class="recuo-1">flex-wrap: wrap;</p>
-                <p>}</p>
-                <p>.valor-personalizado {</p>
-                  <p class="recuo-1">-webkit-flex-wrap: wrap-reserve;</p>
-                  <p class="recuo-1">flex-wrap: wrap-reserve;</p>
-                <p>}</p>
-              </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins_flex-flow" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins_flex-flow">
-                <span class="secao-lista__titulo">flex-flow()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
-              <p>Versão resumida para <samp>flex-direction</samp> e <samp>flex-container</samp>. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
-              <p><strong>Sintaxe: </strong> <samp>@include flex-flow($flex-direction, $flex-wrap);</samp></p>
-              <dl class="lista-definicao">
-                <dt><samp>$flex-direction</samp></dt>
-                  <dd>A direção a ser aplicada. O valor padrão é <samp>column</samp></dd>
-                <dt><samp>$flex-wrap</samp></dt>
-                  <dd>Valor a ser passado para definir a quebra. O valor padrão é <samp>wrap</samp>.</dd>
-              </dl>
-              <code class="codigo--sass">
-                <header>SASS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">@include flex-flow;</p>
-                <p>}</p>
-                <p>.somente-direction {</p>
-                  <p class="recuo-1">@include flex-flow(row);</p>
-                <p>}</p>
-                <p>.somente-wrap {</p>
-                  <p class="recuo-1">@include flex-flow($flex-wrap: wrap-reserve);</p>
-                <p>}</p>
-                <p>.ambos-personalizados {</p>
-                  <p class="recuo-1">@include flex-flow(row, wrap-reserve);</p>
-                <p>}</p>
-              </code>
-              <p>Compila em:</p>
-              <code class="codigo--css">
-                <header>CSS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">-webkit-flex-flow: column wrap;</p>
-                  <p class="recuo-1">flex-flow: column wrap;</p>
-                <p>}</p>
-                <p>.somente-direction {</p>
-                  <p class="recuo-1">-webkit-flex-flow: row wrap;</p>
-                  <p class="recuo-1">flex-flow: row wrap;</p>
-                <p>}</p>
-                <p>.somente-wrap {</p>
-                  <p class="recuo-1">-webkit-flex-flow: column wrap-reserve;</p>
-                  <p class="recuo-1">flex-flow: column wrap-reserve;</p>
-                <p>}</p>
-                <p>.ambos-personalizados {</p>
-                  <p class="recuo-1">-webkit-flex-flow: row wrap-reserve;</p>
-                  <p class="recuo-1">flex-flow: row wrap-reserve;</p>
-                <p>}</p>
-              </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins__justify-content" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins__justify-content">
-                <span class="secao-lista__titulo">justify-content()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
-              <p>Define alinhamento dos elementos no eixo principal (<em>main axis</em>). <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a></p>
-              <p><strong>Sintaxe: </strong> <samp>@include justify-content($justify-content)</samp></p>
-              <dl class="lista-definicao">
-                <dt><samp>$justify-content</samp></dt>
-                  <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
-              </dl>
-              <code class="codigo--sass">
-                <header>SASS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">@include justify-content;</p>
-                <p>}</p>
-                <p>.personalizado {</p>
-                  <p class="recuo-1">@include justify-content(space-between);</p>
-                <p>}</p>
-              </code>
-              <p>Compila em:</p>
-              <code class="codigo--css">
-                <header>CSS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">-webkit-justify-content: center;</p>
-                  <p class="recuo-1">justify-content: center;</p>
-                <p>}</p>
-                <p>.personalizado {</p>
-                  <p class="recuo-1">-webkit-justify-content: space-between;</p>
-                  <p class="recuo-1">justify-content: space-between;</p>
-                <p>}</p>
-              </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins__align-items" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins__align-items">
-                <span class="secao-lista__titulo">align-items()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
-              <p>Define como os itens serão alinhados no eixo cruzado (<em>cross axis</em>). <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
-              <p><strong>Sintaxe: </strong> <samp>@include align-items($align-items)</samp></p>
-              <dl class="lista-definicao">
-                <dt><samp>$align-items</samp></dt>
-                  <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
-              </dl>
-              <code class="codigo--sass">
-                <header>SASS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">@include align-items;</p>
-                <p>}</p>
-                <p>.personalizado {</p>
-                  <p class="recuo-1">@include align-items(stretch);</p>
-                <p>}</p>
-              </code>
-              <code class="codigo--css">
-                <header>CSS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">-webkit-align-items: center;</p>
-                  <p class="recuo-1">align-items: center;</p>
-                <p>}</p>
-                <p>.personalizado {</p>
-                  <p class="recuo-1">-webkit-align-items: stretch;</p>
-                  <p class="recuo-1">align-items: stretch;</p>
-                <p>}</p>
-              </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins__align-content" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins__align-content">
-                <span class="secao-lista__titulo">align-content()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
-              <p>Determina o comportamento dos itens no eixo cruzado (<em>cross axis</em>) quando há quebra de linha dos elementos. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
-              <p><strong>Sintaxe: </strong> <samp>@include align-content()</samp></p>
-              <dl class="lista-definicao">
-                <dt><samp>$align-content</samp></dt>
-                  <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
-              </dl>
-              <code class="codigo--sass">
-                <header>SASS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">@include align-content;</p>
-                <p>}</p>
-                <p>.personalizado {</p>
-                  <p class="recuo-1">@include align-content(space-between);</p>
-                <p>}</p>
-              </code>
-              <p>Compilado em:</p>
-              <code class="codigo--css">
-                <header>CSS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">-webkit-align-content: center;</p>
-                  <p class="recuo-1">align-content: center;</p>
-                <p>}</p>
-                <p>.personalizado {</p>
-                  <p class="recuo-1">-webkit-align-content: space-between;</p>
-                  <p class="recuo-1">align-content: space-between;</p>
-                <p>}</p>
-              </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins__order" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins__order">
-                <span class="secao-lista__titulo">order()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
-              <p>Altera a ordem que o elemento aparece com relação aos outros. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>. </p>
-              <p><strong>Sintaxe: </strong> <samp>@include order($order);</samp></p>
-              <dl class="lista-definicao">
-                <dt><samp>$order</samp></dt>
-                  <dd>O valor numérico que representa a ordem. O valor padrão <samp>auto</samp> não é verdadeiramente útil pois é difícil prever o número que seria útil. Aliás, nem sei pra quê eu estou justificando isso.</dd>
-              </dl>
-              <code class="codigo--sass">
-                <header>SASS</header>
-                <p>.elemento {</p>
-                  <p class="recuo-1">@include order(3);</p>
-                <p>}</p>
-              </code>
-              <p>Compila em:</p>
-              <code class="codigo--css">
-                <header>CSS</header>
-                <p>.elemento {</p>
-                  <p class="recuo-1">-webkit-order: 3;</p>
-                  <p class="recuo-1">order: 3;</p>
-                <p>}</p>
-              </code>
-            </section>
-          </section>
-          <section class="secao-lista">
-            <input type="checkbox" id="mixins__flex-grow" class="secao-lista__check" checked="checked">
-            <header class="secao-lista__header">
-              <label for="mixins__flex-grow">
-                <span class="secao-lista__titulo">flex-grow()</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
-              <p>Aplica a propriedade de <samp>flex-grow</samp> no elemento. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
-              <p><strong>Sintaxe: </strong> <samp>@include flex-grow($flex-grow);</samp></p>
-              <dl class="lista-definicao">
-                <dt><samp>$flex-grow</samp></dt>
-                  <dd>O valor numérico a ser usado. O valor padrão é <samp>1</samp>;</dd>
-              </dl>
-              <code class="codigo--sass">
-                <header>SASS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">@include flex;</p>
-                <p>}</p>
-                <p>.personalizado {</p>
-                  <p class="recuo-1">@include flex(3);</p>
-                <p>}</p>
-              </code>
-              <p>O que resulta em:</p>
-              <code class="codigo--css">
-                <header>CSS</header>
-                <p>.padrao {</p>
-                  <p class="recuo-1">-webkit-flex: 1;</p>
-                  <p class="recuo-1">flex: 1;</p>
+                </code>
+                <p>Compilado:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.valor-padrao {</p>
+                    <p class="recuo-1">-webkit-flex-wrap: wrap;</p>
+                    <p class="recuo-1">flex-wrap: wrap;</p>
+                  <p>}</p>
+                  <p>.valor-personalizado {</p>
+                    <p class="recuo-1">-webkit-flex-wrap: wrap-reserve;</p>
+                    <p class="recuo-1">flex-wrap: wrap-reserve;</p>
+                  <p>}</p>
+                </code>
+                <h3>flex-flow()</h3>
+                <p>Versão resumida para <samp>flex-direction</samp> e <samp>flex-container</samp>. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+                <p><strong>Sintaxe: </strong> <samp>@include flex-flow($flex-direction, $flex-wrap);</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$flex-direction</samp></dt>
+                    <dd>A direção a ser aplicada. O valor padrão é <samp>column</samp></dd>
+                  <dt><samp>$flex-wrap</samp></dt>
+                    <dd>Valor a ser passado para definir a quebra. O valor padrão é <samp>wrap</samp>.</dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include flex-flow;</p>
+                  <p>}</p>
+                  <p>.somente-direction {</p>
+                    <p class="recuo-1">@include flex-flow(row);</p>
+                  <p>}</p>
+                  <p>.somente-wrap {</p>
+                    <p class="recuo-1">@include flex-flow($flex-wrap: wrap-reserve);</p>
+                  <p>}</p>
+                  <p>.ambos-personalizados {</p>
+                    <p class="recuo-1">@include flex-flow(row, wrap-reserve);</p>
+                  <p>}</p>
+                </code>
+                <p>Compila em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-flex-flow: column wrap;</p>
+                    <p class="recuo-1">flex-flow: column wrap;</p>
+                  <p>}</p>
+                  <p>.somente-direction {</p>
+                    <p class="recuo-1">-webkit-flex-flow: row wrap;</p>
+                    <p class="recuo-1">flex-flow: row wrap;</p>
+                  <p>}</p>
+                  <p>.somente-wrap {</p>
+                    <p class="recuo-1">-webkit-flex-flow: column wrap-reserve;</p>
+                    <p class="recuo-1">flex-flow: column wrap-reserve;</p>
+                  <p>}</p>
+                  <p>.ambos-personalizados {</p>
+                    <p class="recuo-1">-webkit-flex-flow: row wrap-reserve;</p>
+                    <p class="recuo-1">flex-flow: row wrap-reserve;</p>
+                  <p>}</p>
+                </code>
+                <h3>justify-content()</h3>
+                <p>Define alinhamento dos elementos no eixo principal (<em>main axis</em>). <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a></p>
+                <p><strong>Sintaxe: </strong> <samp>@include justify-content($justify-content)</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$justify-content</samp></dt>
+                    <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include justify-content;</p>
                   <p>}</p>
                   <p>.personalizado {</p>
-                    <p class="recuo-1">-webkit-flex: 3;</p>
-                    <p class="recuo-1">flex: 3;</p>
+                    <p class="recuo-1">@include justify-content(space-between);</p>
+                  <p>}</p>
+                </code>
+                <p>Compila em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-justify-content: center;</p>
+                    <p class="recuo-1">justify-content: center;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">-webkit-justify-content: space-between;</p>
+                    <p class="recuo-1">justify-content: space-between;</p>
+                  <p>}</p>
+                </code>
+                <h3>align-items()</h3>
+                <p>Define como os itens serão alinhados no eixo cruzado (<em>cross axis</em>). <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+                <p><strong>Sintaxe: </strong> <samp>@include align-items($align-items)</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$align-items</samp></dt>
+                    <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include align-items;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">@include align-items(stretch);</p>
+                  <p>}</p>
+                </code>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-align-items: center;</p>
+                    <p class="recuo-1">align-items: center;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">-webkit-align-items: stretch;</p>
+                    <p class="recuo-1">align-items: stretch;</p>
+                  <p>}</p>
+                </code>
+                <h3>align-content()</h3>
+                <p>Determina o comportamento dos itens no eixo cruzado (<em>cross axis</em>) quando há quebra de linha dos elementos. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+                <p><strong>Sintaxe: </strong> <samp>@include align-content()</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$align-content</samp></dt>
+                    <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include align-content;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">@include align-content(space-between);</p>
+                  <p>}</p>
+                </code>
+                <p>Compilado em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-align-content: center;</p>
+                    <p class="recuo-1">align-content: center;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">-webkit-align-content: space-between;</p>
+                    <p class="recuo-1">align-content: space-between;</p>
+                  <p>}</p>
+                </code>
+                <h2>No elemento filho (flex-item)</h2>
+                <h3>order()</h3>
+                <p>Altera a ordem que o elemento aparece com relação aos outros. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>. </p>
+                <p><strong>Sintaxe: </strong> <samp>@include order($order);</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$order</samp></dt>
+                    <dd>O valor numérico que representa a ordem. O valor padrão <samp>auto</samp> não é verdadeiramente útil pois é difícil prever o número que seria útil. Aliás, nem sei pra quê eu estou justificando isso.</dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.elemento {</p>
+                    <p class="recuo-1">@include order(3);</p>
+                  <p>}</p>
+                </code>
+                <p>Compila em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.elemento {</p>
+                    <p class="recuo-1">-webkit-order: 3;</p>
+                    <p class="recuo-1">order: 3;</p>
+                  <p>}</p>
+                </code>
+                <h3>flex-grow()</h3>
+                <p>Aplica a propriedade de <samp>flex-grow</samp> no elemento. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+                <p><strong>Sintaxe: </strong> <samp>@include flex-grow($flex-grow);</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$flex-grow</samp></dt>
+                    <dd>O valor numérico a ser usado. O valor padrão é <samp>1</samp>;</dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include flex-grow;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">@include flex-grow(3);</p>
+                  <p>}</p>
+                </code>
+                <p>O que resulta em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-flex-grow: 1;</p>
+                    <p class="recuo-1">flex-grow: 1;</p>
                     <p>}</p>
+                    <p>.personalizado {</p>
+                      <p class="recuo-1">-webkit-flex-grow: 3;</p>
+                      <p class="recuo-1">flex-grow: 3;</p>
+                      <p>}</p>
+                </code>
+                <h3>flex-shrink()</h3>
+                <p>Aplica a propriedade de <samp>flex-shrink</samp> no elemento. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+                <p><strong>Sintaxe: </strong> <samp>@include flex-shrink($flex-shrink);</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$flex-shrink</samp></dt>
+                    <dd>O valor numérico a ser usado. O valor padrão é <samp>1</samp>;</dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include flex-shrink;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">@include flex-shrink(3);</p>
+                  <p>}</p>
+                </code>
+                <p>O que resulta em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-flex-shrink: 1;</p>
+                    <p class="recuo-1">flex-shrink: 1;</p>
+                    <p>}</p>
+                    <p>.personalizado {</p>
+                      <p class="recuo-1">-webkit-flex-shrink: 3;</p>
+                      <p class="recuo-1">flex-shrink: 3;</p>
+                    <p>}</p>
+                </code>
+                <h3>flex-basis()</h3>
+                <p>Aplica a propriedade de <samp>flex-basis</samp> no elemento. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+                <p><strong>Sintaxe: </strong> <samp>@include flex-basis($flex-basis);</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$flex-basis</samp></dt>
+                    <dd>O valor a ser usado, a unidade pode ser percentual, <samp>rem</samp>, <samp>em</samp>, <samp>px</samp>, etc. O valor padrão é <samp>100%</samp>;</dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include flex-basis;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">@include flex-basis(25%);</p>
+                  <p>}</p>
+                </code>
+                <p>O que resulta em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-flex-basis: 100%;</p>
+                    <p class="recuo-1">flex-basis: 100%;</p>
+                    <p>}</p>
+                    <p>.personalizado {</p>
+                      <p class="recuo-1">-webkit-flex-basis: 25%;</p>
+                      <p class="recuo-1">flex-basis: 25%;</p>
+                    <p>}</p>
+                </code>
+                <h3>flex-grow()</h3>
+                <p>Versão resumida para <samp>flex-grow</samp>, <samp>flex-shrink</samp> e <samp>flex-basis</samp>. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+                <p><strong>Sintaxe: </strong> <samp>@include flex($flex);</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$flex</samp></dt>
+                    <dd>O valor simplificado. Basta colocar os três elementos na ordem e separados por espaço: <samp>flex-grow</samp>, <samp>flex-shrink</samp> e <samp>flex-basis</samp>. O valor padrão é <samp>1</samp>, o que significa que está aplicando apenas o <samp>flex-grow</samp></dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include flex;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">@include flex(1 0 25%);</p>
+                  <p>}</p>
+                </code>
+                <p>Que compila em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-flex: 1;</p>
+                    <p class="recuo-1">flex: 1;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">-webkit-flex: 1 0 25%;</p>
+                    <p class="recuo-1">flex: 1 0 25%;</p>
+                  <p>}</p>
+                </code>
+                <h3>align-self()</h3>
+                <p>Altera o alinhamento do item individualmente. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+                <p><strong>Sintaxe: </strong> <samp>@include align-self($align-self);</samp></p>
+                <dl class="lista-definicao">
+                  <dt><samp>$align-self</samp></dt>
+                    <dd>Aplica o valor a ser aplicado para o alinhamento. O valor padrão é <samp>auto</samp>.</dd>
+                </dl>
+                <code class="codigo--sass">
+                  <header>SASS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">@include align-self;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">@include align-self(flex-end);</p>
+                  <p>}</p>
+                </code>
+                <p>O que resulta em:</p>
+                <code class="codigo--css">
+                  <header>CSS</header>
+                  <p>.padrao {</p>
+                    <p class="recuo-1">-webkit-align-self: auto;</p>
+                    <p class="recuo-1">align-self: auto;</p>
+                  <p>}</p>
+                  <p>.personalizado {</p>
+                    <p class="recuo-1">-webkit-align-self: flex-end;</p>
+                    <p class="recuo-1">align-self: flex-end;</p>
+                  <p>}</p>
+                </code>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="mixins__centraliza-caixa" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixins__centraliza-caixa">
+                <span class="secao-lista__titulo">centraliza-caixa()</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Este mixin cria uma caixa centralizada na tela com posicionamento absoluto (se o elemento pai tiver algum <samp>position</samp> definido vai centralizar com relação à ele). Ideal para criar uma tela de login, por exemplo. Não precisa usar em modais, pois este elemento já foi criado dentro do <strong>Front-Alego</strong>. Esta caixa não precisa ter tamanho fixo.</p>
+              <p><strong>Sintaxe: </strong> <samp>@include centraliza-caixa($largura, $altura);</samp></p>
+              <dl class="lista-definicao">
+                <dt><samp>$largura</samp></dt>
+                  <dd>Define a largura da caixa. <strong>Este valor pode ser omitido</strong>.</dd>
+                <dt><samp>$altura</samp></dt>
+                  <dd>Define a altura da caixa. <strong>Este valor pode ser omitido</strong>. Se for usar este valor, mas sem a altura, lembre-se de escrever o nome da variável.</dd>
+              </dl>
+              <p>Chamando o mixin sem os valores:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.sem-valor {</p>
+                  <p class="recuo-1">@include centraliza-caixa;</p>
+                <p>}</p>
+              </code>
+              <p>Chamando o mixin com os valores:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.com-medidas {</p>
+                  <p class="recuo-1">@include centraliza-caixa(35vw, 50vh);</p>
+                <p>}</p>
+              </code>
+              <p>Chamando o mixin com o valor de largura:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.so-largura {</p>
+                  <p class="recuo-1">@include centraliza-caixa(35vw);</p>
+                <p>}</p>
+              </code>
+              <p>Chamando o mixin com o valor de altura:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.so-altura {</p>
+                  <p class="recuo-1">@include centraliza-caixa($altura: 50vw);</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="mixins__grupo-flex" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixins__grupo-flex">
+                <span class="secao-lista__titulo">grupo-flex()</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Este mixin serve para criar itens de mesmo tamanho distribuídos ao longo de algum container. Ele deve ser aplicado no container (que se torna <samp>display: flex</samp>).</p>
+              <p><strong>Sintaxe: </strong> <samp>@include grupo-flex($quantidade, $margem, $largura, $largura-minima);</samp></p>
+              <dl class="lista-definicao">
+                <dt><samp>$quantidade</samp></dt>
+                  <dd>A quantidade de caixas por linha. <strong>Sem valor padrão</strong></dd>
+                <dt><samp>$margem</samp></dt>
+                  <dd>Determina a margem entre os elementos. Se não quiser nenhuma margem, coloque o valor como <samp>0</samp>. <strong>Valor padrão:</strong> <samp>10px</samp> convertidos para <samp>rem</samp>.</dd>
+                <dt><samp>$largura</samp></dt>
+                  <dd>Determina a largura de cada uma das caixas (elementos filhos). <strong>Este valor é opcional</strong>. Se omitido vai calcular a largura em porcentagem conforme a quantidade.</dd>
+                <dt><samp>$largura-minima</samp></dt>
+                  <dd>Determina o tamanho mínimo de cada um dos elementos filhos. Especialmente se a largura comum (acima) estiver omitida e sair como porcentagem. <strong>Valor opcional</strong>.</dd>
+              </dl>
+              <p>Colocando 5 itens por linha:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.cinco-itens-linha {</p>
+                  <p class="recuo-1">@include grupo-flex(5);</p>
+                <p>}</p>
+              </code>
+              <p>Colocando 5 itens por linha, com margem de 1rem:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.cinco-itens-linha {</p>
+                  <p class="recuo-1">@include grupo-flex(5, 1rem);</p>
+                <p>}</p>
+              </code>
+              <p>Colocando 5 itens de 300px por linha:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.cinco-itens-linha {</p>
+                  <p class="recuo-1">@include grupo-flex(5, $largura: 300px);</p>
+                <p>}</p>
+              </code>
+              <p>Colocando 5 itens por linha com largura mínima de 300px cada:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.cinco-itens-linha {</p>
+                  <p class="recuo-1">@include grupo-flex(5, $largura-minima: 300px);</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="mixins__texto-selecionado" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixins__texto-selecionado">
+                <span class="secao-lista__titulo">texto-selecionado()</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Este mixin altera a forma como o browser apresenta o texto quando o usuário seleciona o texto (experimente selecionar um parágrafo desta documentação, que usam os valores padrão).</p>
+              <p><strong>Sintaxe: </strong> <samp>@include texto-selecionado($fundo, $cor-texto);</samp></p>
+              <dl class="lista-definicao">
+                <dt><samp>$fundo</samp></dt>
+                  <dd>Define a cor de fundo. <strong>Valor padrão</strong>: <samp>cor(fundo, escuro)</samp></dd>
+                <dt><samp>$texto</samp></dt>
+                  <dd>Define a cor do texto. <strong>Valor padrão</strong>: cor(texto, claro)</dd>
+              </dl>
+              <p>Como você pode notar, é possível aplicar o mixin sem valores e as cores mudam conforme as cores aplicadas nos temas de cor.</p>
+              <p>Este mixin pode ser aplicado em todo o site (no <samp>&lt;body&gt;</samp>) ou em elementos específicos (como um parágrafo, uma div e assim por diante).</p>
+              <p>Exemplo de uso no <samp>body</samp> sem valores:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>body {</p>
+                  <p class="recuo-1">@include texto-selecionado;</p>
+                <p>}</p>
+              </code>
+              <p>Exemplo de uso em um caso específico:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.urgente {</p>
+                  <p class="recuo-1">font-weight: bold;</p>
+                  <p class="recuo-1">color: cor-status(urgente);</p>
+                  <p class="recuo-1">@include texto-selecionado(cor-status(urgente-escuro), cor(texto, claro));</p>
+                <p>}</p>
+              </code>
+              <p>Que compila em:</p>
+              <code class="codigo--css">
+                <header>CSS</header>
+                <p>.urgente {</p>
+                  <p class="recuo-1">font-weight: bold;</p>
+                  <p class="recuo-1">color: #ed1c24;</p>
+                <p>}</p>
+                <p>.urgente::selection {</p>
+                  <p class="recuo-1">background-color: #be1e2d;</p>
+                  <p class="recuo-1">color: #fff;</p>
+                <p>}</p>
+                <p>.urgente::-moz-selection {</p>
+                  <p class="recuo-1">background-color: #be1e2d;</p>
+                  <p class="recuo-1">color: #fff;</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="mixins__lista-oculta" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixins__lista-oculta">
+                <span class="secao-lista__titulo">lista-oculta()</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Faz listas que abrem e fecham mas que ainda exibem o título (como essa lista de mixins). O HTML deve incluir um checkbox no mesmo nível hierárquico do conteúdo que está ocultando. O conteúdo deve aparecer depois.</p>
+              <p>Este mixin deve ser aplicado dentro do seletor do checkbox.</p>
+              <p><strong>Sintaxe: </strong> <samp>@include lista-oculta($classe);</samp></p>
+              <dl class="lista-definicao">
+                <dt><samp>$classe</samp></dt>
+                  <dd>A classe do conteúdo que vai ser exibido.</dd>
+              </dl>
+              <p>O <strong>HTML</strong> deve seguir o padrão:</p>
+              <ul class="lista-itens">
+                <li>Checkbox e conteúdo devem estar no mesmo nível hierárquico;</li>
+                <li>Depois do checkbox aparece o label (também no mesmo nível hierárquico);</li>
+                <li>Cada checkbox deve ter um <samp>id</samp> e este deve ser único. O <samp>label</samp> deve ter a propriedade <samp>for</samp> com o mesmo id do checkbox;</li>
+                <li>A classe do conteúdo não precisa ser diferente para cada item/lista (melhor que seja a mesma, inclusive, para deixar o CSS compilado menor);</li>
+                <li>O conteúdo vem aberto por padrão. Para ocultar o conteúdo daquele item, inclua <samp>checked="checked"</samp> no checkbox.</li>
+              </ul>
+              <p>Exemplo de aplicação:</p>
+              <code class="codigo--html">
+                <header>HTML</header>
+                <p>&lt;div&gt;</p>
+                  <p class="recuo-1">&lt;input type="checkbox" class="check-lista" id="nome" /&gt;</p>
+                  <p class="recuo-1">&lt;label for="nome"&gt;Título do item da lista&lt;/label&gt;</p>
+                  <p class="recuo-1">&lt;div class="conteudo-demo"&gt;</p>
+                    <p class="recuo-2">...</p>
+                  <p class="recuo-1">&lt;/div&gt;</p>
+                <p>&lt;/div&gt;</p>
+              </code>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.check-lista {</p>
+                  <p class="recuo-1">@include lista-oculta(conteudo-demo);</p>
+                <p>}</p>
               </code>
             </section>
           </section>
