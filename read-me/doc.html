@@ -1352,6 +1352,23 @@
             </header>
             <section class="secao-lista__conteudo">
               <p>O arquivo <samp class="arquivo">base/_placeholders.scss</samp> contém vários placeholders globais que podem ser usado em todo o sistema atual e também será utilizado como padrão nos demais sistemas da Alego.</p>
+              <p>Se precisar de algum novo placeholder padrão, acrescente em um arquivo dentro da pasta <samp class="pasta">extra</samp>.</p>
+              <dl class="lista-definicao">
+                <dt><samp>%flex</samp></dt>
+                  <dd>Chama o <a href="#mixins" class="link--readme">mixin</a> <samp>display-flex</samp> deixando o elemento atual com <samp>display: flex;</samp>. Você pode usar este placeholder ou o mixin, pense nisso conforme a necessidade do CSS final.</dd>
+                <dt><samp>%flex-total</samp></dt>
+                  <dd>Extende o placeholder <samp>%flex</samp> e aplica uma largura de 100% para o elemento atual. Use para containers que precisam ocupar toda a largura de seu elemento pai.</dd>
+                <dt><samp>%clearfix</samp></dt>
+                  <dd>Isso aqui tá aqui só porque eventualmente podemos usar float e precisaremos limpar os floats. E é isso que ele faz, limpa os floats.</dd>
+                <dt><samp>%lista-sem-marcador</samp></dt>
+                  <dd>Retira a formatação de uma lista (<samp>ul</samp>, <samp>ol</samp>)</dd>
+                <dt><samp>%lista-flex</samp></dt>
+                  <dd>Retira a formatação de uma lista e aplica <samp>display: flex;</samp> na mesma. Útil para menus horizontais.</dd>
+                <dt><samp>%link-block</samp><br /><samp>%link-bloco</samp><br /><samp>%link-caixa</samp></dt>
+                  <dd>Utilize em links que aparece <strong>sozinho</strong> em um elemento. Ele vai ficar sem sublinhado e ocupar todo o elemento (pois é transformado em bloco). Use em menus (o menu desta documentação faz uso).</dd>
+                <dt><samp>%centraliza-caixa</samp></dt>
+                  <dd>Chama o <a href="#mixins" class="link--readme">mixin</a> <samp>centraliza-caixa</samp> sem nenhuma propriedade aplicada a ele.  Você pode usar este placeholder ou o mixin, pense nisso conforme a necessidade do CSS final.</dd>
+              </dl>
             </section>
           </section>
         </article>
