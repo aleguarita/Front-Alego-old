@@ -64,6 +64,7 @@
           </div>
           <ul class="lista--link">
             <li><a href="#classes">Classes globais</a></li>
+            <li><a href="#placeholders">Placeholders globais</a></li>
           </ul>
         </div>
         <div class="menu__grupo">
@@ -78,8 +79,8 @@
             <li><a href="#funcoes">Funções</a></li>
             <li><a href="#mixins">Mixins</a></li>
             <li>Classes</li> <!-- liste aqui todas as classes -->
-            <li>Variáveis</li>
             <li>Placeholders</li>
+            <li>Variáveis</li>
           </ul>
         </div>
       </nav>
@@ -269,6 +270,13 @@
               <blockquote class="aviso--grave">
                 Sempre use o sistema de media-query descrito aqui (fazendo uso da função <samp>breakpoint</samp>). E nunca, jamais, escreva uma medida que não esteja descrita no mapa <samp>$breakpoints</samp>.
               </blockquote>
+            <h2 id="regras__propriedades">Ordem das propriedades dentro de um seletor</h2>
+              <p>Calma, não precisa organizar TODOS as propriedades com uma regra específica. Mas as propriedades devem seguir a seguinte regra básica:</p>
+              <ol class="lista-ordenada">
+                <li>Primeiro aparecem os <samp>@extend</samp> (seja para um placeholder ou para outra classe). <strong>Isso é importante pois você pode incluir uma propriedade que altera o que você extendeu</strong>.</li>
+                <li>Depois aparecem os <samp>@include</samp> para os mixins</li>
+                <li>Se você duplicar regras para teste (exemplo: dois <samp>background</samp> diferentes) lembre-se de comentar a que não está sendo usada ou, melhor ainda, deletar.</li>
+              </ol>
             </section>
         </article>
 
@@ -1326,7 +1334,25 @@
                   <dd>Aumenta o tamanho da fonte 3 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--xx-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
               </dl>
             </section>
+          </section>
+        </article>
 
+        <article id="placeholders">
+          <header>
+            <h1>Placeholders globais</h1>
+            <p><samp class="arquivo">base/_placeholders.scss</samp></p>
+          </header>
+          <section class="secao-lista">
+            <input type="checkbox" id="placeholders__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="placeholders__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>O arquivo <samp class="arquivo">base/_placeholders.scss</samp> contém vários placeholders globais que podem ser usado em todo o sistema atual e também será utilizado como padrão nos demais sistemas da Alego.</p>
+            </section>
           </section>
         </article>
 
