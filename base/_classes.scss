@@ -10,12 +10,13 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 08/12/2015
+// Alterado em: 06/01/2016
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 06/01/2015 | Acrescentadas variações de texto e fundo --urgente
 // 08/12/2015 | Tiradas classes da tipografia e inseridas aqui
 //              Criada classe "pointer"
 // 21/10/2015 | Criado o arquivo com as classes básicas
@@ -40,7 +41,7 @@ CLASSES FIXAS
 .texto--ok {
 	color: cor-status(ok);
 }
-.texto--erro {
+.texto--erro, .texto--urgente {
 	color: cor-status(erro);
 }
 .texto--alerta {
@@ -50,7 +51,7 @@ CLASSES FIXAS
 	background: cor-status(ok);
 	@extend %texto-status--claro;
 }
-.fundo--erro {
+.fundo--erro, .fundo--urgente {
 	background: cor-status(erro);
 	@extend %texto-status--claro;
 }
