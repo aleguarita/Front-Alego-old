@@ -10,11 +10,14 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 08/12/2015
+// Última alteração: 07/01/2015
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 07/01/2015 | Retirado "thead" do seletor "thead th". Agora é todos os <th>
+// 							terão a mesma configuração básica, esteja no cabeçalho da tabela
+// 							ou na primeira coluna
 // 08/12/2015 | Retirada variável de borda
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
@@ -41,7 +44,7 @@ TABELAS
 table {
 	width: 100%;
 }
-thead th {
+th {
 	font-family: $fonte-serifa;
 	text-align: left;
 	font-size: em(15, 14);
