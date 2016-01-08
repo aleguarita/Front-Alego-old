@@ -1389,11 +1389,18 @@
               <p>Para chamar uma tabela você tem duas classes disponíveis (desde que ativas em <samp>$uso-classes</samp>, conforme descrito <a href="#config__classes" class="link--readme">no arquivo de configuração</a>):</p>
               <dl class="lista-definicao">
                 <dt><samp>.tab</samp></dt>
-                  <dd>A classe básica para todas as tabelas</dd>
+                  <dd><strong><samp>&lt;table&gt;</samp></strong>. A classe básica para todas as tabelas</dd>
                 <dt><samp>.tab--form</samp></dt>
-                  <dd>Use para tabelas formulários (estilo planilha)</dd>
+                  <dd><strong><samp>&lt;table&gt;</samp></strong>. Use para tabelas formulários (estilo planilha)</dd>
               </dl>
               <p>Caso precise de variantes ou de modificar a classe básica para atender à necessidade do layout, faça-o em um arquivo <samp class="arquivo">tabela.scss</samp> dentro da pasta <samp class="pasta">extra/</samp>.</p>
+              <p>Existem algumas classes para serem usadas dentro das tabelas:</p>
+              <dl class="lista-definicao">
+                <dt><samp>.tab__acoes</samp></dt>
+                  <dd><strong><samp>&lt;td&gt;</samp></strong>. Use no <samp>&lt;td&gt;</samp> que contém os ícones de ações</dd>
+                <dt><samp>.col--X</samp></dt>
+                  <dd><strong><samp>&lt;th&gt;</samp></strong>. Use nas colunas de título (<samp>&lt;th&gt;</samp>). <strong>X</strong> é substituído pelo nome que você criou dentro do arquivo de <span class="arquivo">config</span> e determina a largura desta coluna. No momento já temos criada a <strong>.col--acoes</strong></dd>
+              </dl>
             </section>
           </section>
           <section class="secao-lista">
