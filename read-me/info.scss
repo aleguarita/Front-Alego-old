@@ -32,6 +32,20 @@ INÍCIO DO CSS ESPECÍFICO DO READ-ME
 $rd: 3px; // arredondamento
 $pd: .2rem; // padding
 
+// =============================================================================
+// MIXINS GLOBAIS
+// =============================================================================
+// Grupos de demonstração que cabem na mesma linha e fazem uso de flex-box
+@mixin grupo-demo($qtd: 2) {
+  $margem: ($qtd - 1) * 0.5rem;
+  $tamanho: 100% / $qtd;
+  @include display-flex;
+  @include justify-content(space-between);
+  div {
+    width: calc(#{$tamanho} - #{$margem});
+  }
+}
+
 /*
 ================================================================================
 PLACEHOLDERS GLOBAIS
@@ -325,6 +339,12 @@ $codigo-selecionado: (
   tab-tipo: if(index($uso-classes, tabela), $tab-tipo, 'nenhuma'),
   tab--zebra: $tab--zebra,
   tab-acao-link-bloco: $tab-acao-link-bloco,
+
+  lista-tipo: if(index($uso-classes, lista), $lista-tipo, 'nenhuma'),
+  lista--zebra: $lista--zebra,
+  lista--sombra: $lista--sombra,
+
+  lista-titulo: $secao-lista-titulo,
 );
 
 @each $classe, $valor in $codigo-selecionado {
@@ -818,11 +838,7 @@ $variaveis: (
 // TABELAS
 // -----------------------------------------------------------------------------
 .tab-demo {
-  @include display-flex;
-  @include justify-content(space-between);
-  div {
-    width: 49.5%;
-  }
+  @include grupo-demo;
 }
 $tab-tipos: (tipo-1, tipo-2);
 .tab {
@@ -850,5 +866,51 @@ $tab-tipos: (tipo-1, tipo-2);
 		.tab__acoes {
 			padding: 0;
 		}
+  }
+}
+// -----------------------------------------------------------------------------
+// LISTAS
+// -----------------------------------------------------------------------------
+.lista-demo {
+  @include grupo-demo(3);
+}
+$lista-tipos: (tipo-1, tipo-2);
+.lista {
+  @each $lista in $lista-tipos {
+    &--#{$lista} {
+      @extend %lista--#{$lista};
+      .lista__titulo {
+        @extend %lista--#{$lista}__titulo;
+      }
+      &--link {
+        @extend %lista--#{$lista};
+        li:not(.lista__titulo) {
+          padding: 0;
+        }
+        a, span {
+          @extend %link-block;
+          padding: $lista-padding;
+        }
+        .lista__titulo {
+          @extend %lista--#{$lista}__titulo;
+        }
+      }
+    }
+  }
+  &--zebra {
+    li {
+      &:not(.lista__titulo) {
+        background: cor(fundo, x-claro);
+        &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
+      }
+    }
+  }
+  &--sombra {
+    box-shadow: $sombra-card;
+  }
+}
+.lista--tipo-2, .lista--tipo-2--link {
+  .lista__titulo {
+    background: transparent;
   }
 }

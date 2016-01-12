@@ -168,12 +168,12 @@ PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
   display: flex;
 }
 
-.breadcrumbs, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .ui-autocomplete, .toast, .lista, .lista--link, .lista-sem-marcador {
+.breadcrumbs, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .ui-autocomplete, .toast, .lista, .lista--link, .lista--tipo-1, .lista--tipo-1--link, .lista--tipo-2, .lista--tipo-2--link, .lista-sem-marcador {
   list-style: none;
   padding-left: 0;
 }
 
-.pagination a, .breadcrumbs a, .modal__fechar a, .lista--link a, .lista--link span {
+.pagination a, .breadcrumbs a, .modal__fechar a, .lista--link a, .lista--link span, .lista--tipo-1--link a, .lista--tipo-1--link span, .lista--tipo-2--link a, .lista--tipo-2--link span {
   display: block;
   text-decoration: none;
 }
@@ -1785,33 +1785,52 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 LISTA
 ================================================================================
 */
-.lista li, .lista--link li {
+.lista li, .lista--link li, .lista--tipo-1 li, .lista--tipo-1--link li, .lista--tipo-2 li, .lista--tipo-2--link li {
   padding: 0.5rem 0.75rem;
 }
-.lista li:not(.lista__titulo), .lista--link li:not(.lista__titulo) {
+.lista li:not(.lista__titulo), .lista--link li:not(.lista__titulo), .lista--tipo-1 li:not(.lista__titulo), .lista--tipo-1--link li:not(.lista__titulo), .lista--tipo-2 li:not(.lista__titulo), .lista--tipo-2--link li:not(.lista__titulo) {
   background: #fff;
 }
 
-.lista__titulo {
+.lista__titulo, .lista--tipo-1 .lista__titulo, .lista--tipo-1--link .lista__titulo, .lista--tipo-2 .lista__titulo, .lista--tipo-2--link .lista__titulo {
   font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
   font-size: 1.6em;
 }
 
-.lista, .lista--link {
+.lista, .lista--link, .lista--tipo-1, .lista--tipo-1--link {
   border: 1px solid #00c5cd;
 }
-.lista li, .lista--link li {
+.lista li, .lista--link li, .lista--tipo-1 li, .lista--tipo-1--link li {
   border-bottom: 1px solid #00c5cd;
 }
-.lista li:last-child, .lista--link li:last-child {
+.lista li:last-child, .lista--link li:last-child, .lista--tipo-1 li:last-child, .lista--tipo-1--link li:last-child {
   border-bottom-width: 0;
 }
-.lista__titulo {
+.lista__titulo, .lista--tipo-1 .lista__titulo, .lista--tipo-1--link .lista__titulo {
   background: #006367;
   color: #fff;
 }
 
-.lista--link li {
+.lista--tipo-2 li:not(.lista__titulo), .lista--tipo-2--link li:not(.lista__titulo) {
+  border-color: #00c5cd;
+  border-width: 1px 2px 0;
+  border-style: dotted solid;
+}
+.lista--tipo-2 li:first-child:not(.lista__titulo), .lista--tipo-2--link li:first-child:not(.lista__titulo) {
+  border-top: 2px solid #00c5cd;
+}
+.lista--tipo-2 li:last-child, .lista--tipo-2--link li:last-child {
+  border-bottom: 2px solid #00c5cd;
+}
+.lista--tipo-2 .lista__titulo, .lista--tipo-2--link .lista__titulo {
+  border-bottom: 2px solid #00c5cd;
+  color: #006367;
+}
+.lista--tipo-2 .lista__titulo + li, .lista--tipo-2--link .lista__titulo + li {
+  border-top-width: 0 !important;
+}
+
+.lista--link li:not(.lista__titulo) {
   padding: 0;
 }
 .lista--link a, .lista--link span {
@@ -2153,6 +2172,22 @@ CLASSES
 
 .codigo-tab-acao-link-bloco::before {
   content: "não";
+}
+
+.codigo-lista-tipo::before {
+  content: "tipo-1";
+}
+
+.codigo-lista--zebra::before {
+  content: "não";
+}
+
+.codigo-lista--sombra::before {
+  content: "não";
+}
+
+.codigo-lista-titulo::before {
+  content: "3";
 }
 
 .codigo-bp--pequeno::before {
@@ -4493,7 +4528,7 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   justify-content: space-between;
 }
 .tab-demo div {
-  width: 49.5%;
+  width: calc(50% - 0.5rem);
 }
 
 .tab--acao-link-bloco .tab__acoes a, .tab__acoes .tab--acao-link-bloco a, .tab--acao-link-bloco .tab__acoes button, .tab__acoes .tab--acao-link-bloco button {
@@ -4505,6 +4540,43 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
 }
 .tab--acao-link-bloco .tab__acoes {
   padding: 0;
+}
+
+.lista-demo {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.lista-demo div {
+  width: calc(33.33333% - 1rem);
+}
+
+.lista--tipo-1--link li:not(.lista__titulo) {
+  padding: 0;
+}
+.lista--tipo-1--link a, .lista--tipo-1--link span {
+  padding: 0.5rem 0.75rem;
+}
+.lista--tipo-2--link li:not(.lista__titulo) {
+  padding: 0;
+}
+.lista--tipo-2--link a, .lista--tipo-2--link span {
+  padding: 0.5rem 0.75rem;
+}
+.lista--zebra li:not(.lista__titulo) {
+  background: #fff;
+}
+.lista--zebra li:not(.lista__titulo):nth-child(odd):not(.lista__titulo) {
+  background: #bff1f3;
+}
+.lista--sombra {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.lista--tipo-2 .lista__titulo, .lista--tipo-2--link .lista__titulo {
+  background: transparent;
 }
 
 /*# sourceMappingURL=info.css.map */
