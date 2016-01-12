@@ -12,11 +12,15 @@ LISTA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 20/11/2015
-// Última alteração em: 16/12/2015
+// Última alteração em: 11/01/2016
 // -----------------------------------------------------------------------------
 // Formata caixas de listas
 // ----------------------------------------------------------------------------
 // Changelog
+// 11/01/2016 | Arrumado .lista__titulo que aparecia sem padding quando estava
+//              dentro de .lista--link
+//              Ajuste no tipo-2
+//              RIP David Bowie :(
 // 16/12/2015 | Correções de bugs
 // 30/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
@@ -75,20 +79,23 @@ $lista-padding: .5rem .75rem;
   li {
     &:not(.lista__titulo) {
       border-color: cor(lista);
-      border-width: 1px 2px;
+      border-width: 1px 2px 0;
       border-style: dotted solid;
+    }
+    &:first-child:not(.lista__titulo) {
+      border-top: 2px solid cor(lista);
     }
     &:last-child {
       border-bottom: 2px solid cor(lista);
-    }
-    &:nth-child(2) {
-      border-top-width: 0;
     }
   }
   &__titulo {
     @extend %lista__titulo;
     border-bottom: 2px solid cor(lista);
     color: cor(lista, escura);
+    & + li {
+      border-top-width: 0 !important;
+    }
   }
 }
 // =============================================================================
@@ -99,7 +106,7 @@ $lista-padding: .5rem .75rem;
     @extend %lista--#{$lista-tipo};
     &--link {
       @extend %lista--#{$lista-tipo};
-      li {
+      li:not(.lista__titulo) {
         padding: 0;
       }
       a, span {
