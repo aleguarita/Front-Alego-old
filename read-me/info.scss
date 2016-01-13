@@ -344,6 +344,10 @@ $codigo-selecionado: (
   lista--zebra: $lista--zebra,
   lista--sombra: $lista--sombra,
 
+  paginacao-tipo: if(index($uso-classes, paginacao), $paginacao-tipo, 'nenhuma'),
+  paginacao-posicao: $paginacao-posicao,
+  paginacao-fonte: $paginacao-fonte,
+
   lista-titulo: $secao-lista-titulo,
 );
 
@@ -912,5 +916,49 @@ $lista-tipos: (tipo-1, tipo-2);
 .lista--tipo-2, .lista--tipo-2--link {
   .lista__titulo {
     background: transparent;
+  }
+}
+// -----------------------------------------------------------------------------
+// PAGINAÇÃO
+// -----------------------------------------------------------------------------
+$paginacao-tipos: (tipo-1, tipo-2);
+@mixin extend-paginacao($classe) {
+  .#{$classe} {
+    @extend .pagination .#{$classe};
+  }
+}
+.pagination {
+  @each $paginacao in $paginacao-tipos {
+    &--#{$paginacao} {
+      @extend %paginacao--#{$paginacao};
+      @extend %flex;
+  		@include justify-content($paginacao-posicao);
+  		@include align-items(flex-end);
+  		font-size: $paginacao-fonte;
+  		padding: .5rem 0;
+  		.gap {
+  			@extend %paginacao-item;
+  			padding: $paginacao-padding;
+  			color: cor(paginacao, escura);
+  		}
+  		.prev, .first {
+  			@extend %paginacao-voltar;
+  		}
+  		.next, .last {
+  			@extend %paginacao-avancar;
+  		}
+  		a {
+  			@extend %paginacao-item;
+  			@extend %link-block;
+  			color: cor(paginacao);
+  			padding: $paginacao-padding;
+  		}
+  		.current{
+  			@extend %paginacao-item;
+  			@extend %paginacao-elemento-ativo;
+  			z-index: 2;
+  			padding: $paginacao-padding;
+  		}
+    }
   }
 }

@@ -162,7 +162,7 @@ FONTES
 PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 ================================================================================
 */
-.breadcrumbs, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor, .demo__variaveis li {
+.breadcrumbs, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor, .demo__variaveis li, .pagination--tipo-1, .pagination--tipo-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -173,7 +173,7 @@ PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
   padding-left: 0;
 }
 
-.pagination a, .breadcrumbs a, .modal__fechar a, .lista--link a, .lista--link span, .lista--tipo-1--link a, .lista--tipo-1--link span, .lista--tipo-2--link a, .lista--tipo-2--link span {
+.pagination a, .breadcrumbs a, .modal__fechar a, .lista--link a, .lista--link span, .lista--tipo-1--link a, .lista--tipo-1--link span, .lista--tipo-2--link a, .lista--tipo-2--link span, .pagination--tipo-1 a, .pagination--tipo-2 a {
   display: block;
   text-decoration: none;
 }
@@ -1398,26 +1398,55 @@ td {
 PAGINAÇÃO
 ================================================================================
 */
-.pagination .gap, .pagination a, .pagination .current {
+.pagination .gap, .pagination a, .pagination .current, .pagination--tipo-1 .gap, .pagination--tipo-1 a, .pagination--tipo-1 .current {
   border-bottom: 2px solid transparent;
 }
-.pagination a:hover, .pagination .current {
+.pagination a:hover, .pagination--tipo-1 a:hover, .pagination .current, .pagination--tipo-1 .current {
   border-bottom-color: #cd5800;
 }
-.pagination .current {
+.pagination .current, .pagination--tipo-1 .current {
   box-shadow: 0 0 6px rgba(77, 77, 77, 0.5);
 }
 
-.pagination .gap, .pagination a, .pagination .current {
+.pagination--tipo-2 .gap, .pagination--tipo-2 a, .pagination--tipo-2 .current {
+  border-top: 1px solid #da8240;
+  border-bottom: 1px solid #da8240;
+}
+.pagination--tipo-2 .pagination a:hover, .pagination .pagination--tipo-2 a:hover, .pagination--tipo-2 .pagination--tipo-1 a:hover, .pagination--tipo-1 .pagination--tipo-2 a:hover, .pagination--tipo-2 .current {
+  outline: 2px solid #9a4200;
+  box-shadow: 0 0 8px #000;
+}
+.pagination--tipo-2 .prev, .pagination--tipo-2 .first {
+  border-left: 1px solid #da8240;
+}
+.pagination--tipo-2 .next, .pagination--tipo-2 .last {
+  border-right: 1px solid #da8240;
+}
+.pagination--tipo-2 .prev {
+  border-right: 1px solid #da8240;
+}
+.pagination--tipo-2 .next {
+  border-left: 1px solid #da8240;
+}
+.pagination--tipo-2 .gap {
+  border-left: 1px solid #da8240;
+  border-right: 1px solid #da8240;
+}
+.pagination--tipo-2 a:hover {
+  background: #9a4200;
+  color: #fff;
+}
+
+.pagination .gap, .pagination a, .pagination .current, .pagination--tipo-1 .gap, .pagination--tipo-1 a, .pagination--tipo-1 .current, .pagination--tipo-2 .gap, .pagination--tipo-2 a, .pagination--tipo-2 .current {
   color: #cd5800;
   background: white;
 }
 
-.pagination a:hover, .pagination .current {
+.pagination a:hover, .pagination--tipo-1 a:hover, .pagination .current, .pagination--tipo-1 .current, .pagination--tipo-2 .current {
   font-weight: bold;
 }
 
-.pagination .prev, .pagination .first, .pagination .next, .pagination .last {
+.pagination .prev, .pagination .first, .pagination--tipo-1 .prev, .pagination--tipo-1 .first, .pagination--tipo-2 .prev, .pagination--tipo-2 .first, .pagination .next, .pagination .last, .pagination--tipo-1 .next, .pagination--tipo-1 .last, .pagination--tipo-2 .next, .pagination--tipo-2 .last {
   font-size: .95em;
 }
 
@@ -2184,6 +2213,18 @@ CLASSES
 
 .codigo-lista--sombra::before {
   content: "não";
+}
+
+.codigo-paginacao-tipo::before {
+  content: "tipo-1";
+}
+
+.codigo-paginacao-posicao::before {
+  content: "center";
+}
+
+.codigo-paginacao-fonte::before {
+  content: "0.65rem";
 }
 
 .codigo-lista-titulo::before {
@@ -4577,6 +4618,47 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
 
 .lista--tipo-2 .lista__titulo, .lista--tipo-2--link .lista__titulo {
   background: transparent;
+}
+
+.pagination--tipo-1 {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+  font-size: 0.65rem;
+  padding: .5rem 0;
+}
+.pagination--tipo-1 .gap {
+  padding: 0.26rem 0.65rem;
+  color: #9a4200;
+}
+.pagination--tipo-1 a {
+  color: #cd5800;
+  padding: 0.26rem 0.65rem;
+}
+.pagination--tipo-1 .current {
+  z-index: 2;
+  padding: 0.26rem 0.65rem;
+}
+.pagination--tipo-2 {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+  font-size: 0.65rem;
+  padding: .5rem 0;
+}
+.pagination--tipo-2 .gap {
+  padding: 0.26rem 0.65rem;
+  color: #9a4200;
+}
+.pagination--tipo-2 a {
+  color: #cd5800;
+  padding: 0.26rem 0.65rem;
+}
+.pagination--tipo-2 .current {
+  z-index: 2;
+  padding: 0.26rem 0.65rem;
 }
 
 /*# sourceMappingURL=info.css.map */
