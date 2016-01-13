@@ -348,6 +348,8 @@ $codigo-selecionado: (
   paginacao-posicao: $paginacao-posicao,
   paginacao-fonte: $paginacao-fonte,
 
+  breadcrumbs-tipo: if(index($uso-classes, breadcrumb), $breadcrumbs-tipo, 'nenhum'),
+
   lista-titulo: $secao-lista-titulo,
 );
 
@@ -922,11 +924,6 @@ $lista-tipos: (tipo-1, tipo-2);
 // PAGINAÇÃO
 // -----------------------------------------------------------------------------
 $paginacao-tipos: (tipo-1, tipo-2);
-@mixin extend-paginacao($classe) {
-  .#{$classe} {
-    @extend .pagination .#{$classe};
-  }
-}
 .pagination {
   @each $paginacao in $paginacao-tipos {
     &--#{$paginacao} {
@@ -959,6 +956,17 @@ $paginacao-tipos: (tipo-1, tipo-2);
   			z-index: 2;
   			padding: $paginacao-padding;
   		}
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// BREADCRUMBS
+// -----------------------------------------------------------------------------
+$breadcrumbs-tipos: (tipo-1, tipo-2);
+.breadcrumbs {
+  @each $breadcrumbs in $breadcrumbs-tipos {
+    &--#{$breadcrumbs} {
+      @extend %breadcrumbs--#{$breadcrumbs};
     }
   }
 }

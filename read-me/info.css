@@ -162,18 +162,18 @@ FONTES
 PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 ================================================================================
 */
-.breadcrumbs, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor, .demo__variaveis li, .pagination--tipo-1, .pagination--tipo-2 {
+.breadcrumbs, .breadcrumbs--tipo-1, .breadcrumbs--tipo-2, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor, .demo__variaveis li, .pagination--tipo-1, .pagination--tipo-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.breadcrumbs, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .ui-autocomplete, .toast, .lista, .lista--link, .lista--tipo-1, .lista--tipo-1--link, .lista--tipo-2, .lista--tipo-2--link, .lista-sem-marcador {
+.breadcrumbs, .breadcrumbs--tipo-1, .breadcrumbs--tipo-2, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .ui-autocomplete, .toast, .lista, .lista--link, .lista--tipo-1, .lista--tipo-1--link, .lista--tipo-2, .lista--tipo-2--link, .lista-sem-marcador {
   list-style: none;
   padding-left: 0;
 }
 
-.pagination a, .breadcrumbs a, .modal__fechar a, .lista--link a, .lista--link span, .lista--tipo-1--link a, .lista--tipo-1--link span, .lista--tipo-2--link a, .lista--tipo-2--link span, .pagination--tipo-1 a, .pagination--tipo-2 a {
+.pagination a, .breadcrumbs a, .breadcrumbs--tipo-1 a, .breadcrumbs--tipo-2 a, .modal__fechar a, .lista--link a, .lista--link span, .lista--tipo-1--link a, .lista--tipo-1--link span, .lista--tipo-2--link a, .lista--tipo-2--link span, .pagination--tipo-1 a, .pagination--tipo-2 a {
   display: block;
   text-decoration: none;
 }
@@ -1543,33 +1543,51 @@ CARD
 BREADCRUMBS
 ================================================================================
 */
-.breadcrumbs {
+.breadcrumbs, .breadcrumbs--tipo-1, .breadcrumbs--tipo-2 {
   font-size: 0.6875rem;
 }
-.breadcrumbs a {
+.breadcrumbs a, .breadcrumbs--tipo-1 a, .breadcrumbs--tipo-2 a {
   color: inherit;
 }
-.breadcrumbs a::after {
+.breadcrumbs a::after, .breadcrumbs--tipo-1 a::after, .breadcrumbs--tipo-2 a::after {
   content: " > ";
   font-weight: bold;
   margin-left: .2em;
 }
-.breadcrumbs li {
+.breadcrumbs li, .breadcrumbs--tipo-1 li, .breadcrumbs--tipo-2 li {
   color: #da8240;
 }
-.breadcrumbs li:last-child {
+.breadcrumbs li:last-child, .breadcrumbs--tipo-1 li:last-child, .breadcrumbs--tipo-2 li:last-child {
   color: #9a4200;
   font-weight: bold;
 }
 
-.breadcrumbs li {
+.breadcrumbs li, .breadcrumbs--tipo-1 li {
   padding-left: .2em;
 }
-.breadcrumbs a:after {
+.breadcrumbs a:after, .breadcrumbs--tipo-1 a:after {
   margin-right: .2em;
 }
-.breadcrumbs a:hover {
+.breadcrumbs a:hover, .breadcrumbs--tipo-1 a:hover {
   border-bottom: 1px dotted;
+}
+
+.breadcrumbs--tipo-2 li {
+  border: 1px solid;
+}
+.breadcrumbs--tipo-2 li:last-child {
+  outline: 1px solid;
+  padding: 0.25em 0.5em;
+}
+.breadcrumbs--tipo-2 li:not(:last-child) {
+  border-right-width: 0;
+}
+.breadcrumbs--tipo-2 a {
+  padding: 0.25em 0.5em;
+}
+.breadcrumbs--tipo-2 a:hover {
+  background: #da8240;
+  color: #fff;
 }
 
 /*
@@ -2225,6 +2243,10 @@ CLASSES
 
 .codigo-paginacao-fonte::before {
   content: "0.65rem";
+}
+
+.codigo-breadcrumbs-tipo::before {
+  content: "tipo-1";
 }
 
 .codigo-lista-titulo::before {
