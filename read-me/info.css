@@ -162,7 +162,7 @@ FONTES
 PLACEHOLDERS (AGRUPAMENTOS DE TAGS)
 ================================================================================
 */
-.breadcrumbs, .breadcrumbs--tipo-1, .breadcrumbs--tipo-2, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor, .demo__variaveis li, .pagination--tipo-1, .pagination--tipo-2 {
+.breadcrumbs, .breadcrumbs--tipo-1, .breadcrumbs--tipo-2, .lista-config, .header__menu ul, .demo__paleta, .demo__paleta--basica, .demo__paleta--secundaria, .demo__simbolos, .demo__variaveis, .container, .container--gutter, .container--calha, .form-texto, .form-select, .form-radio, .form-checkbox, .form-container, .form-container--linha, .form-radio label, .form-checkbox label, .pagination, .card, .card--tipo-1, .card--tipo-2, .card__footer, .card--tipo-1__footer, .card--tipo-2__footer, .card__item--destaque p, .modal .modal__titulo, .secao-lista__header label, .lista-definicao, .demo__paleta--basica .cor, .demo__paleta--secundaria .cor, .demo__variaveis li, .pagination--tipo-1, .pagination--tipo-2 {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1476,54 +1476,66 @@ PAGINAÇÃO
 CARD
 ================================================================================
 */
-.card {
+.card, .card--tipo-1, .card--tipo-2 {
   -webkit-flex-direction: column;
   flex-direction: column;
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
-.card h1, .card p {
+.card h1, .card--tipo-1 h1, .card--tipo-2 h1, .card p, .card--tipo-1 p, .card--tipo-2 p {
   margin: 0;
   padding: 0 0.625rem;
 }
-.card__titulo h1 {
+.card__titulo, .card--tipo-1__titulo, .card--tipo-2__titulo {
+  padding: 0.625rem 0;
+}
+.card__titulo h1, .card--tipo-1__titulo h1, .card--tipo-2__titulo h1 {
   font-size: 1.70859rem;
 }
-.card__imagem {
+.card__imagem, .card--tipo-1__imagem, .card--tipo-2__imagem {
   line-height: 0;
 }
-.card__principal {
+.card__imagem img, .card--tipo-1__imagem img, .card--tipo-2__imagem img {
+  max-width: 100%;
+}
+.card__principal, .card--tipo-1__principal, .card--tipo-2__principal {
   -webkit-flex: 1;
   flex: 1;
 }
-.card__item, .card__item--destaque {
+.card__principal > *:first-child:not(.card__item):not(.card__item--destaque), .card--tipo-1__principal > *:first-child:not(.card__item):not(.card__item--destaque), .card--tipo-2__principal > *:first-child:not(.card__item):not(.card__item--destaque) {
+  padding-top: .5em;
+}
+.card__item, .card__item--destaque, .card--tipo-1__item, .card--tipo-2__item {
   padding: 0.3125rem 0;
   border-top: 1px #00c5cd;
 }
-.card__item:first-child, .card__item--destaque:first-child {
+.card__item:first-child, .card__item--destaque:first-child, .card--tipo-1__item:first-child, .card--tipo-2__item:first-child {
   border-width: 0;
 }
-.card__footer * {
+.card__footer *, .card--tipo-1__footer *, .card--tipo-2__footer * {
   -webkit-flex: 1;
   flex: 1;
 }
-.card__footer * + * {
+.card__footer * + *, .card--tipo-1__footer * + *, .card--tipo-2__footer * + * {
   margin-left: .5em;
 }
 
-.card__titulo {
+.card__titulo, .card--tipo-1__titulo, .card--tipo-2__titulo {
   background: #006367;
 }
-.card h1 {
+.card h1, .card--tipo-1 h1 {
   color: #fff;
 }
-.card__item, .card__item--destaque {
+.card__item, .card__item--destaque, .card--tipo-1__item, .card--tipo-2__item {
   border-top-style: solid;
 }
-.card__footer {
+.card__footer, .card--tipo-1__footer, .card--tipo-2__footer {
   padding: 0.625rem;
 }
 
+.card--tipo-2 h1 {
+  color: #006367;
+}
 .card__item--destaque {
   padding: 0;
 }
@@ -2246,6 +2258,10 @@ CLASSES
 }
 
 .codigo-breadcrumbs-tipo::before {
+  content: "tipo-1";
+}
+
+.codigo-card-tipo::before {
   content: "tipo-1";
 }
 
@@ -4590,7 +4606,7 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
-.tab-demo div {
+.tab-demo > div {
   width: calc(50% - 0.5rem);
 }
 
@@ -4612,7 +4628,7 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
-.lista-demo div {
+.lista-demo > div {
   width: calc(33.33333% - 1rem);
 }
 
@@ -4681,6 +4697,54 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
 .pagination--tipo-2 .current {
   z-index: 2;
   padding: 0.26rem 0.65rem;
+}
+
+.card-demo {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.card-demo > div {
+  width: calc(33.33333% - 1rem);
+}
+
+.card--tipo-1 {
+  /* .card--tipo-1 */
+}
+.card--tipo-1__titulo {
+  /* .card--tipo-1__titulo */
+}
+.card--tipo-1__imagem {
+  /* .card--tipo-1__imagem */
+}
+.card--tipo-1__principal {
+  /* .card--tipo-1__principal */
+}
+.card--tipo-1__item {
+  /* .card--tipo-1__item */
+}
+.card--tipo-1__footer {
+  /* .card--tipo-1__footer */
+}
+.card--tipo-2 {
+  /* .card--tipo-2 */
+}
+.card--tipo-2__titulo {
+  /* .card--tipo-2__titulo */
+}
+.card--tipo-2__imagem {
+  /* .card--tipo-2__imagem */
+}
+.card--tipo-2__principal {
+  /* .card--tipo-2__principal */
+}
+.card--tipo-2__item {
+  /* .card--tipo-2__item */
+}
+.card--tipo-2__footer {
+  /* .card--tipo-2__footer */
 }
 
 /*# sourceMappingURL=info.css.map */

@@ -69,6 +69,7 @@
             <li><a href="#listas">Listas</a></li>
             <li><a href="#paginacao">Paginação</a></li>
             <li><a href="#breadcrumbs">Breadcrumbs</a></li>
+            <li><a href="#card">Card</a></li>
           </ul>
         </div>
         <div class="menu__grupo">
@@ -2384,6 +2385,292 @@
               </ul>
             </section>
           </section>
+        </article>
+
+        <article id="card">
+          <header><h1>Card</h1></header>
+          <p>As configurações básicas de cards são encontradas no <a href="#config__card" class="link--readme">arquivo de configuração</a>. Abaixo você vê os tipos disponíveis (única configuração disponível).</p>
+          <section class="secao-lista">
+            <input type="checkbox" id="card__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="card__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Um card pode ser montado com uma série de elementos HTML (como exemplificado abaixo), cada qual com sua classe. Alguns são opcionais (veja a lista de classe para referência).</p>
+              <code class="codigo--html">
+                <header>HTML</header>
+                <p>&lt;div class="card"&gt;</p>
+                  <p class="recuo-1">&lt;header class="card__titulo"&gt;</p>
+                    <p class="recuo-2">&lt;h1&gt;Título do Card&lt;/h1&gt;</p>
+                  <p class="recuo-1">&lt;/header&gt;</p>
+                  <p class="recuo-1">&lt;figure class="card__imagem"&gt;</p>
+                    <p class="recuo-2">&lt;img src="card-img.jpg" alt="" /&gt;</p>
+                  <p class="recuo-1">&lt;/figure&gt;</p>
+                  <p class="recuo-1">&lt;section class="card__principal"&gt;</p>
+                    <p class="recuo-2">&lt;div class="card__item"&gt;</p>
+                      <p class="recuo-3">&lt;p&gt;&lt;strong&gt;Teste:&lt;/strong&gt; &lt;span&gt;Teste aqui&lt;/span&gt;&lt;/p&gt;</p>
+                    <p class="recuo-2">&lt;/div&gt;</p>
+                    <p class="recuo-2">&lt;div class="card__item"&gt;</p>
+                      <p class="recuo-3">&lt;p&gt;Teste aqui&lt;/p&gt;</p>
+                    <p class="recuo-2">&lt;/div&gt;</p>
+                  <p class="recuo-1">&lt;/section&gt;</p>
+                  <p class="recuo-1">&lt;footer class="card__footer"&gt;</p>
+                    <p class="recuo-2">&lt;button class="bt--secundario"&gt;Cancela&lt;/button&gt;</p>
+                    <p class="recuo-2">&lt;button class="bt"&gt;Confirma&lt;/button&gt;</p>
+                  <p class="recuo-1">&lt;/footer&gt;</p>
+                <p>&lt;/div&gt;</p>
+              </code>
+              <p>Para utilizar o item destaque (<samp>.card__item--destaque</samp>) o HTML seria assim:</p>
+              <code class="codigo--html">
+                <header>HTML</header>
+                <p>&lt;div class="card__item--destaque"&gt;</p>
+                  <p class="recuo-1">&lt;p&gt;</p>
+                    <p class="recuo-2">&lt;strong&gt;Título&lt;/strong&gt; &lt;span&gt;Texto depois do título&lt;/span&gt;</p>
+                  <p class="recuo-1">&lt;/p&gt;</p>
+                <p>&lt;/div&gt;</p>
+              </code>
+              <p>As classes abaixo devem ser usadas nos tags HTML como exemplificado acima. Alguns tem ordem certa para aparecer, outros não. Os tags listados são os mais indicados por semântica, mas não obrigatórios (é possível substituir todos por <samp>&lt;div&gt;</samp>).</p>
+              <dl class="lista-definicao">
+                <dt><samp>.card__titulo</samp></dt>
+                  <dd><samp>&lt;header&gt;</samp> <strong class="texto--ok">Tag opcional</strong>. Formata o título do card. O título pode aparecer <strong>depois</strong> da imagem.</dd>
+                <dt><samp>.card__imagem</samp></dt>
+                  <dd><samp>&lt;figure&gt;</samp> <strong class="texto--ok">Tag opcional</strong>. Formata a foto ou imagem do card. A imagem pode aparecer <strong>antes ou depois</strong> do título, a seu critério.</dd>
+                <dt><samp>.card__principal</samp></dt>
+                  <dd><samp>&lt;section&gt;</samp> <strong class="texto--urgente">Tag obrigatório</strong>. Formata a parte principal do card, que ajusta a altura quando estiver ao lado de um card maior. Dentro dele você pode colocar o que quiser (<samp>p</samp>, <samp>ul</samp>, etc).</dd>
+                <dt><samp>.card__item</samp></dt>
+                  <dd><samp>&lt;div&gt;</samp> <strong class="texto--ok">Tag opcional</strong>. Formata itens separando-os com uma linha (formatação depende do tipo escolhido). Dentro do tag deve ter um <samp>&lt;p&gt;</samp>. <strong>Deve aparecer como filho do .card__principal</strong>.</dd>
+                <dt><samp>.card__item--destaque</samp></dt>
+                  <dd>Variante do <samp>.card__item</samp> acima. Dá um destaque maior para os itens. O título destacado deve aparecer dentro de <samp>strong</samp> e o texto em <samp>span</samp> (ver código demonstrativo antes dessa lista).</dd>
+                <dt><samp>.card__footer</samp></dt>
+                  <dd><samp>&lt;footer&gt;</samp> <strong class="texto--ok">Tag opcional</strong>. Formata a área de botões do card.</dd>
+              </dl>
+              <p>Se precisar fazer um grupo de cards, use o <a href="#mixins" class="link--readme">mixin</a> <samp>grupo-flex()</samp>.</p>
+
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="card__escolhido" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="card__escolhido">
+                <span class="secao-lista__titulo">Card escolhido: <span class="codigo-card-tipo"></span></span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <div class="card-demo">
+                <div class="card">
+                  <header class="card__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <figure class="card__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <section class="card__principal">
+                    <p>Este card tem apenas o <samp>.card__principal</samp>. Usei a tag <samp>&lt;p&gt;</samp> para isso. O CSS incube de formatar o primeiro parágrafo.</p>
+                    <p>Note que o <samp>.card__principal</samp> está aumentando o tamanho do próximo card pra adequar ao tamanho deste.</p>
+                  </section>
+                  <footer class="card__footer">
+                    <button class="bt--secundario">Cancela</button>
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+                <div class="card">
+                  <figure class="card__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <header class="card__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <section class="card__principal">
+                    <div class="card__item">
+                      <p><strong>Item:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card__item">
+                      <p><strong>Outro Item:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card__item">
+                      <p>Teste aqui de item sem negrito.</p>
+                    </div>
+                  </section>
+                  <footer class="card__footer">
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+                <div class="card">
+                  <header class="card__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <figure class="card__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <section class="card__principal">
+                    <div class="card__item--destaque">
+                      <p><strong>Item destaque:</strong> <span>Título antes da imagem</span></p>
+                    </div>
+                    <div class="card__item--destaque">
+                      <p><strong>Item destaque:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card__item">
+                      <p>Teste aqui de item sem negrito.</p>
+                    </div>
+                  </section>
+                  <footer class="card__footer">
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="card__tipo-1" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="card__tipo-1">
+                <span class="secao-lista__titulo">tipo-1</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <div class="card-demo">
+                <div class="card--tipo-1">
+                  <header class="card--tipo-1__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <figure class="card--tipo-1__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <section class="card--tipo-1__principal">
+                    <p>Este card tem apenas o <samp>.card__principal</samp>. Usei a tag <samp>&lt;p&gt;</samp> para isso. O CSS incube de formatar o primeiro parágrafo.</p>
+                    <p>Note que o <samp>.card__principal</samp> está aumentando o tamanho do próximo card pra adequar ao tamanho deste.</p>
+                  </section>
+                  <footer class="card--tipo-1__footer">
+                    <button class="bt--secundario">Cancela</button>
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+                <div class="card--tipo-1">
+                  <figure class="card--tipo-1__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <header class="card--tipo-1__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <section class="card--tipo-1__principal">
+                    <div class="card--tipo-1__item">
+                      <p><strong>Item:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card--tipo-1__item">
+                      <p><strong>Outro Item:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card--tipo-1__item">
+                      <p>Teste aqui de item sem negrito.</p>
+                    </div>
+                  </section>
+                  <footer class="card--tipo-1__footer">
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+                <div class="card--tipo-1">
+                  <header class="card--tipo-1__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <figure class="card--tipo-1__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <section class="card--tipo-1__principal">
+                    <div class="card--tipo-1__item--destaque">
+                      <p><strong>Item destaque:</strong> <span>Título antes da imagem</span></p>
+                    </div>
+                    <div class="card--tipo-1__item--destaque">
+                      <p><strong>Item destaque:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card--tipo-1__item">
+                      <p>Teste aqui de item sem negrito.</p>
+                    </div>
+                  </section>
+                  <footer class="card--tipo-1__footer">
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="card__tipo-2" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="card__tipo-2">
+                <span class="secao-lista__titulo">tipo-2</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <div class="card-demo">
+                <div class="card--tipo-2">
+                  <header class="card--tipo-2__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <figure class="card--tipo-2__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <section class="card--tipo-2__principal">
+                    <p>Este card tem apenas o <samp>.card__principal</samp>. Usei a tag <samp>&lt;p&gt;</samp> para isso. O CSS incube de formatar o primeiro parágrafo.</p>
+                    <p>Note que o <samp>.card__principal</samp> está aumentando o tamanho do próximo card pra adequar ao tamanho deste.</p>
+                  </section>
+                  <footer class="card--tipo-2__footer">
+                    <button class="bt--secundario">Cancela</button>
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+                <div class="card--tipo-2">
+                  <figure class="card--tipo-2__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <header class="card--tipo-2__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <section class="card--tipo-2__principal">
+                    <div class="card--tipo-2__item">
+                      <p><strong>Item:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card--tipo-2__item">
+                      <p><strong>Outro Item:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card--tipo-2__item">
+                      <p>Teste aqui de item sem negrito.</p>
+                    </div>
+                  </section>
+                  <footer class="card--tipo-2__footer">
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+                <div class="card--tipo-2">
+                  <header class="card--tipo-2__titulo">
+                    <h1>Título do Card</h1>
+                  </header>
+                  <figure class="card--tipo-2__imagem">
+                    <img src="card-img.jpg" alt="" />
+                  </figure>
+                  <section class="card--tipo-2__principal">
+                    <div class="card--tipo-2__item--destaque">
+                      <p><strong>Item destaque:</strong> <span>Título antes da imagem</span></p>
+                    </div>
+                    <div class="card--tipo-2__item--destaque">
+                      <p><strong>Item destaque:</strong> <span>Título depois da imagem</span></p>
+                    </div>
+                    <div class="card--tipo-2__item">
+                      <p>Teste aqui de item sem negrito.</p>
+                    </div>
+                  </section>
+                  <footer class="card--tipo-2__footer">
+                    <button class="bt">Confirma</button>
+                  </footer>
+                </div>
+              </div>
+            </section>
+          </section>
+
         </article>
 
         <article id="funcoes">

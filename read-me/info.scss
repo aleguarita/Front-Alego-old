@@ -41,7 +41,7 @@ $pd: .2rem; // padding
   $tamanho: 100% / $qtd;
   @include display-flex;
   @include justify-content(space-between);
-  div {
+  > div {
     width: calc(#{$tamanho} - #{$margem});
   }
 }
@@ -349,6 +349,8 @@ $codigo-selecionado: (
   paginacao-fonte: $paginacao-fonte,
 
   breadcrumbs-tipo: if(index($uso-classes, breadcrumb), $breadcrumbs-tipo, 'nenhum'),
+
+  card-tipo: if(index($uso-classes, card), $card-tipo, 'nenhum'),
 
   lista-titulo: $secao-lista-titulo,
 );
@@ -967,6 +969,28 @@ $breadcrumbs-tipos: (tipo-1, tipo-2);
   @each $breadcrumbs in $breadcrumbs-tipos {
     &--#{$breadcrumbs} {
       @extend %breadcrumbs--#{$breadcrumbs};
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// CARD
+// -----------------------------------------------------------------------------
+.card-demo {
+  @include grupo-demo(3);
+}
+$card-tipos: (tipo-1, tipo-2);
+.card {
+  @each $card in $card-tipos {
+    &--#{$card} {
+      /* .card--#{$card} */
+      @extend %card--#{$card};
+      @each $item in $card-sub {
+        &__#{$item} {
+          /* .card--#{$card}__#{$item} */
+          @extend %card--basico__#{$item} !optional;
+          @extend %card--#{$card-tipo}__#{$item} !optional;
+        }
+      }
     }
   }
 }
