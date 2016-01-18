@@ -12,7 +12,7 @@ CARD
 // -----------------------------------------------------------------------------
 // cards.scss
 // Criado em: 23/10/2015
-// Última alteração: 23/11/2015
+// Última alteração: 15/01/2016
 // -----------------------------------------------------------------------------
 // Definições padrão de cards e classes modelo
 // ATENÇÃO: aqui tem a configuração APENAS do card e não do grupo do elemento
@@ -20,6 +20,10 @@ CARD
 // use o mixin grupo-flex()
 // -----------------------------------------------------------------------------
 // Changelog
+// 15/01/2016 | Ajustes: inclusão de padding no título
+//              Imagem ganhou max-width: 100%;
+//              Inclusão da possibilidade de não usar .card__item e formatação
+//              do primeiro <p> sozinho
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -59,13 +63,20 @@ $card-sub: (
     padding: $card-padding;
   }
   &__titulo {
+    padding: $margem 0;
     h1 { font-size: modular-scale(3, $modular-font-size); }
   }
   &__imagem {
     line-height: 0;
+    img {
+      max-width: 100%;
+    }
   }
   &__principal { // use no main
     @include flex(1);
+    > *:first-child:not(.card__item) {
+      padding-top: .5em;
+    }
   }
   &__item {
     padding: $margem/2 0;
