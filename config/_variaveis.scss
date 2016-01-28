@@ -8,13 +8,14 @@
 // -----------------------------------------------------------------------------
 // variaveis.scss
 // Criado em: 13/01/2015
-// Última alteração em: 09/11/2015
+// Última alteração em: 28/01/2016
 // -----------------------------------------------------------------------------
 // Aqui você vai colocar as variáveis relativas ao seu sistema que não se
 // encaixam em outro arquivo.
 // Lembre-se: cores e tipografia tem seu próprio conjunto de variáveis.
 // -----------------------------------------------------------------------------
 // Changelog:
+// 28/01/2016 | Acrescentado "$pd"
 // 09/11/2015 | Acrescentado "$rd"
 // 21/10/2015 | Alteração para novo esquema de cores
 // ??/??/2015 | Reorganizado
@@ -46,5 +47,9 @@ $margem: $calha;
 // Transition
 $transition: all 0.5s ease 0s;
 
-// Raio de arredondamento
+// Raio de arredondamento de borda (border-radius)
 $rd: 3px;
+
+// Padding padrão
+$pd: $calha;
+$padding: $pd;
