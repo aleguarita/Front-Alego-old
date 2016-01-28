@@ -10,16 +10,17 @@ SÍMBOLOS
 // -----------------------------------------------------------------------------
 // simbolos.scss
 // Criado em: 12/03/2015
-// Última alteração: 08/12/2015
+// Última alteração: 28/01/2016
 // -----------------------------------------------------------------------------
 // Aqui cria-se os símbolos utilizando a fonte de símbolos
 // -----------------------------------------------------------------------------
 // Changelog
-// 08/12/2015 | Melhoria na performance
+// 28/01/2016 | Não se usa mais o placeholder %icone
+// 08/12/2015 | Melhoria na performance (não se usa mais seletor [atr^=])
 // 							A classe .ico--link foi extinta. Para isso use .pointer
 // 14/10/2015 | Utilizado seletores [atr^=] e [atr$=] para criar variações de
-// 						 classes dos ícones. Este uso também diminuiu o arquivo
-// 						 compilado final.
+// 						  classes dos ícones. Este uso também diminuiu o arquivo
+// 						  compilado final.
 // 06/10/2015 | Criado classes apensadas através de placeholder
 // 12/03/2015 | Lista os símbolos e cria as classes
 // =============================================================================
@@ -146,12 +147,6 @@ $icones: (
 	zip: "\e2d2",
 );
 
-// =============================================================================
-//  Placeholders
-// =============================================================================
-%icone {
-	font-family: $fonte-simbolo;
-}
 // =============================================================================
 //  Cria as classes
 // =============================================================================
