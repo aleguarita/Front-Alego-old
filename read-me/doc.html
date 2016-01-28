@@ -84,7 +84,6 @@
             <li><a href="#funcoes">Funções</a></li>
             <li><a href="#mixins">Mixins</a></li>
             <li>Classes</li> <!-- liste aqui todas as classes -->
-            <li>Placeholders</li>
             <li>Variáveis</li>
           </ul>
         </div>
@@ -197,7 +196,7 @@
                 <dt>form</dt><dd>formulário</dd>
               </dl>
             <h2 id="regras__sass">Organização dos arquivos SCSS</h2>
-              <p>Como explicado <a href="index.html#aplicando">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="pasta">/extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Por outro lado, somente os placeholders e classes que são de uso global (em mais de um arquivo scss) devem vir na pasta extra.</p>
+              <p>Como explicado <a href="index.html#aplicando">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="pasta">/extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Se você tiver classes genéricas (que são usadas em todo o seu sistema e não em parte específicas) é recomendado que você crie um arquivo chamado <span class="arquivo">classes</span> nessa pasta.</p>
               <h3>Comentários</h3>
                 <p>O arquivo deve ser totalmente comentado ao estilo SASS para identificar seus trechos.</p>
                 <p>Ele deve abrir com um comentário maior com o nome do sistema, o usuário que criou o arquivo e a data de criação. Veja como exemplo o CSS usado neste arquivo:</p>
@@ -230,8 +229,7 @@
                 <p>Os elementos dentro de um arquivo devem obedecer a seguinte ordem (sempre comentado, conforme explicado acima):</p>
                 <ol class="lista-ordenada">
                   <li>Variáveis e mapas gerais</li>
-                  <li>Placeholders gerais</li>
-                  <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica)</li>
+                  <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica. Se for usada em mais de um arquivo, salve em um arquivo em <samp class="arquivo">extra/classes.scss</samp>)</li>
                   <li>Seções do site (header, menu, principal, footer)</li>
                 </ol>
                 <blockquote class="aviso--dica">
@@ -263,13 +261,13 @@
                 <li>Tamanho da fonte que é para ser relativa ao tamanho pai, use <samp>em</samp>. Exemplo: um link, um destaque ou mesmo todo um bloco de textos.</li>
                 <li>Tamanho de fonte que é para se manter com o mesmo tamanho, independente do tamanho do elemento pai, use <samp>rem</samp>. Exemplo: título da página.</li>
                 <li>Margens costumam ser mais adequado utilizar <samp>rem</samp> para manter a consistência.</li>
-                <li>Paddings, por outro lado, é mais adequado usar <samp>em</samp> para que o espaço interno cresça conforme se aumenta a fonte. Exceção: se você tem um elemento com dois tamanho de fonte diferentes, manter o padding em <samp>rem</samp> ajuda a manter a consistência. (exemplo: tabela)</li>
+                <li>Paddings, por outro lado, é mais adequado usar <samp>em</samp> para que o espaço interno cresça conforme se aumenta a fonte. Exceção: se você tem um elemento com dois tamanho de fonte diferentes, manter o padding em <samp>rem</samp> ajuda a manter a consistência e alinhamento (exemplo: tabela).</li>
               </ul>
               <blockquote class="aviso--dica">
                 Existem funções no bourbon que convertem o valor de pixels para <samp>rem</samp> ou <samp>em</samp>. Basta usar a função <samp>rem()</samp> ou <samp>em()</samp>
               </blockquote>
             <h2 id="regras__media-query">Media Queries</h2>
-              <p>O uso de <em>Media queries</em> para fazer sites responsivos não usa medidas em pixels mais sim em <samp>rem</samp>, pois assim se adapta inclusive ao zoom dado pelo usuário.</p>
+              <p>O uso de <em>Media queries</em> para fazer sites responsivos não usa mais medidas em pixels e sim em <samp>rem</samp>, pois assim o layout se adapta inclusive ao zoom dado pelo usuário.</p>
               <p>Ver mais detalhes sobre isso <a href="http://bradfrost.com/blog/post/7-habits-of-highly-effective-media-queries/#relative" class="link--externo" target="_blank">neste artigo</a>.</p>
               <p>A ideia básica é parar de usar medidas de dispositivos específicos (que a cada momento tem novos) e trabalhar com a medida da tela em si.</p>
               <blockquote class="aviso--grave">
@@ -282,6 +280,11 @@
                 <li>Depois aparecem os <samp>@include</samp> para os mixins</li>
                 <li>Se você duplicar regras para teste (exemplo: dois <samp>background</samp> diferentes) lembre-se de comentar a que não está sendo usada ou, melhor ainda, deletar.</li>
               </ol>
+            <h2 id="regras__placeholder">Uso de placeholder (%placeholder) e @extend</h2>
+              <p>O uso de placeholders deve ser diminuído ao mínimo necessário. Apesar de eles deixarem o arquivo menor ele exige um pouco mais de performance (pois faz uso do seletor <samp>,</samp>). Além do mais usamos o <strong>gzip</strong> que compacta melhor blocos repetidos de texto.</p>
+              <p>Outro grande defeito do uso de placeholders é que o resultado final do CSS não fica de leitura fácil nem mesmo no inspetor (as classes ficam separadas demais).</p>
+              <p><strong>Nossa, isso quer dizer que eu não devo usar nunca mais um placeholder?</strong> Calma, jovem padawan, claro que você vai usar. Mas comedidamente e <strong>dentro do contexto</strong>. Imagine que você está criando um padrão para dentro de uma coluna lateral que incluir uma cor de fonte, uma fonte diferente e tamanho de fonte diferente. Três elementos vão usar desta configuração (parágrafo, tabela e lista). Neste caso você cria um placeholder dentro do contexto (logo no início do bloco). E <strong>comente indicando um placeholder</strong>. Se você fuçar no código vai ver que o Front-Alego faz uso de placeholders e @extends pontuais (botões e medidas de colunas de tabela são exemplos).</p>
+              <p>Extender classes também deve ser evitado. Mas isso, obviamente, tem uma exceção clara: com o uso do BEM você acaba extendo classes (inclusive no próprio exemplo do BEM mostra isso). Nos demais casos, evite.</p>
             </section>
         </article>
 
