@@ -11,11 +11,12 @@ FORMULÁRIOS | AUTOCOMPLETE
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 17/11/2015
-// Última alteração em: 23/11/2015
+// Última alteração em: 19/01/2016
 // -----------------------------------------------------------------------------
 //	Definições padrão do autocomplete (elemento RAILS/jquery-ui)
 // ----------------------------------------------------------------------------
 // Changelog
+// 19/01/2016 | Placeholders trocados por Mixins
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 17/11/2015 | Criação do arquivo
@@ -28,52 +29,72 @@ FORMULÁRIOS | AUTOCOMPLETE
 // =============================================================================
 // MIXIN | BASE
 // =============================================================================
-@mixin autocomplete-base {
-  @extend %lista-sem-marcador;
-  position: absolute !important;
-  box-shadow: $sombra-difusa;
-}
-@mixin autocomplete-base-li {
-  padding: .25em .5em;
-  cursor: pointer;
-  background: cor(fundo, x-claro);
-  color: cor(texto, medio);
-  font-size: .85em;
-  &:hover {
-    color: cor(texto);
+@mixin autocomplete-base($tag: basico) {
+  // ---------------------------------------------------------------------------
+  // ELEMENTO BÁSICO
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    @include lista-sem-marcador;
+    position: absolute !important;
+    box-shadow: $sombra-difusa;
   }
-  &:last-child {
-    border-bottom: 0;
-  }
-}
-// =============================================================================
-// PLACEHOLDER | TIPOS
-// =============================================================================
-%autocomplete--tipo-1 {
-  @include autocomplete-base;
-  border-bottom: 1px dotted cor(formulario);
-  li {
-    @include autocomplete-base-li;
-    border-bottom: 1px dotted tint(cor(formulario, placeholder), 20%);
-  }
-}
-%autocomplete--tipo-2 {
-  @include autocomplete-base;
-  border-bottom: 1px solid cor(formulario);
-  li {
-    @include autocomplete-base-li;
-    border-bottom: 1px solid tint(cor(formulario, placeholder), 20%);
-  }
-}
-%autocomplete--tipo-3 {
-  @include autocomplete-base;
-  border: 1px solid cor(formulario);
-  border-top-width: 0;
-  li {
-    @include autocomplete-base-li;
-    border-bottom: 1px solid cor(formulario, placeholder);
+  // ---------------------------------------------------------------------------
+  // TAG LI
+  // ---------------------------------------------------------------------------
+  @else if $tag == li {
+    padding: .25em .5em;
+    cursor: pointer;
+    background: cor(fundo, x-claro);
+    color: cor(texto, medio);
+    font-size: .85em;
     &:hover {
-      background: cor(formulario, placeholder);
+      color: cor(texto);
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+}
+
+// =============================================================================
+// MIXIN | TIPOS
+// =============================================================================
+@mixin autocomplete($tipo) {
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    @include autocomplete-base;
+    border-bottom: 1px dotted cor(formulario);
+    li {
+      @include autocomplete-base(li);
+      border-bottom: 1px dotted tint(cor(formulario, placeholder), 20%);
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-2 {
+    @include autocomplete-base;
+    border-bottom: 1px solid cor(formulario);
+    li {
+      @include autocomplete-base(li);
+      border-bottom: 1px solid tint(cor(formulario, placeholder), 20%);
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 3
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-3 {
+    @include autocomplete-base;
+    border: 1px solid cor(formulario);
+    border-top-width: 0;
+    li {
+      @include autocomplete-base(li);
+      border-bottom: 1px solid cor(formulario, placeholder);
+      &:hover {
+        background: cor(formulario, placeholder);
+      }
     }
   }
 }
@@ -82,7 +103,7 @@ FORMULÁRIOS | AUTOCOMPLETE
 // =============================================================================
 @if index($uso-classes, autocomplete) {
   .ui-autocomplete {
-    @extend %autocomplete--#{$form-tipo};
+    @include autocomplete($form-tipo);
   }
   .ui-helper-hidden-accessible {
   	display: none !important;

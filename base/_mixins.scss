@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 20/11/2015
+// Última alteração: 18/01/2016
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -19,13 +19,19 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/01/2016 | Transferindo placeholders para mixins
+// 							http://www.sitepoint.com/avoid-sass-extend/
+// 							* mixin display-flex agora inclui valor de largura
+// 							* clearfix
+// 							* lista
+// 							* link-bloco
 // 20/11/2015 | Inclusão do mixin de ocultar lista
 // 06/11/2015 | Alteração no mixin de centralizar caixa
 // 23/10/2015 | Acrescentado mixin de grupo flex
 // 21/10/2015 | Acrescentado mixin de texto selecionado
 // 14/10/2015 | Acrescentado mixin de centralizar caixa sem flexbox.
 // 13/10/2015 | Eliminados mixins redundantes com os do bourbon.
-// 						 Importação de arquivo de mixins separado para o sistema
+// 						  Importação de arquivo de mixins separado para o sistema
 // 06/10/2015 | Aplicação do bourbon no sistema.
 // ??/??/2015 | Criado mixins para flexbox
 // ??/??/2015 | Incluído criação de prefixos.
@@ -112,6 +118,17 @@
 }
 
 // =============================================================================
+// CLEARFIX
+//	----------------------------------------------------------------------------
+//	Use no elemento pai de elementos que usem float.
+// =============================================================================
+@mixin clearfix {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+// =============================================================================
 // PREFIXOS MAIS COMUNS DE CSS3
 // -----------------------------------------------------------------------------
 // Aplica os prefixos de CSS
@@ -136,10 +153,13 @@
 // }
 // =============================================================================
 // No flex container
-@mixin display-flex {
+@mixin display-flex($largura: null) {
 	display: -webkit-flex;	// Safari
-	display:     -ms-flexbox;	// IE 10
+	display:  -ms-flexbox;	// IE 10
 	display:         flex;
+	@if $largura != null {
+		width: $largura;
+	}
 }
 @mixin flex-direction($flex-direction: column) {
 	@include prefixo((flex-direction: $flex-direction), webkit);
@@ -247,7 +267,7 @@
 
   // regras do elemento pai
   // ---------------------------------------------------------------------------
-  @extend %flex;
+  @include display-flex;
   @include flex-wrap;
   @include align-content(space-between);
 
@@ -288,6 +308,31 @@
 		background-color: $fundo;
 		color: $texto;
 	}
+}
+
+// =============================================================================
+// LISTAS SEM MARCADORES
+// -----------------------------------------------------------------------------
+// Formata listas para serem sem marcadores. Pode exibir como flex ou não
+// =============================================================================
+@mixin lista-sem-marcador($flex: null) {
+	list-style: none;
+	padding-left: 0;
+	@if $flex != null {
+		@include display-flex;
+	}
+}
+
+// =============================================================================
+// LINKS CAIXAS
+// -----------------------------------------------------------------------------
+// Use para fazer o link "caber" no elemento pai. Claro que ele deve estar
+// sozinho. Normalmente seria algo como:
+// li > a { @include link-bloco; }
+// =============================================================================
+@mixin link-bloco {
+	display: block;
+	text-decoration: none;
 }
 
 // =============================================================================

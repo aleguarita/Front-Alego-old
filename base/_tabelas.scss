@@ -10,12 +10,13 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 07/01/2015
+// Última alteração: 27/01/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
-// 07/01/2015 | Retirado "thead" do seletor "thead th". Agora é todos os <th>
+// 27/01/2016 | Alterado placeholder para mixin
+// 07/01/2016 | Retirado "thead" do seletor "thead th". Agora é todos os <th>
 // 							terão a mesma configuração básica, esteja no cabeçalho da tabela
 // 							ou na primeira coluna
 // 08/12/2015 | Retirada variável de borda
@@ -66,81 +67,97 @@ td {
 }
 
 // =============================================================================
-// PLACEHOLDER | BÁSICO
+// MIXIN | BÁSICO
 // =============================================================================
-%tab--zebra {
-	tbody tr:nth-child(even) {
-		background: cor(tabela, fundo);
-		.tab__acoes {
-			background: darken(cor(tabela, fundo), 15%);
+@mixin tab--opcoes($tag) {
+	// ---------------------------------------------------------------------------
+	// ZEBRA
+	// ---------------------------------------------------------------------------
+	@if $tag == zebra {
+		tbody tr:nth-child(even) {
+			background: cor(tabela, fundo);
+			.tab__acoes {
+				background: darken(cor(tabela, fundo), 15%);
+			}
 		}
 	}
-}
-%tab--form {
-	tbody tr:nth-child(even) {
-		background: #fff;
-	}
-	td {
-		padding: 0 .25em;
-		border-left: 2px solid cor(tabela, borda-clara);
-		&:last-child {
-			border-right: 2px solid cor(tabela, borda-clara);
+	// ---------------------------------------------------------------------------
+	// FORM
+	// ---------------------------------------------------------------------------
+	@else if $tag == form {
+		tbody tr:nth-child(even) {
+			background: #fff;
 		}
-	}
-	input:not([type="checkbox"]):not([type="radio"]),
-	textarea,
-	select {
-		@include placeholder {
-			color: cor(tabela, borda-clara);
-			text-transform: uppercase;
+		td {
+			padding: 0 .25em;
+			border-left: 2px solid cor(tabela, borda-clara);
+			&:last-child {
+				border-right: 2px solid cor(tabela, borda-clara);
+			}
 		}
-		border: 0;
-		background: #fff;
-		width: 100%;
-		padding: .25em;
-		font-family: $fonte-sem-serifa;
-		font-size: rem(14);
-		&:hover, &:focus {
-			border-color: cor(tabela, borda-escura);
-			box-shadow: $sombra-padrao;
+		input:not([type="checkbox"]):not([type="radio"]),
+		textarea,
+		select {
+			@include placeholder {
+				color: cor(tabela, borda-clara);
+				text-transform: uppercase;
+			}
+			border: 0;
+			background: #fff;
+			width: 100%;
+			padding: .25em;
+			font-family: $fonte-sem-serifa;
+			font-size: rem(14);
+			&:hover, &:focus {
+				border-color: cor(tabela, borda-escura);
+				box-shadow: $sombra-padrao;
+			}
 		}
 	}
 }
 
 // =============================================================================
-// PLACEHOLDERS | TIPOS DE TABELA
+// MIXIN | TIPOS DE TABELA
 // =============================================================================
-%tab-tipo-1 {
-	thead tr {
-		color: cor(texto, claro);
-		background: cor(tabela, titulo);
-		border-bottom: 2px solid cor(tabela, borda-clara);
-	}
-	tbody tr {
-		border-bottom: 1px solid cor(tabela, borda-clara);
-		&:nth-child(odd) {
-			color: cor(texto, medio);
+@mixin tab($tipo) {
+	// ---------------------------------------------------------------------------
+	// TIPO 1
+	// ---------------------------------------------------------------------------
+	@if $tipo == tipo-1 {
+		thead tr {
+			color: cor(texto, claro);
+			background: cor(tabela, titulo);
+			border-bottom: 2px solid cor(tabela, borda-clara);
+		}
+		tbody tr {
+			border-bottom: 1px solid cor(tabela, borda-clara);
+			&:nth-child(odd) {
+				color: cor(texto, medio);
+			}
+		}
+		.tab__acoes {
+			background: lighten(cor(tabela, fundo), 5%);
 		}
 	}
-	.tab__acoes {
-		background: lighten(cor(tabela, fundo), 5%);
-	}
-}
-%tab-tipo-2 {
-	border-bottom: 2px solid cor(tabela, borda);
-	thead tr {
-		color: cor(tabela, titulo);
+	// ---------------------------------------------------------------------------
+	// TIPO 2
+	// ---------------------------------------------------------------------------
+	@else if $tipo == tipo-2 {
 		border-bottom: 2px solid cor(tabela, borda);
-	}
-	tbody tr {
-		border-bottom: 1px dashed cor(tabela, borda);
-		&:last-of-type {
-			border-bottom: none;
+		thead tr {
+			color: cor(tabela, titulo);
+			border-bottom: 2px solid cor(tabela, borda);
 		}
-	}
-	.tab__acoes {
-		background: cor(tabela, fundo);
-		border-left: 2px solid cor(tabela, borda);
+		tbody tr {
+			border-bottom: 1px dashed cor(tabela, borda);
+			&:last-of-type {
+				border-bottom: none;
+			}
+		}
+		.tab__acoes {
+			background: cor(tabela, fundo);
+			border-left: 2px solid cor(tabela, borda);
+		}
 	}
 }
 
@@ -149,15 +166,15 @@ td {
 // =============================================================================
 @if index($uso-classes, tabela) {
 	.tab {
-		@extend %tab-#{$tab-tipo};
+		@include tab($tab-tipo);
 		@if $tab--zebra == "sim" {
-			@extend %tab--zebra;
+			@include tab--opcoes(zebra);
 		}
 	}
 	@if index($uso-classes, tabela-form) {
 		.tab--form {
 			@extend .tab;
-			@extend %tab--form;
+			@include tab--opcoes(form);
 		}
 	}
 }
@@ -165,41 +182,39 @@ td {
 // =============================================================================
 // CLASSES INTERNAS
 // =============================================================================
-// Placeholders
+// Mixins
 // -----------------------------------------------------------------------------
-@if index($uso-classes, tabela) {
-	//	Ícone de ações em bloco ou não (uso de $tab-acao-link-bloco)
-	@if $tab-acao-link-bloco == sim {
-		%tab-acoes-icone {
-			display: inline-block;
-			padding: .5em;
-			&:hover {
-				color: cor(texto, clara);
-				background: darken(cor(tabela, titulo), 5%);
-			}
+@mixin tab-acoes-icone($bloco: $tab-acao-link-bloco) {
+	color: darken(cor(tabela, titulo), 5%);
+	@if $bloco == sim {
+		display: inline-block;
+		padding: .5em;
+		&:hover {
+			color: cor(texto, clara);
+			background: darken(cor(tabela, titulo), 5%);
 		}
-		.tab__acoes {
-			padding: 0;
-		}
-	} @else if $tab-acao-link-bloco == não {
-		%tab-acoes-icone {
-			margin-left: .5em;
-			margin-right: .5em;
-			&:hover {
-				color: darken(cor(tabela, titulo), 25%);
-			}
-		}
-		.tab__acoes {
-			button {
+		@at-root {
+			.tab__acoes {
 				padding: 0;
 			}
 		}
 	}
-
-	// Ícone
-	%tab-acoes-icone {
-		color: darken(cor(tabela, titulo), 5%);
+	@else if $bloco == não {
+		margin-left: .5em;
+		margin-right: .5em;
+		&:hover {
+			color: darken(cor(tabela, titulo), 25%);
+		}
+		@at-root {
+			.tab__acoes {
+				button {
+					padding: 0;
+				}
+			}
+		}
 	}
+}
+@if index($uso-classes, tabela) {
 	//	Título da coluna de ações
 	.col--acoes {
 
@@ -207,11 +222,11 @@ td {
 	//	Célula de ação
 	.tab__acoes {
 		a {
-			@extend %tab-acoes-icone;
+			@include tab-acoes-icone;
 			text-decoration: none;
 		}
 		button {
-			@extend %tab-acoes-icone;
+			@include tab-acoes-icone;
 			background: transparent;
 			border: none;
 			cursor: pointer;

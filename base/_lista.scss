@@ -12,11 +12,12 @@ LISTA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 20/11/2015
-// Última alteração em: 11/01/2016
+// Última alteração em: 25/01/2016
 // -----------------------------------------------------------------------------
 // Formata caixas de listas
 // ----------------------------------------------------------------------------
 // Changelog
+// 25/01/2016 | Não se usa mais placeholder e sim mixin
 // 11/01/2016 | Arrumado .lista__titulo que aparecia sem padding quando estava
 //              dentro de .lista--link
 //              Ajuste no tipo-2
@@ -34,10 +35,40 @@ LISTA
 $lista-padding: .5rem .75rem;
 
 // =============================================================================
-// PLACEHOLDER | BÁSICO
+// MIXIN | BÁSICO
 // =============================================================================
+@mixin lista-basico($tag: basico) {
+  // ---------------------------------------------------------------------------
+  // DEFINE A RAÍZ
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    @include lista-sem-marcador;
+    @if $lista--sombra == "sim" {
+      box-shadow: $sombra-card;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // DEFINE A TAG LI
+  // ---------------------------------------------------------------------------
+  @else if $tag == li {
+    padding: $lista-padding;
+    &:not(.lista__titulo) {
+      background: cor(fundo, x-claro);
+      @if $lista--zebra == "sim" {
+        &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // PADRÕES DE TÍTULO
+  // ---------------------------------------------------------------------------
+  @else if $tag == titulo {
+    font-family: $fonte-serifa;
+    font-size: 1.6em;
+  }
+}
 %lista-basico {
-  @extend %lista-sem-marcador;
+  @include lista-sem-marcador;
   @if $lista--sombra == "sim" {
     box-shadow: $sombra-card;
   }
@@ -57,65 +88,72 @@ $lista-padding: .5rem .75rem;
 }
 
 // =============================================================================
-// PLACEHOLDER | TIPOS
+// MIXIN LISTA | TIPOS
 // =============================================================================
-%lista--tipo-1 {
-  @extend %lista-basico;
-  border: 1px solid cor(lista);
-  li {
-    border-bottom: 1px solid cor(lista);
-    &:last-child {
-      border-bottom-width: 0;
+@mixin lista($tipo) {
+  @include lista-basico;
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    border: 1px solid cor(lista);
+    li {
+      @include lista-basico(li);
+      border-bottom: 1px solid cor(lista);
+      &:last-child {
+        border-bottom-width: 0;
+      }
+    }
+    &__titulo {
+      @include lista-basico(titulo);
+      background: cor(lista, escura);
+      color: cor(texto, claro);
     }
   }
-  &__titulo {
-    @extend %lista__titulo;
-    background: cor(lista, escura);
-    color: cor(texto, claro);
-  }
-}
-%lista--tipo-2 {
-  @extend %lista-basico;
-  li {
-    &:not(.lista__titulo) {
-      border-color: cor(lista);
-      border-width: 1px 2px 0;
-      border-style: dotted solid;
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-2 {
+    li {
+      @include lista-basico(li);
+      &:not(.lista__titulo) {
+        border-color: cor(lista);
+        border-width: 1px 2px 0;
+        border-style: dotted solid;
+      }
+      &:first-child:not(.lista__titulo) {
+        border-top: 2px solid cor(lista);
+      }
+      &:last-child {
+        border-bottom: 2px solid cor(lista);
+      }
     }
-    &:first-child:not(.lista__titulo) {
-      border-top: 2px solid cor(lista);
-    }
-    &:last-child {
+    &__titulo {
+      @include lista-basico(titulo);
       border-bottom: 2px solid cor(lista);
-    }
-  }
-  &__titulo {
-    @extend %lista__titulo;
-    border-bottom: 2px solid cor(lista);
-    color: cor(lista, escura);
-    & + li {
-      border-top-width: 0 !important;
+      color: cor(lista, escura);
+      & + li {
+        border-top-width: 0 !important;
+      }
     }
   }
 }
+
 // =============================================================================
 // CLASSE MONTADA
 // =============================================================================
 @if index($uso-classes, lista) {
   .lista {
-    @extend %lista--#{$lista-tipo};
+    @include lista($lista-tipo);
     &--link {
-      @extend %lista--#{$lista-tipo};
+      @extend .lista;
       li:not(.lista__titulo) {
         padding: 0;
       }
       a, span {
-        @extend %link-block;
+        @include link-bloco;
         padding: $lista-padding;
       }
-    }
-    &__titulo {
-      @extend %lista--#{$lista-tipo}__titulo;
     }
   }
 }

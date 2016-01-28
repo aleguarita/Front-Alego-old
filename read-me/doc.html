@@ -2730,8 +2730,8 @@
                   <dd>Aplica os prefixos para os transform de CSS3</dd>
                 <dt><samp>transform-origin(valor)</samp></dt>
                   <dd>Aplica os prefixos para os transform-origin de CSS3</dd>
-                <dt><samp>display-flex</samp></dt>
-                  <dd>Mixin sem parâmetro. Dá o <samp>display: flex</samp> para o seletor. É o mesmo usado no placeholder <samp>%flex</samp></dd>
+                <dt><samp>display-flex(largura)</samp></dt>
+                  <dd>Dá o <samp>display: flex</samp> para o seletor. O valor <samp>$largura</samp> é opcional e você determina a largura do elemento pai que está recebendo o <samp>display: flex;</samp></dd>
                 <dt><samp>flex-direction(valor)</samp></dt>
                   <dd>Aplica a propriedade <samp>flex-direction</samp> no seletor. O valor padrão do mixin é <samp>column</samp></dd>
                 <dt><samp>flex-wrap(valor)</samp></dt>
@@ -2951,7 +2951,7 @@
               <h2>No elemento pai (flex-container)</h2>
               <h3>display-flex</h3>
               <p>Coloca o elemento com <samp>display: flex</samp>. Deve ser no elemento pai. Este mixin não precisa de parâmetros. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
-              <p><strong>Sintaxe: </strong> <samp>@include display-flex;</samp></p>
+              <p><strong>Sintaxe: </strong> <samp>@include display-flex;</samp> ou <samp>@include display-flex($largura);</samp></p>
               <code class="codigo--sass">
                 <header>SASS</header>
                 <p>.seletor {</p>
@@ -2965,6 +2965,21 @@
                   <p class="recuo-1">display: -webkit-flex;</p>
                   <p class="recuo-1">display: -ms-flexbox;</p>
                   <p class="recuo-1">display: flex;</p>
+                <p>}</p>
+              </code>
+              <p>Alternativamente você pode chamar uma largura para o elemento pai. Para fazer isso, use o valor opcional de <samp>$largura</samp>.</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>@include display-flex(100%);</p>
+              </code>
+              <p>Compila em:</p>
+              <code class="codigo--css">
+                <header>CSS</header>
+                <p>.seletor {</p>
+                  <p class="recuo-1">display: -webkit-flex;</p>
+                  <p class="recuo-1">display: -ms-flexbox;</p>
+                  <p class="recuo-1">display: flex;</p>
+                  <p class="recuo-1">width: 100%;</p>
                 <p>}</p>
               </code>
               <h3>flex-direction()</h3>

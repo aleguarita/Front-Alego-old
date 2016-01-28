@@ -12,7 +12,7 @@ BREADCRUMBS
 // -----------------------------------------------------------------------------
 // breadcrumbs.scss
 // Criado em: 27/10/2015
-// Última alteração em: 23/11/2015
+// Última alteração em: 18/01/2016
 // -----------------------------------------------------------------------------
 // Definições padrão de breadcrumbs e classes modelo
 // ATENÇÃO: a forma como o breadcrumb é chamado deve ser editado direto na view
@@ -22,6 +22,7 @@ BREADCRUMBS
 // </ul>
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/01/2016 | Abandonado uso de @extend
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -34,21 +35,27 @@ BREADCRUMBS
 $breadcrumbs--box__padding: .25em .5em;
 
 // =============================================================================
-// PLACEHOLDER | BÁSICO
+// MIXIN | BÁSICO
 // =============================================================================
-%breadcrumbs-basico {
-  @extend %lista-flex;
-  font-size: rem(11);
-  a {
-    color: inherit;
-    @extend %link-block;
-    &::after {
-      content: " > ";
-      font-weight: bold;
-      margin-left: .2em;
-    }
+@mixin breadcrumbs-basico($tag: basico) {
+  // ---------------------------------------------------------------------------
+  // DEFINE A RAÍZ
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    @include lista-sem-marcador(flex);
+    font-size: rem(11);
   }
-  li {
+  // ---------------------------------------------------------------------------
+  // DEFINE O TAG A
+  // ---------------------------------------------------------------------------
+  @else if $tag == a {
+    @include link-bloco;
+    color: inherit;
+  }
+  // ---------------------------------------------------------------------------
+  // DEFINE O TAG LI
+  // ---------------------------------------------------------------------------
+  @else if $tag == li {
     color: cor(breadcrumbs, link);
     &:last-child {
       color: cor(breadcrumbs, atual);
@@ -60,38 +67,52 @@ $breadcrumbs--box__padding: .25em .5em;
 // =============================================================================
 // PLACEHOLDER | TIPOS
 // =============================================================================
-%breadcrumbs--tipo-1 {
-  @extend %breadcrumbs-basico;
-  li {
-    padding-left: .2em;
-  }
-  a {
-    &:after {
-      margin-right: .2em;
+@mixin breadcrumbs($tipo) {
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    @include breadcrumbs-basico;
+    li {
+      @include breadcrumbs-basico(li);
+      padding-left: .2em;
     }
-    &:hover {
-      border-bottom: 1px dotted;
+    a {
+      @include breadcrumbs-basico(a);
+      &::after {
+        content: " > ";
+        font-weight: bold;
+        margin-left: .2em;
+        margin-right: .2em;
+      }
+      &:hover {
+        border-bottom: 1px dotted;
+      }
     }
   }
-}
-
-%breadcrumbs--tipo-2 {
-  @extend %breadcrumbs-basico;
-  li {
-    border: 1px solid;
-    &:last-child {
-      outline: 1px solid;
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-2 {
+    @include breadcrumbs-basico;
+    li {
+      @include breadcrumbs-basico(li);
+      border: 1px solid;
+      &:last-child {
+        outline: 1px solid;
+        padding: $breadcrumbs--box__padding;
+      }
+      &:not(:last-child) {
+        border-right-width: 0;
+      }
+    }
+    a {
+      @include breadcrumbs-basico(a);
       padding: $breadcrumbs--box__padding;
-    }
-    &:not(:last-child) {
-      border-right-width: 0;
-    }
-  }
-  a {
-    padding: $breadcrumbs--box__padding;
-    &:hover {
-      background: cor(breadcrumbs, link);
-      color: cor(texto, claro);
+      &:hover {
+        background: cor(breadcrumbs, link);
+        color: cor(texto, claro);
+      }
     }
   }
 }
@@ -101,6 +122,6 @@ $breadcrumbs--box__padding: .25em .5em;
 // =============================================================================
 @if index($uso-classes, breadcrumb) {
   .breadcrumbs {
-    @extend %breadcrumbs--#{$breadcrumbs-tipo};
+    @include breadcrumbs($breadcrumbs-tipo);
   }
 }

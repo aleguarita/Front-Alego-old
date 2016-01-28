@@ -11,12 +11,13 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 09/12/2015
+// Última alteração em: 21/01/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 21/01/2016 | Alterado de placeholder para mixin
 // 09/12/2015 | Acréscimo do textarea para expandir
 // 17/11/2015 | Utilizada nova forma chamar as classes
 //              Incluído elementos "flex" que estavam em "form_tamanhos"
@@ -32,19 +33,18 @@ $borda-form: 1px cor(formulario);
 // =============================================================================
 // PLACEHOLDERS
 // =============================================================================
-%form-base {
-  @extend %flex;
+@mixin form-base($flex: null) {
+  @include display-flex;
   font-size: $tamanho-fonte-form;
   min-height: 2.25rem;
   position: relative;
-}
-%form-base--flex {
-  @extend %form-base;
-  input, textarea, select {
-    @include flex(1);
+  @if $flex != null {
+    input, textarea, select {
+      @include flex(1);
+    }
   }
 }
-%form__caixa-texto {
+@mixin form__caixa-texto {
   @include appearance(none);
   border-radius: 0;
   font-size: .9em;
@@ -53,14 +53,14 @@ $borda-form: 1px cor(formulario);
     color: cor(formulario, placeholder);
   }
 }
-%form__icone {
+@mixin form__icone {
   position: absolute;
   right: calc(#{$calha} / 2);
   height: calc(100% - #{$calha}); // subtrai o padding do container
   padding: $calha/2 .5em;
 }
-%form__botao-colado {
-  @extend %form__icone;
+@mixin form__botao-colado {
+  @include form__icone;
   cursor: pointer;
   @if $form-tipo == "caixa" {
     background: cor(formulario);

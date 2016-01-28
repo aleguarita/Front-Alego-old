@@ -12,15 +12,21 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 23/11/2015
+// Última alteração em: 21/01/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // ----------------------------------------------------------------------------
 // Changelog
+// 21/01/2016 | Era pra isso aqui usar mixins. Não é prático.
 // 23/11/2015 | Botões de status
 //              Utilizada nova forma chamar as classes
 // 13/11/2015 | Arquivo reescrito usando os novos padrões
 // 15/01/2015 | Criação do arquivo
+// =============================================================================
+// OBSERVAÇÃO:
+// Todos os arquivos do Front-Alego estão fazendo uso ostensivo de mixins no
+// lugar de placeholders. Devido à complexidade desse arquivo em particular
+// o uso de placeholders é mais fácil de gerenciar
 // =============================================================================
 
 // =============================================================================

@@ -968,7 +968,7 @@ $breadcrumbs-tipos: (tipo-1, tipo-2);
 .breadcrumbs {
   @each $breadcrumbs in $breadcrumbs-tipos {
     &--#{$breadcrumbs} {
-      @extend %breadcrumbs--#{$breadcrumbs};
+      @include breadcrumbs($breadcrumbs);
     }
   }
 }
@@ -993,4 +993,11 @@ $card-tipos: (tipo-1, tipo-2);
       }
     }
   }
+}
+/*
+TESTE
+*/
+
+.teste {
+  @include breadcrumbs-basico;
 }

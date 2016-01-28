@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 30/11/2015
+// Última alteração em: 25/01/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 25/01/2016 | Retirado configuração de grid
 // 30/11/2015 | Explicação dos tipos está no read-me
 // 26/11/2015 | Retirado breakpoints e colocado em arquivo separado
 // 23/11/2015 | Alterada a forma dos tipos de nomes específicos para "tipo-x"
@@ -55,24 +56,6 @@ $cores-tema: principal;
 $grid-qtd: 12;
 $grid-margem: rem(10);
 $grid-max: rem(1600);
-
-// MAPA DAS SEÇÕES
-// -----------------------------------------------------------------------------
-// Inclua no mapa abaixo as seções (as classes) que você está criando e o número
-// de grids que ela ocupa
-// Para facilitar a leitura, salte uma linha para definir grupos
-// Exemplo:
-// $grid: (
-//   header-titulo: 10,
-//   header-sair: 2,
-//
-//   nav: 2,
-//   principal: 10,
-// );
-// -----------------------------------------------------------------------------
-$grid: (
-
-);
 
 // =============================================================================
 // TABELAS

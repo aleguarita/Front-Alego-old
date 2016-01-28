@@ -12,12 +12,15 @@ GRID
 // -----------------------------------------------------------------------------
 // grid.scss
 // Criado em: 12/01/2015
-// Última alteração: 08/12/2015
+// Última alteração: 22/01/2015
 // -----------------------------------------------------------------------------
 // Este arquivo cria o sistema de grid, com uso de Flex-box
 // As configurações devem ficar no início do documento (editando as variáveis)
 // -----------------------------------------------------------------------------
 // Changelog
+// 22/01/2016 | Não se usa mais placeholder e sim mixins. Desta forma a forma
+//              de definir a quantidade de grids é diretamente no objeto e não
+//              no arquivo de config.
 // 08/12/2015 | Usado o seletor > para a coruja lobotomizada (pois da forma que
 //              estava, aplicava a todos os elementos inferiores ao gutter)
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -71,7 +74,7 @@ $grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
 // .container--gutter (ou .container--calha): sistema com margem entre as colunas
 // =============================================================================
 %container-basico {
-  @extend %flex;
+  @include display-flex;
   @include flex-wrap;
   margin: auto;
   max-width: $grid-max;
@@ -93,50 +96,31 @@ $grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
 // -----------------------------------------------------------------------------
 // Gera as grids dinamicamente para uso com @extend. Não mude nada
 // =============================================================================
-%grid-total {
-  @include flex(1 0 100%);
-}
+
 %grid-gutter {
   margin-right: $grid-margem-porcento;
   &:last-child {
     margin-right: 0;
   }
 }
-$i: 1;
-@while $i <= $grid-qtd {
-  %grid-#{$i} {
-    @extend %grid-total;
-  }
-  $i: $i+1;
-}
-@include media-tipo(grande) {
-  $i: 1;
-  @while $i <= $grid-qtd {
-    $basis: $grid-medida * $i;
-    $basis-gutter: $grid-medida-com-gutter * $i;
-    %grid-#{$i} {
-      @include flex($i 0 $basis);
-      .container--gutter &, .container--calha & {
-        @include flex($i 0 $basis-gutter);
-      }
+@mixin grid($grid, $gutter: não, $responsivo: sim) {
+  $basis: if($gutter == "não", $grid-medida, $grid-medida-com-gutter) * $grid;
+  @if $responsivo == sim {
+    @include flex(1 0 100%);
+    @include media-tipo(grande) {
+      @include flex($grid 0 $basis);
     }
-    %pre-#{$i} {
-      margin-left: $grid-medida * $i;
-      .container--gutter &, .container--calha & {
-        margin-left: ($grid-medida-com-gutter + $grid-margem-porcento) * $i;
-      }
-    }
-    $i: $i+1;
+  } @else {
+      @include flex($grid 0 $basis);
   }
 }
-
-//	============================================================================
-//	Cria as classes e define as larguras e grid
-//	============================================================================
-@each $classe, $medida in $grid {
-	.#{$classe} {
-		@extend %grid-#{$medida};
-	}
+@mixin pre($pre, $gutter: não, $responsivo: sim) {
+  $margem: if($gutter == "não", $grid-medida, $grid-medida-com-gutter + $grid-margem-porcento) * $pre;
+  @if $responsivo == sim {
+    @include media-tipo(grande) {
+      margin-left: $margem;
+    }
+  } @else {
+    margin-left: $margem;
+  }
 }
-// esta variável pega a medida da área útil com tela no máximo quando se usa calha
-$area-util: $grid-max - ($calha * 2);

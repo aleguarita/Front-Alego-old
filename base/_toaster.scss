@@ -12,11 +12,12 @@ TOASTER
 // -----------------------------------------------------------------------------
 // toaster.scss
 // Criado em: 20/03/2015
-// Última alteração em: 23/11/2015
+// Última alteração em: 28/01/2016
 // -----------------------------------------------------------------------------
 // Notificações do sistema. Aparecendo de baixo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 28/01/2016 | Retirado o uso de placeholders para uso de mixins
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -39,17 +40,25 @@ $tipos-toaster: (
 );
 
 // =============================================================================
-// PLACEHOLDERS | Tipos
+// MIXIN | Básico
 // =============================================================================
-%toaster {
-	@extend %lista-sem-marcador;
-	position: fixed;
-	margin: 0;
-	width: rem(300);
-	#{$toaster-horizontal}: $toaster-distancia;
-	#{$toaster-vertical}: $toaster-distancia * $toaster-distancia-vertical;
-	z-index: z(toaster);
-	li {
+@mixin toaster--base($tag: basico) {
+	// ---------------------------------------------------------------------------
+	// BASICO
+	// ---------------------------------------------------------------------------
+	@if $tag == basico {
+		@include lista-sem-marcador;
+		position: fixed;
+		margin: 0;
+		width: rem(300);
+		#{$toaster-horizontal}: $toaster-distancia;
+		#{$toaster-vertical}: $toaster-distancia * $toaster-distancia-vertical;
+		z-index: z(toaster);
+	}
+	// ---------------------------------------------------------------------------
+	// LI
+	// ---------------------------------------------------------------------------
+	@else if $tag == li {
 		position: relative;
 		padding: 1.5em;
 		font-family: $fonte-sem-serifa;
@@ -62,7 +71,10 @@ $tipos-toaster: (
 			margin-top: $toaster-distancia * .75;
 		}
 	}
-	.close {
+	// ---------------------------------------------------------------------------
+	// .close
+	// ---------------------------------------------------------------------------
+	@else if $tag == close {
 		transition: $transition;
 		cursor: pointer;
 		position: absolute;
@@ -76,25 +88,38 @@ $tipos-toaster: (
 		line-height: 1;
 	}
 }
-
-%toaster--tipo-1 {
-	@extend %toaster;
-	li {
-		color: cor(texto, claro);
-		text-shadow: $sombra-texto;
+// =============================================================================
+// MIXIN | TIPOS
+// =============================================================================
+@mixin toaster($tipo) {
+	@include toaster--base;
+	// ---------------------------------------------------------------------------
+	// TIPO 1
+	// ---------------------------------------------------------------------------
+	@if $tipo == tipo-1 {
+		li {
+			@include toaster--base(li);
+			color: cor(texto, claro);
+			text-shadow: $sombra-texto;
+		}
+		.close {
+			@include toaster--base(close);
+			border: 0;
+		}
 	}
-	.close {
-		border: 0;
-	}
-}
-%toaster--tipo-2 {
-	@extend %toaster;
-	li {
-		border: 3px solid;
-		background: cor(fundo, x-claro);
-	}
-	.close {
-		border: 1px solid;
+	// ---------------------------------------------------------------------------
+	// TIPO 2
+	// ---------------------------------------------------------------------------
+	@else if $tipo == tipo-2 {
+		li {
+			@include toaster--base(li);
+			border: 3px solid;
+			background: cor(fundo, x-claro);
+		}
+		.close {
+			@include toaster--base(close);
+			border: 1px solid;
+		}
 	}
 }
 // =============================================================================
@@ -131,6 +156,23 @@ $tipos-toaster: (
 // =============================================================================
 @if index($uso-classes, toaster) {
   .toast {
-		@extend %toaster--#{$toaster-tipo};
+		@include toaster($toaster-tipo);
+		@each $status, $classe in $tipos-toaster {
+			.#{$status} {
+				@if $toaster-tipo == tipo-1 {
+					background: cor-status($classe);
+				}
+				@else if $toaster-tipo == tipo-2 {
+					color: cor-status(#{$classe}-escuro);
+				}
+				.close {
+					color: cor-status($classe);
+					&:hover {
+						background: cor-status(#{$classe}-escuro);
+						color: cor(texto, claro);
+					}
+				}
+			}
+	  }
   }
 }
