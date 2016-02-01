@@ -285,6 +285,31 @@
               <p>Outro grande defeito do uso de placeholders é que o resultado final do CSS não fica de leitura fácil nem mesmo no inspetor (as classes ficam separadas demais).</p>
               <p><strong>Nossa, isso quer dizer que eu não devo usar nunca mais um placeholder?</strong> Calma, jovem padawan, claro que você vai usar. Mas comedidamente e <strong>dentro do contexto</strong>. Imagine que você está criando um padrão para dentro de uma coluna lateral que incluir uma cor de fonte, uma fonte diferente e tamanho de fonte diferente. Três elementos vão usar desta configuração (parágrafo, tabela e lista). Neste caso você cria um placeholder dentro do contexto (logo no início do bloco). E <strong>comente indicando um placeholder</strong>. Se você fuçar no código vai ver que o Front-Alego faz uso de placeholders e @extends pontuais (botões e medidas de colunas de tabela são exemplos).</p>
               <p>Extender classes também deve ser evitado. Mas isso, obviamente, tem uma exceção clara: com o uso do BEM você acaba extendo classes (inclusive no próprio exemplo do BEM mostra isso). Nos demais casos, evite.</p>
+            <h2 id="regras__html-basico">HTML básico</h2>
+              <p>Sempre faremos uso dos novos tags estabelecidos pelo HTML 5. O código de uma página básica seria aproximadamente o seguinte:</p>
+              <code class="codigo--html">
+                <header>HTML</header>
+                <p>&lt;body&gt;</p>
+                  <p class="recuo-1">&lt;header&gt;...&lt;/header&gt;</p>
+                  <p class="recuo-1">&lt;nav&gt;...&lt;/nav&gt;</p>
+                  <p class="recuo-1">&lt;main&gt;...&lt;/main&gt;</p>
+                  <p class="recuo-1">&lt;aside&gt;...&lt;/aside&gt;</p>
+                  <p class="recuo-1">&lt;footer&gt;...&lt;/footer&gt;</p>
+                <p>&lt;/body&gt;</p>
+              </code>
+              <p>Como pode ser visto, <strong>cada um</strong> dos tags HTML aparecem como filhos diretos do <samp>&lt;body&gt;</samp>. Isso facilita a formatação do layout no CSS e também melhora a aplicação de media query para fazer o site responsivo.</p>
+              <dl class="lista-definicao">
+                <dt><samp>header</samp></dt>
+                  <dd>O cabeçalho do site/sistema. Normalmente contém o nome e logo do sistema e botão de entrar/sair do sistema</dd>
+                <dt><samp>nav</samp></dt>
+                  <dd>O menu do site/sistema. Este tag <strong>deve</strong> deve ser filho direto do <samp>&lt;body&gt;</samp> para ter mais flexibilidade na formatação final.</samp></dd>
+                <dt><samp>main</samp></dt>
+                  <dd>A área principal do site/sistema. Note que a regra do HTML 5 diz que só pode haver um <samp>&lt;main&gt;</samp> dentro do código.</dd>
+                <dt><samp>aside</samp></dt>
+                  <dd>Área complementar do site/sistema. Pode ser uma área de banner, informações extras e assim por diante. <strong>tag opcional</strong></dd>
+                <dt><samp>footer</samp></dt>
+                  <dd>O rodapé do site/sistema. Normalmente um atalho para as principais seções do mesmo. <strong>tag opcional</strong></dd>
+              </dl>
             </section>
         </article>
 
@@ -305,8 +330,8 @@
               <p>O arquivo de configuração permite escolher a formatação básica do seu projeto. Em muitos casos você escrevará o valor a ser usado. Se o valor for "sim" ou "não" o valor relevante é o <strong>sim</strong> e qualquer valor diferente é entendido como <strong>não</strong>.</p>
 
               <h2 id="config__classes">Uso de Classes</h2>
-                <p>O mapa <samp>$uso-classes</samp> define se vai criar algumas classes. Caso não vá usar alguma função comente o nome dentro do mapa (<span class="tecla-atalho">cmd</span> + <span class="tecla-atalho">/</span>), isso vai fazer com que as classes não apareçam no arquivo CSS compilado, deixando-o mais leve.</p>
-                <p>As classes criadas nos arquivos adicionais na pasta <samp class="pasta">extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>.</p>
+                <p>O mapa <samp>$uso-classes</samp> define se vai criar algumas classes no CSS final. Caso não vá usar alguma função comente o nome dentro do mapa (<span class="tecla-atalho">cmd</span> + <span class="tecla-atalho">/</span>), isso vai fazer com que as classes não apareçam no arquivo CSS compilado, deixando-o mais leve (especialmente útil em sites externos).</p>
+                <p>As classes criadas nos arquivos adicionais na pasta <samp class="pasta">extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>. Isso significa que se você criar uma tabela personalizada somente a sua tabela vai aparecer no CSS final.</p>
                 <dl class="lista-definicao">
                   <dt><samp>form-field</samp></dt><dd>Grupo de formulários. Serve para definir a largura deles, com um sistema similar ao de grids (com classes de <samp>grid-1</samp> até <samp>grid-12</samp>)</dd>
                   <dt><samp>form-pre</samp></dt><dd>Espaçamento entre os formulários. Cada <samp>pre-x</samp> dá o mesmo espaço de uma "grid" de formulário. Por ser algo de uso raro, por padrão já vem comentado</dd>
@@ -330,7 +355,7 @@
                 </blockquote>
               <h2 id="config__tema">Tema de cores</h2>
                 <!-- LINK -->
-                <p>Defina qual o tema de cor utilizado. Veja mais detalhes sobre isso em cores. Abaixo uma explicação dos valores aceitos em <samp>$cores-tema</samp> e seus possíveis usos:</p>
+                <p>Defina qual o tema de cor utilizado. Veja mais detalhes sobre isso em <a href="#cores">cores</a>. Abaixo uma explicação dos valores aceitos em <samp>$cores-tema</samp> e seus possíveis usos:</p>
                 <dl class="lista-definicao">
                   <dt>principal</dt>
                     <dd>O tema padrão e definido originalmente para o sistema</dd>
@@ -357,8 +382,6 @@
                     <dd>A margem entre as grids. Por padrão é o equivalente a 10px convertidos para <samp>rem</samp>. <strong class="texto-erro">Atenção:</strong> afeta a variável <samp>$calha</samp></dd>
                   <dt><samp>$grid-max</samp></dt>
                     <dd>O tamanho máximo da grid na tela (<samp>max-width</samp>). Quando a tela for maior que essa medida, fica centralizado (usa no <samp>.container</samp>)</dd>
-                  <dt><samp>$grid</samp></dt>
-                    <dd>Neste mapa coloque as seções do site (a classe usada) e a quantidade de grids que ocupa. Exemplo: <samp>header-titulo: 10,</samp></dd>
                 </dl>
               <h2 id="config__tab">Tabelas</h2>
                 <p>Configurações de tabela.</p>
@@ -504,7 +527,7 @@
                       <dd>20 tons de cinza</dd>
                   </dl>
                   <p>A paleta <samp>$cor-status</samp> já estabelece as cores de status e podem ser chamadas diretamente no CSS, mesmo que não estabelecido nos temas (pois são globais).</p>
-                  <p>Elas são divididas em quatro elementos principais com variantes <samp>-claro</samp> e <samp>-escuro</samp> (<!-- LINK <--><a href="" class="link--readme"></a></-->):</p>
+                  <p>Elas são divididas em quatro elementos principais com variantes <samp>-claro</samp> e <samp>-escuro</samp> (<a href="#cores__paleta-padrao" class="link--readme">Veja aqui</a>):</p>
                   <dl class="lista-definicao">
                     <dt><samp>erro</samp> e <samp>urgente</samp></dt>
                       <dd>Cores vermelhas.</dd>
@@ -517,7 +540,7 @@
                   </dl>
               <h2 id="cores__temas">Temas</h2>
                 <p><samp class="arquivo">config/_cores_temas.scss</samp></p>
-                <p>Neste arquivo ficam os temas de cores do sistema. Você pode criar vários outros temas e alterar no <a href="#config__tema" class="link--readme">arquivo de configuração</a>. Ao escolher um tema, as cores do sistema mudam de acordo. É possível, inclusive, ter mais de uma lista de estilos compilada com temas diferentes.</p>
+                <p>Neste arquivo ficam os temas de cores do sistema. Você pode criar vários outros temas e alterar no <a href="#config__tema" class="link--readme">arquivo de configuração</a>. Ao escolher um tema, as cores do sistema mudam de acordo.</p>
                 <p>Assim como acontece com a <samp>$paleta</samp>, os temas estão agrupados dentro de um mapa chamado <samp>$temas</samp>. Dentro deste mapa teremos um sub-mapa para cada tema, que são (por padrão):</p>
                 <dl class="lista-definicao">
                   <dt><samp>principal</samp></dt>
@@ -525,7 +548,7 @@
                   <dt><samp>cinza</samp></dt>
                     <dd>Este tema faz uso apenas de tons de cinza. Pode ser útil em um momento de prototipação.</dd>
                   <dt><samp>alto-contraste</samp></dt>
-                    <dd>Um tema com cores bem contranstantes, pensando em acessibilidade.</dd>
+                    <dd>Um tema com cores bem contrastantes, pensando em acessibilidade.</dd>
                   <dt><samp>bandeira</samp></dt>
                     <dd>Faz uso das cores da bandeira de Goiás. Para utilizar em sistemas mais institucionais ou eventos do Estado.</dd>
                   <dt><samp>rosa</samp></dt>
@@ -534,7 +557,7 @@
                     <dd>Tema com predominância das cores azuis. Para o Novembro Azul, por exemplo.</dd>
                 </dl>
                 <p>Acrescente novo mapa conforme a necessidade. Duplique o mapa <samp>principal</samp> e trabalhe nele (um exemplo de possibilidade para isso é um tema de Natal).</p>
-                <p>Dentro de cada tema existem diversos mapas com suas cores específicas. Podemos dividir estes mapas em três categorias, <strong>elementos genéricos</strong> (que são usados em qualquer contexto), <strong>elementos específicos</strong> (que são usados dentro de um contexto específico e já está sendo sendo usado dentro das configurações do Front-Alego, em arquivos próprios) e <strong>elementos do sistema</strong> que são os elementos criados para o seu sistema (exemplo: menu, cabeçalho). Cada uma destas categorias estão separadas por um comentário com seu nome.</p>
+                <p>Dentro de cada tema existem diversos mapas com suas cores específicas. Podemos dividir estes mapas em três categorias, <strong>elementos genéricos</strong> (que são usados em qualquer contexto), <strong>elementos específicos</strong> (que são usados dentro de um contexto específico e já está sendo sendo usado dentro das configurações do Front-Alego, em arquivos próprios. Ex.: tabela) e <strong>elementos do sistema</strong> que são os elementos criados para o seu sistema (exemplo: menu, cabeçalho). Cada uma destas categorias estão separadas por um comentário com seu nome.</p>
                 <blockquote class="aviso--grave">
                   Sempre que você precisar de uma cor para um elemento não declarado, crie este mapa dentro de <strong>CADA</strong> tema abaixo do comentário <samp>//elementos do sistema</samp>. Acrescente as cores dentro deste mapa conforme a necessidade.
                 </blockquote>
@@ -545,9 +568,9 @@
                   <dt><samp>texto</samp></dt>
                     <dd><em>Elemento genérico</em>. Cores para serem usadas em textos. <samp>padrao</samp>, <samp>claro</samp>, <samp>medio</samp>, <samp>destaque</samp>, <samp>titulo</samp></dd>
                   <dt><samp>fundo</samp></dt>
-                    <dd><em>Elemento genérico</em>. Cores para serem usadas em fundos. <samp>padrao</samp>, <samp>claro</samp>, <samp>x-claro</samp>, <samp>escuro</samp>,<samp>sombra</samp> (cor da sombra, não é um fundo, mas achei colocar aqui e evitar uma categoria própria).</dd>
+                    <dd><em>Elemento genérico</em>. Cores para serem usadas em fundos. <samp>padrao</samp>, <samp>claro</samp>, <samp>x-claro</samp>, <samp>escuro</samp>,<samp>sombra</samp> (cor da sombra, não é um fundo, mas achei melhor colocar aqui e evitar uma categoria própria).</dd>
                   <dt><samp>borda</samp></dt>
-                    <dd><em>Elemento genérico</em>. As cores das bordas. Lembre-se que, por padrão, se não declarar a cor da borda ela será, por padrão, a do texto. <samp>padrao</samp>, <samp>variante</samp>.</dd>
+                    <dd><em>Elemento genérico</em>. As cores das bordas. Lembre-se que se não declarar a cor da borda ela será, por padrão, a do texto. <samp>padrao</samp>, <samp>variante</samp>.</dd>
                   <dt><samp>link</samp></dt>
                     <dd><em>Elemento específico</em>. Define as cores do link, com duas variações. <samp>padrao</samp>, <samp>hover</samp>; <samp>escuro</samp> e <samp>escuro-hover</samp></dd>
                   <dt><samp>formulario</samp></dt>
@@ -581,7 +604,7 @@
                   <p>Como explicado anteriormente, você só poderá usar as cores definidas nos temas. Para chamar uma cor, use uma das duas funções abaixo:</p>
                   <dl class="lista-definicao">
                     <dt><samp>cor-status()</samp></dt>
-                      <dd>Para chamar uma das cores de status, conforme definido anteriormente. <strong class="texto--urgente">Não use para formatação de interface, somente use para reais status</strong>. Exemplo: você quer alertar que o campo preenchido está com erro. <samp>color: cor-status(erro)</samp></dd>
+                      <dd>Para chamar uma das cores de status, conforme definido anteriormente. <strong class="texto--urgente">Não use para formatação de interface, somente use para status reais</strong>. Exemplo: você quer alertar que o campo preenchido está com erro. <samp>color: cor-status(erro)</samp></dd>
                     <dt><samp>cor()</samp></dt>
                       <dd>Principal função para chamar as cores na interface. Cada elemento tem um conjunto de cores a ser chamado, além dos genéricos (conforme já explicado anteriormente). Exemplo: seu texto vai ser um texto destaque. <samp>cor(texto, destaque)</samp>. A cor <samp>padrao</samp> de cada conjunto não precisa ser chamada, ou seja, o texto padrão seria: <samp>cor(texto)</samp>.</dd>
                   </dl>
@@ -724,14 +747,14 @@
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>O sistema de grid foi pensando para escrever a menor quantidade possível de classes no CSS final e também fácil de mudar a quantidade de grids, sem ficar percorrendo o HTML à procura de classes de grid. As grids foram compostas com flexbox. Mesmo que você não utilize as grids, pode fazer uso das classes de <samp>.container</samp>.</p>
-              <p class="texto-erro">Este sistema está sendo depreciado e está aqui para retrocompatibilidade. O flexbox possibilita a formatação bem mais simples disso. Para centralizar o conteúdo (tarefa destinada ao <samp>.container</samp>) basta usar padding e assim evitamos uma <samp>&lt;div&gt;</samp> desnecessária.</p>
+              <p>O sistema de grid foi pensando para escrever a menor quantidade possível de classes no CSS final e também ser fácil de mudar a quantidade de grids, sem ficar percorrendo o HTML à procura de classes de grid (elas entram como configuração dentro da própria classe, através de um mixin). As grids foram compostas com flexbox. Mesmo que você não utilize as grids, pode fazer uso das classes de <samp>.container</samp>.</p>
+              <p class="texto-erro">Este sistema está sendo depreciado, mas ainda está aqui "just in case". O flexbox possibilita a formatação bem mais simples disso. Para centralizar o conteúdo (tarefa destinada ao <samp>.container</samp>) basta usar padding e assim evitamos uma <samp>&lt;div&gt;</samp> desnecessária.</p>
               <h2 id="grid__container">Containers</h2>
               <p>Estas classes são usadas em algum elemento pai (normalmente <samp>&lt;div&gt;</samp>) para centralizar o conteúdo e determinar que ele é flex. Ele também pode ser usado mesmo que os elementos filhos não façam uso do sistema de grid.</p>
               <h3>Classes e placeholder de container</h3>
               <dl class="lista-definicao">
                 <dt><samp>%container-basico</samp></dt>
-                <dd>Este é o elemento comum das classes de <samp>.container</samp>. Ela configura o flex, além de deixar como uma caixa no centro. Você pode extender este placeholder para utilizar um <samp>.container</samp> sem ter uma classe a mais para isso.</dd>
+                <dd>Este é o elemento comum das classes de <samp>.container</samp>. Ela configura o flex, além de deixar como uma caixa no centro.</dd>
                 <dt><samp>.container</samp></dt>
                 <dd>A classe básica de container. Use para as grids que não tenham margem entre si (ficam colada) ou apenas quando você quer centralizar o conteúdo com o tamanho máximo.</dd>
                 <dt><samp>.container--calha</samp></dt>
@@ -743,28 +766,26 @@
               <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos do container:</p>
               <dl class="lista-definicao">
                 <dt><samp>$uso-classes</samp></dt>
-                <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes</dd>
+                <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes de container</dd>
                 <dt><samp>$grid-margem</samp></dt>
                 <dd>Esta será a medida da margem entre os grids e o padding, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
                 <dt><samp>$grid-max</samp></dt>
                 <dd>Determina o tamanho máximo que a o container vai ter. Acima disso ele fica centralizado. <strong>Valor atual</strong>: <samp class="escolha--grid-max"></samp></dd>
               </dl>
               <h2 id="grid__grid">Grids</h2>
-              <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de placeholders.</p>
+              <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de mixin.</p>
               <h3>Configurando as grids</h3>
               <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
               <dl class="lista-definicao">
                 <dt><samp>$grid-qtd</samp></dt>
-                <dd>Determina a quantidade máxima de <samp>%grid-x</samp> criadas. Cada uma delas é equivalente a uma <samp>.grid-x</samp> no modelo clássico de grids. <strong>Valor atual</strong>: <samp class="escolha--grid-qtd"></samp></dd>
+                <dd>Determina a quantidade máxima do sistema. Cada uma delas é equivalente a uma <samp>.grid-x</samp> no modelo clássico de grids. <strong>Valor atual</strong>: <samp class="escolha--grid-qtd"></samp></dd>
                 <dt><samp>$grid-margem</samp></dt>
                 <dd>Esta será a medida da margem entre os grids e o padding do container, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
-                <dt><samp>$grid: ();</samp></dt>
-                <dd>Neste mapa você vai incluir o nome das classes e a quantidade de grids que ela ocupa. Ver mais detalhes abaixo.</dd>
               </dl>
               <h3>Determinando quantas grids o elemento ocupa</h3>
-              <p>Em um sistema de grid tradicional você insere uma classe <samp>grid-x</samp> no elemento que precisa ocupar "x" medidas de grid. Ao invés de trabalhar desta forma, cada elemento receberá um nome de classe conforme explicado seguindo as <a href="#regras" class="link--readme">regras</a>.</p>
-              <p>Depois disso coloque a classe dentro do mapa <samp>$grid</samp> localizado dentro do arquivo <samp class="arquivo">config/+_config</samp> e especifique a quantidade de grids que ela ocuparia.</p>
-              <p>Como exemplo, imagine um layout simples com um menu, uma área principal e uma coluna lateral. O menu ocuparia 2 grids, a área principal 7 grids e a coluna lateral ocuparia 3 grids. Normalmente o código seria:</p>
+              <p>Em um sistema de grid tradicional você insere uma classe <samp>grid-x</samp> no elemento que precisa ocupar "x" medidas de grid. Ao invés de trabalhar desta forma você colocará a quantidade de grids que o elemento ocupa em seu próprio seletor, através do mixin.</p>
+              <p>Para facilitar a atualização, você pode colocar um grupo de variáveis (ou mapa) no início do arquivo e colocar fórmulas para manter a proporção (exemplo mais abaixo).</p>
+              <p>Como exemplo, imagine um layout simples com um menu, uma área principal e uma coluna lateral. O menu ocupa 2 grids, a área principal 7 grids e a coluna lateral ocupa 3 grids. Normalmente o código seria:</p>
               <code class="codigo--html">
                 <header>HTML - grid tradicional</header>
                 <p>&lt;nav class="menu grid-2"&gt; ... &lt;/nav&gt;</p>
@@ -780,13 +801,45 @@
               </code>
               <code class="codigo--sass">
                 <header>SASS</header>
-                <p>$grid: (</p>
-                <p class="recuo-1">menu: 2,</p>
-                <p class="recuo-1">principal: 7,</p>
-                <p class="recuo-1">lateral: 3,</p>
-                <p>)</p>
+                <p>.menu {</p>
+                  <p class="recuo-1">@include grid(2);</p>
+                  <p>...</p>
+                <p>}</p>
+                <p>.principal {</p>
+                  <p class="recuo-1">@include grid(7);</p>
+                  <p>...</p>
+                <p>}</p>
+                <p>.lateral {</p>
+                  <p class="recuo-1">@include grid(3);</p>
+                  <p>...</p>
+                <p>}</p>
               </code>
-              <p>Ao compiltar o CSS, o SASS vai aplicar os placeholders em cada uma das classes.</p>
+              <p>Ao compilar o CSS, o SASS vai colocar as medidas conforme o mixin.</p>
+              <h3>Variáveis e grids</h3>
+              <p>O uso de variáveis é mais adequado para manter o controle do layout em apenas um lugar. No início do seu arquivo, crie um comentário de <samp>CONFIG | GRIDS</samp> e a cada variável de grid utilize ou o prefixo <samp>$gd-</samp> seguido do nome da classe. O exemplo acima mas com variáveis:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>// =========================================================================</p>
+                <p>// CONFIG | Grids</p>
+                <p>// =========================================================================</p>
+                <p>$gd-menu: 2;</p>
+                <p>$gd-principal: 7;</p>
+                <p>$gd-lateral: $grid-max - $gd-menu - $gd-principal;</p>
+                <p>...</p>
+                <p>...</p>
+                <p>.menu {</p>
+                  <p class="recuo-1">@include grid($gd-menu);</p>
+                  <p>...</p>
+                <p>}</p>
+                <p>.principal {</p>
+                  <p class="recuo-1">@include grid($gd-principal);</p>
+                  <p>...</p>
+                <p>}</p>
+                <p>.lateral {</p>
+                  <p class="recuo-1">@include grid($gd-lateral);</p>
+                  <p>...</p>
+                <p>}</p>
+              </code>
             </section>
           </section>
         </article>
@@ -803,8 +856,8 @@
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Nunca use <samp>z-index</samp> diretamente no CSS, pois isso deixa a manutenção ruim, além de usarmos números aleatórios (como o clássico <samp>z-index: 99999;</samp>).</p>
-              <p>No arquivo <samp class="arquivo">z-index</samp> você vai inserir os elementos com os nomes dele. Para isso inclua os elementos no mapa <samp>$z</samp>. A ordem que os elementos aparecem é o valor do z-index. O primeiro elemento vai receber <samp>z-index: 1</samp> e assim por diante. O mapa já vem com alguns elementos pensando nessa ordem:</p>
+              <p>Nunca use <samp>z-index</samp> diretamente no CSS, pois isso deixa a manutenção ruim, além de resultar em uso de números aleatórios (como o clássico <samp>z-index: 99999;</samp>).</p>
+              <p>No arquivo <samp class="arquivo">config/z-index.scss</samp> você vai inserir os elementos com os nomes dele. Para isso inclua os elementos no mapa <samp>$z</samp>. A ordem que os elementos aparecem é o valor do z-index. O primeiro elemento vai receber <samp>z-index: 1</samp> e assim por diante. O mapa já vem com alguns elementos pensando nessa ordem:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
                 <p>$z: (</p>
@@ -815,11 +868,10 @@
                 <p class="recuo-1">toaster,</p>
                 <p>);</p>
               </code>
-              <p>No entanto, colocar estes elementos não basta, você deve indicar no seletor qual o nível que ele ocupa. Para isso, chama através da função <samp>z()</samp>. Dentro do parênteses você coloca o mesmo nome do elemento do mapa <samp>$z</samp>. Por exemplo:</p>
+              <p>No entanto, colocar estes elementos não basta, você deve indicar no seletor qual o nível que ele ocupa. Para isso, chame através da função <samp>z()</samp>. Dentro do parênteses você coloca o mesmo nome do elemento do mapa <samp>$z</samp>. Por exemplo:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
                 <p>.header {</p>
-                  <p class="recuo-1">...</p>
                   <p class="recuo-1">z(topo);</p>
                   <p class="recuo-1">...</p>
                   <p>}</p>
@@ -828,7 +880,6 @@
                 <code class="codigo--css">
                   <header>CSS</header>
                   <p>.header {</p>
-                    <p class="recuo-1">...</p>
                     <p class="recuo-1">z-index: 3;</p>
                     <p class="recuo-1">...</p>
                     <p>}</p>
@@ -853,8 +904,9 @@
             <section class="secao-lista__conteudo">
               <p>Este arquivo contém a configuração básica dos elementos tipográficos, incluindo variações.</p>
               <blockquote class="aviso--grave">
-                Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>&lt;.artigo-padrao h1&gt;</samp>)
+                Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>.artigo-padrao h1</samp>)
               </blockquote>
+              <h2>COLOCAR CONFIG E O ENDEREÇO</h2>
               <h2 id="tipografia__fontes">Chamando fontes</h2>
               <p>Dentro do arquivo <samp class="arquivo">base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
               <dl class="lista-definicao">
@@ -872,9 +924,9 @@
               <dl class="lista-definicao">
                 <dt><samp>$fonte-titulo</samp></dt>
                 <dd>Qual a fonte padrão para os títulos do sistema. Por padrão é a <samp>$fonte-serifa</samp></dd>
-                <dt><samp>$margem-bloco-titulo</samp></dt>
+                <dt><samp>$margem-titulo</samp></dt>
                 <dd>Define a margem dos títulos <samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp></dd>
-                <dt><samp>$margem-bloco-texto</samp></dt>
+                <dt><samp>$margem-texto</samp></dt>
                 <dd>Define a margem dos elementos de texto e similares. Incluindo tabelas e listas</dd>
               </dl>
               <p>As três variáveis seguintes determinam o tamanho do texto baseado no <samp>modular-scale</samp> do <a href="http://bourbon.io/docs/#modular-scale" class="link--externo">Bourbon</a>.</p>
