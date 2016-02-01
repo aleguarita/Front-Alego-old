@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 28/01/2016
+	Última alteração: 01/02/2016
 	------------------------------------------------------------------------------
 */
 // app.scss
@@ -33,6 +33,9 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 01/02/2016 | Alterado a ordem dos arquivo.
+// 							Configurações de tags foi movida do config/tipografia para
+// 								o arquivo reset.scss
 // 28/01/2016 | Retirado o arquivo placeholder.scss. Muitos placeholders foram
 // 						  transformados em mixins (ver o arquivo próprio) e outros foram
 // 							incorporados dentro dos arquivos
@@ -50,28 +53,30 @@
 // @import "../bourbon"; // (se usado no rails)
 @import "../bourbon/bourbon"; // (se instalado o bourbon manualmente)
 
-// Reset CSS
-@import "../base/reset";
+// Configurações gerais
+@import "../base/breakpoints";
+@import "../base/funcoes";
+@import "../base/mixins";
 
 // Configuração básica
 @import "_+config";
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
-@import "../base/breakpoints";
-@import "../base/funcoes";
-@import "../base/mixins";
 @import "../base/cores_status";
 @import "cores";
 @import "../base/fontes";
 @import "variaveis";
+@import "tipografia";
+
+// Reset CSS e classes
+@import "../base/reset";
 @import "../base/classes";
+@import "simbolos";
 
 // Arquivos de configuração estrutural
 @import "../base/grid";
 @import "z-index";
-@import "simbolos";
-@import "tipografia";
 
 // Formatação de formulários
 @import "../base/form_comum";

@@ -1,8 +1,6 @@
-/*
-================================================================================
-TIPOGRAFIA
-================================================================================
-*/
+// =============================================================================
+// TIPOGRAFIA
+// =============================================================================
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -10,12 +8,14 @@ TIPOGRAFIA
 // -----------------------------------------------------------------------------
 // tipografia.scss
 // Criado em: 13/01/2015
-// Última alteração em: 28/01/2016
+// Última alteração em: 01/02/2016
 // -----------------------------------------------------------------------------
-// Define os elementos básicos da tipografia e usa as variáveis criadas em
-// fontes.scss
+// Configurações genéricas e específicas de tipografia. Note que algumas
+// configurações são feitas diretamente por classes
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 01/02/2016 | Retirados "resets" dos tags e movidos para o reset.scss
+// 29/01/2016 | Alterado nome das margens
 // 28/01/2016 | Mixins para substituir os antigos placeholders
 // 10/12/2015 | Acrescentado word-wrap no body para evitar que strings muito
 // 							longas em algum elemento filho, exceda o limite
@@ -35,8 +35,8 @@ TIPOGRAFIA
 // Para uso nas tags e classes abaixo
 // =============================================================================
 $fonte-titulo: $fonte-serifa;
-$margem-bloco-titulo: 1em 0 .5em;
-$margem-bloco-texto: 1em 0;
+$margem-titulo: 1em 0 .5em;
+$margem-texto: 1em 0;
 
 // -----------------------------------------------------------------------------
 // Modular scale no bourbon.io
@@ -55,13 +55,17 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 // PADRÕES
 // -----------------------------------------------------------------------------
 // Evite alterar os já existentes com regras novas, pois eles são puxados
-// para TODOS os textos ou títulos
+// para TODOS os textos ou títulos. Mude conscientemente.
+// -----------------------------------------------------------------------------
+// Para acrescentar novas variantes siga os passos:
+// 1. Coloque um comentário explicando
+// 2. Acrescente um @else if == nome-variante
 // -----------------------------------------------------------------------------
 @mixin texto($mod) {
 	// TEXTO PADRÃO
 	@if $mod == padrao {
 		font-size: $tamanho-fonte-textos;
-		margin: $margem-bloco-texto;
+		margin: $margem-texto;
 		line-height: 1.5;
 		&:first-child {
 			margin-top: 0;
@@ -70,7 +74,7 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 	// TEXTO DO TÍTULO
 	@else if $mod == titulo {
 		font-family: $fonte-serifa;
-		margin: $margem-bloco-titulo;
+		margin: $margem-titulo;
 		color: cor(texto, titulo);
 		line-height: 1.2;
 		&:first-child {
@@ -114,50 +118,5 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 			color: cor(link, escuro);
 			border-color: inherit;
 		}
-	}
-}
-
-// =============================================================================
-// ALTERAÇÕES DOS TAGS
-// -----------------------------------------------------------------------------
-// Alteração básica. Evite alterar demais para que isso não afete em cascata
-// É preferível o uso de classes para isso (no final do arquivo)
-// =============================================================================
-body {
-	color: cor(texto);
-	font-family: $fonte-sem-serifa;
-	word-wrap: break-word;
-}
-h1 {
-	@include texto(titulo);
-	font-size: modular-scale(5, $modular-font-size);
-}
-h2 {
-	@include texto(titulo);
-	font-size: modular-scale(4, $modular-font-size);
-}
-h3 {
-	@include texto(titulo);
-	font-size: modular-scale(3, $modular-font-size);
-}
-h4 {
-	@include texto(titulo);
-	font-size: modular-scale(2, $modular-font-size);
-}
-h5 {
-	@include texto(titulo);
-	font-size: modular-scale(1, $modular-font-size);
-}
-h6 {
-	@include texto(titulo);
-	font-size: modular-scale(0, $modular-font-size);
-}
-p, ul, ol, dl, table, blockquote, {
-	@include texto(padrao);
-}
-a {
-	color: cor(link);
-	&:hover {
-		color: cor(link, hover);
 	}
 }
