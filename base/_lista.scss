@@ -67,25 +67,6 @@ $lista-padding: .5rem .75rem;
     font-size: 1.6em;
   }
 }
-%lista-basico {
-  @include lista-sem-marcador;
-  @if $lista--sombra == "sim" {
-    box-shadow: $sombra-card;
-  }
-  li {
-    padding: $lista-padding;
-    &:not(.lista__titulo) {
-      background: cor(fundo, x-claro);
-      @if $lista--zebra == "sim" {
-        &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
-      }
-    }
-  }
-}
-%lista__titulo {
-  font-family: $fonte-serifa;
-  font-size: 1.6em;
-}
 
 // =============================================================================
 // MIXIN LISTA | TIPOS

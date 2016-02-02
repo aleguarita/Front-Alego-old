@@ -44,12 +44,12 @@ $borda-variante: 1px solid cor(borda, variante);
 $calha: $grid-margem;
 $margem: $calha;
 
+// Padding padrão
+$pd: $calha;
+$padding: $pd;
+
 // Transition
 $transition: all 0.5s ease 0s;
 
 // Raio de arredondamento de borda (border-radius)
 $rd: 3px;
-
-// Padding padrão
-$pd: $calha;
-$padding: $pd;

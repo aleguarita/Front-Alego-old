@@ -48,7 +48,7 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 // =============================================================================
 // MIXINS
 // -----------------------------------------------------------------------------
-// Para uso nas tags e classes abaixo
+// Para uso na formatação de tags e classes do sistema
 // =============================================================================
 
 // -----------------------------------------------------------------------------
@@ -59,7 +59,7 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 // -----------------------------------------------------------------------------
 // Para acrescentar novas variantes siga os passos:
 // 1. Coloque um comentário explicando
-// 2. Acrescente um @else if == nome-variante
+// 2. Acrescente um @else if $mod == nome-variante
 // -----------------------------------------------------------------------------
 @mixin texto($mod) {
 	// TEXTO PADRÃO
