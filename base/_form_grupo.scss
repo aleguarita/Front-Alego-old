@@ -3,6 +3,8 @@
 ================================================================================
 FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 ================================================================================
+FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
+--------------------------------------------------------------------------------
 */
 }
 
@@ -20,6 +22,7 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 // Changelog
 // 03/02/2016 | Alterado o nome form-field para form-grupo para fazer mais sentido
 //              Renomeado este arquivo para form_grupo
+//              O elemento comum dos containers voltou a ser placeholder
 // 21/01/2016 | De placeholder para mixin
 // 17/11/2015 | Utilizada nova forma chamar as classes
 //              Transferidos elementos direto para as classes de formulário
@@ -45,11 +48,13 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 // =============================================================================
 
 // -----------------------------------------------------------------------------
-// MIXIN | OBJETO COMUM AOS CONTAINERS
+// PLACEHOLDER | OBJETO COMUM AOS CONTAINERS
 // -----------------------------------------------------------------------------
-@mixin form-container {
+// Usei placeholder ao invés de mixin pois os elementos estão próximos
+// -----------------------------------------------------------------------------
+%form-container {
   @include display-flex(100%);
-  @include flex-wrap;
+  // @include flex-wrap;
   margin-bottom: 1em;
 }
 // -----------------------------------------------------------------------------
@@ -61,7 +66,7 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 // -----------------------------------------------------------------------------
 @if index($uso-classes, form-grupo) {
   .form-container {
-    @include form-container;
+    @extend %form-container;
     @include flex-wrap;
     width: calc(100% + #{$calha});
     margin-left: -$calha / 2;
@@ -76,7 +81,7 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 // -----------------------------------------------------------------------------
 @if index($uso-classes, form-grupo) {
   .form-container--linha {
-    @include form-container;
+    @extend %form-container;
     & + & {
       margin-top: $calha;
     }
@@ -115,6 +120,11 @@ $max: 12;
 $medida: 100% / $max;
 
 @if index($uso-classes, form-grupo) {
+/*
+--------------------------------------------------------------------------------
+FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
+--------------------------------------------------------------------------------
+*/
   //	Cada um dos fields gerado automaticamente
   @while $i < $max {
     .field-#{$i} {
