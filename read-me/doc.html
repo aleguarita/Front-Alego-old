@@ -64,7 +64,6 @@
           </div>
           <ul class="lista--link">
             <li><a href="#classes">Classes globais</a></li>
-            <li><a href="#placeholders">Placeholders globais</a></li>
             <li><a href="#tabelas">Tabelas</a></li>
             <li><a href="#listas">Listas</a></li>
             <li><a href="#paginacao">Paginação</a></li>
@@ -891,7 +890,8 @@
         <article id="tipografia">
           <header>
             <h1>Tipografia</h1>
-            <p><samp class="arquivo">config/_tipografia.scss</samp></p>
+            <p><strong>Fontes: </strong><samp class="arquivo">base/_fontes.scss</samp></p>
+            <p><strong>Configuração: </strong><samp class="arquivo">config/_tipografia.scss</samp></p>
           </header>
           <section class="secao-lista">
             <input type="checkbox" id="tipografia__doc" class="secao-lista__check">
@@ -902,67 +902,80 @@
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Este arquivo contém a configuração básica dos elementos tipográficos, incluindo variações.</p>
+              <p>A tipografia é ajustada em dois arquivos separados. Um na pasta <samp class="pasta">base/</samp> (que não deve ser alterado) e outro na pasta <samp class="pasta">config</samp> (feito para alteração).</p>
               <blockquote class="aviso--grave">
                 Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>.artigo-padrao h1</samp>)
               </blockquote>
-              <h2>COLOCAR CONFIG E O ENDEREÇO</h2>
               <h2 id="tipografia__fontes">Chamando fontes</h2>
-              <p>Dentro do arquivo <samp class="arquivo">base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
-              <dl class="lista-definicao">
-                <dt><samp>$fonte-serifa</samp></dt>
-                <dd>Fonte com serifa: variação da Patua One</dd>
-                <dt><samp>$fonte-sem-serifa</samp></dt>
-                <dd>Fonte sem serifa: OpenSans</dd>
-                <dt><samp>$fonte-monoespacada</samp></dt>
-                <dd>Fonte monoespaçada: Consolas</dd>
-                <dt><samp>$fonte-simbolo</samp></dt>
-                <dd>Fonte de símbolos da Assembleia</dd>
-              </dl>
-              <h2 id="tipografia__variaveis">Variáveis</h2>
-              <p>As três primeiras variáveis determinam configurações básicas do texto:</p>
-              <dl class="lista-definicao">
-                <dt><samp>$fonte-titulo</samp></dt>
-                <dd>Qual a fonte padrão para os títulos do sistema. Por padrão é a <samp>$fonte-serifa</samp></dd>
-                <dt><samp>$margem-titulo</samp></dt>
-                <dd>Define a margem dos títulos <samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp></dd>
-                <dt><samp>$margem-texto</samp></dt>
-                <dd>Define a margem dos elementos de texto e similares. Incluindo tabelas e listas</dd>
-              </dl>
-              <p>As três variáveis seguintes determinam o tamanho do texto baseado no <samp>modular-scale</samp> do <a href="http://bourbon.io/docs/#modular-scale" class="link--externo">Bourbon</a>.</p>
-              <dl class="lista-definicao">
-                <dt><samp>$modular-scale-ratio</samp></dt>
-                <dd>Modifica o valor padrão estabelecido pelo Bourbon.</dd>
-                <dt><samp>$modular-font-size</samp></dt>
-                <dd>O tamanho base a ser usado pelo <samp>modular-scale()</samp></dd>
-                <dt><samp>$tamanho-fonte-textos</samp></dt>
-                <dd>A variação do tamanho de texto padrão (inclui tabelas e listas) baseado no <samp>modular-scale()</samp></dd>
-              </dl>
-              <h2 id="tipografia__basica">Formatação básica/padrão</h2>
-              <p>Os tags básicos são alterados neste arquivo. Basicamente temos tamanho de fonte, margem, entrelinha, família e as <a href="#cores" class="link--readme">cores</a> dos elementos determinados pelo tema.</p>
+                <p>Dentro do arquivo <samp class="arquivo">base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
+                <dl class="lista-definicao">
+                  <dt><samp>$fonte-serifa</samp></dt>
+                  <dd>Fonte com serifa: variação da Patua One</dd>
+                  <dt><samp>$fonte-sem-serifa</samp></dt>
+                  <dd>Fonte sem serifa: OpenSans</dd>
+                  <dt><samp>$fonte-monoespacada</samp></dt>
+                  <dd>Fonte monoespaçada: Consolas</dd>
+                  <dt><samp>$fonte-simbolo</samp></dt>
+                  <dd>Fonte de símbolos da Assembleia</dd>
+                </dl>
+              <h2 id="tipografia__variaveis">Configurações: variáveis</h2>
+                <p>As três primeiras variáveis do arquivo <samp class="arquivo">config/_tipografia.scss</samp> determinam configurações básicas do texto:</p>
+                <dl class="lista-definicao">
+                  <dt><samp>$fonte-titulo</samp></dt>
+                  <dd>Qual a fonte padrão para os títulos do sistema. Por padrão é a <samp>$fonte-serifa</samp></dd>
+                  <dt><samp>$margem-titulo</samp></dt>
+                  <dd>Define a margem dos títulos <samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp></dd>
+                  <dt><samp>$margem-texto</samp></dt>
+                  <dd>Define a margem dos elementos de texto e similares. Incluindo tabelas e listas</dd>
+                </dl>
+                <p>As três variáveis seguintes determinam o tamanho do texto baseado no <samp>modular-scale</samp> do <a href="http://bourbon.io/docs/#modular-scale" class="link--externo">Bourbon</a>.</p>
+                <dl class="lista-definicao">
+                  <dt><samp>$modular-scale-ratio</samp></dt>
+                  <dd>Modifica o valor padrão estabelecido pelo Bourbon.</dd>
+                  <dt><samp>$modular-font-size</samp></dt>
+                  <dd>O tamanho base a ser usado pelo <samp>modular-scale()</samp></dd>
+                  <dt><samp>$tamanho-fonte-textos</samp></dt>
+                  <dd>A variação do tamanho de texto padrão (inclui tabelas e listas) baseado no <samp>modular-scale()</samp></dd>
+                </dl>
+                <blockquote class="aviso--dica">
+                  Estas variáveis estão no arquivo de configuração (<samp class="arquivo">config/_tipografia.scss</samp>) para que você possa alterar conforme a necessidade do sistema atual.
+                </blockquote>
               <h2 id="tipografia__alterada">Formatação personalizada</h2>
-              <p>Sempre que for criar estilos mais personalizados (como com uso de bordas e sombras), procure utilizar classes ou seletores descendentes (lembre-se de não abusar de elementos descendentes. Mantenha a regra de no máximo um nível).</p>
-              <p>O arquivo já tem alguns placeholders prontos para uso. Use-os como modelo ou modifique-os.</p>
-              <h3>Placeholders padrão</h3>
-              <p>Estes dois placeholders são padrão e afetam os elementos mais básicos. Altere apenas o necessário (que já são as propriedades que já aparecem aqui):</p>
+                <p>Sempre que for criar estilos mais personalizados (como com uso de bordas e sombras), procure utilizar classes ou seletores descendentes (lembre-se de não abusar de elementos descendentes. Mantenha a regra de no máximo um nível, se for necessário mais do que isso, é adequado o uso de classe).</p>
+                <p>Existe disponível alguns mixins para variações de título, texto e link.</p>
+              <h3>Padrões de texto</h3>
+              <p>O mixin <samp>texto()</samp> altera as propriedades básicas dos textos. Este mixin é puxado no arquivo de <samp class="arquivo">reset</samp> e qualquer alteração destas propriedades vai alterar todo o seu site/sistema, portanto, evite alterar. É possível acrescentar mais propriedades, para isso acrescente o seguinte fragmento de texto <strong>antes</strong> da última chave (<samp>}</samp>):</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>@else if $mod == nome-variante {</p>
+                  <p class="recuo-1">Regras</p>
+                <p>}</p>
+              </code>
+              <p>Para usar este mixin (se precisar) chame com <samp>@include texto($mod)</samp> e coloque o nome do tipo no lugar de <samp>$mod</samp>:</p>
               <dl class="lista-definicao">
-                <dt><samp>%texto-padrao</samp></dt>
+                <dt><samp>padrao</samp></dt>
                 <dd>Configurações básicas do corpo de texto, listas e tabelas.</dd>
-                <dt><samp>%texto-titulo</samp></dt>
+                <dt><samp>titulo</samp></dt>
                 <dd>Configuração básica do texto dos títulos.</dd>
               </dl>
-              <h3>Demais placeholders</h3>
-              <p>Estes são placeholders para usar em classes ou seletores descedentes que formatam.</p>
-              <dl class="lista-definicao">
-                <dt><samp>%titulo--borda</samp></dt>
-                <dd>Aplica uma borda na parte inferior do título, que fica com a mesma cor do texto.</dd>
-                <dt><samp>%link--sem-sublinhado</samp></dt>
-                <dd>Tira o sublinhado do link e aplica quando passa ou mouse por cima</dd>
-                <dt><samp>%link--borda</samp></dt>
-                <dd>Tira o sublinhado e substitui por uma borda fina e cinza. Quando passa o mouse por cima, o sublinhado fica da cor do link (que não muda de cor).</dd>
-                <dt><samp>%link--pontilhado</samp></dt>
-                <dd>Igual ao de cima, mas com a diferença que a borda é pontilhada e o link escurece ao passar por cima</dd>
-              </dl>
+              <h3>Demais mixins</h3>
+                <p>Estes são mixins para usar em classes ou seletores descedentes que formatam texto. Tem um para título (com apenas um variante) e três para links. Este mixin não está sendo usado ativamente e está disponível para seu uso ou alteração. Para usar o mixin ou acrescentar variantes neles siga as instruções acima.</p>
+                <h4>titulo()</h4>
+                <p>Use este mixin para configurações especiais de título, que fujam do padrão. Até o momento o Front-Alego oferece apenas uma opção: borda.</p>
+                <dl class="lista-definicao">
+                  <dt><samp>borda</samp></dt>
+                  <dd>Aplica uma borda na parte inferior do título, que fica com a mesma cor do texto.</dd>
+                </dl>
+                <h4>link()</h4>
+                <p>Use este mixin para configurações especiais de link e seus variantes. Algumas delas já usadas.</p>
+                <dl class="lista-definicao">
+                  <dt><samp>sem-sublinhado</samp></dt>
+                  <dd>Tira o sublinhado do link e aplica quando passa ou mouse por cima</dd>
+                  <dt><samp>borda</samp></dt>
+                  <dd>Tira o sublinhado e substitui por uma borda fina e cinza. Quando passa o mouse por cima, o sublinhado fica da cor do link (que não muda de cor).</dd>
+                  <dt><samp>pontilhado</samp></dt>
+                  <dd>Igual ao de cima, mas com a diferença que a borda é pontilhada e o link escurece ao passar por cima</dd>
+                </dl>
             </section>
           </section>
           <section class="secao-lista">
@@ -1008,7 +1021,7 @@
             <section class="secao-lista__conteudo">
               <header><h1>Tipografia modificada (com classes/placeholders)</h1></header>
               <main>
-                <h1 class="titulo-borda">h1. %titulo--borda</h1>
+                <h1 class="titulo--borda">h1 - titulo(borda)</h1>
                 <p><a href="al.go.leg.br" class="link--sem-sublinhado">%link--sem-sublinhado</a></p>
                 <p><a href="al.go.leg.br" class="link--borda">%link--borda</a></p>
                 <p><a href="al.go.leg.br" class="link--pontilhado">%link--pontilhado</a></p>
@@ -1026,7 +1039,7 @@
                 <p><samp>.fundo--ok</samp> <span class="fundo--ok">Fundo ok</span></p>
                 <p><samp>.fundo--erro</samp> <span class="fundo--erro">Fundo erro</span></p>
                 <p><samp>.fundo--alerta</samp> <span class="fundo--alerta">Fundo alerta</span></p>
-                <ul class="lista-sem-marcador">
+                <ul class="lista--sem-marcador">
                   <li>Lista sem marcadores (item 1)</li>
                   <li>Lista sem marcadores (item 2)</li>
                 </ul>
@@ -1048,16 +1061,16 @@
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Este arquivo contém todos os símbolos usados no Front-Alego e classe para uso com eles.</p>
+              <p>Este arquivo contém todos os símbolos usados no Front-Alego e classes para uso com eles.</p>
               <h2 id="simbolos__icones">Lista de Ícones</h2>
-              <p>O mapa <samp>$icones</samp> lista todos os ícones usados. Para acrescentar um novo olhe o ícone na lista de ícones da fonte e crie o nome da classe. Siga o padrão de organização (sempre em ordem alfabética e cada letra separada por espaços).</p>
-              <p><strong class="texto--erro">Tamanho do arquivo:</strong> este arquivo gera um CSS final imenso pois cada símbolo no mapa cria-se 4 linhas de CSS. Quando for fazer sites externos, a recomendação é comentar os símbolos não usados (com <samp>//</samp>) e deixar o arquivo menor. Um comentário ao lado do símbolo mostra quais são as classes estão sempre em uso, não comente essas.</p>
+              <p>O mapa <samp>$icones</samp> lista todos os ícones usados. Para acrescentar um novo olhe o ícone na lista de ícones da fonte e crie o nome da classe. Siga o padrão de organização (sempre em ordem alfabética e cada letra separada por ENTER).</p>
+              <p><strong class="texto--erro">Tamanho do arquivo:</strong> este arquivo gera um CSS final imenso pois cada símbolo no mapa cria 5 linhas de CSS. Quando for fazer sites externos, a recomendação é comentar os símbolos não usados (com <samp>//</samp>) e deixar o arquivo menor. Um comentário ao lado do símbolo mostra quais são as classes que estão sempre em uso, não comente essas.</p>
               <h2 id="simbolos__classes">Classes</h2>
               <dl class="lista-definicao">
                 <dt><samp>.ico-</samp></dt>
                 <dd>Todo ícone começa com <samp>.ico-</samp>. O nome que aparece depois do <samp>.ico-</samp> é o mesmo que aparece no mapa <samp>$icones</samp> (por exemplo: <samp>.ico-pdf</samp>).</dd>
                 <dt><samp>.ico--espaco</samp></dt>
-                <dd>Acrescenta um espaço antes do ícone (para quando você usa um texto dentro do <samp>&lt;span&gt;</samp>)</dd>
+                <dd>Acrescenta um espaço depois do ícone (para quando você usa um texto dentro do <samp>&lt;span&gt;</samp> e manter o ícone separado do texto)</dd>
               </dl>
             </section>
           </section>
@@ -1070,7 +1083,8 @@
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Se quiser ver mais símbolos, abra o <samp class="arquivo">read-me/elementos.html</samp> acrescente no final da lista as classes que você criou. Os "buracos" que aparecerem é por que a classe foi retirada do CSS por performance, mas continuou no HTML</p>
+              <p>Se você tiver acrescentado algum símbolo novo no seu sistema e quiser visualizá-lo aqui (como referência) vai ser necessário acrescentar o ícone na unha no arquivo <samp class="arquivo">read-me/doc.html</samp> e copiar uma das linhas existentes para o seu ícone (alterando a classe). Depois disso recompile o <samp class="arquivo">read-me/info.scss</samp> para <samp class="arquivo">read-info.css</samp>.</p>
+              <p>Se na lista abaixo aparecer um "buraco" entre dois ícones é porque o mesmo foi comentado no seu arquivo de símbolos.</p>
               <ul class="demo__simbolos">
                 <li class="demo__ico-abrir"><span class="icone"></span><span class="funcao"></span></li>
                 <li class="demo__ico-adicionar"><span class="icone"></span><span class="funcao"></span></li>
@@ -1210,39 +1224,47 @@
               <p>Todas as variáveis globais do sistema devem ficar neste arquivo. Ele já vem com um conjunto de variáveis prontas para uso, bastando modificar conforme a necessidade do sistema. Note que diversas delas já estão, inclusive, sendo usadas (por exemplo: <samp>$sombra-modal</samp>).</p>
               <dl class="lista-definicao">
                 <dt><samp>$sombra-nenhuma</samp></dt>
-                <dd><samp class="codigo-sombra-nenhuma"></samp>. Use para eliminar a sombra do elemento (exemplo: o estágio hover de um botão).</dd>
+                  <dd><samp class="codigo-sombra-nenhuma"></samp>. Use para eliminar a sombra do elemento (exemplo: o estágio hover de um botão).</dd>
                 <dt><samp>$sombra-padrao</samp></dt>
-                <dd><samp class="codigo-sombra-padrao"></samp>. Use como padrão.</dd>
+                  <dd><samp class="codigo-sombra-padrao"></samp>. Use como padrão.</dd>
                 <dt><samp>$sombra-simples</samp></dt>
-                <dd><samp class="codigo-sombra-simples"></samp>. Sombra mais discreta para caixas.</dd>
+                  <dd><samp class="codigo-sombra-simples"></samp>. Sombra mais discreta para caixas.</dd>
                 <dt><samp>$sombra-difusa</samp></dt>
-                <dd><samp class="codigo-sombra-difusa"></samp></dd>
+                  <dd><samp class="codigo-sombra-difusa"></samp></dd>
                 <dt><samp>$sombra-texto</samp></dt>
-                <dd><samp class="codigo-sombra-texto"></samp>. Use no texto.</dd>
+                  <dd><samp class="codigo-sombra-texto"></samp>. Use no texto.</dd>
                 <dt><samp>$sombra-texto-relevo</samp></dt>
-                <dd><samp class="codigo-sombra-texto-relevo"></samp>. Use no texto para fazer o efeito de relevo.</dd>
+                  <dd><samp class="codigo-sombra-texto-relevo"></samp>. Use no texto para fazer o efeito de relevo.</dd>
                 <dt><samp>$sombra-card</samp></dt>
-                <dd><samp class="codigo-sombra-card"></samp></dd>
+                  <dd><samp class="codigo-sombra-card"></samp></dd>
                 <dt><samp>$sombra-modal</samp></dt>
-                <dd><samp class="codigo-sombra-modal"></samp></dd>
+                  <dd><samp class="codigo-sombra-modal"></samp></dd>
                 <dt><samp>$sombra-toaster</samp></dt>
-                <dd><samp class="codigo-sombra-toaster"></samp></dd>
+                  <dd><samp class="codigo-sombra-toaster"></samp></dd>
                 <dt><samp>$sombra-botao</samp></dt>
-                <dd><samp class="codigo-sombra-botao"></samp></dd>
-                <dt><samp>%borda-nenhuma</samp></dt>
-                <dd><samp class="codigo-borda-nenhuma"></samp>. Retira a borda do elemento.</dd>
+                  <dd><samp class="codigo-sombra-botao"></samp></dd>
+              </dl>
+              <dl class="lista-definicao">
+                <dt><samp>$borda-nenhuma</samp></dt>
+                  <dd><samp class="codigo-borda-nenhuma"></samp>. Retira a borda do elemento.</dd>
                 <dt><samp>$borda-padrao</samp></dt>
-                <dd><samp class="codigo-borda-padrao"></samp>. A borda padrão dos elementos.</dd>
+                  <dd><samp class="codigo-borda-padrao"></samp>. A borda padrão dos elementos.</dd>
                 <dt><samp>$borda-variante</samp></dt>
-                <dd><samp class="codigo-borda-variante"></samp>. Borda variante (com a outra cor de borda)</dd>
+                  <dd><samp class="codigo-borda-variante"></samp>. Borda variante (com a outra cor de borda)</dd>
+              </dl>
+              <dl class="lista-definicao">
                 <dt><samp>$calha</samp></dt>
-                <dd><samp class="codigo-calha"></samp>. A variável <samp>$grid-margem</samp> foi definida em grid e é <samp class="codigo-grid-margem"></samp>. Use para dar espaço entre os elementos.</dd>
+                  <dd><samp class="codigo-calha"></samp>. A variável <samp>$grid-margem</samp> foi definida em grid e é <samp class="codigo-grid-margem"></samp>. Use para dar espaço entre os elementos.</dd>
                 <dt><samp>$margem</samp></dt>
-                <dd><samp class="codigo-margem"></samp>. Use esta variável como margem padrão dos elementos, gereando consistência. Se necessário use multiplicadores para valores maior (exemplo: <samp>margin: $margem * 2;</samp>)</dd>
+                  <dd><samp class="codigo-margem"></samp>. Use esta variável como margem padrão dos elementos, gerando consistência. Se necessário use multiplicadores para valores maior (exemplo: <samp>margin: $margem * 2;</samp>)</dd>
+                <dt><samp>$pd</samp></dt>
+                  <dd><samp class="codigo-pd"></samp>. Use para determinar o padding do objeto. O nome é simplificado para poder usar no padding agrupado (como por exemplo: <samp>padding: $pd 0;</samp>)</dd>
+                <dt><samp>$padding</samp></dt>
+                  <dd><samp class="codigo-padding"></samp>. Igual ao de cima. Criado apenas para o caso de esquecer a variável acima</dd>
                 <dt><samp>$transition</samp></dt>
-                <dd><samp class="codigo-transition"></samp>. Animação de transição básica</dd>
+                  <dd><samp class="codigo-transition"></samp>. Animação de transição básica</dd>
                 <dt><samp>$rd</samp></dt>
-                <dd><samp class="codigo-rd"></samp>. Use como raio de arredondamento padrão (em <samp>border-radius</samp>). Esta variável tem o nome menos semântico para facilitar na escrita.</dd>
+                  <dd><samp class="codigo-rd"></samp>. Use como raio de arredondamento padrão (em <samp>border-radius</samp>). Esta variável tem o nome menos semântico para facilitar na escrita.</dd>
               </dl>
             </section>
           </section>
@@ -1372,6 +1394,8 @@
                   <dd>Some com o elemento que usar esta classe. Usada, normalmente com script que acrescenta essa classe</dd>
                 <dt><samp>.pointer</samp></dt>
                   <dd class="pointer">O elemento ganha o cursor de link quando passa o mouse por cima. Passe o mouse por cima deste texto para ver</dd>
+              </dl>
+              <dl class="lista-definicao">
                 <dt><samp>.texto--ok</samp></dt>
                   <dd>Coloca a cor do texto com a cor de sistema indicativo de sucesso (verde). <span class="texto--ok">O resultado é assim</span></dd>
                 <dt><samp>.texto--erro</samp><br /><samp>.texto--urgente</samp></dt>
@@ -1384,6 +1408,8 @@
                   <dd>Aplica a cor de fundo com a cor de sistema indicativo de erro (vermelho) e a cor do texto branca. <span class="fundo--erro">O resultado é assim</span></dd>
                 <dt><samp>.fundo--alerta</samp></dt>
                   <dd>Aplica a cor de fundo com a cor de sistema indicativo de alerta (amarelo) e a cor do texto branca. <span class="fundo--alerta">O resultado é assim</span></dd>
+              </dl>
+              <dl class="lista-definicao">
                 <dt><samp>.texto--caixa-alta</samp><br /><samp>.texto--uppercase</samp></dt>
                   <dd>Deixa o texto em caixa alta. <span class="texto--uppercase">O resultado é assim</span></dd>
                 <dt><samp>.fonte--menor</samp></dt>
@@ -1398,42 +1424,6 @@
                   <dd>Aumenta o tamanho da fonte 2 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--x-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
                 <dt><samp>.fonte--xx-maior</samp></dt>
                   <dd>Aumenta o tamanho da fonte 3 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--xx-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
-              </dl>
-            </section>
-          </section>
-        </article>
-
-        <article id="placeholders">
-          <header>
-            <h1>Placeholders globais</h1>
-            <p><samp class="arquivo">base/_placeholders.scss</samp></p>
-          </header>
-          <section class="secao-lista">
-            <input type="checkbox" id="placeholders__doc" class="secao-lista__check">
-            <header class="secao-lista__header">
-              <label for="placeholders__doc">
-                <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
-              </label>
-            </header>
-            <section class="secao-lista__conteudo">
-              <p>O arquivo <samp class="arquivo">base/_placeholders.scss</samp> contém vários placeholders globais que podem ser usado em todo o sistema atual e também será utilizado como padrão nos demais sistemas da Alego.</p>
-              <p>Se precisar de algum novo placeholder padrão, acrescente em um arquivo dentro da pasta <samp class="pasta">extra</samp>.</p>
-              <dl class="lista-definicao">
-                <dt><samp>%flex</samp></dt>
-                  <dd>Chama o <a href="#mixins" class="link--readme">mixin</a> <samp>display-flex</samp> deixando o elemento atual com <samp>display: flex;</samp>. Você pode usar este placeholder ou o mixin, pense nisso conforme a necessidade do CSS final.</dd>
-                <dt><samp>%flex-total</samp></dt>
-                  <dd>Extende o placeholder <samp>%flex</samp> e aplica uma largura de 100% para o elemento atual. Use para containers que precisam ocupar toda a largura de seu elemento pai.</dd>
-                <dt><samp>%clearfix</samp></dt>
-                  <dd>Isso aqui tá aqui só porque eventualmente podemos usar float e precisaremos limpar os floats. E é isso que ele faz, limpa os floats.</dd>
-                <dt><samp>%lista-sem-marcador</samp></dt>
-                  <dd>Retira a formatação de uma lista (<samp>ul</samp>, <samp>ol</samp>)</dd>
-                <dt><samp>%lista-flex</samp></dt>
-                  <dd>Retira a formatação de uma lista e aplica <samp>display: flex;</samp> na mesma. Útil para menus horizontais.</dd>
-                <dt><samp>%link-block</samp><br /><samp>%link-bloco</samp><br /><samp>%link-caixa</samp></dt>
-                  <dd>Utilize em links que aparece <strong>sozinho</strong> em um elemento. Ele vai ficar sem sublinhado e ocupar todo o elemento (pois é transformado em bloco). Use em menus (o menu desta documentação faz uso).</dd>
-                <dt><samp>%centraliza-caixa</samp></dt>
-                  <dd>Chama o <a href="#mixins" class="link--readme">mixin</a> <samp>centraliza-caixa</samp> sem nenhuma propriedade aplicada a ele.  Você pode usar este placeholder ou o mixin, pense nisso conforme a necessidade do CSS final.</dd>
               </dl>
             </section>
           </section>
@@ -1992,7 +1982,7 @@
                 <dt><samp>.lista</samp></dt>
                   <dd><strong><samp>&lt;ul&gt;</samp></strong>. Use diretamente no tag de lista para formatá-la</dd>
                 <dt><samp>.lista--link</samp></dt>
-                  <dd><strong><samp>&lt;ul&gt;</samp></strong>. Use diretamente no tag de lista de links (como o menu). O link ocupa todo espaço da linha. Caso você precise de algum item da lista que não seja link (alguma informação, por exemplo), inclua nele a tag <samp>&lt;span&gt;</samp></dd>
+                  <dd><strong><samp>&lt;ul&gt;</samp></strong>. Use diretamente no tag de lista de links (como o menu). O link ocupa todo espaço da linha. Caso você precise de algum item da lista (<samp>&lt;li&gt;</samp>) que não seja link (alguma informação, por exemplo), inclua nele a tag <samp>&lt;span&gt;</samp>, ficando assim: <samp>&lt;li&gt;&lt;span&gt;texto&lt;/span&gt;&lt;/li&gt;</samp></dd>
                 <dt><samp>.lista__titulo</samp></dt>
                   <dd><strong><samp>&lt;li&gt;</samp></strong>. Use na primeira linha da lista para ela ganhar o destaque de título</dd>
               </dl>
@@ -2444,7 +2434,7 @@
 
         <article id="card">
           <header><h1>Card</h1></header>
-          <p>As configurações básicas de cards são encontradas no <a href="#config__card" class="link--readme">arquivo de configuração</a>. Abaixo você vê os tipos disponíveis (única configuração disponível).</p>
+          <p>As configurações básicas de cards são encontradas no <a href="#config__card" class="link--readme">arquivo de configuração</a>. Abaixo você vê os tipos disponíveis.</p>
           <section class="secao-lista">
             <input type="checkbox" id="card__doc" class="secao-lista__check">
             <header class="secao-lista__header">
@@ -2490,17 +2480,17 @@
               <p>As classes abaixo devem ser usadas nos tags HTML como exemplificado acima. Alguns tem ordem certa para aparecer, outros não. Os tags listados são os mais indicados por semântica, mas não obrigatórios (é possível substituir todos por <samp>&lt;div&gt;</samp>).</p>
               <dl class="lista-definicao">
                 <dt><samp>.card__titulo</samp></dt>
-                  <dd><samp>&lt;header&gt;</samp> <strong class="texto--ok">Tag opcional</strong>. Formata o título do card. O título pode aparecer <strong>depois</strong> da imagem.</dd>
+                  <dd><samp>&lt;header&gt;</samp> <strong class="texto--ok">Opcional</strong>. Formata o título do card. O título pode aparecer <strong>depois</strong> da imagem.</dd>
                 <dt><samp>.card__imagem</samp></dt>
-                  <dd><samp>&lt;figure&gt;</samp> <strong class="texto--ok">Tag opcional</strong>. Formata a foto ou imagem do card. A imagem pode aparecer <strong>antes ou depois</strong> do título, a seu critério.</dd>
+                  <dd><samp>&lt;figure&gt;</samp> <strong class="texto--ok">Opcional</strong>. Formata a foto ou imagem do card. A imagem pode aparecer <strong>antes ou depois</strong> do título, a seu critério.</dd>
                 <dt><samp>.card__principal</samp></dt>
-                  <dd><samp>&lt;section&gt;</samp> <strong class="texto--urgente">Tag obrigatório</strong>. Formata a parte principal do card, que ajusta a altura quando estiver ao lado de um card maior. Dentro dele você pode colocar o que quiser (<samp>p</samp>, <samp>ul</samp>, etc).</dd>
+                  <dd><samp>&lt;section&gt;</samp> <strong class="texto--urgente">Obrigatório</strong>. Formata a parte principal do card, que ajusta a altura quando estiver ao lado de um card maior. Dentro dele você pode colocar o que quiser (<samp>p</samp>, <samp>ul</samp>, etc).</dd>
                 <dt><samp>.card__item</samp></dt>
-                  <dd><samp>&lt;div&gt;</samp> <strong class="texto--ok">Tag opcional</strong>. Formata itens separando-os com uma linha (formatação depende do tipo escolhido). Dentro do tag deve ter um <samp>&lt;p&gt;</samp>. <strong>Deve aparecer como filho do .card__principal</strong>.</dd>
+                  <dd><samp>&lt;div&gt;</samp> <strong class="texto--ok">Opcional</strong>. Formata itens separando-os com uma linha (formatação depende do tipo escolhido). Dentro do tag deve ter um <samp>&lt;p&gt;</samp>. <strong>Deve aparecer como filho do .card__principal</strong>.</dd>
                 <dt><samp>.card__item--destaque</samp></dt>
                   <dd>Variante do <samp>.card__item</samp> acima. Dá um destaque maior para os itens. O título destacado deve aparecer dentro de <samp>strong</samp> e o texto em <samp>span</samp> (ver código demonstrativo antes dessa lista).</dd>
                 <dt><samp>.card__footer</samp></dt>
-                  <dd><samp>&lt;footer&gt;</samp> <strong class="texto--ok">Tag opcional</strong>. Formata a área de botões do card.</dd>
+                  <dd><samp>&lt;footer&gt;</samp> <strong class="texto--ok">Opcional</strong>. Formata a área de botões do card.</dd>
               </dl>
               <p>Se precisar fazer um grupo de cards, use o <a href="#mixins" class="link--readme">mixin</a> <samp>grupo-flex()</samp>.</p>
 
@@ -2744,7 +2734,7 @@
               <p>Algumas funções são usadas em partes específicas do Front-Alego e outra é para uso dentro seu CSS.</p>
               <dl class="lista-definicao">
                 <dt><samp>paleta-padrao(cor)</samp></dt>
-                  <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp>. <strong>Use somente dentro do arquivo <samp class="arquivo">config/cores.scss</samp></strong></dd>
+                  <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp>. <strong>Use somente dentro do arquivo <samp class="arquivo">config/cores.scss</samp> e em mais nenhuma parte do sistema</strong></dd>
                 <dt><samp>paleta(cor, tipo, valor)</samp></dt>
                   <dd>Esta função é para chamar as cores que você criou na <samp>$paleta</samp>. Para chamar a cor pura, escreva <samp>paleta(nome-cor)</samp>. Para chamar as variações claras, chame com <samp>paleta(nome-cor, clara, $valor)</samp>. O <samp>$valor</samp> pode ir de <samp>1</samp> a <samp>100</samp>. Para chamar cores escuras chame com <samp>paleta(nome-cor, escura, $valor)</samp>. <strong>Use somente dentro do arquivo <samp class="arquivo">config/cores.scss</samp></strong></dd>
                 <dt><samp>cor-status(cor)</samp></dt>
@@ -2773,12 +2763,16 @@
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Segue uma lista resumida dos mixins. Para maiores detalhes de como usar alguns tem descrição com exemplo de uso.</p>
+              <p>Segue uma lista resumida dos mixins. Para maiores detalhes de como usar alguns tem descrição com exemplo de uso. Mixins que por ventura não esteja dentro do arquivo <samp class="arquivo">base/_mixins.scss</samp> podem ser editados por você e estarão identificados como <strong class="texto--ok">Mixin editável</strong>.</p>
+              <p><strong>Mixins de configuração.</strong> Para configurar uma parte específica</p>
               <dl class="lista-definicao">
                 <dt><samp>prefixo(declaração, prefixos)</samp></dt>
                   <dd>Este mixin é para ser usado na criação de outros mixins que simplifiquem o acréscimo de <em>vendor prefix</em>. Diversas propriedades de CSS3 já tem prefixos tanto no Front-Alego como no <a href="http://bourbon.io" class="link--externo">Bourbon</a></dd>
                 <dt><samp>media-tipo(medida)</samp></dt>
                   <dd>Este mixin chama a media query pensando na técnica <em>mobile first</em> (utilizando <samp>min-width</samp>). A <samp>medida</samp> é uma das descritas <a href="#responsive" class="link--readme">aqui</a></dd>
+              </dl>
+              <p><strong>Mixins de <em>vendor prefixes</em>.</strong> Para usar propriedades de CSS que dependem de prefixos de browser.</p>
+              <dl class="lista-definicao">
                 <dt><samp>placeholder</samp></dt>
                   <dd>Para formatar o elemento placeholder dos inputs de texto</dd>
                 <dt><samp>transform(valor)</samp></dt>
@@ -2809,6 +2803,11 @@
                   <dd>Aplica a propriedade composta <samp>flex</samp> no seletor. O valor padrão do mixin é <samp>1</samp>. Os elementos não são separados por vírgula.</dd>
                 <dt><samp>align-self(valor)</samp></dt>
                   <dd>Aplica a propriedade <samp>align-self</samp> no seletor. O valor padrão do mixin é <samp>auto</samp></dd>
+              </dl>
+              <p><strong>Mixins de formatação.</strong> Estes mixins serve para incluir formatação dentro de algum seletor. Seja configurações estáticas (que seriam de placeholders), quanto dinâmicas, com valores variáveis.</p>
+              <dl class="lista-definicao">
+                <dt><samp>clearfix</samp></dt>
+                  <dd>Aplica o hack de css de clearfix, para quando o elemento pai tiver float. <strong>Dispensa propriedades</strong>.</dd>
                 <dt><samp>centraliza-caixa(largura, altura)</samp></dt>
                   <dd>Cria uma caixa centralizada no meio da tela (ou do elemento pai, se ele tiver algum valor de <samp>position</samp>). Os valores de <samp>largura</samp> e <samp>altura</samp> são opcionais</dd>
                 <dt><samp>grupo-flex(qtd, margem-flex, largura, largura-minina)</samp></dt>
@@ -2818,6 +2817,17 @@
                   <dd>Formata o seletor para quando o texto for selecionado no browser. Valores padrão: <samp>fundo: cor(fundo, escuro)</samp> e <samp>texto: cor(texto, claro)</samp>. <strong>Dica:</strong> selecione o texto para ver os valores padrão em uso.</dd>
                 <dt><samp>lista-oculta(conteudo)</samp></dt>
                   <dd>Para uso em listas que podem ser exibidas e ocultadas ao clicar no título. O valor de <samp>conteudo</samp> será a classe do elemento que vai ser ocultado.</dd>
+              </dl>
+              <p><strong>Mixins de tags específicos.</strong> Estes mixins devem ser usados dentro de tags específicos (como links, títulos, etc).</p>
+              <dl class="lista-definicao">
+                <dt><samp>lista-sem-marcador()</samp></dt>
+                  <dd>Formata listas para serem sem marcadores. Ele tem um valor opcional (para omitir, não precisa colocar os parênteses). O valor padrão é <samp>null</samp></dd>
+                <dt><samp>texto(mod)</samp></dt>
+                  <dd><strong class="texto--ok">Mixin editável</strong>. Mixin para formatar textos padrão do site). Você pode alterar os valores padrões para melhor adequar ao sistema, mas prossiga com cautela. Também é possível acrescentar novos valores.</dd>
+                <dt><samp>titulo(mod)</samp></dt>
+                  <dd><strong class="texto--ok">Mixin editável</strong>. Mixin para formatar classes de título.</dd>
+                <dt><samp>link(mod)</samp></dt>
+                  <dd><strong class="texto--ok">Mixin editável</strong>. Mixin para formatar links.</dd>
               </dl>
             </section>
           </section>
@@ -3385,6 +3395,26 @@
             </section>
           </section>
           <section class="secao-lista">
+            <input type="checkbox" id="mixins__clearfix" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixins__clearfix">
+                <span class="secao-lista__titulo">clearfix</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Este mixin serve para aplicar o hack de css <em>clearfix</em>. utilize ele no elemento pai que usem float. Ou nem use, afinal... pra quê usar float mesmo?</p>
+              <p><strong>Sintaxe: </strong> <samp>@include clearfix</samp></p>
+              <p>Este mixin não tem valor a ser defindo basta chamar ele pelo nome:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.clearfix {</p>
+                  <p class="recuo-1">@include clearfix;</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+          <section class="secao-lista">
             <input type="checkbox" id="mixins__centraliza-caixa" class="secao-lista__check" checked="checked">
             <header class="secao-lista__header">
               <label for="mixins__centraliza-caixa">
@@ -3574,6 +3604,162 @@
                 <header>SASS</header>
                 <p>.check-lista {</p>
                   <p class="recuo-1">@include lista-oculta(conteudo-demo);</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="mixin__lista-sem-marcador" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixin__lista-sem-marcador">
+                <span class="secao-lista__titulo">lista-sem-marcador()</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Este mixin retira os marcadores de uma lista (<samp>ul</samp>), para utilizar em menus, listas com formatações especiais, etc. O valor deste mixin é opcional</p>
+              <p><strong>Sintaxe: </strong> <samp>@include lista-sem-marcador($flex);</samp></p>
+              <dl class="lista-definicao">
+                <dt><samp>$flex</samp></dt>
+                  <dd>Determina se o elemento tem <samp>display: flex</samp> ou não. <strong>Valor opcional</strong>. <strong>Valor padrão:</strong> nenhum</dd>
+              </dl>
+              <p>Chamando sem valor padrão (apenas retira os marcadores):</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.menu {</p>
+                  <p class="recuo-1">@include lista-sem-marcador;</p>
+                <p>}</p>
+              </code>
+              <p>Chamando com flex:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.menu-flex {</p>
+                  <p class="recuo-1">@include lista-sem-marcador(flex);</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="mixin__texto" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixin__texto">
+                <span class="secao-lista__titulo">texto()</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p><samp class="arquivo">config/_tipografia.scss</samp></p>
+              <p>Este mixin formata os textos padrão do sistema e já está sendo usado para formatar. Você pode alterar os valores (por exemplo, a margem). Mas fique atento que isso alterará todos os textos e títulos do site.</p>
+              <p><strong>Sintaxe: </strong> <samp>@include texto($mod);</samp></p>
+              <p>Valores que podem ser usados em <samp>$mod</samp> (estes valores devem ser escritos como demonstrado, do contrário vai retornar um erro):</p>
+              <dl class="lista-definicao">
+                <dt><samp>padrao</samp></dt>
+                  <dd>Formata os blocos de texto padrão (<samp>&lt;p&gt;</samp>, <samp>&lt;ul&gt;</samp> e outros).</dd>
+                <dt><samp>titulo</samp></dt>
+                  <dd>Formata os títulos do sistema (<samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp>)</dd>
+              </dl>
+              <p>Chamando os padrões de texto:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>p {</p>
+                  <p class="recuo-1">@include texto(padrao);</p>
+                <p>}</p>
+              </code>
+              <p>Chamando os padrões de título:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>h1 {</p>
+                  <p class="recuo-1">@include texto(titulo);</p>
+                <p>}</p>
+              </code>
+              <p>Alterarnativamente você pode criar um conjunto novos de regras com seu próprio nome, para isso acrescente o seguinte código antes da última chave ser fechada (<samp>}</samp>):</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>// COMENTÁRIO CURTO FALANDO O QUE É</p>
+                <p>@else if $mod == nome-novo {</p>
+                  <p class="recuo-1">// suas regras</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="mixin__titulo" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixin__titulo">
+                <span class="secao-lista__titulo">titulo()</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p><samp class="arquivo">config/_tipografia.scss</samp></p>
+              <p>Este mixin serve para criar configurações especiais para os títulos. Eles devem ser usados em classes (ou com seletor descendente: <samp>.classe > h1</samp>) e nunca diretamente no tag, pois isso vai afetar todos os tags.</p>
+              <p>Você pode alterar totalmente os valores e acrescentar novas opções suas.</p>
+              <p><strong>Sintaxe: </strong> <samp>@include titulo($mod)</samp></p>
+              <p>Valores que podem ser usados em <samp>$mod</samp> (estes valores devem ser escritos como demonstrado, do contrário vai retornar um erro):</p>
+              <dl class="lista-definicao">
+                <dt><samp>borda</samp></dt>
+                  <dd>Acrescenta uma borda inferior fina no título, com a mesma cor do mesmo</dd>
+              </dl>
+              <p>Para acrescentar novas opções com seu próprio nome, para isso acrescente o seguinte código antes da última chave ser fechada (<samp>}</samp>):</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>// COMENTÁRIO CURTO FALANDO O QUE É</p>
+                <p>@else if $mod == nome-novo {</p>
+                  <p class="recuo-1">// suas regras</p>
+                <p>}</p>
+              </code>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="mixin__link" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="mixin__link">
+                <span class="secao-lista__titulo">link()</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p><samp class="arquivo">config/_tipografia.scss</samp></p>
+              <p>Este mixin serve para criar configurações especiais para os links. Eles devem ser usados em classes (ou com seletor descendente: <samp>.classe > a</samp>) e nunca diretamente no tag, pois isso vai afetar todos os links do sistema.</p>
+              <p>Algumas opções podem ser alteradas e outras não (abaixo indico quais não devem ser alteradas e também há um comentário no próprio mixin). Você também pode acrescentar novas opções.</p>
+              <p><strong>Sintaxe: </strong> <samp>@include link($mod);</samp></p>
+              <p>Valores que podem ser usados em <samp>$mod</samp> (estes valores devem ser escritos como demonstrado, do contrário vai retornar um erro):</p>
+              <dl class="lista-definicao">
+                <dt><samp>sem-sublinhado</samp></dt>
+                  <dd>Retira do sublinhado do link e coloca quando passa ou mouse por cima. <strong>Não altere</strong></dd>
+                <dt><samp>bloco</samp></dt>
+                  <dd>Altera o link para que ele seja bloco (<samp>display: block</samp>) ocupando todo o elemento pai (evite colocar junto de outro elemento). Serve para fazer menus. <strong>Não altere</strong></dd>
+                <dt><samp>borda</samp></dt>
+                  <dd>Retira o sublinhado do link e acrescenta uma borda cinza na parte inferior. Quando passa o mouse por cima a borda fica da cor do link</dd>
+                <dt><samp>pontilhado</samp></dt>
+                  <dd>Retira o sublinhado do link e substitui por uma borda pontilhada e cinza. Quando passa o mouse por cima o link escurece e a borda fica da mesma cor</dd>
+              </dl>
+              <p>Para retirar o sublinhado:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.link--padrao {</p>
+                  <p class="recuo-1">@include link(sem-sublinhado);</p>
+                <p>}</p>
+              </code>
+              <p>Para colocar em bloco:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>li > a {</p>
+                  <p class="recuo-1">@include link(bloco);</p>
+                <p>}</p>
+              </code>
+              <p>Para fazer o link com borda:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.link--borda {</p>
+                  <p class="recuo-1">@include link(borda);</p>
+                <p>}</p>
+              </code>
+              <p>Para incluir a borda pontilhada no link:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.link--pontilhado {</p>
+                  <p class="recuo-1">@include link(pontilhado);</p>
                 <p>}</p>
               </code>
             </section>
