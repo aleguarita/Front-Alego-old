@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 18/01/2016
+// Última alteração: 03/02/2016
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -19,6 +19,8 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 03/02/2016 | Removido o mixin link-bloco e acrescentado como opção no mixin
+// 							link existente em config/_tipografia.scss
 // 18/01/2016 | Transferindo placeholders para mixins
 // 							http://www.sitepoint.com/avoid-sass-extend/
 // 							* mixin display-flex agora inclui valor de largura
@@ -321,18 +323,6 @@
 	@if $flex != null {
 		@include display-flex;
 	}
-}
-
-// =============================================================================
-// LINKS CAIXAS
-// -----------------------------------------------------------------------------
-// Use para fazer o link "caber" no elemento pai. Claro que ele deve estar
-// sozinho. Normalmente seria algo como:
-// li > a { @include link-bloco; }
-// =============================================================================
-@mixin link-bloco {
-	display: block;
-	text-decoration: none;
 }
 
 // =============================================================================

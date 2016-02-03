@@ -97,7 +97,7 @@ $modal-sub: (
   // FECHAR - tag a
   // ---------------------------------------------------------------------------
   @else if $tag == fechar {
-    @include link-bloco;
+    @include link(bloco);
     transition: $transition;
   }
   // ---------------------------------------------------------------------------

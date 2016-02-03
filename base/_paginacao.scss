@@ -77,7 +77,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	// A
 	// ---------------------------------------------------------------------------
 	@else if $tag == a {
-		@include link-bloco;
+		@include link(bloco);
 		color: cor(paginacao);
 		padding: $paginacao-padding;
 	}

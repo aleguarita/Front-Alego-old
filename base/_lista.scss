@@ -132,7 +132,7 @@ $lista-padding: .5rem .75rem;
         padding: 0;
       }
       a, span {
-        @include link-bloco;
+        @include link(bloco);
         padding: $lista-padding;
       }
     }

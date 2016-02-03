@@ -8,12 +8,14 @@
 // -----------------------------------------------------------------------------
 // tipografia.scss
 // Criado em: 13/01/2015
-// Última alteração em: 01/02/2016
+// Última alteração em: 03/02/2016
 // -----------------------------------------------------------------------------
 // Configurações genéricas e específicas de tipografia. Note que algumas
 // configurações são feitas diretamente por classes
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 03/02/2016 | Removido o mixin "link-bloco" do arquivo mixins e acrescentado
+// 							como opção no mixin link
 // 01/02/2016 | Retirados "resets" dos tags e movidos para o reset.scss
 // 29/01/2016 | Alterado nome das margens
 // 28/01/2016 | Mixins para substituir os antigos placeholders
@@ -87,6 +89,7 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 // Variações de título
 // -----------------------------------------------------------------------------
 @mixin titulo($mod) {
+	// BORDA INFERIOR
 	@if $mod == borda {
 		border-bottom: 1px solid;
 	}
@@ -97,9 +100,17 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 // -----------------------------------------------------------------------------
 @mixin link($mod) {
 	// SEM PONTILHADO
+	// NÃO MODIFIQUE
 	@if $mod == sem-sublinhado {
 		text-decoration: none;
 		&:hover { text-decoration: underline; }
+	}
+	// BLOCO. Transforma o link em um bloco. Use para "caber" no elemento pai.
+	// O link deve aparecer sozinho (normalmente usa em menu)
+	// NÃO MODIFIQUE
+	@else if $mod == bloco {
+		display: block;
+		text-decoration: none;
 	}
 	// BORDA - USA BORDA NO LUGAR DE SUBLINHADO
 	@else if $mod == borda {
