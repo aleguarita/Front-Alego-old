@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 25/01/2016
+// Última alteração em: 03/02/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 03/02/2016 | Alterado nome form-field para form-grupo para fazer mais sentido
 // 25/01/2016 | Retirado configuração de grid
 // 30/11/2015 | Explicação dos tipos está no read-me
 // 26/11/2015 | Retirado breakpoints e colocado em arquivo separado
@@ -27,7 +28,7 @@
 // Para mais detalhes veja o arquivo read-me/doc.html#config
 // =============================================================================
 $uso-classes: (
-  form-field,
+  form-grupo,
   // form-pre,
   form,
   botao,

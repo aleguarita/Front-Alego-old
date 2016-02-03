@@ -1,4 +1,4 @@
-@if index($uso-classes, form-field) {
+@if index($uso-classes, form-grupo) {
 /*
 ================================================================================
 FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
@@ -10,14 +10,16 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
-// form_tamanhos.scss
+// form_grupo.scss
 // Criado em: 20/01/2015
-// Última alteração: 21/01/2016
+// Última alteração: 03/02/2016
 // -----------------------------------------------------------------------------
 // Este arquivo cria grupos de formulários para definições de tamanhos.
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
 // -----------------------------------------------------------------------------
 // Changelog
+// 03/02/2016 | Alterado o nome form-field para form-grupo para fazer mais sentido
+//              Renomeado este arquivo para form_grupo
 // 21/01/2016 | De placeholder para mixin
 // 17/11/2015 | Utilizada nova forma chamar as classes
 //              Transferidos elementos direto para as classes de formulário
@@ -57,7 +59,7 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 // Mantém o código de HTML mais simples pois usa apenas um container para
 // todos os elementos filhos
 // -----------------------------------------------------------------------------
-@if index($uso-classes, form-field) {
+@if index($uso-classes, form-grupo) {
   .form-container {
     @include form-container;
     @include flex-wrap;
@@ -72,7 +74,7 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 // Aumenta a complexidade do HTML pois acrescenta muitos grupos de containers
 // porém possibilita ter elementos filhos que se ajustam automaticamente
 // -----------------------------------------------------------------------------
-@if index($uso-classes, form-field) {
+@if index($uso-classes, form-grupo) {
   .form-container--linha {
     @include form-container;
     & + & {
@@ -112,7 +114,7 @@ $i: 1;
 $max: 12;
 $medida: 100% / $max;
 
-@if index($uso-classes, form-field) {
+@if index($uso-classes, form-grupo) {
   //	Cada um dos fields gerado automaticamente
   @while $i < $max {
     .field-#{$i} {
