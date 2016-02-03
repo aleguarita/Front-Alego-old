@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 21/01/2016
+// Última alteração em: 03/02/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 03/02/2016 | Correção no uso do mixin
 // 21/01/2016 | De placeholders para mixins
 // 09/12/2015 | Inclusão do label
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
@@ -57,8 +58,10 @@ FORMULÁRIOS | SELECT
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
     @include form-base(flex);
-    @include form-select--basico {
-      border-bottom: $borda-form dotted;
+    select {
+      @include form-select--basico {
+        border-bottom: $borda-form dotted;
+      }
     }
     @if $label-tipo == "colado" {
       label {
@@ -76,8 +79,10 @@ FORMULÁRIOS | SELECT
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-2 {
     @include form-base(flex);
-    @include form-select--basico {
-      border-bottom: $borda-form solid;
+    select {
+      @include form-select--basico {
+        border-bottom: $borda-form solid;
+      }
     }
     @if $label-tipo == "colado" {
       label {
@@ -95,12 +100,14 @@ FORMULÁRIOS | SELECT
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-3 {
     @include form-base(flex);
-    @include form-select--basico {
-      border: $borda-form solid;
-      padding-left: .2em;
-      @if $label-tipo == "colado" {
-        &:focus ~ label {
-          background: cor(formulario, ativo);
+    select {
+      @include form-select--basico {
+        border: $borda-form solid;
+        padding-left: .2em;
+        @if $label-tipo == "colado" {
+          &:focus ~ label {
+            background: cor(formulario, ativo);
+          }
         }
       }
     }
