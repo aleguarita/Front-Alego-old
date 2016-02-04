@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 22/01/2016
+// Última alteração em: 04/02/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,8 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 04/02/2016 | Agrupando labels para o arquivo final ficar melhor (agora o
+//              mixin de label permite escrever o conteúdo do label)
 // 22/01/2016 | Retirado placeholder para mixin
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
@@ -47,6 +49,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
     label {
       @include form-texto__label--basico;
       width: 100%;
+      @content;
     }
   }
   @else if $tipo == colado {
@@ -54,6 +57,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
     label {
       @include form-texto__label--basico;
       padding: 0 .65em;
+      @content;
     }
   }
 }
@@ -66,8 +70,8 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
     $cor: cor(formulario),
     $cor-destaque: cor(formulario, ativo)
   ) {
-  @if $label-tipo == "colado" {
-    label {
+  @include form-texto__label($label-tipo) {
+    @if $label-tipo == "colado" {
       border-bottom: 1px $tipo $cor;
     }
   }
@@ -108,6 +112,13 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
   // TIPO 3
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-3 {
+    @include form-texto__label($label-tipo) {
+      @if $label-tipo == "colado" {
+        background: cor(formulario);
+        color: cor(texto, claro);
+        line-height: 2.2;
+      }
+    }
     input, textarea {
       @include form__caixa-texto;
       border: 1px solid cor(formulario);
@@ -122,13 +133,6 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
         }
       }
     }
-    @if $label-tipo == "colado" {
-      label {
-        background: cor(formulario);
-        color: cor(texto, claro);
-        line-height: 2.2;
-      }
-    }
   }
 }
 
@@ -138,12 +142,11 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 @if index($uso-classes, form) {
   .form-texto {
     @include form-texto($form-tipo);
-    @include form-texto__label($label-tipo);
   }
   .form__ico {
     @include form__botao-colado;
   }
   .form-texto--label-inverso {
-    /* pensar num nome melhor */
+    // pensar num nome melhor
   }
 }
