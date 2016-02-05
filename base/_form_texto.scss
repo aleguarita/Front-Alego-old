@@ -22,6 +22,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // Changelog
 // 04/02/2016 | Agrupando labels para o arquivo final ficar melhor (agora o
 //              mixin de label permite escrever o conteúdo do label)
+//              Movida classe .form__ico para form_comum
 // 22/01/2016 | Retirado placeholder para mixin
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
@@ -142,9 +143,6 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 @if index($uso-classes, form) {
   .form-texto {
     @include form-texto($form-tipo);
-  }
-  .form__ico {
-    @include form__botao-colado;
   }
   .form-texto--label-inverso {
     // pensar num nome melhor

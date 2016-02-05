@@ -481,6 +481,10 @@ $codigo-selecionado: (
 
   card-tipo: if(index($uso-classes, card), $card-tipo, 'nenhum'),
 
+  form-tipo: if(index($uso-classes, form), $form-tipo, 'nenhum'),
+  label-tipo: $label-tipo,
+  form-radio-check-personaliza: $form-radio-check-personaliza,
+
   lista-titulo: $secao-lista-titulo,
 );
 
@@ -935,5 +939,52 @@ $card-tipos: (tipo-1, tipo-2);
     &--#{$card} {
       @include card($card);
     }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | form
+================================================================================
+*/
+.form-demo {
+  @include grupo-demo;
+}
+$form-tipos: tipo-1, tipo-2, tipo-3;
+$label-tipos: flutuante, colado;
+$form-personaliza: personaliza, comum;
+.ui-autocomplete.autocomplete-demo {
+  position: inherit !important;
+}
+@each $tipo in $form-tipos {
+  /*
+  --------------------------------------------------------------------------------
+  FORM: #{$tipo}
+  --------------------------------------------------------------------------------
+  */
+  @each $label in $label-tipos {
+    /*
+    LABEL #{$label}
+    --------------------------------------------------------------------------------
+    */
+    .form--label-#{$label} {
+      $label-tipo: $label;
+      .form-texto--#{$tipo} { @include form-texto($tipo); }
+      .form-select--#{$tipo} { @include form-select($tipo); }
+      .ui-autocomplete--#{$tipo} {
+        @include autocomplete($tipo);
+        position: inherit !important;
+      }
+      @each $opcao in $form-personaliza {
+        $form-radio-check-personaliza: if($opcao == personaliza, sim, não);
+        .form-checkbox--#{$tipo}--#{$opcao}, .form-radio--#{$tipo}--#{$opcao} { @include form-radio-check($tipo); }
+        .form-checkbox--#{$tipo}--#{$opcao} {
+          @include form-checkbox;
+        }
+        .form-radio--#{$tipo}--#{$opcao} {
+          @include form-radio;
+        }
+      }
+    }
+
   }
 }

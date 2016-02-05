@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 03/02/2016
+// Última alteração em: 04/02/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 04/02/2016 | Correção do select, que estava duplicado no arquivo final
 // 03/02/2016 | Correção no uso do mixin
 // 21/01/2016 | De placeholders para mixins
 // 09/12/2015 | Inclusão do label
@@ -63,8 +64,8 @@ FORMULÁRIOS | SELECT
         border-bottom: $borda-form dotted;
       }
     }
-    @if $label-tipo == "colado" {
-      label {
+    @include form-texto__label($label-tipo) {
+      @if $label-tipo == "colado" {
         border-bottom: 1px dotted cor(formulario);
       }
     }
@@ -84,8 +85,8 @@ FORMULÁRIOS | SELECT
         border-bottom: $borda-form solid;
       }
     }
-    @if $label-tipo == "colado" {
-      label {
+    @include form-texto__label($label-tipo) {
+      @if $label-tipo == "colado" {
         border-bottom: 1px solid cor(formulario);
       }
     }
@@ -111,8 +112,8 @@ FORMULÁRIOS | SELECT
         }
       }
     }
-    @if $label-tipo == "colado" {
-      label {
+    @include form-texto__label($label-tipo) {
+      @if $label-tipo == "colado" {
         background: cor(formulario);
         color: cor(texto, claro);
         line-height: 2.2;
@@ -132,6 +133,5 @@ FORMULÁRIOS | SELECT
 @if index($uso-classes, form) {
   .form-select {
     @include form-select($form-tipo);
-    @include form-texto__label($label-tipo);
   }
 }

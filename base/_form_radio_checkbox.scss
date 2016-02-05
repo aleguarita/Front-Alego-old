@@ -12,11 +12,12 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 11/11/2015
-// Última alteração em: 21/01/2016
+// Última alteração em: 04/02/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os radio buttons
 // ----------------------------------------------------------------------------
 // Changelog
+// 04/02/2016 | Mudado alinhamento do checkbox/radio
 // 21/01/2016 | Alterado placeholder para mixin
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
@@ -46,7 +47,7 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
     }
     @if $form-radio-check-personaliza == "sim" {
       @include display-flex;
-      @include align-items(center);
+      @include align-self(flex-end);
       &::before {
         font-family: $fonte-simbolo;
         width: 1em;
@@ -154,10 +155,20 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // CLASSES
 // =============================================================================
 @if index($uso-classes, form) {
+/*
+--------------------------------------------------------------------------------
+RADIO BUTTON
+--------------------------------------------------------------------------------
+*/
   .form-radio {
     @include form-radio-check($form-tipo);
     @include form-radio;
   }
+/*
+--------------------------------------------------------------------------------
+CHECKBOX
+--------------------------------------------------------------------------------
+*/
   .form-checkbox {
     @include form-radio-check($form-tipo);
     @include form-checkbox;

@@ -11,12 +11,15 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 21/01/2016
+// Última alteração em: 04/02/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 04/02/2016 | Retirado .form__ico do arquivo form_texto e colocado aqui
+//              Acrescentado seletor button.form__ico para retirar a borda
+//               nesta configuração
 // 21/01/2016 | Alterado de placeholder para mixin
 // 09/12/2015 | Acréscimo do textarea para expandir
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -78,4 +81,14 @@ $borda-form: 1px cor(formulario);
       color: cor(texto, claro);
     }
   }
+}
+
+// =============================================================================
+// CLASSES DOS ELEMENTOS COMUM
+// =============================================================================
+.form__ico {
+  @include form__botao-colado;
+}
+button.form__ico {
+  border: 0;
 }
