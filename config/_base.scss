@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 04/02/2016
+	Última alteração: 05/02/2016
 	------------------------------------------------------------------------------
 */
 // app.scss
@@ -33,6 +33,8 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 05/02/2016 | O arquivo de classes e ícones foram colocados no final do
+// 							arquivo para que eles tenham prioridade ao alterar um tag
 // 04/02/2016 | Alterada a ordem dos arquivos de formulário
 // 01/02/2016 | Alterado a ordem dos arquivo.
 // 							Configurações de tags foi movida do config/tipografia para
@@ -70,10 +72,8 @@
 @import "variaveis";
 @import "tipografia";
 
-// Reset CSS e classes
+// Reset CSS
 @import "../base/reset";
-@import "../base/classes";
-@import "simbolos";
 
 // Arquivos de configuração estrutural
 @import "../base/grid";
@@ -97,3 +97,7 @@
 @import "../base/modal";
 @import "../base/secao_lista";
 @import "../base/lista";
+
+// Formatações especiais
+@import "simbolos";
+@import "../base/classes";

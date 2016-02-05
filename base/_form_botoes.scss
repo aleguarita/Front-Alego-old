@@ -12,11 +12,13 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 21/01/2016
+// Última alteração em: 05/02/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // ----------------------------------------------------------------------------
 // Changelog
+// 05/02/2016 | Ajustado o tamanho do botão
+//              Acrescando arredondamento de botão
 // 21/01/2016 | Era pra isso aqui usar mixins. Não é prático.
 // 23/11/2015 | Botões de status
 //              Utilizada nova forma chamar as classes
@@ -64,10 +66,13 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   color: cor(botao);
   cursor: pointer;
   border: 1px solid;
-  font-size: .9rem;
+  font-size: .9em;
   font-weight: bold;
   text-transform: uppercase;
   transition: background 0.5s ease 0s;
+  @if $botao-arredondamento != não {
+    border-radius: $rd;
+  }
 }
 // =============================================================================
 // PLACEHOLDERS | TIPO SIMPLES (tipo-1 e tipo-2)
