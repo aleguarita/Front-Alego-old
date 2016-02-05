@@ -66,6 +66,7 @@
             <li><a href="#classes">Classes globais</a></li>
             <li><a href="#form-grupo">Grupos de Formulários</a></li>
             <li><a href="#form">Formulários</a></li>
+            <li><a href="#botao">Botões</a></li>
             <li><a href="#tabelas">Tabelas</a></li>
             <li><a href="#listas">Listas</a></li>
             <li><a href="#paginacao">Paginação</a></li>
@@ -451,9 +452,11 @@
                   <dt><samp>$botao-tipo</samp></dt>
                     <dd>Determina o tipo de botão a ser usado. Valores: <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
                   <dt><samp>$botao-secundario</samp></dt>
-                    <dd>Determina o tipo secundário de botão. Se for o mesmo tipo do acima, aparecerá com outra cor. Valores: <samp>$botao-tipo</samp> ou <samp>$tipo-1</samp> até <samp>$tipo-6</samp></dd>
+                    <dd>Determina o tipo secundário de botão. Se for o mesmo tipo do acima, aparecerá com outra cor. Valores: <samp>$botao-tipo</samp> ou <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
                   <dt><samp>$botao-sombra-colorida</samp></dt>
                     <dd>Define se a sombra vai ser colorida, da cor do texto. <samp>sim</samp> | <samp>não</samp></dd>
+                  <dt><samp>$botao-arredondamento</samp></dt>
+                    <dd>Define se o botão vai ter borda arredondada. <samp>sim</samp> | <samp>não</samp></dd>
                   <dt><samp>$botoes-status</samp></dt>
                     <dd>Não crie classes neste mapa (pois vai dar erro), apenas comente as que não for usar. Usam o mesmo tipo do <samp>$botao-secundario</samp></dd>
                 </dl>
@@ -1671,7 +1674,7 @@
             </section>
           </section>
           <section class="secao-lista">
-            <input type="checkbox" id="form__escolhido" class="secao-lista__check">
+            <input type="checkbox" id="form__escolhido" class="secao-lista__check" checked="checked">
             <header class="secao-lista__header">
               <label for="form__escolhido">
                 <span class="secao-lista__titulo">Form escolhido: <span class="codigo-form-tipo"></span></span>
@@ -2136,6 +2139,166 @@
                   </div>
                 </div>
               </div>
+            </section>
+          </section>
+        </article>
+
+        <article id="botao">
+          <header><h1>Botões</h1></header>
+          <p>Abaixo você verá os tipos de botões e como utilizá-los. Os tipos e algumas configurações especiais podem ser encontradas no <a href="#config__form" class="link--readme">arquivo de configuração</a></p>
+          <section class="secao-lista">
+            <input type="checkbox" id="botao__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="botao__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>São cinco botões à disposição, conforme lista abaixo:</p>
+              <dl class="lista-definicao">
+                <dt><samp>.bt</samp></dt>
+                  <dd>O botão básico e principal.</dd>
+                <dt><samp>.bt--secundario</samp></dt>
+                  <dd>O botão secundário é usado para ações menos importantes. Se no arquivo de configurações você colocar o mesmo tipo do botão principal, ele terá outra cor</dd>
+                <dt><samp>.bt--urgente</samp></dt>
+                  <dd>Botão de status. Pode ser usado em urgente e erro.</dd>
+                <dt><samp>.bt--ok</samp></dt>
+                  <dd>Botão de status. Use para status de acerto.</dd>
+                <dt><samp>.bt--aviso</samp></dt>
+                  <dd>Botão de status. Use para informações de alerta (amarelo).</dd>
+              </dl>
+              <p>No <a href="#config__classes" class="link--readme">arquivo de configuração</a> você pode desabilitar os botões através do mapa <samp>$uso-classes</samp>. A opção <samp>botao</samp> desabilita o <samp>.bt</samp> e os botões de status. Já a <samp>botao-secundario</samp> desabilita o <samp>.bt--secundario</samp>. Se quiser desabilitar da escrita do CSS algum tipo específico de botão de status (ex.: <samp>bt--ok</samp>) comente a classe no mapa <samp>$botoes-status</samp> conforme pode ser visto <a href="#config__form" class="link--readme">nesta parte do arquivo de configuração</a></p>
+              <blockquote class="aviso--dica">
+                O tipo escolhido para os botões de status é o mesmo do botão secundário
+              </blockquote>
+              <p>O tamanho dos botões é relativo ao elemento pai (<samp>.9em</samp>). Teste colocar dentro de um <samp>&lt;p&gt;</samp> ou direto em um <samp>&lt;div&gt;</samp> e verá a diferença. Se prefere criar uma <samp>lgt;div class="actions"&gt;</samp> (como o padrão do Ruby) você pode formatar o tamanho da fonte da própria <samp>div</samp>, dispensando o uso de <samp>p</samp>. O tamanho também pode ser alterado acrescentando no botão uma das <a href="#classes" class="link--readme">classes de tamanho de fonte</a>.</p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="botao__escolhido" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="botao__escolhido">
+                <span class="secao-lista__titulo">Botões escolhidos</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>
+                <button class="bt">Botão principal: <span class="codigo-bt"></span></button>
+                <button class="bt--secundario">Botão secundário: <span class="codigo-bt--secundario"></span></button>
+                <button class="bt--urgente">Botão urgente: <span class="codigo-bt--secundario"></span></button>
+                <button class="bt--ok">Botão ok: <span class="codigo-bt--secundario"></span></button>
+                <button class="bt--aviso">Botão aviso: <span class="codigo-bt--secundario"></span></button>
+              </p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="botoes__tipo-1" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="botoes__tipo-1">
+                <span class="secao-lista__titulo">tipo-1</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>
+                <button class="bt--tipo-1">Botão principal</button>
+                <button class="bt--tipo-1--secundario">Botão secundário</button>
+                <button class="bt--tipo-1--urgente">Botão urgente</button>
+                <button class="bt--tipo-1--ok">Botão ok</button>
+                <button class="bt--tipo-1--aviso">Botão aviso</button>
+              </p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="botoes__tipo-2" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="botoes__tipo-2">
+                <span class="secao-lista__titulo">tipo-2</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>
+                <button class="bt--tipo-2">Botão principal</button>
+                <button class="bt--tipo-2--secundario">Botão secundário</button>
+                <button class="bt--tipo-2--urgente">Botão urgente</button>
+                <button class="bt--tipo-2--ok">Botão ok</button>
+                <button class="bt--tipo-2--aviso">Botão aviso</button>
+              </p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="botoes__tipo-3" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="botoes__tipo-3">
+                <span class="secao-lista__titulo">tipo-3</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>
+                <button class="bt--tipo-3">Botão principal</button>
+                <button class="bt--tipo-3--secundario">Botão secundário</button>
+                <button class="bt--tipo-3--urgente">Botão urgente</button>
+                <button class="bt--tipo-3--ok">Botão ok</button>
+                <button class="bt--tipo-3--aviso">Botão aviso</button>
+              </p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="botoes__tipo-4" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="botoes__tipo-4">
+                <span class="secao-lista__titulo">tipo-4</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>
+                <button class="bt--tipo-4">Botão principal</button>
+                <button class="bt--tipo-4--secundario">Botão secundário</button>
+                <button class="bt--tipo-4--urgente">Botão urgente</button>
+                <button class="bt--tipo-4--ok">Botão ok</button>
+                <button class="bt--tipo-4--aviso">Botão aviso</button>
+              </p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="botoes__tipo-5" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="botoes__tipo-5">
+                <span class="secao-lista__titulo">tipo-5</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>
+                <button class="bt--tipo-5">Botão principal</button>
+                <button class="bt--tipo-5--secundario">Botão secundário</button>
+                <button class="bt--tipo-5--urgente">Botão urgente</button>
+                <button class="bt--tipo-5--ok">Botão ok</button>
+                <button class="bt--tipo-5--aviso">Botão aviso</button>
+              </p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="botoes__tipo-6" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="botoes__tipo-6">
+                <span class="secao-lista__titulo">tipo-6</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>
+                <button class="bt--tipo-6">Botão principal</button>
+                <button class="bt--tipo-6--secundario">Botão secundário</button>
+                <button class="bt--tipo-6--urgente">Botão urgente</button>
+                <button class="bt--tipo-6--ok">Botão ok</button>
+                <button class="bt--tipo-6--aviso">Botão aviso</button>
+              </p>
             </section>
           </section>
         </article>

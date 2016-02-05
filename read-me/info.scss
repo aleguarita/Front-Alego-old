@@ -486,6 +486,9 @@ $codigo-selecionado: (
   form-radio-check-personaliza: $form-radio-check-personaliza,
 
   lista-titulo: $secao-lista-titulo,
+
+  bt: $botao-tipo,
+  bt--secundario: $botao-secundario,
 );
 
 @each $classe, $valor in $codigo-selecionado {
@@ -985,6 +988,27 @@ $form-personaliza: personaliza, comum;
         }
       }
     }
-
   }
 }
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | botões
+================================================================================
+*/
+$botoes-tipos: tipo-1, tipo-2, tipo-3, tipo-4, tipo-5, tipo-6;
+$botoes-adicionais: secundario, urgente, ok, aviso;
+@each $tipo in $botoes-tipos {
+  .bt--#{$tipo} {
+    @extend %bt-#{$tipo};
+  }
+  @each $bt in $botoes-adicionais {
+    .bt--#{$tipo}--#{$bt} {
+      @extend %bt-#{$tipo}--#{$bt};
+    }
+  }
+}
+/*
+Imagino que você deve estar se perguntando "hey, cadê os botões?"
+Procure na configuração mais básica pq estas coisas não escrevem aqui e sim
+fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
+*/
