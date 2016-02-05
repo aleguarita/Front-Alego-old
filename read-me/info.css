@@ -73,7 +73,7 @@ FONTES
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 01/02/2016
+	Última alteração: 04/02/2016
 	------------------------------------------------------------------------------
 */
 /*
@@ -849,37 +849,26 @@ GRID
 
 /*
 ================================================================================
-FORMULÁRIOS | ELEMENTOS COMUM
-================================================================================
-*/
-/*
-================================================================================
 FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 ================================================================================
+FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
+--------------------------------------------------------------------------------
 */
-.form-container {
+.form-container, .form-container--linha {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
   margin-bottom: 1em;
+}
+
+.form-container {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   width: calc(100% + 0.625rem);
   margin-left: -0.3125rem;
 }
 
-.form-container--linha {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-bottom: 1em;
-}
 .form-container--linha + .form-container--linha {
   margin-top: 0.625rem;
 }
@@ -892,6 +881,11 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
   }
 }
 
+/*
+--------------------------------------------------------------------------------
+FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
+--------------------------------------------------------------------------------
+*/
 .field-1 {
   padding: 0 0.3125rem 0.625rem;
   width: 8.33333%;
@@ -966,6 +960,30 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 
 /*
 ================================================================================
+FORMULÁRIOS | ELEMENTOS COMUM
+================================================================================
+*/
+.form__ico {
+  position: absolute;
+  right: calc(0.625rem / 2);
+  height: calc(100% - 0.625rem);
+  padding: 0.3125rem 0.5em;
+  cursor: pointer;
+  color: #00949a;
+  background: #fff;
+  height: calc(100% - 0.625rem - 1px);
+}
+.form__ico:hover {
+  background: #00949a;
+  color: #fff;
+}
+
+button.form__ico {
+  border: 0;
+}
+
+/*
+================================================================================
 FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 ================================================================================
 */
@@ -976,15 +994,20 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
   font-size: 0.8428rem;
   min-height: 2.25rem;
   position: relative;
-  -webkit-align-items: stretch;
-  align-items: stretch;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 .form-texto input, .form-texto textarea, .form-texto select {
   -webkit-flex: 1;
   flex: 1;
 }
 .form-texto label {
-  border-bottom: 1px dotted #00949a;
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  width: 100%;
 }
 .form-texto input, .form-texto textarea {
   -webkit-appearance: none;
@@ -1013,42 +1036,16 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 .form-texto input:focus, .form-texto textarea:focus {
   border-bottom-color: #003133;
 }
-.form-texto input:focus ~ label, .form-texto textarea:focus ~ label {
-  color: #003133;
-  border-bottom-color: #003133;
-}
-.form-texto label {
-  -webkit-order: -1;
-  order: -1;
-  font-weight: bold;
-  cursor: pointer;
-  color: #00949a;
-  padding: 0 .65em;
-}
-
-.form__ico {
-  position: absolute;
-  right: calc(0.625rem / 2);
-  height: calc(100% - 0.625rem);
-  padding: 0.3125rem 0.5em;
-  cursor: pointer;
-  color: #00949a;
-  background: #fff;
-  height: calc(100% - 0.625rem - 1px);
-}
-.form__ico:hover {
-  background: #00949a;
-  color: #fff;
-}
-
-.form-texto--label-inverso {
-  /* pensar num nome melhor */
-}
 
 /*
 ================================================================================
 FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 ================================================================================
+*/
+/*
+--------------------------------------------------------------------------------
+RADIO BUTTON
+--------------------------------------------------------------------------------
 */
 .form-radio {
   display: -webkit-flex;
@@ -1069,8 +1066,8 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  align-items: center;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
   -webkit-flex-grow: 1;
   flex-grow: 1;
   border-bottom: 1px #00949a dotted;
@@ -1097,6 +1094,11 @@ input:checked ~ .form-radio label {
   border-radius: 50%;
 }
 
+/*
+--------------------------------------------------------------------------------
+CHECKBOX
+--------------------------------------------------------------------------------
+*/
 .form-checkbox {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1116,8 +1118,8 @@ input:checked ~ .form-radio label {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  align-items: center;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
   -webkit-flex-grow: 1;
   flex-grow: 1;
   border-bottom: 1px #00949a dotted;
@@ -1156,6 +1158,14 @@ FORMULÁRIOS | SELECT
   font-size: 0.8428rem;
   min-height: 2.25rem;
   position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form-select input, .form-select textarea, .form-select select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form-select select {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -1169,15 +1179,14 @@ FORMULÁRIOS | SELECT
   padding: .25em;
   padding-right: 2em;
   border-bottom: 1px #00949a dotted;
-  -webkit-align-items: stretch;
-  align-items: stretch;
-}
-.form-select input, .form-select textarea, .form-select select {
-  -webkit-flex: 1;
-  flex: 1;
 }
 .form-select label {
-  border-bottom: 1px dotted #00949a;
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  width: 100%;
 }
 .form-select [class^="ico"] {
   position: absolute;
@@ -1186,14 +1195,6 @@ FORMULÁRIOS | SELECT
   padding: 0.3125rem 0.5em;
   pointer-events: none;
   color: #00949a;
-}
-.form-select label {
-  -webkit-order: -1;
-  order: -1;
-  font-weight: bold;
-  cursor: pointer;
-  color: #00949a;
-  padding: 0 .65em;
 }
 
 /*
@@ -2346,6 +2347,18 @@ HEADER
 
 .codigo-card-tipo::before {
   content: "tipo-1";
+}
+
+.codigo-form-tipo::before {
+  content: "tipo-1";
+}
+
+.codigo-label-tipo::before {
+  content: "flutuante";
+}
+
+.codigo-form-radio-check-personaliza::before {
+  content: "sim";
 }
 
 .codigo-lista-titulo::before {
@@ -4811,6 +4824,1241 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
 }
 .card--tipo-2__titulo + .card--tipo-2__principal section:first-of-type {
   border-top-width: 1px;
+}
+
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | form
+================================================================================
+*/
+.form-demo {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.form-demo > div {
+  width: calc(50% - 0.5rem);
+}
+
+.ui-autocomplete.autocomplete-demo {
+  position: inherit !important;
+}
+
+/*
+--------------------------------------------------------------------------------
+FORM: tipo-1
+--------------------------------------------------------------------------------
+*/
+/*
+LABEL flutuante
+--------------------------------------------------------------------------------
+*/
+.form--label-flutuante .form-texto--tipo-1 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form--label-flutuante .form-texto--tipo-1 input, .form--label-flutuante .form-texto--tipo-1 textarea, .form--label-flutuante .form-texto--tipo-1 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-flutuante .form-texto--tipo-1 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  width: 100%;
+}
+.form--label-flutuante .form-texto--tipo-1 input, .form--label-flutuante .form-texto--tipo-1 textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  font-size: .9em;
+  border: 0;
+  border-bottom: 1px dotted #00949a;
+}
+.form--label-flutuante .form-texto--tipo-1 input::-webkit-input-placeholder, .form--label-flutuante .form-texto--tipo-1 textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-1 input::-moz-placeholder, .form--label-flutuante .form-texto--tipo-1 textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-1 input:-ms-input-placeholder, .form--label-flutuante .form-texto--tipo-1 textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-1 input:focus, .form--label-flutuante .form-texto--tipo-1 textarea:focus {
+  border-bottom-color: #003133;
+}
+.form--label-flutuante .form-select--tipo-1 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form--label-flutuante .form-select--tipo-1 input, .form--label-flutuante .form-select--tipo-1 textarea, .form--label-flutuante .form-select--tipo-1 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-flutuante .form-select--tipo-1 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+  border-bottom: 1px #00949a dotted;
+}
+.form--label-flutuante .form-select--tipo-1 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  width: 100%;
+}
+.form--label-flutuante .form-select--tipo-1 [class^="ico"] {
+  position: absolute;
+  right: calc(0.625rem / 2);
+  height: calc(100% - 0.625rem);
+  padding: 0.3125rem 0.5em;
+  pointer-events: none;
+  color: #00949a;
+}
+.form--label-flutuante .ui-autocomplete--tipo-1 {
+  list-style: none;
+  padding-left: 0;
+  position: absolute !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px dotted #00949a;
+  position: inherit !important;
+}
+.form--label-flutuante .ui-autocomplete--tipo-1 li {
+  padding: .25em .5em;
+  cursor: pointer;
+  background: #fff;
+  color: gray;
+  font-size: .85em;
+  border-bottom: 1px dotted #66dde1;
+}
+.form--label-flutuante .ui-autocomplete--tipo-1 li:hover {
+  color: #000;
+}
+.form--label-flutuante .ui-autocomplete--tipo-1 li:last-child {
+  border-bottom: 0;
+}
+.form--label-flutuante .form-checkbox--tipo-1--personaliza, .form--label-flutuante .form-radio--tipo-1--personaliza {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-flutuante .form-checkbox--tipo-1--personaliza input, .form--label-flutuante .form-radio--tipo-1--personaliza input {
+  display: none;
+}
+.form--label-flutuante .form-checkbox--tipo-1--personaliza input:checked ~ label::before, .form--label-flutuante .form-radio--tipo-1--personaliza input:checked ~ label::before {
+  border-color: #003133;
+  color: #003133;
+}
+.form--label-flutuante .form-checkbox--tipo-1--personaliza label, .form--label-flutuante .form-radio--tipo-1--personaliza label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a dotted;
+}
+.form--label-flutuante .form-checkbox--tipo-1--personaliza label::before, .form--label-flutuante .form-radio--tipo-1--personaliza label::before {
+  font-family: "font-alego";
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  border: 1px #00949a solid;
+  background: #fff;
+  color: transparent;
+  content: "\f111";
+  font-size: .6em;
+  padding: .2em;
+  line-height: .9;
+  text-align: center;
+}
+input:checked ~ .form--label-flutuante .form-checkbox--tipo-1--personaliza label, input:checked ~ .form--label-flutuante .form-radio--tipo-1--personaliza label {
+  font-weight: bold;
+  color: #003133;
+}
+.form--label-flutuante .form-checkbox--tipo-1--personaliza input:checked ~ label::before {
+  content: "\e354";
+}
+.form--label-flutuante .form-radio--tipo-1--personaliza label::before {
+  border-radius: 50%;
+}
+.form--label-flutuante .form-checkbox--tipo-1--comum, .form--label-flutuante .form-radio--tipo-1--comum {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-flutuante .form-checkbox--tipo-1--comum label, .form--label-flutuante .form-radio--tipo-1--comum label {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a dotted;
+}
+input + .form--label-flutuante .form-checkbox--tipo-1--comum label, input + .form--label-flutuante .form-radio--tipo-1--comum label {
+  margin-left: -1.5em;
+  padding-left: 2em;
+}
+input:checked ~ .form--label-flutuante .form-checkbox--tipo-1--comum label, input:checked ~ .form--label-flutuante .form-radio--tipo-1--comum label {
+  font-weight: bold;
+  color: #003133;
+}
+
+/*
+LABEL colado
+--------------------------------------------------------------------------------
+*/
+.form--label-colado .form-texto--tipo-1 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.form--label-colado .form-texto--tipo-1 input, .form--label-colado .form-texto--tipo-1 textarea, .form--label-colado .form-texto--tipo-1 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-colado .form-texto--tipo-1 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  padding: 0 .65em;
+  border-bottom: 1px dotted #00949a;
+}
+.form--label-colado .form-texto--tipo-1 input, .form--label-colado .form-texto--tipo-1 textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  font-size: .9em;
+  border: 0;
+  border-bottom: 1px dotted #00949a;
+}
+.form--label-colado .form-texto--tipo-1 input::-webkit-input-placeholder, .form--label-colado .form-texto--tipo-1 textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-1 input::-moz-placeholder, .form--label-colado .form-texto--tipo-1 textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-1 input:-ms-input-placeholder, .form--label-colado .form-texto--tipo-1 textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-1 input:focus, .form--label-colado .form-texto--tipo-1 textarea:focus {
+  border-bottom-color: #003133;
+}
+.form--label-colado .form-texto--tipo-1 input:focus ~ label, .form--label-colado .form-texto--tipo-1 textarea:focus ~ label {
+  color: #003133;
+  border-bottom-color: #003133;
+}
+.form--label-colado .form-select--tipo-1 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.form--label-colado .form-select--tipo-1 input, .form--label-colado .form-select--tipo-1 textarea, .form--label-colado .form-select--tipo-1 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-colado .form-select--tipo-1 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+  border-bottom: 1px #00949a dotted;
+}
+.form--label-colado .form-select--tipo-1 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  padding: 0 .65em;
+  border-bottom: 1px dotted #00949a;
+}
+.form--label-colado .form-select--tipo-1 [class^="ico"] {
+  position: absolute;
+  right: calc(0.625rem / 2);
+  height: calc(100% - 0.625rem);
+  padding: 0.3125rem 0.5em;
+  pointer-events: none;
+  color: #00949a;
+}
+.form--label-colado .ui-autocomplete--tipo-1 {
+  list-style: none;
+  padding-left: 0;
+  position: absolute !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px dotted #00949a;
+  position: inherit !important;
+}
+.form--label-colado .ui-autocomplete--tipo-1 li {
+  padding: .25em .5em;
+  cursor: pointer;
+  background: #fff;
+  color: gray;
+  font-size: .85em;
+  border-bottom: 1px dotted #66dde1;
+}
+.form--label-colado .ui-autocomplete--tipo-1 li:hover {
+  color: #000;
+}
+.form--label-colado .ui-autocomplete--tipo-1 li:last-child {
+  border-bottom: 0;
+}
+.form--label-colado .form-checkbox--tipo-1--personaliza, .form--label-colado .form-radio--tipo-1--personaliza {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-colado .form-checkbox--tipo-1--personaliza input, .form--label-colado .form-radio--tipo-1--personaliza input {
+  display: none;
+}
+.form--label-colado .form-checkbox--tipo-1--personaliza input:checked ~ label::before, .form--label-colado .form-radio--tipo-1--personaliza input:checked ~ label::before {
+  border-color: #003133;
+  color: #003133;
+}
+.form--label-colado .form-checkbox--tipo-1--personaliza label, .form--label-colado .form-radio--tipo-1--personaliza label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a dotted;
+}
+.form--label-colado .form-checkbox--tipo-1--personaliza label::before, .form--label-colado .form-radio--tipo-1--personaliza label::before {
+  font-family: "font-alego";
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  border: 1px #00949a solid;
+  background: #fff;
+  color: transparent;
+  content: "\f111";
+  font-size: .6em;
+  padding: .2em;
+  line-height: .9;
+  text-align: center;
+}
+input:checked ~ .form--label-colado .form-checkbox--tipo-1--personaliza label, input:checked ~ .form--label-colado .form-radio--tipo-1--personaliza label {
+  font-weight: bold;
+  color: #003133;
+}
+.form--label-colado .form-checkbox--tipo-1--personaliza input:checked ~ label::before {
+  content: "\e354";
+}
+.form--label-colado .form-radio--tipo-1--personaliza label::before {
+  border-radius: 50%;
+}
+.form--label-colado .form-checkbox--tipo-1--comum, .form--label-colado .form-radio--tipo-1--comum {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-colado .form-checkbox--tipo-1--comum label, .form--label-colado .form-radio--tipo-1--comum label {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a dotted;
+}
+input + .form--label-colado .form-checkbox--tipo-1--comum label, input + .form--label-colado .form-radio--tipo-1--comum label {
+  margin-left: -1.5em;
+  padding-left: 2em;
+}
+input:checked ~ .form--label-colado .form-checkbox--tipo-1--comum label, input:checked ~ .form--label-colado .form-radio--tipo-1--comum label {
+  font-weight: bold;
+  color: #003133;
+}
+
+/*
+--------------------------------------------------------------------------------
+FORM: tipo-2
+--------------------------------------------------------------------------------
+*/
+/*
+LABEL flutuante
+--------------------------------------------------------------------------------
+*/
+.form--label-flutuante .form-texto--tipo-2 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form--label-flutuante .form-texto--tipo-2 input, .form--label-flutuante .form-texto--tipo-2 textarea, .form--label-flutuante .form-texto--tipo-2 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-flutuante .form-texto--tipo-2 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  width: 100%;
+}
+.form--label-flutuante .form-texto--tipo-2 input, .form--label-flutuante .form-texto--tipo-2 textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  font-size: .9em;
+  border: 0;
+  border-bottom: 1px solid #00949a;
+}
+.form--label-flutuante .form-texto--tipo-2 input::-webkit-input-placeholder, .form--label-flutuante .form-texto--tipo-2 textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-2 input::-moz-placeholder, .form--label-flutuante .form-texto--tipo-2 textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-2 input:-ms-input-placeholder, .form--label-flutuante .form-texto--tipo-2 textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-2 input:focus, .form--label-flutuante .form-texto--tipo-2 textarea:focus {
+  border-bottom-color: #003133;
+}
+.form--label-flutuante .form-select--tipo-2 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form--label-flutuante .form-select--tipo-2 input, .form--label-flutuante .form-select--tipo-2 textarea, .form--label-flutuante .form-select--tipo-2 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-flutuante .form-select--tipo-2 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+  border-bottom: 1px #00949a solid;
+}
+.form--label-flutuante .form-select--tipo-2 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  width: 100%;
+}
+.form--label-flutuante .form-select--tipo-2 [class^="ico"] {
+  position: absolute;
+  right: calc(0.625rem / 2);
+  height: calc(100% - 0.625rem);
+  padding: 0.3125rem 0.5em;
+  pointer-events: none;
+  color: #00949a;
+}
+.form--label-flutuante .ui-autocomplete--tipo-2 {
+  list-style: none;
+  padding-left: 0;
+  position: absolute !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #00949a;
+  position: inherit !important;
+}
+.form--label-flutuante .ui-autocomplete--tipo-2 li {
+  padding: .25em .5em;
+  cursor: pointer;
+  background: #fff;
+  color: gray;
+  font-size: .85em;
+  border-bottom: 1px solid #66dde1;
+}
+.form--label-flutuante .ui-autocomplete--tipo-2 li:hover {
+  color: #000;
+}
+.form--label-flutuante .ui-autocomplete--tipo-2 li:last-child {
+  border-bottom: 0;
+}
+.form--label-flutuante .form-checkbox--tipo-2--personaliza, .form--label-flutuante .form-radio--tipo-2--personaliza {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-flutuante .form-checkbox--tipo-2--personaliza input, .form--label-flutuante .form-radio--tipo-2--personaliza input {
+  display: none;
+}
+.form--label-flutuante .form-checkbox--tipo-2--personaliza input:checked ~ label::before, .form--label-flutuante .form-radio--tipo-2--personaliza input:checked ~ label::before {
+  border-color: #003133;
+  color: #003133;
+}
+.form--label-flutuante .form-checkbox--tipo-2--personaliza label, .form--label-flutuante .form-radio--tipo-2--personaliza label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a solid;
+}
+.form--label-flutuante .form-checkbox--tipo-2--personaliza label::before, .form--label-flutuante .form-radio--tipo-2--personaliza label::before {
+  font-family: "font-alego";
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  border: 1px #00949a solid;
+  background: #fff;
+  color: transparent;
+  content: "\f111";
+  font-size: .6em;
+  padding: .2em;
+  line-height: .9;
+  text-align: center;
+}
+input:checked ~ .form--label-flutuante .form-checkbox--tipo-2--personaliza label, input:checked ~ .form--label-flutuante .form-radio--tipo-2--personaliza label {
+  font-weight: bold;
+  color: #003133;
+}
+.form--label-flutuante .form-checkbox--tipo-2--personaliza input:checked ~ label::before {
+  content: "\e354";
+}
+.form--label-flutuante .form-radio--tipo-2--personaliza label::before {
+  border-radius: 50%;
+}
+.form--label-flutuante .form-checkbox--tipo-2--comum, .form--label-flutuante .form-radio--tipo-2--comum {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-flutuante .form-checkbox--tipo-2--comum label, .form--label-flutuante .form-radio--tipo-2--comum label {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a solid;
+}
+input + .form--label-flutuante .form-checkbox--tipo-2--comum label, input + .form--label-flutuante .form-radio--tipo-2--comum label {
+  margin-left: -1.5em;
+  padding-left: 2em;
+}
+input:checked ~ .form--label-flutuante .form-checkbox--tipo-2--comum label, input:checked ~ .form--label-flutuante .form-radio--tipo-2--comum label {
+  font-weight: bold;
+  color: #003133;
+}
+
+/*
+LABEL colado
+--------------------------------------------------------------------------------
+*/
+.form--label-colado .form-texto--tipo-2 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.form--label-colado .form-texto--tipo-2 input, .form--label-colado .form-texto--tipo-2 textarea, .form--label-colado .form-texto--tipo-2 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-colado .form-texto--tipo-2 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  padding: 0 .65em;
+  border-bottom: 1px solid #00949a;
+}
+.form--label-colado .form-texto--tipo-2 input, .form--label-colado .form-texto--tipo-2 textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  font-size: .9em;
+  border: 0;
+  border-bottom: 1px solid #00949a;
+}
+.form--label-colado .form-texto--tipo-2 input::-webkit-input-placeholder, .form--label-colado .form-texto--tipo-2 textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-2 input::-moz-placeholder, .form--label-colado .form-texto--tipo-2 textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-2 input:-ms-input-placeholder, .form--label-colado .form-texto--tipo-2 textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-2 input:focus, .form--label-colado .form-texto--tipo-2 textarea:focus {
+  border-bottom-color: #003133;
+}
+.form--label-colado .form-texto--tipo-2 input:focus ~ label, .form--label-colado .form-texto--tipo-2 textarea:focus ~ label {
+  color: #003133;
+  border-bottom-color: #003133;
+}
+.form--label-colado .form-select--tipo-2 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.form--label-colado .form-select--tipo-2 input, .form--label-colado .form-select--tipo-2 textarea, .form--label-colado .form-select--tipo-2 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-colado .form-select--tipo-2 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+  border-bottom: 1px #00949a solid;
+}
+.form--label-colado .form-select--tipo-2 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  padding: 0 .65em;
+  border-bottom: 1px solid #00949a;
+}
+.form--label-colado .form-select--tipo-2 [class^="ico"] {
+  position: absolute;
+  right: calc(0.625rem / 2);
+  height: calc(100% - 0.625rem);
+  padding: 0.3125rem 0.5em;
+  pointer-events: none;
+  color: #00949a;
+}
+.form--label-colado .ui-autocomplete--tipo-2 {
+  list-style: none;
+  padding-left: 0;
+  position: absolute !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #00949a;
+  position: inherit !important;
+}
+.form--label-colado .ui-autocomplete--tipo-2 li {
+  padding: .25em .5em;
+  cursor: pointer;
+  background: #fff;
+  color: gray;
+  font-size: .85em;
+  border-bottom: 1px solid #66dde1;
+}
+.form--label-colado .ui-autocomplete--tipo-2 li:hover {
+  color: #000;
+}
+.form--label-colado .ui-autocomplete--tipo-2 li:last-child {
+  border-bottom: 0;
+}
+.form--label-colado .form-checkbox--tipo-2--personaliza, .form--label-colado .form-radio--tipo-2--personaliza {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-colado .form-checkbox--tipo-2--personaliza input, .form--label-colado .form-radio--tipo-2--personaliza input {
+  display: none;
+}
+.form--label-colado .form-checkbox--tipo-2--personaliza input:checked ~ label::before, .form--label-colado .form-radio--tipo-2--personaliza input:checked ~ label::before {
+  border-color: #003133;
+  color: #003133;
+}
+.form--label-colado .form-checkbox--tipo-2--personaliza label, .form--label-colado .form-radio--tipo-2--personaliza label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a solid;
+}
+.form--label-colado .form-checkbox--tipo-2--personaliza label::before, .form--label-colado .form-radio--tipo-2--personaliza label::before {
+  font-family: "font-alego";
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  border: 1px #00949a solid;
+  background: #fff;
+  color: transparent;
+  content: "\f111";
+  font-size: .6em;
+  padding: .2em;
+  line-height: .9;
+  text-align: center;
+}
+input:checked ~ .form--label-colado .form-checkbox--tipo-2--personaliza label, input:checked ~ .form--label-colado .form-radio--tipo-2--personaliza label {
+  font-weight: bold;
+  color: #003133;
+}
+.form--label-colado .form-checkbox--tipo-2--personaliza input:checked ~ label::before {
+  content: "\e354";
+}
+.form--label-colado .form-radio--tipo-2--personaliza label::before {
+  border-radius: 50%;
+}
+.form--label-colado .form-checkbox--tipo-2--comum, .form--label-colado .form-radio--tipo-2--comum {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-colado .form-checkbox--tipo-2--comum label, .form--label-colado .form-radio--tipo-2--comum label {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a solid;
+}
+input + .form--label-colado .form-checkbox--tipo-2--comum label, input + .form--label-colado .form-radio--tipo-2--comum label {
+  margin-left: -1.5em;
+  padding-left: 2em;
+}
+input:checked ~ .form--label-colado .form-checkbox--tipo-2--comum label, input:checked ~ .form--label-colado .form-radio--tipo-2--comum label {
+  font-weight: bold;
+  color: #003133;
+}
+
+/*
+--------------------------------------------------------------------------------
+FORM: tipo-3
+--------------------------------------------------------------------------------
+*/
+/*
+LABEL flutuante
+--------------------------------------------------------------------------------
+*/
+.form--label-flutuante .form-texto--tipo-3 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form--label-flutuante .form-texto--tipo-3 input, .form--label-flutuante .form-texto--tipo-3 textarea, .form--label-flutuante .form-texto--tipo-3 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-flutuante .form-texto--tipo-3 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  width: 100%;
+}
+.form--label-flutuante .form-texto--tipo-3 input, .form--label-flutuante .form-texto--tipo-3 textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  font-size: .9em;
+  border: 1px solid #00949a;
+  padding: .5em;
+}
+.form--label-flutuante .form-texto--tipo-3 input::-webkit-input-placeholder, .form--label-flutuante .form-texto--tipo-3 textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-3 input::-moz-placeholder, .form--label-flutuante .form-texto--tipo-3 textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-3 input:-ms-input-placeholder, .form--label-flutuante .form-texto--tipo-3 textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-flutuante .form-texto--tipo-3 input:focus, .form--label-flutuante .form-texto--tipo-3 textarea:focus {
+  outline: 0;
+  box-shadow: 0 0 3px #00949a;
+}
+.form--label-flutuante .form-select--tipo-3 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form--label-flutuante .form-select--tipo-3 input, .form--label-flutuante .form-select--tipo-3 textarea, .form--label-flutuante .form-select--tipo-3 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-flutuante .form-select--tipo-3 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+  border: 1px #00949a solid;
+  padding-left: .2em;
+}
+.form--label-flutuante .form-select--tipo-3 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  width: 100%;
+}
+.form--label-flutuante .form-select--tipo-3 [class^="ico"] {
+  color: #003133;
+  background: #bff1f3;
+  border: 1px #00949a solid;
+}
+.form--label-flutuante .ui-autocomplete--tipo-3 {
+  list-style: none;
+  padding-left: 0;
+  position: absolute !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #00949a;
+  border-top-width: 0;
+  position: inherit !important;
+}
+.form--label-flutuante .ui-autocomplete--tipo-3 li {
+  padding: .25em .5em;
+  cursor: pointer;
+  background: #fff;
+  color: gray;
+  font-size: .85em;
+  border-bottom: 1px solid #40d4da;
+}
+.form--label-flutuante .ui-autocomplete--tipo-3 li:hover {
+  color: #000;
+}
+.form--label-flutuante .ui-autocomplete--tipo-3 li:last-child {
+  border-bottom: 0;
+}
+.form--label-flutuante .ui-autocomplete--tipo-3 li:hover {
+  background: #40d4da;
+}
+.form--label-flutuante .form-checkbox--tipo-3--personaliza, .form--label-flutuante .form-radio--tipo-3--personaliza {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-flutuante .form-checkbox--tipo-3--personaliza input, .form--label-flutuante .form-radio--tipo-3--personaliza input {
+  display: none;
+}
+.form--label-flutuante .form-checkbox--tipo-3--personaliza input:checked ~ label::before, .form--label-flutuante .form-radio--tipo-3--personaliza input:checked ~ label::before {
+  border-color: #003133;
+  color: #003133;
+}
+.form--label-flutuante .form-checkbox--tipo-3--personaliza label, .form--label-flutuante .form-radio--tipo-3--personaliza label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border: 1px #00949a solid;
+}
+.form--label-flutuante .form-checkbox--tipo-3--personaliza label::before, .form--label-flutuante .form-radio--tipo-3--personaliza label::before {
+  font-family: "font-alego";
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  border: 1px #00949a solid;
+  background: #fff;
+  color: transparent;
+  content: "\f111";
+  font-size: .6em;
+  padding: .2em;
+  line-height: .9;
+  text-align: center;
+}
+input:checked ~ .form--label-flutuante .form-checkbox--tipo-3--personaliza label, input:checked ~ .form--label-flutuante .form-radio--tipo-3--personaliza label {
+  font-weight: bold;
+  color: #003133;
+}
+.form--label-flutuante .form-checkbox--tipo-3--personaliza label::before, .form--label-flutuante .form-radio--tipo-3--personaliza label::before {
+  margin-left: .4em;
+}
+.form--label-flutuante .form-checkbox--tipo-3--personaliza input:checked ~ label, .form--label-flutuante .form-radio--tipo-3--personaliza input:checked ~ label {
+  background: #bff1f3;
+}
+.form--label-flutuante .form-checkbox--tipo-3--personaliza input:checked ~ label::before {
+  content: "\e354";
+}
+.form--label-flutuante .form-radio--tipo-3--personaliza label::before {
+  border-radius: 50%;
+}
+.form--label-flutuante .form-checkbox--tipo-3--comum, .form--label-flutuante .form-radio--tipo-3--comum {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-flutuante .form-checkbox--tipo-3--comum label, .form--label-flutuante .form-radio--tipo-3--comum label {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border: 1px #00949a solid;
+}
+input + .form--label-flutuante .form-checkbox--tipo-3--comum label, input + .form--label-flutuante .form-radio--tipo-3--comum label {
+  margin-left: -1.5em;
+  padding-left: 2em;
+}
+input:checked ~ .form--label-flutuante .form-checkbox--tipo-3--comum label, input:checked ~ .form--label-flutuante .form-radio--tipo-3--comum label {
+  font-weight: bold;
+  color: #003133;
+}
+.form--label-flutuante .form-checkbox--tipo-3--comum label::before, .form--label-flutuante .form-radio--tipo-3--comum label::before {
+  margin-left: .4em;
+}
+.form--label-flutuante .form-checkbox--tipo-3--comum input:checked ~ label, .form--label-flutuante .form-radio--tipo-3--comum input:checked ~ label {
+  background: #bff1f3;
+}
+
+/*
+LABEL colado
+--------------------------------------------------------------------------------
+*/
+.form--label-colado .form-texto--tipo-3 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.form--label-colado .form-texto--tipo-3 input, .form--label-colado .form-texto--tipo-3 textarea, .form--label-colado .form-texto--tipo-3 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-colado .form-texto--tipo-3 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  padding: 0 .65em;
+  background: #00949a;
+  color: #fff;
+  line-height: 2.2;
+}
+.form--label-colado .form-texto--tipo-3 input, .form--label-colado .form-texto--tipo-3 textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  font-size: .9em;
+  border: 1px solid #00949a;
+  padding: .5em;
+}
+.form--label-colado .form-texto--tipo-3 input::-webkit-input-placeholder, .form--label-colado .form-texto--tipo-3 textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-3 input::-moz-placeholder, .form--label-colado .form-texto--tipo-3 textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-3 input:-ms-input-placeholder, .form--label-colado .form-texto--tipo-3 textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form--label-colado .form-texto--tipo-3 input:focus, .form--label-colado .form-texto--tipo-3 textarea:focus {
+  outline: 0;
+  box-shadow: 0 0 3px #00949a;
+}
+.form--label-colado .form-texto--tipo-3 input:focus ~ label, .form--label-colado .form-texto--tipo-3 textarea:focus ~ label {
+  background: #003133;
+}
+.form--label-colado .form-select--tipo-3 {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+.form--label-colado .form-select--tipo-3 input, .form--label-colado .form-select--tipo-3 textarea, .form--label-colado .form-select--tipo-3 select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form--label-colado .form-select--tipo-3 select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+  border: 1px #00949a solid;
+  padding-left: .2em;
+}
+.form--label-colado .form-select--tipo-3 select:focus ~ label {
+  background: #003133;
+}
+.form--label-colado .form-select--tipo-3 label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00949a;
+  padding: 0 .65em;
+  background: #00949a;
+  color: #fff;
+  line-height: 2.2;
+}
+.form--label-colado .form-select--tipo-3 [class^="ico"] {
+  color: #003133;
+  background: #bff1f3;
+  border: 1px #00949a solid;
+}
+.form--label-colado .ui-autocomplete--tipo-3 {
+  list-style: none;
+  padding-left: 0;
+  position: absolute !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #00949a;
+  border-top-width: 0;
+  position: inherit !important;
+}
+.form--label-colado .ui-autocomplete--tipo-3 li {
+  padding: .25em .5em;
+  cursor: pointer;
+  background: #fff;
+  color: gray;
+  font-size: .85em;
+  border-bottom: 1px solid #40d4da;
+}
+.form--label-colado .ui-autocomplete--tipo-3 li:hover {
+  color: #000;
+}
+.form--label-colado .ui-autocomplete--tipo-3 li:last-child {
+  border-bottom: 0;
+}
+.form--label-colado .ui-autocomplete--tipo-3 li:hover {
+  background: #40d4da;
+}
+.form--label-colado .form-checkbox--tipo-3--personaliza, .form--label-colado .form-radio--tipo-3--personaliza {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-colado .form-checkbox--tipo-3--personaliza input, .form--label-colado .form-radio--tipo-3--personaliza input {
+  display: none;
+}
+.form--label-colado .form-checkbox--tipo-3--personaliza input:checked ~ label::before, .form--label-colado .form-radio--tipo-3--personaliza input:checked ~ label::before {
+  border-color: #003133;
+  color: #003133;
+}
+.form--label-colado .form-checkbox--tipo-3--personaliza label, .form--label-colado .form-radio--tipo-3--personaliza label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border: 1px #00949a solid;
+}
+.form--label-colado .form-checkbox--tipo-3--personaliza label::before, .form--label-colado .form-radio--tipo-3--personaliza label::before {
+  font-family: "font-alego";
+  width: 1em;
+  height: 1em;
+  margin-right: .5em;
+  border: 1px #00949a solid;
+  background: #fff;
+  color: transparent;
+  content: "\f111";
+  font-size: .6em;
+  padding: .2em;
+  line-height: .9;
+  text-align: center;
+}
+input:checked ~ .form--label-colado .form-checkbox--tipo-3--personaliza label, input:checked ~ .form--label-colado .form-radio--tipo-3--personaliza label {
+  font-weight: bold;
+  color: #003133;
+}
+.form--label-colado .form-checkbox--tipo-3--personaliza label::before, .form--label-colado .form-radio--tipo-3--personaliza label::before {
+  margin-left: .4em;
+}
+.form--label-colado .form-checkbox--tipo-3--personaliza input:checked ~ label, .form--label-colado .form-radio--tipo-3--personaliza input:checked ~ label {
+  background: #bff1f3;
+}
+.form--label-colado .form-checkbox--tipo-3--personaliza input:checked ~ label::before {
+  content: "\e354";
+}
+.form--label-colado .form-radio--tipo-3--personaliza label::before {
+  border-radius: 50%;
+}
+.form--label-colado .form-checkbox--tipo-3--comum, .form--label-colado .form-radio--tipo-3--comum {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form--label-colado .form-checkbox--tipo-3--comum label, .form--label-colado .form-radio--tipo-3--comum label {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border: 1px #00949a solid;
+}
+input + .form--label-colado .form-checkbox--tipo-3--comum label, input + .form--label-colado .form-radio--tipo-3--comum label {
+  margin-left: -1.5em;
+  padding-left: 2em;
+}
+input:checked ~ .form--label-colado .form-checkbox--tipo-3--comum label, input:checked ~ .form--label-colado .form-radio--tipo-3--comum label {
+  font-weight: bold;
+  color: #003133;
+}
+.form--label-colado .form-checkbox--tipo-3--comum label::before, .form--label-colado .form-radio--tipo-3--comum label::before {
+  margin-left: .4em;
+}
+.form--label-colado .form-checkbox--tipo-3--comum input:checked ~ label, .form--label-colado .form-radio--tipo-3--comum input:checked ~ label {
+  background: #bff1f3;
 }
 
 /*# sourceMappingURL=info.css.map */
