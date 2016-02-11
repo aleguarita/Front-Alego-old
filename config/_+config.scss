@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 10/02/2016 | Acrescentada opção de escolher a transparência do fundo da modal
 // 05/02/2016 | Acrescentado arredondamento da borda dos botões baseados na
 //               variável $rd em variáveis
 // 03/02/2016 | Alterado nome form-field para form-grupo para fazer mais sentido
@@ -87,6 +88,7 @@ $paginacao-fonte: .65rem;
 // MODAL
 // =============================================================================
 $modal-tipo: tipo-1; // 2 tipos
+$modal-transparencia: .15; // entre 0 e 1
 
 // =============================================================================
 // CARDS

@@ -11,11 +11,15 @@ MODAL
 // -----------------------------------------------------------------------------
 // modal.scss
 // Criado em: 01/07/2015
-// Última alteraçãom em: 26/01/2016
+// Última alteraçãom em: 11/02/2016
 // -----------------------------------------------------------------------------
 // Definição dos padrões de modal
 // -----------------------------------------------------------------------------
 // Changelog:
+// 11/02/2016 | Ajustado espaço do botão de fechar no tipo-1
+//              Acrescentado tamanho mínimo da janela
+// 10/02/2016 | Retirado mapa de classes
+//              Inclusão de variável para transparência
 // 26/01/2016 | Retirado os placeholders
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
@@ -31,21 +35,6 @@ MODAL
 $padding-modal-interno: $margem * 2;
 
 // =============================================================================
-// SUBITENS DA MODAL
-// -----------------------------------------------------------------------------
-// Aqui está cada seção que vai receber uma classe. Ao criar a classe .modal
-// será criada cada uma das classes abaixo (sem seletor aninhado).
-// Ex: .modal--titulo
-// =============================================================================
-$modal-sub: (
-  janela,
-  titulo,
-  fechar,
-  conteudo,
-  acoes,
-);
-
-// =============================================================================
 // MIXIN | Configurações básicas
 // =============================================================================
 @mixin modal-estrutura($tag: basico) {
@@ -58,7 +47,7 @@ $modal-sub: (
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: fade-out(cor(modal, fundo), .15);
+    background: fade-out(cor(modal, fundo), $modal-transparencia);
     z-index: z(modal);
     overflow: hidden;
   }
@@ -78,6 +67,7 @@ $modal-sub: (
     }
     @media (min-width: breakpoint(medio)) {
       max-width: 85%;
+      min-width: 25em;
     }
   }
   // ---------------------------------------------------------------------------
@@ -151,6 +141,7 @@ $modal-sub: (
       }
     }
     &__fechar {
+      padding-left: $padding-modal-interno;
       a {
         @include modal-estrutura(fechar);
         color: cor(texto, claro);
