@@ -12,11 +12,12 @@ TOASTER
 // -----------------------------------------------------------------------------
 // toaster.scss
 // Criado em: 20/03/2015
-// Última alteração em: 28/01/2016
+// Última alteração em: 11/02/2016
 // -----------------------------------------------------------------------------
 // Notificações do sistema. Aparecendo de baixo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/02/2016 | Toaster usa cores mais escuras
 // 28/01/2016 | Retirado o uso de placeholders para uso de mixins
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
@@ -160,7 +161,7 @@ $tipos-toaster: (
 		@each $status, $classe in $tipos-toaster {
 			.#{$status} {
 				@if $toaster-tipo == tipo-1 {
-					background: cor-status($classe);
+					background: cor-status(#{$classe}-escuro);
 				}
 				@else if $toaster-tipo == tipo-2 {
 					color: cor-status(#{$classe}-escuro);
