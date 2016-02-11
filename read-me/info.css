@@ -73,7 +73,7 @@ FONTES
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 04/02/2016
+	Última alteração: 05/02/2016
 	------------------------------------------------------------------------------
 */
 /*
@@ -1304,6 +1304,7 @@ MODAL
 @media (min-width: 48rem) {
   .modal__janela {
     max-width: 85%;
+    min-width: 25em;
   }
 }
 .modal__conteudo {
@@ -1335,6 +1336,9 @@ MODAL
   color: #fff;
   margin: 0;
   font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+}
+.modal__fechar {
+  padding-left: 1.25rem;
 }
 .modal__fechar a {
   display: block;
@@ -1431,75 +1435,6 @@ LISTA
   display: block;
   text-decoration: none;
   padding: 0.5rem 0.75rem;
-}
-
-/*
-================================================================================
-CLASSES FIXAS
-================================================================================
-*/
-.oculta {
-  display: none;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.texto--ok {
-  color: #39b54a;
-}
-
-.texto--erro, .texto--urgente {
-  color: #ed1c24;
-}
-
-.texto--alerta {
-  color: #f9bc16;
-}
-
-.fundo--ok, .fundo--erro, .fundo--urgente, .fundo--alerta {
-  color: #fff;
-}
-
-.fundo--ok {
-  background: #39b54a;
-}
-
-.fundo--erro, .fundo--urgente {
-  background: #ed1c24;
-}
-
-.fundo--alerta {
-  background: #f9bc16;
-}
-
-.texto--caixa-alta, .texto--uppercase {
-  text-transform: uppercase;
-}
-
-.fonte--menor, .text--menor {
-  font-size: 0.88889em;
-}
-
-.fonte--x-menor, .text--x-menor {
-  font-size: 0.79012em;
-}
-
-.fonte--xx-menor, .text--xx-menor {
-  font-size: 0.70233em;
-}
-
-.fonte--maior, .text--maior {
-  font-size: 1.125em;
-}
-
-.fonte--x-maior, .text--x-maior {
-  font-size: 1.26563em;
-}
-
-.fonte--xx-maior, .text--xx-maior {
-  font-size: 1.42383em;
 }
 
 /*
@@ -2004,6 +1939,75 @@ SÍMBOLOS
 
 .ico--espaco::before {
   margin-right: .5em;
+}
+
+/*
+================================================================================
+CLASSES FIXAS
+================================================================================
+*/
+.oculta {
+  display: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.texto--ok {
+  color: #39b54a;
+}
+
+.texto--erro, .texto--urgente {
+  color: #ed1c24;
+}
+
+.texto--alerta {
+  color: #f9bc16;
+}
+
+.fundo--ok, .fundo--erro, .fundo--urgente, .fundo--alerta {
+  color: #fff;
+}
+
+.fundo--ok {
+  background: #39b54a;
+}
+
+.fundo--erro, .fundo--urgente {
+  background: #ed1c24;
+}
+
+.fundo--alerta {
+  background: #f9bc16;
+}
+
+.texto--caixa-alta, .texto--uppercase {
+  text-transform: uppercase;
+}
+
+.fonte--menor, .text--menor {
+  font-size: 0.88889em;
+}
+
+.fonte--x-menor, .text--x-menor {
+  font-size: 0.79012em;
+}
+
+.fonte--xx-menor, .text--xx-menor {
+  font-size: 0.70233em;
+}
+
+.fonte--maior, .text--maior {
+  font-size: 1.125em;
+}
+
+.fonte--x-maior, .text--x-maior {
+  font-size: 1.26563em;
+}
+
+.fonte--xx-maior, .text--xx-maior {
+  font-size: 1.42383em;
 }
 
 /*
@@ -2545,6 +2549,10 @@ HEADER
 
 .codigo-bt--secundario::before {
   content: "tipo-5";
+}
+
+.codigo-modal-tipo::before {
+  content: "tipo-1";
 }
 
 .codigo-bp--pequeno::before {
@@ -6253,5 +6261,265 @@ Imagino que você deve estar se perguntando "hey, cadê os botões?"
 Procure na configuração mais básica pq estas coisas não escrevem aqui e sim
 fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
 */
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | modal
+================================================================================
+*/
+#modal .secao-lista__conteudo {
+  position: relative;
+  min-height: 25em;
+}
+
+.modal--demo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 4;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.modal--demo__janela {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+@media (max-width: 48rem) {
+  .modal--demo__janela {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (min-width: 48rem) {
+  .modal--demo__janela {
+    max-width: 85%;
+    min-width: 25em;
+  }
+}
+.modal--demo__conteudo {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  padding: 1.25rem;
+}
+.modal--demo__acoes {
+  padding: 1.25rem;
+  text-align: right;
+}
+.modal--demo__acoes * + * {
+  margin-left: 1.25rem;
+}
+.modal--demo__titulo {
+  padding: 0.625rem 1.25rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  align-items: baseline;
+  background: #00949a;
+}
+.modal--demo__titulo h1 {
+  text-transform: uppercase;
+  font-size: 1.375rem;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  color: #fff;
+  margin: 0;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+}
+.modal--demo__fechar {
+  padding-left: 1.25rem;
+}
+.modal--demo__fechar a {
+  display: block;
+  text-decoration: none;
+  transition: all 0.5s ease 0s;
+  color: #fff;
+}
+.modal--demo__fechar a:hover {
+  text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+.modal--tipo-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 4;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.modal--tipo-1__janela {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+@media (max-width: 48rem) {
+  .modal--tipo-1__janela {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (min-width: 48rem) {
+  .modal--tipo-1__janela {
+    max-width: 85%;
+    min-width: 25em;
+  }
+}
+.modal--tipo-1__conteudo {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  padding: 1.25rem;
+}
+.modal--tipo-1__acoes {
+  padding: 1.25rem;
+  text-align: right;
+}
+.modal--tipo-1__acoes * + * {
+  margin-left: 1.25rem;
+}
+.modal--tipo-1__titulo {
+  padding: 0.625rem 1.25rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  align-items: baseline;
+  background: #00949a;
+}
+.modal--tipo-1__titulo h1 {
+  text-transform: uppercase;
+  font-size: 1.375rem;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  color: #fff;
+  margin: 0;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+}
+.modal--tipo-1__fechar {
+  padding-left: 1.25rem;
+}
+.modal--tipo-1__fechar a {
+  display: block;
+  text-decoration: none;
+  transition: all 0.5s ease 0s;
+  color: #fff;
+}
+.modal--tipo-1__fechar a:hover {
+  text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+.modal--tipo-2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 4;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.modal--tipo-2__janela {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+@media (max-width: 48rem) {
+  .modal--tipo-2__janela {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (min-width: 48rem) {
+  .modal--tipo-2__janela {
+    max-width: 85%;
+    min-width: 25em;
+  }
+}
+.modal--tipo-2__conteudo {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  padding: 1.25rem;
+}
+.modal--tipo-2__acoes {
+  padding: 1.25rem;
+  text-align: right;
+}
+.modal--tipo-2__acoes * + * {
+  margin-left: 1.25rem;
+}
+.modal--tipo-2__titulo {
+  padding: 0.625rem 1.25rem;
+}
+.modal--tipo-2__titulo h1 {
+  text-transform: uppercase;
+  font-size: 1.375rem;
+  text-align: center;
+  color: #4d4d4d;
+  width: calc(100% - 1.25rem);
+}
+.modal--tipo-2__fechar {
+  position: fixed;
+  right: 1.25rem;
+  top: 1rem;
+}
+.modal--tipo-2__fechar a {
+  display: block;
+  text-decoration: none;
+  transition: all 0.5s ease 0s;
+  padding: .3em .5em;
+  font-size: 60%;
+  color: #4d4d4d;
+}
+.modal--tipo-2__fechar a:hover {
+  box-shadow: 0 0 6px rgba(77, 77, 77, 0.5);
+}
 
 /*# sourceMappingURL=info.css.map */

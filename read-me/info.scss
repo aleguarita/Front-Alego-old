@@ -489,6 +489,8 @@ $codigo-selecionado: (
 
   bt: $botao-tipo,
   bt--secundario: $botao-secundario,
+
+  modal-tipo: if(index($uso-classes, modal), $modal-tipo, 'nenhum'),
 );
 
 @each $classe, $valor in $codigo-selecionado {
@@ -1012,3 +1014,27 @@ Imagino que você deve estar se perguntando "hey, cadê os botões?"
 Procure na configuração mais básica pq estas coisas não escrevem aqui e sim
 fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
 */
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | modal
+================================================================================
+*/
+#modal .secao-lista__conteudo {
+  position: relative;
+  min-height: 25em;
+}
+.modal--demo {
+  @include modal($modal-tipo);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+$modal-tipos: tipo-1, tipo-2;
+@each $modal in $modal-tipos {
+  .modal--#{$modal} {
+    @include modal($modal);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
