@@ -2555,6 +2555,26 @@ HEADER
   content: "tipo-1";
 }
 
+.codigo-toaster-tipo::before {
+  content: "tipo-1";
+}
+
+.codigo-toaster-horizontal::before {
+  content: "right";
+}
+
+.codigo-toaster-vertical::before {
+  content: "bottom";
+}
+
+.codigo-toaster-distancia::before {
+  content: "2em";
+}
+
+.codigo-toaster-distancia-vertical::before {
+  content: "1";
+}
+
 .codigo-bp--pequeno::before {
   content: "30rem";
 }
@@ -6520,6 +6540,247 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
 }
 .modal--tipo-2__fechar a:hover {
   box-shadow: 0 0 6px rgba(77, 77, 77, 0.5);
+}
+
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | toaster
+================================================================================
+*/
+.toaster--demo {
+  position: relative;
+  min-height: 25em;
+}
+
+.toast--demo {
+  list-style: none;
+  padding-left: 0;
+  position: fixed;
+  margin: 0;
+  width: 18.75rem;
+  right: 2em;
+  bottom: 2em;
+  z-index: 5;
+  position: absolute;
+}
+.toast--demo li {
+  position: relative;
+  padding: 1.5em;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  margin-top: 1.5em;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.toast--demo .close {
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: -.8em;
+  display: block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1;
+  border: 0;
+}
+.toast--demo .success {
+  background: #009444;
+}
+.toast--demo .success .close {
+  color: #39b54a;
+}
+.toast--demo .success .close:hover {
+  background: #009444;
+  color: #fff;
+}
+.toast--demo .error {
+  background: #be1e2d;
+}
+.toast--demo .error .close {
+  color: #ed1c24;
+}
+.toast--demo .error .close:hover {
+  background: #be1e2d;
+  color: #fff;
+}
+.toast--demo .alert {
+  background: #efb106;
+}
+.toast--demo .alert .close {
+  color: #f9bc16;
+}
+.toast--demo .alert .close:hover {
+  background: #efb106;
+  color: #fff;
+}
+.toast--demo .info {
+  background: #000;
+}
+.toast--demo .info .close {
+  color: #4d4d4d;
+}
+.toast--demo .info .close:hover {
+  background: #000;
+  color: #fff;
+}
+
+.toast--tipo-1 {
+  list-style: none;
+  padding-left: 0;
+  position: fixed;
+  margin: 0;
+  width: 18.75rem;
+  right: 2em;
+  bottom: 2em;
+  z-index: 5;
+  position: absolute;
+}
+.toast--tipo-1 li {
+  position: relative;
+  padding: 1.5em;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  margin-top: 1.5em;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.toast--tipo-1 .close {
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: -.8em;
+  display: block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1;
+  border: 0;
+}
+.toast--tipo-1 .success {
+  background: #009444;
+}
+.toast--tipo-1 .success .close {
+  color: #39b54a;
+}
+.toast--tipo-1 .success .close:hover {
+  background: #009444;
+  color: #fff;
+}
+.toast--tipo-1 .error {
+  background: #be1e2d;
+}
+.toast--tipo-1 .error .close {
+  color: #ed1c24;
+}
+.toast--tipo-1 .error .close:hover {
+  background: #be1e2d;
+  color: #fff;
+}
+.toast--tipo-1 .alert {
+  background: #efb106;
+}
+.toast--tipo-1 .alert .close {
+  color: #f9bc16;
+}
+.toast--tipo-1 .alert .close:hover {
+  background: #efb106;
+  color: #fff;
+}
+.toast--tipo-1 .info {
+  background: #000;
+}
+.toast--tipo-1 .info .close {
+  color: #4d4d4d;
+}
+.toast--tipo-1 .info .close:hover {
+  background: #000;
+  color: #fff;
+}
+
+.toast--tipo-2 {
+  list-style: none;
+  padding-left: 0;
+  position: fixed;
+  margin: 0;
+  width: 18.75rem;
+  right: 2em;
+  bottom: 2em;
+  z-index: 5;
+  position: absolute;
+}
+.toast--tipo-2 li {
+  position: relative;
+  padding: 1.5em;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  margin-top: 1.5em;
+  border: 3px solid;
+  background: #fff;
+}
+.toast--tipo-2 .close {
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: -.8em;
+  display: block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1;
+  border: 1px solid;
+}
+.toast--tipo-2 .success {
+  color: #009444;
+}
+.toast--tipo-2 .success .close {
+  color: #39b54a;
+}
+.toast--tipo-2 .success .close:hover {
+  background: #009444;
+  color: #fff;
+}
+.toast--tipo-2 .error {
+  color: #be1e2d;
+}
+.toast--tipo-2 .error .close {
+  color: #ed1c24;
+}
+.toast--tipo-2 .error .close:hover {
+  background: #be1e2d;
+  color: #fff;
+}
+.toast--tipo-2 .alert {
+  color: #efb106;
+}
+.toast--tipo-2 .alert .close {
+  color: #f9bc16;
+}
+.toast--tipo-2 .alert .close:hover {
+  background: #efb106;
+  color: #fff;
+}
+.toast--tipo-2 .info {
+  color: #000;
+}
+.toast--tipo-2 .info .close {
+  color: #4d4d4d;
+}
+.toast--tipo-2 .info .close:hover {
+  background: #000;
+  color: #fff;
 }
 
 /*# sourceMappingURL=info.css.map */

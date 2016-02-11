@@ -491,6 +491,12 @@ $codigo-selecionado: (
   bt--secundario: $botao-secundario,
 
   modal-tipo: if(index($uso-classes, modal), $modal-tipo, 'nenhum'),
+
+  toaster-tipo: if(index($uso-classes, toaster), $toaster-tipo, 'nenhum'),
+  toaster-horizontal: $toaster-horizontal,
+  toaster-vertical: $toaster-vertical,
+  toaster-distancia: $toaster-distancia,
+  toaster-distancia-vertical: $toaster-distancia-vertical,
 );
 
 @each $classe, $valor in $codigo-selecionado {
@@ -1036,5 +1042,59 @@ $modal-tipos: tipo-1, tipo-2;
     position: absolute;
     width: 100%;
     height: 100%;
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | toaster
+================================================================================
+*/
+.toaster--demo {
+  position: relative;
+  min-height: 25em;
+}
+.toast--demo {
+  @include toaster($toaster-tipo);
+  position: absolute;
+  @each $status, $classe in $tipos-toaster {
+    .#{$status} {
+      @if $toaster-tipo == tipo-1 {
+        background: cor-status(#{$classe}-escuro);
+      }
+      @else if $toaster-tipo == tipo-2 {
+        color: cor-status(#{$classe}-escuro);
+      }
+      .close {
+        color: cor-status($classe);
+        &:hover {
+          background: cor-status(#{$classe}-escuro);
+          color: cor(texto, claro);
+        }
+      }
+    }
+  }
+}
+$toaster-tipos: tipo-1, tipo-2;
+@each $toast in $toaster-tipos {
+  .toast--#{$toast} {
+    @include toaster($toast);
+    position: absolute;
+    @each $status, $classe in $tipos-toaster {
+      .#{$status} {
+        @if $toast == tipo-1 {
+          background: cor-status(#{$classe}-escuro);
+        }
+        @else if $toast == tipo-2 {
+          color: cor-status(#{$classe}-escuro);
+        }
+        .close {
+          color: cor-status($classe);
+          &:hover {
+            background: cor-status(#{$classe}-escuro);
+            color: cor(texto, claro);
+          }
+        }
+      }
+    }
   }
 }
