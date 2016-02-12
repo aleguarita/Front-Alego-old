@@ -85,7 +85,7 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
     & + & {
       margin-top: $calha;
     }
-    @media (min-width: breakpoint(pequeno)) {
+    @include media-tipo(pequeno) {
       *:first-child {
         padding-left: 0;
       }
@@ -142,7 +142,7 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
     @include flex(1);
   }
   .field--responsivo {
-    @media (max-width: breakpoint(pequeno)) {
+    @include media-tipo(pequeno, max) {
       min-width: 100%;
     }
   }

@@ -61,11 +61,11 @@ $padding-modal-interno: $margem * 2;
     background: cor(fundo, x-claro);
     box-shadow: $sombra-modal;
     overflow: auto;
-    @media (max-width: breakpoint(medio)) {
+    @include media-tipo(medio, max) {
       width: 100%;
       height: 100%;
     }
-    @media (min-width: breakpoint(medio)) {
+    @include media-tipo(medio) {
       max-width: 85%;
       min-width: 25em;
     }

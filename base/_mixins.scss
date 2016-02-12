@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 03/02/2016
+// Última alteração: 12/02/2016
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -19,6 +19,7 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 12/02/2016 | Aperfeiçoado o mixin media-tipo para inclusão de tamanho maior
 // 03/02/2016 | Removido o mixin link-bloco e acrescentado como opção no mixin
 // 							link existente em config/_tipografia.scss
 // 18/01/2016 | Transferindo placeholders para mixins
@@ -77,7 +78,7 @@
 // =============================================================================
 // MEDIA-QUERY
 // -----------------------------------------------------------------------------
-// Para determinar propriedades responsivas, utilizando mobile-first.
+// Para determinar propriedades responsivas, utilizando mobile-first como padrão.
 // -----------------------------------------------------------------------------
 // Como usar:
 // Este mixin faz uso da função breakpoint (ver o arquivo). Basta digitar o
@@ -87,9 +88,15 @@
 // 		insira aqui a configuração
 // 	}
 // }
+// Se preferir colocar medida como no máximo aquela largura, use:
+// .seletor {
+// 	@include media-tipo(medio, max) {
+// 		insira aqui a configuração
+// 	}
+// }
 // =============================================================================
-@mixin media-tipo($breakpoint) {
-	@media (min-width: breakpoint($breakpoint)) {
+@mixin media-tipo($breakpoint, $medida: min) {
+	@media (#{$medida}-width: breakpoint($breakpoint)) {
 		@content;
 	}
 }
@@ -277,16 +284,16 @@
   // ---------------------------------------------------------------------------
   > * {
     margin: 0 $margem $margem 0;
+		// se a largura mínima for definida
+		@if $largura-minima != null {
+			min-width: $largura-minima;
+		}
     // se a largura não for definida, pega a largura baseada em porcentagem
     @if $largura == null {
       max-width: calc(#{$largura-porcentagem} - #{$medida-margem});
       width: calc(#{$largura-porcentagem} - #{$medida-margem});
     } @else {
       width: $largura;
-    }
-    // se a largura mínima for definida
-    @if $largura-minima != null {
-      min-width: $largura-minima;
     }
     // retira a margem da direita do elemento da direita
     &:nth-child(#{$qtd}n) {

@@ -88,8 +88,8 @@
           <ul class="lista--link">
             <li><a href="#funcoes">Funções</a></li>
             <li><a href="#mixins">Mixins</a></li>
-            <li>Classes</li> <!-- liste aqui todas as classes -->
-            <li>Variáveis</li>
+            <!-- <li>Classes</li> <!-- liste aqui todas as classes --> -->
+            <!-- <li>Variáveis</li> -->
           </ul>
         </div>
       </nav>
@@ -1341,15 +1341,15 @@
                 <dt><samp>extra-grande</samp></dt>
                   <dd>Pega medidas de notebook para cima.</dd>
               </dl>
-              <p>Quando você especifica <samp>min-width</samp> você vai estar selecionando um valor maior que aquele. Portanto, <samp>min-width: pequeno</samp> vai pegar acima da tela pequena (mas ela não está incluída), assim como <samp>min-width: medio</samp> vai pegar telas maiores que as médias.</p>
-              <p>Quando você especifica um valor com a de <samp>max-width</samp> ele vai pegar daquela medida para baixo. Por exemplo <samp>max-width: pequeno</samp> vai pegar somente telas pequenas, enquanto <samp>max-width: medio</samp> vai pegar de tamanho médio para baixo.</p>
+              <p>Quando você especifica <samp>min-width</samp> você vai estar selecionando um valor maior que aquele. Portanto, <samp>min-width: breakpoint(pequeno)</samp> vai pegar acima da tela pequena (mas ela não está incluída), assim como <samp>min-width: breakpoint(medio)</samp> vai pegar telas maiores que as médias.</p>
+              <p>Quando você especifica um valor com a de <samp>max-width</samp> ele vai pegar daquela medida para baixo. Por exemplo <samp>max-width: breakpoint(pequeno)</samp> vai pegar somente telas pequenas, enquanto <samp>max-width: breakpoint(medio)</samp> vai pegar de tamanho médio para baixo.</p>
               <p>Para chamar a media query você pode digitar <samp>@media</samp> da maneira tradicional ou utilizar o mixin <samp>media-tipo</samp>:</p>
               <dl class="lista-definicao">
-                <dt><samp>media-tipo(medida)</samp></dt>
-                  <dd>Este mixin chama a media query pensando na técnica <em>mobile first</em> (utilizando <samp>min-width</samp>). A <samp>medida</samp> é uma das descritas na lista acima.</dd>
+                <dt><samp>media-tipo(breakpoint, medida)</samp></dt>
+                  <dd>Este mixin chama a media query pensando na técnica <em>mobile first</em> (utilizando <samp>min-width</samp>) como <strong>Valor padrão</strong>. O <samp>breakpoint</samp> é um dos descritos na lista acima.</dd>
               </dl>
               <h2>Como trabalhar Media Query</h2>
-              <p>No caso de <strong>mobile first</strong> basta usar o mixin:</p>
+              <p>No caso de <strong>mobile first</strong> basta usar o mixin omitindo a <samp>medida</samp>:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
                 <p>.classe {</p>
@@ -1370,6 +1370,16 @@
                 <p>}</p>
               </code>
               <p>Se não for o caso de <strong>mobile first</strong>, pode ser:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.classe {</p>
+                  <p class="recuo-1">...</p>
+                  <p class="recuo-1">@include media-tipo(pequeno, max) {</p>
+                    <p class="recuo-2">...</p>
+                  <p class="recuo-1">}</p>
+                <p>}</p>
+              </code>
+              <p>Ou assim, se for sem o mixin:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
                 <p>.classe {</p>
@@ -4088,8 +4098,8 @@
               <dl class="lista-definicao">
                 <dt><samp>prefixo(declaração, prefixos)</samp></dt>
                   <dd>Este mixin é para ser usado na criação de outros mixins que simplifiquem o acréscimo de <em>vendor prefix</em>. Diversas propriedades de CSS3 já tem prefixos tanto no Front-Alego como no <a href="http://bourbon.io" class="link--externo">Bourbon</a></dd>
-                <dt><samp>media-tipo(medida)</samp></dt>
-                  <dd>Este mixin chama a media query pensando na técnica <em>mobile first</em> (utilizando <samp>min-width</samp>). A <samp>medida</samp> é uma das descritas <a href="#responsive" class="link--readme">aqui</a></dd>
+                <dt><samp>media-tipo(breakpoint, medida)</samp></dt>
+                  <dd>Este mixin chama a media query pensando na técnica <em>mobile first</em> (utilizando <samp>min-width</samp>) como <strong>Valor padrão</strong>. O <samp>breakpoint</samp> é um dos descritos <a href="#responsive" class="link--readme">aqui</a></dd>
               </dl>
               <p><strong>Mixins de <em>vendor prefixes</em>.</strong> Para usar propriedades de CSS que dependem de prefixos de browser.</p>
               <dl class="lista-definicao">
@@ -4209,10 +4219,12 @@
             </header>
             <section class="secao-lista__conteudo">
               <p>Este mixin serve para determinar propriedades responsivas, utilizando mobile-first.</p>
-              <p><strong>Sintaxe: </strong> <samp>@include media-tipo($breakpoint)</samp></p>
+              <p><strong>Sintaxe: </strong> <samp>@include media-tipo($breakpoint, $medida)</samp></p>
               <dl class="lista-definicao">
                 <dt><samp>$breakpoint</samp></dt>
                   <dd>Qual o breakpoint a ser usado. Não coloque um valor em números e sim um dos valores disponíveis no mapa <samp>$breakpoints</samp>. <a href="#responsive" class="link--readme">Veja aqui quais são os valores</a></dd>
+                <dt><samp>$medida</samp></dt>
+                  <dd>Defina se a media query vai ser no máximo ou no mínimo aquele tamanho. Valores: <samp>min</samp> | <samp>max</samp>. <strong>Valor padrão:</strong> <samp>min</samp> (por padrão este mixin trabalha com mobile first).</dd>
               </dl>
               <p>Exemplo de uso:</p>
               <code class="codigo--sass">
