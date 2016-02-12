@@ -1219,7 +1219,7 @@ TOASTER
   border: 0;
 }
 .toast .success {
-  background: #39b54a;
+  background: #009444;
 }
 .toast .success .close {
   color: #39b54a;
@@ -1229,7 +1229,7 @@ TOASTER
   color: #fff;
 }
 .toast .error {
-  background: #ed1c24;
+  background: #be1e2d;
 }
 .toast .error .close {
   color: #ed1c24;
@@ -1239,7 +1239,7 @@ TOASTER
   color: #fff;
 }
 .toast .alert {
-  background: #f9bc16;
+  background: #efb106;
 }
 .toast .alert .close {
   color: #f9bc16;
@@ -1249,7 +1249,7 @@ TOASTER
   color: #fff;
 }
 .toast .info {
-  background: #4d4d4d;
+  background: #000;
 }
 .toast .info .close {
   color: #4d4d4d;
@@ -2347,6 +2347,7 @@ HEADER
   .menu {
     position: fixed;
     width: 11em;
+    padding-bottom: 40rem;
   }
 }
 .menu ul {
@@ -2573,6 +2574,14 @@ HEADER
 
 .codigo-toaster-distancia-vertical::before {
   content: "1";
+}
+
+.codigo-secao-lista-tipo::before {
+  content: "tipo-1";
+}
+
+.codigo-secao-lista-titulo::before {
+  content: "3";
 }
 
 .codigo-bp--pequeno::before {
@@ -6781,6 +6790,103 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
 .toast--tipo-2 .info .close:hover {
   background: #000;
   color: #fff;
+}
+
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | seção-lista
+================================================================================
+*/
+.secao-lista--tipo-1 {
+  border: 1px solid #00949a;
+}
+.secao-lista--tipo-1 + .secao-lista--tipo-1 {
+  margin-top: 1px;
+}
+.secao-lista--tipo-1__check {
+  display: none;
+}
+.secao-lista--tipo-1__check:checked ~ .secao-lista__conteudo {
+  display: none;
+}
+.secao-lista--tipo-1__check:checked ~ .secao-lista__header .secao-lista__icone {
+  transform: rotate(-90deg);
+}
+.secao-lista--tipo-1__header {
+  padding: 0.3125rem 0.625rem;
+  font-size: 1.70859rem;
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  background: #bff1f3;
+  color: #00949a;
+  background: #00949a;
+  color: #fff;
+}
+.secao-lista--tipo-1__header label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+.secao-lista--tipo-1__titulo {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.secao-lista--tipo-1__icone {
+  display: block;
+  font-family: "font-alego";
+  transition: all 0.5s ease 0s;
+}
+.secao-lista--tipo-1__icone::before {
+  content: "\f107";
+}
+.secao-lista--tipo-1__conteudo {
+  padding: 0.625rem;
+  border-top: 1px dashed #00949a;
+}
+
+.secao-lista--tipo-2 {
+  border: 1px solid #00949a;
+}
+.secao-lista--tipo-2 + .secao-lista--tipo-2 {
+  margin-top: 1px;
+}
+.secao-lista--tipo-2__check {
+  display: none;
+}
+.secao-lista--tipo-2__check:checked ~ .secao-lista__conteudo {
+  display: none;
+}
+.secao-lista--tipo-2__check:checked ~ .secao-lista__header .secao-lista__icone {
+  transform: rotate(-90deg);
+}
+.secao-lista--tipo-2__header {
+  padding: 0.3125rem 0.625rem;
+  font-size: 1.70859rem;
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  background: #bff1f3;
+  color: #00949a;
+}
+.secao-lista--tipo-2__header label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+.secao-lista--tipo-2__titulo {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.secao-lista--tipo-2__icone {
+  display: block;
+  font-family: "font-alego";
+  transition: all 0.5s ease 0s;
+}
+.secao-lista--tipo-2__icone::before {
+  content: "\f107";
+}
+.secao-lista--tipo-2__conteudo {
+  padding: 0.625rem;
+  border-top: 1px dashed #00949a;
 }
 
 /*# sourceMappingURL=info.css.map */

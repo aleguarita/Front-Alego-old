@@ -387,6 +387,7 @@ main {
   @media (min-width: breakpoint(pequeno)) {
     position: fixed;
     width: 11em;
+    padding-bottom: 40rem;
   }
   ul {
     margin: 0;
@@ -497,6 +498,9 @@ $codigo-selecionado: (
   toaster-vertical: $toaster-vertical,
   toaster-distancia: $toaster-distancia,
   toaster-distancia-vertical: $toaster-distancia-vertical,
+
+  secao-lista-tipo: if(index($uso-classes, secao-lista), $secao-lista-tipo, 'nenhum'),
+  secao-lista-titulo: $secao-lista-titulo,
 );
 
 @each $classe, $valor in $codigo-selecionado {
@@ -1096,5 +1100,16 @@ $toaster-tipos: tipo-1, tipo-2;
         }
       }
     }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | seção-lista
+================================================================================
+*/
+$secao-lista-tipos: tipo-1, tipo-2;
+@each $item in $secao-lista-tipos {
+  .secao-lista--#{$item} {
+    @include secao-lista($item);
   }
 }
