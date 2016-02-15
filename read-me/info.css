@@ -73,7 +73,7 @@ FONTES
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 05/02/2016
+	Última alteração: 15/02/2016
 	------------------------------------------------------------------------------
 */
 /*
@@ -2051,6 +2051,25 @@ article:last-of-type {
   padding-bottom: 0;
 }
 
+figure {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+figure img {
+  margin-right: 0.625rem;
+}
+figure legend {
+  -webkit-flex: 1;
+  flex: 1;
+  font-size: 0.8428rem;
+  vertical-align: bottom;
+  font-weight: bold;
+  color: gray;
+}
+
 /*
 ================================================================================
 CLASSES
@@ -2274,6 +2293,34 @@ CLASSES
 .aviso--grave::before {
   content: "\e035";
   background: rgba(240, 73, 79, 0.15);
+}
+
+.grupo-img {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: space-between;
+  align-content: space-between;
+}
+.grupo-img > * {
+  margin: 0 1.25rem 1.25rem 0;
+  max-width: calc(50% - 0.625rem);
+  width: calc(50% - 0.625rem);
+}
+.grupo-img > *:nth-child(2n) {
+  margin-right: 0;
+}
+
+.img-code {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.img-code code {
+  -webkit-flex: 1;
+  flex: 1;
 }
 
 /*

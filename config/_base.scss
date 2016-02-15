@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 05/02/2016
+	Última alteração: 15/02/2016
 	------------------------------------------------------------------------------
 */
 // app.scss
@@ -33,6 +33,7 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 15/02/2016 | Inclusão dos sprites
 // 05/02/2016 | O arquivo de classes e ícones foram colocados no final do
 // 							arquivo para que eles tenham prioridade ao alterar um tag
 // 04/02/2016 | Alterada a ordem dos arquivos de formulário
@@ -97,6 +98,7 @@
 @import "../base/modal";
 @import "../base/secao_lista";
 @import "../base/lista";
+@import "../base/sprites";
 
 // Formatações especiais
 @import "simbolos";

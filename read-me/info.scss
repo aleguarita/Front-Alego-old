@@ -83,6 +83,20 @@ article {
     padding-bottom: 0;
   }
 }
+figure {
+  @include display-flex;
+  @include align-items(flex-end);
+  img {
+    margin-right: $margem;
+  }
+  legend {
+    @include flex(1);
+    font-size: $tamanho-fonte-textos;
+    vertical-align: bottom;
+    font-weight: bold;
+    color: cor(texto, medio);
+  }
+}
 
 /*
 ================================================================================
@@ -319,7 +333,18 @@ $i: 1;
 .tecla-atalho {
 
 }
-
+// -----------------------------------------------------------------------------
+// Grupos de imagens
+// -----------------------------------------------------------------------------
+.grupo-img {
+  @include grupo-flex(2);
+}
+.img-code {
+  @include display-flex;
+  code {
+    @include flex(1);
+  }
+}
 /*
 ================================================================================
 HEADER
