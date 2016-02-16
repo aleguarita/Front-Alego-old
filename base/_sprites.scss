@@ -11,10 +11,12 @@ SPRITES
 // -----------------------------------------------------------------------------
 // sprites.scss
 // Criado em: 15/02/2016
+// Última alteração em: 16/02/2016
 // -----------------------------------------------------------------------------
 // Definição dos padrões de modal
 // -----------------------------------------------------------------------------
 // Changelog:
+// 16/02/2016 | Agora coloca-se o nome do arquivo no arquivo de configurações
 // 15/02/2016 | Criado o arquivo
 // =============================================================================
 
@@ -41,7 +43,7 @@ $mod-w: 1;
       @else if length($mapa) == 4 {
         $mod-h: nth($mapa, 4);
       }
-      background: url(sprite.#{$sprite-formato}) no-repeat $x $y;
+      background: url(#{$sprite-arquivo}) no-repeat $x $y;
       width: $sprite-medida * $mod-w;
       height: $sprite-medida * $mod-h;
     }

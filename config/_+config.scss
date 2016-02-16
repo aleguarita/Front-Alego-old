@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 15/02/2016
+// Última alteração em: 16/02/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 16/02/2016 | Mudada variável de sprite formato para arquivo
 // 15/02/2016 | Acrescentado sprites
 // 10/02/2016 | Acrescentada opção de escolher a transparência do fundo da modal
 // 05/02/2016 | Acrescentado arredondamento da borda dos botões baseados na
@@ -144,7 +145,7 @@ $secao-lista-titulo: 3;
 // =============================================================================
 // SPRITES
 // =============================================================================
-$sprite-formato: png;
+$sprite-arquivo: sprite.png;
 $sprite-medida: 150px;
 // mapa que cria as classes
 // os valores obrigatórios depois do nome é a posição na grid
