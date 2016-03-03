@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 12/02/2016
+// Última alteração: 03/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -19,6 +19,7 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 03/03/2016 | Atualizado mixin grupo-flex para ser responsivo
 // 12/02/2016 | Aperfeiçoado o mixin media-tipo para inclusão de tamanho maior
 // 03/02/2016 | Removido o mixin link-bloco e acrescentado como opção no mixin
 // 							link existente em config/_tipografia.scss
@@ -231,48 +232,75 @@
 }
 
 // =============================================================================
-// GRUPO flex
+// GRUPO FLEX
 // -----------------------------------------------------------------------------
 // Cria um grupo de Flex-box de mesmo tamanho, igualmente distribuido.
+// É possível fazer responsivo (decidindo quantidade de caixa por medida de tela)
+// Aceita inserir configuração do elemento filho
+// -----------------------------------------------------------------------------
+// ESTE MIXIN FAZ USO DE OUTRO MIXIN E TAMBÉM DE FUNÇÕES CRIADAS PARA ELE
 // -----------------------------------------------------------------------------
 // Variáveis e o que significam:
 //  $qtd
-//     Determina a quantidade de caixas por linha. VALOR OBRIGATÓRIO
+//     Uma mapa que determina a quantidade de caixas por linha. VALOR OBRIGATÓRIO
+// 		 POR SER MAPA, DEVE APARECER ENTRE PARÊNTESES, se tiver mais de um valor
 //  $margem
 //     Determina o espaço entre os elementos. Por padrão está 10px (convertido
 //     em rem).
 //     O valor pode ser 0 (sem margem)
-//  $largura
-//     A largura fixa do elemento. Use o valor que achar melhor.
-//     Valor opcional. Se não usar ele vai usar a porcentagem do elemento pai.
-//  $largura-minima
-//     A largura mínima do objeto. Use o valor que achar melhor.
-//     Use este elemento caso decida não determinar o valor da largura (deixando
-//     em porcentagem).
-//     Valor opcional. Se não usar, não acontece nada.
+//  ESTE MIXIN ACEITA COLOCAR FORMATAÇÃO ESPECÍFICA PARA O ELEMENTO FILHO
 // -----------------------------------------------------------------------------
 // Exemplos de uso:
 // .classe {
-//   @include grupo-flex(5); -> coloca 5 caixas por linha, com valores padrão
-//   @include grupo-flex(5, 20); -> 5 caixas/linha com margem de 20px
-//   @include grupo-flex(5, $largura: 300px); -> 5 caixas com largura 300px
-//   @include grupo-flex(5, $largura-minima: 300px); -> 5 caixas de no mínimo 300px
+//   @include grupo-flex(5); -> coloca 5 caixas por linha, para todos os elementos
+//   @include grupo-flex(5, 20px); -> 5 caixas/linha com margem de 20px
+//   @include grupo-flex((1, 5)); -> coloca 5 caixas por linha, mas 1 por linha
+// 			em smartphone
+// 	 @include grupo-flex((1, 5), rem(20)); -> coloca 5 caixas por linha, mas
+// 			1 por linha em smartphone e com margem de 20px (convertidos para REM)
+// 	 @include grupo-flex((1, 2, 3, 4)); -> coloca 1 caixa por linha em smartphone
+// 			2 por linha em smartphone deitado (ou tablet em pé), 3 por linha em
+// 			tablet, 4 por linha em desktop
 // }
 // =============================================================================
-@mixin grupo-flex(
-  $qtd,
-  $margem: $calha * 2,
-  $largura: null,
-  $largura-minima: null
-) {
-  // cálculos das medidas a serem usadas
-  // ---------------------------------------------------------------------------
+// GRUPO FLEX | FUNCÕES
+// -----------------------------------------------------------------------------
+@function grupo-flex__largura($qtd, $margem) {
   // largura de cada elemento SEM a margem
   $largura-porcentagem: 100% / $qtd;
   // calcula a quantidade total de margens aplicadas
   // depois divide pela quantidade  de elementos
   $total-margem: $margem * ($qtd - 1);
   $medida-margem: $total-margem / $qtd;
+  @return if($largura-porcentagem != 100%, calc(#{$largura-porcentagem} - #{$medida-margem}), 100%);
+}
+@function grupo-flex__margem($qtd, $margem) {
+  @return if($qtd == 1, 0 0 $margem, 0 $margem $margem 0);
+}
+// -----------------------------------------------------------------------------
+// GRUPO FLEX | MIXIN PARA USO INTERNO
+// -----------------------------------------------------------------------------
+@mixin grupo-flex__conteudo($qtd, $margem) {
+  margin: grupo-flex__margem($qtd, $margem);
+  width: grupo-flex__largura($qtd, $margem);
+  // verifica se a quantidade é maior que 1, se for, limpa a margem;
+  @if $qtd > 1 {
+    &:nth-child(#{$qtd}n) {
+      margin-right: 0;
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// GRUPO FLEX | MIXIN FINAL
+// -----------------------------------------------------------------------------
+@mixin grupo-flex($qtd: (), $margem: $calha * 2) {
+  // cálculos
+  // ---------------------------------------------------------------------------
+  $qtd-total: length($qtd);
+  $qtd-p: nth($qtd, 1);
+  $qtd-m: if($qtd-total >= 2, nth($qtd, 2), null);
+  $qtd-g: if($qtd-total >= 3, nth($qtd, 3), null);
+  $qtd-xg: if($qtd-total >= 4, nth($qtd, 4), null);
 
   // regras do elemento pai
   // ---------------------------------------------------------------------------
@@ -280,28 +308,100 @@
   @include flex-wrap;
   @include align-content(space-between);
 
-  // regras dos elementos filho
+	// regras dos elementos filho
   // ---------------------------------------------------------------------------
   > * {
-    margin: 0 $margem $margem 0;
-		// se a largura mínima for definida
-		@if $largura-minima != null {
-			min-width: $largura-minima;
-		}
-    // se a largura não for definida, pega a largura baseada em porcentagem
-    @if $largura == null {
-      max-width: calc(#{$largura-porcentagem} - #{$medida-margem});
-      width: calc(#{$largura-porcentagem} - #{$medida-margem});
-    } @else {
-      width: $largura;
+    @content;
+    // verifica se só tem um valor
+    @if $qtd-m == null {
+      @include grupo-flex__conteudo($qtd-p, $margem);
     }
-    // retira a margem da direita do elemento da direita
-    &:nth-child(#{$qtd}n) {
-      margin-right: 0;
+    // verifica se a tela maior é a média
+    @else if $qtd-g == null {
+      @include media-tipo(pequeno, max) {
+        @include grupo-flex__conteudo($qtd-p, $margem);
+      }
+      @include media-tipo(pequeno) {
+        @include grupo-flex__conteudo($qtd-m, $margem);
+      }
+    }
+    // verifica se a tela maior é a grande
+    @else if $qtd-xg == null {
+      // verifica se o valor pequeno e médio são iguais
+      @if $qtd-p == $qtd-m {
+        @include media-tipo(medio, max) {
+          @include grupo-flex__conteudo($qtd-p, $margem);
+        }
+        @include media-tipo(medio) {
+          @include grupo-flex__conteudo($qtd-g, $margem);
+        }
+      }
+      // qtd peq e médio são diferentes
+      @else {
+        @include media-tipo(pequeno, max) {
+          @include grupo-flex__conteudo($qtd-p, $margem);
+        }
+        @media (min-width: breakpoint(pequeno)) and (max-width: breakpoint(medio)) {
+          @include grupo-flex__conteudo($qtd-m, $margem);
+        }
+        @include media-tipo(medio) {
+          @include grupo-flex__conteudo($qtd-g, $margem);
+        }
+      }
+    }
+    // se for valor extra grande
+    @else {
+      // se o tamanho pequeno, médio e grande são iguais
+      @if $qtd-p == $qtd-m and $qtd-m == $qtd-g {
+        @include media-tipo(grande, max) {
+          @include grupo-flex__conteudo($qtd-p, $margem);
+        }
+        @include media-tipo(grande) {
+          @include grupo-flex__conteudo($qtd-xg, $margem);
+        }
+      }
+      // se o tamanho pequeno e médio são iguais
+      @if $qtd-p == $qtd-m and $qtd-m != $qtd-g {
+        @include media-tipo(medio, max) {
+          @include grupo-flex__conteudo($qtd-p, $margem);
+        }
+        @media (min-width: breakpoint(medio)) and (max-width: breakpoint(grande)) {
+          @include grupo-flex__conteudo($qtd-g, $margem);
+        }
+        @include media-tipo(grande) {
+          @include grupo-flex__conteudo($qtd-xg, $margem);
+        }
+      }
+      // se o tamanho pequeno e médio são diferentes e médio e grande são iguais
+      @if $qtd-p != $qtd-m and $qtd-m == $qtd-g {
+        @include media-tipo(pequeno, max) {
+          @include grupo-flex__conteudo($qtd-p, $margem);
+        }
+        @media (min-width: breakpoint(pequeno)) and (max-width: breakpoint(grande)) {
+          @include grupo-flex__conteudo($qtd-g, $margem);
+        }
+        @include media-tipo(grande) {
+          @include grupo-flex__conteudo($qtd-xg, $margem);
+        }
+      }
+      // todos são diferentes
+      @else {
+        @include media-tipo(pequeno, max) {
+          @include grupo-flex__conteudo($qtd-p, $margem);
+        }
+        @media (min-width: breakpoint(pequeno)) and (max-width: breakpoint(medio)) {
+          @include grupo-flex__conteudo($qtd-m, $margem);
+        }
+        @media (min-width: breakpoint(medio)) and (max-width: breakpoint(grande)) {
+          @include grupo-flex__conteudo($qtd-g, $margem);
+        }
+        @include media-tipo(grande) {
+          @include grupo-flex__conteudo($qtd-xg, $margem);
+        }
+      }
     }
   }
 }
-
 // =============================================================================
 // TEXTO SELECIONADO
 // -----------------------------------------------------------------------------

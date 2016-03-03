@@ -196,6 +196,21 @@ $largura-dt-pq: 9em;
     }
   }
 }
+.lista-changelog {
+  @include grupo-flex(2, 0);
+  dt, dd {
+    margin-bottom: .5em;
+  }
+  dt {
+    font-weight: bold;
+    width: 5rem;
+    margin-right: $calha / 2;
+    color: cor(texto, medio);
+  }
+  dd {
+    width: calc(100% - 5rem - (#{$calha} / 2));
+  }
+}
 .lista-itens {
 
 }

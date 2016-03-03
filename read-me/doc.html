@@ -4152,9 +4152,9 @@
                   <dd>Aplica o hack de css de clearfix, para quando o elemento pai tiver float. <strong>Dispensa propriedades</strong>.</dd>
                 <dt><samp>centraliza-caixa(largura, altura)</samp></dt>
                   <dd>Cria uma caixa centralizada no meio da tela (ou do elemento pai, se ele tiver algum valor de <samp>position</samp>). Os valores de <samp>largura</samp> e <samp>altura</samp> são opcionais</dd>
-                <dt><samp>grupo-flex(qtd, margem-flex, largura, largura-minina)</samp></dt>
+                <dt><samp>grupo-flex(qtd, margem)</samp></dt>
                   <dd>Deve ser usado num elemento pai (que ganha a propriedade <samp>display: flex</samp>). distribui os elementos filhos em tamanho igual. Use isso para fazer um grupo de cards, por exemplo.<br />
-                    Valores padrão: <samp>$qtd</samp> não tem valor padrão; <samp>$margem-flex: $calha * 2</samp> a <samp>$calha</samp> foi definida no <samp class="arquivo">config/variaveis</samp>; <samp>largura</samp> e <samp>largura-minima</samp> são opcionais</dd>
+                    Valores padrão: <samp>$qtd</samp> não tem valor padrão (é um mapa e aceita quatro valores); <samp>$margem: $calha</samp> a <samp>$calha</samp> foi definida no <samp class="arquivo">config/variaveis</samp></dd>
                 <dt><samp>texto-selecionado(fundo, texto)</samp></dt>
                   <dd>Formata o seletor para quando o texto for selecionado no browser. Valores padrão: <samp>fundo: cor(fundo, escuro)</samp> e <samp>texto: cor(texto, claro)</samp>. <strong>Dica:</strong> selecione o texto para ver os valores padrão em uso.</dd>
                 <dt><samp>lista-oculta(conteudo)</samp></dt>
@@ -4814,17 +4814,17 @@
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Este mixin serve para criar itens de mesmo tamanho distribuídos ao longo de algum container. Ele deve ser aplicado no container (que se torna <samp>display: flex</samp>).</p>
-              <p><strong>Sintaxe: </strong> <samp>@include grupo-flex($quantidade, $margem, $largura, $largura-minima);</samp></p>
+              <p>Este mixin serve para criar itens de mesmo tamanho distribuídos ao longo de algum container. Ele deve ser aplicado no container (que se torna <samp>display: flex</samp>). Este mixin aceita o uso de conteúdo dentro dele, para configurar o elemento filho.</p>
+              <p><strong>Sintaxe: </strong> <samp>@include grupo-flex($quantidade, $margem);</samp></p>
+              <p>Ou:</p>
+              <p><strong>Sintaxe: </strong> <samp>@include grupo-flex($quantidade, $margem) { @conteúdo }</samp></p>
               <dl class="lista-definicao">
                 <dt><samp>$quantidade</samp></dt>
-                  <dd>A quantidade de caixas por linha. <strong>Sem valor padrão</strong></dd>
+                  <dd>A quantidade de caixas por linha. <strong>Sem valor padrão</strong>. Este valor é um mapa, cada valor do mapa (de até 4 números) indica uma medida dentro do valor responsivo, na ordem: <strong>pequeno</strong>, <strong>médio</strong>, <strong>grande</strong> e <strong>extra-grande</strong>. Se você quiser que tenha a mesma quantidade de elementos idenpendente do tamanho da tela, basta indicar o valor, caso especifique mais de um, é necessário que os valores estejam dentor de parênteses (ex.: <samp>(1, 3)</samp>).</dd>
                 <dt><samp>$margem</samp></dt>
                   <dd>Determina a margem entre os elementos. Se não quiser nenhuma margem, coloque o valor como <samp>0</samp>. <strong>Valor padrão:</strong> <samp>10px</samp> convertidos para <samp>rem</samp>.</dd>
-                <dt><samp>$largura</samp></dt>
-                  <dd>Determina a largura de cada uma das caixas (elementos filhos). <strong>Este valor é opcional</strong>. Se omitido vai calcular a largura em porcentagem conforme a quantidade.</dd>
-                <dt><samp>$largura-minima</samp></dt>
-                  <dd>Determina o tamanho mínimo de cada um dos elementos filhos. Especialmente se a largura comum (acima) estiver omitida e sair como porcentagem. <strong>Valor opcional</strong>.</dd>
+                <dt><samp>@conteúdo</samp></dt>
+                  <dd>Escreva os atributos de CSS como se o mixin fosse ele mesmo um seletor. Estes atributos são do <strong>elemento filho</strong> (de cada uma das caixas).</dd>
               </dl>
               <p>Colocando 5 itens por linha:</p>
               <code class="codigo--sass">
@@ -4836,23 +4836,47 @@
               <p>Colocando 5 itens por linha, com margem de 1rem:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
-                <p>.cinco-itens-linha {</p>
+                <p>.grupo-itens {</p>
                   <p class="recuo-1">@include grupo-flex(5, 1rem);</p>
                 <p>}</p>
               </code>
-              <p>Colocando 5 itens de 300px por linha:</p>
+              <p>Colocando 1 item por linha em tela pequena e 2 itens por linha em telas maiores:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
-                <p>.cinco-itens-linha {</p>
-                  <p class="recuo-1">@include grupo-flex(5, $largura: 300px);</p>
+                <p>.grupo-itens {</p>
+                  <p class="recuo-1">@include grupo-flex((1, 2));</p>
                 <p>}</p>
               </code>
-              <p>Colocando 5 itens por linha com largura mínima de 300px cada:</p>
+              <p>Colocando 1 item por linha em tela pequena e 2 itens por linha em telas maiores e margem de 1rem:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
-                <p>.cinco-itens-linha {</p>
-                  <p class="recuo-1">@include grupo-flex(5, $largura-minima: 300px);</p>
+                <p>.grupo-itens {</p>
+                  <p class="recuo-1">@include grupo-flex((1, 2), 1rem);</p>
                 <p>}</p>
+              </code>
+              <p>Colocando 1 item por linha em tela pequena e 2 itens por linha em telas médias, 3 em telas grandes (tablet horizontal) e 5 em telas maiores (desktop):</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.grupo-itens {</p>
+                  <p class="recuo-1">@include grupo-flex((1, 2, 3, 5));</p>
+                  <p>}</p>
+              </code>
+              <p>Colocando 1 item por linha em tela pequena e 2 itens por linha em telas médias, 3 em telas grandes (tablet horizontal) e 5 em telas maiores (desktop) e margem 0:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.grupo-itens {</p>
+                  <p class="recuo-1">@include grupo-flex((1, 2, 3, 5), 0);</p>
+                  <p>}</p>
+              </code>
+              <p>Como no de cima, mas com formatação do elemento filho (no caso, a inclusão de um padding e uma cor de fundo):</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>.grupo-itens {</p>
+                  <p class="recuo-1">@include grupo-flex((1, 2, 3, 5), 0) {</p>
+                    <p class="recuo-2">padding: 1rem;</p>
+                    <p class="recuo-2">background: cor(fundo);</p>
+                  <p class="recuo-1">}</p>
+                  <p>}</p>
               </code>
             </section>
           </section>
