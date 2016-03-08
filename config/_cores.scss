@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // cores.scss
 // Criado em: 07/01/2015
-// Última alteração: 11/12/2015
+// Última alteração: 08/03/2016
 // -----------------------------------------------------------------------------
 // Aqui fica os temas de cores. As paletas são definidas no arquivo
 // cores_paletas (e é neste arquivo que se acrescenta novas cores)
@@ -15,6 +15,7 @@
 // Para alterar o tema faça isso no arquivo config
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 08/03/2016 | Inclusão de mais um tipo de link (claro)
 // 11/12/2015 | A paleta de cores agora aceita apenas um cor de cada e a função
 // 							cor() cria as variações tonais.
 // 							Arquivos _cores_paletas.scss e _cores_temas.scss mesclados
@@ -86,6 +87,8 @@ $temas: (
 			hover: paleta(basica, clara, 25%),
 			escuro: paleta(basica, escura, 25%),
 			escuro-hover: paleta(basica),
+			claro: paleta-padrao(branco),
+			claro-hover: fade-out(paleta-padrao(branco), .5),
 		),
 		formulario: (
 			padrao: paleta(basica, escura, 25%),
@@ -165,6 +168,8 @@ $temas: (
 			hover: paleta-padrao(cinza-40),
 			escuro: paleta-padrao(cinza-70),
 			escuro-hover: paleta-padrao(cinza-60),
+			claro: paleta-padrao(branco),
+			claro-hover: fade-out(paleta-padrao(branco), .5),
 		),
 		formulario: (
 			padrao: paleta-padrao(cinza-65),
