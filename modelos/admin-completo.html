@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Estrutura completa do admin</title>
+    <link rel="stylesheet" href="admin.css" media="screen" title="no title" charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <figure class="header__logo">
+          <img src="logo-exemplo-header.png" alt="" title="" />
+        </figure>
+        <aside class="header__usuario">
+          <span class="ico-pessoa"></span>
+          <span class="header__usuario__nome">Nome do usuário</span>
+          <a href="" class="ico-sair"></a>
+        </aside>
+      </header>
+      <nav class="nav">
+        <ul class="nav__menu">
+          <li><a href="">Link de exemplo</a></li>
+          <li><a href="">Link de exemplo</a></li>
+          <li><a href="">Link de exemplo</a></li>
+          <li><a href="">Link de exemplo</a></li>
+        </ul>
+      </nav>
+      <main class="main">
+        <section class="secao-lista">
+          <input type="checkbox" id="form" class="secao-lista__check" checked="checked">
+          <header class="secao-lista__header">
+            <label for="form">
+              <span class="secao-lista__titulo">Cadastro</span>
+              <span class="secao-lista__icone"></span>
+            </label>
+          </header>
+          <section class="secao-lista__conteudo">
+            <article class="form-container">
+              <div class="field-12 form-texto">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="name" value="">
+              </div>
+              <div class="form-acoes">
+                <button class="bt--secundario">Cancelar</button>
+                <button class="bt">Salvar</button>
+              </div>
+            </article>
+          </section>
+        </section>
+        <section class="secao-lista">
+          <input type="checkbox" id="conteudo" class="secao-lista__check">
+          <header class="secao-lista__header">
+            <label for="conteudo">
+              <span class="secao-lista__titulo">Lista</span>
+              <span class="secao-lista__icone"></span>
+            </label>
+          </header>
+          <section class="secao-lista__conteudo">
+            <div class="busca form-texto">
+              <input type="search" />
+              <span class="ico-lupa"></span>
+            </div>
+            <table class="tab">
+              <thead>
+                <tr>
+                  <th>Matrícula</th>
+                  <th>Nome</th>
+                  <th class="col--acoes"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1234567</td>
+                  <td>Fulano de Tal</td>
+                  <td class="tab__acoes">
+                    <a href="" class="ico-ok"></a>
+                    <a href="" class="ico-erro"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1234567</td>
+                  <td>Fulano de Tal</td>
+                  <td class="tab__acoes">
+                    <a href="" class="ico-ok"></a>
+                    <a href="" class="ico-erro"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1234567</td>
+                  <td>Fulano de Tal</td>
+                  <td class="tab__acoes">
+                    <a href="" class="ico-ok"></a>
+                    <a href="" class="ico-erro"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1234567</td>
+                  <td>Fulano de Tal</td>
+                  <td class="tab__acoes">
+                    <a href="" class="ico-ok"></a>
+                    <a href="" class="ico-erro"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1234567</td>
+                  <td>Fulano de Tal</td>
+                  <td class="tab__acoes">
+                    <a href="" class="ico-ok"></a>
+                    <a href="" class="ico-erro"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1234567</td>
+                  <td>Fulano de Tal</td>
+                  <td class="tab__acoes">
+                    <a href="" class="ico-ok"></a>
+                    <a href="" class="ico-erro"></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>1234567</td>
+                  <td>Fulano de Tal</td>
+                  <td class="tab__acoes">
+                    <a href="" class="ico-ok"></a>
+                    <a href="" class="ico-erro"></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+      </main>
+      <aside class="aside">
+        Aqui vai entrar o aside. Se for usar. Se não é só apagar este tag.
+      </aside>
+      <footer class="footer">
+        Aqui vai o rodapé. Se for usar. Se não é só apagar este tag.
+      </footer>
+    </div>
+  </body>
+</html>

@@ -16,6 +16,9 @@
           <li class="header__menu__titulo">Front-Alego</li>
           <li><a href="index.html">Index</a></li>
           <li><span class="header__menu__ativo">Documentação</span></li>
+          <li><a href="../modelos/login.html" target="_blank">Login</a></li>
+          <li><a href="../modelos/admin.html" target="_blank">Admin estrutura</a></li>
+          <li><a href="../modelos/admin-completo.html" target="_blank">Admin completo</a></li>
         </ul>
       </nav>
     </header>
@@ -76,6 +79,18 @@
             <li><a href="#modal">Modal</a></li>
             <li><a href="#toaster">Toaster</a></li>
             <li><a href="#secao-lista">Seção Lista</a></li>
+          </ul>
+        </div>
+        <div class="menu__grupo">
+          <input type="checkbox" id="menu__pg" class="secao-lista__check">
+          <div class="menu__subtitulo lista__titulo">
+            <label for="menu__pg">
+              <span class="secao-lista__titulo">Modelos</span>
+              <span class="secao-lista__icone"></span>
+            </label>
+          </div>
+          <ul class="lista--link">
+            <li><a href="#admin">Admin</a></li>
           </ul>
         </div>
         <div class="menu__grupo">
@@ -592,7 +607,7 @@
                   <dt><samp>borda</samp></dt>
                     <dd><em>Elemento genérico</em>. As cores das bordas. Lembre-se que se não declarar a cor da borda ela será, por padrão, a do texto. <samp>padrao</samp>, <samp>variante</samp>.</dd>
                   <dt><samp>link</samp></dt>
-                    <dd><em>Elemento específico</em>. Define as cores do link, com duas variações. <samp>padrao</samp>, <samp>hover</samp>; <samp>escuro</samp> e <samp>escuro-hover</samp></dd>
+                    <dd><em>Elemento específico</em>. Define as cores do link, com três variações. <samp>padrao</samp>, <samp>hover</samp>; <samp>escuro</samp>, <samp>escuro-hover</samp>; <samp>claro</samp> e <samp>claro-hover</samp></dd>
                   <dt><samp>formulario</samp></dt>
                     <dd><em>Elemento específico</em>. Cores do formulário. <samp>padrao</samp>, <samp>placeholder</samp> (usado no texto do placeholder do formulário), <samp>ativo</samp> (usado quando o formulário está focado ou com o mouse em cima), <samp>fundo</samp>.</dd>
                   <dt><samp>botao</samp></dt>
@@ -844,7 +859,7 @@
                 <p>// =========================================================================</p>
                 <p>$gd-menu: 2;</p>
                 <p>$gd-principal: 7;</p>
-                <p>$gd-lateral: $grid-max - $gd-menu - $gd-principal;</p>
+                <p>$gd-lateral: $grid-qtd - $gd-menu - $gd-principal;</p>
                 <p>...</p>
                 <p>...</p>
                 <p>.menu {</p>
@@ -4056,6 +4071,159 @@
                   <p>O conteúdo da lista vai vir aqui.</p>
                 </section>
               </section>
+            </section>
+          </section>
+        </article>
+
+        <article id="admin">
+          <header>
+            <h1>Admin</h1>
+            <p><samp class="arquivo">admin.scss</samp> <samp class="arquivo">modelos/login.html</samp></p>
+          </header>
+          <section class="secao-lista">
+            <input type="checkbox" id="admin__basico" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="admin__basico">
+                <span class="secao-lista__titulo">Básico</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>A view de admin se divide em dois arquivos HTML que podem ser encontrados na pasta <samp class="pasta">modelos</samp>: <samp class="arquivo">login.html</samp> e <samp class="arquivo">admin.html</samp>. Evidentemente o Ruby fará uso de outros modelos, mas ajuste o mesmo para que as classes sejam as mesmas.</p>
+              <p>O arquivo básico para trabalhar (<samp class="arquivo">admin.scss</samp>) está na raíz do FRONT-ALEGO e já está pré-formatado. Sinta-se à vontade para alterar as cores e medidas conforme a necessidade.</p>
+              <h2>O admin.scss</h2>
+              <p>Este arquivo vai englobar toda a área administrativa do site (e vai ser o arquivo básico que vamos usar para a maioria dos sistemas da Alego, já que eles são modelos administrativos).</p>
+              <h3>Comentários iniciais</h3>
+              <p>A primeira coisa que você vai fazer é editar o comentário inicial para identificar o arquivo em questão:</p>
+              <ol class="lista-ordenada">
+                <li>Substitua o texto <samp class="texto--caixa-alta">nome do sistema</samp> para o nome do sistema atual utilizando de <span class="texto--caixa-alta">caixa alta</span></li>
+                <li>No campo <samp>Autor:</samp> coloque o seu nome</li>
+                <li>No campo <samp>Data:</samp> coloque a data que iniciou o arquivo</li>
+              </ol>
+              <p>Se quiser manter um changelog, separe com a mesma quantidade de traços (<samp>-</samp>) e siga a seguinte ordem:</p>
+              <ol class="lista-ordenada">
+                <li>Separador de traços</li>
+                <li>Título <samp class="texto--caixa-alta">changelog:</samp> todo em maiúsculo</li>
+                <li>Cada dia você coloca a data separa com um traço e coloca a descrição. <strong>As alterações mais recentes devem aparecer no topo e as mais antigas aparecem embaixo</strong></li>
+              </ol>
+              <p>Exemplo de changelog:</p>
+              <code class="codigo--sass">
+                <header>SASS</header>
+                <p>// -----------------------------------------------------------------------------</p>
+                <p>// CHANGELOG:</p>
+                <p>// 10/03/2016 - Esta foi minha última alteração</p>
+                <p>// 08/03/2016 - Esta foi a minha primeira alteração</p>
+                <p>// 05/03/2016 - Arquivo criado e finalizado</p>
+                <p>// -----------------------------------------------------------------------------</p>
+              </code>
+              <p>Cada entrada do changelog é depois que o arquivo já foi encerrado e serve para mostrar alterações depois que o sistema já estava pronto. Um exemplo de entrada: <samp>acrescentada formatação para a tela de registro de usuário</samp> ou <samp>unificadas classes da tabela x e tabela y</samp>.</p>
+              <h3>Configurações iniciais</h3>
+              <p>Depois dos comentários vem as configurações iniciais do arquivo.</p>
+              <p>A primeira configuração é a de importação de arquivos SASS. Por padrão já importa o arquivo <samp class="arquivo">base</samp>. Se você tiver arquivos específicos, inclua-os aqui. Em particular aqueles que você alterou alguma configuração padrão do FRONT-ALEGO e jogou na pasta <samp class="pasta">extra</samp> (exemplo: você criou um modelo de tabela personalizada para usar com a classe <samp>.tab</samp>, então a importação seria <samp>@import "extra/tabela";</samp>).</p>
+              <blockquote class="aviso--grave">
+                Há uma exceção: arquivos de ajustes emergencial devem aparecer no <strong>final</strong> do arquivo, para que as configurações sobreponham a deste. Estes arquivos, no entanto, são temporários
+              </blockquote>
+              <p>Depois da importação está as configurações de grid (<a href="#grid" class="link--readme">Veja mais detalhes aqui</a>)l</p>
+              <p>Em seguida você coloca as variáveis que pertencem apenas a este arquivo. Isso só é relevante se você está trabalhando com mais de um arquivo diferente (como área administrativa e site). Algumas já foram definidas e indicam o tamanho da tela. <strong>Por padrão as classes devem aparecer em <samp class="arquivo">config/variaveis.scss</samp></strong>.</p>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="admin__login" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="admin__login">
+                <span class="secao-lista__titulo">Login</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>As classes para serem usadas no login são:</p>
+              <dl class="lista-definicao">
+                <dt><samp>.login</samp></dt>
+                  <dd>Fundo da tela de login. Utilize esta classe para definir a cor de fundo. <strong>Não faça isso no <samp>body</samp> pois este arquivo é herdado também para o resto do admin</strong></dd>
+                <dt><samp>.login__janela</samp></dt>
+                  <dd>A janela de login. Vem pré-configurada para ocupar a tela inteira em smartphone (de nada).</dd>
+                <dt><samp>.login__header</samp></dt>
+                  <dd>Normalmente fica a imagem com o ícone e nome do sistema. Mas se quiser alterar o conteúdo fique à vontade.</dd>
+                <dt><samp>.login__principal</samp></dt>
+                  <dd>A área principal da tela de login, onde ficam os formulários</dd>
+                <dt><samp>.login__acoes</samp></dt>
+                  <dd>A área que fica o botão de logar e eventuais links de "esqueceu a senha" ou algo parecido</dd>
+              </dl>
+              <p>Além disso os campos fazem uso de outras classes anteriormente explicadas:</p>
+              <dl class="lista-definicao">
+                <dt><samp>.field-12</samp></dt>
+                  <dd>Campo de texto que ocupa a largura toda (<a href="#form-grupo" class="link--readme">veja mais aqui</a>)</dd>
+                <dt><samp>.form-texto</samp></dt>
+                  <dd>Para formulários que tenham campo de texto (<a href="#form" class="link--readme">Veja mais aqui</a>)</dd>
+                <dt><samp>.ico-pessoa</samp></dt>
+                  <dd>Ícone de pessoa (<a href="#simbolos" class="link--readme">Veja mais aqui</a>)</dd>
+                <dt><samp>.ico-chave</samp></dt>
+                  <dd>Ícone de chave (<a href="#simbolos" class="link--readme">Veja mais aqui</a>)</dd>
+                <dt><samp>.bt</samp></dt>
+                  <dd>Ícone de botão (<a href="#botao" class="link--readme">Veja mais aqui</a>)</dd>
+              </dl>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="admin__admin" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="admin__admin">
+                <span class="secao-lista__titulo">Admin</span>
+                <span class="secao-lista__icone"></span>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>O admin é dividido em pedaços específicos, cada qual com sua classe (as classes são idênticas ao tag que as usa):</p>
+              <dl class="lista-definicao">
+                <dt><samp>.header</samp></dt>
+                  <dd>O cabeçalho do sistema. Aqui vai ficar a marca, a indicação do nome do usuário e o botão de sair</dd>
+                <dt><samp>.nav</samp></dt>
+                  <dd>A navegação do site. Contém o menu (mas pode conter algum outro elemento que se repete).</dd>
+                <dt><samp>.main</samp></dt>
+                  <dd>A parte principal do site. Você pode incluir classes filhas com <samp>main__</samp> ou sem o nome <samp>main</samp> para facilitar</dd>
+                <dt><samp>.aside</samp></dt>
+                  <dd>Uma área extra. Pode ser área de banners, de relatórios. <strong>Esta tag/classe é opcional. Se não for usar delete o HTML e o CSS</strong>.</dd>
+                <dt><samp>.footer</samp></dt>
+                  <dd>O rodapé do site, se houver. <strong>Esta tag/classe é opcional. Se não for usar delete o HTML e o CSS</strong>.</dd>
+              </dl>
+              <h2>Configurações de grid</h2>
+              <p>O arquivo <samp class="arquivo">admin.scss</samp> contém toda a configuração de grid que está sendo usada. Conforme discutido na seção de <a href="#grid" class="link--readme">grids</a> não se usa classes próprias para grid e elas são inseridas diretamente no CSS. Neste caso fica no começo do arquivo.</p>
+              <dl class="lista-definicao">
+                <dt><samp>$gd-header</samp></dt>
+                  <dd>A largura do header. O valor atual é <samp>$grid-qtd</samp> (a quantidade de grids definidas no arquivo de configuração)</dd>
+                <dt><samp>$gd-nav</samp></dt>
+                  <dd>A largura do menu, que fica na lateral esquerda. O valor atual de exemplo é <samp>2</samp>. Veja mais abaixo como configurar o menu na horinzontal</dd>
+                <dt><samp>$gd-aside</samp></dt>
+                  <dd>A largura da parte lateral. Se você não for usar o <samp>.aside</samp> basta inserir o valor <samp>0</samp></dd>
+                <dt><samp>$gd-main</samp></dt>
+                  <dd>A largura da parte principal. É uma conta que subtrai do valor total da grid o tamanho do menu e da parte lateral, para facilitar ajustes. No entanto, será necessário ajustar no caso de você usar menu horizontal como explicado abaixo</dd>
+                <dt><samp>$gd-footer</samp></dt>
+                  <dd>O rodapé do site tem como valor <samp>$grid-qtd</samp> pois ocupa a largura toda</dd>
+              </dl>
+              <h2>Variáveis</h2>
+              <p>Algumas variáveis já foram aplicadas e você deve alterar conforme o sistema:</p>
+              <dl class="lista-definicao">
+                <dt><samp>$header-altura</samp></dt>
+                  <dd>A altura do header. O valor atual é baseado na imagem de exemplo. Altere este valor conforme a necessidade do seu sistema.</dd>
+                <dt><samp>$footer-altura-min</samp></dt>
+                  <dd>Regula a altura mínima do <samp>.footer</samp>. Se você não usar rodapé no sistema, coloque este valor como <samp>0</samp>.</dd>
+                <dt><samp>$main-altura-min</samp></dt>
+                  <dd>A altura mínima da área principal. Ela subtrai as duas variáveis acima (daí a importância de declará-las) e as margens da altura da tela para preencher o que falta na tela.</dd>
+              </dl>
+              <h2>Formatações específicas</h2>
+              <p>O CSS já vem pronto com algumas poucas formatações específicas. Algumas delas você formatou com as variáveis acima e outras formata posicionamento e grids. Cores de fundo, margens e espaçamento são sugestões.</p>
+              <p>As subclasses já estão aplicadas dentro delas (com o uso de <samp>&__filho</samp>)</p>
+              <h2>Menu horizontal ou vertical</h2>
+              <p>Por padrão o menu está na lateral esquerda. No entanto é possível fazer com que o menu fique horizontal. Para isso siga os passos:</p>
+              <ol class="lista-ordenada">
+                <li>Altere o valor da variável <samp>$gd-nav</samp> para <samp>$grid-qtd</samp>. Isso faz com que o menu fique na horizontal</li>
+                <li>Altere a fórmula matemática de <samp>$gd-main</samp> retirando a variável <samp>$gd-nav</samp>.</li>
+                <li>Acrescente uma variável de altura para o menu (<samp>$nav-altura</samp>).</li>
+                <li>Acrescente <samp> - #{$nav-altura}</samp> na fórmula <samp>$main-altura-min</samp>. Com isso você está reduzindo a altura da parte principal com a inclusão do menu.</li>
+                <li>Na classe <samp>.nav</samp> acrescente a altura criada anteriormente.</li>
+                <li>Na classe <samp>&__menu</samp> altere o mixin <samp>lista-sem-marcador</samp> para <samp>lista-sem-marcador(flex)</samp>. Os elementos agora ficarão um do lado do outro.</li>
+                <li>Se precisar de ajustar as medidas de flex do elemento filho do menu, faça-o na tag <samp>li</samp> (que está vazia no momento).</li>
+              </ol>
             </section>
           </section>
         </article>

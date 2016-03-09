@@ -16,6 +16,9 @@
           <li class="header__menu__titulo">Front-Alego</li>
           <li><span class="header__menu__ativo">Index</span></li>
           <li><a href="doc.html">Documentação</a></li>
+          <li><a href="../modelos/login.html" target="_blank">Login</a></li>
+          <li><a href="../modelos/admin.html" target="_blank">Admin estrutura</a></li>
+          <li><a href="../modelos/admin-completo.html" target="_blank">Admin completo</a></li>
         </ul>
       </nav>
     </header>
@@ -25,7 +28,7 @@
         <article id="intro">
           <h1>Front-Alego</h1>
           <p>Framework da Assembleia Legislativa do Estado de Goiás. Desenvolvido ao longo de 2015 pela Seção de Programação Web com o objetivo de padronizar o CSS e facilitar a criação do front-end dos sistemas.</p>
-          <p>Estes arquivos do <em>read-me</em> fazem uso do Front-Alego em seu estado quase que bruto (sem alterações nas configurações básicas) e servem de modelo para visualizar o projeto atual. As alterações que você fizer no sistema serão refletivas aqui, desde que você compile o CSS novamente. Configurações específicas são encontradas no <samp class="arquivo">info.scss</samp> nesta mesma pasta. Compile este arquivo depois de aplicar suas configurações</p>
+          <p>Estes arquivos do <em>read-me</em> fazem uso do Front-Alego em seu estado quase que bruto (sem alterações nas configurações básicas) e servem de modelo para visualizar o projeto atual. As alterações que você fizer no sistema serão refletivas aqui, desde que você compile o CSS novamente. Configurações específicas são encontradas no <samp class="arquivo">info.scss</samp> nesta mesma pasta. Compile este arquivo depois de aplicar suas configurações.</p>
           <p>Arquivos nesta pasta:</p>
           <dl class="lista-definicao">
             <dt><a href="doc.html" class="link--readme">Documentação</a></dt><dd>Regras de padronização e como usar o Front-Alego.</dd>
@@ -36,6 +39,8 @@
         <article id="changelog">
           <h2>Changelog</h2>
           <dl class="lista-changelog">
+            <dt>09/03/2016</dt>
+              <dd>Inclusão do modelo básico de admin. Isso inclui uma pasta chamada <samp class="pasta">modelos</samp> que tem um CSS compilado do arquivo <samp class="arquivo">admin.scss</samp> e três modelos de HTML.</dd>
             <dt>03/03/2016</dt>
               <dd>Alteração do mixin <samp>grupo-flex</samp> para que ele fique responsivo.</dd>
             <dt>15/02/2016</dt>
@@ -54,6 +59,7 @@
             <dt><samp class="pasta">config</samp></dt><dd>Os arquivos de configuração do próprio CSS, incluindo cores, quais classes serão escritas no arquivo final, z-index, etc. Para mais detalhes, cheque a <a href="doc.html" class="link--readme">documentação</a>.</dd>
             <dt><samp class="pasta">extra</samp></dt><dd>Esta pasta está vazia e serve para personalizar elementos que aparecem na pasta <samp class="pasta">base</samp>. Os arquivos devem ser importados manualmente no arquivo <samp class="arquivo">config/_base.scss</samp>.</dd>
             <dt><samp class="pasta">fontes</samp></dt><dd>As fontes do sistema.</dd>
+            <dt><samp class="pasta">modelos</samp></dt><dd>Os modelos de HTML.</dd>
             <dt><samp class="pasta">read-me</samp></dt><dd>Contém a documentação. Ver mais detalhes acima.</dd>
           </dl>
           <p>Crie o arquivo básico para o CSS fora de qualquer pasta (<samp class="arquivo">app.scss</samp>) e dentro dele inclua:</p>
