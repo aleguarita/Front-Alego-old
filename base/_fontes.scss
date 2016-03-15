@@ -10,10 +10,16 @@ FONTES
 // -----------------------------------------------------------------------------
 // fonts.scss
 // Criado em: 13/01/2015
+// Última modificação em: 14/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo puxa as fontes do sistema.
 // No final são definidas as variáveis padrão pelos tipos de fonte (serifa,
 // símbolo, etc)
+// -----------------------------------------------------------------------------
+// Changelog:
+// 14/03/2016 | A fonte de símbolos passa a ser opcional e está aqui para ter
+//               retrocompatibilidade com arquivos antigos
+// 13/01/2015 | Criado o arquivo
 // =============================================================================
 
 // =============================================================================
@@ -84,15 +90,17 @@ $diretorio: "fontes/";
 
 }
 
-@font-face {
+@if index($uso-classes, simbolos) {
+  @font-face {
     font-family: 'font-alego';
     src:url('#{$diretorio}font-alego.eot');
     src:url('#{$diretorio}font-alego.eot?#iefix') format('embedded-opentype'),
-        url('#{$diretorio}font-alego.woff') format('woff'),
-        url('#{$diretorio}font-alego.ttf') format('truetype'),
-        url('#{$diretorio}font-alego.svg#font-alego') format('svg');
+    url('#{$diretorio}font-alego.woff') format('woff'),
+    url('#{$diretorio}font-alego.ttf') format('truetype'),
+    url('#{$diretorio}font-alego.svg#font-alego') format('svg');
     font-weight: normal;
     font-style: normal;
+  }
 }
 
 // =============================================================================
@@ -104,4 +112,4 @@ $diretorio: "fontes/";
 $fonte-serifa: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
 $fonte-sem-serifa: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
 $fonte-monoespacada: "consolas", "courier new", courier, freemono, "liberation mono", monospace;
-$fonte-simbolo: "font-alego";
+$fonte-simbolo: if(($uso-classes, simbolo), "font-alego", null);

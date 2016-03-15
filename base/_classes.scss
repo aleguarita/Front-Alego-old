@@ -10,12 +10,13 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 19/01/2016
+// Alterado em: 14/03/2016
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/03/2016 | Correção da classe .text-- para .texto--
 // 19/01/2016 | Mudada a ordem do placeholder para ficar mais próximo da classe
 //              gerada
 // 06/01/2016 | Acrescentadas variações de texto e fundo --urgente
@@ -78,7 +79,7 @@ $tamanho-fonte: (
 );
 
 @each $classe, $tamanho in $tamanho-fonte {
-	.fonte--#{$classe}, .text--#{$classe} {
+	.fonte--#{$classe}, .texto--#{$classe} {
 		font-size: $tamanho * 1em;
 	}
 }

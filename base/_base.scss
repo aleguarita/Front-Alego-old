@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 15/02/2016
+	Última alteração: 14/03/2016
 	------------------------------------------------------------------------------
 */
 // app.scss
@@ -33,6 +33,11 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 14/03/2016 | Alterada localização deste arquivo, de config/ para base/
+// 								(melhor o usuário configurar arquivos extras/ dentro do
+// 								arquivo de CSS dele, minimizando o uso de configurações
+// 								personalizadas)
+// 							Inclusão do arquivo de SVG de símbolos
 // 15/02/2016 | Inclusão dos sprites
 // 05/02/2016 | O arquivo de classes e ícones foram colocados no final do
 // 							arquivo para que eles tenham prioridade ao alterar um tag
@@ -58,48 +63,49 @@
 @import "../bourbon/bourbon"; // (se instalado o bourbon manualmente)
 
 // Configurações gerais
-@import "../base/breakpoints";
-@import "../base/funcoes";
-@import "../base/mixins";
+@import "breakpoints";
+@import "funcoes";
+@import "mixins";
 
 // Configuração básica
-@import "_+config";
+@import "../config/_+config";
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
-@import "../base/cores_status";
-@import "cores";
-@import "../base/fontes";
-@import "variaveis";
-@import "tipografia";
+@import "cores_status";
+@import "../config/cores";
+@import "fontes";
+@import "../config/variaveis";
+@import "../config/tipografia";
 
 // Reset CSS
-@import "../base/reset";
+@import "reset";
 
 // Arquivos de configuração estrutural
-@import "../base/grid";
-@import "z-index";
+@import "grid";
+@import "../config/z-index";
 
 // Formatação de formulários
-@import "../base/form_grupo";
-@import "../base/form_comum";
-@import "../base/form_texto";
-@import "../base/form_radio_checkbox";
-@import "../base/form_select";
-@import "../base/form_botoes";
-@import "../base/form_autocomplete";
+@import "form_grupo";
+@import "form_comum";
+@import "form_texto";
+@import "form_radio_checkbox";
+@import "form_select";
+@import "form_botoes";
+@import "form_autocomplete";
 
 // Formatação de objetos
-@import "../base/tabelas";
-@import "../base/paginacao";
-@import "../base/cards";
-@import "../base/breadcrumbs";
-@import "../base/toaster";
-@import "../base/modal";
-@import "../base/secao_lista";
-@import "../base/lista";
-@import "../base/sprites";
+@import "tabelas";
+@import "paginacao";
+@import "cards";
+@import "breadcrumbs";
+@import "toaster";
+@import "modal";
+@import "secao_lista";
+@import "lista";
+@import "sprites";
 
 // Formatações especiais
-@import "simbolos";
-@import "../base/classes";
+@import "../config/simbolos";
+@import "simbolos-svg";
+@import "classes";

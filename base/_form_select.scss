@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 04/02/2016
+// Última alteração em: 15/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 15/03/2016 | Substituído seletor [class^="ico"] para .form__ico
 // 04/02/2016 | Correção do select, que estava duplicado no arquivo final
 // 03/02/2016 | Correção no uso do mixin
 // 21/01/2016 | De placeholders para mixins
@@ -69,7 +70,7 @@ FORMULÁRIOS | SELECT
         border-bottom: 1px dotted cor(formulario);
       }
     }
-    [class^="ico"] {
+    .form__ico {
       @include form-select__seta {
         color: cor(formulario);
       }
@@ -90,7 +91,7 @@ FORMULÁRIOS | SELECT
         border-bottom: 1px solid cor(formulario);
       }
     }
-    [class^="ico"] {
+    .form__ico {
       @include form-select__seta {
         color: cor(formulario);
       }
@@ -119,7 +120,7 @@ FORMULÁRIOS | SELECT
         line-height: 2.2;
       }
     }
-    [class^="ico"] {
+    .form__ico {
       color: cor(formulario, ativo);
       background: cor(formulario, fundo);
       border: $borda-form solid;

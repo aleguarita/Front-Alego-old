@@ -12,7 +12,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 18/11/2015
-// Última alteração: 27/01/2016
+// Última alteração: 15/03/2016
 // -----------------------------------------------------------------------------
 // Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
 // com uma seta indicativa.
@@ -20,6 +20,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // Se estiver checado, não exibe conteúdo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 15/03/2016 | Utilizando SVG e não mais fonte para a seta
 // 27/01/2016 | Mudado placeholders para mixins
 // 16/12/2015 | Incluído transition na seta
 // 08/12/2015 | Tirado o extend para o placeholder %icone, que não existe mais
@@ -47,7 +48,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
       @include lista-oculta(secao-lista__conteudo);
       &:checked ~  {
         .secao-lista__header .secao-lista__icone {
-          transform: rotate(-90deg);
+          transform: rotate(0deg);
         }
       }
     }
@@ -76,12 +77,9 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
   // ÍCONES
   // ---------------------------------------------------------------------------
   @else if $tag == icone {
-    display: block;
-    font-family: $fonte-simbolo;
     transition: $transition;
-    &::before {
-      content: "\f107";
-    }
+    transform: rotate(90deg);
+    transform-origin: center;
   }
   // ---------------------------------------------------------------------------
   // CONTEÚDO

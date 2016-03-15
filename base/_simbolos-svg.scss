@@ -1,0 +1,56 @@
+/*
+================================================================================
+SÍMBOLOS EM SVG
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// simbolos.scss
+// Criado em: 14/03/2016
+// Última alteração: 14/03/2016
+// -----------------------------------------------------------------------------
+// Este arquivo formata os símbolos criados em SVG, com a inclusão de classes
+// necessárias
+// -----------------------------------------------------------------------------
+// Changelog
+// 14/03/2016 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// MIXINS BÁSICOS DE CONFIGURAÇÃO
+// =============================================================================
+@mixin svg-ico($espaco: null) {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	@if $espaco != null {
+		&--espaco {
+			width: 1em;
+			height: 1em;
+			fill: currentColor;
+			margin-right: $espaco;
+		}
+	}
+}
+
+// =============================================================================
+// CLASSES
+// =============================================================================
+.ico {
+	@include svg-ico;
+}
+.ico--baixo {
+	@include svg-ico;
+	@include transform(rotate(90deg));
+}
+.ico--cima {
+	@include svg-ico;
+	@include transform(rotate(-90deg));
+}
+.ico--esquerda {
+	@include svg-ico;
+	@include transform(rotate(180deg));
+}

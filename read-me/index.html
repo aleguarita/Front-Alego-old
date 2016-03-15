@@ -28,7 +28,7 @@
         <article id="intro">
           <h1>Front-Alego</h1>
           <p>Framework da Assembleia Legislativa do Estado de Goiás. Desenvolvido ao longo de 2015 pela Seção de Programação Web com o objetivo de padronizar o CSS e facilitar a criação do front-end dos sistemas.</p>
-          <p>Estes arquivos do <em>read-me</em> fazem uso do Front-Alego em seu estado quase que bruto (sem alterações nas configurações básicas) e servem de modelo para visualizar o projeto atual. As alterações que você fizer no sistema serão refletivas aqui, desde que você compile o CSS novamente. Configurações específicas são encontradas no <samp class="arquivo">info.scss</samp> nesta mesma pasta. Compile este arquivo depois de aplicar suas configurações.</p>
+          <p>Estes arquivos do <em>read-me</em> fazem uso do Front-Alego em seu estado quase que bruto (sem alterações nas configurações básicas) e servem de modelo para visualizar o projeto atual. As alterações que você fizer no sistema serão refletivas aqui, desde que você compile o CSS novamente. Configurações específicas são encontradas no <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> info.scss</samp> nesta mesma pasta. Compile este arquivo depois de aplicar suas configurações.</p>
           <p>Arquivos nesta pasta:</p>
           <dl class="lista-definicao">
             <dt><a href="doc.html" class="link--readme">Documentação</a></dt><dd>Regras de padronização e como usar o Front-Alego.</dd>
@@ -39,8 +39,15 @@
         <article id="changelog">
           <h2>Changelog</h2>
           <dl class="lista-changelog">
+            <dt>15/03/2016</dt>
+              <dd>Inclusão dos ícones em SVG</dd>
+            <dt>14/03/2016</dt>
+              <dd>
+                Correções das classes de texto<br />
+                Alteração da localização da localização do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> _base.scss</samp> da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> config</samp> para a pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base</samp>
+              </dd>
             <dt>09/03/2016</dt>
-              <dd>Inclusão do modelo básico de admin. Isso inclui uma pasta chamada <samp class="pasta">modelos</samp> que tem um CSS compilado do arquivo <samp class="arquivo">admin.scss</samp> e três modelos de HTML.</dd>
+              <dd>Inclusão do modelo básico de admin. Isso inclui uma pasta chamada <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> modelos</samp> que tem um CSS compilado do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> e três modelos de HTML.</dd>
             <dt>03/03/2016</dt>
               <dd>Alteração do mixin <samp>grupo-flex</samp> para que ele fique responsivo.</dd>
             <dt>15/02/2016</dt>
@@ -51,31 +58,32 @@
         </article>
         <article id="aplicando">
           <h2>Aplicando o Front-Alego</h2>
-          <p>Depois de criado o layout em um programa de imagem (existe um arquivo do Illustrator preparado para estes padrões) copie todas as pastas para a pasta <samp class="pasta">stylesheets</samp> do projeto (exceto a pasta <samp class="pasta">bourbon</samp>).</p>
+          <p>Depois de criado o layout em um programa de imagem (existe um arquivo do Illustrator preparado para estes padrões) copie todas as pastas para a pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> stylesheets</samp> do projeto (exceto a pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> bourbon</samp>).</p>
           <p>A pastas são:</p>
           <dl class="lista-definicao">
-            <dt><samp class="pasta">base</samp></dt><dd>Esta pasta contém todos os arquivos imutáveis do CSS. <strong class="texto-erro">Não modifique nenhum destes arquivos!</strong></dd>
-            <dt><samp class="pasta">bourbon</samp></dt><dd>O bourbon para caso o projeto não seja rails. Do contrário use a gem e não esta pasta.</dd>
-            <dt><samp class="pasta">config</samp></dt><dd>Os arquivos de configuração do próprio CSS, incluindo cores, quais classes serão escritas no arquivo final, z-index, etc. Para mais detalhes, cheque a <a href="doc.html" class="link--readme">documentação</a>.</dd>
-            <dt><samp class="pasta">extra</samp></dt><dd>Esta pasta está vazia e serve para personalizar elementos que aparecem na pasta <samp class="pasta">base</samp>. Os arquivos devem ser importados manualmente no arquivo <samp class="arquivo">config/_base.scss</samp>.</dd>
-            <dt><samp class="pasta">fontes</samp></dt><dd>As fontes do sistema.</dd>
-            <dt><samp class="pasta">modelos</samp></dt><dd>Os modelos de HTML.</dd>
-            <dt><samp class="pasta">read-me</samp></dt><dd>Contém a documentação. Ver mais detalhes acima.</dd>
+            <dt><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base</samp></dt><dd>Esta pasta contém todos os arquivos imutáveis do CSS. <strong class="texto-erro">Não modifique nenhum destes arquivos!</strong></dd>
+            <dt><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> bourbon</samp></dt><dd>O bourbon para caso o projeto não seja rails. Do contrário use a gem e não esta pasta.</dd>
+            <dt><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> config</samp></dt><dd>Os arquivos de configuração do próprio CSS, incluindo cores, quais classes serão escritas no arquivo final, z-index, etc. Para mais detalhes, cheque a <a href="doc.html" class="link--readme">documentação</a>.</dd>
+            <dt><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extra</samp></dt><dd>Esta pasta está vazia e serve para personalizar elementos que aparecem na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base</samp>. Os arquivos devem ser importados manualmente no arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_base.scss</samp>.</dd>
+            <dt><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> fontes</samp></dt><dd>As fontes do sistema.</dd>
+            <dt><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> modelos</samp></dt><dd>Os modelos de HTML.</dd>
+            <dt><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> read-me</samp></dt><dd>Contém a documentação. Ver mais detalhes acima.</dd>
+            <dt><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> svg</samp></dt><dd>Contém os arquivos referências para as imagens svg do sistema. Inclui uma subpasta com os arquivos individuais</dd>
           </dl>
-          <p>Crie o arquivo básico para o CSS fora de qualquer pasta (<samp class="arquivo">app.scss</samp>) e dentro dele inclua:</p>
+          <p>Crie o arquivo básico para o CSS fora de qualquer pasta (<samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> app.scss</samp>) e dentro dele inclua:</p>
           <code class="codigo--sass">
-            <p>@import "config/base";</p>
+            <p>@import "base/base";</p>
           </code>
         </article>
         <article>
           <h2>Dois sistemas com a mesma base de estilo</h2>
-          <p>Caso aconteça de termos dois sistemas diferentes mas que utilizam da mesma pasta <samp class="pasta">stylesheets</samp> (como aconteceu com o SGU e Requisição de Sistemas) duplique as pastas <samp class="arquivo">config</samp> e <samp class="arquivo">extra</samp> renomeando-as. Lembre-se de importar o arquivo <samp class="arquivo">base</samp> correto dentro do CSS.</p>
+          <p>Caso aconteça de termos dois sistemas diferentes mas que utilizam da mesma pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> stylesheets</samp> (como aconteceu com o SGU e Requisição de Sistemas) duplique as pastas <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config</samp> e <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> extra</samp> renomeando-as. Lembre-se de importar o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base</samp> correto dentro do CSS.</p>
         </article>
         <article>
           <h2>Atualizando o Front-Alego</h2>
           <p>Verifique o que foi alterado. Aqui haverá um <em>changelog</em> das alterações. Cada arquivo também terá um <em>changelog</em> local. Na <a href="doc.html" class="link--readme">documentação</a> as novidades estarão em destaque.</p>
-          <p>Substitua a pasta <samp class="pasta">base</samp> pela pasta atualizada.</p>
-          <p>Caso a alteração esteja em um ou mais arquivos da pasta <samp class="pasta">config</samp> tome o cuidado de copiar apenas o que for novo e evitar substituições indevidas. Os dois arquivos da pasta com a maior probabilidade de acontecer isso são o <samp class="arquivo">config</samp> e <samp class="arquivo">base</samp>.</p>
+          <p>Substitua a pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base</samp> pela pasta atualizada.</p>
+          <p>Caso a alteração esteja em um ou mais arquivos da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> config</samp> tome o cuidado de copiar apenas o que for novo e evitar substituições indevidas. Os dois arquivos da pasta com a maior probabilidade de acontecer isso são o <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config</samp> e <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base</samp>.</p>
         </article>
       </section>
     </main>

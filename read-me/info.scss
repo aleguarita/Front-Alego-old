@@ -23,7 +23,7 @@ A PARTIR DAQUI É O CSS GENÉRICO DO FRONT-END
 // IMPORTAÇÃO DO FRONT-ALEGO
 // =============================================================================
 @import "fontes"; // Este arquivo precisa ser importado por conta do endereço da pasta
-@import "../config/base";
+@import "../base/base";
 
 /*
 ================================================================================
@@ -83,7 +83,7 @@ article {
     padding-bottom: 0;
   }
 }
-figure {
+figure:not([class]) {
   @include display-flex;
   @include align-items(flex-end);
   img {
@@ -139,28 +139,10 @@ CLASSES
 // -----------------------------------------------------------------------------
 // Ícone de arquivo/pasta
 // -----------------------------------------------------------------------------
-%pasta-arquivo {
+.local {
   color: paleta-padrao(cinza-70);
-  &::before {
-    font-family: $fonte-simbolo;
-    margin-right: .2em;
-    font-size: .75em;
-  }
 }
-.arquivo {
-  @extend %pasta-arquivo;
-  &::before {
-    content: "\e140";
-    vertical-align: text-bottom;
-  }
-}
-.pasta {
-  @extend %pasta-arquivo;
-  &::before {
-    content: "\f07b";
-    vertical-align: middle;
-  }
-}
+
 // -----------------------------------------------------------------------------
 // Listas
 // -----------------------------------------------------------------------------
@@ -445,7 +427,7 @@ main {
   input:checked ~ {
     ul.lista--link { display: none; }
     .menu__subtitulo .secao-lista__icone {
-      transform: rotate(-90deg);
+      transform: rotate(0deg);
     }
   }
   &__subtitulo {
@@ -753,7 +735,7 @@ $links: sem-sublinhado, borda, pontilhado;
 SÍMBOLOS | LISTA BÁSICA
 --------------------------------------------------------------------------------
 */
-.demo__simbolos {
+%demo__simbolos {
   $qt: 12;
   @include lista-sem-marcador;
   @include grupo-flex($qt, rem(10));
@@ -768,14 +750,25 @@ SÍMBOLOS | LISTA BÁSICA
     font-size: 3rem;
     padding: .2em;
     text-align: center;
+  }
+  .funcao {
+    display: block;
+    text-align: center;
+  }
+}
+.demo__simbolos {
+  @extend %demo__simbolos;
+  .icone {
     &::before {
       content: "?";
     }
   }
   .funcao {
-    text-align: center;
     &::before { content: "sem ícone"; }
   }
+}
+.demo__svg {
+  @extend %demo__simbolos;
 }
 /*
 --------------------------------------------------------------------------------

@@ -30,7 +30,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__regras">
               <span class="secao-lista__titulo">Básico</span>
-              <span class="secao-lista__icone"></span>
+              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -44,7 +44,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__config">
               <span class="secao-lista__titulo">Configurações</span>
-              <span class="secao-lista__icone"></span>
+              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -52,6 +52,7 @@
             <li><a href="#grid">Grid</a></li>
             <li><a href="#z-index">z-index</a></li>
             <li><a href="#tipografia">Tipografia</a></li>
+            <li><a href="#simbolos-svg">Símbolos SVG</a></li>
             <li><a href="#simbolos">Símbolos</a></li>
             <li><a href="#sprite">Sprites</a></li>
             <li><a href="#variaveis">Variáveis</a></li>
@@ -63,7 +64,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__elementos">
               <span class="secao-lista__titulo">Elementos</span>
-              <span class="secao-lista__icone"></span>
+              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -86,7 +87,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__pg">
               <span class="secao-lista__titulo">Modelos</span>
-              <span class="secao-lista__icone"></span>
+              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -98,7 +99,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__listas">
               <span class="secao-lista__titulo">Listas</span>
-              <span class="secao-lista__icone"></span>
+              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -119,7 +120,7 @@
             <header class="secao-lista__header">
               <label for="illustrator__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -139,7 +140,7 @@
             <header class="secao-lista__header">
               <label for="regras__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -217,7 +218,7 @@
                 <dt>form</dt><dd>formulário</dd>
               </dl>
             <h2 id="regras__sass">Organização dos arquivos SCSS</h2>
-              <p>Como explicado <a href="index.html#aplicando">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="pasta">/extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Se você tiver classes genéricas (que são usadas em todo o seu sistema e não em parte específicas) é recomendado que você crie um arquivo chamado <span class="arquivo">classes</span> nessa pasta.</p>
+              <p>Como explicado <a href="index.html#aplicando" class="link--readme">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> /extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Se você tiver classes genéricas (que são usadas em todo o seu sistema e não em parte específicas) é recomendado que você crie um arquivo chamado <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> classes</samp> nessa pasta.</p>
               <h3>Comentários</h3>
                 <p>O arquivo deve ser totalmente comentado ao estilo SASS para identificar seus trechos.</p>
                 <p>Ele deve abrir com um comentário maior com o nome do sistema, o usuário que criou o arquivo e a data de criação. Veja como exemplo o CSS usado neste arquivo:</p>
@@ -250,7 +251,7 @@
                 <p>Os elementos dentro de um arquivo devem obedecer a seguinte ordem (sempre comentado, conforme explicado acima):</p>
                 <ol class="lista-ordenada">
                   <li>Variáveis e mapas gerais</li>
-                  <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica. Se for usada em mais de um arquivo, salve em um arquivo em <samp class="arquivo">extra/classes.scss</samp>)</li>
+                  <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica. Se for usada em mais de um arquivo, salve em um arquivo em <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> extra/classes.scss</samp>)</li>
                   <li>Seções do site (header, menu, principal, footer)</li>
                 </ol>
                 <blockquote class="aviso--dica">
@@ -259,7 +260,7 @@
               <h3>Atualização emergencial</h3>
                 <p>Você conhece a situação: você tem que fazer uma alteração <strong class="texto-erro">pra ontem</strong>. Por mais que o objetivo do <strong>Front-Alego™</strong> seja organizar os arquivos, isso pode levar um tempo que não se dispõe. Neste caso haverá uma quebra das regras, temporariamente. Mas mesmo quebrando regras, temos regras, porque aqui não é a Casa da Mãe Joana. Siga os passos:</p>
                 <ol class="lista-ordenada">
-                  <li>Crie um arquivo chamado <samp class="arquivo">ajustes.scss</samp> na pasta <samp class="pasta">extras</samp></li>
+                  <li>Crie um arquivo chamado <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> ajustes.scss</samp> na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extras</samp></li>
                   <li>Escreva um comentário indicando para quê é essa alteração e seu nome</li>
                   <li>Escreva as regras. Não tenha medo de usar <samp>!important</samp> e outras regras <strike>escrotas</strike> pouco apropriadas</li>
                   <li>No final do arquivo principal do seu CSS que a regra tem que ser aplicada dê um import para o arquivo:
@@ -337,14 +338,14 @@
         <article id="config">
           <header>
             <h1>Configurações básicas</h1>
-            <p><samp class="arquivo">config/_+config.scss</samp></p>
+            <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_+config.scss</samp></p>
           </header>
           <section class="secao-lista">
             <input type="checkbox" id="config__doc" class="secao-lista__check">
             <header class="secao-lista__header">
               <label for="config__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -352,7 +353,7 @@
 
               <h2 id="config__classes">Uso de Classes</h2>
                 <p>O mapa <samp>$uso-classes</samp> define se vai criar algumas classes no CSS final. Caso não vá usar alguma função comente o nome dentro do mapa (<span class="tecla-atalho">cmd</span> + <span class="tecla-atalho">/</span>), isso vai fazer com que as classes não apareçam no arquivo CSS compilado, deixando-o mais leve (especialmente útil em sites externos).</p>
-                <p>As classes criadas nos arquivos adicionais na pasta <samp class="pasta">extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>. Isso significa que se você criar uma tabela personalizada somente a sua tabela vai aparecer no CSS final.</p>
+                <p>As classes criadas nos arquivos adicionais na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>. Isso significa que se você criar uma tabela personalizada somente a sua tabela vai aparecer no CSS final.</p>
                 <dl class="lista-definicao">
                   <dt><samp>form-grupo</samp></dt><dd>Grupo de formulários. Serve para definir a largura deles, com um sistema similar ao de grids (com classes de <samp>grid-1</samp> até <samp>grid-12</samp>)</dd>
                   <dt><samp>form-pre</samp></dt><dd>Espaçamento entre os formulários. Cada <samp>pre-x</samp> dá o mesmo espaço de uma "grid" de formulário. Por ser algo de uso raro, por padrão já vem comentado</dd>
@@ -377,7 +378,7 @@
                 </blockquote>
               <h2 id="config__tema">Tema de cores</h2>
                 <!-- LINK -->
-                <p>Defina qual o tema de cor utilizado. Veja mais detalhes sobre isso em <a href="#cores">cores</a>. Abaixo uma explicação dos valores aceitos em <samp>$cores-tema</samp> e seus possíveis usos:</p>
+                <p>Defina qual o tema de cor utilizado. Veja mais detalhes sobre isso em <a href="#cores" class="link--readme">cores</a>. Abaixo uma explicação dos valores aceitos em <samp>$cores-tema</samp> e seus possíveis usos:</p>
                 <dl class="lista-definicao">
                   <dt>principal</dt>
                     <dd>O tema padrão e definido originalmente para o sistema</dd>
@@ -521,7 +522,7 @@
             <header class="secao-lista__header">
               <label for="cores__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -545,7 +546,7 @@
                     <dd></dd>
                 </dl>
                 <h3>Paleta Padrão e Cores de Status</h3>
-                  <p>Estas paletas são fixas e fica dentro da pasta <samp class="pasta">base</samp>, mas contém uma série de cores úteis a serem chamadas no CSS e no tema.</p>
+                  <p>Estas paletas são fixas e fica dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base</samp>, mas contém uma série de cores úteis a serem chamadas no CSS e no tema.</p>
                   <p>A <samp>$paleta-padrao</samp> contém as seguintes cores (<a href="#cores__paleta-padrao" class="link--readme">Ver aqui</a>):</p>
                   <dl class="lista-definicao">
                     <dt><samp>branco</samp></dt>
@@ -574,7 +575,7 @@
                       <dd>Cores cinza. Usada no toaster apenas.</dd>
                   </dl>
               <h2 id="cores__temas">Temas</h2>
-                <p><samp class="arquivo">config/_cores_temas.scss</samp></p>
+                <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_cores_temas.scss</samp></p>
                 <p>Neste arquivo ficam os temas de cores do sistema. Você pode criar vários outros temas e alterar no <a href="#config__tema" class="link--readme">arquivo de configuração</a>. Ao escolher um tema, as cores do sistema mudam de acordo.</p>
                 <p>Assim como acontece com a <samp>$paleta</samp>, os temas estão agrupados dentro de um mapa chamado <samp>$temas</samp>. Dentro deste mapa teremos um sub-mapa para cada tema, que são (por padrão):</p>
                 <dl class="lista-definicao">
@@ -650,7 +651,7 @@
             <header class="secao-lista__header">
               <label for="cores__demo--paleta-padrao">
                 <span class="secao-lista__titulo">Demonstração | Paleta Padrão e Cores de Status</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -710,11 +711,11 @@
             <header class="secao-lista__header">
               <label for="cores__demo--paleta">
                 <span class="secao-lista__titulo">Demonstração | Paleta</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Se acrescentar mais cores, abra o arquivo <samp class="arquivo">read-me/elementos.html</samp> e duplique a lista e acrescente o modificador <samp>--nome-paleta</samp>. Depois abra o <samp class="arquivo">read-me/info.scss</samp> e acrescente o nome da paleta no mapa <samp>$cores-paleta</samp> (e recompile o arquivo).</p>
+              <p>Se acrescentar mais cores, abra o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-me/elementos.html</samp> e duplique a lista e acrescente o modificador <samp>--nome-paleta</samp>. Depois abra o <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-me/info.scss</samp> e acrescente o nome da paleta no mapa <samp>$cores-paleta</samp> (e recompile o arquivo).</p>
               <!-- <h2>Paleta <span class="codigo-paleta--basica"></span></h2> -->
               <ul class="demo__paleta--basica">
                 <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
@@ -778,7 +779,7 @@
             <header class="secao-lista__header">
               <label for="grid__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -798,7 +799,7 @@
                 <dd>Igual ao <samp>.container--calha</samp> acima.</dd>
               </dl>
               <h3>Configurando o container</h3>
-              <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos do container:</p>
+              <p>No arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_+config.scss</samp> você configura os seguintes elementos do container:</p>
               <dl class="lista-definicao">
                 <dt><samp>$uso-classes</samp></dt>
                 <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes de container</dd>
@@ -810,7 +811,7 @@
               <h2 id="grid__grid">Grids</h2>
               <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de mixin.</p>
               <h3>Configurando as grids</h3>
-              <p>No arquivo <samp class="arquivo">config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
+              <p>No arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
               <dl class="lista-definicao">
                 <dt><samp>$grid-qtd</samp></dt>
                 <dd>Determina a quantidade máxima do sistema. Cada uma delas é equivalente a uma <samp>.grid-x</samp> no modelo clássico de grids. <strong>Valor atual</strong>: <samp class="escolha--grid-qtd"></samp></dd>
@@ -881,18 +882,18 @@
 
         <article id="z-index">
           <header><h1>z-index</h1></header>
-          <p><samp class="arquivo">config/z-index.scss</samp></p>
+          <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/z-index.scss</samp></p>
           <section class="secao-lista">
             <input type="checkbox" id="z-index__doc" class="secao-lista__check">
             <header class="secao-lista__header">
               <label for="z-index__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
               <p>Nunca use <samp>z-index</samp> diretamente no CSS, pois isso deixa a manutenção ruim, além de resultar em uso de números aleatórios (como o clássico <samp>z-index: 99999;</samp>).</p>
-              <p>No arquivo <samp class="arquivo">config/z-index.scss</samp> você vai inserir os elementos com os nomes dele. Para isso inclua os elementos no mapa <samp>$z</samp>. A ordem que os elementos aparecem é o valor do z-index. O primeiro elemento vai receber <samp>z-index: 1</samp> e assim por diante. O mapa já vem com alguns elementos pensando nessa ordem:</p>
+              <p>No arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/z-index.scss</samp> você vai inserir os elementos com os nomes dele. Para isso inclua os elementos no mapa <samp>$z</samp>. A ordem que os elementos aparecem é o valor do z-index. O primeiro elemento vai receber <samp>z-index: 1</samp> e assim por diante. O mapa já vem com alguns elementos pensando nessa ordem:</p>
               <code class="codigo--sass">
                 <header>SASS</header>
                 <p>$z: (</p>
@@ -926,24 +927,24 @@
         <article id="tipografia">
           <header>
             <h1>Tipografia</h1>
-            <p><strong>Fontes: </strong><samp class="arquivo">base/_fontes.scss</samp></p>
-            <p><strong>Configuração: </strong><samp class="arquivo">config/_tipografia.scss</samp></p>
+            <p><strong>Fontes: </strong><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_fontes.scss</samp></p>
+            <p><strong>Configuração: </strong><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
           </header>
           <section class="secao-lista">
             <input type="checkbox" id="tipografia__doc" class="secao-lista__check">
             <header class="secao-lista__header">
               <label for="tipografia__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>A tipografia é ajustada em dois arquivos separados. Um na pasta <samp class="pasta">base/</samp> (que não deve ser alterado) e outro na pasta <samp class="pasta">config</samp> (feito para alteração).</p>
+              <p>A tipografia é ajustada em dois arquivos separados. Um na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base/</samp> (que não deve ser alterado) e outro na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> config</samp> (feito para alteração).</p>
               <blockquote class="aviso--grave">
                 Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>.artigo-padrao h1</samp>)
               </blockquote>
               <h2 id="tipografia__fontes">Chamando fontes</h2>
-                <p>Dentro do arquivo <samp class="arquivo">base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
+                <p>Dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
                 <dl class="lista-definicao">
                   <dt><samp>$fonte-serifa</samp></dt>
                   <dd>Fonte com serifa: variação da Patua One</dd>
@@ -955,7 +956,7 @@
                   <dd>Fonte de símbolos da Assembleia</dd>
                 </dl>
               <h2 id="tipografia__variaveis">Configurações: variáveis</h2>
-                <p>As três primeiras variáveis do arquivo <samp class="arquivo">config/_tipografia.scss</samp> determinam configurações básicas do texto:</p>
+                <p>As três primeiras variáveis do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp> determinam configurações básicas do texto:</p>
                 <dl class="lista-definicao">
                   <dt><samp>$fonte-titulo</samp></dt>
                   <dd>Qual a fonte padrão para os títulos do sistema. Por padrão é a <samp>$fonte-serifa</samp></dd>
@@ -974,13 +975,13 @@
                   <dd>A variação do tamanho de texto padrão (inclui tabelas e listas) baseado no <samp>modular-scale()</samp></dd>
                 </dl>
                 <blockquote class="aviso--dica">
-                  Estas variáveis estão no arquivo de configuração (<samp class="arquivo">config/_tipografia.scss</samp>) para que você possa alterar conforme a necessidade do sistema atual.
+                  Estas variáveis estão no arquivo de configuração (<samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp>) para que você possa alterar conforme a necessidade do sistema atual.
                 </blockquote>
               <h2 id="tipografia__alterada">Formatação personalizada</h2>
                 <p>Sempre que for criar estilos mais personalizados (como com uso de bordas e sombras), procure utilizar classes ou seletores descendentes (lembre-se de não abusar de elementos descendentes. Mantenha a regra de no máximo um nível, se for necessário mais do que isso, é adequado o uso de classe).</p>
                 <p>Existe disponível alguns mixins para variações de título, texto e link.</p>
               <h3>Padrões de texto</h3>
-              <p>O mixin <samp>texto()</samp> altera as propriedades básicas dos textos. Este mixin é puxado no arquivo de <samp class="arquivo">reset</samp> e qualquer alteração destas propriedades vai alterar todo o seu site/sistema, portanto, evite alterar. É possível acrescentar mais propriedades, para isso acrescente o seguinte fragmento de texto <strong>antes</strong> da última chave (<samp>}</samp>):</p>
+              <p>O mixin <samp>texto()</samp> altera as propriedades básicas dos textos. Este mixin é puxado no arquivo de <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> reset</samp> e qualquer alteração destas propriedades vai alterar todo o seu site/sistema, portanto, evite alterar. É possível acrescentar mais propriedades, para isso acrescente o seguinte fragmento de texto <strong>antes</strong> da última chave (<samp>}</samp>):</p>
               <code class="codigo--sass">
                 <header>SASS</header>
                 <p>@else if $mod == nome-variante {</p>
@@ -1019,7 +1020,7 @@
             <header class="secao-lista__header">
               <label for="tipografia__demo--basica">
                 <span class="secao-lista__titulo">Demonstração | Tipografia Básica</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1051,7 +1052,7 @@
             <header class="secao-lista__header">
               <label for="tipografia__demo--modificada">
                 <span class="secao-lista__titulo">Demonstração | Tipografia Modificada</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1083,17 +1084,191 @@
           </section>
         </article>
 
+        <article id="simbolos-svg">
+          <header>
+            <h1>Símbolos - SVG</h1>
+            <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/simbolos-svg.scss</samp></p>
+          </header>
+          <section class="secao-lista">
+            <input type="checkbox" id="ico-svg__doc" class="secao-lista__check">
+            <header class="secao-lista__header">
+              <label for="ico-svg__doc">
+                <span class="secao-lista__titulo">Documentação</span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Os ícones do sistema estão em apenas um arquivo SVG, como se fosse um grande sprite, mas sem a necessidade de usar essa técnica. Para mais detalhes você pode conferir <a href="https://css-tricks.com/lodge/svg/13-svg-icon-system-use-element/" class="link--externo" target="_blank">este artigo</a> ou <a href="https://nucleoapp.com/how-to-create-an-icon-system-using-svg-symbols/" class="link--externo" target="_blank">este</a>.</p>
+              <h2>Arquivo de ícones</h2>
+              <p>Todos os ícones criados estão individualmente na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> svg/avulsos</samp> para referência e eles aparecem como símbolos dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> svg/basico.svg</samp>.</p>
+              <p>Na raíz do Front-Alego tem um arquivo chamado <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> ico.svg</samp> que contém todo um conjunto de ícones. Copie e cole os ícones extras do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> svg/basico.svg</samp> diretamente neste. <strong>Exclua ícones não usados para deixar o arquivo final menor.</strong> (você sempre poderá copiar algum ícone diretamte do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> basico.svg</samp>)</p>
+              <p>Se você for trabalhar variações, coloque no mesmo arquivo. O objetivo no futuro é ter mais de um arquivo de coletânea de símbolos, mas o seu arquivo final sempre deverá ser único.</p>
+              <p><strong class="texto--erro">No Rails coloque o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> ico.svg</samp> dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> assets/images</samp></strong>.</p>
+              <h2>Chamando um ícone</h2>
+              <p>Para colocar um ícone é necessário utilizar a tag <samp>&lt;use&gt;</samp> dentro da tag <samp>&lt;svg&gt;</samp>. Inclua a classe <samp>ico</samp> (ou variante) dentro da tag <samp>&lt;svg&gt;</samp>.</p>
+              <p>Dentro do use você vai usar o parâmetro <samp>xlink:href</samp> para chamar a imagem (funciona como o <samp>href</samp> tradicional). No final do nome do arquivo inclua o id da imagem (exemplo: <samp>#tabela</samp>).</p>
+              <code class="codigo--html">
+                <header>HTML</header>
+                <p>&lt;svg class="ico"&gt;</p>
+                  <p class="recuo-1">&lt;use xlink:href="ico.svg#id" /&gt;</p>
+                <p>&lt;/svg&gt;</p>
+              </code>
+              <blockquote class="aviso--dica">
+                Para colocar um espaço entre o ícone e o texto seguinte, basta colocar um espaço diretamente no HTML.
+              </blockquote>
+              <h2>Classes</h2>
+              <p>As classes abaixo são únicas, não há a necessiade de usar mais de uma na tag <samp>&lt;svg&gt;</samp> (diferente dos ícones de fonte).</p>
+              <dl class="lista-definicao">
+                <dt><samp>.ico</samp></dt>
+                  <dd>Tag básica que inclui a formatação básica do ícone (para que ele pegue o tamanho e a cor do texto que o acompanha).</dd>
+                <dt><samp>.ico--baixo</samp></dt>
+                  <dd>Rotaciona o ícone para ele "apontar" para baixo (use com setas).</dd>
+                <dt><samp>.ico--cima</samp></dt>
+                  <dd>Rotaciona o ícone para ele "apontar" para cima (use com setas).</dd>
+                <dt><samp>.ico--esquerda</samp></dt>
+                  <dd>Rotaciona o ícone para ele "apontar" para a esquerda (use com setas).</dd>
+              </dl>
+            </section>
+          </section>
+          <section class="secao-lista">
+            <input type="checkbox" id="ico-svg__basico" class="secao-lista__check" checked="checked">
+            <header class="secao-lista__header">
+              <label for="ico-svg__basico">
+                <span class="secao-lista__titulo">Ícones de basico.svg</span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+              </label>
+            </header>
+            <section class="secao-lista__conteudo">
+              <p>Estes são os ícones atuais em <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> basico.svg</samp>.</p>
+              <ul class="demo__svg">
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#abrir" /></svg></span><span class="funcao">#abrir</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ajuda" /></svg></span><span class="funcao">#ajuda</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#apontando" /></svg></span><span class="funcao">#apontando</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#asterisco" /></svg></span><span class="funcao">#asterisco</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#aviso" /></svg></span><span class="funcao">#aviso</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cadeado" /></svg></span><span class="funcao">#cadeado</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cadeado-aberto" /></svg></span><span class="funcao">#cadeado-aberto</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cadeado-fechado" /></svg></span><span class="funcao">#cadeado-fechado</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#calendario" /></svg></span><span class="funcao">#calendario</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#calendario-1" /></svg></span><span class="funcao">#calendario-1</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#calendario-2" /></svg></span><span class="funcao">#calendario-2</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#carregando-1" /></svg></span><span class="funcao">#carregando-1</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#carregando-2" /></svg></span><span class="funcao">#carregando-2</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#casa" /></svg></span><span class="funcao">#casa</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#celular" /></svg></span><span class="funcao">#celular</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chat-1" /></svg></span><span class="funcao">#chat-1</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chat-2" /></svg></span><span class="funcao">#chat-2</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chat-3" /></svg></span><span class="funcao">#chat-3</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chat-4" /></svg></span><span class="funcao">#chat-4</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chave" /></svg></span><span class="funcao">#chave</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#clip" /></svg></span><span class="funcao">#clip</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cone-seguranca" /></svg></span><span class="funcao">#cone-seguranca</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cracha" /></svg></span><span class="funcao">#cracha</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#curtir" /></svg></span><span class="funcao">#curtir</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#descurtir" /></svg></span><span class="funcao">#descurtir</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#desligar" /></svg></span><span class="funcao">#desligar</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg></span><span class="funcao">#documento</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#documento-2" /></svg></span><span class="funcao">#documento-2</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#download" /></svg></span><span class="funcao">#download</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#engrenagem" /></svg></span><span class="funcao">#engrenagem</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#envelope" /></svg></span><span class="funcao">#envelope</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#erro" /></svg></span><span class="funcao">#erro</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#erro-1" /></svg></span><span class="funcao">#erro-1</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#estrela" /></svg></span><span class="funcao">#estrela</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#estrela-metade" /></svg></span><span class="funcao">#estrela-metade</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#estrela-vazia" /></svg></span><span class="funcao">#estrela-vazia</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#facebook" /></svg></span><span class="funcao">#facebook</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></span><span class="funcao">#fechar</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ferramentas" /></svg></span><span class="funcao">#ferramentas</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#figura" /></svg></span><span class="funcao">#figura</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#filtro" /></svg></span><span class="funcao">#filtro</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#fluxograma" /></svg></span><span class="funcao">#fluxograma</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#foto" /></svg></span><span class="funcao">#foto</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#globo" /></svg></span><span class="funcao">#globo</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#google+" /></svg></span><span class="funcao">#google+</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#grafico-1" /></svg></span><span class="funcao">#grafico-1</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#grafico-2" /></svg></span><span class="funcao">#grafico-2</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#grafico-3" /></svg></span><span class="funcao">#grafico-3</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#grupo" /></svg></span><span class="funcao">#grupo</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#impressora" /></svg></span><span class="funcao">#impressora</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#info" /></svg></span><span class="funcao">#info</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#janela-up" /></svg></span><span class="funcao">#janela-up</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#janela" /></svg></span><span class="funcao">#janela</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lampada" /></svg></span><span class="funcao">#lampada</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lapis" /></svg></span><span class="funcao">#lapis</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#link" /></svg></span><span class="funcao">#link</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#livro" /></svg></span><span class="funcao">#livro</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lixo-1" /></svg></span><span class="funcao">#lixo-1</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lixo-2" /></svg></span><span class="funcao">#lixo-2</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#local" /></svg></span><span class="funcao">#local</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lupa" /></svg></span><span class="funcao">#lupa</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#mais" /></svg></span><span class="funcao">#mais</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#megafone" /></svg></span><span class="funcao">#megafone</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#menos" /></svg></span><span class="funcao">#menos</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#monitor" /></svg></span><span class="funcao">#monitor</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#novo" /></svg></span><span class="funcao">#novo</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></span><span class="funcao">#ok-tique</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#olho" /></svg></span><span class="funcao">#olho</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#olho-fechado" /></svg></span><span class="funcao">#olho-fechado</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ordenar-baixo" /></svg></span><span class="funcao">#ordenar-baixo</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ordenar-cima" /></svg></span><span class="funcao">#ordenar-cima</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ordenar" /></svg></span><span class="funcao">#ordenar</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg></span><span class="funcao">#pasta</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pdf" /></svg></span><span class="funcao">#pdf</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pessoa-1" /></svg></span><span class="funcao">#pessoa-1</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pessoa-2" /></svg></span><span class="funcao">#pessoa-2</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pessoa-3" /></svg></span><span class="funcao">#pessoa-3</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#prancheta" /></svg></span><span class="funcao">#prancheta</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#proibido" /></svg></span><span class="funcao">#proibido</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#relogio" /></svg></span><span class="funcao">#relogio</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#sair" /></svg></span><span class="funcao">#sair</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#salvar" /></svg></span><span class="funcao">#salvar</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#seta-dupla" /></svg></span><span class="funcao">#seta-dupla</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg></span><span class="funcao">#seta-fina</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#seta" /></svg></span><span class="funcao">#seta</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#tabela" /></svg></span><span class="funcao">#tabela</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#tablet" /></svg></span><span class="funcao">#tablet</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#teclado" /></svg></span><span class="funcao">#teclado</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#telefone" /></svg></span><span class="funcao">#telefone</span></li>
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#twitter" /></svg></span><span class="funcao">#twitter</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#upload" /></svg></span><span class="funcao">#upload</span></li>
+
+                <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#zip" /></svg></span><span class="funcao">#zip</span></li>
+              </ul>
+            </section>
+          </section>
+        </article>
+
         <article id="simbolos">
           <header>
             <h1>Símbolos</h1>
-            <p><samp class="arquivo">config/_simbolos.scss</samp></p>
+            <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_simbolos.scss</samp></p>
+            <blockquote class="aviso--grave">
+              Este método vai cair em desuso e está aqui apenas por retrocompatibilidade
+            </blockquote>
           </header>
           <section class="secao-lista">
             <input type="checkbox" id="simbolos__doc" class="secao-lista__check">
             <header class="secao-lista__header">
               <label for="simbolos__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1115,11 +1290,11 @@
             <header class="secao-lista__header">
               <label for="simbolo__demo">
                 <span class="secao-lista__titulo">Demonstração | Ícones utilizados</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Se você tiver acrescentado algum símbolo novo no seu sistema e quiser visualizá-lo aqui (como referência) vai ser necessário acrescentar o ícone na unha no arquivo <samp class="arquivo">read-me/doc.html</samp> e copiar uma das linhas existentes para o seu ícone (alterando a classe). Depois disso recompile o <samp class="arquivo">read-me/info.scss</samp> para <samp class="arquivo">read-info.css</samp>.</p>
+              <p>Se você tiver acrescentado algum símbolo novo no seu sistema e quiser visualizá-lo aqui (como referência) vai ser necessário acrescentar o ícone na unha no arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-me/doc.html</samp> e copiar uma das linhas existentes para o seu ícone (alterando a classe). Depois disso recompile o <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-me/info.scss</samp> para <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-info.css</samp>.</p>
               <p>Se na lista abaixo aparecer um "buraco" entre dois ícones é porque o mesmo foi comentado no seu arquivo de símbolos.</p>
               <ul class="demo__simbolos">
                 <li class="demo__ico-abrir"><span class="icone"></span><span class="funcao"></span></li>
@@ -1246,14 +1421,14 @@
         <article id="variaveis">
           <header>
             <h1>Variáveis</h1>
-            <p><samp class="arquivo">config/_variaveis.scss</samp></p>
+            <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_variaveis.scss</samp></p>
           </header>
           <section class="secao-lista">
             <input type="checkbox" id="variaveis__doc" class="secao-lista__check">
             <header class="secao-lista__header">
               <label for="variaveis__doc">
                 <span class="secao-lista__titulo">Documentacão</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1309,7 +1484,7 @@
             <header class="secao-lista__header">
               <label for="variaveis__demo">
                 <span class="secao-lista__titulo">Demonstração</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1348,7 +1523,7 @@
             <header class="secao-lista__header">
               <label for="responsive__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1423,18 +1598,18 @@
         <article id="classes">
           <header>
             <h1>Classes globais</h1>
-            <p><samp class="arquivo">base/_classes.scss</samp></p>
+            <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_classes.scss</samp></p>
           </header>
           <section class="secao-lista">
             <input type="checkbox" id="classes__doc" class="secao-lista__check">
             <header class="secao-lista__header">
               <label for="classes__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Além das inúmeras classes geradas em vários outros arquivos, o arquivo <samp class="arquivo">base/_classes.scss</samp> contém várias classes globais comum a todos os sistemas da Alego. Em seu projeto, quando criar classes genéricas (a exemplo da <samp>.oculta</samp>), faça dentro de um arquivo <samp>_classes.scss</samp> na pasta <samp>extra</samp>.</p>
+              <p>Além das inúmeras classes geradas em vários outros arquivos, o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_classes.scss</samp> contém várias classes globais comum a todos os sistemas da Alego. Em seu projeto, quando criar classes genéricas (a exemplo da <samp>.oculta</samp>), faça dentro de um arquivo <samp>_classes.scss</samp> na pasta <samp>extra</samp>.</p>
               <dl class="lista-definicao">
                 <dt><samp>.oculta</samp></dt>
                   <dd>Some com o elemento que usar esta classe. Usada, normalmente com script que acrescenta essa classe</dd>
@@ -1458,17 +1633,17 @@
               <dl class="lista-definicao">
                 <dt><samp>.texto--caixa-alta</samp><br /><samp>.texto--uppercase</samp></dt>
                   <dd>Deixa o texto em caixa alta. <span class="texto--uppercase">O resultado é assim</span></dd>
-                <dt><samp>.fonte--menor</samp></dt>
+                <dt><samp>.fonte--menor</samp><br /><samp>.texto--menor</samp></dt>
                   <dd>Diminui o tamanho da fonte 1 passo através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele diminui utilizando <samp>em</samp>. <span class="fonte--menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
-                <dt><samp>.fonte--x-menor</samp></dt>
+                <dt><samp>.fonte--x-menor<br /><samp>.texto--x-menor</samp></samp></dt>
                   <dd>Diminui o tamanho da fonte 2 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele diminui utilizando <samp>em</samp>. <span class="fonte--x-menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
-                <dt><samp>.fonte--xx-menor</samp></dt>
+                <dt><samp>.fonte--xx-menor</samp><br /><samp>.texto--xx-menor</samp></dt>
                   <dd>Diminui o tamanho da fonte 3 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele diminui utilizando <samp>em</samp>. <span class="fonte--xx-menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
-                <dt><samp>.fonte--maior</samp></dt>
+                <dt><samp>.fonte--maior</samp><br /><samp>.texto--maior</samp></dt>
                   <dd>Aumenta o tamanho da fonte 1 passo através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
-                <dt><samp>.fonte--x-maior</samp></dt>
+                <dt><samp>.fonte--x-maior</samp><br /><samp>.texto--x-maior</samp></dt>
                   <dd>Aumenta o tamanho da fonte 2 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--x-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
-                <dt><samp>.fonte--xx-maior</samp></dt>
+                <dt><samp>.fonte--xx-maior</samp><br /><samp>.texto--xx-maior</samp></dt>
                   <dd>Aumenta o tamanho da fonte 3 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--xx-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
               </dl>
             </section>
@@ -1482,7 +1657,7 @@
             <header class="secao-lista__header">
               <label for="form__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1548,7 +1723,7 @@
             <header class="secao-lista__header">
               <label for="form__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1572,7 +1747,7 @@
                 </dl>
                 <p>A classe <samp>.form-texto</samp> é bem genérica e pode ser usada para qualquer caso de formulário que não sejam casos mais específicos (como radio, select).</p>
                 <p>No HTML o <samp>label</samp> pode aparecer depois do <samp>input</samp>/<samp>textarea</samp>. Quando isso acontece, visualmente ele vai aparecer antes e vai ganhar uma formatação visual de destaque quando o <samp>input</samp> estiver ativo. <strong>Evite usar isso em casos de que o usuário pode usar um leitor de tela</strong>.</p>
-                <p>É possível acrescentar um ícone depois da caixa (por exemplo, para campos de busca). Para isso você pode acrescentar um <samp>span</samp> ou <span>button</span> e acrescentar a classe <samp>.form__ico</samp> além da classe do símbolo desejado.</p>
+                <p>É possível acrescentar um ícone depois da caixa (por exemplo, para campos de busca). Para isso você pode acrescentar um <samp>span</samp> ou <samp>button</samp> e acrescentar a classe <samp>.form__ico</samp>, dentro deste elemento coloque o símbolo desejado através de SVG.</p>
                 <p>Código básico de um elemento de texto com o label depois (no exemplo clique na caixa de texto para ver o efeito).</p>
                 <code class="codigo--html">
                   <header>HTML</header>
@@ -1593,13 +1768,13 @@
                   <header>HTML</header>
                   <p>&lt;div class="form-texto"&gt;</p>
                     <p class="recuo-1">&lt;input type="text" placeholder="Busca" id="exemplo-texto-2" /&gt;</p>
-                    <p class="recuo-1">&lt;span class="ico-lupa form__ico"&gt;&lt;/span&gt;</p>
+                    <p class="recuo-1">&lt;span class="form__ico"&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="ico.svg#lupa" /&gt;&lt;/svg&gt;&lt;/span&gt;</p>
                   <p>&lt;/div&gt;</p>
                 </code>
                 <div class="form-container--linha">
                   <div class="form-texto field">
                     <input type="text" placeholder="Busca" id="exemplo-texto-2" />
-                    <span class="ico-lupa form__ico"></span>
+                    <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                   </div>
                 </div>
               <h2>select</h2>
@@ -1609,7 +1784,7 @@
                   <dt>Elementos que formata</dt>
                     <dd><samp>select</samp></dd>
                 </dl>
-                <p>Importante notar que o Front-Alego personaliza o elemento <samp>select</samp> e por isso é necessário acrescentar a seta na unha. Depois de cada <samp>select</samp> acrescente um <samp>span</samp> com uma das várias classes de <a href="#simbolos" class="link--readme">seta para baixo</a> (recomendo o uso de <samp>.ico-seta-baixo-fina</samp>).</p>
+                <p>Importante notar que o Front-Alego personaliza o elemento <samp>select</samp> e por isso é necessário acrescentar a seta na unha. Depois de cada <samp>select</samp> acrescente um <samp>&lt;span class="form__ico"&gt;</samp> e dentro dele uma seta <a href="#simbolos-svg" class="link--readme">conforme explicado aqui</a> (escolha uma das setas disponíveis, recomendo a <samp>seta-fina</samp>). Importante notar que a tag <samp>&lt;svg&gt;</samp> deve receber a classe <samp>.ico--baixo</samp>.</p>
                 <p>Código exemplo para um select:</p>
                 <code class="codigo--html">
                   <header>HTML</header>
@@ -1620,7 +1795,7 @@
                       <p class="recuo-2">&lt;option value="val2"&gt;Exemplo 2&lt;/option&gt;</p>
                       <p class="recuo-2">&lt;option value="val3"&gt;Exemplo 3&lt;/option&gt;</p>
                     <p class="recuo-1">&lt;/select&gt;</p>
-                    <p class="recuo-1">&lt;span class="ico-seta-baixo-fina"&gt;&lt;/span&gt;</p>
+                    <p class="recuo-1">&lt;span class="form__ico"&gt;&lt;svg class="ico--baixo"&gt;&lt;use xlink:href="ico.svg#seta-fina" /&gt;&lt;/svg&gt;&lt;/span&gt;</p>
                   <p>&lt;/div&gt;</p>
                 </code>
                 <div class="form-container--linha">
@@ -1631,7 +1806,7 @@
                       <option value="val2">Exemplo 2</option>
                       <option value="val3">Exemplo 3</option>
                     </select>
-                    <span class="ico-seta-baixo-fina"></span>
+                    <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
                   </div>
                 </div>
               <h2>radio button e checkbox</h2>
@@ -1719,7 +1894,7 @@
             <header class="secao-lista__header">
               <label for="form__escolhido">
                 <span class="secao-lista__titulo">Form escolhido: <span class="codigo-form-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1747,7 +1922,7 @@
                     <option value="demo3">Valor 3</option>
                     <option value="demo4">Valor 4</option>
                   </select>
-                  <span class="ico-seta-baixo-fina"></span>
+                  <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
                 </div>
                 <div class="field-3 form-checkbox">
                   <input type="checkbox" id="form-demo-5" />
@@ -1776,12 +1951,12 @@
                 <div class="field-6 form-texto">
                   <input type="text" id="form-demo-11" />
                   <label for="form-demo-11">Busca</label>
-                  <span class="form-ico ico-lupa"></span>
+                  <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                 </div>
                 <div class="field-6 form-texto">
                   <input type="date" id="form-demo-12" />
                   <label for="form-demo-12">Data</label>
-                  <span class="form-ico ico-calendario"></span>
+                  <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
                 </div>
                 <div class="field-6">
                   <p>Exemplo da lista do autocomplete</p>
@@ -1800,7 +1975,7 @@
             <header class="secao-lista__header">
               <label for="form__tipo-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1824,7 +1999,7 @@
                         <option value="demo3">Valor 3</option>
                         <option value="demo4">Valor 4</option>
                       </select>
-                      <span class="ico-seta-baixo-fina"></span>
+                      <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
                     </div>
                     <div class="field-6 form-checkbox--tipo-1--personaliza">
                       <input type="checkbox" id="form-demo-5-t1a" />
@@ -1845,12 +2020,12 @@
                     <div class="field-6 form-texto--tipo-1">
                       <input type="text" id="form-demo-11-t1a" />
                       <label for="form-demo-11-t1a">Busca</label>
-                      <span class="form-ico ico-lupa"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                     </div>
                     <div class="field-6 form-texto--tipo-1">
                       <input type="date" id="form-demo-12-t1a" />
                       <label for="form-demo-12-t1a">Data</label>
-                      <span class="form-ico ico-calendario"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
                     </div>
                     <div class="field-6">
                       <p>Exemplo da lista do autocomplete</p>
@@ -1882,7 +2057,7 @@
                         <option value="demo3">Valor 3</option>
                         <option value="demo4">Valor 4</option>
                       </select>
-                      <span class="ico-seta-baixo-fina"></span>
+                      <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
                     </div>
                     <div class="field-6 form-checkbox--tipo-1--personaliza">
                       <input type="checkbox" id="form-demo-5-t1b" />
@@ -1903,12 +2078,12 @@
                     <div class="field-6 form-texto--tipo-1">
                       <input type="text" id="form-demo-11-t1b" />
                       <label for="form-demo-11-t1b">Busca</label>
-                      <span class="form-ico ico-lupa"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                     </div>
                     <div class="field-6 form-texto--tipo-1">
                       <input type="date" id="form-demo-12-t1b" />
                       <label for="form-demo-12-t1b">Data</label>
-                      <span class="form-ico ico-calendario"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
                     </div>
                     <div class="field-6">
                       <p>Exemplo da lista do autocomplete</p>
@@ -1929,7 +2104,7 @@
             <header class="secao-lista__header">
               <label for="form__tipo-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -1953,7 +2128,7 @@
                         <option value="demo3">Valor 3</option>
                         <option value="demo4">Valor 4</option>
                       </select>
-                      <span class="ico-seta-baixo-fina"></span>
+                      <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
                     </div>
                     <div class="field-6 form-checkbox--tipo-2--personaliza">
                       <input type="checkbox" id="form-demo-5-t2a" />
@@ -1974,12 +2149,12 @@
                     <div class="field-6 form-texto--tipo-2">
                       <input type="text" id="form-demo-11-t2a" />
                       <label for="form-demo-11-t2a">Busca</label>
-                      <span class="form-ico ico-lupa"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                     </div>
                     <div class="field-6 form-texto--tipo-2">
                       <input type="date" id="form-demo-12-t2a" />
                       <label for="form-demo-12-t2a">Data</label>
-                      <span class="form-ico ico-calendario"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
                     </div>
                     <div class="field-6">
                       <p>Exemplo da lista do autocomplete</p>
@@ -2011,7 +2186,7 @@
                         <option value="demo3">Valor 3</option>
                         <option value="demo4">Valor 4</option>
                       </select>
-                      <span class="ico-seta-baixo-fina"></span>
+                      <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
                     </div>
                     <div class="field-6 form-checkbox--tipo-2--personaliza">
                       <input type="checkbox" id="form-demo-5-t2b" />
@@ -2032,12 +2207,12 @@
                     <div class="field-6 form-texto--tipo-2">
                       <input type="text" id="form-demo-11-t2b" />
                       <label for="form-demo-11-t2b">Busca</label>
-                      <span class="form-ico ico-lupa"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                     </div>
                     <div class="field-6 form-texto--tipo-2">
                       <input type="date" id="form-demo-12-t2b" />
                       <label for="form-demo-12-t2b">Data</label>
-                      <span class="form-ico ico-calendario"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
                     </div>
                     <div class="field-6">
                       <p>Exemplo da lista do autocomplete</p>
@@ -2058,7 +2233,7 @@
             <header class="secao-lista__header">
               <label for="form__tipo-3">
                 <span class="secao-lista__titulo">tipo-3</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2082,7 +2257,7 @@
                         <option value="demo3">Valor 3</option>
                         <option value="demo4">Valor 4</option>
                       </select>
-                      <span class="ico-seta-baixo-fina"></span>
+                      <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
                     </div>
                     <div class="field-6 form-checkbox--tipo-3--personaliza">
                       <input type="checkbox" id="form-demo-5-t3a" />
@@ -2103,12 +2278,12 @@
                     <div class="field-6 form-texto--tipo-3">
                       <input type="text" id="form-demo-11-t3a" />
                       <label for="form-demo-11-t3a">Busca</label>
-                      <span class="form-ico ico-lupa"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                     </div>
                     <div class="field-6 form-texto--tipo-3">
                       <input type="date" id="form-demo-12-t3a" />
                       <label for="form-demo-12-t3a">Data</label>
-                      <span class="form-ico ico-calendario"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                     </div>
                     <div class="field-6">
                       <p>Exemplo da lista do autocomplete</p>
@@ -2140,7 +2315,7 @@
                         <option value="demo3">Valor 3</option>
                         <option value="demo4">Valor 4</option>
                       </select>
-                      <span class="ico-seta-baixo-fina"></span>
+                      <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
                     </div>
                     <div class="field-6 form-checkbox--tipo-3--personaliza">
                       <input type="checkbox" id="form-demo-5-t3b" />
@@ -2161,12 +2336,12 @@
                     <div class="field-6 form-texto--tipo-3">
                       <input type="text" id="form-demo-11-t3b" />
                       <label for="form-demo-11-t3b">Busca</label>
-                      <span class="form-ico ico-lupa"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
                     </div>
                     <div class="field-6 form-texto--tipo-3">
                       <input type="date" id="form-demo-12-t3b" />
                       <label for="form-demo-12-t3b">Data</label>
-                      <span class="form-ico ico-calendario"></span>
+                      <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
                     </div>
                     <div class="field-6">
                       <p>Exemplo da lista do autocomplete</p>
@@ -2192,7 +2367,7 @@
             <header class="secao-lista__header">
               <label for="botao__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2221,7 +2396,7 @@
             <header class="secao-lista__header">
               <label for="botao__escolhido">
                 <span class="secao-lista__titulo">Botões escolhidos</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2239,7 +2414,7 @@
             <header class="secao-lista__header">
               <label for="botoes__tipo-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2257,7 +2432,7 @@
             <header class="secao-lista__header">
               <label for="botoes__tipo-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2275,7 +2450,7 @@
             <header class="secao-lista__header">
               <label for="botoes__tipo-3">
                 <span class="secao-lista__titulo">tipo-3</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2293,7 +2468,7 @@
             <header class="secao-lista__header">
               <label for="botoes__tipo-4">
                 <span class="secao-lista__titulo">tipo-4</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2311,7 +2486,7 @@
             <header class="secao-lista__header">
               <label for="botoes__tipo-5">
                 <span class="secao-lista__titulo">tipo-5</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2329,7 +2504,7 @@
             <header class="secao-lista__header">
               <label for="botoes__tipo-6">
                 <span class="secao-lista__titulo">tipo-6</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2352,7 +2527,7 @@
             <header class="secao-lista__header">
               <label for="tabelas__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2363,7 +2538,7 @@
                 <dt><samp>.tab--form</samp></dt>
                   <dd><strong><samp>&lt;table&gt;</samp></strong>. Use para tabelas formulários (estilo planilha)</dd>
               </dl>
-              <p>Caso precise de variantes ou de modificar a classe básica para atender à necessidade do layout, faça-o em um arquivo <samp class="arquivo">tabela.scss</samp> dentro da pasta <samp class="pasta">extra/</samp>.</p>
+              <p>Caso precise de variantes ou de modificar a classe básica para atender à necessidade do layout, faça-o em um arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> tabela.scss</samp> dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extra/</samp>.</p>
               <p>Existem algumas classes para serem usadas dentro das tabelas:</p>
               <dl class="lista-definicao">
                 <dt><samp>.tab__acoes</samp></dt>
@@ -2378,7 +2553,7 @@
             <header class="secao-lista__header">
               <label for="tabelas__escolhida">
                 <span class="secao-lista__titulo">Tabela escolhida: <span class="codigo-tab-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2403,33 +2578,33 @@
                     <td>Item 2</td>
                     <td>Item 3</td>
                     <td class="tab__acoes">
-                      <a href="" class="ico-ok"></a>
-                      <a href="" class="ico-erro"></a>
+                      <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
+                      <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
                     </td>
                   </tr>
                   <tr>
                     <td>Item 1</td>
                     <td>Item 2</td>
                     <td>Item 3</td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                   <tr>
                     <td>Item 1</td>
                     <td>Item 2</td>
                     <td>Item 3</td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                   <tr>
                     <td>Item 1</td>
                     <td>Item 2</td>
                     <td>Item 3</td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                   <tr>
                     <td>Item 1</td>
                     <td>Item 2</td>
                     <td>Item 3</td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                 </tbody>
               </table>
@@ -2446,31 +2621,31 @@
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                   <tr>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                   <tr>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                   <tr>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                   <tr>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
                     <td><input type="text" placeholder="digite aqui" /></td>
-                    <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                    <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                   </tr>
                 </tbody>
               </table>
@@ -2481,7 +2656,7 @@
             <header class="secao-lista__header">
               <label for="tabelas__tipo-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2507,31 +2682,31 @@
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -2550,31 +2725,31 @@
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -2602,31 +2777,31 @@
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -2645,31 +2820,31 @@
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -2682,7 +2857,7 @@
             <header class="secao-lista__header">
               <label for="tabelas__tipo-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2708,31 +2883,31 @@
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -2751,31 +2926,31 @@
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -2803,31 +2978,31 @@
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td>Item 1</td>
                         <td>Item 2</td>
                         <td>Item 3</td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -2846,31 +3021,31 @@
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                       <tr>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
                         <td><input type="text" placeholder="digite aqui" /></td>
-                        <td class="tab__acoes"><a href="" class="ico-ok"></a></td>
+                        <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -2888,7 +3063,7 @@
             <header class="secao-lista__header">
               <label for="listas__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2908,7 +3083,7 @@
             <header class="secao-lista__header">
               <label for="listas__escolhido">
                 <span class="secao-lista__titulo">Lista escolhida: <span class="codigo-lista-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -2941,7 +3116,7 @@
             <header class="secao-lista__header">
               <label for="lista__tipo-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3054,7 +3229,7 @@
             <header class="secao-lista__header">
               <label for="lista__tipo-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3172,7 +3347,7 @@
             <header class="secao-lista__header">
               <label for="paginacao__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3182,15 +3357,15 @@
                 <p><%= paginate @view %></p>
               </code>
               <p>Não precisa colocar a paginação dentro de <samp>&lt;div&gt;</samp> nem nada.</p>
-              <p>É necessário editar o arquivo <samp class="arquivo">config/locales/pt-BR.yml</samp> acrescentando o seguinte trecho:</p>
+              <p>É necessário editar o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/locales/pt-BR.yml</samp> acrescentando o seguinte trecho:</p>
               <code class="codigo--html">
                 <header>pt-BR.yml</header>
                 <p>views:</p>
                   <p class="recuo-1">pagination:</p>
-                    <p class="recuo-2">first: "&lt;span class='ico-seta-esquerda-dupla' title='Primeira Página'&gt;&lt;/span&gt;"<br />
-                    last: "&lt;span class='ico-seta-direita-dupla' title='Última Página'&gt;&lt;/span&gt;"<br />
-                    previous: "&lt;span class='ico-seta-esquerda-fina' title='Anterior'&gt;&lt;/span&gt;"<br />
-                    next: "&lt;span class='ico-seta-direita-fina' title='Próxima'&gt;&lt;/span&gt;"<br />
+                    <p class="recuo-2">first: "&lt;span title='Primeira Página'&gt;&lt;svg class="ico--esquerda"&gt;&lt;use xlink:href="ico.svg#seta-dupla" /&gt;&lt;/svg&gt;&lt;/span&gt;"<br />
+                    last: "&lt;span title='Última Página'&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="ico.svg#seta-dupla" /&gt;&lt;/svg&gt;&lt;/span&gt;"<br />
+                    previous: "&lt;span title='Anterior'&gt;&lt;svg class="ico--esquerda"&gt;&lt;use xlink:href="ico.svg#seta-fina" /&gt;&lt;/svg&gt;&lt;/span&gt;"<br />
+                    next: "&lt;span title='Próxima'&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="ico.svg#seta-fina" /&gt;&lt;/svg&gt;&lt;/span&gt;"<br />
                     truncate: "..."</p>
               </code>
               <p>Por conta da forma como trabalha, você não precisa acrescentar mais nada e nem trabalhar no CSS, somente no <a href="#config__pag" class="link--readme">arquivo de configuração</a>.</p>
@@ -3201,7 +3376,7 @@
             <header class="secao-lista__header">
               <label for="paginacao__escolhida">
                 <span class="secao-lista__titulo">Paginação escolhida: <span class="codigo-paginacao-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3229,7 +3404,7 @@
             <header class="secao-lista__header">
               <label for="paginacao__tip-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3253,7 +3428,7 @@
             <header class="secao-lista__header">
               <label for="paginacao__tip-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3282,7 +3457,7 @@
             <header class="secao-lista__header">
               <label for="breadcrumbs__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3302,7 +3477,7 @@
             <header class="secao-lista__header">
               <label for="breadcrumbs__escolhido">
                 <span class="secao-lista__titulo">Breadcrumb escolhido: <span class="codigo-breadcrumbs-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3318,7 +3493,7 @@
             <header class="secao-lista__header">
               <label for="breadcrumbs-tipo1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3334,7 +3509,7 @@
             <header class="secao-lista__header">
               <label for="breadcrumbs-tipo2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3355,7 +3530,7 @@
             <header class="secao-lista__header">
               <label for="card__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3416,7 +3591,7 @@
             <header class="secao-lista__header">
               <label for="card__escolhido">
                 <span class="secao-lista__titulo">Card escolhido: <span class="codigo-card-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3489,7 +3664,7 @@
             <header class="secao-lista__header">
               <label for="card__tipo-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3562,7 +3737,7 @@
             <header class="secao-lista__header">
               <label for="card__tipo-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3641,7 +3816,7 @@
             <header class="secao-lista__header">
               <label for="modal__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3652,7 +3827,7 @@
                   <p class="recuo-1">&lt;div class="modal__janela"&gt;</p>
                     <p class="recuo-2">&lt;header class="modal__titulo"&gt;</p>
                       <p class="recuo-3">&lt;h1&gt;Título da Modal&lt;/h1&gt;</p>
-                      <p class="recuo-3">&lt;span class="modal__fechar"&gt;&lt;a href="" class="ico-x"&gt;&lt;/a&gt;&lt;/span&gt;</p>
+                      <p class="recuo-3">&lt;span class="modal__fechar"&gt;&lt;a href=""&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="ico.svg#fechar" /&gt;&lt;/svg&gt;&lt;/a&gt;&lt;/span&gt;</p>
                     <p class="recuo-2">&lt;/header&gt;</p>
                     <p class="recuo-2">&lt;section class="modal__conteudo"&gt;</p>
                       <p class="recuo-3">&lt;p&gt;Conteúdo da modal&lt;/p&gt;</p>
@@ -3670,7 +3845,7 @@
                 <dt><samp>.modal__janela</samp></dt>
                   <dd><samp>&lt;div&gt;</samp>. Formata a janela da modal.</dd>
                 <dt><samp>.modal__fechar</samp></dt>
-                  <dd><samp>&lt;span&gt;</samp>. Formata o botão de fechar. <strong class="texto--urgente">Inclua dentro dele um link com o ícone de fechar (<samp>.ico-x</samp>)</strong></dd>
+                  <dd><samp>&lt;span&gt;</samp>. Formata o botão de fechar. <strong class="texto--urgente">Inclua dentro dele um svg com o ícone de fechar (<samp>#fechar</samp> ou variante)</strong></dd>
                 <dt><samp>.modal-conteudo</samp></dt>
                   <dd><samp>&lt;section&gt;</samp>. Formata o conteúdo da modal.</dd>
                 <dt><samp>.modal-acoes</samp></dt>
@@ -3683,7 +3858,7 @@
             <header class="secao-lista__header">
               <label for="modal__escolhida">
                 <span class="secao-lista__titulo">Modal escolhida: <span class="codigo-modal-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3696,7 +3871,7 @@
                 <div class="modal--demo__janela">
                   <header class="modal--demo__titulo">
                     <h1>Título da Modal</h1>
-                    <span class="modal--demo__fechar"><a href="" class="ico-x"></a></span>
+                    <span class="modal--demo__fechar"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a></span>
                   </header>
                   <section class="modal--demo__conteudo">
                     <p>Conteúdo da modal</p>
@@ -3713,7 +3888,7 @@
             <header class="secao-lista__header">
               <label for="modal__tipo-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3726,7 +3901,7 @@
                 <div class="modal--tipo-1__janela">
                   <header class="modal--tipo-1__titulo">
                     <h1>Título da Modal</h1>
-                    <span class="modal--tipo-1__fechar"><a href="" class="ico-x"></a></span>
+                    <span class="modal--tipo-1__fechar"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a></span>
                   </header>
                   <section class="modal--tipo-1__conteudo">
                     <p>Conteúdo da modal</p>
@@ -3743,7 +3918,7 @@
             <header class="secao-lista__header">
               <label for="modal__tipo-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3756,7 +3931,7 @@
                 <div class="modal--tipo-2__janela">
                   <header class="modal--tipo-2__titulo">
                     <h1>Título da Modal</h1>
-                    <span class="modal--tipo-2__fechar"><a href="" class="ico-x"></a></span>
+                    <span class="modal--tipo-2__fechar"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a></span>
                   </header>
                   <section class="modal--tipo-2__conteudo">
                     <p>Conteúdo da modal</p>
@@ -3778,7 +3953,7 @@
             <header class="secao-lista__header">
               <label for="toaster__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3790,7 +3965,7 @@
             <header class="secao-lista__header">
               <label for="toaster__demo">
                 <span class="secao-lista__titulo">Toaster escolhido: <span class="codigo-toaster-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo toaster--demo">
@@ -3829,7 +4004,7 @@
             <header class="secao-lista__header">
               <label for="toaster__tipo-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo toaster--demo">
@@ -3861,7 +4036,7 @@
             <header class="secao-lista__header">
               <label for="toaster__tipo-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo toaster--demo">
@@ -3898,11 +4073,11 @@
             <header class="secao-lista__header">
               <label for="secao-lista__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Seção Lista é aquela lista que, ao clicar no título exibe ou oculta o conteúdo (não tive ideia pra um nome melhor pra isso). Este arquivo que você está lendo faz uso disso. Cada faixa com texto (como "documentação" ou "Seção Lista escolhida" é um item de seção lista). Muito usada nos sistemas da ALEGO para separar formulário de exibição.</p>
+              <p>Seção Lista é aquela lista que, ao clicar no título exibe ou oculta o conteúdo (não tive ideia de um nome melhor pra isso). Este arquivo que você está lendo faz uso disso. Cada faixa com texto (como "documentação" ou "Seção Lista escolhida" é um item de seção lista). Muito usada nos sistemas da ALEGO para separar formulário de exibição.</p>
               <p>A diferença entre usar a Seção Lista e o mixin <samp>lista-oculta</samp> é que a <strong>Seção Lista</strong> já tem um estilo pré-formatado (com direito a seta indicativa que gira) e faz uso do mixin, já o mixin puro é para usar em algum elemento diferenciado.</p>
               <p>Para aplicar a seção lista no HTML:</p>
               <code class="codigo--html">
@@ -3912,7 +4087,7 @@
                   <p class="recuo-1">&lt;header class="secao-lista__header"&gt;</p>
                     <p class="recuo-2">&lt;label for="id__lista"&gt;</p>
                       <p class="recuo-3">&lt;span class="secao-lista__titulo"&gt;Título da Lista&lt;/span&gt;</p>
-                      <p class="recuo-3">&lt;span class="secao-lista__icone"&gt;&lt;/span&gt;</p>
+                      <p class="recuo-3">&lt;svg class="secao-lista__icone ico"&gt;&lt;use xlink:href="../svg/basico.svg#seta-fina" /&gt;&lt;/svg&gt;</p>
                     <p class="recuo-2">&lt;/label&gt;</p>
                   <p class="recuo-1">&lt;/header&gt;</p>
                   <p class="recuo-1">&lt;section class="secao-lista__conteudo"&gt;</p>
@@ -3923,7 +4098,8 @@
               <p>Algumas orientações:</p>
               <ul class="lista-itens">
                 <li>O <strong><samp>id</samp></strong> e o <strong><samp>for</samp></strong> devem ser iguais, evidentemente. E, claro, devem ser únicos.</li>
-                <li>Por padrão a lista aparece aberta. Para que ela apareça fechada por padrão inclua <samp>checked="checked"</samp>no checkbox.</li>
+                <li>Por padrão a lista aparece aberta. Para que ela apareça fechada por padrão inclua <samp>checked="checked"</samp> no checkbox.</li>
+                <li>O ícone deve ser inserido através de SVG. Escolha a seta que achar melhor. <a href="#simbolo-svg" class="link--readme">Veja mais sobre isso</a></li>
               </ul>
             </section>
           </section>
@@ -3932,7 +4108,7 @@
             <header class="secao-lista__header">
               <label for="secao-lista__demo">
                 <span class="secao-lista__titulo">Seção Lista escolhida: <span class="codigo-secao-lista-tipo"></span></span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3944,7 +4120,7 @@
                 <header class="secao-lista__header">
                   <label for="sl__demo-0">
                     <span class="secao-lista__titulo">Exemplo de item fechado</span>
-                    <span class="secao-lista__icone"></span>
+                    <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -3956,7 +4132,7 @@
                 <header class="secao-lista__header">
                   <label for="sl__demo-1">
                     <span class="secao-lista__titulo">Exemplo de item fechado</span>
-                    <span class="secao-lista__icone"></span>
+                    <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -3968,7 +4144,7 @@
                 <header class="secao-lista__header">
                   <label for="sl__demo-2">
                     <span class="secao-lista__titulo">Exemplo de item aberto</span>
-                    <span class="secao-lista__icone"></span>
+                    <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -3982,7 +4158,7 @@
             <header class="secao-lista__header">
               <label for="secao-lista__tipo-1">
                 <span class="secao-lista__titulo">tipo-1</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -3992,7 +4168,7 @@
                 <header class="secao-lista--tipo-1__header">
                   <label for="sl__demo-0a">
                     <span class="secao-lista--tipo-1__titulo">Exemplo de item fechado</span>
-                    <span class="secao-lista--tipo-1__icone"></span>
+                    <svg class="secao-lista--tipo-1__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -4004,7 +4180,7 @@
                 <header class="secao-lista--tipo-1__header">
                   <label for="sl__demo-1a">
                     <span class="secao-lista--tipo-1__titulo">Exemplo de item fechado</span>
-                    <span class="secao-lista--tipo-1__icone"></span>
+                    <svg class="secao-lista--tipo-1__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -4016,7 +4192,7 @@
                 <header class="secao-lista--tipo-1__header">
                   <label for="sl__demo-2a">
                     <span class="secao-lista--tipo-1__titulo">Exemplo de item aberto</span>
-                    <span class="secao-lista--tipo-1__icone"></span>
+                    <svg class="secao-lista--tipo-1__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -4030,7 +4206,7 @@
             <header class="secao-lista__header">
               <label for="secao-lista__tipo-2">
                 <span class="secao-lista__titulo">tipo-2</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4040,7 +4216,7 @@
                 <header class="secao-lista--tipo-2__header">
                   <label for="sl__demo-0b">
                     <span class="secao-lista--tipo-2__titulo">Exemplo de item fechado</span>
-                    <span class="secao-lista--tipo-2__icone"></span>
+                    <svg class="secao-lista--tipo-2__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -4052,7 +4228,7 @@
                 <header class="secao-lista--tipo-2__header">
                   <label for="sl__demo-1b">
                     <span class="secao-lista--tipo-2__titulo">Exemplo de item fechado</span>
-                    <span class="secao-lista--tipo-2__icone"></span>
+                    <svg class="secao-lista--tipo-2__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -4064,7 +4240,7 @@
                 <header class="secao-lista--tipo-2__header">
                   <label for="sl__demo-2b">
                     <span class="secao-lista--tipo-2__titulo">Exemplo de item aberto</span>
-                    <span class="secao-lista--tipo-2__icone"></span>
+                    <svg class="secao-lista--tipo-2__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
                   </label>
                 </header>
                 <section class="secao-lista__conteudo">
@@ -4078,19 +4254,19 @@
         <article id="admin">
           <header>
             <h1>Admin</h1>
-            <p><samp class="arquivo">admin.scss</samp> <samp class="arquivo">modelos/login.html</samp></p>
+            <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> modelos/login.html</samp></p>
           </header>
           <section class="secao-lista">
             <input type="checkbox" id="admin__basico" class="secao-lista__check">
             <header class="secao-lista__header">
               <label for="admin__basico">
                 <span class="secao-lista__titulo">Básico</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>A view de admin se divide em dois arquivos HTML que podem ser encontrados na pasta <samp class="pasta">modelos</samp>: <samp class="arquivo">login.html</samp> e <samp class="arquivo">admin.html</samp>. Evidentemente o Ruby fará uso de outros modelos, mas ajuste o mesmo para que as classes sejam as mesmas.</p>
-              <p>O arquivo básico para trabalhar (<samp class="arquivo">admin.scss</samp>) está na raíz do FRONT-ALEGO e já está pré-formatado. Sinta-se à vontade para alterar as cores e medidas conforme a necessidade.</p>
+              <p>A view de admin se divide em dois arquivos HTML que podem ser encontrados na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> modelos</samp>: <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> login.html</samp> e <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.html</samp>. Evidentemente o Ruby fará uso de outros modelos, mas ajuste o mesmo para que as classes sejam as mesmas.</p>
+              <p>O arquivo básico para trabalhar (<samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp>) está na raíz do FRONT-ALEGO e já está pré-formatado. Sinta-se à vontade para alterar as cores e medidas conforme a necessidade.</p>
               <h2>O admin.scss</h2>
               <p>Este arquivo vai englobar toda a área administrativa do site (e vai ser o arquivo básico que vamos usar para a maioria dos sistemas da Alego, já que eles são modelos administrativos).</p>
               <h3>Comentários iniciais</h3>
@@ -4119,12 +4295,12 @@
               <p>Cada entrada do changelog é depois que o arquivo já foi encerrado e serve para mostrar alterações depois que o sistema já estava pronto. Um exemplo de entrada: <samp>acrescentada formatação para a tela de registro de usuário</samp> ou <samp>unificadas classes da tabela x e tabela y</samp>.</p>
               <h3>Configurações iniciais</h3>
               <p>Depois dos comentários vem as configurações iniciais do arquivo.</p>
-              <p>A primeira configuração é a de importação de arquivos SASS. Por padrão já importa o arquivo <samp class="arquivo">base</samp>. Se você tiver arquivos específicos, inclua-os aqui. Em particular aqueles que você alterou alguma configuração padrão do FRONT-ALEGO e jogou na pasta <samp class="pasta">extra</samp> (exemplo: você criou um modelo de tabela personalizada para usar com a classe <samp>.tab</samp>, então a importação seria <samp>@import "extra/tabela";</samp>).</p>
+              <p>A primeira configuração é a de importação de arquivos SASS. Por padrão já importa o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base</samp>. Se você tiver arquivos específicos, inclua-os aqui. Em particular aqueles que você alterou alguma configuração padrão do FRONT-ALEGO e jogou na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extra</samp> (exemplo: você criou um modelo de tabela personalizada para usar com a classe <samp>.tab</samp>, então a importação seria <samp>@import "extra/tabela";</samp>).</p>
               <blockquote class="aviso--grave">
                 Há uma exceção: arquivos de ajustes emergencial devem aparecer no <strong>final</strong> do arquivo, para que as configurações sobreponham a deste. Estes arquivos, no entanto, são temporários
               </blockquote>
               <p>Depois da importação está as configurações de grid (<a href="#grid" class="link--readme">Veja mais detalhes aqui</a>)l</p>
-              <p>Em seguida você coloca as variáveis que pertencem apenas a este arquivo. Isso só é relevante se você está trabalhando com mais de um arquivo diferente (como área administrativa e site). Algumas já foram definidas e indicam o tamanho da tela. <strong>Por padrão as classes devem aparecer em <samp class="arquivo">config/variaveis.scss</samp></strong>.</p>
+              <p>Em seguida você coloca as variáveis que pertencem apenas a este arquivo. Isso só é relevante se você está trabalhando com mais de um arquivo diferente (como área administrativa e site). Algumas já foram definidas e indicam o tamanho da tela. <strong>Por padrão as classes devem aparecer em <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/variaveis.scss</samp></strong>.</p>
             </section>
           </section>
           <section class="secao-lista">
@@ -4132,7 +4308,7 @@
             <header class="secao-lista__header">
               <label for="admin__login">
                 <span class="secao-lista__titulo">Login</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4169,7 +4345,7 @@
             <header class="secao-lista__header">
               <label for="admin__admin">
                 <span class="secao-lista__titulo">Admin</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4187,7 +4363,7 @@
                   <dd>O rodapé do site, se houver. <strong>Esta tag/classe é opcional. Se não for usar delete o HTML e o CSS</strong>.</dd>
               </dl>
               <h2>Configurações de grid</h2>
-              <p>O arquivo <samp class="arquivo">admin.scss</samp> contém toda a configuração de grid que está sendo usada. Conforme discutido na seção de <a href="#grid" class="link--readme">grids</a> não se usa classes próprias para grid e elas são inseridas diretamente no CSS. Neste caso fica no começo do arquivo.</p>
+              <p>O arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> contém toda a configuração de grid que está sendo usada. Conforme discutido na seção de <a href="#grid" class="link--readme">grids</a> não se usa classes próprias para grid e elas são inseridas diretamente no CSS. Neste caso fica no começo do arquivo.</p>
               <dl class="lista-definicao">
                 <dt><samp>$gd-header</samp></dt>
                   <dd>A largura do header. O valor atual é <samp>$grid-qtd</samp> (a quantidade de grids definidas no arquivo de configuração)</dd>
@@ -4237,16 +4413,16 @@
             <header class="secao-lista__header">
               <label for="funcoes__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
               <p>Algumas funções são usadas em partes específicas do Front-Alego e outra é para uso dentro seu CSS.</p>
               <dl class="lista-definicao">
                 <dt><samp>paleta-padrao(cor)</samp></dt>
-                  <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp>. <strong>Use somente dentro do arquivo <samp class="arquivo">config/cores.scss</samp> e em mais nenhuma parte do sistema</strong></dd>
+                  <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp>. <strong>Use somente dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/cores.scss</samp> e em mais nenhuma parte do sistema</strong></dd>
                 <dt><samp>paleta(cor, tipo, valor)</samp></dt>
-                  <dd>Esta função é para chamar as cores que você criou na <samp>$paleta</samp>. Para chamar a cor pura, escreva <samp>paleta(nome-cor)</samp>. Para chamar as variações claras, chame com <samp>paleta(nome-cor, clara, $valor)</samp>. O <samp>$valor</samp> pode ir de <samp>1</samp> a <samp>100</samp>. Para chamar cores escuras chame com <samp>paleta(nome-cor, escura, $valor)</samp>. <strong>Use somente dentro do arquivo <samp class="arquivo">config/cores.scss</samp></strong></dd>
+                  <dd>Esta função é para chamar as cores que você criou na <samp>$paleta</samp>. Para chamar a cor pura, escreva <samp>paleta(nome-cor)</samp>. Para chamar as variações claras, chame com <samp>paleta(nome-cor, clara, $valor)</samp>. O <samp>$valor</samp> pode ir de <samp>1</samp> a <samp>100</samp>. Para chamar cores escuras chame com <samp>paleta(nome-cor, escura, $valor)</samp>. <strong>Use somente dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/cores.scss</samp></strong></dd>
                 <dt><samp>cor-status(cor)</samp></dt>
                   <dd>Para chamar as cores de status. Podem ser usadas diretamente no CSS. <a href="#cores__paletas" class="link--readme">Veja mais detalhes aqui</a></dd>
                 <dt><samp>cor(tipo, cor)</samp></dt>
@@ -4269,11 +4445,11 @@
             <header class="secao-lista__header">
               <label for="mixins__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p>Segue uma lista resumida dos mixins. Para maiores detalhes de como usar alguns tem descrição com exemplo de uso. Mixins que por ventura não esteja dentro do arquivo <samp class="arquivo">base/_mixins.scss</samp> podem ser editados por você e estarão identificados como <strong class="texto--ok">Mixin editável</strong>.</p>
+              <p>Segue uma lista resumida dos mixins. Para maiores detalhes de como usar alguns tem descrição com exemplo de uso. Mixins que por ventura não esteja dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_mixins.scss</samp> podem ser editados por você e estarão identificados como <strong class="texto--ok">Mixin editável</strong>.</p>
               <p><strong>Mixins de configuração.</strong> Para configurar uma parte específica</p>
               <dl class="lista-definicao">
                 <dt><samp>prefixo(declaração, prefixos)</samp></dt>
@@ -4322,7 +4498,7 @@
                   <dd>Cria uma caixa centralizada no meio da tela (ou do elemento pai, se ele tiver algum valor de <samp>position</samp>). Os valores de <samp>largura</samp> e <samp>altura</samp> são opcionais</dd>
                 <dt><samp>grupo-flex(qtd, margem)</samp></dt>
                   <dd>Deve ser usado num elemento pai (que ganha a propriedade <samp>display: flex</samp>). distribui os elementos filhos em tamanho igual. Use isso para fazer um grupo de cards, por exemplo.<br />
-                    Valores padrão: <samp>$qtd</samp> não tem valor padrão (é um mapa e aceita quatro valores); <samp>$margem: $calha</samp> a <samp>$calha</samp> foi definida no <samp class="arquivo">config/variaveis</samp></dd>
+                    Valores padrão: <samp>$qtd</samp> não tem valor padrão (é um mapa e aceita quatro valores); <samp>$margem: $calha</samp> a <samp>$calha</samp> foi definida no <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/variaveis</samp></dd>
                 <dt><samp>texto-selecionado(fundo, texto)</samp></dt>
                   <dd>Formata o seletor para quando o texto for selecionado no browser. Valores padrão: <samp>fundo: cor(fundo, escuro)</samp> e <samp>texto: cor(texto, claro)</samp>. <strong>Dica:</strong> selecione o texto para ver os valores padrão em uso.</dd>
                 <dt><samp>lista-oculta(conteudo)</samp></dt>
@@ -4346,7 +4522,7 @@
             <header class="secao-lista__header">
               <label for="mixins__prefixo">
                 <span class="secao-lista__titulo">prefixo()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4394,7 +4570,7 @@
             <header class="secao-lista__header">
               <label for="mixins__breakpoints">
                 <span class="secao-lista__titulo">media-tipo()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4431,7 +4607,7 @@
             <header class="secao-lista__header">
               <label for="mixins__placeholder">
                 <span class="secao-lista__titulo">placeholder</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4466,7 +4642,7 @@
             <header class="secao-lista__header">
               <label for="mixins__transform">
                 <span class="secao-lista__titulo">CSS 3 - Transform</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4521,7 +4697,7 @@
             <header class="secao-lista__header">
               <label for="mixins__display-flex">
                 <span class="secao-lista__titulo">Flexbox</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4911,7 +5087,7 @@
             <header class="secao-lista__header">
               <label for="mixins__clearfix">
                 <span class="secao-lista__titulo">clearfix</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4931,7 +5107,7 @@
             <header class="secao-lista__header">
               <label for="mixins__centraliza-caixa">
                 <span class="secao-lista__titulo">centraliza-caixa()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -4978,7 +5154,7 @@
             <header class="secao-lista__header">
               <label for="mixins__grupo-flex">
                 <span class="secao-lista__titulo">grupo-flex()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -5053,7 +5229,7 @@
             <header class="secao-lista__header">
               <label for="mixins__texto-selecionado">
                 <span class="secao-lista__titulo">texto-selecionado()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -5106,7 +5282,7 @@
             <header class="secao-lista__header">
               <label for="mixins__lista-oculta">
                 <span class="secao-lista__titulo">lista-oculta()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -5149,7 +5325,7 @@
             <header class="secao-lista__header">
               <label for="mixin__lista-sem-marcador">
                 <span class="secao-lista__titulo">lista-sem-marcador()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
@@ -5180,11 +5356,11 @@
             <header class="secao-lista__header">
               <label for="mixin__texto">
                 <span class="secao-lista__titulo">texto()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p><samp class="arquivo">config/_tipografia.scss</samp></p>
+              <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
               <p>Este mixin formata os textos padrão do sistema e já está sendo usado para formatar. Você pode alterar os valores (por exemplo, a margem). Mas fique atento que isso alterará todos os textos e títulos do site.</p>
               <p><strong>Sintaxe: </strong> <samp>@include texto($mod);</samp></p>
               <p>Valores que podem ser usados em <samp>$mod</samp> (estes valores devem ser escritos como demonstrado, do contrário vai retornar um erro):</p>
@@ -5223,11 +5399,11 @@
             <header class="secao-lista__header">
               <label for="mixin__titulo">
                 <span class="secao-lista__titulo">titulo()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p><samp class="arquivo">config/_tipografia.scss</samp></p>
+              <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
               <p>Este mixin serve para criar configurações especiais para os títulos. Eles devem ser usados em classes (ou com seletor descendente: <samp>.classe > h1</samp>) e nunca diretamente no tag, pois isso vai afetar todos os tags.</p>
               <p>Você pode alterar totalmente os valores e acrescentar novas opções suas.</p>
               <p><strong>Sintaxe: </strong> <samp>@include titulo($mod)</samp></p>
@@ -5251,11 +5427,11 @@
             <header class="secao-lista__header">
               <label for="mixin__link">
                 <span class="secao-lista__titulo">link()</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
-              <p><samp class="arquivo">config/_tipografia.scss</samp></p>
+              <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
               <p>Este mixin serve para criar configurações especiais para os links. Eles devem ser usados em classes (ou com seletor descendente: <samp>.classe > a</samp>) e nunca diretamente no tag, pois isso vai afetar todos os links do sistema.</p>
               <p>Algumas opções podem ser alteradas e outras não (abaixo indico quais não devem ser alteradas e também há um comentário no próprio mixin). Você também pode acrescentar novas opções.</p>
               <p><strong>Sintaxe: </strong> <samp>@include link($mod);</samp></p>
@@ -5309,7 +5485,7 @@
             <header class="secao-lista__header">
               <label for="sprite__doc">
                 <span class="secao-lista__titulo">Documentação</span>
-                <span class="secao-lista__icone"></span>
+                <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
               </label>
             </header>
             <section class="secao-lista__conteudo">
