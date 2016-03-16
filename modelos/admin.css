@@ -18,7 +18,7 @@ Seção de Programação Web
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 15/02/2016
+	Última alteração: 14/03/2016
 	------------------------------------------------------------------------------
 */
 /*
@@ -60,13 +60,6 @@ FONTES
   src: url("fontes/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-BoldItalic-webfont.woff") format("woff"), url("fontes/OpenSans-BoldItalic-webfont.ttf") format("truetype"), url("fontes/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic") format("svg");
   font-weight: bold;
   font-style: italic;
-}
-@font-face {
-  font-family: 'font-alego';
-  src: url("fontes/font-alego.eot");
-  src: url("fontes/font-alego.eot?#iefix") format("embedded-opentype"), url("fontes/font-alego.woff") format("woff"), url("fontes/font-alego.ttf") format("truetype"), url("fontes/font-alego.svg#font-alego") format("svg");
-  font-weight: normal;
-  font-style: normal;
 }
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -560,7 +553,7 @@ FORMULÁRIOS | SELECT
   color: #00949a;
   width: 100%;
 }
-.form-select [class^="ico"] {
+.form-select .form__ico {
   position: absolute;
   right: calc(0.625rem / 2);
   height: calc(100% - 0.625rem);
@@ -1139,7 +1132,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
   display: none;
 }
 .secao-lista__check:checked ~ .secao-lista__header .secao-lista__icone {
-  transform: rotate(-90deg);
+  transform: rotate(0deg);
 }
 .secao-lista__header {
   padding: 0.3125rem 0.625rem;
@@ -1161,12 +1154,9 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
   flex: 1;
 }
 .secao-lista__icone {
-  display: block;
-  font-family: "font-alego";
   transition: all 0.5s ease 0s;
-}
-.secao-lista__icone::before {
-  content: "\f107";
+  transform: rotate(90deg);
+  transform-origin: center;
 }
 .secao-lista__conteudo {
   padding: 0.625rem;
@@ -1210,506 +1200,37 @@ LISTA
 
 /*
 ================================================================================
-SÍMBOLOS
+SÍMBOLOS EM SVG
 ================================================================================
 */
-.ico-abrir::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-adicionar::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-ajuda::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-apontando::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-asterisco::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-aviso-destaque::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-cadeado-aberto::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-cadeado-fechado::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-cadeado::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-calendario::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-calendario-2::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-calendario-3::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-carregando::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-casa::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-celular::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-chat::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-chat-2::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-chat-3::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-chat-4::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-chave::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-clipe::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-cone-seguranca::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-cracha::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-curtir::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-descurtir::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-desligar::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-documento::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-documento-2::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-download::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-engrenagem::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-envelope::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-equipe::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-erro::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-estrela-metade::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-estrela-vazia::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-estrela::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-facebook::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-fechar::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-ferramentas::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-figura::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-filtro::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-foto::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-globo::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-google-mais::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-grafico-barra::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-grafico-linha::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-grafico-pizza::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-impressora::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-info::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-janela-up::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-janela::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-lampada::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-lapis::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-link::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-livro::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-lixo::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-lixo-2::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-local::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-lupa::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-mais::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-megafone::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-menos::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-monitor::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-nao-ok::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-novo::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-ok-tique::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-ok::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-olho-fechado::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-olho::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-ordenar-baixo::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-ordenar-cima::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-ordenar::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-pasta::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-pdf::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-pessoa::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-pessoa-2::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-pessoa-3::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-prancheta::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-proibido::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-relogio::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-sair::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-salvar::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-baixo::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-cima::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-direita::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-esquerda::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-direita-dupla::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-esquerda-dupla::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-baixo-fina::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-cima-fina::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-direita-fina::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-seta-esquerda-fina::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-tabela::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-tablet::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-teclado::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-telefone::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-twitter::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-x::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico-zip::before {
-  font-family: "font-alego";
-  content: "";
-}
-
-.ico--espaco::before {
-  margin-right: .5em;
+.ico {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.ico--baixo {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.ico--cima {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.ico--esquerda {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /*
@@ -1757,27 +1278,27 @@ CLASSES FIXAS
   text-transform: uppercase;
 }
 
-.fonte--menor, .text--menor {
+.fonte--menor, .texto--menor {
   font-size: 0.88889em;
 }
 
-.fonte--x-menor, .text--x-menor {
+.fonte--x-menor, .texto--x-menor {
   font-size: 0.79012em;
 }
 
-.fonte--xx-menor, .text--xx-menor {
+.fonte--xx-menor, .texto--xx-menor {
   font-size: 0.70233em;
 }
 
-.fonte--maior, .text--maior {
+.fonte--maior, .texto--maior {
   font-size: 1.125em;
 }
 
-.fonte--x-maior, .text--x-maior {
+.fonte--x-maior, .texto--x-maior {
   font-size: 1.26563em;
 }
 
-.fonte--xx-maior, .text--xx-maior {
+.fonte--xx-maior, .texto--xx-maior {
   font-size: 1.42383em;
 }
 
