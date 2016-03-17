@@ -11,12 +11,13 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 04/02/2016
+// Última alteração em: 16/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 16/03/2016 | Ajuste do ícone que é elemento comum
 // 04/02/2016 | Retirado .form__ico do arquivo form_texto e colocado aqui
 //              Acrescentado seletor button.form__ico para retirar a borda
 //               nesta configuração
@@ -32,9 +33,10 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // =============================================================================
 $tamanho-fonte-form: $tamanho-fonte-textos;
 $borda-form: 1px cor(formulario);
+$borda-form-tipo: if($form-tipo == "tipo-1", dotted, solid);
 
 // =============================================================================
-// PLACEHOLDERS
+// MIXINS
 // =============================================================================
 @mixin form-base($flex: null) {
   @include display-flex;
@@ -56,16 +58,14 @@ $borda-form: 1px cor(formulario);
     color: cor(formulario, placeholder);
   }
 }
-@mixin form__icone {
-  position: absolute;
-  right: calc(#{$calha} / 2);
-  height: calc(100% - #{$calha}); // subtrai o padding do container
+
+// =============================================================================
+// CLASSES DOS ELEMENTOS COMUM
+// =============================================================================
+.form__ico {
   padding: $calha/2 .5em;
-}
-@mixin form__botao-colado {
-  @include form__icone;
   cursor: pointer;
-  @if $form-tipo == "caixa" {
+  @if $form-tipo == "tipo-3" {
     background: cor(formulario);
     color: cor(texto, claro);
     &:hover {
@@ -75,19 +75,12 @@ $borda-form: 1px cor(formulario);
   @else {
     color: cor(formulario);
     background: cor(fundo, x-claro);
-    height: calc(100% - #{$calha} - 1px); // retira a borda
+    border-bottom: $borda-form $borda-form-tipo;
     &:hover {
       background: cor(formulario);
       color: cor(texto, claro);
     }
   }
-}
-
-// =============================================================================
-// CLASSES DOS ELEMENTOS COMUM
-// =============================================================================
-.form__ico {
-  @include form__botao-colado;
 }
 button.form__ico {
   border: 0;

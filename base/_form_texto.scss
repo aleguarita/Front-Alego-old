@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 04/02/2016
+// Última alteração em: 17/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 17/03/2016 | Retirado cursor: pointer do label
 // 04/02/2016 | Agrupando labels para o arquivo final ficar melhor (agora o
 //              mixin de label permite escrever o conteúdo do label)
 //              Movida classe .form__ico para form_comum
@@ -41,7 +42,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 @mixin form-texto__label--basico {
   @include order(-1);
   font-weight: bold;
-  cursor: pointer;
+  // cursor: pointer;
   color: cor(formulario);
 }
 @mixin form-texto__label($tipo) {
@@ -66,7 +67,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // =============================================================================
 // MIXIN | INPUT, TEXTAREA
 // =============================================================================
-@mixin field-texto__field--borda-inferior(
+@mixin form-texto__field--borda-inferior(
     $tipo,
     $cor: cor(formulario),
     $cor-destaque: cor(formulario, ativo)
@@ -101,13 +102,13 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
   // TIPO 1
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
-    @include field-texto__field--borda-inferior(dotted);
+    @include  form-texto__field--borda-inferior(dotted);
   }
   // ---------------------------------------------------------------------------
   // TIPO 2
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-2 {
-    @include field-texto__field--borda-inferior(solid);
+    @include  form-texto__field--borda-inferior(solid);
   }
   // ---------------------------------------------------------------------------
   // TIPO 3
@@ -143,6 +144,9 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 @if index($uso-classes, form) {
   .form-texto {
     @include form-texto($form-tipo);
+  }
+  .form__ico {
+
   }
   .form-texto--label-inverso {
     // pensar num nome melhor

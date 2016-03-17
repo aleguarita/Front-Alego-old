@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 15/03/2016
+// Última alteração em: 17/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 17/03/2016 | Corrigido posicionamento da seta.
 // 15/03/2016 | Substituído seletor [class^="ico"] para .form__ico
 // 04/02/2016 | Correção do select, que estava duplicado no arquivo final
 // 03/02/2016 | Correção no uso do mixin
@@ -71,9 +72,7 @@ FORMULÁRIOS | SELECT
       }
     }
     .form__ico {
-      @include form-select__seta {
-        color: cor(formulario);
-      }
+      color: cor(formulario); // VERIFICAR
     }
   }
   // ---------------------------------------------------------------------------
@@ -92,9 +91,7 @@ FORMULÁRIOS | SELECT
       }
     }
     .form__ico {
-      @include form-select__seta {
-        color: cor(formulario);
-      }
+      color: cor(formulario); // VERIFICAR
     }
   }
   // ---------------------------------------------------------------------------
@@ -104,6 +101,7 @@ FORMULÁRIOS | SELECT
     @include form-base(flex);
     select {
       @include form-select--basico {
+        @include linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, cor(fundo, x-claro) 21px);
         border: $borda-form solid;
         padding-left: .2em;
         @if $label-tipo == "colado" {
@@ -122,8 +120,11 @@ FORMULÁRIOS | SELECT
     }
     .form__ico {
       color: cor(formulario, ativo);
-      background: cor(formulario, fundo);
-      border: $borda-form solid;
+      font-size: 1.2em;
+      background: transparent;
+      position: absolute;
+      right: 0;
+      pointer-events: none;
     }
   }
 }
