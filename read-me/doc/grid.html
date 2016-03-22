@@ -1,0 +1,109 @@
+<article id="grid">
+  <header>
+    <h1>Grid</h1>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="grid__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="grid__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>O sistema de grid foi pensando para escrever a menor quantidade possível de classes no CSS final e também ser fácil de mudar a quantidade de grids, sem ficar percorrendo o HTML à procura de classes de grid (elas entram como configuração dentro da própria classe, através de um mixin). As grids foram compostas com flexbox. Mesmo que você não utilize as grids, pode fazer uso das classes de <samp>.container</samp>.</p>
+      <p class="texto-erro">Este sistema está sendo depreciado, mas ainda está aqui "just in case". O flexbox possibilita a formatação bem mais simples disso. Para centralizar o conteúdo (tarefa destinada ao <samp>.container</samp>) basta usar padding e assim evitamos uma <samp>&lt;div&gt;</samp> desnecessária.</p>
+      <h2 id="grid__container">Containers</h2>
+      <p>Estas classes são usadas em algum elemento pai (normalmente <samp>&lt;div&gt;</samp>) para centralizar o conteúdo e determinar que ele é flex. Ele também pode ser usado mesmo que os elementos filhos não façam uso do sistema de grid.</p>
+      <h3>Classes e placeholder de container</h3>
+      <dl class="lista-definicao">
+        <dt><samp>%container-basico</samp></dt>
+        <dd>Este é o elemento comum das classes de <samp>.container</samp>. Ela configura o flex, além de deixar como uma caixa no centro.</dd>
+        <dt><samp>.container</samp></dt>
+        <dd>A classe básica de container. Use para as grids que não tenham margem entre si (ficam colada) ou apenas quando você quer centralizar o conteúdo com o tamanho máximo.</dd>
+        <dt><samp>.container--calha</samp></dt>
+        <dd>Acrescenta espaço horizontal entre os elementos filhos, criando a margem entre as colunas.</dd>
+        <dt><samp>.container--gutter</samp></dt>
+        <dd>Igual ao <samp>.container--calha</samp> acima.</dd>
+      </dl>
+      <h3>Configurando o container</h3>
+      <p>No arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_+config.scss</samp> você configura os seguintes elementos do container:</p>
+      <dl class="lista-definicao">
+        <dt><samp>$uso-classes</samp></dt>
+        <dd>Comente o valor <samp>grid-container</samp> para não escrever as classes de container</dd>
+        <dt><samp>$grid-margem</samp></dt>
+        <dd>Esta será a medida da margem entre os grids e o padding, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
+        <dt><samp>$grid-max</samp></dt>
+        <dd>Determina o tamanho máximo que a o container vai ter. Acima disso ele fica centralizado. <strong>Valor atual</strong>: <samp class="escolha--grid-max"></samp></dd>
+      </dl>
+      <h2 id="grid__grid">Grids</h2>
+      <p>Diferente dos sistemas de grid tradicional, este não cria várias classes de <samp>.grid-x</samp>. Para chegar a este resultado o <strong>Front-Alego™</strong> faz uso de mixin.</p>
+      <h3>Configurando as grids</h3>
+      <p>No arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_+config.scss</samp> você configura os seguintes elementos das grids:</p>
+      <dl class="lista-definicao">
+        <dt><samp>$grid-qtd</samp></dt>
+        <dd>Determina a quantidade máxima do sistema. Cada uma delas é equivalente a uma <samp>.grid-x</samp> no modelo clássico de grids. <strong>Valor atual</strong>: <samp class="escolha--grid-qtd"></samp></dd>
+        <dt><samp>$grid-margem</samp></dt>
+        <dd>Esta será a medida da margem entre os grids e o padding do container, quando se usar margem (com a classe <samp>.container--calha</samp>). <strong>Valor atual</strong>: <samp class="escolha--grid-margem"></samp></dd>
+      </dl>
+      <h3>Determinando quantas grids o elemento ocupa</h3>
+      <p>Em um sistema de grid tradicional você insere uma classe <samp>grid-x</samp> no elemento que precisa ocupar "x" medidas de grid. Ao invés de trabalhar desta forma você colocará a quantidade de grids que o elemento ocupa em seu próprio seletor, através do mixin.</p>
+      <p>Para facilitar a atualização, você pode colocar um grupo de variáveis (ou mapa) no início do arquivo e colocar fórmulas para manter a proporção (exemplo mais abaixo).</p>
+      <p>Como exemplo, imagine um layout simples com um menu, uma área principal e uma coluna lateral. O menu ocupa 2 grids, a área principal 7 grids e a coluna lateral ocupa 3 grids. Normalmente o código seria:</p>
+      <code class="codigo--html">
+        <header>HTML - grid tradicional</header>
+        <p>&lt;nav class="menu grid-2"&gt; ... &lt;/nav&gt;</p>
+        <p>&lt;div class="principal grid-7"&gt; ... &lt;/div&gt;</p>
+        <p>&lt;aside class="lateral grid-3"&gt; ... &lt;/aside&gt;</p>
+      </code>
+      <p>Com o sistema de grid usado no Front-Alego, ficaria:</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;nav class="menu"&gt; ... &lt;/nav&gt;</p>
+        <p>&lt;div class="principal"&gt; ... &lt;/div&gt;</p>
+        <p>&lt;aside class="lateral"&gt; ... &lt;/aside&gt;</p>
+      </code>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.menu {</p>
+          <p class="recuo-1">@include grid(2);</p>
+          <p>...</p>
+        <p>}</p>
+        <p>.principal {</p>
+          <p class="recuo-1">@include grid(7);</p>
+          <p>...</p>
+        <p>}</p>
+        <p>.lateral {</p>
+          <p class="recuo-1">@include grid(3);</p>
+          <p>...</p>
+        <p>}</p>
+      </code>
+      <p>Ao compilar o CSS, o SASS vai colocar as medidas conforme o mixin.</p>
+      <h3>Variáveis e grids</h3>
+      <p>O uso de variáveis é mais adequado para manter o controle do layout em apenas um lugar. No início do seu arquivo, crie um comentário de <samp>CONFIG | GRIDS</samp> e a cada variável de grid utilize ou o prefixo <samp>$gd-</samp> seguido do nome da classe. O exemplo acima mas com variáveis:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>// =========================================================================</p>
+        <p>// CONFIG | Grids</p>
+        <p>// =========================================================================</p>
+        <p>$gd-menu: 2;</p>
+        <p>$gd-principal: 7;</p>
+        <p>$gd-lateral: $grid-qtd - $gd-menu - $gd-principal;</p>
+        <p>...</p>
+        <p>...</p>
+        <p>.menu {</p>
+          <p class="recuo-1">@include grid($gd-menu);</p>
+          <p>...</p>
+        <p>}</p>
+        <p>.principal {</p>
+          <p class="recuo-1">@include grid($gd-principal);</p>
+          <p>...</p>
+        <p>}</p>
+        <p>.lateral {</p>
+          <p class="recuo-1">@include grid($gd-lateral);</p>
+          <p>...</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+</article>

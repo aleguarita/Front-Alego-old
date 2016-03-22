@@ -1,0 +1,1174 @@
+<article id="mixins">
+  <header>
+    <h1>Mixins</h1>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="mixins__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Segue uma lista resumida dos mixins. Para maiores detalhes de como usar alguns tem descrição com exemplo de uso. Mixins que por ventura não esteja dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_mixins.scss</samp> podem ser editados por você e estarão identificados como <strong class="texto--ok">Mixin editável</strong>.</p>
+      <p><strong>Mixins de configuração.</strong> Para configurar uma parte específica</p>
+      <dl class="lista-definicao">
+        <dt><samp>prefixo(declaração, prefixos)</samp></dt>
+          <dd>Este mixin é para ser usado na criação de outros mixins que simplifiquem o acréscimo de <em>vendor prefix</em>. Diversas propriedades de CSS3 já tem prefixos tanto no Front-Alego como no <a href="http://bourbon.io" class="link--externo">Bourbon</a></dd>
+        <dt><samp>media-tipo(breakpoint, medida)</samp></dt>
+          <dd>Este mixin chama a media query pensando na técnica <em>mobile first</em> (utilizando <samp>min-width</samp>) como <strong>Valor padrão</strong>. O <samp>breakpoint</samp> é um dos descritos <a href="#responsive" class="link--readme">aqui</a></dd>
+      </dl>
+      <p><strong>Mixins de <em>vendor prefixes</em>.</strong> Para usar propriedades de CSS que dependem de prefixos de browser.</p>
+      <dl class="lista-definicao">
+        <dt><samp>placeholder</samp></dt>
+          <dd>Para formatar o elemento placeholder dos inputs de texto</dd>
+        <dt><samp>transform(valor)</samp></dt>
+          <dd>Aplica os prefixos para os transform de CSS3</dd>
+        <dt><samp>transform-origin(valor)</samp></dt>
+          <dd>Aplica os prefixos para os transform-origin de CSS3</dd>
+        <dt><samp>display-flex(largura)</samp></dt>
+          <dd>Dá o <samp>display: flex</samp> para o seletor. O valor <samp>$largura</samp> é opcional e você determina a largura do elemento pai que está recebendo o <samp>display: flex;</samp></dd>
+        <dt><samp>flex-direction(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>flex-direction</samp> no seletor. O valor padrão do mixin é <samp>column</samp></dd>
+        <dt><samp>flex-wrap(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>flex-wrap</samp> no seletor. O valor padrão do mixin é <samp>wrap</samp></dd>
+        <dt><samp>flex-flow(direction, wrap)</samp></dt>
+          <dd>Aplica a propriedade composta <samp>flex-flow</samp>. O valor padrão do mixin é <samp>column, wrap</samp></dd>
+        <dt><samp>align-items(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>align-items</samp> no seletor. O valor padrão do mixin é <samp>center</samp></dd>
+        <dt><samp>align-content(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>align-content</samp> no seletor. O valor padrão do mixin é <samp>center</samp></dd>
+        <dt><samp>order(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>order</samp> no seletor. O valor padrão do mixin é <samp>auto</samp></dd>
+        <dt><samp>flex-grow(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>flex-grow</samp> no seletor. O valor padrão do mixin é <samp>1</samp></dd>
+        <dt><samp>flex-shrink(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>flex-shrink</samp> no seletor. O valor padrão do mixin é <samp>1</samp></dd>
+        <dt><samp>flex-basis(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>flex-basis</samp> no seletor. O valor padrão do mixin é <samp>100%</samp></dd>
+        <dt><samp>flex(grow shrink basis)</samp></dt>
+          <dd>Aplica a propriedade composta <samp>flex</samp> no seletor. O valor padrão do mixin é <samp>1</samp>. Os elementos não são separados por vírgula.</dd>
+        <dt><samp>align-self(valor)</samp></dt>
+          <dd>Aplica a propriedade <samp>align-self</samp> no seletor. O valor padrão do mixin é <samp>auto</samp></dd>
+      </dl>
+      <p><strong>Mixins de formatação.</strong> Estes mixins serve para incluir formatação dentro de algum seletor. Seja configurações estáticas (que seriam de placeholders), quanto dinâmicas, com valores variáveis.</p>
+      <dl class="lista-definicao">
+        <dt><samp>clearfix</samp></dt>
+          <dd>Aplica o hack de css de clearfix, para quando o elemento pai tiver float. <strong>Dispensa propriedades</strong>.</dd>
+        <dt><samp>centraliza-caixa(largura, altura)</samp></dt>
+          <dd>Cria uma caixa centralizada no meio da tela (ou do elemento pai, se ele tiver algum valor de <samp>position</samp>). Os valores de <samp>largura</samp> e <samp>altura</samp> são opcionais</dd>
+        <dt><samp>grupo-flex(qtd, margem)</samp></dt>
+          <dd>Deve ser usado num elemento pai (que ganha a propriedade <samp>display: flex</samp>). distribui os elementos filhos em tamanho igual. Use isso para fazer um grupo de cards, por exemplo.<br />
+            Valores padrão: <samp>$qtd</samp> não tem valor padrão (é um mapa e aceita quatro valores); <samp>$margem: $calha</samp> a <samp>$calha</samp> foi definida no <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/variaveis</samp></dd>
+        <dt><samp>texto-selecionado(fundo, texto)</samp></dt>
+          <dd>Formata o seletor para quando o texto for selecionado no browser. Valores padrão: <samp>fundo: cor(fundo, escuro)</samp> e <samp>texto: cor(texto, claro)</samp>. <strong>Dica:</strong> selecione o texto para ver os valores padrão em uso.</dd>
+        <dt><samp>lista-oculta(conteudo)</samp></dt>
+          <dd>Para uso em listas que podem ser exibidas e ocultadas ao clicar no título. O valor de <samp>conteudo</samp> será a classe do elemento que vai ser ocultado.</dd>
+      </dl>
+      <p><strong>Mixins de tags específicos.</strong> Estes mixins devem ser usados dentro de tags específicos (como links, títulos, etc).</p>
+      <dl class="lista-definicao">
+        <dt><samp>lista-sem-marcador()</samp></dt>
+          <dd>Formata listas para serem sem marcadores. Ele tem um valor opcional (para omitir, não precisa colocar os parênteses). O valor padrão é <samp>null</samp></dd>
+        <dt><samp>texto(mod)</samp></dt>
+          <dd><strong class="texto--ok">Mixin editável</strong>. Mixin para formatar textos padrão do site). Você pode alterar os valores padrões para melhor adequar ao sistema, mas prossiga com cautela. Também é possível acrescentar novos valores.</dd>
+        <dt><samp>titulo(mod)</samp></dt>
+          <dd><strong class="texto--ok">Mixin editável</strong>. Mixin para formatar classes de título.</dd>
+        <dt><samp>link(mod)</samp></dt>
+          <dd><strong class="texto--ok">Mixin editável</strong>. Mixin para formatar links.</dd>
+      </dl>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__prefixo" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__prefixo">
+        <span class="secao-lista__titulo">prefixo()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Este mixin acrescenta prefixo de browser no CSS3.</p>
+      <p><strong>Sintaxe: </strong><samp>@include prefixo(($declaracoes), $prefixos) { }</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$declaracoes</samp></dt>
+          <dd>Sempre deve aparecer dentro de parênteses e cada declaração (se tiver mais de uma) separadas por vírgula. Exemplo: <samp>transform: translate(180deg)</samp></dd>
+        <dt><samp>$prefixos</samp></dt>
+          <dd>Os prefixos usados. Separe com espaço. Exemplo: <samp>webkit moz</samp></dd>
+      </dl>
+      <blockquote class="aviso--dica">
+        Para facilitar a leitura separe os blocos de elementos com <span class="tecla-atalho">enter</span>
+      </blockquote>
+      <p>Exemplos de uso:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">@include prefixo((column-count: 3, column-row: 1.5em), webkit moz);</p>
+        <p>}</p>
+        <p class="espaco-2">// Para melhor leitura, separece com ENTER:</p>
+        <p>.seletor {</p>
+          <p class="recuo-1">@include prefixo((</p>
+            <p class="recuo-2">column-count: 3,</p>
+            <p class="recuo-2">column-row: 1.5em),</p>
+          <p class="recuo-1">webkit moz);</p>
+        <p>}</p>
+      </code>
+      <p>Isso vai resultar no código:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">-webkit-column-count: 3;</p>
+          <p class="recuo-1">-moz-column-count: 3;</p>
+          <p class="recuo-1">column-count: 3;</p>
+          <p class="recuo-1">-webkit-column-row: 1.5em;</p>
+          <p class="recuo-1">-moz-column-row: 1.5em;</p>
+          <p class="recuo-1">column-row: 1.5em;</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__breakpoints" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__breakpoints">
+        <span class="secao-lista__titulo">media-tipo()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Este mixin serve para determinar propriedades responsivas, utilizando mobile-first.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include media-tipo($breakpoint, $medida)</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$breakpoint</samp></dt>
+          <dd>Qual o breakpoint a ser usado. Não coloque um valor em números e sim um dos valores disponíveis no mapa <samp>$breakpoints</samp>. <a href="#responsive" class="link--readme">Veja aqui quais são os valores</a></dd>
+        <dt><samp>$medida</samp></dt>
+          <dd>Defina se a media query vai ser no máximo ou no mínimo aquele tamanho. Valores: <samp>min</samp> | <samp>max</samp>. <strong>Valor padrão:</strong> <samp>min</samp> (por padrão este mixin trabalha com mobile first).</dd>
+      </dl>
+      <p>Exemplo de uso:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">@include media-tipo(medio) {</p>
+            <p class="recuo-2">/* insira aqui a configuração */</p>
+          <p class="recuo-1">}</p>
+        <p>}</p>
+      </code>
+      <p>Compilado:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>@media (min-width: <span class="codigo-bp--medio"></span>) {</p>
+          <p class="recuo-1">.seletor {</p>
+            <p class="recuo-2">/* insira aqui a configuração */</p>
+          <p class="recuo-1">}</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__placeholder" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__placeholder">
+        <span class="secao-lista__titulo">placeholder</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Formata o placeholder de formulário, utilizado nos inputs. Este mixin não tem variáveis, coloque a formatação direta.</p>
+      <p><strong>Sintaxe:</strong> <samp>@include placeholder { regras }</samp></p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>input[type="text"] {</p>
+          <p class="recuo-1">@include placeholder {</p>
+            <p class="recuo-2">color: cor(formulario, placeholder);</p>
+          <p class="recuo-1">}</p>
+        <p>}</p>
+      </code>
+      <p>Vai resultar em:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>input[type="text"]::-webkit-input-placeholder {</p>
+          <p class="recuo-1">color: #40d4da;</p>
+        <p>}</p>
+        <p>input[type="text"]::-moz-placeholder {</p>
+          <p class="recuo-1">/* Firefox 19+ */</p>
+          <p class="recuo-1">color: #40d4da;</p>
+        <p>}</p>
+        <p>input[type="text"]:-ms-input-placeholder {</p>
+          <p class="recuo-1">color: #40d4da;</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__transform" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__transform">
+        <span class="secao-lista__titulo">CSS 3 - Transform</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <h2>transform()</h2>
+      <p>Aplica os prefixos de CSS para a propriedade transform. Apesar de existir um mixim similar no Bourbon, o dele coloca muito prefixo, o do Front-Alego é mais atual e enxuto.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include transform($transform)</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$transform</samp></dt>
+          <dd>Qual o valor a ser aplicado. <a href="http://www.w3schools.com/cssref/css3_pr_transform.asp" class="link--externo" target="_blank">Ver no w3school</a></dd>
+      </dl>
+      <p>Veja um exemplo:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">@include transform(translate(20px,20px));</p>
+        <p>}</p>
+      </code>
+      <p>Este é o resultado:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">-webkit-transform: translate(20px, 20px);</p>
+          <p class="recuo-1">transform: translate(20px, 20px);</p>
+        <p>}</p>
+      </code>
+      <h2>transform-origin()</h2>
+      <p>Aplica os prefixos de CSS para a propriedade transform-origin. Apesar de existir um mixim similar no Bourbon, o dele coloca muito prefixo, o do Front-Alego é mais atual e enxuto.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include transform-origin($origem);</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$origem</samp></dt>
+        <dd>Qual a origem da transformação. <a href="http://www.w3schools.com/cssref/css3_pr_transform-origin.asp" class="link--externo" target="_blank">Ver no w3school</a>.</dd>
+      </dl>
+      <p>Veja um exemplo:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">@include transform-origin(right 0);</p>
+          <p>}</p>
+        </code>
+        <p>Este é o resultado:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.seletor {</p>
+            <p class="recuo-1">-webkit-transform-origin: right 0;</p>
+            <p class="recuo-1">transform-origin: right 0;</p>
+          <p>}</p>
+        </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__display-flex" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__display-flex">
+        <span class="secao-lista__titulo">Flexbox</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <h2>No elemento pai (flex-container)</h2>
+      <h3>display-flex</h3>
+      <p>Coloca o elemento com <samp>display: flex</samp>. Deve ser no elemento pai. Este mixin não precisa de parâmetros. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include display-flex;</samp> ou <samp>@include display-flex($largura);</samp></p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">@include display-flex;</p>
+        <p>}</p>
+      </code>
+      <p>Compilado:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">display: -webkit-flex;</p>
+          <p class="recuo-1">display: -ms-flexbox;</p>
+          <p class="recuo-1">display: flex;</p>
+        <p>}</p>
+      </code>
+      <p>Alternativamente você pode chamar uma largura para o elemento pai. Para fazer isso, use o valor opcional de <samp>$largura</samp>.</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>@include display-flex(100%);</p>
+      </code>
+      <p>Compila em:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.seletor {</p>
+          <p class="recuo-1">display: -webkit-flex;</p>
+          <p class="recuo-1">display: -ms-flexbox;</p>
+          <p class="recuo-1">display: flex;</p>
+          <p class="recuo-1">width: 100%;</p>
+        <p>}</p>
+      </code>
+      <h3>flex-direction()</h3>
+      <p>Determina a direção do conteúdo do flexbox. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include display-direction($flex-direction);</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$flex-direction</samp></dt>
+        <dd>A direção a ser aplicada. O valor padrão é <samp>column</samp></dd>
+      </dl>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.valor-padrao {</p>
+          <p class="recuo-1">@include flex-direction;</p>
+        <p>}</p>
+        <p>.valor-personalizado {</p>
+          <p class="recuo-1">@include flex-direction(row);</p>
+        <p>}</p>
+      </code>
+      <p>Compilado em:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.valor-padrao {</p>
+          <p class="recuo-1">-webkit-flex-direction: column;</p>
+          <p class="recuo-1">flex-direction: column;</p>
+        <p>}</p>
+        <p>.valor-personalizado {</p>
+          <p class="recuo-1">-webkit-flex-direction: row;</p>
+          <p class="recuo-1">flex-direction: row;</p>
+        <p>}</p>
+      </code>
+      <h3>flex-wrap()</h3>
+      <p>Determina se os itens ficarão em apenas uma linha ou várias. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include flex-wrap($wrap);</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$wrap</samp></dt>
+        <dd>Valor a ser passado para definir a quebra. O valor padrão é <samp>wrap</samp>.</dd>
+      </dl>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.valor-padrao {</p>
+          <p class="recuo-1">@include flex-wrap;</p>
+        <p>}</p>
+        <p>.valor-personalizado {</p>
+          <p class="recuo-1">@include flex-wrap(wrap-reserve);</p>
+        <p>}</p>
+        </code>
+        <p>Compilado:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.valor-padrao {</p>
+            <p class="recuo-1">-webkit-flex-wrap: wrap;</p>
+            <p class="recuo-1">flex-wrap: wrap;</p>
+          <p>}</p>
+          <p>.valor-personalizado {</p>
+            <p class="recuo-1">-webkit-flex-wrap: wrap-reserve;</p>
+            <p class="recuo-1">flex-wrap: wrap-reserve;</p>
+          <p>}</p>
+        </code>
+        <h3>flex-flow()</h3>
+        <p>Versão resumida para <samp>flex-direction</samp> e <samp>flex-container</samp>. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+        <p><strong>Sintaxe: </strong> <samp>@include flex-flow($flex-direction, $flex-wrap);</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$flex-direction</samp></dt>
+            <dd>A direção a ser aplicada. O valor padrão é <samp>column</samp></dd>
+          <dt><samp>$flex-wrap</samp></dt>
+            <dd>Valor a ser passado para definir a quebra. O valor padrão é <samp>wrap</samp>.</dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include flex-flow;</p>
+          <p>}</p>
+          <p>.somente-direction {</p>
+            <p class="recuo-1">@include flex-flow(row);</p>
+          <p>}</p>
+          <p>.somente-wrap {</p>
+            <p class="recuo-1">@include flex-flow($flex-wrap: wrap-reserve);</p>
+          <p>}</p>
+          <p>.ambos-personalizados {</p>
+            <p class="recuo-1">@include flex-flow(row, wrap-reserve);</p>
+          <p>}</p>
+        </code>
+        <p>Compila em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-flex-flow: column wrap;</p>
+            <p class="recuo-1">flex-flow: column wrap;</p>
+          <p>}</p>
+          <p>.somente-direction {</p>
+            <p class="recuo-1">-webkit-flex-flow: row wrap;</p>
+            <p class="recuo-1">flex-flow: row wrap;</p>
+          <p>}</p>
+          <p>.somente-wrap {</p>
+            <p class="recuo-1">-webkit-flex-flow: column wrap-reserve;</p>
+            <p class="recuo-1">flex-flow: column wrap-reserve;</p>
+          <p>}</p>
+          <p>.ambos-personalizados {</p>
+            <p class="recuo-1">-webkit-flex-flow: row wrap-reserve;</p>
+            <p class="recuo-1">flex-flow: row wrap-reserve;</p>
+          <p>}</p>
+        </code>
+        <h3>justify-content()</h3>
+        <p>Define alinhamento dos elementos no eixo principal (<em>main axis</em>). <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a></p>
+        <p><strong>Sintaxe: </strong> <samp>@include justify-content($justify-content)</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$justify-content</samp></dt>
+            <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include justify-content;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">@include justify-content(space-between);</p>
+          <p>}</p>
+        </code>
+        <p>Compila em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-justify-content: center;</p>
+            <p class="recuo-1">justify-content: center;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">-webkit-justify-content: space-between;</p>
+            <p class="recuo-1">justify-content: space-between;</p>
+          <p>}</p>
+        </code>
+        <h3>align-items()</h3>
+        <p>Define como os itens serão alinhados no eixo cruzado (<em>cross axis</em>). <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+        <p><strong>Sintaxe: </strong> <samp>@include align-items($align-items)</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$align-items</samp></dt>
+            <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include align-items;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">@include align-items(stretch);</p>
+          <p>}</p>
+        </code>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-align-items: center;</p>
+            <p class="recuo-1">align-items: center;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">-webkit-align-items: stretch;</p>
+            <p class="recuo-1">align-items: stretch;</p>
+          <p>}</p>
+        </code>
+        <h3>align-content()</h3>
+        <p>Determina o comportamento dos itens no eixo cruzado (<em>cross axis</em>) quando há quebra de linha dos elementos. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+        <p><strong>Sintaxe: </strong> <samp>@include align-content()</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$align-content</samp></dt>
+            <dd>Qual o valor a ser aplicado. O valor padrão é <samp>center</samp></dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include align-content;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">@include align-content(space-between);</p>
+          <p>}</p>
+        </code>
+        <p>Compilado em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-align-content: center;</p>
+            <p class="recuo-1">align-content: center;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">-webkit-align-content: space-between;</p>
+            <p class="recuo-1">align-content: space-between;</p>
+          <p>}</p>
+        </code>
+        <h2>No elemento filho (flex-item)</h2>
+        <h3>order()</h3>
+        <p>Altera a ordem que o elemento aparece com relação aos outros. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>. </p>
+        <p><strong>Sintaxe: </strong> <samp>@include order($order);</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$order</samp></dt>
+            <dd>O valor numérico que representa a ordem. O valor padrão <samp>auto</samp> não é verdadeiramente útil pois é difícil prever o número que seria útil. Aliás, nem sei pra quê eu estou justificando isso.</dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.elemento {</p>
+            <p class="recuo-1">@include order(3);</p>
+          <p>}</p>
+        </code>
+        <p>Compila em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.elemento {</p>
+            <p class="recuo-1">-webkit-order: 3;</p>
+            <p class="recuo-1">order: 3;</p>
+          <p>}</p>
+        </code>
+        <h3>flex-grow()</h3>
+        <p>Aplica a propriedade de <samp>flex-grow</samp> no elemento. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+        <p><strong>Sintaxe: </strong> <samp>@include flex-grow($flex-grow);</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$flex-grow</samp></dt>
+            <dd>O valor numérico a ser usado. O valor padrão é <samp>1</samp>;</dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include flex-grow;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">@include flex-grow(3);</p>
+          <p>}</p>
+        </code>
+        <p>O que resulta em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-flex-grow: 1;</p>
+            <p class="recuo-1">flex-grow: 1;</p>
+            <p>}</p>
+            <p>.personalizado {</p>
+              <p class="recuo-1">-webkit-flex-grow: 3;</p>
+              <p class="recuo-1">flex-grow: 3;</p>
+              <p>}</p>
+        </code>
+        <h3>flex-shrink()</h3>
+        <p>Aplica a propriedade de <samp>flex-shrink</samp> no elemento. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+        <p><strong>Sintaxe: </strong> <samp>@include flex-shrink($flex-shrink);</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$flex-shrink</samp></dt>
+            <dd>O valor numérico a ser usado. O valor padrão é <samp>1</samp>;</dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include flex-shrink;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">@include flex-shrink(3);</p>
+          <p>}</p>
+        </code>
+        <p>O que resulta em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-flex-shrink: 1;</p>
+            <p class="recuo-1">flex-shrink: 1;</p>
+            <p>}</p>
+            <p>.personalizado {</p>
+              <p class="recuo-1">-webkit-flex-shrink: 3;</p>
+              <p class="recuo-1">flex-shrink: 3;</p>
+            <p>}</p>
+        </code>
+        <h3>flex-basis()</h3>
+        <p>Aplica a propriedade de <samp>flex-basis</samp> no elemento. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+        <p><strong>Sintaxe: </strong> <samp>@include flex-basis($flex-basis);</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$flex-basis</samp></dt>
+            <dd>O valor a ser usado, a unidade pode ser percentual, <samp>rem</samp>, <samp>em</samp>, <samp>px</samp>, etc. O valor padrão é <samp>100%</samp>;</dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include flex-basis;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">@include flex-basis(25%);</p>
+          <p>}</p>
+        </code>
+        <p>O que resulta em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-flex-basis: 100%;</p>
+            <p class="recuo-1">flex-basis: 100%;</p>
+            <p>}</p>
+            <p>.personalizado {</p>
+              <p class="recuo-1">-webkit-flex-basis: 25%;</p>
+              <p class="recuo-1">flex-basis: 25%;</p>
+            <p>}</p>
+        </code>
+        <h3>flex-grow()</h3>
+        <p>Versão resumida para <samp>flex-grow</samp>, <samp>flex-shrink</samp> e <samp>flex-basis</samp>. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+        <p><strong>Sintaxe: </strong> <samp>@include flex($flex);</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$flex</samp></dt>
+            <dd>O valor simplificado. Basta colocar os três elementos na ordem e separados por espaço: <samp>flex-grow</samp>, <samp>flex-shrink</samp> e <samp>flex-basis</samp>. O valor padrão é <samp>1</samp>, o que significa que está aplicando apenas o <samp>flex-grow</samp></dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include flex;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">@include flex(1 0 25%);</p>
+          <p>}</p>
+        </code>
+        <p>Que compila em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-flex: 1;</p>
+            <p class="recuo-1">flex: 1;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">-webkit-flex: 1 0 25%;</p>
+            <p class="recuo-1">flex: 1 0 25%;</p>
+          <p>}</p>
+        </code>
+        <h3>align-self()</h3>
+        <p>Altera o alinhamento do item individualmente. <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" class="link--externo" target="_blank">Saiba mais sobre isso</a>.</p>
+        <p><strong>Sintaxe: </strong> <samp>@include align-self($align-self);</samp></p>
+        <dl class="lista-definicao">
+          <dt><samp>$align-self</samp></dt>
+            <dd>Aplica o valor a ser aplicado para o alinhamento. O valor padrão é <samp>auto</samp>.</dd>
+        </dl>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">@include align-self;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">@include align-self(flex-end);</p>
+          <p>}</p>
+        </code>
+        <p>O que resulta em:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.padrao {</p>
+            <p class="recuo-1">-webkit-align-self: auto;</p>
+            <p class="recuo-1">align-self: auto;</p>
+          <p>}</p>
+          <p>.personalizado {</p>
+            <p class="recuo-1">-webkit-align-self: flex-end;</p>
+            <p class="recuo-1">align-self: flex-end;</p>
+          <p>}</p>
+        </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__clearfix" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__clearfix">
+        <span class="secao-lista__titulo">clearfix</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Este mixin serve para aplicar o hack de css <em>clearfix</em>. utilize ele no elemento pai que usem float. Ou nem use, afinal... pra quê usar float mesmo?</p>
+      <p><strong>Sintaxe: </strong> <samp>@include clearfix</samp></p>
+      <p>Este mixin não tem valor a ser defindo basta chamar ele pelo nome:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.clearfix {</p>
+          <p class="recuo-1">@include clearfix;</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__centraliza-caixa" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__centraliza-caixa">
+        <span class="secao-lista__titulo">centraliza-caixa()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Este mixin cria uma caixa centralizada na tela com posicionamento absoluto (se o elemento pai tiver algum <samp>position</samp> definido vai centralizar com relação à ele). Ideal para criar uma tela de login, por exemplo. Não precisa usar em modais, pois este elemento já foi criado dentro do <strong>Front-Alego</strong>. Esta caixa não precisa ter tamanho fixo.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include centraliza-caixa($largura, $altura);</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$largura</samp></dt>
+          <dd>Define a largura da caixa. <strong>Este valor pode ser omitido</strong>.</dd>
+        <dt><samp>$altura</samp></dt>
+          <dd>Define a altura da caixa. <strong>Este valor pode ser omitido</strong>. Se for usar este valor, mas sem a altura, lembre-se de escrever o nome da variável.</dd>
+      </dl>
+      <p>Chamando o mixin sem os valores:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.sem-valor {</p>
+          <p class="recuo-1">@include centraliza-caixa;</p>
+        <p>}</p>
+      </code>
+      <p>Chamando o mixin com os valores:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.com-medidas {</p>
+          <p class="recuo-1">@include centraliza-caixa(35vw, 50vh);</p>
+        <p>}</p>
+      </code>
+      <p>Chamando o mixin com o valor de largura:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.so-largura {</p>
+          <p class="recuo-1">@include centraliza-caixa(35vw);</p>
+        <p>}</p>
+      </code>
+      <p>Chamando o mixin com o valor de altura:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.so-altura {</p>
+          <p class="recuo-1">@include centraliza-caixa($altura: 50vw);</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__grupo-flex" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__grupo-flex">
+        <span class="secao-lista__titulo">grupo-flex()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Este mixin serve para criar itens de mesmo tamanho distribuídos ao longo de algum container. Ele deve ser aplicado no container (que se torna <samp>display: flex</samp>). Este mixin aceita o uso de conteúdo dentro dele, para configurar o elemento filho.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include grupo-flex($quantidade, $margem);</samp></p>
+      <p>Ou:</p>
+      <p><strong>Sintaxe: </strong> <samp>@include grupo-flex($quantidade, $margem) { @conteúdo }</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$quantidade</samp></dt>
+          <dd>A quantidade de caixas por linha. <strong>Sem valor padrão</strong>. Este valor é um mapa, cada valor do mapa (de até 4 números) indica uma medida dentro do valor responsivo, na ordem: <strong>pequeno</strong>, <strong>médio</strong>, <strong>grande</strong> e <strong>extra-grande</strong>. Se você quiser que tenha a mesma quantidade de elementos idenpendente do tamanho da tela, basta indicar o valor, caso especifique mais de um, é necessário que os valores estejam dentor de parênteses (ex.: <samp>(1, 3)</samp>).</dd>
+        <dt><samp>$margem</samp></dt>
+          <dd>Determina a margem entre os elementos. Se não quiser nenhuma margem, coloque o valor como <samp>0</samp>. <strong>Valor padrão:</strong> <samp>10px</samp> convertidos para <samp>rem</samp>.</dd>
+        <dt><samp>@conteúdo</samp></dt>
+          <dd>Escreva os atributos de CSS como se o mixin fosse ele mesmo um seletor. Estes atributos são do <strong>elemento filho</strong> (de cada uma das caixas).</dd>
+      </dl>
+      <p>Colocando 5 itens por linha:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.cinco-itens-linha {</p>
+          <p class="recuo-1">@include grupo-flex(5);</p>
+        <p>}</p>
+      </code>
+      <p>Colocando 5 itens por linha, com margem de 1rem:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.grupo-itens {</p>
+          <p class="recuo-1">@include grupo-flex(5, 1rem);</p>
+        <p>}</p>
+      </code>
+      <p>Colocando 1 item por linha em tela pequena e 2 itens por linha em telas maiores:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.grupo-itens {</p>
+          <p class="recuo-1">@include grupo-flex((1, 2));</p>
+        <p>}</p>
+      </code>
+      <p>Colocando 1 item por linha em tela pequena e 2 itens por linha em telas maiores e margem de 1rem:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.grupo-itens {</p>
+          <p class="recuo-1">@include grupo-flex((1, 2), 1rem);</p>
+        <p>}</p>
+      </code>
+      <p>Colocando 1 item por linha em tela pequena e 2 itens por linha em telas médias, 3 em telas grandes (tablet horizontal) e 5 em telas maiores (desktop):</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.grupo-itens {</p>
+          <p class="recuo-1">@include grupo-flex((1, 2, 3, 5));</p>
+          <p>}</p>
+      </code>
+      <p>Colocando 1 item por linha em tela pequena e 2 itens por linha em telas médias, 3 em telas grandes (tablet horizontal) e 5 em telas maiores (desktop) e margem 0:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.grupo-itens {</p>
+          <p class="recuo-1">@include grupo-flex((1, 2, 3, 5), 0);</p>
+          <p>}</p>
+      </code>
+      <p>Como no de cima, mas com formatação do elemento filho (no caso, a inclusão de um padding e uma cor de fundo):</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.grupo-itens {</p>
+          <p class="recuo-1">@include grupo-flex((1, 2, 3, 5), 0) {</p>
+            <p class="recuo-2">padding: 1rem;</p>
+            <p class="recuo-2">background: cor(fundo);</p>
+          <p class="recuo-1">}</p>
+          <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__texto-selecionado" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__texto-selecionado">
+        <span class="secao-lista__titulo">texto-selecionado()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Este mixin altera a forma como o browser apresenta o texto quando o usuário seleciona o texto (experimente selecionar um parágrafo desta documentação, que usam os valores padrão).</p>
+      <p><strong>Sintaxe: </strong> <samp>@include texto-selecionado($fundo, $cor-texto);</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$fundo</samp></dt>
+          <dd>Define a cor de fundo. <strong>Valor padrão</strong>: <samp>cor(fundo, escuro)</samp></dd>
+        <dt><samp>$texto</samp></dt>
+          <dd>Define a cor do texto. <strong>Valor padrão</strong>: cor(texto, claro)</dd>
+      </dl>
+      <p>Como você pode notar, é possível aplicar o mixin sem valores e as cores mudam conforme as cores aplicadas nos temas de cor.</p>
+      <p>Este mixin pode ser aplicado em todo o site (no <samp>&lt;body&gt;</samp>) ou em elementos específicos (como um parágrafo, uma div e assim por diante).</p>
+      <p>Exemplo de uso no <samp>body</samp> sem valores:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>body {</p>
+          <p class="recuo-1">@include texto-selecionado;</p>
+        <p>}</p>
+      </code>
+      <p>Exemplo de uso em um caso específico:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.urgente {</p>
+          <p class="recuo-1">font-weight: bold;</p>
+          <p class="recuo-1">color: cor-status(urgente);</p>
+          <p class="recuo-1">@include texto-selecionado(cor-status(urgente-escuro), cor(texto, claro));</p>
+        <p>}</p>
+      </code>
+      <p>Que compila em:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.urgente {</p>
+          <p class="recuo-1">font-weight: bold;</p>
+          <p class="recuo-1">color: #ed1c24;</p>
+        <p>}</p>
+        <p>.urgente::selection {</p>
+          <p class="recuo-1">background-color: #be1e2d;</p>
+          <p class="recuo-1">color: #fff;</p>
+        <p>}</p>
+        <p>.urgente::-moz-selection {</p>
+          <p class="recuo-1">background-color: #be1e2d;</p>
+          <p class="recuo-1">color: #fff;</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixins__lista-oculta" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixins__lista-oculta">
+        <span class="secao-lista__titulo">lista-oculta()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Faz listas que abrem e fecham mas que ainda exibem o título (como essa lista de mixins). O HTML deve incluir um checkbox no mesmo nível hierárquico do conteúdo que está ocultando. O conteúdo deve aparecer depois.</p>
+      <p>Este mixin deve ser aplicado dentro do seletor do checkbox.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include lista-oculta($classe);</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$classe</samp></dt>
+          <dd>A classe do conteúdo que vai ser exibido.</dd>
+      </dl>
+      <p>O <strong>HTML</strong> deve seguir o padrão:</p>
+      <ul class="lista-itens">
+        <li>Checkbox e conteúdo devem estar no mesmo nível hierárquico;</li>
+        <li>Depois do checkbox aparece o label (também no mesmo nível hierárquico);</li>
+        <li>Cada checkbox deve ter um <samp>id</samp> e este deve ser único. O <samp>label</samp> deve ter a propriedade <samp>for</samp> com o mesmo id do checkbox;</li>
+        <li>A classe do conteúdo não precisa ser diferente para cada item/lista (melhor que seja a mesma, inclusive, para deixar o CSS compilado menor);</li>
+        <li>O conteúdo vem aberto por padrão. Para ocultar o conteúdo daquele item, inclua <samp>checked="checked"</samp> no checkbox.</li>
+      </ul>
+      <p>Exemplo de aplicação:</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;div&gt;</p>
+          <p class="recuo-1">&lt;input type="checkbox" class="check-lista" id="nome" /&gt;</p>
+          <p class="recuo-1">&lt;label for="nome"&gt;Título do item da lista&lt;/label&gt;</p>
+          <p class="recuo-1">&lt;div class="conteudo-demo"&gt;</p>
+            <p class="recuo-2">...</p>
+          <p class="recuo-1">&lt;/div&gt;</p>
+        <p>&lt;/div&gt;</p>
+      </code>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.check-lista {</p>
+          <p class="recuo-1">@include lista-oculta(conteudo-demo);</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixin__lista-sem-marcador" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixin__lista-sem-marcador">
+        <span class="secao-lista__titulo">lista-sem-marcador()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Este mixin retira os marcadores de uma lista (<samp>ul</samp>), para utilizar em menus, listas com formatações especiais, etc. O valor deste mixin é opcional</p>
+      <p><strong>Sintaxe: </strong> <samp>@include lista-sem-marcador($flex);</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>$flex</samp></dt>
+          <dd>Determina se o elemento tem <samp>display: flex</samp> ou não. <strong>Valor opcional</strong>. <strong>Valor padrão:</strong> nenhum</dd>
+      </dl>
+      <p>Chamando sem valor padrão (apenas retira os marcadores):</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.menu {</p>
+          <p class="recuo-1">@include lista-sem-marcador;</p>
+        <p>}</p>
+      </code>
+      <p>Chamando com flex:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.menu-flex {</p>
+          <p class="recuo-1">@include lista-sem-marcador(flex);</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixin__texto" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixin__texto">
+        <span class="secao-lista__titulo">texto()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
+      <p>Este mixin formata os textos padrão do sistema e já está sendo usado para formatar. Você pode alterar os valores (por exemplo, a margem). Mas fique atento que isso alterará todos os textos e títulos do site.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include texto($mod);</samp></p>
+      <p>Valores que podem ser usados em <samp>$mod</samp> (estes valores devem ser escritos como demonstrado, do contrário vai retornar um erro):</p>
+      <dl class="lista-definicao">
+        <dt><samp>padrao</samp></dt>
+          <dd>Formata os blocos de texto padrão (<samp>&lt;p&gt;</samp>, <samp>&lt;ul&gt;</samp> e outros).</dd>
+        <dt><samp>titulo</samp></dt>
+          <dd>Formata os títulos do sistema (<samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp>)</dd>
+      </dl>
+      <p>Chamando os padrões de texto:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>p {</p>
+          <p class="recuo-1">@include texto(padrao);</p>
+        <p>}</p>
+      </code>
+      <p>Chamando os padrões de título:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>h1 {</p>
+          <p class="recuo-1">@include texto(titulo);</p>
+        <p>}</p>
+      </code>
+      <p>Alterarnativamente você pode criar um conjunto novos de regras com seu próprio nome, para isso acrescente o seguinte código antes da última chave ser fechada (<samp>}</samp>):</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>// COMENTÁRIO CURTO FALANDO O QUE É</p>
+        <p>@else if $mod == nome-novo {</p>
+          <p class="recuo-1">// suas regras</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixin__titulo" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixin__titulo">
+        <span class="secao-lista__titulo">titulo()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
+      <p>Este mixin serve para criar configurações especiais para os títulos. Eles devem ser usados em classes (ou com seletor descendente: <samp>.classe > h1</samp>) e nunca diretamente no tag, pois isso vai afetar todos os tags.</p>
+      <p>Você pode alterar totalmente os valores e acrescentar novas opções suas.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include titulo($mod)</samp></p>
+      <p>Valores que podem ser usados em <samp>$mod</samp> (estes valores devem ser escritos como demonstrado, do contrário vai retornar um erro):</p>
+      <dl class="lista-definicao">
+        <dt><samp>borda</samp></dt>
+          <dd>Acrescenta uma borda inferior fina no título, com a mesma cor do mesmo</dd>
+      </dl>
+      <p>Para acrescentar novas opções com seu próprio nome, para isso acrescente o seguinte código antes da última chave ser fechada (<samp>}</samp>):</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>// COMENTÁRIO CURTO FALANDO O QUE É</p>
+        <p>@else if $mod == nome-novo {</p>
+          <p class="recuo-1">// suas regras</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="mixin__link" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="mixin__link">
+        <span class="secao-lista__titulo">link()</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
+      <p>Este mixin serve para criar configurações especiais para os links. Eles devem ser usados em classes (ou com seletor descendente: <samp>.classe > a</samp>) e nunca diretamente no tag, pois isso vai afetar todos os links do sistema.</p>
+      <p>Algumas opções podem ser alteradas e outras não (abaixo indico quais não devem ser alteradas e também há um comentário no próprio mixin). Você também pode acrescentar novas opções.</p>
+      <p><strong>Sintaxe: </strong> <samp>@include link($mod);</samp></p>
+      <p>Valores que podem ser usados em <samp>$mod</samp> (estes valores devem ser escritos como demonstrado, do contrário vai retornar um erro):</p>
+      <dl class="lista-definicao">
+        <dt><samp>sem-sublinhado</samp></dt>
+          <dd>Retira do sublinhado do link e coloca quando passa ou mouse por cima. <strong>Não altere</strong></dd>
+        <dt><samp>bloco</samp></dt>
+          <dd>Altera o link para que ele seja bloco (<samp>display: block</samp>) ocupando todo o elemento pai (evite colocar junto de outro elemento). Serve para fazer menus. <strong>Não altere</strong></dd>
+        <dt><samp>borda</samp></dt>
+          <dd>Retira o sublinhado do link e acrescenta uma borda cinza na parte inferior. Quando passa o mouse por cima a borda fica da cor do link</dd>
+        <dt><samp>pontilhado</samp></dt>
+          <dd>Retira o sublinhado do link e substitui por uma borda pontilhada e cinza. Quando passa o mouse por cima o link escurece e a borda fica da mesma cor</dd>
+      </dl>
+      <p>Para retirar o sublinhado:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.link--padrao {</p>
+          <p class="recuo-1">@include link(sem-sublinhado);</p>
+        <p>}</p>
+      </code>
+      <p>Para colocar em bloco:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>li > a {</p>
+          <p class="recuo-1">@include link(bloco);</p>
+        <p>}</p>
+      </code>
+      <p>Para fazer o link com borda:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.link--borda {</p>
+          <p class="recuo-1">@include link(borda);</p>
+        <p>}</p>
+      </code>
+      <p>Para incluir a borda pontilhada no link:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.link--pontilhado {</p>
+          <p class="recuo-1">@include link(pontilhado);</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+</article>
+
+<article id="sprite">
+  <header><h1>Sprites</h1></header>
+  <section class="secao-lista">
+    <input type="checkbox" id="sprite__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="sprite__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>O primeiro ponto, evidentemente, é ter o arquivo de sprites gerados externamente, em um arquivo único. Este arquivo pode ser <samp>png</samp>, <samp>gif</samp> ou <samp>svg</samp>. No original crie uma grid e encaixe bem as imagens nela. O ideal é que cada imagem ocupe 100% da grid na largura ou altura. <strong class="texto--erro">O ideal, no entanto, é que a imagem ocupe o espaço completo</strong>.</p>
+      <p>É possível acrescentar imagens <strong>menores</strong> ou <strong>maiores</strong> que a grid, mas use uma proporção lógica (75% do largura original, o dobro do tamanho e assim por diante). Use estes casos para economizar na quantidade de imagens do arquivo.</p>
+      <div class="grupo-img">
+        <figure>
+          <img src="img/sprites.png" alt="Grid de Sprite">
+          <legend>Neste exemplo temos uma grid de 3x3, cada elemento tem 50px. Note que a estrela ocupa todo o espaço vertical e horizontal, enquanto que o monitor preenche apenas toda a largura. O espaço que resta, na imagem está abaixo. Você pode deixar em cima conforme o uso (por exemplo, para alinhar a imagem com a base do texto que a acompanha).</legend>
+        </figure>
+        <figure>
+          <img src="img/sprites-tamanhos.png" alt="Sprites com tamanhos diferentes">
+          <legend>Exemplos de sprites com tamanhos diferentes. Eles podem ser configurados sem problema.</legend>
+        </figure>
+      </div>
+      <p>Depois de criado o arquivo, vá no <a href="#config__classes" class="link--readme">arquivo de configurações</a> e descomente <samp>sprite</samp> no mapa (ele vem comentado por padrão pois não é todo o sistema que faz uso de sprites).</p>
+      <p>No <a href="#config__sprite" class="link--readme">arquivo de configuração</a> determine a extensão usada e o tamanho de <strong>cada</strong> sprite.</p>
+      <h2>Criando as classes e determinando a posição</h2>
+      <p>As classes são criadas no mapa <samp>$sprites</samp> no <a href="#config__sprite" class="link--readme">arquivo de configuração</a>. Use nomes fáceis de serem lembrados e que identifique do que se trata aquele sprite (exemplo: um ícone de computador poderia ser nomeado como <samp>computador</samp>).</p>
+      <p>Para determinar a posição, utilize as coordenadas X, Y conforme a figura abaixo:</p>
+      <figure>
+        <img src="img/sprites-coordenadas.png" alt="Coordenadas dos sprites">
+      </figure>
+      <p>Para os exemplos abaixo, imagine que <samp>$sprite-medida: 150px</samp>.</p>
+      <p>Uma imagem que esteja na primeira coordenada (linha 1, coluna 1), seria:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>$sprites: (</p>
+          <p class="recuo-1">img-1: (1, 1),</p>
+        <p>);</p>
+      </code>
+      <p>O que resultaria no seguinte CSS: </p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.sprite-img-1 {</p>
+          <p class="recuo-1">background: url(sprite.png) no-repeat 0px 0px;</p>
+          <p class="recuo-1">width: 150px;</p>
+          <p class="recuo-1">height: 150px;</p>
+        <p>}</p>
+      </code>
+      <p>Já uma imagem na primeira linha, porém segunda coluna ficaria:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>$sprites: (</p>
+          <p class="recuo-1">img-2: (2, 1),</p>
+        <p>);</p>
+      </code>
+      <p>O que resultaria no seguinte CSS: </p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.sprite-img-2 {</p>
+          <p class="recuo-1">background: url(sprite.png) no-repeat -150px 0px;</p>
+          <p class="recuo-1">width: 150px;</p>
+          <p class="recuo-1">height: 150px;</p>
+        <p>}</p>
+      </code>
+      <p>Se precisar de um sprite com o dobro de tamanho:</p>
+      <div class="img-code">
+        <figure>
+          <img src="img/sprites-2x" alt="Sprite com o dobro de tamanho">
+        </figure>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>$sprites: (</p>
+            <p class="recuo-1">img-3: (1, 1, 2),</p>
+          <p>}</p>
+        </code>
+      </div>
+      <p>O que resulta em:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.sprite-img-3 {</p>
+          <p class="recuo-1">background: url(sprite.png) no-repeat 0px 0px;</p>
+          <p class="recuo-1">width: 300px;</p>
+          <p class="recuo-1">height: 300px;</p>
+        <p>}</p>
+      </code>
+      <p>Agora imagine que o sprite a ser usado tenha o dobro da largura, mas altura padrão:</p>
+      <div class="img-code">
+        <figure>
+          <img src="img/sprites-2x1y" alt="Sprite com o dobro da largura mas altura padrão">
+        </figure>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>$sprites: (</p>
+            <p class="recuo-1">img-4: (1, 1, 2, 1),</p>
+          <p>}</p>
+        </code>
+      </div>
+      <p>O que vai resultar em:</p>
+      <code class="codigo--css">-
+        <header>CSS</header>
+        <p>.sprite-img-4 {</p>
+          <p class="recuo-1">background: url(sprite.png) no-repeat 0px 0px;</p>
+          <p class="recuo-1">width: 300px;</p>
+          <p class="recuo-1">height: 150px;</p>
+        <p>}</p>
+      </code>
+      <p>Por fim, se a imagem tiver o dobro de altura e largura padrão:</p>
+      <div class="img-code">
+        <figure>
+          <img src="img/sprites-1x2y" alt="Sprite com o dobro da altura mas largura padrão">
+        </figure>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>$sprites: (</p>
+            <p class="recuo-1">img-5: (1, 1, 1, 2),</p>
+          <p>}</p>
+        </code>
+      </div>
+      <p>O que vai resultar em:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.sprite-img-5 {</p>
+          <p class="recuo-1">background: url(sprite.png) no-repeat 0px 0px;</p>
+          <p class="recuo-1">width: 150px;</p>
+          <p class="recuo-1">height: 300px;</p>
+        <p>}</p>
+      </code>
+      <h2>Chamando no HTML</h2>
+      <p>Cada imagem colocada no mapa <samp>$sprites</samp> vai receber o prefixo <samp>.sprite-</samp> antes do nome. Portanto, se você criar uma imagem para um computador chamada <samp>computador</samp> a classe final será <samp>.sprite-computador</samp>.</p>
+    </section>
+  </section>
+</article>

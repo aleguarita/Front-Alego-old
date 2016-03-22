@@ -1,0 +1,255 @@
+<article id="cores">
+  <header>
+    <h1>Cores</h1>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="cores__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="cores__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>O <strong>Front-Alego™</strong> trabalha com as cores de duas formas: através de uma paleta de cores que pode ser chamadas por nomes específicos (exemplo <samp>básica</samp>) e através de um tema que pode alterar todas as cores do sistema, sem precisar mudar a paleta, mantendo a harmonia.</p>
+      <p>As cores ganham variações clara e escura através de uma função baseada no <a href="http://bourbon.io/docs/#tint-shade" target="_blank" class="link--externo">Bourbon.</a></p>
+      <blockquote class="aviso--grave">
+        <strong>Todas</strong> as cores devem ser definidas aqui. Jamais chame uma cor em outro CSS usando hexadecimal, nome de cor ou variável!
+      </blockquote>
+      <h2 id="cores__paletas">Paletas</h2>
+        <p>Neste arquivo você irá configurar as cores usadas pelo sistema. Atualmente temos duas cores principais (<samp>basica</samp> e <samp>secundaria</samp>), mas você pode acrescentar conforme a necessidade. As demais cores são para temas específicos. Você pode alterar, mas tome cuidado.</p>
+        <p>Cada cor representa uma matiz principal e deve ter um nome fácil de lembrar, com um comentário indicando qual a cor (apenas para facilitar a lembrança, é possível ver todas as paletas <a href="#cores__paleta" class="link--readme">aqui</a>). Sempre comece alterando as já estabelecidas e acrescente novas conforme a necessidade.</p>
+        <p>Segue a lista indicativa de matizes criadas até o momento:</p>
+        <dl class="lista-definicao">
+          <dt><samp>basica</samp></dt>
+            <dd>A cor básica/principal do sistema. Altere esta no seu sistema como cor principal.</dd>
+          <dt><samp>secundaria</samp></dt>
+            <dd>A cor secundária/destaque do sistema. Altere esta cor no seu sistema como cor secundária.</dd>
+          <dt><samp></samp></dt>
+            <dd></dd>
+          <dt><samp></samp></dt>
+            <dd></dd>
+        </dl>
+        <h3>Paleta Padrão e Cores de Status</h3>
+          <p>Estas paletas são fixas e fica dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base</samp>, mas contém uma série de cores úteis a serem chamadas no CSS e no tema.</p>
+          <p>A <samp>$paleta-padrao</samp> contém as seguintes cores (<a href="#cores__paleta-padrao" class="link--readme">Ver aqui</a>):</p>
+          <dl class="lista-definicao">
+            <dt><samp>branco</samp></dt>
+              <dd>branco mesmo, ué</dd>
+            <dt><samp>preto</samp></dt>
+              <dd>back in black</dd>
+            <dt><samp>vermelho</samp></dt>
+              <dd>para definir status, ver abaixo</dd>
+            <dt><samp>verde</samp></dt>
+              <dd>para definir status, ver abaixo</dd>
+            <dt><samp>amarelo</samp></dt>
+              <dd>para definir status, ver abaixo</dd>
+            <dt><samp>cinza-5</samp> até <samp>cinza-95</samp></dt>
+              <dd>20 tons de cinza</dd>
+          </dl>
+          <p>A paleta <samp>$cor-status</samp> já estabelece as cores de status e podem ser chamadas diretamente no CSS, mesmo que não estabelecido nos temas (pois são globais).</p>
+          <p>Elas são divididas em quatro elementos principais com variantes <samp>-claro</samp> e <samp>-escuro</samp> (<a href="#cores__paleta-padrao" class="link--readme">Veja aqui</a>):</p>
+          <dl class="lista-definicao">
+            <dt><samp>erro</samp> e <samp>urgente</samp></dt>
+              <dd>Cores vermelhas.</dd>
+            <dt><samp>sucesso</samp> e <samp>ok</samp></dt>
+              <dd>Cores verdes.</dd>
+            <dt><samp>alerta</samp> e <samp>aviso</samp></dt>
+              <dd>Cores amarelas</dd>
+            <dt><samp>notice</samp></dt>
+              <dd>Cores cinza. Usada no toaster apenas.</dd>
+          </dl>
+      <h2 id="cores__temas">Temas</h2>
+        <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_cores_temas.scss</samp></p>
+        <p>Neste arquivo ficam os temas de cores do sistema. Você pode criar vários outros temas e alterar no <a href="#config__tema" class="link--readme">arquivo de configuração</a>. Ao escolher um tema, as cores do sistema mudam de acordo.</p>
+        <p>Assim como acontece com a <samp>$paleta</samp>, os temas estão agrupados dentro de um mapa chamado <samp>$temas</samp>. Dentro deste mapa teremos um sub-mapa para cada tema, que são (por padrão):</p>
+        <dl class="lista-definicao">
+          <dt><samp>principal</samp></dt>
+            <dd>O tema padrão do sistema. Se você não for usar outro tema, basta alterar somente este.</dd>
+          <dt><samp>cinza</samp></dt>
+            <dd>Este tema faz uso apenas de tons de cinza. Pode ser útil em um momento de prototipação.</dd>
+          <dt><samp>alto-contraste</samp></dt>
+            <dd>Um tema com cores bem contrastantes, pensando em acessibilidade.</dd>
+          <dt><samp>bandeira</samp></dt>
+            <dd>Faz uso das cores da bandeira de Goiás. Para utilizar em sistemas mais institucionais ou eventos do Estado.</dd>
+          <dt><samp>rosa</samp></dt>
+            <dd>Tema com predominância das cores rosa. Para o Outubro Rosa, por exemplo.</dd>
+          <dt><samp>azul</samp></dt>
+            <dd>Tema com predominância das cores azuis. Para o Novembro Azul, por exemplo.</dd>
+        </dl>
+        <p>Acrescente novo mapa conforme a necessidade. Duplique o mapa <samp>principal</samp> e trabalhe nele (um exemplo de possibilidade para isso é um tema de Natal).</p>
+        <p>Dentro de cada tema existem diversos mapas com suas cores específicas. Podemos dividir estes mapas em três categorias, <strong>elementos genéricos</strong> (que são usados em qualquer contexto), <strong>elementos específicos</strong> (que são usados dentro de um contexto específico e já está sendo sendo usado dentro das configurações do Front-Alego, em arquivos próprios. Ex.: tabela) e <strong>elementos do sistema</strong> que são os elementos criados para o seu sistema (exemplo: menu, cabeçalho). Cada uma destas categorias estão separadas por um comentário com seu nome.</p>
+        <blockquote class="aviso--grave">
+          Sempre que você precisar de uma cor para um elemento não declarado, crie este mapa dentro de <strong>CADA</strong> tema abaixo do comentário <samp>//elementos do sistema</samp>. Acrescente as cores dentro deste mapa conforme a necessidade.
+        </blockquote>
+        <blockquote class="aviso--dica">
+          Dentro de cada mapa a cor <samp>padrao</samp> será chamada pela função <samp>cor()</samp> sem que se especifique qual é. Use, portanto, para a cor principal daquele elemento.
+        </blockquote>
+        <dl class="lista-definicao">
+          <dt><samp>texto</samp></dt>
+            <dd><em>Elemento genérico</em>. Cores para serem usadas em textos. <samp>padrao</samp>, <samp>claro</samp>, <samp>medio</samp>, <samp>destaque</samp>, <samp>titulo</samp></dd>
+          <dt><samp>fundo</samp></dt>
+            <dd><em>Elemento genérico</em>. Cores para serem usadas em fundos. <samp>padrao</samp>, <samp>claro</samp>, <samp>x-claro</samp>, <samp>escuro</samp>,<samp>sombra</samp> (cor da sombra, não é um fundo, mas achei melhor colocar aqui e evitar uma categoria própria).</dd>
+          <dt><samp>borda</samp></dt>
+            <dd><em>Elemento genérico</em>. As cores das bordas. Lembre-se que se não declarar a cor da borda ela será, por padrão, a do texto. <samp>padrao</samp>, <samp>variante</samp>.</dd>
+          <dt><samp>link</samp></dt>
+            <dd><em>Elemento específico</em>. Define as cores do link, com três variações. <samp>padrao</samp>, <samp>hover</samp>; <samp>escuro</samp>, <samp>escuro-hover</samp>; <samp>claro</samp> e <samp>claro-hover</samp></dd>
+          <dt><samp>formulario</samp></dt>
+            <dd><em>Elemento específico</em>. Cores do formulário. <samp>padrao</samp>, <samp>placeholder</samp> (usado no texto do placeholder do formulário), <samp>ativo</samp> (usado quando o formulário está focado ou com o mouse em cima), <samp>fundo</samp>.</dd>
+          <dt><samp>botao</samp></dt>
+            <dd><em>Elemento específico</em>. Dois grupos de cores usadas nos botões. <samp>padrao</samp>, <samp>claro</samp>, <samp>escuro</samp>, <samp>secundario</samp>, <samp>secundario-claro</samp>, <samp>secundario-escuro</samp></dd>
+          <dt><samp>tabela</samp></dt>
+            <dd><em>Elemento específico</em>. Elementos das tabelas. <samp>borda</samp>, <samp>borda-clara</samp>, <samp>borda-escura</samp>, <samp>fundo</samp>, <samp>titulo</samp></dd>
+          <dt><samp>lista</samp></dt>
+            <dd><em>Elemento específico</em>. Listas formatadas. <samp>padrao</samp>, <samp>clara</samp>, <samp>escura</samp></dd>
+          <dt><samp>modal</samp></dt>
+            <dd><em>Elemento específico</em>. Cores das modais. <samp>fundo</samp>, <samp>titulo-fundo</samp>, <samp>titulo-texto</samp></dd>
+          <dt><samp>paginacao</samp></dt>
+            <dd><em>Elemento específico</em>. Cores da paginação. <samp>padrao</samp>, <samp>clara</samp>, <samp>escura</samp></dd>
+          <dt><samp>breadcrumbs</samp></dt>
+            <dd><em>Elemento específico</em>. Cores dos breadcrumbs. <samp>link</samp>, <samp>atual</samp></dd>
+          <dt><samp>card</samp></dt>
+            <dd><em>Elemento específico</em>. Elementos dos cards. <samp>fundo</samp>, <samp>borda</samp>, <samp>titulo</samp>, <samp>destaque</samp></dd>
+          <dt><samp>secao-lista</samp></dt>
+            <dd><em>Elemento específico</em>. Blocos de conteúdo que podem ser ocultados, virando uma lista. <samp>padrao</samp>, <samp>clara</samp></dd>
+        </dl>
+        <h3>Inserindo cores dentro do tema</h3>
+          <p>Para chamar as cores <strong>dentro dos temas</strong>, vai depender se ela vem da <samp>$paleta</samp> que você configurou <a href="#cores__paletas" class="link--readme">aqui</a> ou se faz parte da <samp>$paleta-padrao</samp>. Cada qual usa uma função SASS, conforme listado abaixo:</p>
+          <dl class="lista-definicao">
+            <dt><samp>paleta-padrao()</samp></dt>
+              <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp></dd>
+            <dt><samp>paleta()</samp></dt>
+              <dd>Esta função é para chamar as cores que você criou na <samp>$paleta</samp>. Para chamar a cor pura, escreva <samp>paleta(nome-cor)</samp>. Para chamar as variações claras, chame com <samp>paleta(nome-cor, clara, $valor)</samp>. O <samp>$valor</samp> pode ir de <samp>1</samp> a <samp>100</samp>. Para chamar cores escuras chame com <samp>paleta(nome-cor, escura, $valor)</samp></dd>
+          </dl>
+        <h3>Inserindo as cores no SASS</h3>
+          <p>Como explicado anteriormente, você só poderá usar as cores definidas nos temas. Para chamar uma cor, use uma das duas funções abaixo:</p>
+          <dl class="lista-definicao">
+            <dt><samp>cor-status()</samp></dt>
+              <dd>Para chamar uma das cores de status, conforme definido anteriormente. <strong class="texto--urgente">Não use para formatação de interface, somente use para status reais</strong>. Exemplo: você quer alertar que o campo preenchido está com erro. <samp>color: cor-status(erro)</samp></dd>
+            <dt><samp>cor()</samp></dt>
+              <dd>Principal função para chamar as cores na interface. Cada elemento tem um conjunto de cores a ser chamado, além dos genéricos (conforme já explicado anteriormente). Exemplo: seu texto vai ser um texto destaque. <samp>cor(texto, destaque)</samp>. A cor <samp>padrao</samp> de cada conjunto não precisa ser chamada, ou seja, o texto padrão seria: <samp>cor(texto)</samp>.</dd>
+          </dl>
+    </section>
+  </section>
+  <section class="secao-lista" id="cores__paleta-padrao">
+    <input type="checkbox" id="cores__demo--paleta-padrao" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="cores__demo--paleta-padrao">
+        <span class="secao-lista__titulo">Demonstração | Paleta Padrão e Cores de Status</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <h2 id="cores__paleta-padrao">Paleta Padrão</h2>
+        <ul class="demo__paleta">
+          <li class="demo__cor--branco"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--preto"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--vermelho"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--verde"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--amarelo"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-5"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-10"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-15"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-20"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-25"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-30"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-35"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-40"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-45"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-50"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-55"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-60"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-65"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-70"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-75"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-80"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-85"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-90"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--cinza-95"><span class="cor"></span><span class="funcao"></span></li>
+        </ul>
+
+      <h2 id="cores__status">Cores de status</h2>
+        <ul class="demo__paleta">
+          <li class="demo__cor--erro-claro"><span class="cor"></span><span class="funcao">cor-status(urgente-claro)</span></li>
+          <li class="demo__cor--erro"><span class="cor"></span><span class="funcao">cor-status(urgente)</span></li>
+          <li class="demo__cor--erro-escuro"><span class="cor"></span><span class="funcao">cor-status(urgente-escuro)</span></li>
+        </ul>
+        <ul class="demo__paleta">
+          <li class="demo__cor--sucesso-claro"><span class="cor"></span><span class="funcao">cor-status(ok-claro)</span></li>
+          <li class="demo__cor--sucesso"><span class="cor"></span><span class="funcao">cor-status(ok)</span></li>
+          <li class="demo__cor--sucesso-escuro"><span class="cor"></span><span class="funcao">cor-status(ok-escuro)</span></li>
+        </ul>
+        <ul class="demo__paleta">
+          <li class="demo__cor--alerta-claro"><span class="cor"></span><span class="funcao">cor-status(aviso-claro)</span></li>
+          <li class="demo__cor--alerta"><span class="cor"></span><span class="funcao">cor-status(aviso)</span></li>
+          <li class="demo__cor--alerta-escuro"><span class="cor"></span><span class="funcao">cor-status(aviso-escuro)</span></li>
+        </ul>
+        <ul class="demo__paleta">
+          <li class="demo__cor--notice-claro"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--notice"><span class="cor"></span><span class="funcao"></span></li>
+          <li class="demo__cor--notice-escuro"><span class="cor"></span><span class="funcao"></span></li>
+        </ul>
+    </section>
+  </section>
+  <section class="secao-lista" id="cores__paleta">
+    <input type="checkbox" id="cores__demo--paleta" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="cores__demo--paleta">
+        <span class="secao-lista__titulo">Demonstração | Paleta</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Se acrescentar mais cores, abra o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-me/elementos.html</samp> e duplique a lista e acrescente o modificador <samp>--nome-paleta</samp>. Depois abra o <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-me/info.scss</samp> e acrescente o nome da paleta no mapa <samp>$cores-paleta</samp> (e recompile o arquivo).</p>
+      <!-- <h2>Paleta <span class="codigo-paleta--basica"></span></h2> -->
+      <ul class="demo__paleta--basica">
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor--principal"><span class="cor"><span class="funcao"></span></span></li>
+      </ul>
+      <!-- <h2>Paleta <span class="codigo-paleta--secundaria"></span></h2> -->
+      <ul class="demo__paleta--secundaria">
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor"><span class="cor"><span class="funcao"></span></span></li>
+        <li class="demo__cor--principal"><span class="cor"><span class="funcao"></span></span></li>
+
+      </ul>
+    </section>
+  </section>
+</article>

@@ -1,0 +1,80 @@
+<article id="responsive">
+  <header>
+    <h1>Sendo responsivo</h1>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="responsive__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="responsive__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Sempre que for chamar uma media query, você não o fará da maneira tradicional. Para chamar uma media query você vai chamar através da função <samp>breakpoint()</samp></p>
+      <dl class="lista-definicao">
+        <dt><samp>breakpoint()</samp></dt>
+          <dd>Procura o valor de <samp>medida</samp> no mapa <samp>$breakpoints</samp> para retornar um valor para a media query.</dd>
+      </dl>
+      <p>O mapa <samp>$breakpoints</samp> contém os valores a serem usados dentro da media-query, que são:</p>
+      <dl class="lista-definicao">
+        <dt><samp>pequeno</samp></dt>
+          <dd>Atinge dispositivos de tela pequena, como smartphones.</dd>
+        <dt><samp>medio</samp></dt>
+          <dd>Atinge a medida média, que pode ser tablet em pé (retrato) ou smartphone na horizontal.</dd>
+        <dt><samp>grande</samp></dt>
+          <dd>Pega de telas de tablet na horizontal para cima.</dd>
+        <dt><samp>extra-grande</samp></dt>
+          <dd>Pega medidas de notebook para cima.</dd>
+      </dl>
+      <p>Quando você especifica <samp>min-width</samp> você vai estar selecionando um valor maior que aquele. Portanto, <samp>min-width: breakpoint(pequeno)</samp> vai pegar acima da tela pequena (mas ela não está incluída), assim como <samp>min-width: breakpoint(medio)</samp> vai pegar telas maiores que as médias.</p>
+      <p>Quando você especifica um valor com a de <samp>max-width</samp> ele vai pegar daquela medida para baixo. Por exemplo <samp>max-width: breakpoint(pequeno)</samp> vai pegar somente telas pequenas, enquanto <samp>max-width: breakpoint(medio)</samp> vai pegar de tamanho médio para baixo.</p>
+      <p>Para chamar a media query você pode digitar <samp>@media</samp> da maneira tradicional ou utilizar o mixin <samp>media-tipo</samp>:</p>
+      <dl class="lista-definicao">
+        <dt><samp>media-tipo(breakpoint, medida)</samp></dt>
+          <dd>Este mixin chama a media query pensando na técnica <em>mobile first</em> (utilizando <samp>min-width</samp>) como <strong>Valor padrão</strong>. O <samp>breakpoint</samp> é um dos descritos na lista acima.</dd>
+      </dl>
+      <h2>Como trabalhar Media Query</h2>
+      <p>No caso de <strong>mobile first</strong> basta usar o mixin omitindo a <samp>medida</samp>:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.classe {</p>
+          <p class="recuo-1">...</p>
+          <p class="recuo-1">@include media-tipo(pequeno) {</p>
+            <p class="recuo-2">...</p>
+          <p class="recuo-1">}</p>
+        <p>}</p>
+      </code>
+      <p>Se preferir não trabalhar com o mixin, basta escrever assim:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.classe {</p>
+          <p class="recuo-1">...</p>
+          <p class="recuo-1">@media (min-width: breakpoint(pequeno)) {</p>
+            <p class="recuo-2">...</p>
+          <p class="recuo-1">}</p>
+        <p>}</p>
+      </code>
+      <p>Se não for o caso de <strong>mobile first</strong>, pode ser:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.classe {</p>
+          <p class="recuo-1">...</p>
+          <p class="recuo-1">@include media-tipo(pequeno, max) {</p>
+            <p class="recuo-2">...</p>
+          <p class="recuo-1">}</p>
+        <p>}</p>
+      </code>
+      <p>Ou assim, se for sem o mixin:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.classe {</p>
+          <p class="recuo-1">...</p>
+          <p class="recuo-1">@media (max-width: breakpoint(pequeno)) {</p>
+            <p class="recuo-2">...</p>
+          <p class="recuo-1">}</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+</article>

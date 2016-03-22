@@ -14,12 +14,13 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
 // -----------------------------------------------------------------------------
 // form_grupo.scss
 // Criado em: 20/01/2015
-// Última alteração: 03/02/2016
+// Última alteração: 18/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo cria grupos de formulários para definições de tamanhos.
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/03/2016 | Alterada função de "@while" para "@for" ao gerar as classes
 // 03/02/2016 | Alterado o nome form-field para form-grupo para fazer mais sentido
 //              Renomeado este arquivo para form_grupo
 //              O elemento comum dos containers voltou a ser placeholder
@@ -115,7 +116,6 @@ $field-pd: 0 ($calha / 2) $calha;
 // Gera as classes básicas automaticamente. Para personalização dos elementos,
 // vá abaixo. O ideal é formatar o mesmo elemento que recebe o .form-container
 // -----------------------------------------------------------------------------
-$i: 1;
 $max: 12;
 $medida: 100% / $max;
 
@@ -126,16 +126,11 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
 --------------------------------------------------------------------------------
 */
   //	Cada um dos fields gerado automaticamente
-  @while $i < $max {
+  @for $i from 1 through $max {
     .field-#{$i} {
       padding: $field-pd;
       width: $medida * $i;
     }
-    $i: $i + 1;
-  }
-  .field-#{$max} {
-    padding: $field-pd;
-    width: 100%;
   }
   .field {
     padding: $field-pd;
@@ -147,18 +142,15 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
     }
   }
 }
-
 // -----------------------------------------------------------------------------
 // PRE
 // -----------------------------------------------------------------------------
 // Gera classes de espaçamento entre as colunas do formulário.
 // -----------------------------------------------------------------------------
-$i: 1;
 @if index($uso-classes, form-pre) {
-  @while $i < $max {
+  @for $i from 1 through $max - 1 {
     .pre-#{$i} {
       margin-left: $medida * $i;
     }
-    $i: $i + 1;
   }
 }

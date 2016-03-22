@@ -1,0 +1,72 @@
+<article id="breadcrumbs">
+  <header><h1>Breadcrumbs</h1></header>
+  <p>As configurações básicas do breadcrumb são encontradas no <a href="#config__breadcrumbs" class="link--readme">arquivo de configuração</a>. Abaixo você vê os tipos disponíveis (única configuração disponível).</p>
+  <section class="secao-lista">
+    <input type="checkbox" id="breadcrumbs__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="breadcrumbs__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Os breadcrumbs são gerados através da gem <a href="https://github.com/weppos/breadcrumbs_on_rails" class="link--externo" target="_blank">Breadcrumbrs on Rails</a>.</p>
+      <p>Quando chamar a gem na view, use a seguinte estrutura:</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;ul class="breadcrumbs"&gt;</p>
+          <p class="recuo-1">&lt;%= render_breadcrumbs :tag => :li, :separator => "" %&gt;</p>
+        <p>&lt;/ul&gt;</p>
+      </code>
+      <p>No HTML gerado no final, cada <samp>&lt;li&gt;</samp> vai ganhar um link, exceto o da página atual (que é texto puro dentro do <samp>&lt;li&gt;</samp>, sem nenhum tag adicional).</p>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="breadcrumbs__escolhido" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="breadcrumbs__escolhido">
+        <span class="secao-lista__titulo">Breadcrumb escolhido: <span class="codigo-breadcrumbs-tipo"></span></span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <ul class="breadcrumbs">
+        <li><a href="">Início</a></li>
+        <li><a href="">Sub-item</a></li>
+        <li>Localização atual</li>
+      </ul>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="breadcrumbs-tipo1" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="breadcrumbs-tipo1">
+        <span class="secao-lista__titulo">tipo-1</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <ul class="breadcrumbs--tipo-1">
+        <li><a href="">Início</a></li>
+        <li><a href="">Sub-item</a></li>
+        <li>Localização atual</li>
+      </ul>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="breadcrumbs-tipo2" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="breadcrumbs-tipo2">
+        <span class="secao-lista__titulo">tipo-2</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <ul class="breadcrumbs--tipo-2">
+        <li><a href="">Início</a></li>
+        <li><a href="">Sub-item</a></li>
+        <li>Localização atual</li>
+      </ul>
+    </section>
+  </section>
+</article>

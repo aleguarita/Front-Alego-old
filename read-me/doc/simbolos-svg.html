@@ -1,0 +1,173 @@
+<article id="simbolos-svg">
+  <header>
+    <h1>Símbolos - SVG</h1>
+    <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/simbolos-svg.scss</samp></p>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="ico-svg__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="ico-svg__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Os ícones do sistema estão em apenas um arquivo SVG, como se fosse um grande sprite, mas sem a necessidade de usar essa técnica. Para mais detalhes você pode conferir <a href="https://css-tricks.com/lodge/svg/13-svg-icon-system-use-element/" class="link--externo" target="_blank">este artigo</a> ou <a href="https://nucleoapp.com/how-to-create-an-icon-system-using-svg-symbols/" class="link--externo" target="_blank">este</a>.</p>
+      <blockquote class="aviso--grave">
+        <strong>Atenção</strong>: só é possível visualizar os SVGs se você estiver rodando em servidor local. Se abrir o HTML direto no browser, o SVG através de símbolo não aparece
+      </blockquote>
+      <h2>Arquivo de ícones</h2>
+      <p>Todos os ícones criados estão individualmente na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> svg/avulsos</samp> para referência e eles aparecem como símbolos dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> svg/basico.svg</samp>.</p>
+      <p>Na raíz do Front-Alego tem um arquivo chamado <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> ico.svg</samp> que contém todo um conjunto de ícones. Copie e cole os ícones extras do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> svg/basico.svg</samp> diretamente neste. <strong>Exclua ícones não usados para deixar o arquivo final menor.</strong> (você sempre poderá copiar algum ícone diretamte do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> basico.svg</samp>)</p>
+      <p>Se você for trabalhar variações, coloque no mesmo arquivo. O objetivo no futuro é ter mais de um arquivo de coletânea de símbolos, mas o seu arquivo final sempre deverá ser único.</p>
+      <p><strong class="texto--erro">No Rails coloque o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> ico.svg</samp> dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> assets/images</samp></strong>.</p>
+      <h2>Chamando um ícone</h2>
+      <p>Para colocar um ícone é necessário utilizar a tag <samp>&lt;use&gt;</samp> dentro da tag <samp>&lt;svg&gt;</samp>. Inclua a classe <samp>ico</samp> (ou variante) dentro da tag <samp>&lt;svg&gt;</samp>.</p>
+      <p>Dentro do use você vai usar o parâmetro <samp>xlink:href</samp> para chamar a imagem (funciona como o <samp>href</samp> tradicional). No final do nome do arquivo inclua o id da imagem (exemplo: <samp>#tabela</samp>).</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;svg class="ico"&gt;</p>
+          <p class="recuo-1">&lt;use xlink:href="ico.svg#id" /&gt;</p>
+        <p>&lt;/svg&gt;</p>
+      </code>
+      <blockquote class="aviso--dica">
+        Para colocar um espaço entre o ícone e o texto seguinte, basta colocar um espaço diretamente no HTML.
+      </blockquote>
+      <h2>Classes</h2>
+      <p>As classes abaixo são únicas, não há a necessiade de usar mais de uma na tag <samp>&lt;svg&gt;</samp> (diferente dos ícones de fonte).</p>
+      <dl class="lista-definicao">
+        <dt><samp>.ico</samp></dt>
+          <dd>Tag básica que inclui a formatação básica do ícone (para que ele pegue o tamanho e a cor do texto que o acompanha).</dd>
+        <dt><samp>.ico--baixo</samp></dt>
+          <dd>Rotaciona o ícone para ele "apontar" para baixo (use com setas).</dd>
+        <dt><samp>.ico--cima</samp></dt>
+          <dd>Rotaciona o ícone para ele "apontar" para cima (use com setas).</dd>
+        <dt><samp>.ico--esquerda</samp></dt>
+          <dd>Rotaciona o ícone para ele "apontar" para a esquerda (use com setas).</dd>
+      </dl>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="ico-svg__basico" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="ico-svg__basico">
+        <span class="secao-lista__titulo">Ícones de basico.svg</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Estes são os ícones atuais em <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> basico.svg</samp>.</p>
+      <ul class="demo__svg">
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#abrir" /></svg></span><span class="funcao">#abrir</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ajuda" /></svg></span><span class="funcao">#ajuda</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#apontando" /></svg></span><span class="funcao">#apontando</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#asterisco" /></svg></span><span class="funcao">#asterisco</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#aviso" /></svg></span><span class="funcao">#aviso</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cadeado" /></svg></span><span class="funcao">#cadeado</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cadeado-aberto" /></svg></span><span class="funcao">#cadeado-aberto</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cadeado-fechado" /></svg></span><span class="funcao">#cadeado-fechado</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#calendario" /></svg></span><span class="funcao">#calendario</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#calendario-1" /></svg></span><span class="funcao">#calendario-1</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#calendario-2" /></svg></span><span class="funcao">#calendario-2</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#carregando-1" /></svg></span><span class="funcao">#carregando-1</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#carregando-2" /></svg></span><span class="funcao">#carregando-2</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#casa" /></svg></span><span class="funcao">#casa</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#celular" /></svg></span><span class="funcao">#celular</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chat-1" /></svg></span><span class="funcao">#chat-1</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chat-2" /></svg></span><span class="funcao">#chat-2</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chat-3" /></svg></span><span class="funcao">#chat-3</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chat-4" /></svg></span><span class="funcao">#chat-4</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#chave" /></svg></span><span class="funcao">#chave</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#clip" /></svg></span><span class="funcao">#clip</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cone-seguranca" /></svg></span><span class="funcao">#cone-seguranca</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#cracha" /></svg></span><span class="funcao">#cracha</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#curtir" /></svg></span><span class="funcao">#curtir</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#descurtir" /></svg></span><span class="funcao">#descurtir</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#desligar" /></svg></span><span class="funcao">#desligar</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg></span><span class="funcao">#documento</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#documento-2" /></svg></span><span class="funcao">#documento-2</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#download" /></svg></span><span class="funcao">#download</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#engrenagem" /></svg></span><span class="funcao">#engrenagem</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#envelope" /></svg></span><span class="funcao">#envelope</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#erro" /></svg></span><span class="funcao">#erro</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#erro-1" /></svg></span><span class="funcao">#erro-1</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#estrela" /></svg></span><span class="funcao">#estrela</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#estrela-metade" /></svg></span><span class="funcao">#estrela-metade</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#estrela-vazia" /></svg></span><span class="funcao">#estrela-vazia</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#facebook" /></svg></span><span class="funcao">#facebook</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></span><span class="funcao">#fechar</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ferramentas" /></svg></span><span class="funcao">#ferramentas</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#figura" /></svg></span><span class="funcao">#figura</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#filtro" /></svg></span><span class="funcao">#filtro</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#fluxograma" /></svg></span><span class="funcao">#fluxograma</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#foto" /></svg></span><span class="funcao">#foto</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#globo" /></svg></span><span class="funcao">#globo</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#google+" /></svg></span><span class="funcao">#google+</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#grafico-1" /></svg></span><span class="funcao">#grafico-1</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#grafico-2" /></svg></span><span class="funcao">#grafico-2</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#grafico-3" /></svg></span><span class="funcao">#grafico-3</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#grupo" /></svg></span><span class="funcao">#grupo</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#impressora" /></svg></span><span class="funcao">#impressora</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#info" /></svg></span><span class="funcao">#info</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#janela-up" /></svg></span><span class="funcao">#janela-up</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#janela" /></svg></span><span class="funcao">#janela</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lampada" /></svg></span><span class="funcao">#lampada</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lapis" /></svg></span><span class="funcao">#lapis</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#link" /></svg></span><span class="funcao">#link</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#livro" /></svg></span><span class="funcao">#livro</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lixo-1" /></svg></span><span class="funcao">#lixo-1</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lixo-2" /></svg></span><span class="funcao">#lixo-2</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#local" /></svg></span><span class="funcao">#local</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#lupa" /></svg></span><span class="funcao">#lupa</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#mais" /></svg></span><span class="funcao">#mais</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#megafone" /></svg></span><span class="funcao">#megafone</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#menos" /></svg></span><span class="funcao">#menos</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#monitor" /></svg></span><span class="funcao">#monitor</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#novo" /></svg></span><span class="funcao">#novo</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></span><span class="funcao">#ok-tique</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#olho" /></svg></span><span class="funcao">#olho</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#olho-fechado" /></svg></span><span class="funcao">#olho-fechado</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ordenar-baixo" /></svg></span><span class="funcao">#ordenar-baixo</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ordenar-cima" /></svg></span><span class="funcao">#ordenar-cima</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#ordenar" /></svg></span><span class="funcao">#ordenar</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg></span><span class="funcao">#pasta</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pdf" /></svg></span><span class="funcao">#pdf</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pessoa" /></svg></span><span class="funcao">#pessoa</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pessoa-1" /></svg></span><span class="funcao">#pessoa-1</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#pessoa-2" /></svg></span><span class="funcao">#pessoa-2</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#prancheta" /></svg></span><span class="funcao">#prancheta</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#proibido" /></svg></span><span class="funcao">#proibido</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#relogio" /></svg></span><span class="funcao">#relogio</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#sair" /></svg></span><span class="funcao">#sair</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#salvar" /></svg></span><span class="funcao">#salvar</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#seta-dupla" /></svg></span><span class="funcao">#seta-dupla</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg></span><span class="funcao">#seta-fina</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#seta" /></svg></span><span class="funcao">#seta</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#tabela" /></svg></span><span class="funcao">#tabela</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#tablet" /></svg></span><span class="funcao">#tablet</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#teclado" /></svg></span><span class="funcao">#teclado</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#telefone" /></svg></span><span class="funcao">#telefone</span></li>
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#twitter" /></svg></span><span class="funcao">#twitter</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#upload" /></svg></span><span class="funcao">#upload</span></li>
+
+        <li><span class="icone"><svg class="ico"><use xlink:href="../svg/basico.svg#zip" /></svg></span><span class="funcao">#zip</span></li>
+      </ul>
+    </section>
+  </section>
+</article>

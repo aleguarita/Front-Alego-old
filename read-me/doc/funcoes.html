@@ -1,0 +1,31 @@
+<article id="funcoes">
+  <header>
+    <h1>Funções</h1>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="funcoes__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="funcoes__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Algumas funções são usadas em partes específicas do Front-Alego e outra é para uso dentro seu CSS.</p>
+      <dl class="lista-definicao">
+        <dt><samp>paleta-padrao(cor)</samp></dt>
+          <dd>Use para chamar as cores da <samp>$paleta-padrao</samp>. Exemplo: para definir uma cor como 50% de cinza, use <samp>paleta-padrao(cinza-50)</samp>. <strong>Use somente dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/cores.scss</samp> e em mais nenhuma parte do sistema</strong></dd>
+        <dt><samp>paleta(cor, tipo, valor)</samp></dt>
+          <dd>Esta função é para chamar as cores que você criou na <samp>$paleta</samp>. Para chamar a cor pura, escreva <samp>paleta(nome-cor)</samp>. Para chamar as variações claras, chame com <samp>paleta(nome-cor, clara, $valor)</samp>. O <samp>$valor</samp> pode ir de <samp>1</samp> a <samp>100</samp>. Para chamar cores escuras chame com <samp>paleta(nome-cor, escura, $valor)</samp>. <strong>Use somente dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/cores.scss</samp></strong></dd>
+        <dt><samp>cor-status(cor)</samp></dt>
+          <dd>Para chamar as cores de status. Podem ser usadas diretamente no CSS. <a href="#cores__paletas" class="link--readme">Veja mais detalhes aqui</a></dd>
+        <dt><samp>cor(tipo, cor)</samp></dt>
+          <dd>Principal função para chamar as cores na interface. Cada elemento tem um conjunto de cores a ser chamado, além dos genéricos (conforme já explicado anteriormente). Exemplo: seu texto vai ser um texto destaque. <samp>cor(texto, destaque)</samp>. A cor <samp>padrao</samp> de cada conjunto não precisa ser chamada, ou seja, o texto padrão seria: <samp>cor(texto)</samp></dd>
+        <dt><samp>cor-texto(cor-fundo, texto-claro, texto-escuro)</samp></dt>
+          <dd>Esta função analisa a <samp>cor-fundo</samp> declarada e se ela for escura retorna o que você declarou em <samp>texto-claro</samp> e se for clara, o que você declarou em <samp>texto-escuro</samp></dd>
+        <dt><samp>breakpoint(medida)</samp></dt>
+          <dd>Procura o valor de <samp>medida</samp> no mapa <samp>$breakpoints</samp> para retornar um valor para a media query. Veja mais em <a href="#responsive" class="link--readme">Sendo responsivo</a></dd>
+      </dl>
+    </section>
+  </section>
+</article>

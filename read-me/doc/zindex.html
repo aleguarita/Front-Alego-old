@@ -1,0 +1,43 @@
+<article id="z-index">
+  <header><h1>z-index</h1></header>
+  <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/z-index.scss</samp></p>
+  <section class="secao-lista">
+    <input type="checkbox" id="z-index__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="z-index__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Nunca use <samp>z-index</samp> diretamente no CSS, pois isso deixa a manutenção ruim, além de resultar em uso de números aleatórios (como o clássico <samp>z-index: 99999;</samp>).</p>
+      <p>No arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/z-index.scss</samp> você vai inserir os elementos com os nomes dele. Para isso inclua os elementos no mapa <samp>$z</samp>. A ordem que os elementos aparecem é o valor do z-index. O primeiro elemento vai receber <samp>z-index: 1</samp> e assim por diante. O mapa já vem com alguns elementos pensando nessa ordem:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>$z: (</p>
+        <p class="recuo-1">conteudo,</p>
+        <p class="recuo-1">rodape,</p>
+        <p class="recuo-1">topo,</p>
+        <p class="recuo-1">modal,</p>
+        <p class="recuo-1">toaster,</p>
+        <p>);</p>
+      </code>
+      <p>No entanto, colocar estes elementos não basta, você deve indicar no seletor qual o nível que ele ocupa. Para isso, chame através da função <samp>z()</samp>. Dentro do parênteses você coloca o mesmo nome do elemento do mapa <samp>$z</samp>. Por exemplo:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.header {</p>
+          <p class="recuo-1">z(topo);</p>
+          <p class="recuo-1">...</p>
+          <p>}</p>
+        </code>
+        <p>Se você olhar no mapa <samp>$z</samp>, vai perceber que <samp>topo</samp> é o terceiro elemento, o que resulta no seguinte CSS:</p>
+        <code class="codigo--css">
+          <header>CSS</header>
+          <p>.header {</p>
+            <p class="recuo-1">z-index: 3;</p>
+            <p class="recuo-1">...</p>
+            <p>}</p>
+          </code>
+    </section>
+  </section>
+</article>
