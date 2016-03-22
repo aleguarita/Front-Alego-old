@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 03/03/2016
+// Última alteração: 22/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -19,6 +19,10 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 22/03/2016 | Mixin lista-oculta foi alterado para item-checado e agora aceita
+// 							colocar qualquer seletor (e não mais apenas classe), além da
+// 							formatação especial para o item selecionado (display: none) para
+// 							antigas listas
 // 03/03/2016 | Atualizado mixin grupo-flex para ser responsivo
 // 12/02/2016 | Aperfeiçoado o mixin media-tipo para inclusão de tamanho maior
 // 03/02/2016 | Removido o mixin link-bloco e acrescentado como opção no mixin
@@ -433,18 +437,21 @@
 }
 
 // =============================================================================
-// LISTA OCULTA
+// ITEM CHECADO
 // -----------------------------------------------------------------------------
-// Para fazer listas que abrem e fecham, mas ainda exibem o título. O HTML deve
-// incluir um checkbox no mesmo nível hierárquico do conteúdo que será ocultado.
-// O conteúdo deve aparecer depois.
-// Este mixin deverá ser incluído dentro do seletor do checkbox.
+// Para criar listas que abrem e fecham e ainda exibem o título ou para criar
+// caixas que mudam o estilo quando selecionada.
+// O HTML deve incluir um checkbox no mesmo nível hierárquico do conteúdo que
+// será formatado. Note que o checkbox será invisível.
+// O conteúdo deve aparecer depois do checkbox.
+// Exte mixin deverá ser incluído dentro do seletor do checkbox.
 // -----------------------------------------------------------------------------
-// $conteudo: o nome da classe (sem o ponto) que será usada para o conteúdo.
+// $seletor: o seletor que será usada para o conteúdo. Escreva entre aspas.
+// Ex.: ".classe"
 // =============================================================================
-@mixin lista-oculta($conteudo) {
+@mixin item-checado($seletor) {
   display: none;
-  &:checked ~ .#{$conteudo} {
-    display: none;
+  &:checked ~ #{$seletor} {
+    @content;
   }
 }
