@@ -63,9 +63,9 @@
             Valores padrão: <samp>$qtd</samp> não tem valor padrão (é um mapa e aceita quatro valores); <samp>$margem: $calha</samp> a <samp>$calha</samp> foi definida no <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/variaveis</samp></dd>
         <dt><samp>texto-selecionado(fundo, texto)</samp></dt>
           <dd>Formata o seletor para quando o texto for selecionado no browser. Valores padrão: <samp>fundo: cor(fundo, escuro)</samp> e <samp>texto: cor(texto, claro)</samp>. <strong>Dica:</strong> selecione o texto para ver os valores padrão em uso.</dd>
-        <dt><samp>lista-oculta(conteudo)</samp></dt>
-          <dd>Para uso em listas que podem ser exibidas e ocultadas ao clicar no título. O valor de <samp>conteudo</samp> será a classe do elemento que vai ser ocultado.</dd>
-      </dl>
+        <dt><samp>item-checado(tag)</samp></dt>
+          <dd>Este mixin oculta o checkbox e permite formatar o elemento seguinte (<samp>tag</samp>) quando o checkbox estiver marcado. Normalmente utilizado para fazer listas que exibem/ocultam o conteúdo.</dd>
+      </dl><!-- ESCREVER AQUI -->
       <p><strong>Mixins de tags específicos.</strong> Estes mixins devem ser usados dentro de tags específicos (como links, títulos, etc).</p>
       <dl class="lista-definicao">
         <dt><samp>lista-sem-marcador()</samp></dt>
@@ -843,17 +843,16 @@
     <input type="checkbox" id="mixins__lista-oculta" class="secao-lista__check" checked="checked">
     <header class="secao-lista__header">
       <label for="mixins__lista-oculta">
-        <span class="secao-lista__titulo">lista-oculta()</span>
+        <span class="secao-lista__titulo">item-checado() {}</span>
         <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
-      <p>Faz listas que abrem e fecham mas que ainda exibem o título (como essa lista de mixins). O HTML deve incluir um checkbox no mesmo nível hierárquico do conteúdo que está ocultando. O conteúdo deve aparecer depois.</p>
-      <p>Este mixin deve ser aplicado dentro do seletor do checkbox.</p>
-      <p><strong>Sintaxe: </strong> <samp>@include lista-oculta($classe);</samp></p>
+      <p>Este mixin faz uso da técnica de CSS <samp>.checkbox:checked ~ .label</samp> para formatar o elemento seguinte a um checkbox oculto quando o checkbox está marcado. Um exemplo disso é um conteúdo que está oculto, exibindo apenas o título e quando clica mostra o conteúdo (como usado em <a href="#secao-lista" class="link--readme">Seção Lista</a>).</p>
+      <p><strong>Sintaxe: </strong> <samp>@include item-checado($tag) { conteúdo }</samp></p>
       <dl class="lista-definicao">
-        <dt><samp>$classe</samp></dt>
-          <dd>A classe do conteúdo que vai ser exibido.</dd>
+        <dt><samp>$tag</samp></dt>
+          <dd>A tag do conteúdo a ser formatado. Normalmente uma classe. <strong class="texto--erro">Deve aparecer entre aspas</strong></dd>
       </dl>
       <p>O <strong>HTML</strong> deve seguir o padrão:</p>
       <ul class="lista-itens">
@@ -877,9 +876,12 @@
       <code class="codigo--sass">
         <header>SASS</header>
         <p>.check-lista {</p>
-          <p class="recuo-1">@include lista-oculta(conteudo-demo);</p>
+          <p class="recuo-1">@include item-checado(".conteudo-demo") {
+            <p class="recuo-2">display: none;</p>
+          <p class="recuo-1">}</p>
         <p>}</p>
       </code>
+      <p>Neste exemplo, ao clicar no label, o conteúdo é ocultado.</p>
     </section>
   </section>
   <section class="secao-lista">
@@ -1036,139 +1038,6 @@
           <p class="recuo-1">@include link(pontilhado);</p>
         <p>}</p>
       </code>
-    </section>
-  </section>
-</article>
-
-<article id="sprite">
-  <header><h1>Sprites</h1></header>
-  <section class="secao-lista">
-    <input type="checkbox" id="sprite__doc" class="secao-lista__check">
-    <header class="secao-lista__header">
-      <label for="sprite__doc">
-        <span class="secao-lista__titulo">Documentação</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
-      </label>
-    </header>
-    <section class="secao-lista__conteudo">
-      <p>O primeiro ponto, evidentemente, é ter o arquivo de sprites gerados externamente, em um arquivo único. Este arquivo pode ser <samp>png</samp>, <samp>gif</samp> ou <samp>svg</samp>. No original crie uma grid e encaixe bem as imagens nela. O ideal é que cada imagem ocupe 100% da grid na largura ou altura. <strong class="texto--erro">O ideal, no entanto, é que a imagem ocupe o espaço completo</strong>.</p>
-      <p>É possível acrescentar imagens <strong>menores</strong> ou <strong>maiores</strong> que a grid, mas use uma proporção lógica (75% do largura original, o dobro do tamanho e assim por diante). Use estes casos para economizar na quantidade de imagens do arquivo.</p>
-      <div class="grupo-img">
-        <figure>
-          <img src="img/sprites.png" alt="Grid de Sprite">
-          <legend>Neste exemplo temos uma grid de 3x3, cada elemento tem 50px. Note que a estrela ocupa todo o espaço vertical e horizontal, enquanto que o monitor preenche apenas toda a largura. O espaço que resta, na imagem está abaixo. Você pode deixar em cima conforme o uso (por exemplo, para alinhar a imagem com a base do texto que a acompanha).</legend>
-        </figure>
-        <figure>
-          <img src="img/sprites-tamanhos.png" alt="Sprites com tamanhos diferentes">
-          <legend>Exemplos de sprites com tamanhos diferentes. Eles podem ser configurados sem problema.</legend>
-        </figure>
-      </div>
-      <p>Depois de criado o arquivo, vá no <a href="#config__classes" class="link--readme">arquivo de configurações</a> e descomente <samp>sprite</samp> no mapa (ele vem comentado por padrão pois não é todo o sistema que faz uso de sprites).</p>
-      <p>No <a href="#config__sprite" class="link--readme">arquivo de configuração</a> determine a extensão usada e o tamanho de <strong>cada</strong> sprite.</p>
-      <h2>Criando as classes e determinando a posição</h2>
-      <p>As classes são criadas no mapa <samp>$sprites</samp> no <a href="#config__sprite" class="link--readme">arquivo de configuração</a>. Use nomes fáceis de serem lembrados e que identifique do que se trata aquele sprite (exemplo: um ícone de computador poderia ser nomeado como <samp>computador</samp>).</p>
-      <p>Para determinar a posição, utilize as coordenadas X, Y conforme a figura abaixo:</p>
-      <figure>
-        <img src="img/sprites-coordenadas.png" alt="Coordenadas dos sprites">
-      </figure>
-      <p>Para os exemplos abaixo, imagine que <samp>$sprite-medida: 150px</samp>.</p>
-      <p>Uma imagem que esteja na primeira coordenada (linha 1, coluna 1), seria:</p>
-      <code class="codigo--sass">
-        <header>SASS</header>
-        <p>$sprites: (</p>
-          <p class="recuo-1">img-1: (1, 1),</p>
-        <p>);</p>
-      </code>
-      <p>O que resultaria no seguinte CSS: </p>
-      <code class="codigo--css">
-        <header>CSS</header>
-        <p>.sprite-img-1 {</p>
-          <p class="recuo-1">background: url(sprite.png) no-repeat 0px 0px;</p>
-          <p class="recuo-1">width: 150px;</p>
-          <p class="recuo-1">height: 150px;</p>
-        <p>}</p>
-      </code>
-      <p>Já uma imagem na primeira linha, porém segunda coluna ficaria:</p>
-      <code class="codigo--sass">
-        <header>SASS</header>
-        <p>$sprites: (</p>
-          <p class="recuo-1">img-2: (2, 1),</p>
-        <p>);</p>
-      </code>
-      <p>O que resultaria no seguinte CSS: </p>
-      <code class="codigo--css">
-        <header>CSS</header>
-        <p>.sprite-img-2 {</p>
-          <p class="recuo-1">background: url(sprite.png) no-repeat -150px 0px;</p>
-          <p class="recuo-1">width: 150px;</p>
-          <p class="recuo-1">height: 150px;</p>
-        <p>}</p>
-      </code>
-      <p>Se precisar de um sprite com o dobro de tamanho:</p>
-      <div class="img-code">
-        <figure>
-          <img src="img/sprites-2x" alt="Sprite com o dobro de tamanho">
-        </figure>
-        <code class="codigo--css">
-          <header>CSS</header>
-          <p>$sprites: (</p>
-            <p class="recuo-1">img-3: (1, 1, 2),</p>
-          <p>}</p>
-        </code>
-      </div>
-      <p>O que resulta em:</p>
-      <code class="codigo--css">
-        <header>CSS</header>
-        <p>.sprite-img-3 {</p>
-          <p class="recuo-1">background: url(sprite.png) no-repeat 0px 0px;</p>
-          <p class="recuo-1">width: 300px;</p>
-          <p class="recuo-1">height: 300px;</p>
-        <p>}</p>
-      </code>
-      <p>Agora imagine que o sprite a ser usado tenha o dobro da largura, mas altura padrão:</p>
-      <div class="img-code">
-        <figure>
-          <img src="img/sprites-2x1y" alt="Sprite com o dobro da largura mas altura padrão">
-        </figure>
-        <code class="codigo--css">
-          <header>CSS</header>
-          <p>$sprites: (</p>
-            <p class="recuo-1">img-4: (1, 1, 2, 1),</p>
-          <p>}</p>
-        </code>
-      </div>
-      <p>O que vai resultar em:</p>
-      <code class="codigo--css">-
-        <header>CSS</header>
-        <p>.sprite-img-4 {</p>
-          <p class="recuo-1">background: url(sprite.png) no-repeat 0px 0px;</p>
-          <p class="recuo-1">width: 300px;</p>
-          <p class="recuo-1">height: 150px;</p>
-        <p>}</p>
-      </code>
-      <p>Por fim, se a imagem tiver o dobro de altura e largura padrão:</p>
-      <div class="img-code">
-        <figure>
-          <img src="img/sprites-1x2y" alt="Sprite com o dobro da altura mas largura padrão">
-        </figure>
-        <code class="codigo--css">
-          <header>CSS</header>
-          <p>$sprites: (</p>
-            <p class="recuo-1">img-5: (1, 1, 1, 2),</p>
-          <p>}</p>
-        </code>
-      </div>
-      <p>O que vai resultar em:</p>
-      <code class="codigo--css">
-        <header>CSS</header>
-        <p>.sprite-img-5 {</p>
-          <p class="recuo-1">background: url(sprite.png) no-repeat 0px 0px;</p>
-          <p class="recuo-1">width: 150px;</p>
-          <p class="recuo-1">height: 300px;</p>
-        <p>}</p>
-      </code>
-      <h2>Chamando no HTML</h2>
-      <p>Cada imagem colocada no mapa <samp>$sprites</samp> vai receber o prefixo <samp>.sprite-</samp> antes do nome. Portanto, se você criar uma imagem para um computador chamada <samp>computador</samp> a classe final será <samp>.sprite-computador</samp>.</p>
     </section>
   </section>
 </article>

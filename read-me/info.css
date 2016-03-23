@@ -6358,4 +6358,38 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   border-top: 1px dashed #00949a;
 }
 
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | caixa-clicavel
+================================================================================
+*/
+.caixa-clicavel {
+  max-width: 200px;
+  float: right;
+}
+.caixa-clicavel__check {
+  display: none;
+}
+.caixa-clicavel__check:checked ~ .caixa-clicavel__label {
+  outline: 1px solid #00c5cd;
+  box-shadow: 0 0 30px #00c5cd;
+}
+.caixa-clicavel__check:checked ~ .caixa-clicavel__label p:nth-child(1) {
+  background: #00949a;
+}
+.caixa-clicavel__label {
+  display: block;
+  border: 1px solid #00c5cd;
+}
+.caixa-clicavel__label p {
+  padding: 0.3125rem;
+  text-align: center;
+  margin: 0;
+}
+.caixa-clicavel__label p:nth-child(1) {
+  background: #00c5cd;
+  font-size: 3em;
+  color: #fff;
+}
+
 /*# sourceMappingURL=info.css.map */
