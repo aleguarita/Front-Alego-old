@@ -1154,15 +1154,6 @@ $secao-lista-tipos: tipo-1, tipo-2;
 .caixa-clicavel {
   max-width: 200px;
   float: right;
-  &__check {
-    @include item-checado(".caixa-clicavel__label") {
-      outline: 1px solid cor(borda);
-      box-shadow: 0 0 30px cor(fundo);
-      p:nth-child(1) {
-        background: cor(fundo, escuro);
-      }
-    }
-  }
   &__label {
     display: block;
     border: 1px solid cor(borda);
@@ -1174,6 +1165,15 @@ $secao-lista-tipos: tipo-1, tipo-2;
         background: cor(fundo);
         font-size: 3em;
         color: cor(texto, claro);
+      }
+    }
+  }
+  &__check {
+    @include item-checado(".caixa-clicavel__label") {
+      outline: 1px solid cor(borda);
+      box-shadow: 0 0 30px cor(fundo);
+      p:nth-child(1) {
+        background: cor(fundo, escuro);
       }
     }
   }
