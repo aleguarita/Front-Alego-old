@@ -5,10 +5,10 @@
 	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 14/03/2016
+	Última alteração: 29/03/2016
 	------------------------------------------------------------------------------
 */
-// app.scss
+// base.scss
 // Inclua neste arquivo somente chamadas para os demais arquivos,
 // usando @import
 // NÃO COMENTE E NEM ALTERE A ORDEM ATUAL.
@@ -33,6 +33,7 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 29/03/2016 | Inclusão de Abas
 // 14/03/2016 | Alterada localização deste arquivo, de config/ para base/
 // 								(melhor o usuário configurar arquivos extras/ dentro do
 // 								arquivo de CSS dele, minimizando o uso de configurações
@@ -102,6 +103,7 @@
 @import "toaster";
 @import "modal";
 @import "secao_lista";
+@import "abas";
 @import "lista";
 @import "sprites";
 

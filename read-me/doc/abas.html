@@ -1,0 +1,257 @@
+<article id="abas">
+  <header><h1>Abas</h1></header>
+  <p>As configurações básicas da abas são encontradas no <a href="#config__abas" class="link--readme">arquivo de configuração</a>. Abaixo você vê os tipos disponíveis.</p>
+  <section class="secao-lista">
+    <input type="checkbox" id="abas__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="abas__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Para criar abas que exibem e ocultem o conteúdo é necessário deixar o HTML bem estruturado ou não vai dar certo.</p>
+      <p>Você também vai notar que existem várias classes que devem receber um número. Lembre-se que o maior número disponível da classe é configurado no <a href="#config__abas" class="link--readme">arquivo de configuração</a> através da classe <samp>$abas-qtd</samp>.</p>
+      <p>Siga os passos:</p>
+      <ol class="lista-ordenad">
+        <li>Crie uma <samp>section</samp> e acrescente a classe <samp>abas</samp>.</li>
+        <li>Essa <samp>section</samp> é dividida em três partes: radio buttons, nav e conteúdo. Estes três grupos devem estar no mesmo nível.</li>
+          <p>Até o momento será algo como:</p>
+          <code class="codigo--html">
+            <header>HTML</header>
+            <p>&lt;section class="abas"&gt;</p>
+            <p class="recuo-1">&lt;!-- inputs radio button --&gt;</p>
+            <p class="recuo-1">&lt;!-- nav - área onde o usuário escolhe que conteúdo ver --&gt;</p>
+            <p class="recuo-1">&lt;!-- conteúdo das abas --&gt;</p>
+            <p>&lt;/section&gt;</p>
+          </code>
+        <li><strong>radio buttons</strong>: eles devem ser filhos diretos do <samp>&lt;section class="abas"&gt;</samp>. Você deverá ter um radio para cada aba.</li>
+        <li>Coloque um <samp>name</samp> para todos os radios. Como padrão sugiro <samp>abas</samp>.</li>
+        <li>Cada radio deve ter um <samp>id</samp> que seria <samp>aba-x</samp> e as classes <samp>abas__input</samp> e <samp>aba-x</samp> (substitua <samp>x</samp> pelo número da aba).</li>
+        <li>Defina qual a aba padrão para ser a ativa e acrescente <samp>checked="checked"</samp> no radio específico.</li>
+          <p>Se tivermos três abas como exemplo com a primeira aba sendo exibida por padrão, o código seria:</p>
+          <code class="codigo--html">
+            <header>HTML</header>
+            <p>&lt;section class="abas"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="aba-1" class="abas__input aba-1" name="abas" checked="checked"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="aba-2" class="abas__input aba-2" name="abas"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="aba-3" class="abas__input aba-3" name="abas"&gt;</p>
+            <p class="recuo-1">&lt;!-- nav - área onde o usuário escolhe que conteúdo ver --&gt;</p>
+            <p class="recuo-1">&lt;!-- conteúdo das abas --&gt;</p>
+            <p>&lt;/section&gt;</p>
+          </code>
+        <li><strong>navegação</strong>: abra um tag <samp>nav</samp> com a classe <samp>abas__nav</samp>.</li>
+        <li>Dentro dela coloque os labels para os radio.</li>
+        <li>Cada label deve ter o <samp>for</samp> equivalente ao id do radio que você criou anteriormente e deve ter as classes <samp>abas__aba</samp> e <samp>aba-x</samp> (substitua <samp>x</samp> pelo número do label, que deve ser igual ao id e classe do radio).</li>
+          <p>No momento, com três abas teríamos:</p>
+          <code class="codigo--html">
+            <header>HTML</header>
+            <p>&lt;section class="abas"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="aba-1" class="abas__input aba-1" name="abas" checked="checked"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="aba-2" class="abas__input aba-2" name="abas"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="aba-3" class="abas__input aba-3" name="abas"&gt;</p>
+            <p class="recuo-1">&lt;nav class="abas__nav"&gt;</p>
+              <p class="recuo-2">&lt;label for="aba-1" class="abas__aba aba-1"&gt;Título da aba 1&lt;/label&gt;</p>
+              <p class="recuo-2">&lt;label for="aba-2" class="abas__aba aba-2"&gt;Título da aba 2&lt;/label&gt;</p>
+              <p class="recuo-2">&lt;label for="aba-3" class="abas__aba aba-3"&gt;Título da aba 3&lt;/label&gt;</p>
+            <p class="recuo-1">&lt;/nav&gt;</p>
+            <p class="recuo-1">&lt;!-- conteúdo das abas --&gt;</p>
+            <p>&lt;/section&gt;</p>
+          </code>
+        <li><strong>abas</strong>: cada aba deve estar no mesmo nível. Use a tag <samp>article</samp> para cada uma delas.</li>
+        <li>Cada aba deve ter uma classe <samp>abas__conteudo</samp> e a classe <samp>aba-x</samp> que deve ser igual à do label e radio.</li>
+          <p>O HTML final ficaria:</p>
+          <code class="codigo--html">
+            <header>HTML</header>
+            <p>&lt;section class="abas"&gt;</p>
+              <p class="recuo-1">&lt;input type="radio" id="aba-1" class="abas__input aba-1" name="abas" checked="checked"&gt;</p>
+              <p class="recuo-1">&lt;input type="radio" id="aba-2" class="abas__input aba-2" name="abas"&gt;</p>
+              <p class="recuo-1">&lt;input type="radio" id="aba-3" class="abas__input aba-3" name="abas"&gt;</p>
+              <p class="recuo-1">&lt;nav class="abas__nav"&gt;</p>
+                <p class="recuo-2">&lt;label for="aba-1" class="abas__aba aba-1"&gt;Título da aba 1&lt;/label&gt;</p>
+                <p class="recuo-2">&lt;label for="aba-2" class="abas__aba aba-2"&gt;Título da aba 2&lt;/label&gt;</p>
+                <p class="recuo-2">&lt;label for="aba-3" class="abas__aba aba-3"&gt;Título da aba 3&lt;/label&gt;</p>
+              <p class="recuo-1">&lt;/nav&gt;</p>
+              <p class="recuo-1">&lt;article class="abas__conteudo aba-1"&gt;</p>
+                <p class="recuo-2">Conteúdo da aba 1</p>
+              <p class="recuo-1">&lt;/article&gt;</p>
+              <p class="recuo-1">&lt;article class="abas__conteudo aba-2"&gt;</p>
+                <p class="recuo-2">Conteúdo da aba 2</p>
+              <p class="recuo-1">&lt;/article&gt;</p>
+              <p class="recuo-1">&lt;article class="abas__conteudo aba-3"&gt;</p>
+                <p class="recuo-2">Conteúdo da aba 3</p>
+              <p class="recuo-1">&lt;/article&gt;</p>
+            <p>&lt;/section&gt;</p>
+          </code>
+      </ol>
+      <p>Lista de classes usadas:</p>
+      <dl class="lista-definicao">
+        <dt><samp>.abas</samp></dt>
+          <dd><strong><samp>&lt;section&gt;</samp></strong>. A classe principal para o elemento pai</dd>
+        <dt><samp>.abas__x</samp></dt>
+          <dd><strong><samp>&lt;input type="radio"&gt;</samp></strong>, <strong><samp>&lt;label&gt;</samp></strong>, <strong><samp>&lt;article&gt;</samp></strong>. Essa classe é que formata as condições especiais de quando seleciona uma aba (destacando item de navegação e exibindo conteúdo). <samp>x</samp> deve ser substituído pelo número da aba e cada elemento deve ser correspondente.</dd>
+        <dt><samp>.abas__nav</samp></dt>
+          <dd><strong><samp>&lt;nav&gt;</samp></strong>. A navegação das abas.</dd>
+        <dt><samp>.abas__input</samp></dt>
+          <dd><samp><strong>&lt;input type="radio"&gt;</strong></samp>. Serve para ocultar o input.</dd>
+        <dt><samp>.abas__aba</samp></dt>
+          <dd><samp><strong>&lt;label&gt;</strong></samp>. Formata os itens de navegação.</dd>
+        <dt><samp>.abas__conteudo</samp></dt>
+          <dd><samp><strong>&lt;article&gt;</strong></samp>. Formatação do conteúdo (que estará oculto por padrão).</dd>
+      </dl>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="abas__escolhida" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="abas__escolhida">
+        <span class="secao-lista__titulo">Tipo de abas escolhido <span class="codigo-abas-tipo"></span></span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <ul class="lista-config">
+        <li><samp>$abas-qtd</samp> <span class="codigo-abas-qtd"></span></li>
+      </ul>
+      <section class="abas">
+        <input type="radio" id="aba-1" class="abas__input aba-1" name="abas" checked="checked">
+        <input type="radio" id="aba-2" class="abas__input aba-2" name="abas">
+        <input type="radio" id="aba-3" class="abas__input aba-3" name="abas">
+        <nav class="abas__nav">
+          <label for="aba-1" class="abas__aba aba-1">Título da aba 1</label>
+          <label for="aba-2" class="abas__aba aba-2">Título da aba 2</label>
+          <label for="aba-3" class="abas__aba aba-3">Título da aba 3</label>
+        </nav>
+        <article class="abas__conteudo aba-1">
+          Conteúdo da aba 1
+        </article>
+        <article class="abas__conteudo aba-2">
+          Conteúdo da aba 2
+        </article>
+        <article class="abas__conteudo aba-3">
+          Conteúdo da aba 3
+        </article>
+      </section>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="abas__tipo-1" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="abas__tipo-1">
+        <span class="secao-lista__titulo">Abas tipo 1</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <section class="abas--tipo-1">
+        <input type="radio" id="aba--tipo-1-1" class="abas--tipo-1__input aba-1" name="abas--tipo-1" checked="checked">
+        <input type="radio" id="aba--tipo-1-2" class="abas--tipo-1__input aba-2" name="abas--tipo-1">
+        <input type="radio" id="aba--tipo-1-3" class="abas--tipo-1__input aba-3" name="abas--tipo-1">
+        <nav class="abas--tipo-1__nav">
+          <label for="aba--tipo-1-1" class="abas--tipo-1__aba aba-1">Título da aba 1</label>
+          <label for="aba--tipo-1-2" class="abas--tipo-1__aba aba-2">Título da aba 2</label>
+          <label for="aba--tipo-1-3" class="abas--tipo-1__aba aba-3">Título da aba 3</label>
+        </nav>
+        <article class="abas--tipo-1__conteudo aba-1">
+          Conteúdo da aba 1
+        </article>
+        <article class="abas--tipo-1__conteudo aba-2">
+          Conteúdo da aba 2
+        </article>
+        <article class="abas--tipo-1__conteudo aba-3">
+          Conteúdo da aba 3
+        </article>
+      </section>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="abas__tipo-2" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="abas__tipo-2">
+        <span class="secao-lista__titulo">Abas tipo 2</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <section class="abas--tipo-2">
+        <input type="radio" id="aba--tipo-2-1" class="abas--tipo-2__input aba-1" name="abas--tipo-2" checked="checked">
+        <input type="radio" id="aba--tipo-2-2" class="abas--tipo-2__input aba-2" name="abas--tipo-2">
+        <input type="radio" id="aba--tipo-2-3" class="abas--tipo-2__input aba-3" name="abas--tipo-2">
+        <nav class="abas--tipo-2__nav">
+          <label for="aba--tipo-2-1" class="abas--tipo-2__aba aba-1">Título da aba 1</label>
+          <label for="aba--tipo-2-2" class="abas--tipo-2__aba aba-2">Título da aba 2</label>
+          <label for="aba--tipo-2-3" class="abas--tipo-2__aba aba-3">Título da aba 3</label>
+        </nav>
+        <article class="abas--tipo-2__conteudo aba-1">
+          Conteúdo da aba 1
+        </article>
+        <article class="abas--tipo-2__conteudo aba-2">
+          Conteúdo da aba 2
+        </article>
+        <article class="abas--tipo-2__conteudo aba-3">
+          Conteúdo da aba 3
+        </article>
+      </section>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="abas__tipo-3" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="abas__tipo-3">
+        <span class="secao-lista__titulo">Abas tipo 3</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <section class="abas--tipo-3">
+        <input type="radio" id="aba--tipo-3-1" class="abas--tipo-3__input aba-1" name="abas--tipo-3" checked="checked">
+        <input type="radio" id="aba--tipo-3-2" class="abas--tipo-3__input aba-2" name="abas--tipo-3">
+        <input type="radio" id="aba--tipo-3-3" class="abas--tipo-3__input aba-3" name="abas--tipo-3">
+        <nav class="abas--tipo-3__nav">
+          <label for="aba--tipo-3-1" class="abas--tipo-3__aba aba-1">Título da aba 1</label>
+          <label for="aba--tipo-3-2" class="abas--tipo-3__aba aba-2">Título da aba 2</label>
+          <label for="aba--tipo-3-3" class="abas--tipo-3__aba aba-3">Título da aba 3</label>
+        </nav>
+        <article class="abas--tipo-3__conteudo aba-1">
+          Conteúdo da aba 1
+        </article>
+        <article class="abas--tipo-3__conteudo aba-2">
+          Conteúdo da aba 2
+        </article>
+        <article class="abas--tipo-3__conteudo aba-3">
+          Conteúdo da aba 3
+        </article>
+      </section>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="abas__tipo-4" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="abas__tipo-4">
+        <span class="secao-lista__titulo">Abas tipo 4</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <section class="abas--tipo-4">
+        <input type="radio" id="aba--tipo-4-1" class="abas--tipo-4__input aba-1" name="abas--tipo-4" checked="checked">
+        <input type="radio" id="aba--tipo-4-2" class="abas--tipo-4__input aba-2" name="abas--tipo-4">
+        <input type="radio" id="aba--tipo-4-3" class="abas--tipo-4__input aba-3" name="abas--tipo-4">
+        <nav class="abas--tipo-4__nav">
+          <label for="aba--tipo-4-1" class="abas--tipo-4__aba aba-1">Título da aba 1</label>
+          <label for="aba--tipo-4-2" class="abas--tipo-4__aba aba-2">Título da aba 2</label>
+          <label for="aba--tipo-4-3" class="abas--tipo-4__aba aba-3">Título da aba 3</label>
+        </nav>
+        <article class="abas--tipo-4__conteudo aba-1">
+          Conteúdo da aba 1
+        </article>
+        <article class="abas--tipo-4__conteudo aba-2">
+          Conteúdo da aba 2
+        </article>
+        <article class="abas--tipo-4__conteudo aba-3">
+          Conteúdo da aba 3
+        </article>
+      </section>
+    </section>
+  </section>
+</article>

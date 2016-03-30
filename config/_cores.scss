@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // cores.scss
 // Criado em: 07/01/2015
-// Última alteração: 08/03/2016
+// Última alteração: 28/03/2016
 // -----------------------------------------------------------------------------
 // Aqui fica os temas de cores. As paletas são definidas no arquivo
 // cores_paletas (e é neste arquivo que se acrescenta novas cores)
@@ -15,6 +15,7 @@
 // Para alterar o tema faça isso no arquivo config
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 28/03/2016 | Inclusão de abas
 // 08/03/2016 | Inclusão de mais um tipo de link (claro)
 // 11/12/2015 | A paleta de cores agora aceita apenas um cor de cada e a função
 // 							cor() cria as variações tonais.
@@ -140,6 +141,11 @@ $temas: (
 			padrao: paleta(basica, escura, 25%),
 			clara: paleta(basica, clara, 75%),
 		),
+		abas: (
+			padrao: paleta(secundaria),
+			inativa: paleta(secundaria, clara, 50%),
+			fundo-inativo: paleta(secundaria, clara, 85%),
+		),
 		//elementos do sistema
 	),
 	cinza: (
@@ -220,6 +226,11 @@ $temas: (
 		secao-lista: (
 			padrao: paleta-padrao(cinza-65),
 			clara: paleta-padrao(cinza-35),
+		),
+		abas: (
+			padrao: paleta-padrao(cinza-85),
+			inativa: paleta-padrao(cinza-45),
+			fundo-inativo: paleta-padrao(cinza-85),
 		),
 		//elementos do sistema
 	),

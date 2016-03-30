@@ -7,7 +7,7 @@ pasta (info.scss) para ver como foi utilizado e também para acrescentar
 eventuais elementos para visualizar o arquivo final.
 Não se esqueça de compilar
 --------------------------------------------------------------------------------
-Algunas regras são quebras intencionalmente. Por exemplo: como eu faço uso dos
+Algumas regras são quebradas intencionalmente. Por exemplo: como eu faço uso dos
 arquivos de cores básicos, eu não crio grupo de cores nos temas para elementos
 específicos (como código). Então eu uso o paleta-padrao() ao invés de cor()
 NÃO FAÇA ISSO EM CASA, CRIANÇAS
@@ -74,14 +74,6 @@ samp {
   @include codigo;
   padding: .2em .4em;
   color: cor-status(erro-claro);
-}
-article {
-  border-bottom: $borda-variante;
-  padding-bottom: 6 * $margem;
-  &:last-of-type {
-    border-bottom-width: 0;
-    padding-bottom: 0;
-  }
 }
 figure:not([class]) {
   @include display-flex;
@@ -396,6 +388,7 @@ HEADER
 main {
 
 }
+
 /*
 ================================================================================
 ÁREA PRINCIPAL | menu
@@ -453,8 +446,14 @@ main {
       margin-left: 12em;
     }
   }
-  article {
+  > article {
     padding-top: 2.5em;
+    border-bottom: $borda-variante;
+    padding-bottom: 6 * $margem;
+    &:last-of-type {
+      border-bottom-width: 0;
+      padding-bottom: 0;
+    }
   }
 }
 /*
@@ -523,6 +522,9 @@ $codigo-selecionado: (
 
   secao-lista-tipo: if(index($uso-classes, secao-lista), $secao-lista-tipo, 'nenhum'),
   secao-lista-titulo: $secao-lista-titulo,
+
+  abas-tipo: if(index($uso-classes, abas), $abas-tipo, 'nenhuma'),
+  abas-qtd: $abas-qtd,
 );
 
 @each $classe, $valor in $codigo-selecionado {
@@ -1144,6 +1146,17 @@ $secao-lista-tipos: tipo-1, tipo-2;
 @each $item in $secao-lista-tipos {
   .secao-lista--#{$item} {
     @include secao-lista($item);
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | abas
+================================================================================
+*/
+$abas-tipos: tipo-1, tipo-2, tipo-3, tipo-4;
+@each $item in $abas-tipos {
+  .abas--#{$item} {
+    @include abas($item);
   }
 }
 /*

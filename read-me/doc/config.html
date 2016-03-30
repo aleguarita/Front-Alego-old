@@ -34,6 +34,8 @@
           <dt><samp>breadcrumb</samp></dt><dd>Formata o breadcrumb</dd>
           <dt><samp>toaster</samp></dt><dd>Formata os toasters do sistema</dd>
           <dt><samp>secao-lista</samp></dt><dd>Seções que podem ser fechadas, ocultando o conteúdo e mostrando o título, formando uma lista de seções</dd>
+          <dt><samp>abas</samp></dt><dd>Formata as abas (e inclui a exibição/ocultamento do conteúdo)</dd>
+          <dt><samp>simbolos</samp></dt><dd>Símbolos por fontes. Está aqui por retrocompatibilidade (deixe comentado para simplificar o código)</dd>
           <dt><samp>sprite</samp></dt><dd>Arquivos de sprites</dd>
         </dl>
         <blockquote class="aviso--grave">
@@ -161,6 +163,14 @@
             <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
           <dt><samp>$secao-lista-titulo</samp></dt>
             <dd>Define o tamanho do título da tabela usando a função <samp>modular-scale()</samp> do <a href="http://bourbon.io/docs/#modular-scale" target="_blank" class="link--externo">Bourbon</a></dd>
+        </dl>
+      <h2 id="config__abas">Abas</h2>
+        <p>Definições de abas. Já exibe e oculta o conteúdo das abas.</p>
+        <dl class="lista-definicao">
+          <dt><samp>$abas-tipo</samp></dt>
+            <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp> | <samp>tipo-4</samp></dd>
+          <dt><samp>$abas-qtd</samp></dt>
+            <dd>Define a quantidade de abas disponível. Não coloque mais que o necessário, pois isso infla o código final</dd>
         </dl>
       <h2 id="config__sprite">Sprites</h2>
         <p>Definições dos sprites. Cria várias classes conforme o nome que você atribuir.</p>
