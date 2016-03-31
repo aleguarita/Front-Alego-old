@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 29/03/2016
+// Última alteração em: 31/03/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 31/03/2016 | Inclusão de ocultar as classes de símbolos SVG
 // 29/03/2016 | Sistema de abas
 // 14/03/2016 | Acrescentando "simbolos" dentro de $uso-classe. Símbolos através
 //               de fontes vai estar em desuso e passaremos a utilizar SVG
@@ -53,6 +54,7 @@ $uso-classes: (
   toaster,
   secao-lista,
   abas,
+  simbolos-svg,
   // simbolos,
   // sprite,
 );

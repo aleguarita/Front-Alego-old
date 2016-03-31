@@ -1,8 +1,10 @@
-/*
-================================================================================
-SÍMBOLOS EM SVG
-================================================================================
-*/
+@if index($uso-classes, simbolos-svg) {
+	/*
+	================================================================================
+	SÍMBOLOS EM SVG
+	================================================================================
+	*/
+}
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -10,12 +12,13 @@ SÍMBOLOS EM SVG
 // -----------------------------------------------------------------------------
 // simbolos.scss
 // Criado em: 14/03/2016
-// Última alteração: 14/03/2016
+// Última alteração: 31/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os símbolos criados em SVG, com a inclusão de classes
 // necessárias
 // -----------------------------------------------------------------------------
 // Changelog
+// 31/03/2016 | Inclusão da opção de não usar as classes
 // 14/03/2016 | Criado o arquivo
 // =============================================================================
 
@@ -39,18 +42,20 @@ SÍMBOLOS EM SVG
 // =============================================================================
 // CLASSES
 // =============================================================================
-.ico {
-	@include svg-ico;
-}
-.ico--baixo {
-	@include svg-ico;
-	@include transform(rotate(90deg));
-}
-.ico--cima {
-	@include svg-ico;
-	@include transform(rotate(-90deg));
-}
-.ico--esquerda {
-	@include svg-ico;
-	@include transform(rotate(180deg));
+@if index($uso-classes, simbolos-svg) {
+	.ico {
+		@include svg-ico;
+	}
+	.ico--baixo {
+		@include svg-ico;
+		@include transform(rotate(90deg));
+	}
+	.ico--cima {
+		@include svg-ico;
+		@include transform(rotate(-90deg));
+	}
+	.ico--esquerda {
+		@include svg-ico;
+		@include transform(rotate(180deg));
+	}
 }
