@@ -39,6 +39,8 @@
         <article id="changelog">
           <h2>Changelog</h2>
           <dl class="lista-changelog">
+            <dt>31/03/2016</dt>
+              <dd>Reestrutração do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base.scss</samp>. Ele voltou para a pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> /config/</samp>. Mas para evitar uma reatualização constante deste arquivo ao ocorrer inclusão de novas funcionalidades na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> /base/</samp>, foi criado um novo arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> /base/+arquivo.scss</samp> que importa todos estes arquivos.</dd>
             <dt>29/03/2016</dt>
               <dd>Inclusão do sistema de abas. <strong>Atenção</strong>: essa alteração afeta o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_+config.scss</samp> e <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_cores.scss</samp>. Certifique-se de manter suas configurações e incluir o valor <samp>abas</samp> (comentado se necessário) no mapa <samp>$uso-classes</samp> e também as variáveis de abas e as cores (veja mais detalhes no arquivo de <a href="doc.html#abas" class="link--readme">documentação</a>).</dd>
             <dt>22/03/2016</dt>
@@ -76,7 +78,7 @@
           </dl>
           <p>Crie o arquivo básico para o CSS fora de qualquer pasta (<samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> app.scss</samp>) e dentro dele inclua:</p>
           <code class="codigo--sass">
-            <p>@import "base/base";</p>
+            <p>@import "config/base";</p>
           </code>
         </article>
         <article>
@@ -85,7 +87,7 @@
         </article>
         <article>
           <h2>Atualizando o Front-Alego</h2>
-          <p>Verifique o que foi alterado. Aqui haverá um <em>changelog</em> das alterações. Cada arquivo também terá um <em>changelog</em> local. Na <a href="doc.html" class="link--readme">documentação</a> as novidades estarão em destaque.</p>
+          <p>Verifique o que foi alterado. Verifique o <em>changelog</em> das alterações acima. Cada arquivo também terá um <em>changelog</em> local (no próprio scss).<!-- Na <a href="doc.html" class="link--readme">documentação</a> as novidades estarão em destaque.--></p>
           <p>Substitua a pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base</samp> pela pasta atualizada.</p>
           <p>Caso a alteração esteja em um ou mais arquivos da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> config</samp> tome o cuidado de copiar apenas o que for novo e evitar substituições indevidas. Os dois arquivos da pasta com a maior probabilidade de acontecer isso são o <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config</samp> e <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base</samp>.</p>
         </article>

@@ -33,6 +33,9 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 31/03/2016 | Devolvido para a pasta config/. Apesar de o usuário não mexer
+// 								neste arquivo, ele deve existir como cópia para o caso de ter
+// 								folhas de estilo com configurações diferentes
 // 29/03/2016 | Inclusão de Abas
 // 14/03/2016 | Alterada localização deste arquivo, de config/ para base/
 // 								(melhor o usuário configurar arquivos extras/ dentro do
@@ -64,50 +67,21 @@
 @import "../bourbon/bourbon"; // (se instalado o bourbon manualmente)
 
 // Configurações gerais
-@import "breakpoints";
-@import "funcoes";
-@import "mixins";
+@import "../base/breakpoints";
+@import "../base/funcoes";
+@import "../base/mixins";
 
 // Configuração básica
-@import "../config/_+config";
+@import "+config";
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
-@import "cores_status";
-@import "../config/cores";
-@import "fontes";
-@import "../config/variaveis";
-@import "../config/tipografia";
+@import "../base/cores_status";
+@import "../base/fontes";
+@import "cores";
+@import "variaveis";
+@import "tipografia";
+@import "z-index";
+@import "simbolos";
 
-// Reset CSS
-@import "reset";
-
-// Arquivos de configuração estrutural
-@import "grid";
-@import "../config/z-index";
-
-// Formatação de formulários
-@import "form_grupo";
-@import "form_comum";
-@import "form_texto";
-@import "form_radio_checkbox";
-@import "form_select";
-@import "form_botoes";
-@import "form_autocomplete";
-
-// Formatação de objetos
-@import "tabelas";
-@import "paginacao";
-@import "cards";
-@import "breadcrumbs";
-@import "toaster";
-@import "modal";
-@import "secao_lista";
-@import "abas";
-@import "lista";
-@import "sprites";
-
-// Formatações especiais
-@import "../config/simbolos";
-@import "simbolos-svg";
-@import "classes";
+@import "../base/+arquivos.scss"; // Todos os demais arquivos

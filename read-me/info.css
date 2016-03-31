@@ -210,28 +210,6 @@ a:hover {
 
 /*
 ================================================================================
-GRID
-================================================================================
-*/
-.container, .container--gutter, .container--calha {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin: auto;
-  max-width: 100rem;
-}
-
-.container--gutter, .container--calha {
-  padding: 0 0.625rem;
-}
-.container--gutter > * + *, .container--calha > * + * {
-  margin-left: 0.625%;
-}
-
-/*
-================================================================================
 FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
 ================================================================================
 FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
@@ -804,6 +782,28 @@ FORMULÁRIOS | AUTOCOMPLETE
 
 .ui-helper-hidden-accessible {
   display: none !important;
+}
+
+/*
+================================================================================
+GRID
+================================================================================
+*/
+.container, .container--gutter, .container--calha {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 100rem;
+}
+
+.container--gutter, .container--calha {
+  padding: 0 0.625rem;
+}
+.container--gutter > * + *, .container--calha > * + * {
+  margin-left: 0.625%;
 }
 
 /*
