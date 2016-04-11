@@ -19,19 +19,30 @@ Seção de Programação Web
 @import "config/base";
 
 // -----------------------------------------------------------------------------
+// CONFIG | Tipo do menu
+// -----------------------------------------------------------------------------
+$menu-tipo: vertical; // vertical ou horizontal
+
+// -----------------------------------------------------------------------------
 // CONFIG | Grids
 // -----------------------------------------------------------------------------
 $gd-header: $grid-qtd; // largura total
-$gd-nav: 2;
+$gd-menu: 2;
 $gd-aside: 2;
-$gd-main: $grid-qtd - $gd-nav - $gd-aside; // reajusta conforme o resto
 $gd-footer: $grid-qtd; // largura total
+
 
 // -----------------------------------------------------------------------------
 // CONFIG | Variáveis Local
 // -----------------------------------------------------------------------------
 $header-altura: 45px;
 $footer-altura-min: rem(20);
+
+// -----------------------------------------------------------------------------
+// CONFIG | Cálculos
+// -----------------------------------------------------------------------------
+$gd-nav: if($menu-tipo == horizontal, $grid-qtd, $gd-menu); // substitua o último número pelas colunas que ocupa
+$gd-main: $grid-qtd - $gd-aside - if($menu-tipo == horizontal, 0, $gd-nav); // reajusta conforme o resto
 $main-altura-min: calc(100vh - #{$header-altura} - #{$footer-altura-min} - #{$margem} * 2);
 
 /*
@@ -119,11 +130,9 @@ ADMIN | ÁREA INTERNA
 .nav {
   @include grid($gd-nav);
   &__menu {
-    @include lista-sem-marcador; // se quiser fazer menu horizontal, inclua (flex)
-    margin: 0;
-    z-index: z(menu);
+    @include menu($menu-tipo);
     li {
-      position: relative;
+      @if $menu-tipo == vertical { position: relative; }
       > a {
         @include link(bloco);
         padding: .2em .4em;
@@ -131,18 +140,7 @@ ADMIN | ÁREA INTERNA
     }
   }
   &__submenu {
-    @include lista-sem-marcador;
-    position: absolute;
-    display: none;
-    margin: 0;
-    z-index: z(submenu);
-    
-    top: 0; // retire se o menu for horizontal
-    transform: translateX(100%); // retire se o menu for horizontal
-    width: 100%; // retire se o menu for horizontal
-    a:hover ~ &, &:hover {
-      display: block;
-    }
+    @include submenu($menu-tipo);
   }
 }
 // =============================================================================

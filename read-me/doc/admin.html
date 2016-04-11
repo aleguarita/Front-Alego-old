@@ -108,19 +108,27 @@
         <dt><samp>.footer</samp></dt>
           <dd>O rodapé do site, se houver. <strong>Esta tag/classe é opcional. Se não for usar delete o HTML e o CSS</strong>.</dd>
       </dl>
+      <h2>Configuração do menu</h2>
+      <p>Esta configuração não aparece dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/base.svg#documento" /></svg> config.scss</samp> por se tratar de uma configuração específica para esta view (podemos ter um menu horizontal no site e vertical no admin, por exemplo).</p>
+      <dl class="lista-definicao">
+        <dt><samp>$menu-tipo</samp></dt>
+          <dd>Determina como o menu vai aparecer. Valores: <samp>vertical</samp> (padrão) e <samp>horizontal</samp></dd>
+      </dl>
       <h2>Configurações de grid</h2>
       <p>O arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> contém toda a configuração de grid que está sendo usada. Conforme discutido na seção de <a href="#grid" class="link--readme">grids</a> não se usa classes próprias para grid e elas são inseridas diretamente no CSS. Neste caso fica no começo do arquivo.</p>
       <dl class="lista-definicao">
         <dt><samp>$gd-header</samp></dt>
           <dd>A largura do header. O valor atual é <samp>$grid-qtd</samp> (a quantidade de grids definidas no arquivo de configuração)</dd>
-        <dt><samp>$gd-nav</samp></dt>
-          <dd>A largura do menu, que fica na lateral esquerda. O valor atual de exemplo é <samp>2</samp>. Veja mais abaixo como configurar o menu na horinzontal</dd>
+        <dt><samp>$gd-menu</samp></dt>
+          <dd>A largura do menu, que fica na lateral esquerda. O valor atual de exemplo é <samp>2</samp>. Se o menu for horizontal ele é configurado automaticamente para <samp>$grid-qtd</samp></dd>
         <dt><samp>$gd-aside</samp></dt>
           <dd>A largura da parte lateral. Se você não for usar o <samp>.aside</samp> basta inserir o valor <samp>0</samp></dd>
-        <dt><samp>$gd-main</samp></dt>
-          <dd>A largura da parte principal. É uma conta que subtrai do valor total da grid o tamanho do menu e da parte lateral, para facilitar ajustes. No entanto, será necessário ajustar no caso de você usar menu horizontal como explicado abaixo</dd>
         <dt><samp>$gd-footer</samp></dt>
           <dd>O rodapé do site tem como valor <samp>$grid-qtd</samp> pois ocupa a largura toda</dd>
+        <dt><samp>$gd-nav</samp></dt>
+          <dd>A lagura da área de navegação. O valor depende se o menu é vertical ou horizontal. <strong>Valor automático, não há necessidade de alterar</strong></dd>
+        <dt><samp>$gd-main</samp></dt>
+          <dd>A largura da parte principal. É uma conta que subtrai do valor total da grid o tamanho do menu e da parte lateral, para facilitar ajustes. <strong>Valor automático, não há necessidade de alterar</strong></dd>
       </dl>
       <h2>Variáveis</h2>
       <p>Algumas variáveis já foram aplicadas e você deve alterar conforme o sistema:</p>
@@ -137,19 +145,15 @@
       <p>As subclasses já estão aplicadas dentro delas (com o uso de <samp>&__filho</samp>).</p>
       <p>Note, por exemplo, que o menu não tem fundo, bordas, etc. Ele tem apenas posicionamento e algum padding. O resto fica por sua conta.</p>
       <h2>Submenu</h2>
-      <p>No exemplo já vem aplicado um submenu mais simples. Se o sistema que você não estiver trabalhando no tiver submenu, apague isso do <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>admin.scss</samp> ou comente (caso queira ter submenu no futuro).</p>
-      <p>Muito cuidado com a estrutura. Se você quiser diferenciar o menu pai do menu filho, no seletor <samp>&__menu</samp> mude o elemento filho de <samp>li</samp> para <samp>> li</samp>.</p>
+      <p>No exemplo já vem aplicado um submenu mais simples. Se o sistema que você não estiver trabalhando não tiver submenu, apague isso do <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> ou comente (caso queira ter submenu no futuro).</p>
+      <p>Muito cuidado com a estrutura. Se você quiser diferenciar o menu pai do menu filho, no seletor <samp>&__menu</samp> mude o elemento filho de <samp>li</samp> para <samp>&gt; li</samp>.</p>
       <h2>Menu horizontal ou vertical</h2>
       <p>Por padrão o menu está na lateral esquerda. No entanto é possível fazer com que o menu fique horizontal. Para isso siga os passos:</p>
       <ol class="lista-ordenada">
-        <li>Altere o valor da variável <samp>$gd-nav</samp> para <samp>$grid-qtd</samp>. Isso faz com que o menu fique na horizontal</li>
-        <li>Altere a fórmula matemática de <samp>$gd-main</samp> retirando a variável <samp>$gd-nav</samp>.</li>
+        <li>Altera a variável <samp>$menu-tipo</samp> de <samp>vertical</samp> para <samp>horizontal</samp></li>
         <li>Acrescente uma variável de altura para o menu (<samp>$nav-altura</samp>).</li>
         <li>Acrescente <samp> - #{$nav-altura}</samp> na fórmula <samp>$main-altura-min</samp>. Com isso você está reduzindo a altura da parte principal com a inclusão do menu.</li>
         <li>Na classe <samp>.nav</samp> acrescente a altura criada anteriormente.</li>
-        <li>Na classe <samp>&__menu</samp> altere o mixin <samp>lista-sem-marcador</samp> para <samp>lista-sem-marcador(flex)</samp>. Os elementos agora ficarão um do lado do outro.</li>
-        <li>Se precisar de ajustar as medidas de flex do elemento filho do menu, faça-o na tag <samp>li</samp> (que está vazia no momento).</li>
-        <li>Comente ou apague as linhas do css que incluem o <samp>top</samp>, <samp>transform</samp> e <samp>width</samp> do seletor <samp>&__submenu</samp>.</li>
       </ol>
       <blockquote class="aviso--dica">
         Se você abrir o arquivo para visualizar não conseguirá ver as imagens, pois o ela já faz a referência para o caminho correto no Rails. Altere se necessário para seu sistema.

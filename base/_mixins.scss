@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 22/03/2016
+// Última alteração: 11/04/2016
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -19,6 +19,7 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/04/2016 | Criação dos mixins menu e submenu
 // 22/03/2016 | Mixin lista-oculta foi alterado para item-checado e agora aceita
 // 							colocar qualquer seletor (e não mais apenas classe), além da
 // 							formatação especial para o item selecionado (display: none) para
@@ -453,5 +454,37 @@
   display: none;
   &:checked ~ #{$seletor} {
     @content;
+  }
+}
+
+// =============================================================================
+// MENU E SUBMENU
+// -----------------------------------------------------------------------------
+// Cria a estrutura básica do menu e do submenu. Evidentemente, sem formatação
+// -----------------------------------------------------------------------------
+// $tipo: se o menu é vertical (padrão) ou horizontal
+// =============================================================================
+@mixin menu($tipo: vertical) {
+	@if $tipo == horizontal {
+		@include lista-sem-marcador(flex);
+	} @else {
+		@include lista-sem-marcador;
+	}
+  margin: 0;
+  z-index: z(menu);
+}
+@mixin submenu($tipo: vertical) {
+  @include lista-sem-marcador;
+  position: absolute;
+  display: none;
+  margin: 0;
+  z-index: z(submenu);
+  @if $tipo != horizontal {
+    top: 0; // retire se o menu for horizontal
+    transform: translateX(100%); // retire se o menu for horizontal
+    width: 100%; // retire se o menu for horizontal
+  }
+  a:hover ~ &, &:hover {
+    display: block;
   }
 }
