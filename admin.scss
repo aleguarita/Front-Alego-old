@@ -118,14 +118,30 @@ ADMIN | ÁREA INTERNA
 // =============================================================================
 .nav {
   @include grid($gd-nav);
-  padding: $margem;
   &__menu {
     @include lista-sem-marcador; // se quiser fazer menu horizontal, inclua (flex)
+    margin: 0;
+    z-index: z(menu);
     li {
+      position: relative;
       > a {
         @include link(bloco);
         padding: .2em .4em;
       }
+    }
+  }
+  &__submenu {
+    @include lista-sem-marcador;
+    position: absolute;
+    display: none;
+    margin: 0;
+    z-index: z(submenu);
+    
+    top: 0; // retire se o menu for horizontal
+    transform: translateX(100%); // retire se o menu for horizontal
+    width: 100%; // retire se o menu for horizontal
+    a:hover ~ &, &:hover {
+      display: block;
     }
   }
 }
