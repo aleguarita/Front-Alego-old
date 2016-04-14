@@ -2,10 +2,10 @@
 	==============================================================================
 	FRONT-ALEGO | Framework da Assembleia Legislativa
 	Autor: Alessandro Guarita
-	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
+	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 29/03/2016
+	Última alteração: 13/04/2016
 	------------------------------------------------------------------------------
 */
 // base.scss
@@ -33,6 +33,7 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 13/04/2016 | Alterada ordem das cores
 // 31/03/2016 | Devolvido para a pasta config/. Apesar de o usuário não mexer
 // 								neste arquivo, ele deve existir como cópia para o caso de ter
 // 								folhas de estilo com configurações diferentes
@@ -73,12 +74,12 @@
 
 // Configuração básica
 @import "+config";
+@import "cores";
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
 @import "../base/cores_status";
 @import "../base/fontes";
-@import "cores";
 @import "variaveis";
 @import "tipografia";
 @import "z-index";

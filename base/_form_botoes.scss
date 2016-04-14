@@ -12,11 +12,12 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 05/02/2016
+// Última alteração em: 13/04/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // ----------------------------------------------------------------------------
 // Changelog
+// 13/04/2016 | Adequado à nova paleta de cores
 // 05/02/2016 | Ajustado o tamanho do botão
 //              Acrescando arredondamento de botão
 // 21/01/2016 | Era pra isso aqui usar mixins. Não é prático.
@@ -154,13 +155,13 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 @each $status in $botoes-status {
   %bt-tipo-3--#{$status} {
     @extend %bt-claro-base;
-    @include bt-claro(tint(cor-status(#{$status}-claro), 50%));
-    color: shade(cor-status(#{$status}-escuro), 20%);
+    @include bt-claro(cor-status(#{$status}, claro, 50%));
+    color: cor-status(#{$status}, escuro, 40%);
   }
   %bt-tipo-4--#{$status} {
     @extend %bt-claro-base;
-    @include bt-claro-gradient(tint(cor-status(#{$status}-claro), 50%));
-    color: shade(cor-status(#{$status}-escuro), 20%);
+    @include bt-claro-gradient(cor-status(#{$status}, claro, 50%));
+    color: cor-status(#{$status}, escuro, 20%);
   }
 }
 // =============================================================================
@@ -203,15 +204,15 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 @each $status in $botoes-status {
   %bt-tipo-5--#{$status} {
     @extend %bt-escuro-base;
-    background: shade(cor-status(#{$status}), 10%);
+    background: cor-status(#{$status}, escuro, 10%);
     &:hover {
-      background: shade(cor-status(#{$status}-escuro), 10%);
+      background: cor-status(#{$status}, escuro, 20%);
     }
   }
   %bt-tipo-6--#{$status} {
     @extend %bt-escuro-base;
-    @include bt-escuro-gradient(shade(cor-status(#{$status}), 10%), shade(cor-status(#{$status}-escuro), 10%));
-    border-color: cor-status(#{$status}-escuro);
+    @include bt-escuro-gradient(cor-status(#{$status}, escuro, 10%), cor-status(#{$status}, escuro, 20%));
+    border-color: cor-status(#{$status}, escuro, 30%);
   }
 }
 // =============================================================================

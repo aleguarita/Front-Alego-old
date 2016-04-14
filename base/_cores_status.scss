@@ -10,62 +10,20 @@
 // Aqui ficam as cores do status e cores básicas do sistema
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 13/04/2016 | Eliminada $paleta-padrao que agora faz parte de $paleta
+// 							Alterado $cor-status puxando de $paleta
 // 20/10/2015 | Criado o arquivo
 // ==============================================================================
-//
-// =============================================================================
-// PALETA DE CORES PADRÃO
-// -----------------------------------------------------------------------------
-// Este mapa de cores fica junto da $paleta
-// =============================================================================
-$paleta-padrao: (
-	branco: #fff,
-	preto: #000,
-	vermelho: #ed1c24,
-	verde: #39b54a,
-	amarelo: #f9bc16,
-	cinza-5: lighten(#000, 95),
-	cinza-10: lighten(#000, 90),
-	cinza-15: lighten(#000, 85),
-	cinza-20: lighten(#000, 80),
-	cinza-25: lighten(#000, 75),
-	cinza-30: lighten(#000, 70),
-	cinza-35: lighten(#000, 65),
-	cinza-40: lighten(#000, 60),
-	cinza-45: lighten(#000, 55),
-	cinza-50: lighten(#000, 50),
-	cinza-55: lighten(#000, 45),
-	cinza-60: lighten(#000, 40),
-	cinza-65: lighten(#000, 35),
-	cinza-70: lighten(#000, 30),
-	cinza-75: lighten(#000, 25),
-	cinza-80: lighten(#000, 20),
-	cinza-85: lighten(#000, 15),
-	cinza-90: lighten(#000, 10),
-	cinza-95: lighten(#000, 5),
-);
 
 // =============================================================================
 // ESTADOS DO SISTEMA
 // =============================================================================
 $cor-status: (
-	//vermelhos
-	erro: paleta-padrao(vermelho),                       urgente: paleta-padrao(vermelho),
-	erro-claro: #f0494f,                                 urgente-claro: #f0494f,
-	erro-escuro: #be1e2d,                                urgente-escuro: #be1e2d,
-
-	//verdes
-	sucesso: paleta-padrao(verde),                       ok: paleta-padrao(verde),
-	sucesso-claro: #74cb80,                              ok-claro: #74cb80,
-	sucesso-escuro: #009444,                             ok-escuro: #009444,
-
-	//amarelos
-	alerta: paleta-padrao(amarelo),                      aviso:  paleta-padrao(amarelo),
-	alerta-claro: lighten(paleta-padrao(amarelo), 7),    aviso-claro: lighten(paleta-padrao(amarelo), 7),
-	alerta-escuro: darken(paleta-padrao(amarelo), 5),    aviso-escuro: darken(paleta-padrao(amarelo), 5),
-
-	//usado para avisos (como no toaster). Usa tons de cinza
-	notice: paleta-padrao(cinza-70),
-	notice-claro: paleta-padrao(cinza-5),
-	notice-escuro: paleta-padrao(preto),
+	erro: paleta(erro),
+	urgente: paleta(erro),
+	sucesso: paleta(ok),
+	ok: paleta(ok),
+	alerta: paleta(alerta),
+	aviso: paleta(alerta),
+	notice: paleta(preto, claro, 30%),
 );
