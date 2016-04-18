@@ -351,7 +351,7 @@ $temas: (
 			claro: paleta(amarelo-bandeira, clara, 25),
 			x-claro: paleta(cinza, claro, 100),
 			escuro: paleta(amarelo-bandeira, escura, 35),
-			sombra: paleta(cinza, escuro, 100),
+			sombra: paleta(azul-bandeira, escuro, 80),
 		),
 		borda: (
 			padrao: paleta(amarelo-bandeira),
@@ -424,7 +424,92 @@ $temas: (
 		//elementos do sistema
 	),
 
-	rosa: (),
+	rosa: (
+		//elementos genéricos
+		texto: (
+			padrao: paleta(cinza, escuro, 100),
+			claro: paleta(cinza, claro, 100),
+			medio: paleta(cinza),
+			destaque: paleta(rosa, escura, 30),
+			titulo: paleta(rosa, escura, 30),
+		),
+		fundo: (
+			padrao: paleta(rosa),
+			claro: paleta(rosa, clara, 25),
+			x-claro: paleta(rosa, claro, 100),
+			escuro: paleta(rosa, escura, 70),
+			sombra: paleta(rosa, escuro, 100),
+		),
+		borda: (
+			padrao: paleta(rosa),
+			variante: paleta(secundaria, escuro, 75),
+		),
+		//elementos específicos
+		link: (
+			padrao: paleta(rosa, escuro, 12),
+			hover: paleta(rosa, clara, 25),
+			escuro: paleta(rosa, escura, 25),
+			escuro-hover: paleta(rosa, escura, 75),
+			claro: paleta(rosa, claro, 90),
+			claro-hover: fade-out(paleta(rosa, claro, 90), .5),
+		),
+		formulario: (
+			padrao: paleta(rosa, escura, 25),
+			placeholder: paleta(rosa, clara, 25),
+			ativo: paleta(rosa, escura, 75),
+			fundo: paleta(rosa, clara, 75),
+		),
+		botao: (
+			padrao: paleta(rosa, escuro, 56),
+			claro: paleta(rosa, clara, 25),
+			escuro: paleta(rosa, escura, 80),
+			secundario: paleta(rosa),
+			secundario-claro: paleta(rosa, clara, 75),
+			secundario-escuro: paleta(rosa, escura, 25),
+		),
+		tabela: (
+			borda: paleta(rosa),
+			borda-clara: paleta(rosa, clara, 25),
+			borda-escura: paleta(rosa, escura, 25),
+			fundo: paleta(rosa, clara, 75),
+			titulo: paleta(rosa, escura, 50),
+		),
+		lista: (
+			padrao: paleta(rosa),
+			clara: paleta(rosa, clara, 75),
+			escura: paleta(rosa, escura, 50),
+		),
+		modal: (
+			fundo: paleta(rosa, claro, 90),
+			titulo-fundo: paleta(rosa, escura, 25),
+			titulo-texto: paleta(rosa, clara, 35),
+		),
+		paginacao: (
+			padrao: paleta(rosa),
+			clara: paleta(rosa, clara, 25),
+			escura: paleta(rosa, escura, 25),
+		),
+		breadcrumbs: (
+			link: paleta(rosa, clara, 25),
+			atual: paleta(rosa, escura, 25),
+		),
+		card: (
+			fundo: paleta(rosa, claro, 100),
+			borda: paleta(rosa),
+			titulo: paleta(rosa, escura, 50),
+			destaque: paleta(rosa, escura, 25),
+		),
+		secao-lista: (
+			padrao: paleta(rosa, escura, 25),
+			clara: paleta(rosa, clara, 75),
+		),
+		abas: (
+			padrao: paleta(rosa),
+			inativa: paleta(rosa, clara, 20),
+			fundo-inativo: paleta(rosa, clara, 85),
+		),
+		//elementos do sistema
+	),
 
 	azul: (),
 );
