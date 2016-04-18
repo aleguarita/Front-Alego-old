@@ -4,6 +4,7 @@
    Alterado: Alessandro Guarita em 28/03/2016
 */
 // Alterações:
+// 14/04/2016 - acrescentado cor no fundo para adequar aos temas
 // 28/03/2016 - agrupamento dos título
 // 14/01/2016 - eliminados elementos que eram resetados por padrão
 // 						  (strong que fica sem negrito), tirad a lista de ol, ul. Imagem responsiva
@@ -45,6 +46,7 @@ img {
 // =============================================================================
 body {
 	color: cor(texto);
+	background: cor(fundo, x-claro);
 	font-family: $fonte-sem-serifa;
 	word-wrap: break-word;
 }

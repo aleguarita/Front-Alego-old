@@ -12,11 +12,13 @@ PAGINAÇÃO
 // -----------------------------------------------------------------------------
 // paginacao.scss
 // Criado em: 07/04/2015
-// Última alteração: 26/01/2016
+// Última alteração: 18/04/2016
 // -----------------------------------------------------------------------------
 // Definição da paginação. Formata o tipo padrão gerado pelo Rails.
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/04/2016 | Retirada a cor de fundo o item para melhor se adequar a outros
+// 							temas
 // 26/01/2016 | Substituídos placeholders por mixins
 // 03/12/2015 | Reduzida a paleta para 3 elementos
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
@@ -52,7 +54,6 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 	// ---------------------------------------------------------------------------
 	@else if $tag == item {
 		color: cor(paginacao);
-		background: lighten(cor(paginacao, clara), 70%);
 	}
 	// ---------------------------------------------------------------------------
 	// ELEMENTO ATIVO

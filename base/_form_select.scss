@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 17/03/2016
+// Última alteração em: 18/04/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/04/2016 | Alterada a cor do texto para mudar conforme tema
 // 17/03/2016 | Corrigido posicionamento da seta.
 // 15/03/2016 | Substituído seletor [class^="ico"] para .form__ico
 // 04/02/2016 | Correção do select, que estava duplicado no arquivo final
@@ -42,6 +43,7 @@ FORMULÁRIOS | SELECT
   font-size: 1em;
   padding: .25em;
   padding-right: 2em;
+  color: cor(texto);
   @content;
 }
 // =============================================================================

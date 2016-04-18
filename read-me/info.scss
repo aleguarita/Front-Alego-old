@@ -53,10 +53,9 @@ $pd: .2rem; // padding
 // Bloco de código
 @mixin codigo {
   border-radius: $rd;
-  background: paleta(preto, claro, 96%);
-  border: 1px solid paleta(preto, claro, 80%);
+  background: paleta(cinza, claro, 85);
+  border: 1px solid paleta(cinza, claro, 34);
 }
-
 /*
 ================================================================================
 TAGS
@@ -132,7 +131,7 @@ CLASSES
 // Ícone de arquivo/pasta
 // -----------------------------------------------------------------------------
 .local {
-  color: paleta(preto, claro, 30%);
+  color: paleta(cinza, escuro, 30%);
 }
 
 // -----------------------------------------------------------------------------
@@ -212,7 +211,7 @@ $largura-dt-pq: 9em;
   margin: 1em 0;
   overflow-x: auto;
   header {
-    background: fade-out(paleta(preto), .2);
+    background: fade-out(paleta(cinza, escuro, 100%), .2);
     border-radius: $rd $rd 0 0;
     padding: $pd $pd*2;
     font-family: $fonte-sem-serifa;
@@ -358,7 +357,7 @@ HEADER
       font-weight: bold;
     }
     &__titulo {
-      background: fade-out(paleta(preto), .3);
+      background: fade-out(paleta(cinza, escuro, 100%), .3);
       color: cor(texto, destaque);
     }
     a, &__ativo {
@@ -567,8 +566,6 @@ CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
 $cores-paleta: (
   basica,
   secundaria,
-  branco,
-  preto,
   erro,
   ok,
   alerta,
@@ -666,7 +663,7 @@ $paleta-fonte: .8em;
         @include order(2);
         background: paleta(#{$paleta}, escura, $x);
         .funcao {
-          color: paleta(branco);
+          color: paleta(cinza, claro, 100%);
           &::before {
             content: "paleta(#{$paleta}, escura, #{$x})";
           }
