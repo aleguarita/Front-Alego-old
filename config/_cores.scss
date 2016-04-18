@@ -39,11 +39,17 @@
 // pois facilita mudança mais brusca de cores (quando mudar o tema não é o ideal)
 // =============================================================================
 $paleta: (
-	// cores reservadas
+	// cores reservadas - evite mudar
 	cinza: gray,
 	erro: #ed1c24, // vermelho
 	ok: #39b54a, // verde
 	alerta: #f9bc16, // amarelo
+
+	// cores de temas específicos - evite mudar
+	verde-bandeira: #16b83e,
+	azul-bandeira: #1651B8,
+	amarelo-bandeira: #ffe11f,
+	rosa: #e18ccc,
 
 	// cores do sistema
 	basica: #00c5cd, //turquesa
