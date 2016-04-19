@@ -10,11 +10,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 27/01/2016
+// Última alteração: 18/04/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/04/2016 | Alteração para o novo esquema de cores
 // 27/01/2016 | Alterado placeholder para mixin
 // 07/01/2016 | Retirado "thead" do seletor "thead th". Agora é todos os <th>
 // 							terão a mesma configuração básica, esteja no cabeçalho da tabela
@@ -53,7 +54,7 @@ th {
 tr {
 	color: cor(texto);
 	tbody & {
-		background: #fff;
+		background: cor(fundo, x-claro);
 	}
 }
 th {
@@ -77,7 +78,7 @@ td {
 		tbody tr:nth-child(even) {
 			background: cor(tabela, fundo);
 			.tab__acoes {
-				background: darken(cor(tabela, fundo), 15%);
+				background: desaturate(cor(tabela, fundo), 15%);
 			}
 		}
 	}

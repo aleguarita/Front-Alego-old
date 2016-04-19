@@ -9,7 +9,7 @@ Não se esqueça de compilar
 --------------------------------------------------------------------------------
 Algumas regras são quebradas intencionalmente. Por exemplo: como eu faço uso dos
 arquivos de cores básicos, eu não crio grupo de cores nos temas para elementos
-específicos (como código). Então eu uso o paleta-padrao() ao invés de cor()
+específicos (como código). Então eu uso o paleta() ao invés de cor()
 NÃO FAÇA ISSO EM CASA, CRIANÇAS
 --------------------------------------------------------------------------------
 Autor: Alessandro Guarita
@@ -53,10 +53,9 @@ $pd: .2rem; // padding
 // Bloco de código
 @mixin codigo {
   border-radius: $rd;
-  background: paleta-padrao(cinza-5);
-  border: 1px solid paleta-padrao(cinza-30);
+  background: paleta(cinza, claro, 85);
+  border: 1px solid paleta(cinza, claro, 34);
 }
-
 /*
 ================================================================================
 TAGS
@@ -73,7 +72,7 @@ body {
 samp {
   @include codigo;
   padding: .2em .4em;
-  color: cor-status(erro-claro);
+  color: cor-status(erro, clara, 15%);
 }
 figure:not([class]) {
   @include display-flex;
@@ -132,7 +131,7 @@ CLASSES
 // Ícone de arquivo/pasta
 // -----------------------------------------------------------------------------
 .local {
-  color: paleta-padrao(cinza-70);
+  color: paleta(cinza, escuro, 30%);
 }
 
 // -----------------------------------------------------------------------------
@@ -212,7 +211,7 @@ $largura-dt-pq: 9em;
   margin: 1em 0;
   overflow-x: auto;
   header {
-    background: fade-out(paleta-padrao(preto), .2);
+    background: fade-out(paleta(cinza, escuro, 100%), .2);
     border-radius: $rd $rd 0 0;
     padding: $pd $pd*2;
     font-family: $fonte-sem-serifa;
@@ -300,10 +299,10 @@ $i: 1;
   &--dica {
     @extend .aviso;
     @extend %dica-aviso;
-    color: cor-status(sucesso-escuro);
+    color: cor-status(sucesso, escuro, 15%);
     &::before {
       content: "\e084";
-      background: fade-out(cor-status(sucesso-claro), .85);
+      background: fade-out(cor-status(sucesso, claro, 25%), .85);
     }
   }
   &--grave {
@@ -312,7 +311,7 @@ $i: 1;
     color: cor-status(erro);
     &::before {
       content: "\e035";
-      background: fade-out(cor-status(erro-claro), .85);
+      background: fade-out(cor-status(erro, claro, 25%), .85);
     }
   }
 }
@@ -358,7 +357,7 @@ HEADER
       font-weight: bold;
     }
     &__titulo {
-      background: fade-out(paleta-padrao(preto), .3);
+      background: fade-out(paleta(cinza, escuro, 100%), .3);
       color: cor(texto, destaque);
     }
     a, &__ativo {
@@ -567,24 +566,16 @@ CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
 $cores-paleta: (
   basica,
   secundaria,
+  erro,
+  ok,
+  alerta,
+  cinza,
+  verde-bandeira,
+  azul-bandeira,
+  amarelo-bandeira,
+  rosa,
   // Insira o nome das paletas adicionais aqui
 );
-// -----------------------------------------------------------------------------
-// Aqui são os temas. Acrescente novos aqui, se necessário
-// -----------------------------------------------------------------------------
-// $tema-texto: (padrao, claro, medio, destaque, titulo);
-// $tema-fundo: (padrao, claro, x-claro, escuro, sombra);
-// $tema-borda: (padrao, variante);
-// $tema-link: (padrao, hover, escuro, escuro-hover);
-// $tema-formulario: (padrao, placeholder, ativo, fundo);
-// $tema-botao: (padrao, claro, escuro, secundario, secundario-claro, secundario-escuro);
-// $tema-tabela: (borda, borda-clara, borda-escura, fundo, titulo);
-// $tema-lista: (padrao, clara, escura);
-// $tema-modal: (fundo, titulo-fundo, titulo-texto);
-// $tema-paginacao: (padrao, clara, escura);
-// $tema-breadcrumbs: (link, atual);
-// $tema-card: (fundo, borda, titulo, destaque);
-// $tema-secao-lista: (padrao, clara);
 /*
 --------------------------------------------------------------------------------
 CORES | CLASSE BÁSICA
@@ -614,31 +605,31 @@ CORES | CLASSE BÁSICA
 CORES | PALETA PADRÃO
 --------------------------------------------------------------------------------
 */
-@each $cor, $item in $paleta-padrao {
-  .demo__cor--#{$cor} {
-    .cor { background: $item; }
-    .funcao {
-      &::before {
-        content: "paleta-padrao(#{$cor})";
-      }
-    }
-  }
-}
+// @each $cor, $item in $paleta {
+//   .demo__cor--#{$cor} {
+//     .cor { background: $item; }
+//     .funcao {
+//       &::before {
+//         content: "paleta(#{$cor})";
+//       }
+//     }
+//   }
+// }
 /*
 --------------------------------------------------------------------------------
 CORES | CORES STATUS
 --------------------------------------------------------------------------------
 */
-@each $cor, $item in $cor-status {
-  .demo__cor--#{$cor} {
-    .cor { background: $item; }
-    .funcao {
-      &::before {
-        content: "cor-status(#{$cor})"
-      }
-    }
-  }
-}
+// @each $cor, $item in $cor-status {
+//   .demo__cor--#{$cor} {
+//     .cor { background: $item; }
+//     .funcao {
+//       &::before {
+//         content: "cor-status(#{$cor})"
+//       }
+//     }
+//   }
+// }
 /*
 --------------------------------------------------------------------------------
 CORES | PALETA
@@ -676,7 +667,7 @@ $paleta-fonte: .8em;
         @include order(2);
         background: paleta(#{$paleta}, escura, $x);
         .funcao {
-          color: paleta-padrao(branco);
+          color: paleta(cinza, claro, 100%);
           &::before {
             content: "paleta(#{$paleta}, escura, #{$x})";
           }
@@ -1098,15 +1089,15 @@ $modal-tipos: tipo-1, tipo-2;
   @each $status, $classe in $tipos-toaster {
     .#{$status} {
       @if $toaster-tipo == tipo-1 {
-        background: cor-status(#{$classe}-escuro);
+        background: cor-status(#{$classe}, escuro, 15%);
       }
       @else if $toaster-tipo == tipo-2 {
-        color: cor-status(#{$classe}-escuro);
+        color: cor-status(#{$classe}, escuro, 25%);
       }
       .close {
         color: cor-status($classe);
         &:hover {
-          background: cor-status(#{$classe}-escuro);
+          background: cor-status(#{$classe}, escuro, 25%);
           color: cor(texto, claro);
         }
       }
@@ -1121,15 +1112,15 @@ $toaster-tipos: tipo-1, tipo-2;
     @each $status, $classe in $tipos-toaster {
       .#{$status} {
         @if $toast == tipo-1 {
-          background: cor-status(#{$classe}-escuro);
+          background: cor-status(#{$classe}, escuro, 15%);
         }
         @else if $toast == tipo-2 {
-          color: cor-status(#{$classe}-escuro);
+          color: cor-status(#{$classe}, escuro, 25%);
         }
         .close {
           color: cor-status($classe);
           &:hover {
-            background: cor-status(#{$classe}-escuro);
+            background: cor-status(#{$classe}, escuro, 25%);
             color: cor(texto, claro);
           }
         }
