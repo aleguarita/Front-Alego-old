@@ -11,12 +11,13 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 18/04/2016
+// Última alteração em: 03/05/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 03/05/2016 | Alinhamento à direita dos botões de ação
 // 18/04/2016 | Ajuste de fundo e texto dos campos do formulário
 // 16/03/2016 | Ajuste do ícone que é elemento comum
 // 04/02/2016 | Retirado .form__ico do arquivo form_texto e colocado aqui
@@ -87,4 +88,10 @@ $borda-form-tipo: if($form-tipo == "tipo-1", dotted, solid);
 }
 button.form__ico {
   border: 0;
+}
+.actions, .form__acoes {
+  text-align: right;
+  * + * {
+    margin-left: $margem / 2;
+  }
 }
