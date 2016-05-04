@@ -1,8 +1,6 @@
-/*
-================================================================================
-TIPOGRAFIA
-================================================================================
-*/
+// =============================================================================
+// TIPOGRAFIA
+// =============================================================================
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -10,12 +8,17 @@ TIPOGRAFIA
 // -----------------------------------------------------------------------------
 // tipografia.scss
 // Criado em: 13/01/2015
-// Última alteração em: 10/12/2015
+// Última alteração em: 03/02/2016
 // -----------------------------------------------------------------------------
-// Define os elementos básicos da tipografia e usa as variáveis criadas em
-// fontes.scss
+// Configurações genéricas e específicas de tipografia. Note que algumas
+// configurações são feitas diretamente por classes
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 03/02/2016 | Removido o mixin "link-bloco" do arquivo mixins e acrescentado
+// 							como opção no mixin link
+// 01/02/2016 | Retirados "resets" dos tags e movidos para o reset.scss
+// 29/01/2016 | Alterado nome das margens
+// 28/01/2016 | Mixins para substituir os antigos placeholders
 // 10/12/2015 | Acrescentado word-wrap no body para evitar que strings muito
 // 							longas em algum elemento filho, exceda o limite
 // 08/12/2015 | As classes foram movidas para config/classes.scss
@@ -34,8 +37,8 @@ TIPOGRAFIA
 // Para uso nas tags e classes abaixo
 // =============================================================================
 $fonte-titulo: $fonte-serifa;
-$margem-bloco-titulo: 1em 0 .5em;
-$margem-bloco-texto: 1em 0;
+$margem-titulo: 1em 0 .5em;
+$margem-texto: 1em 0;
 
 // -----------------------------------------------------------------------------
 // Modular scale no bourbon.io
@@ -45,101 +48,86 @@ $modular-font-size: 1.2rem;
 $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 
 // =============================================================================
-// ALTERAÇÕES DOS TAGS
+// MIXINS
 // -----------------------------------------------------------------------------
-// Alteração básica. Evite alterar demais para que isso não afete em cascata
-// É preferível o uso de classes para isso (no final do arquivo)
-// =============================================================================
-body {
-	color: cor(texto);
-	font-family: $fonte-sem-serifa;
-	word-wrap: break-word;
-}
-h1 {
-	@extend %texto-titulo;
-	font-size: modular-scale(5, $modular-font-size);
-}
-h2 {
-	@extend %texto-titulo;
-	font-size: modular-scale(4, $modular-font-size);
-}
-h3 {
-	@extend %texto-titulo;
-	font-size: modular-scale(3, $modular-font-size);
-}
-h4 {
-	@extend %texto-titulo;
-	font-size: modular-scale(2, $modular-font-size);
-}
-h5 {
-	@extend %texto-titulo;
-	font-size: modular-scale(1, $modular-font-size);
-}
-h6 {
-	@extend %texto-titulo;
-	font-size: modular-scale(0, $modular-font-size);
-}
-p, ul, ol, dl, table, blockquote, {
-	@extend %texto-padrao;
-}
-a {
-	color: cor(link);
-	&:hover {
-		color: cor(link, hover);
-	}
-}
-
-// =============================================================================
-// PLACEHOLDERS
-// -----------------------------------------------------------------------------
-// Para uso nas tags e classes abaixo
+// Para uso na formatação de tags e classes do sistema
 // =============================================================================
 
 // -----------------------------------------------------------------------------
-// PADRÕES | EVITE ALTERAR AQUI COM PROPRIEDADES NOVAS
+// PADRÕES
 // -----------------------------------------------------------------------------
-%texto-padrao {
-	font-size: $tamanho-fonte-textos;
-	margin: $margem-bloco-texto;
-	line-height: 1.5;
-	&:first-child {
-		margin-top: 0;
+// Evite alterar os já existentes com regras novas, pois eles são puxados
+// para TODOS os textos ou títulos. Mude conscientemente.
+// -----------------------------------------------------------------------------
+// Para acrescentar novas variantes siga os passos:
+// 1. Coloque um comentário explicando
+// 2. Acrescente um @else if $mod == nome-variante
+// -----------------------------------------------------------------------------
+@mixin texto($mod) {
+	// TEXTO PADRÃO
+	@if $mod == padrao {
+		font-size: $tamanho-fonte-textos;
+		margin: $margem-texto;
+		line-height: 1.5;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
-}
-%texto-titulo {
-	font-family: $fonte-serifa;
-	margin: $margem-bloco-titulo;
-	color: cor(texto, titulo);
-	line-height: 1.2;
-	&:first-child {
-		margin-top: 0;
+	// TEXTO DO TÍTULO
+	@else if $mod == titulo {
+		font-family: $fonte-serifa;
+		margin: $margem-titulo;
+		color: cor(texto, titulo);
+		line-height: 1.2;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 }
 
 // -----------------------------------------------------------------------------
 // Variações de título
 // -----------------------------------------------------------------------------
-%titulo--borda {
-	border-bottom: 1px solid;
+@mixin titulo($mod) {
+	// BORDA INFERIOR
+	@if $mod == borda {
+		border-bottom: 1px solid;
+	}
 }
 
 // -----------------------------------------------------------------------------
 // Variações de link
 // -----------------------------------------------------------------------------
-%link--sem-sublinhado {
-	text-decoration: none;
-	&:hover { text-decoration: underline; }
-}
-%link--borda {
-	border-bottom: 1px solid paleta-padrao(cinza-30);
-	text-decoration: none;
-	&:hover {
-		border-color: inherit;
-		color: cor(link);
+@mixin link($mod) {
+	// SEM PONTILHADO
+	// NÃO MODIFIQUE
+	@if $mod == sem-sublinhado {
+		text-decoration: none;
+		&:hover { text-decoration: underline; }
 	}
-}
-%link--pontilhado {
-	@extend %link--borda;
-	border-bottom-style: dotted;
-	&:hover { color: cor(link, escuro); }
+	// BLOCO. Transforma o link em um bloco. Use para "caber" no elemento pai.
+	// O link deve aparecer sozinho (normalmente usa em menu)
+	// NÃO MODIFIQUE
+	@else if $mod == bloco {
+		display: block;
+		text-decoration: none;
+	}
+	// BORDA - USA BORDA NO LUGAR DE SUBLINHADO
+	@else if $mod == borda {
+		border-bottom: 1px solid paleta-padrao(cinza-30);
+		text-decoration: none;
+		&:hover {
+			color: cor(link);
+			border-color: inherit;
+		}
+	}
+	// PONTILHADO - USA BORDA PONTILHADA NO LUGAR DE SUBLINHADO
+	@else if $mod == pontilhado {
+		border-bottom: 1px dotted paleta-padrao(cinza-30);
+		text-decoration: none;
+		&:hover {
+			color: cor(link, escuro);
+			border-color: inherit;
+		}
+	}
 }

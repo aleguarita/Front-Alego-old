@@ -1,0 +1,159 @@
+<article id="tipografia">
+  <header>
+    <h1>Tipografia</h1>
+    <p><strong>Fontes: </strong><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_fontes.scss</samp></p>
+    <p><strong>Configuração: </strong><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="tipografia__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="tipografia__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>A tipografia é ajustada em dois arquivos separados. Um na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base/</samp> (que não deve ser alterado) e outro na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> config</samp> (feito para alteração).</p>
+      <blockquote class="aviso--grave">
+        Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>.artigo-padrao h1</samp>)
+      </blockquote>
+      <h2 id="tipografia__fontes">Chamando fontes</h2>
+        <p>Dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
+        <dl class="lista-definicao">
+          <dt><samp>$fonte-serifa</samp></dt>
+          <dd>Fonte com serifa: variação da Patua One (se não usar tipografia personalizada, será a Palatino)</dd>
+          <dt><samp>$fonte-sem-serifa</samp></dt>
+          <dd>Fonte sem serifa: OpenSans (se não usar tipografia personalizada, será a Helvetica)</dd>
+          <dt><samp>$fonte-monoespacada</samp></dt>
+          <dd>Fonte monoespaçada: Consolas</dd>
+          <dt><samp>$fonte-simbolo</samp></dt>
+          <dd>Fonte de símbolos da Assembleia</dd>
+        </dl>
+      <h2 id="tipografia__variaveis">Configurações: variáveis</h2>
+        <p>As três primeiras variáveis do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp> determinam configurações básicas do texto:</p>
+        <dl class="lista-definicao">
+          <dt><samp>$fonte-titulo</samp></dt>
+          <dd>Qual a fonte padrão para os títulos do sistema. Por padrão é a <samp>$fonte-serifa</samp></dd>
+          <dt><samp>$margem-titulo</samp></dt>
+          <dd>Define a margem dos títulos <samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp></dd>
+          <dt><samp>$margem-texto</samp></dt>
+          <dd>Define a margem dos elementos de texto e similares. Incluindo tabelas e listas</dd>
+        </dl>
+        <p>As três variáveis seguintes determinam o tamanho do texto baseado no <samp>modular-scale</samp> do <a href="http://bourbon.io/docs/#modular-scale" class="link--externo">Bourbon</a>.</p>
+        <dl class="lista-definicao">
+          <dt><samp>$modular-scale-ratio</samp></dt>
+          <dd>Modifica o valor padrão estabelecido pelo Bourbon.</dd>
+          <dt><samp>$modular-font-size</samp></dt>
+          <dd>O tamanho base a ser usado pelo <samp>modular-scale()</samp></dd>
+          <dt><samp>$tamanho-fonte-textos</samp></dt>
+          <dd>A variação do tamanho de texto padrão (inclui tabelas e listas) baseado no <samp>modular-scale()</samp></dd>
+        </dl>
+        <blockquote class="aviso--dica">
+          Estas variáveis estão no arquivo de configuração (<samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp>) para que você possa alterar conforme a necessidade do sistema atual.
+        </blockquote>
+      <h2 id="tipografia__alterada">Formatação personalizada</h2>
+        <p>Sempre que for criar estilos mais personalizados (como com uso de bordas e sombras), procure utilizar classes ou seletores descendentes (lembre-se de não abusar de elementos descendentes. Mantenha a regra de no máximo um nível, se for necessário mais do que isso, é adequado o uso de classe).</p>
+        <p>Existe disponível alguns mixins para variações de título, texto e link.</p>
+      <h3>Padrões de texto</h3>
+      <p>O mixin <samp>texto()</samp> altera as propriedades básicas dos textos. Este mixin é puxado no arquivo de <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> reset</samp> e qualquer alteração destas propriedades vai alterar todo o seu site/sistema, portanto, evite alterar. É possível acrescentar mais propriedades, para isso acrescente o seguinte fragmento de texto <strong>antes</strong> da última chave (<samp>}</samp>):</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>@else if $mod == nome-variante {</p>
+          <p class="recuo-1">Regras</p>
+        <p>}</p>
+      </code>
+      <p>Para usar este mixin (se precisar) chame com <samp>@include texto($mod)</samp> e coloque o nome do tipo no lugar de <samp>$mod</samp>:</p>
+      <dl class="lista-definicao">
+        <dt><samp>padrao</samp></dt>
+        <dd>Configurações básicas do corpo de texto, listas e tabelas.</dd>
+        <dt><samp>titulo</samp></dt>
+        <dd>Configuração básica do texto dos títulos.</dd>
+      </dl>
+      <h3>Demais mixins</h3>
+        <p>Estes são mixins para usar em classes ou seletores descedentes que formatam texto. Tem um para título (com apenas um variante) e três para links. Este mixin não está sendo usado ativamente e está disponível para seu uso ou alteração. Para usar o mixin ou acrescentar variantes neles siga as instruções acima.</p>
+        <h4>titulo()</h4>
+        <p>Use este mixin para configurações especiais de título, que fujam do padrão. Até o momento o Front-Alego oferece apenas uma opção: borda.</p>
+        <dl class="lista-definicao">
+          <dt><samp>borda</samp></dt>
+          <dd>Aplica uma borda na parte inferior do título, que fica com a mesma cor do texto.</dd>
+        </dl>
+        <h4>link()</h4>
+        <p>Use este mixin para configurações especiais de link e seus variantes. Algumas delas já usadas.</p>
+        <dl class="lista-definicao">
+          <dt><samp>sem-sublinhado</samp></dt>
+          <dd>Tira o sublinhado do link e aplica quando passa ou mouse por cima</dd>
+          <dt><samp>borda</samp></dt>
+          <dd>Tira o sublinhado e substitui por uma borda fina e cinza. Quando passa o mouse por cima, o sublinhado fica da cor do link (que não muda de cor).</dd>
+          <dt><samp>pontilhado</samp></dt>
+          <dd>Igual ao de cima, mas com a diferença que a borda é pontilhada e o link escurece ao passar por cima</dd>
+        </dl>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="tipografia__demo--basica" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="tipografia__demo--basica">
+        <span class="secao-lista__titulo">Demonstração | Tipografia Básica</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <header><h1>Tipografia básica (sem classes/placeholders)</h1></header>
+      <h1>h1. Lorem ipsum dolor sit amet</h1>
+      <h2>h2. Lorem ipsum dolor sit amet</h2>
+      <h3>h3. Lorem ipsum dolor sit amet</h3>
+      <h4>h4. Lorem ipsum dolor sit amet</h4>
+      <h5>h5. Lorem ipsum dolor sit amet</h5>
+      <h6>h6. Lorem ipsum dolor sit amet</h6>
+      <p>
+        <strong>Parágrafo comum.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <ul>
+        <li>Lista</li>
+        <li>Lista</li>
+      </ul>
+      <ol>
+        <li>Lista</li>
+        <li>Lista</li>
+      </ol>
+      <p>
+        <strong>Negrito</strong>. <em>Empashis (itálico)</em>. <u>Sublinhado</u>. <a href="al.go.leg.br" target="_blank">Link padrão</a>
+      </p>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="tipografia__demo--modificada" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="tipografia__demo--modificada">
+        <span class="secao-lista__titulo">Demonstração | Tipografia Modificada</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <header><h1>Tipografia modificada (com classes/placeholders)</h1></header>
+      <main>
+        <h1 class="titulo--borda">h1 - titulo(borda)</h1>
+        <p><a href="al.go.leg.br" class="link--sem-sublinhado">%link--sem-sublinhado</a></p>
+        <p><a href="al.go.leg.br" class="link--borda">%link--borda</a></p>
+        <p><a href="al.go.leg.br" class="link--pontilhado">%link--pontilhado</a></p>
+        <p>Tamanho padrão</p>
+        <p><samp>.fonte--menor</samp> <span class="fonte--menor">Tamanho menor</span></p>
+        <p><samp>.fonte--x-menor</samp> <span class="fonte--x-menor">Tamanho x-menor</span></p>
+        <p><samp>.fonte--xx-menor</samp> <span class="fonte--xx-menor">Tamanho xx-menor</span></p>
+        <p><samp>.fonte--maior</samp> <span class="fonte--maior">Tamanho maior</span></p>
+        <p><samp>.fonte--x-maior</samp> <span class="fonte--x-maior">Tamanho x-maior</span></p>
+        <p><samp>.fonte--xx-maior</samp> <span class="fonte--xx-maior">Tamanho xx-maior</span></p>
+        <p><samp>.texto--caixa-alta</samp> <span class="texto--caixa-alta">Texto modificado para caixa alta</span></p>
+        <p><samp>.texto--ok</samp> <span class="texto--ok">Texto ok</span></p>
+        <p><samp>.texto--erro</samp> <span class="texto--erro">Texto erro</span></p>
+        <p><samp>.texto--alerta</samp> <span class="texto--alerta">Texto alerta</span></p>
+        <p><samp>.fundo--ok</samp> <span class="fundo--ok">Fundo ok</span></p>
+        <p><samp>.fundo--erro</samp> <span class="fundo--erro">Fundo erro</span></p>
+        <p><samp>.fundo--alerta</samp> <span class="fundo--alerta">Fundo alerta</span></p>
+        <ul class="lista--sem-marcador">
+          <li>Lista sem marcadores (item 1)</li>
+          <li>Lista sem marcadores (item 2)</li>
+        </ul>
+    </section>
+  </section>
+</article>

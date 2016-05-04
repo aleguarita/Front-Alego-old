@@ -1,0 +1,1479 @@
+@charset "UTF-8";
+/*!
+================================================================================
+NOME DO SISTEMA | admin
+--------------------------------------------------------------------------------
+Autor:
+Data:
+--------------------------------------------------------------------------------
+Arquivo base criado por Alessandro Guarita em 04/03/2016
+ASSEMBLEIA LEGISLATIVA DO ESTADO DE GOIÁS
+Seção de Programação Web
+================================================================================
+*/
+/*!
+	==============================================================================
+	FRONT-ALEGO | Framework da Assembleia Legislativa
+	Autor: Alessandro Guarita
+	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
+	------------------------------------------------------------------------------
+	Criado em: 07/01/2015
+	Última alteração: 29/03/2016
+	------------------------------------------------------------------------------
+*/
+/*
+================================================================================
+FONTES
+================================================================================
+*/
+@font-face {
+  font-family: 'serifa-titulo';
+  src: url("fontes/serifatitulo-regular-webfont.eot");
+  src: url("fontes/serifatitulo-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/serifatitulo-regular-webfont.woff") format("woff"), url("fontes/serifatitulo-regular-webfont.ttf") format("truetype"), url("fontes/serifatitulo-regular-webfont.svg#serifa-titulo") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fontes/OpenSans-Regular-webfont.eot");
+  src: url("fontes/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-Regular-webfont.woff") format("woff"), url("fontes/OpenSans-Regular-webfont.ttf") format("truetype"), url("fontes/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fontes/OpenSans-Italic-webfont.eot");
+  src: url("fontes/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-Italic-webfont.woff") format("woff"), url("fontes/OpenSans-Italic-webfont.ttf") format("truetype"), url("fontes/OpenSans-Italic-webfont.svg#OpenSansItalic") format("svg");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fontes/OpenSans-Bold-webfont.eot");
+  src: url("fontes/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-Bold-webfont.woff") format("woff"), url("fontes/OpenSans-Bold-webfont.ttf") format("truetype"), url("fontes/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans';
+  src: url("fontes/OpenSans-BoldItalic-webfont.eot");
+  src: url("fontes/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("fontes/OpenSans-BoldItalic-webfont.woff") format("woff"), url("fontes/OpenSans-BoldItalic-webfont.ttf") format("truetype"), url("fontes/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic") format("svg");
+  font-weight: bold;
+  font-style: italic;
+}
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   Alterado: Alessandro Guarita em 28/03/2016
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, main {
+  margin: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+  display: block;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  color: #000;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  word-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  margin: 1em 0 0.5em;
+  color: #cd5800;
+  line-height: 1.2;
+}
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.16244rem;
+}
+
+h2 {
+  font-size: 1.92217rem;
+}
+
+h3 {
+  font-size: 1.70859rem;
+}
+
+h4 {
+  font-size: 1.51875rem;
+}
+
+h5 {
+  font-size: 1.35rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p, ul, ol, dl, table, blockquote {
+  font-size: 0.8428rem;
+  margin: 1em 0;
+  line-height: 1.5;
+}
+p:first-child, ul:first-child, ol:first-child, dl:first-child, table:first-child, blockquote:first-child {
+  margin-top: 0;
+}
+
+a {
+  color: #00c5cd;
+}
+a:hover {
+  color: #40d4da;
+}
+
+/*
+================================================================================
+FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
+================================================================================
+FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
+--------------------------------------------------------------------------------
+*/
+.form-container, .form-container--linha {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.form-container {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: calc(100% + 0.625rem);
+  margin-left: -0.3125rem;
+}
+
+.form-container--linha + .form-container--linha {
+  margin-top: 0.625rem;
+}
+@media (min-width: 30em) {
+  .form-container--linha *:first-child {
+    padding-left: 0;
+  }
+  .form-container--linha *:last-child {
+    padding-right: 0;
+  }
+}
+
+/*
+--------------------------------------------------------------------------------
+FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
+--------------------------------------------------------------------------------
+*/
+.field-1 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 8.33333%;
+}
+
+.field-2 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 16.66667%;
+}
+
+.field-3 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 25%;
+}
+
+.field-4 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 33.33333%;
+}
+
+.field-5 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 41.66667%;
+}
+
+.field-6 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 50%;
+}
+
+.field-7 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 58.33333%;
+}
+
+.field-8 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 66.66667%;
+}
+
+.field-9 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 75%;
+}
+
+.field-10 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 83.33333%;
+}
+
+.field-11 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 91.66667%;
+}
+
+.field-12 {
+  padding: 0 0.3125rem 0.625rem;
+  width: 100%;
+}
+
+.field {
+  padding: 0 0.3125rem 0.625rem;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+@media (max-width: 30em) {
+  .field--responsivo {
+    min-width: 100%;
+  }
+}
+
+/*
+================================================================================
+FORMULÁRIOS | ELEMENTOS COMUM
+================================================================================
+*/
+.form__ico {
+  padding: 0.3125rem 0.5em;
+  cursor: pointer;
+  color: #00949a;
+  background: #fff;
+  border-bottom: 1px #00949a dotted;
+}
+.form__ico:hover {
+  background: #00949a;
+  color: #fff;
+}
+
+button.form__ico {
+  border: 0;
+}
+
+/*
+================================================================================
+FORMULÁRIOS | INPUT[TEXT], TEXTAREA
+================================================================================
+*/
+.form-texto {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form-texto input, .form-texto textarea, .form-texto select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form-texto label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  color: #00949a;
+  width: 100%;
+}
+.form-texto input, .form-texto textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  font-size: .9em;
+  border: 0;
+  border-bottom: 1px dotted #00949a;
+}
+.form-texto input::-webkit-input-placeholder, .form-texto textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form-texto input::-moz-placeholder, .form-texto textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form-texto input:-ms-input-placeholder, .form-texto textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+  color: #40d4da;
+}
+.form-texto input:focus, .form-texto textarea:focus {
+  border-bottom-color: #003133;
+}
+
+/*
+================================================================================
+FORMULÁRIOS | RADIO BUTTON, CHECKBOX
+================================================================================
+*/
+/*
+--------------------------------------------------------------------------------
+RADIO BUTTON
+--------------------------------------------------------------------------------
+*/
+.form-radio {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form-radio input {
+  display: none;
+}
+.form-radio label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a dotted;
+}
+.form-radio label::before {
+  margin-right: .5em;
+}
+input:checked ~ .form-radio label {
+  font-weight: bold;
+  color: #003133;
+}
+.form-radio label::before {
+  content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Ccircle%20r%3D%224.5%22%20cx%3D%225%22%20cy%3D%225%22%20fill%3D%22%23FFF%22%20stroke%3D%22#00949a%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E);
+}
+.form-radio input:checked ~ label::before {
+  content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Ccircle%20cx%3D%225%22%20cy%3D%225%22%20r%3D%225%22%20fill%3D%22#00949a%22%2F%3E%3Ccircle%20cx%3D%225%22%20cy%3D%225%22%20r%3D%222%22%20fill%3D%22%23FFF%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/*
+--------------------------------------------------------------------------------
+CHECKBOX
+--------------------------------------------------------------------------------
+*/
+.form-checkbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+}
+.form-checkbox input {
+  display: none;
+}
+.form-checkbox label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  border-bottom: 1px #00949a dotted;
+}
+.form-checkbox label::before {
+  margin-right: .5em;
+}
+input:checked ~ .form-checkbox label {
+  font-weight: bold;
+  color: #003133;
+}
+.form-checkbox label::before {
+  content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Crect%20y%3D%220%22%20width%3D%2210%22%20height%3D%2210%22%20fill%3D%22%23FFF%22%20stroke-width%3D%222%22%20stroke%3D%22#00949a%22%2F%3E%3C%2Fsvg%3E);
+}
+.form-checkbox input:checked ~ label::before {
+  content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Crect%20width%3D%2210%22%20height%3D%2210%22%20fill%3D%22#00949a%22%2F%3E%3Cpath%20d%3D%22M7.8%203.7c0%200.1%200%200.2-0.1%200.2L5.1%206.6%204.6%207.1c-0.1%200.1-0.1%200.1-0.2%200.1%20-0.1%200-0.2%200-0.2-0.1L3.6%206.6%202.3%205.2C2.2%205.2%202.2%205.1%202.2%205c0-0.1%200-0.2%200.1-0.2l0.5-0.5c0.1-0.1%200.1-0.1%200.2-0.1%200.1%200%200.2%200%200.2%200.1L4.3%205.3l2.4-2.4c0.1-0.1%200.1-0.1%200.2-0.1%200.1%200%200.2%200%200.2%200.1l0.5%200.5C7.8%203.5%207.8%203.6%207.8%203.7z%22%20fill%3D%22%23FFF%22%2F%3E%3C%2Fsvg%3E);
+}
+
+/*
+================================================================================
+FORMULÁRIOS | SELECT
+================================================================================
+*/
+.form-select {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.8428rem;
+  min-height: 2.25rem;
+  position: relative;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form-select input, .form-select textarea, .form-select select {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.form-select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+  border-bottom: 1px #00949a dotted;
+}
+.form-select label {
+  -webkit-order: -1;
+  order: -1;
+  font-weight: bold;
+  color: #00949a;
+  width: 100%;
+}
+.form-select .form__ico {
+  color: #00949a;
+}
+
+/*
+================================================================================
+FORMULÁRIO | BOTÕES
+================================================================================
+*/
+.bt, .bt--secundario, .bt--urgente, .bt--ok, .bt--aviso {
+  padding: .5em 1em;
+  color: #cd5800;
+  cursor: pointer;
+  border: 1px solid;
+  font-size: .9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.5s ease 0s;
+}
+
+.bt, .bt--secundario, .bt--urgente, .bt--ok, .bt--aviso {
+  color: #fff;
+}
+
+.bt {
+  background: #cd5800;
+}
+.bt:hover {
+  background: #9a4200;
+}
+
+.bt--secundario {
+  background: #00c5cd;
+}
+.bt--secundario:hover {
+  background: #00949a;
+}
+
+.bt--urgente {
+  background: #d51920;
+}
+.bt--urgente:hover {
+  background: #ab1b29;
+}
+
+.bt--ok {
+  background: #33a343;
+}
+.bt--ok:hover {
+  background: #00853d;
+}
+
+.bt--aviso {
+  background: #e0a914;
+}
+.bt--aviso:hover {
+  background: #d79f05;
+}
+
+/*
+================================================================================
+FORMULÁRIOS | AUTOCOMPLETE
+================================================================================
+*/
+.ui-autocomplete {
+  list-style: none;
+  padding-left: 0;
+  position: absolute !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px dotted #00949a;
+}
+.ui-autocomplete li {
+  padding: .25em .5em;
+  cursor: pointer;
+  background: #fff;
+  color: gray;
+  font-size: .85em;
+  border-bottom: 1px dotted #66dde1;
+}
+.ui-autocomplete li:hover {
+  color: #000;
+}
+.ui-autocomplete li:last-child {
+  border-bottom: 0;
+}
+
+.ui-helper-hidden-accessible {
+  display: none !important;
+}
+
+/*
+================================================================================
+GRID
+================================================================================
+*/
+.container, .container--gutter, .container--calha {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 100rem;
+}
+
+.container--gutter, .container--calha {
+  padding: 0 0.625rem;
+}
+.container--gutter > * + *, .container--calha > * + * {
+  margin-left: 0.625%;
+}
+
+/*
+================================================================================
+TABELAS
+================================================================================
+*/
+table {
+  width: 100%;
+}
+
+th {
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  text-align: left;
+  font-size: 1.07143em;
+}
+
+tr {
+  color: #000;
+}
+tbody tr {
+  background: #fff;
+}
+
+th {
+  padding: .25em .45em;
+  text-transform: uppercase;
+}
+
+td {
+  line-height: 1;
+  padding: .5em;
+  font-size: 0.85714em;
+}
+
+.tab thead tr, .tab--form thead tr {
+  color: #fff;
+  background: #006367;
+  border-bottom: 2px solid #40d4da;
+}
+.tab tbody tr, .tab--form tbody tr {
+  border-bottom: 1px solid #40d4da;
+}
+.tab tbody tr:nth-child(odd), .tab--form tbody tr:nth-child(odd) {
+  color: gray;
+}
+.tab .tab__acoes, .tab--form .tab__acoes {
+  background: #d4f6f7;
+}
+.tab tbody tr:nth-child(even), .tab--form tbody tr:nth-child(even) {
+  background: #bff1f3;
+}
+.tab tbody tr:nth-child(even) .tab__acoes, .tab--form tbody tr:nth-child(even) .tab__acoes {
+  background: #7fe3e7;
+}
+
+.tab--form tbody tr:nth-child(even) {
+  background: #fff;
+}
+.tab--form td {
+  padding: 0 .25em;
+  border-left: 2px solid #40d4da;
+}
+.tab--form td:last-child {
+  border-right: 2px solid #40d4da;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"]),
+.tab--form textarea,
+.tab--form select {
+  border: 0;
+  background: #fff;
+  width: 100%;
+  padding: .25em;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  font-size: 0.875rem;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"])::-webkit-input-placeholder,
+.tab--form textarea::-webkit-input-placeholder,
+.tab--form select::-webkit-input-placeholder {
+  color: #40d4da;
+  text-transform: uppercase;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"])::-moz-placeholder,
+.tab--form textarea::-moz-placeholder,
+.tab--form select::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #40d4da;
+  text-transform: uppercase;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"]):-ms-input-placeholder,
+.tab--form textarea:-ms-input-placeholder,
+.tab--form select:-ms-input-placeholder {
+  color: #40d4da;
+  text-transform: uppercase;
+}
+.tab--form input:not([type="checkbox"]):not([type="radio"]):hover, .tab--form input:not([type="checkbox"]):not([type="radio"]):focus,
+.tab--form textarea:hover,
+.tab--form textarea:focus,
+.tab--form select:hover,
+.tab--form select:focus {
+  border-color: #00949a;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+.tab__acoes a {
+  color: #004a4e;
+  margin-left: .5em;
+  margin-right: .5em;
+  text-decoration: none;
+}
+.tab__acoes a:hover {
+  color: black;
+}
+.tab__acoes button {
+  padding: 0;
+}
+.tab__acoes button {
+  color: #004a4e;
+  margin-left: .5em;
+  margin-right: .5em;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+.tab__acoes button:hover {
+  color: black;
+}
+.tab__acoes button {
+  padding: 0;
+}
+
+.col--acoes {
+  width: 4.375rem;
+}
+
+/*
+================================================================================
+PAGINAÇÃO
+================================================================================
+*/
+.pagination {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+  font-size: 0.65rem;
+  padding: .5rem 0;
+}
+.pagination .gap, .pagination .current, .pagination a {
+  color: #cd5800;
+  background: white;
+  border-bottom: 2px solid transparent;
+}
+.pagination .gap {
+  padding: 0.26rem 0.65rem;
+  color: #9a4200;
+}
+.pagination .prev, .pagination .first, .pagination .next, .pagination .last {
+  font-size: .95em;
+}
+.pagination .current {
+  font-weight: bold;
+  z-index: 2;
+  padding: 0.26rem 0.65rem;
+  box-shadow: 0 0 6px rgba(77, 77, 77, 0.5);
+  border-bottom-color: #cd5800;
+}
+.pagination a {
+  display: block;
+  text-decoration: none;
+  color: #cd5800;
+  padding: 0.26rem 0.65rem;
+}
+.pagination a:hover {
+  font-weight: bold;
+  border-bottom-color: #cd5800;
+}
+
+/*
+================================================================================
+CARD
+================================================================================
+*/
+.card {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.card h1, .card p {
+  margin: 0;
+  padding: 0 0.625rem;
+}
+.card h1 {
+  font-size: 1.70859rem;
+  color: #fff;
+}
+.card__titulo {
+  padding: 0.625rem 0;
+  background: #006367;
+}
+.card__imagem {
+  line-height: 0;
+}
+.card__imagem img {
+  max-width: 100%;
+}
+.card__principal {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.card__principal > *:first-child:not(.card__item):not(.card__item--destaque) {
+  padding-top: .5em;
+}
+.card__item, .card__item--destaque {
+  padding: 0.3125rem 0;
+  border-top: 1px #00c5cd;
+  border-top-style: solid;
+}
+.card__item:first-child, .card__item--destaque:first-child {
+  border-width: 0;
+}
+.card__footer {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.625rem;
+}
+.card__footer * {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.card__footer * + * {
+  margin-left: .5em;
+}
+
+.card__item--destaque {
+  padding: 0;
+}
+.card__item--destaque p {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+}
+.card__item--destaque strong, .card__item--destaque span {
+  padding: 0.3125rem 0.625rem;
+}
+.card__item--destaque strong {
+  background: #00949a;
+  color: #fff;
+}
+
+/*
+================================================================================
+BREADCRUMBS
+================================================================================
+*/
+.breadcrumbs {
+  list-style: none;
+  padding-left: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0.6875rem;
+}
+.breadcrumbs li {
+  color: #da8240;
+  padding-left: .2em;
+}
+.breadcrumbs li:last-child {
+  color: #9a4200;
+  font-weight: bold;
+}
+.breadcrumbs a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.breadcrumbs a::after {
+  content: " > ";
+  font-weight: bold;
+  margin-left: .2em;
+  margin-right: .2em;
+}
+.breadcrumbs a:hover {
+  border-bottom: 1px dotted;
+}
+
+/*
+================================================================================
+TOASTER
+================================================================================
+*/
+.toast {
+  list-style: none;
+  padding-left: 0;
+  position: fixed;
+  margin: 0;
+  width: 18.75rem;
+  right: 2em;
+  bottom: 2em;
+  z-index: 7;
+}
+.toast li {
+  position: relative;
+  padding: 1.5em;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  line-height: 1;
+  margin-top: 1.5em;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.toast .close {
+  transition: all 0.5s ease 0s;
+  cursor: pointer;
+  position: absolute;
+  right: 1em;
+  top: -.8em;
+  display: block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1;
+  border: 0;
+}
+.toast .success {
+  background: #009444;
+}
+.toast .success .close {
+  color: #39b54a;
+}
+.toast .success .close:hover {
+  background: #009444;
+  color: #fff;
+}
+.toast .error {
+  background: #be1e2d;
+}
+.toast .error .close {
+  color: #ed1c24;
+}
+.toast .error .close:hover {
+  background: #be1e2d;
+  color: #fff;
+}
+.toast .alert {
+  background: #efb106;
+}
+.toast .alert .close {
+  color: #f9bc16;
+}
+.toast .alert .close:hover {
+  background: #efb106;
+  color: #fff;
+}
+.toast .info {
+  background: #000;
+}
+.toast .info .close {
+  color: #4d4d4d;
+}
+.toast .info .close:hover {
+  background: #000;
+  color: #fff;
+}
+
+/*
+================================================================================
+MODAL
+================================================================================
+*/
+.modal--oculta {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.85);
+  z-index: 6;
+  overflow: hidden;
+}
+.modal__janela {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+@media (max-width: 48em) {
+  .modal__janela {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (min-width: 48em) {
+  .modal__janela {
+    max-width: 85%;
+    min-width: 25em;
+  }
+}
+.modal__conteudo {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  padding: 1.25rem;
+}
+.modal__acoes {
+  padding: 1.25rem;
+  text-align: right;
+}
+.modal__acoes * + * {
+  margin-left: 1.25rem;
+}
+.modal__titulo {
+  padding: 0.625rem 1.25rem;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: baseline;
+  align-items: baseline;
+  background: #00949a;
+}
+.modal__titulo h1 {
+  text-transform: uppercase;
+  font-size: 1.375rem;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  color: #fff;
+  margin: 0;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+}
+.modal__fechar {
+  padding-left: 1.25rem;
+}
+.modal__fechar a {
+  display: block;
+  text-decoration: none;
+  transition: all 0.5s ease 0s;
+  color: #fff;
+}
+.modal__fechar a:hover {
+  text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+}
+
+/*
+================================================================================
+SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
+================================================================================
+*/
+.secao-lista {
+  border: 1px solid #00949a;
+}
+.secao-lista + .secao-lista {
+  margin-top: 1px;
+}
+.secao-lista__check {
+  display: none;
+}
+.secao-lista__check:checked ~ .secao-lista__conteudo {
+  display: none;
+}
+.secao-lista__check:checked ~ .secao-lista__header .secao-lista__icone {
+  transform: rotate(0deg);
+}
+.secao-lista__header {
+  padding: 0.3125rem 0.625rem;
+  font-size: 1.70859rem;
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  background: #bff1f3;
+  color: #00949a;
+  background: #00949a;
+  color: #fff;
+}
+.secao-lista__header label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+.secao-lista__titulo {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.secao-lista__icone {
+  transition: all 0.5s ease 0s;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+.secao-lista__conteudo {
+  padding: 0.625rem;
+  border-top: 1px dashed #00949a;
+}
+
+/*
+================================================================================
+ABAS
+================================================================================
+*/
+.abas__input {
+  display: none;
+}
+.abas__conteudo {
+  display: none;
+}
+.abas__nav {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.625rem;
+  background: linear-gradient(to top, transparent 1px, #e6ac80 1px, transparent 2px);
+}
+.abas__aba {
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  font-size: 0.875rem;
+  padding: .5em 1em;
+  color: #e6ac80;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+  padding-bottom: .25em;
+  border-bottom: 3px solid transparent;
+}
+.abas__aba:hover {
+  border-bottom-color: #e6ac80;
+}
+.aba-1:checked ~ .abas__nav .aba-1 {
+  color: #cd5800;
+  border-color: #cd5800;
+}
+.aba-2:checked ~ .abas__nav .aba-2 {
+  color: #cd5800;
+  border-color: #cd5800;
+}
+.aba-3:checked ~ .abas__nav .aba-3 {
+  color: #cd5800;
+  border-color: #cd5800;
+}
+.aba-4:checked ~ .abas__nav .aba-4 {
+  color: #cd5800;
+  border-color: #cd5800;
+}
+.aba-5:checked ~ .abas__nav .aba-5 {
+  color: #cd5800;
+  border-color: #cd5800;
+}
+
+.aba-1:checked ~ .aba-1 {
+  display: block;
+}
+.aba-2:checked ~ .aba-2 {
+  display: block;
+}
+.aba-3:checked ~ .aba-3 {
+  display: block;
+}
+.aba-4:checked ~ .aba-4 {
+  display: block;
+}
+.aba-5:checked ~ .aba-5 {
+  display: block;
+}
+/*
+================================================================================
+LISTA
+================================================================================
+*/
+.lista, .lista--link {
+  list-style: none;
+  padding-left: 0;
+  border: 1px solid #00c5cd;
+}
+.lista li, .lista--link li {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #00c5cd;
+}
+.lista li:not(.lista__titulo), .lista--link li:not(.lista__titulo) {
+  background: #fff;
+}
+.lista li:last-child, .lista--link li:last-child {
+  border-bottom-width: 0;
+}
+.lista__titulo {
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  font-size: 1.6em;
+  background: #006367;
+  color: #fff;
+}
+.lista--link li:not(.lista__titulo) {
+  padding: 0;
+}
+.lista--link a, .lista--link span {
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+}
+
+/*
+================================================================================
+SÍMBOLOS EM SVG
+================================================================================
+*/
+.ico {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.ico--baixo {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.ico--cima {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.ico--esquerda {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/*
+================================================================================
+CLASSES FIXAS
+================================================================================
+*/
+.oculta {
+  display: none;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.texto--ok {
+  color: #39b54a;
+}
+
+.texto--erro, .texto--urgente {
+  color: #ed1c24;
+}
+
+.texto--alerta {
+  color: #f9bc16;
+}
+
+.fundo--ok, .fundo--erro, .fundo--urgente, .fundo--alerta {
+  color: #fff;
+}
+
+.fundo--ok {
+  background: #39b54a;
+}
+
+.fundo--erro, .fundo--urgente {
+  background: #ed1c24;
+}
+
+.fundo--alerta {
+  background: #f9bc16;
+}
+
+.texto--caixa-alta, .texto--uppercase {
+  text-transform: uppercase;
+}
+
+.fonte--menor, .texto--menor {
+  font-size: 0.88889em;
+}
+
+.fonte--x-menor, .texto--x-menor {
+  font-size: 0.79012em;
+}
+
+.fonte--xx-menor, .texto--xx-menor {
+  font-size: 0.70233em;
+}
+
+.fonte--maior, .texto--maior {
+  font-size: 1.125em;
+}
+
+.fonte--x-maior, .texto--x-maior {
+  font-size: 1.26563em;
+}
+
+.fonte--xx-maior, .texto--xx-maior {
+  font-size: 1.42383em;
+}
+
+/*
+================================================================================
+LOGIN
+================================================================================
+*/
+.login {
+  background: #00c5cd;
+  width: 100vw;
+  height: 100vh;
+}
+.login__janela {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 30em) {
+  .login__janela {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+.login__header {
+  margin-bottom: 0.625rem;
+}
+.login__principal {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 0.625rem;
+  padding: 0.625rem;
+}
+@media (max-width: 30em) {
+  .login__principal {
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-align-content: center;
+    align-content: center;
+  }
+}
+.login__acoes {
+  padding: 0.3125rem;
+  text-align: center;
+}
+
+/*
+================================================================================
+ADMIN | ÁREA INTERNA
+================================================================================
+*/
+.header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-flex: 1 0 100%;
+  flex: 1 0 100%;
+  height: 45px;
+  background: #40d4da;
+}
+@media (min-width: 64em) {
+  .header {
+    -webkit-flex: 12 0 100%;
+    flex: 12 0 100%;
+  }
+}
+.header__logo {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.header__usuario {
+  padding: 0.3125rem;
+}
+.header__usuario > * + * {
+  margin-left: 0.125rem;
+}
+.header__usuario a {
+  text-decoration: none;
+  color: #fff;
+}
+.header__usuario a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.nav {
+  -webkit-flex: 1 0 100%;
+  flex: 1 0 100%;
+}
+@media (min-width: 64em) {
+  .nav {
+    -webkit-flex: 2 0 16.66667%;
+    flex: 2 0 16.66667%;
+  }
+}
+.nav__menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  z-index: 3;
+}
+.nav__menu li {
+  position: relative;
+}
+.nav__menu li > a {
+  display: block;
+  text-decoration: none;
+  padding: .2em .4em;
+}
+.nav__submenu {
+  list-style: none;
+  padding-left: 0;
+  position: absolute;
+  display: none;
+  margin: 0;
+  z-index: 4;
+  top: 0;
+  transform: translateX(100%);
+  width: 100%;
+}
+a:hover ~ .nav__submenu, .nav__submenu:hover {
+  display: block;
+}
+
+.main {
+  -webkit-flex: 1 0 100%;
+  flex: 1 0 100%;
+  min-height: calc(100vh - 45px - 1.25rem - 0.625rem * 2);
+  padding: 0.625rem;
+}
+@media (min-width: 64em) {
+  .main {
+    -webkit-flex: 8 0 66.66667%;
+    flex: 8 0 66.66667%;
+  }
+}
+
+.aside {
+  -webkit-flex: 1 0 100%;
+  flex: 1 0 100%;
+  padding: 0.625rem;
+}
+@media (min-width: 64em) {
+  .aside {
+    -webkit-flex: 2 0 16.66667%;
+    flex: 2 0 16.66667%;
+  }
+}
+
+.footer {
+  -webkit-flex: 1 0 100%;
+  flex: 1 0 100%;
+  min-height: 1.25rem;
+  padding: 0.625rem;
+}
+@media (min-width: 64em) {
+  .footer {
+    -webkit-flex: 12 0 100%;
+    flex: 12 0 100%;
+  }
+}
+
+/*# sourceMappingURL=admin.css.map */

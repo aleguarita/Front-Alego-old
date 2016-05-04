@@ -1,0 +1,64 @@
+<article id="form-grupo">
+  <header><h1>Grupos de Formulários</h1></header>
+  <section class="secao-lista">
+    <input type="checkbox" id="form__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="form__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Os formulários são agrupados em um sistema similar ao de grids. Primeiro você determina se vai usar este sistema ou se vai determinar o tamanho dos formulários na unha (essa alteração é feita no <a href="#config__classes" class="link--readme">arquivo de configuração</a>).</p>
+      <p>Para determinar o tamanho usamos flex-box, portanto é necessário perceber que teremos dois níveis de configuração: o elemento pai (que acaba separando o grupo de formulários) e o elemento filho (o elemento menor, que vai contér um pedaço do formulário).</p>
+      <h2>O Container</h2>
+        <p>O container é que vai determinar o flexbox e distribuir os elementos de formulário. Se <samp>form-grupo</samp> estiver ativo no mapa <samp>$uso-classes</samp> (nas <a href="#config__classes" class="link--readme">configurações</a>) serão criadas duas classes de container para serem usadas:</p>
+        <dl class="lista-definicao">
+          <dt><samp>.form-container</samp></dt>
+            <dd>Este container permite que coloque todo o formulário dentro dele. Ele tem margem negativa e padding para alinhamento. Se quiser usar fundo, borda ou sombra não é o método adequado (a menos que se acrescente um elemento pai com estas configurações). A grande vantagem deste container é que evita o excesso de divs dentro do HTML, deixando-o mais limpo e de fácil manutenção</dd>
+          <dt><samp>.form-container--linha</samp></dt>
+            <dd>Este container é para ser usado para cada linha de formulário. A diferença é que vai deixar o HTML maior (com mais divs). No entanto tem a grande vantagem de permitir que formulários sem tamanho determinado, ajustando-se ao espaço restante (flex: 1).</dd>
+        </dl>
+      <h2>Caixas de formulário</h2>
+        <p>Cada pedaço de formulário deve receber um agrupamento (através de uma <samp>div</samp>) que deve contér o <samp>label</samp> e o <samp>input</samp>. Por padrão, o Ruby já faz esta separação, então basta utilizar a que ele cria, modificando a classe conforme o tamanho.</p>
+        <p>Cada caixa vai receber uma classe <samp>.field-x</samp> onde <samp>x</samp> é o tamanho dela de <strong>1</strong> a <strong>12</strong>. Cada valor é 1/12 do tamanho máximo (valor escolhido por ser divísivel por 3 e 4, permitindo a flexibilidade na formatação. Cada valor equivale a uma medida num sistema de grid).</p>
+        <p>Se você o elemento for filho direto de um <samp>.form-container--linha</samp> ele pode ser apenas <samp>.field</samp>. Neste caso o elemento vai esticar para caber no que sobrar do elemento pai.</p>
+        <p>Nesta caixa você também colocará a classe que formata o elemento filho (mais detalhes em <a href="#form" class=><!-- COLOCAR LINK -->AQUI, LINK TEMPORÁRIO</a>).</p>
+        <p>Se quiser inserir um espaço em branco entre dois elementos, coloque a classe <samp>.pre-x</samp>. O <samp>x</samp> é a mesma medida de um <samp>field</samp> demonstrado acima. No entanto, para usar estas classes é necessário "ativar" no <a href="#config__classes" class="link--readme">arquivo de configuração</a>.</p>
+      <h2>Exemplos de código</h2>
+        <p>O exemplo abaixo pega um formulário de duas linhas. A primeira linha tem apenas um campo de texto que ocupa a linha inteira, já a segunda tem três caixas de texto do mesmo tamanho.</p>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>&lt;div class="form-container"&gt;</p>
+            <p class="recuo-1">&lt;div class="field-12"&gt;</p>
+              <p class="recuo-2">...</p>
+            <p class="recuo-1">&lt;/div&gt;</p>
+            <p class="recuo-1">&lt;div class="field-4"&gt;</p>
+              <p class="recuo-2">...</p>
+            <p class="recuo-1">&lt;/div&gt;</p>
+            <p class="recuo-1">&lt;div class="field-4"&gt;</p>
+              <p class="recuo-2">...</p>
+            <p class="recuo-1">&lt;/div&gt;</p>
+            <p class="recuo-1">&lt;div class="field-4"&gt;</p>
+              <p class="recuo-2">...</p>
+            <p class="recuo-1">&lt;/div&gt;</p>
+          <p>&lt;/div&gt;</p>
+        </code>
+        <p>O exemplo abaixo usa o container de linha com três caixas. A primeira se ajusta ao espaço que sobra enquanto que as duas últimas ocupam uma pequena fração do espaço.</p>
+        <code class="codigo--sass">
+          <header>SASS</header>
+          <p>&lt;div class="form-container--linha"&gt;</p>
+          <p class="recuo-1">&lt;div class="field"&gt;</p>
+          <p class="recuo-2">...</p>
+          <p class="recuo-1">&lt;/div&gt;</p>
+          <p class="recuo-1">&lt;div class="field-2"&gt;</p>
+          <p class="recuo-2">...</p>
+          <p class="recuo-1">&lt;/div&gt;</p>
+          <p class="recuo-1">&lt;div class="field-1"&gt;</p>
+          <p class="recuo-2">...</p>
+          <p class="recuo-1">&lt;/div&gt;</p>
+          <p>&lt;/div&gt;</p>
+        </code>
+    </section>
+  </section>
+</article>

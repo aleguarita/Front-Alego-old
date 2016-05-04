@@ -1,0 +1,59 @@
+// =============================================================================
+// ARQUIVOS DE FORMATAÇÃO
+// =============================================================================
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// arquivos.scss
+// Criado em: 31/03/2016
+// Última alteração: 21/03/2016
+// -----------------------------------------------------------------------------
+// Este arquivo contém os imports dos arquivos desta pasta que não dependem da
+// pasta de config/ e, portanto, são importados todos de uma vez.
+// Esta decisão foi tomada para poupar atualizações desnecessárias e constantes
+// no arquivo config/_base.scss (que, preferencialmente, não deve ser alterada
+// pelo usuário);
+// -----------------------------------------------------------------------------
+// Lista dos arquivos que os arquivos da pasta config dependem dele (e devem
+// aparecer antes deles):
+// breakpoints.scss
+// funcoes.scss
+// mixins.scss
+// cores_status.scss
+// fontes.scss
+// -----------------------------------------------------------------------------
+// Changelog:
+// 21/03/2016 | Criado o arquivo
+// =============================================================================
+
+
+// Reset CSS
+@import "reset";
+
+// Formatação de formulários
+@import "form_grupo";
+@import "form_comum";
+@import "form_texto";
+@import "form_radio_checkbox";
+@import "form_select";
+@import "form_botoes";
+@import "form_autocomplete";
+
+// Formatação de objetos
+@import "grid";
+@import "tabelas";
+@import "paginacao";
+@import "cards";
+@import "breadcrumbs";
+@import "toaster";
+@import "modal";
+@import "secao_lista";
+@import "abas";
+@import "lista";
+@import "sprites";
+
+// Formatações especiais
+@import "simbolos-svg";
+@import "classes";

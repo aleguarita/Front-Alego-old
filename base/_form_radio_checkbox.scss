@@ -12,11 +12,15 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 11/11/2015
-// Última alteração em: 23/11/2015
+// Última alteração em: 17/03/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os radio buttons
 // ----------------------------------------------------------------------------
 // Changelog
+// 17/03/2016 | Ajuste do padding no tipo-3 para dar consistência visual
+//              Uso de SVG no lugar da fonte. Veja os passos de como fazer/trocar
+// 04/02/2016 | Mudado alinhamento do checkbox/radio
+// 21/01/2016 | Alterado placeholder para mixin
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
 // 17/11/2015 | Utilizada nova forma chamar as classes
@@ -24,104 +28,145 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // =============================================================================
 
 // =============================================================================
-// PLACEHOLDERS | CONTAINER
+// SVG - como usar no ::before
 // =============================================================================
-%form-radio-check--basico {
-  @extend %form-base;
-  @if $form-radio-check-personaliza == "não" {
-    input + label {
-      margin-left: -1.5em;
-      padding-left: 2em;
-    }
+// 1. Crie a imagem no Illustrator
+// 2. Exporte cada pedaço como SVG
+// 3. Vá em http://petercollingridge.appspot.com/svg-optimiser/ para otimizar
+// 4. Edite o SVG se for necessário.
+// 5. Nos objetos que vão mudar de cor conforme o elemento pai, use
+//    fill=currentColor
+// 6. Vá em http://meyerweb.com/eric/tools/dencoder/ e cole o texto. Tire todos
+//    os espaços
+// 6. Clique em "encode"
+// 7. Copie e cole o código dentro das variáveis abaixo;
+// 8. Selecione as quatro variáveis e mande substituir currentColor por #{$svg-cor}
+//    SELECIONAR É IMPORTANTE PRA NÃO SUBSTITUIR AQUI NESTE COMENTÁRIO
+// =============================================================================
+
+// =============================================================================
+// VARIÁVEIS | SVG
+// =============================================================================
+$svg-cor: cor(formulario);
+$svg-check: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Crect%20y%3D%220%22%20width%3D%2210%22%20height%3D%2210%22%20fill%3D%22%23FFF%22%20stroke-width%3D%222%22%20stroke%3D%22#{$svg-cor}%22%2F%3E%3C%2Fsvg%3E";
+$svg-check-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Crect%20width%3D%2210%22%20height%3D%2210%22%20fill%3D%22#{$svg-cor}%22%2F%3E%3Cpath%20d%3D%22M7.8%203.7c0%200.1%200%200.2-0.1%200.2L5.1%206.6%204.6%207.1c-0.1%200.1-0.1%200.1-0.2%200.1%20-0.1%200-0.2%200-0.2-0.1L3.6%206.6%202.3%205.2C2.2%205.2%202.2%205.1%202.2%205c0-0.1%200-0.2%200.1-0.2l0.5-0.5c0.1-0.1%200.1-0.1%200.2-0.1%200.1%200%200.2%200%200.2%200.1L4.3%205.3l2.4-2.4c0.1-0.1%200.1-0.1%200.2-0.1%200.1%200%200.2%200%200.2%200.1l0.5%200.5C7.8%203.5%207.8%203.6%207.8%203.7z%22%20fill%3D%22%23FFF%22%2F%3E%3C%2Fsvg%3E";
+$svg-radio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Ccircle%20r%3D%224.5%22%20cx%3D%225%22%20cy%3D%225%22%20fill%3D%22%23FFF%22%20stroke%3D%22#{$svg-cor}%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E";
+$svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%2010%2010%22%3E%3Ccircle%20cx%3D%225%22%20cy%3D%225%22%20r%3D%225%22%20fill%3D%22#{$svg-cor}%22%2F%3E%3Ccircle%20cx%3D%225%22%20cy%3D%225%22%20r%3D%222%22%20fill%3D%22%23FFF%22%2F%3E%3C%2Fsvg%3E";
+
+// =============================================================================
+// MIXIN | CONTAINER
+// =============================================================================
+@mixin form-radio-check--basico($tag: basico) {
+  // ---------------------------------------------------------------------------
+  // RAÍZ
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    @include form-base;
   }
-  @if $form-radio-check-personaliza == "sim" {
-    label {
-      @extend %flex;
-      @include align-items(center);
+  // ---------------------------------------------------------------------------
+  // LABEL
+  // ---------------------------------------------------------------------------
+  @else if $tag == label {
+    @if $form-radio-check-personaliza == "não" {
+      input + & {
+        margin-left: -1.5em;
+        padding-left: 2em;
+      }
+    }
+    @if $form-radio-check-personaliza == "sim" {
+      @include display-flex;
+      @include align-self(flex-end);
       &::before {
-        font-family: $fonte-simbolo;
-        width: 1em;
-        height: 1em;
         margin-right: .5em;
-        border: $borda-form solid;
-        background: cor(fundo, x-claro);
-        // para centralizar o conteúdo
-        color: transparent;
-        content: "\f111";
-        font-size: .6em;
-        padding: .2em;
-        line-height: .9;
-        text-align: center;
       }
     }
-    input {
-      display: none;
-      &:checked ~ label {
-        &::before {
-          border-color: cor(formulario, ativo);
-          color: cor(formulario, ativo);
-        }
-      }
-    }
-  }
-  label {
     @include flex-grow(1);
+    input:checked ~ & {
+      font-weight: bold;
+      color: cor(formulario, ativo);
+    }
   }
-  input:checked ~ label {
-    font-weight: bold;
-    color: cor(formulario, ativo);
+  // ---------------------------------------------------------------------------
+  // INPUT
+  // ---------------------------------------------------------------------------
+  @else if $tag == input {
+    @if $form-radio-check-personaliza == "sim" {
+      display: none;
+    }
   }
 }
+
 // =============================================================================
-// PLACEHOLDERS | LABEL (span/strong que simula)
+// MIXIN | RADIO BUTTON
 // =============================================================================
-%label-grupo-radio-check--comum {
-  font-weight: bold;
-}
-// =============================================================================
-// PLACEHOLDER | RADIO BUTTON
-// =============================================================================
-%form-radio {
-  @if $form-radio-check-personaliza == "sim" {
+@mixin form-radio($var: $form-radio-check-personaliza) {
+  @if $var == "sim" {
     label {
       &::before {
-        border-radius: 50%;
+        content: url(data:image/svg+xml,#{$svg-radio});
       }
     }
-  }
-}
-// =============================================================================
-// PLACEHOLDER | CHECKBOX
-// =============================================================================
-%form-checkbox {
-  @if $form-radio-check-personaliza == "sim" {
     input:checked ~ label::before {
-      content: "\e354";
+      content: url(data:image/svg+xml,#{$svg-radio-ok});
     }
   }
 }
+
 // =============================================================================
-// PLACEHOLDERS | TIPOS
+// MIXIN | CHECKBOX
 // =============================================================================
-%form-radio-check--tipo-1 {
-  label {
-    border-bottom: $borda-form dotted;
-  }
-}
-%form-radio-check--tipo-2 {
-  label {
-    border-bottom: $borda-form solid;
-  }
-}
-%form-radio-check--tipo-3 {
-  label {
-    border: $borda-form solid;
-    &::before {
-      margin-left: .4em;
+@mixin form-checkbox($var: $form-radio-check-personaliza) {
+  @if $var == "sim" {
+    label {
+      &::before {
+        content: url(data:image/svg+xml,#{$svg-check});
+      }
+    }
+    input:checked ~ label::before {
+      content: url(data:image/svg+xml,#{$svg-check-ok});
     }
   }
-  input:checked ~ label {
-    background: cor(formulario, fundo);
+}
+
+// =============================================================================
+// MIXIN | TIPOS
+// =============================================================================
+@mixin form-radio-check($tipo) {
+  @include form-radio-check--basico;
+  input { @include form-radio-check--basico(input); }
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    label {
+      @include form-radio-check--basico(label);
+      border-bottom: $borda-form dotted;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-2 {
+    label {
+      @include form-radio-check--basico(label);
+      border-bottom: $borda-form solid;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 3
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-3 {
+    label {
+      @include form-radio-check--basico(label);
+      border: $borda-form solid;
+      padding: .25em;
+      &::before {
+        margin-left: .4em;
+      }
+    }
+    input:checked ~ label {
+      background: cor(formulario, fundo);
+    }
   }
 }
 
@@ -129,14 +174,22 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // CLASSES
 // =============================================================================
 @if index($uso-classes, form) {
+/*
+--------------------------------------------------------------------------------
+RADIO BUTTON
+--------------------------------------------------------------------------------
+*/
   .form-radio {
-    @extend %form-radio-check--basico;
-    @extend %form-radio-check--#{$form-tipo};
-    @extend %form-radio !optional;
+    @include form-radio-check($form-tipo);
+    @include form-radio;
   }
+/*
+--------------------------------------------------------------------------------
+CHECKBOX
+--------------------------------------------------------------------------------
+*/
   .form-checkbox {
-    @extend %form-radio-check--basico;
-    @extend %form-radio-check--#{$form-tipo};
-    @extend %form-checkbox !optional;
+    @include form-radio-check($form-tipo);
+    @include form-checkbox;
   }
 }

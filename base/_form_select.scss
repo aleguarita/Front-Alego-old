@@ -12,11 +12,17 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 09/12/2015
+// Última alteração em: 18/04/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/04/2016 | Alterada a cor do texto para mudar conforme tema
+// 17/03/2016 | Corrigido posicionamento da seta.
+// 15/03/2016 | Substituído seletor [class^="ico"] para .form__ico
+// 04/02/2016 | Correção do select, que estava duplicado no arquivo final
+// 03/02/2016 | Correção no uso do mixin
+// 21/01/2016 | De placeholders para mixins
 // 09/12/2015 | Inclusão do label
 // 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
 // 							por tipo
@@ -26,90 +32,110 @@ FORMULÁRIOS | SELECT
 // =============================================================================
 
 // =============================================================================
-// PLACEHOLDERS | CONTAINER
+// MIXIN | SELECT
 // =============================================================================
-%form-select--basico {
-  @extend %form-base--flex;
-  select {
-    @include appearance(none);
-    background: cor(fundo, x-claro);
-    border: 0;
-    border-radius: 0;
-    line-height: 1.6;
-    font-size: 1em;
-    padding: .25em;
-    padding-right: 2em;
-  }
+@mixin form-select--basico {
+  @include appearance(none);
+  background: cor(fundo, x-claro);
+  border: 0;
+  border-radius: 0;
+  line-height: 1.6;
+  font-size: 1em;
+  padding: .25em;
+  padding-right: 2em;
+  color: cor(texto);
+  @content;
 }
 // =============================================================================
-// PLACEHOLDERS | ÍCONE (que substitui a seta)
+// MIXIN | ÍCONE (que substitui a seta)
 // =============================================================================
-%form-select__seta {
-  @extend %form__icone;
+@mixin form-select__seta {
+  @include form__icone;
   pointer-events: none;
+  @content;
 }
 // =============================================================================
-// PLACEHOLDERS | TIPOS
+// MIXIN | TIPOS
 // =============================================================================
-%form-select--tipo-1 {
-  select {
-    border-bottom: $borda-form dotted;
-  }
-  %form-select__seta {
-    color: cor(formulario);
-  }
-  @if $label-tipo == "colado" {
-    label {
-      border-bottom: 1px dotted cor(formulario);
-    }
-  }
-}
-%form-select--tipo-2 {
-  select {
-    border-bottom: $borda-form solid;
-  }
-  %form-select__seta {
-    color: cor(formulario);
-  }
-  @if $label-tipo == "colado" {
-    label {
-      border-bottom: 1px solid cor(formulario);
-    }
-  }
-}
-%form-select--tipo-3 {
-  select {
-    border: $borda-form solid;
-    padding-left: .2em;
-    @if $label-tipo == "colado" {
-      &:focus ~ label {
-        background: cor(formulario, ativo);
+@mixin form-select($tipo) {
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    @include form-base(flex);
+    select {
+      @include form-select--basico {
+        border-bottom: $borda-form dotted;
       }
     }
-  }
-  @if $label-tipo == "colado" {
-    label {
-      background: cor(formulario);
-      color: cor(texto, claro);
-      line-height: 2.2;
+    @include form-texto__label($label-tipo) {
+      @if $label-tipo == "colado" {
+        border-bottom: 1px dotted cor(formulario);
+      }
+    }
+    .form__ico {
+      color: cor(formulario); // VERIFICAR
     }
   }
-  %form-select__seta {
-    color: cor(formulario, ativo);
-    background: cor(formulario, fundo);
-    border: $borda-form solid;
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-2 {
+    @include form-base(flex);
+    select {
+      @include form-select--basico {
+        border-bottom: $borda-form solid;
+      }
+    }
+    @include form-texto__label($label-tipo) {
+      @if $label-tipo == "colado" {
+        border-bottom: 1px solid cor(formulario);
+      }
+    }
+    .form__ico {
+      color: cor(formulario); // VERIFICAR
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 3
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-3 {
+    @include form-base(flex);
+    select {
+      @include form-select--basico {
+        @include linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, cor(fundo, x-claro) 21px);
+        border: $borda-form solid;
+        padding-left: .2em;
+        @if $label-tipo == "colado" {
+          &:focus ~ label {
+            background: cor(formulario, ativo);
+          }
+        }
+      }
+    }
+    @include form-texto__label($label-tipo) {
+      @if $label-tipo == "colado" {
+        background: cor(formulario);
+        color: cor(texto, claro);
+        line-height: 2.2;
+      }
+    }
+    .form__ico {
+      color: cor(formulario, ativo);
+      font-size: 1.2em;
+      background: transparent;
+      position: absolute;
+      right: 0;
+      pointer-events: none;
+    }
   }
 }
+
 // =============================================================================
 // CLASSES
 // =============================================================================
 @if index($uso-classes, form) {
   .form-select {
-    @extend %form-select--basico;
-    @extend %form-select--#{$form-tipo};
-    @extend %form-texto__label--#{$label-tipo};
-    [class^="ico"] {
-      @extend %form-select__seta;
-    }
+    @include form-select($form-tipo);
   }
 }

@@ -1,0 +1,645 @@
+<article id="form">
+  <header><h1>Formulários</h1></header>
+  <p>Abaixo você verá os diversos elementos de formulários e como utilizá-los. Os tipos e algumas configurações especiais podem ser encontradas no <a href="#config__form" class="link--readme">arquivo de configuração</a></p>
+  <section class="secao-lista">
+    <input type="checkbox" id="form__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="form__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Para que os formulários sejam formatados direito siga os passos abaixo:</p>
+      <ol class="lista-ordenada">
+        <li>Cada grupo de elemento (<samp>label</samp> + <samp>input</samp>) deve estar dentro de uma <samp>div</samp>. <strong class="texto--erro">Não pode ter mais de um label e nem mais de um elemento de formulário na div</strong></li>
+        <li>Essa <samp>div</samp> vai ter a classe que identifica e formata o elemento (ver mais detalhes abaixo)</li>
+        <li>Se o código for gerado automaticamente pelo Ruby, retire o <samp>&lt;br /&gt;</samp> que ele acrescenta depois do <samp>label</samp></li>
+        <li>O uso de <samp>&lt;p&gt;</samp> dentro do div é desnecessário</li>
+        <li>O <samp>div</samp> também pode ganhar a classe de medida <samp>field-x</samp> conforme exemplicado em <a href="#form-grupo" class="link--readme">Grupo de Formulários</a></li>
+        <li>Algumas formatações especiais visuais são feitas colocando o <samp>label</samp> depois do <samp>input</samp>. Apesar de aumentar a experiência de uso, pode prejudicar quem usa leitores de tela. Use este recurso com cuidado.</li>
+      </ol>
+      <h2>Configurações</h2>
+        <p>No <a href="#config__form" class="link--readme">arquivo de configuração</a> você determina algumas configurações além do tipo.</p>
+      <h2>input type="text" (e equivalentes) e textarea</h2>
+        <dl class="lista-definicao">
+          <dt>Classe do elemento pai</dt>
+            <dd><samp>.form-texto</samp></dd>
+          <dt>Elementos que formata</dt>
+            <dd>Caixas de texto do CSS 3 (principalmente <samp>&lt;input type="text"&gt;</samp>) e <samp>textarea</samp></dd>
+        </dl>
+        <p>A classe <samp>.form-texto</samp> é bem genérica e pode ser usada para qualquer caso de formulário que não sejam casos mais específicos (como radio, select).</p>
+        <p>No HTML o <samp>label</samp> pode aparecer depois do <samp>input</samp>/<samp>textarea</samp>. Quando isso acontece, visualmente ele vai aparecer antes e vai ganhar uma formatação visual de destaque quando o <samp>input</samp> estiver ativo. <strong>Evite usar isso em casos de que o usuário pode usar um leitor de tela</strong>.</p>
+        <p>É possível acrescentar um ícone depois da caixa (por exemplo, para campos de busca). Para isso você pode acrescentar um <samp>span</samp> ou <samp>button</samp> e acrescentar a classe <samp>.form__ico</samp>, dentro deste elemento coloque o símbolo desejado através de SVG.</p>
+        <p>Código básico de um elemento de texto com o label depois (no exemplo clique na caixa de texto para ver o efeito).</p>
+        <code class="codigo--html">
+          <header>HTML</header>
+          <p>&lt;div class="form-texto"&gt;</p>
+            <p class="recuo-1">&lt;input type="text" id="exemplo-texto-1" /&gt;</p>
+            <p class="recuo-1">&lt;label for="exemplo-texto-1"&gt;Exemplo&lt;/label&gt;</p>
+          <p>&lt;/div&gt;</p>
+        </code>
+        <p>O resultado é:</p>
+        <div class="form-container--linha">
+          <div class="form-texto field">
+            <input type="text" id="exemplo-texto-1" />
+            <label for="exemplo-texto-1">Exemplo</label>
+          </div>
+        </div>
+        <p>Um exemplo de como usar o ícone para fazer um campo de busca (neste exemplo não uso label e sim placeholder):</p>
+        <code class="codigo--html">
+          <header>HTML</header>
+          <p>&lt;div class="form-texto"&gt;</p>
+            <p class="recuo-1">&lt;input type="text" placeholder="Busca" id="exemplo-texto-2" /&gt;</p>
+            <p class="recuo-1">&lt;span class="form__ico"&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="ico.svg#lupa" /&gt;&lt;/svg&gt;&lt;/span&gt;</p>
+          <p>&lt;/div&gt;</p>
+        </code>
+        <div class="form-container--linha">
+          <div class="form-texto field">
+            <input type="text" placeholder="Busca" id="exemplo-texto-2" />
+            <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+          </div>
+        </div>
+      <h2>select</h2>
+        <dl class="lista-definicao">
+          <dt>Classe do elemento pai</dt>
+            <dd><samp>.form-select</samp></dd>
+          <dt>Elementos que formata</dt>
+            <dd><samp>select</samp></dd>
+        </dl>
+        <p>Importante notar que o Front-Alego personaliza o elemento <samp>select</samp> e por isso é necessário acrescentar a seta na unha. Depois de cada <samp>select</samp> acrescente um <samp>&lt;span class="form__ico"&gt;</samp> e dentro dele uma seta <a href="#simbolos-svg" class="link--readme">conforme explicado aqui</a> (escolha uma das setas disponíveis, recomendo a <samp>seta-fina</samp>). Importante notar que a tag <samp>&lt;svg&gt;</samp> deve receber a classe <samp>.ico--baixo</samp>.</p>
+        <p>Código exemplo para um select:</p>
+        <code class="codigo--html">
+          <header>HTML</header>
+          <p>&lt;div class="form-select"&gt;</p>
+            <p class="recuo-1">&lt;label for="exemplo-select"&gt;Select padrão&lt;/label&gt;</p>
+            <p class="recuo-1">&lt;select id="exemplo-select"&gt;</p>
+              <p class="recuo-2">&lt;option value="val1"&gt;Exemplo 1&lt;/option&gt;</p>
+              <p class="recuo-2">&lt;option value="val2"&gt;Exemplo 2&lt;/option&gt;</p>
+              <p class="recuo-2">&lt;option value="val3"&gt;Exemplo 3&lt;/option&gt;</p>
+            <p class="recuo-1">&lt;/select&gt;</p>
+            <p class="recuo-1">&lt;span class="form__ico"&gt;&lt;svg class="ico--baixo"&gt;&lt;use xlink:href="ico.svg#seta-fina" /&gt;&lt;/svg&gt;&lt;/span&gt;</p>
+          <p>&lt;/div&gt;</p>
+        </code>
+        <div class="form-container--linha">
+          <div class="form-select field">
+            <label for="exemplo-select">Select padrão</label>
+            <select id="exemplo-select">
+              <option value="val1">Exemplo 1</option>
+              <option value="val2">Exemplo 2</option>
+              <option value="val3">Exemplo 3</option>
+            </select>
+            <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+          </div>
+        </div>
+      <h2>radio button e checkbox</h2>
+        <dl class="lista-definicao">
+          <dt>Classe do elemento pai</dt>
+            <dd><samp>.form-radio</samp></dd>
+          <dt>Elementos que formata</dt>
+            <dd><samp>radio button</samp></dd>
+          <dt>Classe do elemento pai</dt>
+            <dd><samp>.form-checkbox</samp></dd>
+          <dt>Elementos que formata</dt>
+            <dd><samp>checkbox</samp></dd>
+        </dl>
+        <p>Cada elemento tem sua configuração. Cada <samp>div</samp> deve contér apenas um checkbox ou radio button. Fora isso não é necessário mais nenhuma classe ou html.</p>
+        <p>É possível decidir se esses elementos aparecerão como o formato padrão do browser ou personalizado pelo Front-Alego (valor padrão, claro).</p>
+        <blockquote class="aviso--dica">
+          Checkbox e radio não funcionam muito bem ao lado de outros elementos se a opção <samp>$label-tipo</samp> for flutuante
+        </blockquote>
+        <p>Código para o radio button:</p>
+        <code class="codigo--html">
+          <header>HTML</header>
+          <p>&lt;div class="form-radio"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="campo1" name="exemplo" checked="checked" /&gt;</p>
+            <p class="recuo-1">&lt;label for="campo1"&gt;Exemplo radio button&lt;/label&gt;</p>
+          <p>&lt;/div&gt;</p>
+          <p>&lt;div class="form-radio"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="campo2" name="exemplo" /&gt;</p>
+            <p class="recuo-1">&lt;label for="campo2"&gt;Exemplo radio button&lt;/label&gt;</p>
+          <p>&lt;/div&gt;</p>
+          <p>&lt;div class="form-radio"&gt;</p>
+            <p class="recuo-1">&lt;input type="radio" id="campo3" name="exemplo" /&gt;</p>
+            <p class="recuo-1">&lt;label for="campo3"&gt;Exemplo radio button&lt;/label&gt;</p>
+          <p>&lt;/div&gt;</p>
+        </code>
+        <div class="form-container--linha">
+          <div class="form-radio field">
+            <input type="radio" id="campo1" name="exemplo" checked="checked" />
+            <label for="campo1">Exemplo radio button</label>
+          </div>
+          <div class="form-radio field">
+            <input type="radio" id="campo2" name="exemplo" />
+            <label for="campo2">Exemplo radio button</label>
+          </div>
+          <div class="form-radio field">
+            <input type="radio" id="campo3" name="exemplo" />
+            <label for="campo3">Exemplo radio button</label>
+          </div>
+        </div>
+        <p>Código para o checkbox:</p>
+        <code class="codigo--html">
+          <header>HTML</header>
+          <p>&lt;div class="form-checkbox"&gt;</p>
+            <p class="recuo-1">&lt;input type="checkbox" id="campo1b" name="exemplo" checked="checked" /&gt;</p>
+            <p class="recuo-1">&lt;label for="campo1b"&gt;Exemplo checkbox&lt;/label&gt;</p>
+          <p>&lt;/div&gt;</p>
+          <p>&lt;div class="form-checkbox"&gt;</p>
+            <p class="recuo-1">&lt;input type="checkbox" id="campo2b" name="exemplo" /&gt;</p>
+            <p class="recuo-1">&lt;label for="campo2b"&gt;Exemplo checkbox&lt;/label&gt;</p>
+          <p>&lt;/div&gt;</p>
+          <p>&lt;div class="form-checkbox"&gt;</p>
+            <p class="recuo-1">&lt;input type="checkbox" id="campo3b" name="exemplo" /&gt;</p>
+            <p class="recuo-1">&lt;label for="campo3b"&gt;Exemplo checkbox&lt;/label&gt;</p>
+          <p>&lt;/div&gt;</p>
+        </code>
+        <div class="form-container--linha">
+          <div class="form-checkbox field">
+            <input type="checkbox" id="campo1b" name="exemplo" checked="checked" />
+            <label for="campo1b">Exemplo checkbox</label>
+          </div>
+          <div class="form-checkbox field">
+            <input type="checkbox" id="campo2b" name="exemplo" />
+            <label for="campo2b">Exemplo checkbox</label>
+          </div>
+          <div class="form-checkbox field">
+            <input type="checkbox" id="campo3b" name="exemplo" />
+            <label for="campo3b">Exemplo checkbox</label>
+          </div>
+        </div>
+      <h2>autocomplete</h2>
+      <p>O autocomplete é inserido diretamente no Rails.</p>
+      <h2>Ações</h2>
+      <p>No final do formulário você pode inserir apenas os botões dentro de uma <samp>&lt;div&gt;</samp> com uma das duas classes: <samp>actions</samp> (Ruby já usa por padrão), <samp>form__acoes</samp></p>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="form__escolhido" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="form__escolhido">
+        <span class="secao-lista__titulo">Form escolhido: <span class="codigo-form-tipo"></span></span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <ul class="lista-config">
+        <li><samp>$label-tipo</samp> <span class="codigo-label-tipo"></span></li>
+        <li><samp>$form-radio-check-personaliza</samp> <span class="codigo-form-radio-check-personaliza"></span></li>
+      </ul>
+      <div class="form-container">
+        <div class="field-12">
+          <p>Este exemplo faz uso de <samp>form-container</samp> e cada elemento recebeu formatações assim. Inspecione. Por sinal, este parágrafo está dentro de um <samp>div.field-12</samp> mesmo não tendo nenhum conteúdo de formulário, mas demonstra que é possível misturar.</p>
+        </div>
+        <div class="field-12 form-texto">
+          <input type="text" id="form-demo-1" placeholder="Placeholder do formulário" />
+          <label for="form-demo-1">Campo de texto</label>
+        </div>
+        <div class="field-12 form-texto">
+          <textarea name="" id="" cols="30" rows="10" id="form-demo-2"></textarea>
+          <label for="form-demo-2">Caixa de texto</label>
+        </div>
+        <div class="field-6 form-select">
+          <label for="form-demo-3">Select</label>
+          <select name="form-demo" id="form-demo-4">
+            <option value="demo1">Valor 1</option>
+            <option value="demo2">Valor 2</option>
+            <option value="demo3">Valor 3</option>
+            <option value="demo4">Valor 4</option>
+          </select>
+          <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+        </div>
+        <div class="field-3 form-checkbox">
+          <input type="checkbox" id="form-demo-5" />
+          <label for="form-demo-5">Checkbox</label>
+        </div>
+        <div class="field-3 form-checkbox">
+          <input type="checkbox" id="form-demo-6" checked="checked" />
+          <label for="form-demo-6">Checkbox</label>
+        </div>
+        <div class="field-3 form-radio">
+          <input type="radio" id="form-demo-7" checked="checked" name="form-demo-radio" />
+          <label for="form-demo-7">Radio Button</label>
+        </div>
+        <div class="field-3 form-radio">
+          <input type="radio" id="form-demo-8" name="form-demo-radio" />
+          <label for="form-demo-8">Radio Button</label>
+        </div>
+        <div class="field-3 form-radio">
+          <input type="radio" id="form-demo-9" name="form-demo-radio" />
+          <label for="form-demo-9">Radio Button</label>
+        </div>
+        <div class="field-3 form-radio">
+          <input type="radio" id="form-demo-10" name="form-demo-radio" />
+          <label for="form-demo-10">Radio Button</label>
+        </div>
+        <div class="field-6 form-texto">
+          <input type="text" id="form-demo-11" />
+          <label for="form-demo-11">Busca</label>
+          <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+        </div>
+        <div class="field-6 form-texto">
+          <input type="date" id="form-demo-12" />
+          <label for="form-demo-12">Data</label>
+          <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
+        </div>
+        <div class="field-6">
+          <p>Exemplo da lista do autocomplete</p>
+          <ul class="ui-autocomplete autocomplete-demo">
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="form__tipo-1" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="form__tipo-1">
+        <span class="secao-lista__titulo">tipo-1</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <div class="form-demo">
+        <div class="form--label-flutuante">
+          <h2>Formulário com label flutuante</h2>
+          <div class="form-container">
+            <div class="field-12 form-texto--tipo-1">
+              <input type="text" id="form-demo-1-t1a" placeholder="Placeholder do formulário" />
+              <label for="form-demo-1-t1a">Campo de texto</label>
+            </div>
+            <div class="field-12 form-texto--tipo-1">
+              <textarea name="" id="" cols="30" rows="10" id="form-demo-2-t1a"></textarea>
+              <label for="form-demo-2-t1a">Caixa de texto</label>
+            </div>
+            <div class="field-12 form-select--tipo-1">
+              <label for="form-demo-4-t1a">Select</label>
+              <select name="form-demo" id="form-demo-4-t1a">
+                <option value="demo1">Valor 1</option>
+                <option value="demo2">Valor 2</option>
+                <option value="demo3">Valor 3</option>
+                <option value="demo4">Valor 4</option>
+              </select>
+              <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+            </div>
+            <div class="field-6 form-checkbox--tipo-1--personaliza">
+              <input type="checkbox" id="form-demo-5-t1a" />
+              <label for="form-demo-5-t1a">Checkbox personalizado</label>
+            </div>
+            <div class="field-6 form-checkbox--tipo-1--comum">
+              <input type="checkbox" id="form-demo-6-t1a" checked="checked" />
+              <label for="form-demo-6-t1a">Checkbox comum</label>
+            </div>
+            <div class="field-6 form-radio--tipo-1--personaliza">
+              <input type="radio" id="form-demo-7-t1a" checked="checked" name="form-demo-radio" />
+              <label for="form-demo-7-t1a">Radio Button personalizado</label>
+            </div>
+            <div class="field-6 form-radio--tipo-1--comum">
+              <input type="radio" id="form-demo-9-t1a" name="form-demo-radio" />
+              <label for="form-demo-9-t1a">Radio Button comum</label>
+            </div>
+            <div class="field-6 form-texto--tipo-1">
+              <input type="text" id="form-demo-11-t1a" />
+              <label for="form-demo-11-t1a">Busca</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+            </div>
+            <div class="field-6 form-texto--tipo-1">
+              <input type="date" id="form-demo-12-t1a" />
+              <label for="form-demo-12-t1a">Data</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
+            </div>
+            <div class="field-6">
+              <p>Exemplo da lista do autocomplete</p>
+              <ul class="ui-autocomplete--tipo-1 autocomplete-demo">
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+                <li>item 4</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="form--label-colado">
+          <h2>Formulário com label colado</h2>
+          <div class="form-container">
+            <div class="field-12 form-texto--tipo-1">
+              <input type="text" id="form-demo-1-t1b" placeholder="Placeholder do formulário" />
+              <label for="form-demo-1-t1b">Campo de texto</label>
+            </div>
+            <div class="field-12 form-texto--tipo-1">
+              <textarea name="" id="" cols="30" rows="10" id="form-demo-2-t1b"></textarea>
+              <label for="form-demo-2-t1b">Caixa de texto</label>
+            </div>
+            <div class="field-12 form-select--tipo-1">
+              <label for="form-demo-4-t1b">Select</label>
+              <select name="form-demo" id="form-demo-4-t1b">
+                <option value="demo1">Valor 1</option>
+                <option value="demo2">Valor 2</option>
+                <option value="demo3">Valor 3</option>
+                <option value="demo4">Valor 4</option>
+              </select>
+              <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+            </div>
+            <div class="field-6 form-checkbox--tipo-1--personaliza">
+              <input type="checkbox" id="form-demo-5-t1b" />
+              <label for="form-demo-5-t1b">Checkbox personalizado</label>
+            </div>
+            <div class="field-6 form-checkbox--tipo-1--comum">
+              <input type="checkbox" id="form-demo-6-t1b" checked="checked" />
+              <label for="form-demo-6-t1b">Checkbox comum</label>
+            </div>
+            <div class="field-6 form-radio--tipo-1--personaliza">
+              <input type="radio" id="form-demo-7-t1b" checked="checked" name="form-demo-radio" />
+              <label for="form-demo-7-t1b">Radio Button personalizado</label>
+            </div>
+            <div class="field-6 form-radio--tipo-1--comum">
+              <input type="radio" id="form-demo-9-t1b" name="form-demo-radio" />
+              <label for="form-demo-9-t1b">Radio Button comum</label>
+            </div>
+            <div class="field-6 form-texto--tipo-1">
+              <input type="text" id="form-demo-11-t1b" />
+              <label for="form-demo-11-t1b">Busca</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+            </div>
+            <div class="field-6 form-texto--tipo-1">
+              <input type="date" id="form-demo-12-t1b" />
+              <label for="form-demo-12-t1b">Data</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
+            </div>
+            <div class="field-6">
+              <p>Exemplo da lista do autocomplete</p>
+              <ul class="ui-autocomplete--tipo-1 autocomplete-demo">
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+                <li>item 4</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="form__tipo-2" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="form__tipo-2">
+        <span class="secao-lista__titulo">tipo-2</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <div class="form-demo">
+        <div class="form--label-flutuante">
+          <h2>Formulário com label flutuante</h2>
+          <div class="form-container">
+            <div class="field-12 form-texto--tipo-2">
+              <input type="text" id="form-demo-1-t2a" placeholder="Placeholder do formulário" />
+              <label for="form-demo-1-t2a">Campo de texto</label>
+            </div>
+            <div class="field-12 form-texto--tipo-2">
+              <textarea name="" id="" cols="30" rows="10" id="form-demo-2-t2a"></textarea>
+              <label for="form-demo-2-t2a">Caixa de texto</label>
+            </div>
+            <div class="field-12 form-select--tipo-2">
+              <label for="form-demo-4-t2a">Select</label>
+              <select name="form-demo" id="form-demo-4-t2a">
+                <option value="demo1">Valor 1</option>
+                <option value="demo2">Valor 2</option>
+                <option value="demo3">Valor 3</option>
+                <option value="demo4">Valor 4</option>
+              </select>
+              <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+            </div>
+            <div class="field-6 form-checkbox--tipo-2--personaliza">
+              <input type="checkbox" id="form-demo-5-t2a" />
+              <label for="form-demo-5-t2a">Checkbox personalizado</label>
+            </div>
+            <div class="field-6 form-checkbox--tipo-2--comum">
+              <input type="checkbox" id="form-demo-6-t2a" checked="checked" />
+              <label for="form-demo-6-t2a">Checkbox comum</label>
+            </div>
+            <div class="field-6 form-radio--tipo-2--personaliza">
+              <input type="radio" id="form-demo-7-t2a" checked="checked" name="form-demo-radio" />
+              <label for="form-demo-7-t2a">Radio Button personalizado</label>
+            </div>
+            <div class="field-6 form-radio--tipo-2--comum">
+              <input type="radio" id="form-demo-9-t2a" name="form-demo-radio" />
+              <label for="form-demo-9-t2a">Radio Button comum</label>
+            </div>
+            <div class="field-6 form-texto--tipo-2">
+              <input type="text" id="form-demo-11-t2a" />
+              <label for="form-demo-11-t2a">Busca</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+            </div>
+            <div class="field-6 form-texto--tipo-2">
+              <input type="date" id="form-demo-12-t2a" />
+              <label for="form-demo-12-t2a">Data</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
+            </div>
+            <div class="field-6">
+              <p>Exemplo da lista do autocomplete</p>
+              <ul class="ui-autocomplete--tipo-2 autocomplete-demo">
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+                <li>item 4</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="form--label-colado">
+          <h2>Formulário com label colado</h2>
+          <div class="form-container">
+            <div class="field-12 form-texto--tipo-2">
+              <input type="text" id="form-demo-1-t2b" placeholder="Placeholder do formulário" />
+              <label for="form-demo-1-t2b">Campo de texto</label>
+            </div>
+            <div class="field-12 form-texto--tipo-2">
+              <textarea name="" id="" cols="30" rows="10" id="form-demo-2-t2b"></textarea>
+              <label for="form-demo-2-t2b">Caixa de texto</label>
+            </div>
+            <div class="field-12 form-select--tipo-2">
+              <label for="form-demo-4-t2b">Select</label>
+              <select name="form-demo" id="form-demo-4-t2b">
+                <option value="demo1">Valor 1</option>
+                <option value="demo2">Valor 2</option>
+                <option value="demo3">Valor 3</option>
+                <option value="demo4">Valor 4</option>
+              </select>
+              <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+            </div>
+            <div class="field-6 form-checkbox--tipo-2--personaliza">
+              <input type="checkbox" id="form-demo-5-t2b" />
+              <label for="form-demo-5-t2b">Checkbox personalizado</label>
+            </div>
+            <div class="field-6 form-checkbox--tipo-2--comum">
+              <input type="checkbox" id="form-demo-6-t2b" checked="checked" />
+              <label for="form-demo-6-t2b">Checkbox comum</label>
+            </div>
+            <div class="field-6 form-radio--tipo-2--personaliza">
+              <input type="radio" id="form-demo-7-t2b" checked="checked" name="form-demo-radio" />
+              <label for="form-demo-7-t2b">Radio Button personalizado</label>
+            </div>
+            <div class="field-6 form-radio--tipo-2--comum">
+              <input type="radio" id="form-demo-9-t2b" name="form-demo-radio" />
+              <label for="form-demo-9-t2b">Radio Button comum</label>
+            </div>
+            <div class="field-6 form-texto--tipo-2">
+              <input type="text" id="form-demo-11-t2b" />
+              <label for="form-demo-11-t2b">Busca</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+            </div>
+            <div class="field-6 form-texto--tipo-2">
+              <input type="date" id="form-demo-12-t2b" />
+              <label for="form-demo-12-t2b">Data</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
+            </div>
+            <div class="field-6">
+              <p>Exemplo da lista do autocomplete</p>
+              <ul class="ui-autocomplete--tipo-2 autocomplete-demo">
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+                <li>item 4</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="form__tipo-3" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="form__tipo-3">
+        <span class="secao-lista__titulo">tipo-3</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <div class="form-demo">
+        <div class="form--label-flutuante">
+          <h2>Formulário com label flutuante</h2>
+          <div class="form-container">
+            <div class="field-12 form-texto--tipo-3">
+              <input type="text" id="form-demo-1-t3a" placeholder="Placeholder do formulário" />
+              <label for="form-demo-1-t3a">Campo de texto</label>
+            </div>
+            <div class="field-12 form-texto--tipo-3">
+              <textarea name="" id="" cols="30" rows="10" id="form-demo-2-t3a"></textarea>
+              <label for="form-demo-2-t3a">Caixa de texto</label>
+            </div>
+            <div class="field-12 form-select--tipo-3">
+              <label for="form-demo-4-t3a">Select</label>
+              <select name="form-demo" id="form-demo-4-t3a">
+                <option value="demo1">Valor 1</option>
+                <option value="demo2">Valor 2</option>
+                <option value="demo3">Valor 3</option>
+                <option value="demo4">Valor 4</option>
+              </select>
+              <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+            </div>
+            <div class="field-6 form-checkbox--tipo-3--personaliza">
+              <input type="checkbox" id="form-demo-5-t3a" />
+              <label for="form-demo-5-t3a">Checkbox personalizado</label>
+            </div>
+            <div class="field-6 form-checkbox--tipo-3--comum">
+              <input type="checkbox" id="form-demo-6-t3a" checked="checked" />
+              <label for="form-demo-6-t3a">Checkbox comum</label>
+            </div>
+            <div class="field-6 form-radio--tipo-3--personaliza">
+              <input type="radio" id="form-demo-7-t3a" checked="checked" name="form-demo-radio" />
+              <label for="form-demo-7-t3a">Radio Button personalizado</label>
+            </div>
+            <div class="field-6 form-radio--tipo-3--comum">
+              <input type="radio" id="form-demo-9-t3a" name="form-demo-radio" />
+              <label for="form-demo-9-t3a">Radio Button comum</label>
+            </div>
+            <div class="field-6 form-texto--tipo-3">
+              <input type="text" id="form-demo-11-t3a" />
+              <label for="form-demo-11-t3a">Busca</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+            </div>
+            <div class="field-6 form-texto--tipo-3">
+              <input type="date" id="form-demo-12-t3a" />
+              <label for="form-demo-12-t3a">Data</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+            </div>
+            <div class="field-6">
+              <p>Exemplo da lista do autocomplete</p>
+              <ul class="ui-autocomplete--tipo-3 autocomplete-demo">
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+                <li>item 4</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="form--label-colado">
+          <h2>Formulário com label colado</h2>
+          <div class="form-container">
+            <div class="field-12 form-texto--tipo-3">
+              <input type="text" id="form-demo-1-t3b" placeholder="Placeholder do formulário" />
+              <label for="form-demo-1-t3b">Campo de texto</label>
+            </div>
+            <div class="field-12 form-texto--tipo-3">
+              <textarea name="" id="" cols="30" rows="10" id="form-demo-2-t3b"></textarea>
+              <label for="form-demo-2-t3b">Caixa de texto</label>
+            </div>
+            <div class="field-12 form-select--tipo-3">
+              <label for="form-demo-4-t3b">Select</label>
+              <select name="form-demo" id="form-demo-4-t3b">
+                <option value="demo1">Valor 1</option>
+                <option value="demo2">Valor 2</option>
+                <option value="demo3">Valor 3</option>
+                <option value="demo4">Valor 4</option>
+              </select>
+              <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+            </div>
+            <div class="field-6 form-checkbox--tipo-3--personaliza">
+              <input type="checkbox" id="form-demo-5-t3b" />
+              <label for="form-demo-5-t3b">Checkbox personalizado</label>
+            </div>
+            <div class="field-6 form-checkbox--tipo-3--comum">
+              <input type="checkbox" id="form-demo-6-t3b" checked="checked" />
+              <label for="form-demo-6-t3b">Checkbox comum</label>
+            </div>
+            <div class="field-6 form-radio--tipo-3--personaliza">
+              <input type="radio" id="form-demo-7-t3b" checked="checked" name="form-demo-radio" />
+              <label for="form-demo-7-t3b">Radio Button personalizado</label>
+            </div>
+            <div class="field-6 form-radio--tipo-3--comum">
+              <input type="radio" id="form-demo-9-t3b" name="form-demo-radio" />
+              <label for="form-demo-9-t3b">Radio Button comum</label>
+            </div>
+            <div class="field-6 form-texto--tipo-3">
+              <input type="text" id="form-demo-11-t3b" />
+              <label for="form-demo-11-t3b">Busca</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+            </div>
+            <div class="field-6 form-texto--tipo-3">
+              <input type="date" id="form-demo-12-t3b" />
+              <label for="form-demo-12-t3b">Data</label>
+              <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
+            </div>
+            <div class="field-6">
+              <p>Exemplo da lista do autocomplete</p>
+              <ul class="ui-autocomplete--tipo-3 autocomplete-demo">
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+                <li>item 4</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</article>

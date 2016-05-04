@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 30/11/2015
+// Última alteração em: 12/04/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,18 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 12/04/2016 | Escolhe se usa fontes personalizadas ou não
+// 31/03/2016 | Inclusão de ocultar as classes de símbolos SVG
+// 29/03/2016 | Sistema de abas
+// 14/03/2016 | Acrescentando "simbolos" dentro de $uso-classe. Símbolos através
+//               de fontes vai estar em desuso e passaremos a utilizar SVG
+// 16/02/2016 | Mudada variável de $sprite-formato para $sprite-arquivo
+// 15/02/2016 | Acrescentado sprites
+// 10/02/2016 | Acrescentada opção de escolher a transparência do fundo da modal
+// 05/02/2016 | Acrescentado arredondamento da borda dos botões baseados na
+//               variável $rd em variáveis
+// 03/02/2016 | Alterado nome form-field para form-grupo para fazer mais sentido
+// 25/01/2016 | Retirado configuração de grid
 // 30/11/2015 | Explicação dos tipos está no read-me
 // 26/11/2015 | Retirado breakpoints e colocado em arquivo separado
 // 23/11/2015 | Alterada a forma dos tipos de nomes específicos para "tipo-x"
@@ -26,9 +38,9 @@
 // Para mais detalhes veja o arquivo read-me/doc.html#config
 // =============================================================================
 $uso-classes: (
-  form-field,
-  // form-pre,
   form,
+  form-grupo,
+  // form-pre,
   botao,
   botao-secundario,
   autocomplete,
@@ -42,6 +54,12 @@ $uso-classes: (
   breadcrumb,
   toaster,
   secao-lista,
+  abas,
+  simbolos-svg,
+  // simbolos,
+  // sprite,
+  fonte-serifa,
+  fonte-sans-serif,
 );
 
 // =============================================================================
@@ -55,24 +73,6 @@ $cores-tema: principal;
 $grid-qtd: 12;
 $grid-margem: rem(10);
 $grid-max: rem(1600);
-
-// MAPA DAS SEÇÕES
-// -----------------------------------------------------------------------------
-// Inclua no mapa abaixo as seções (as classes) que você está criando e o número
-// de grids que ela ocupa
-// Para facilitar a leitura, salte uma linha para definir grupos
-// Exemplo:
-// $grid: (
-//   header-titulo: 10,
-//   header-sair: 2,
-//
-//   nav: 2,
-//   principal: 10,
-// );
-// -----------------------------------------------------------------------------
-$grid: (
-
-);
 
 // =============================================================================
 // TABELAS
@@ -101,6 +101,7 @@ $paginacao-fonte: .65rem;
 // MODAL
 // =============================================================================
 $modal-tipo: tipo-1; // 2 tipos
+$modal-transparencia: .15; // entre 0 e 1
 
 // =============================================================================
 // CARDS
@@ -125,11 +126,13 @@ $toaster-distancia-vertical: 1;
 // FORMULÁRIOS
 // =============================================================================
 $form-tipo: tipo-1; // 3 tipos
-$label-tipo: colado; // flutante | colado
+$label-tipo: flutuante; // flutuante | colado
 $form-radio-check-personaliza: sim;
+
 $botao-tipo: tipo-5; // 6 tipos
 $botao-secundario: $botao-tipo; // 6 tipos + $botao-tipo
 $botao-sombra-colorida: sim;
+$botao-arredondamento: não;
 $botoes-status: (
   urgente,
   ok,
@@ -148,3 +151,22 @@ $lista--sombra: não;
 // =============================================================================
 $secao-lista-tipo: tipo-1; // 2 tipos
 $secao-lista-titulo: 3;
+
+// =============================================================================
+// ABAS
+// =============================================================================
+$abas-tipo: tipo-1; // 4 tipos
+$abas-qtd: 5;
+
+// =============================================================================
+// SPRITES
+// =============================================================================
+$sprite-arquivo: "sprite.png";
+$sprite-medida: 150px;
+// mapa que cria as classes
+// os valores obrigatórios depois do nome é a posição na grid
+// existem mais 2 valores opcionais que é aumento de largura e altura
+// (respectivamente)
+$sprites: (
+  exemplo: (1, 1),
+);

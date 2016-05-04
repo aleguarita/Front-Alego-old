@@ -2,13 +2,13 @@
 	==============================================================================
 	FRONT-ALEGO | Framework da Assembleia Legislativa
 	Autor: Alessandro Guarita
-	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
+	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 11/12/2015
+	Última alteração: 13/04/2016
 	------------------------------------------------------------------------------
 */
-// app.scss
+// base.scss
 // Inclua neste arquivo somente chamadas para os demais arquivos,
 // usando @import
 // NÃO COMENTE E NEM ALTERE A ORDEM ATUAL.
@@ -33,6 +33,26 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 13/04/2016 | Alterada ordem das cores
+// 31/03/2016 | Devolvido para a pasta config/. Apesar de o usuário não mexer
+// 								neste arquivo, ele deve existir como cópia para o caso de ter
+// 								folhas de estilo com configurações diferentes
+// 29/03/2016 | Inclusão de Abas
+// 14/03/2016 | Alterada localização deste arquivo, de config/ para base/
+// 								(melhor o usuário configurar arquivos extras/ dentro do
+// 								arquivo de CSS dele, minimizando o uso de configurações
+// 								personalizadas)
+// 							Inclusão do arquivo de SVG de símbolos
+// 15/02/2016 | Inclusão dos sprites
+// 05/02/2016 | O arquivo de classes e ícones foram colocados no final do
+// 							arquivo para que eles tenham prioridade ao alterar um tag
+// 04/02/2016 | Alterada a ordem dos arquivos de formulário
+// 01/02/2016 | Alterado a ordem dos arquivo.
+// 							Configurações de tags foi movida do config/tipografia para
+// 								o arquivo reset.scss
+// 28/01/2016 | Retirado o arquivo placeholder.scss. Muitos placeholders foram
+// 						  transformados em mixins (ver o arquivo próprio) e outros foram
+// 							incorporados dentro dos arquivos
 // 11/12/2015 | Arquivo de cores unificados
 // 26/11/2015 | Criado breakpoints.scss para facilitar o uso do config.scss
 // 17/11/2015 | Este arquivo foi movido para a pasta /config/ para que seja
@@ -47,45 +67,22 @@
 // @import "../bourbon"; // (se usado no rails)
 @import "../bourbon/bourbon"; // (se instalado o bourbon manualmente)
 
-// Reset CSS
-@import "../base/reset";
-
-// Configuração básica
-@import "_+config";
-
-// Arquivos básicos e de configuração gerais
-// NÃO ALTERE A ORDEM
+// Configurações gerais
 @import "../base/breakpoints";
 @import "../base/funcoes";
 @import "../base/mixins";
-@import "../base/cores_status";
+
+// Configuração básica
+@import "+config";
 @import "cores";
+
+// Arquivos básicos e de configuração gerais
+// NÃO ALTERE A ORDEM
+@import "../base/cores_status";
 @import "../base/fontes";
 @import "variaveis";
-@import "../base/placeholders";
-@import "../base/classes";
-
-// Arquivos de configuração estrutural
-@import "../base/grid";
+@import "tipografia";
 @import "z-index";
 @import "simbolos";
-@import "tipografia";
 
-// Formatação de formulários
-@import "../base/form_comum";
-@import "../base/form_tamanhos";
-@import "../base/form_texto";
-@import "../base/form_radio_checkbox";
-@import "../base/form_select";
-@import "../base/form_botoes";
-@import "../base/form_autocomplete";
-
-// Formatação de objetos
-@import "../base/tabelas";
-@import "../base/paginacao";
-@import "../base/cards";
-@import "../base/breadcrumbs";
-@import "../base/toaster";
-@import "../base/modal";
-@import "../base/secao_lista";
-@import "../base/lista";
+@import "../base/+arquivos.scss"; // Todos os demais arquivos

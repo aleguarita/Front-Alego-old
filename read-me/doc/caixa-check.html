@@ -1,0 +1,111 @@
+<article id="caixa-check">
+  <header><h1>Caixas clicáveis</h1></header>
+  <section class="secao-lista">
+    <input type="checkbox" id="caixa-check__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="caixa-check__doc">
+        <span class="secao-lista__titulo">Tutorial</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>A caixa clicável é uma que tem dois estados: não selecionada e selecionada. Um exemplo seria a caixa que você vê ao lado.</p>
+      <div class="caixa-clicavel">
+        <input class="caixa-clicavel__check" type="checkbox" id="cc-teste">
+        <label class="caixa-clicavel__label" for="cc-teste">
+          <p><svg class="ico"><use xlink:href="../svg/basico.svg#monitor" /></svg></p>
+          <p>Clique em qualquer lugar dessa caixa e veja o que acontece</p>
+        </label>
+      </div>
+      <p>Para criar este efeito é preciso utilizar o mixin <samp>item-checado</samp> (<a href="#mixins" class="link--readme">Veja mais detalhes em mixins</a>).</p>
+      <h2>O HTML</h2>
+      <p>Você pode aplicar isso em itens de uma lista (por exemplo, quando há multiplas opções) ou em divs separados. Já o conteúdo deste elemento deve ter:</p>
+      <ol class="lista-ordenada">
+        <li>Um <samp>checkbox</samp> (óbvio)</li>
+        <li>Um <samp>label</samp> <strong>no mesmo nível hierárquico</strong> que o checkbox e depois dele</li>
+        <li>O conteúdo deve aparecer dentro do label</li>
+      </ol>
+      <p>O código HTML da caixa ao lado é:</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;div class="caixa-clicavel"&gt;</p>
+          <p class="recuo-1">&lt;input class="caixa-clicavel__check" type="checkbox" id="cc-teste"&gt;</p>
+          <p class="recuo-1">&lt;label class="caixa-clicavel__label" for="cc-teste"&gt;</p>
+            <p class="recuo-2">&lt;p&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="../svg/basico.svg#monitor" /&gt;&lt;/svg&gt;&lt;/p&gt;
+            <p class="recuo-2">&lt;p&gt;Clique em qualquer lugar dessa caixa e veja o que acontece&lt;/p&gt;</p>
+          <p class="recuo-1">&lt;/label&gt;</p>
+        <p>&lt;/div&gt;</p>
+      </code>
+      <h2>O SASS</h2>
+      <ol class="lista-ordenada">
+        <li>O elemento pai deve ter o mínimo de formatação possível (como tamanho, por exemplo)</li>
+        <li>Formate o estado padrão do label, quando o checkbox não está selecionado (faça isso antes do checkbox, por boas práticas)</li>
+        <li>O label deve ter <samp>display: block</samp> para que ele ocupe toda a área do elemento pai</li>
+        <li>No checkbox chame o mixin <samp>item-checado()</samp>. Entre parênteses você vai colocar o seletor do label (pode ser o nome da classe ou só <samp>label</samp> mesmo. Importante notar que deve estar entre aspas). Formate este mixin como se fosse um seletor, abrindo chaves e colocando aí o conteúdo que vai aparecer quando o checkbox estiver selecionado</li>
+      </ol>
+      <p>O código SASS da caixa ao lado é:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.caixa-clicavel {</p>
+          <p class="recuo-1">max-width: 200px;</p>
+          <p class="recuo-1">float: right;</p>
+          <p class="recuo-1">&__label {</p>
+            <p class="recuo-2">display: block;</p>
+            <p class="recuo-2">border: 1px solid cor(borda);</p>
+            <p class="recuo-2">p {</p>
+              <p class="recuo-3">padding: $calha / 2;</p>
+              <p class="recuo-3">text-align: center;</p>
+              <p class="recuo-3">margin: 0;</p>
+              <p class="recuo-3">&:nth-child(1) {</p>
+                <p class="recuo-4">background: cor(fundo);</p>
+                <p class="recuo-4">font-size: 3em;</p>
+                <p class="recuo-4">color: cor(texto, claro);</p>
+              <p class="recuo-3">}</p>
+            <p class="recuo-2">}</p>
+          <p class="recuo-1">}</p>
+          <p class="recuo-1">&__check {</p>
+            <p class="recuo-2">@include item-checado(".caixa-clicavel__label") {</p>
+              <p class="recuo-3">outline: 1px solid cor(borda);</p>
+              <p class="recuo-3">box-shadow: 0 0 30px cor(fundo);</p>
+              <p class="recuo-3">p:nth-child(1) {</p>
+                <p class="recuo-4">background: cor(fundo, escuro);</p>
+              <p class="recuo-3">}</p>
+            <p class="recuo-2">}</p>
+          <p class="recuo-1">}</p>
+        <p>}</p>
+      </code>
+      <p>Compilado este código vira:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.caixa-clicavel {</p>
+          <p class="recuo-1">max-width: 200px;</p>
+          <p class="recuo-1">float: right;</p>
+        <p>}</p>
+        <p>.caixa-clicavel__check {</p>
+          <p class="recuo-1">display: none;</p>
+        <p>}</p>
+        <p>.caixa-clicavel__check:checked ~ .caixa-clicavel__label {</p>
+          <p class="recuo-1">outline: 1px solid #00c5cd;</p>
+          <p class="recuo-1">box-shadow: 0 0 30px #00c5cd;</p>
+        <p>}</p>
+        <p>.caixa-clicavel__check:checked ~ .caixa-clicavel__label p:nth-child(1) {</p>
+          <p class="recuo-1">background: #00949a;</p>
+        <p>}</p>
+        <p>.caixa-clicavel__label {</p>
+          <p class="recuo-1">display: block;</p>
+          <p class="recuo-1">border: 1px solid #00c5cd;</p>
+        <p>}</p>
+        <p>.caixa-clicavel__label p {</p>
+          <p class="recuo-1">padding: 0.3125rem;</p>
+          <p class="recuo-1">text-align: center;</p>
+          <p class="recuo-1">margin: 0;</p>
+        <p>}</p>
+        <p>.caixa-clicavel__label p:nth-child(1) {</p>
+          <p class="recuo-1">background: #00c5cd;</p>
+          <p class="recuo-1">font-size: 3em;</p>
+          <p class="recuo-1">color: #fff;</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+</article>

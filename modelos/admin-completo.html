@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Estrutura completa de admin</title>
+    <link rel="stylesheet" href="admin.css" media="screen" title="no title" charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <figure class="header__logo">
+          <img src="../modelos/logo-exemplo-header.png" alt="" title="" />
+        </figure>
+        <aside class="header__usuario">
+          <span class="ico-pessoa"></span>
+          <span class="header__usuario__nome">Nome do usuário</span>
+          <a href="" title="Sair"><svg class="ico"><use xlink:href="../svg/basico.svg#sair" /></svg></a>
+        </aside>
+      </header>
+      <nav class="nav">
+        <ul class="nav__menu">
+          <li>
+            <a href="">Link de exemplo (submenu)</a>
+            <ul class="nav__submenu">
+              <li><a href="">Link do submenu de exemplo</a></li>
+              <li><a href="">Link do submenu de exemplo</a></li>
+              <li><a href="">Link do submenu de exemplo</a></li>
+              <li><a href="">Link do submenu de exemplo</a></li>
+            </ul>
+          </li>
+          <li><a href="">Link de exemplo</a></li>
+          <li><a href="">Link de exemplo</a></li>
+          <li><a href="">Link de exemplo final</a></li>
+          <li>
+            <a href="">Link de exemplo (submenu)</a>
+            <ul class="nav__submenu">
+              <li><a href="">Link do submenu de exemplo com texto bem maior e tudo o mais</a></li>
+              <li><a href="">Link do submenu de exemplo</a></li>
+              <li><a href="">Link do submenu de exemplo</a></li>
+              <li><a href="">Link do submenu de exemplo</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <main class="main">
+        <ul class="breadcrumbs">
+          <li><a href="">Início</a></li>
+          <li><a href="">Sub-item</a></li>
+          <li>Localização atual</li>
+        </ul>
+        <section class="secao-lista">
+          <input type="checkbox" id="form" class="secao-lista__check">
+          <header class="secao-lista__header">
+            <label for="form">
+              <span class="secao-lista__titulo">Cadastro</span>
+              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+            </label>
+          </header>
+          <section class="secao-lista__conteudo">
+            <article class="form-container">
+              <div class="field-12 form-texto">
+                <input type="text" id="form-demo-1" placeholder="Placeholder do formulário" />
+                <label for="form-demo-1">Campo de texto</label>
+              </div>
+              <div class="field-12 form-texto">
+                <textarea name="" id="" cols="30" rows="10" id="form-demo-2"></textarea>
+                <label for="form-demo-2">Caixa de texto</label>
+              </div>
+              <div class="field-6 form-select">
+                <label for="form-demo-3">Select</label>
+                <select name="form-demo" id="form-demo-4">
+                  <option value="demo1">Valor 1</option>
+                  <option value="demo2">Valor 2</option>
+                  <option value="demo3">Valor 3</option>
+                  <option value="demo4">Valor 4</option>
+                </select>
+                <span class="form__ico"><svg class="ico--baixo"><use xlink:href="../ico.svg#seta-fina" /></svg></span>
+              </div>
+              <div class="field-3 form-checkbox">
+                <input type="checkbox" id="form-demo-5" />
+                <label for="form-demo-5">Checkbox</label>
+              </div>
+              <div class="field-3 form-checkbox">
+                <input type="checkbox" id="form-demo-6" checked="checked" />
+                <label for="form-demo-6">Checkbox</label>
+              </div>
+              <div class="field-3 form-radio">
+                <input type="radio" id="form-demo-7" checked="checked" name="form-demo-radio" />
+                <label for="form-demo-7">Radio Button</label>
+              </div>
+              <div class="field-3 form-radio">
+                <input type="radio" id="form-demo-8" name="form-demo-radio" />
+                <label for="form-demo-8">Radio Button</label>
+              </div>
+              <div class="field-3 form-radio">
+                <input type="radio" id="form-demo-9" name="form-demo-radio" />
+                <label for="form-demo-9">Radio Button</label>
+              </div>
+              <div class="field-3 form-radio">
+                <input type="radio" id="form-demo-10" name="form-demo-radio" />
+                <label for="form-demo-10">Radio Button</label>
+              </div>
+              <div class="field-6 form-texto">
+                <input type="text" id="form-demo-11" />
+                <label for="form-demo-11">Busca</label>
+                <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+              </div>
+              <div class="field-6 form-texto">
+                <input type="date" id="form-demo-12" />
+                <label for="form-demo-12">Data</label>
+                <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#calendario" /></svg></span>
+              </div>
+              <div class="form-acoes">
+                <button class="bt--secundario">Cancelar</button>
+                <button class="bt">Salvar</button>
+              </div>
+            </article>
+          </section>
+        </section>
+        <section class="secao-lista">
+          <input type="checkbox" id="conteudo" class="secao-lista__check">
+          <header class="secao-lista__header">
+            <label for="conteudo">
+              <span class="secao-lista__titulo">Lista</span>
+              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+            </label>
+          </header>
+          <section class="secao-lista__conteudo">
+            <section class="abas">
+              <input type="radio" id="aba-1" class="abas__input aba-1" name="abas" checked="checked">
+              <input type="radio" id="aba-2" class="abas__input aba-2" name="abas">
+              <nav class="abas__nav">
+                <label for="aba-1" class="abas__aba aba-1">Tabela</label>
+                <label for="aba-2" class="abas__aba aba-2">Tipografia</label>
+              </nav>
+              <article class="abas__conteudo aba-1">
+                <table class="tab">
+                  <thead>
+                    <tr>
+                      <th>Matrícula</th>
+                      <th>Nome</th>
+                      <th class="col--acoes"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1234567</td>
+                      <td>Fulano de Tal</td>
+                      <td class="tab__acoes">
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1234567</td>
+                      <td>Fulano de Tal</td>
+                      <td class="tab__acoes">
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1234567</td>
+                      <td>Fulano de Tal</td>
+                      <td class="tab__acoes">
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1234567</td>
+                      <td>Fulano de Tal</td>
+                      <td class="tab__acoes">
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1234567</td>
+                      <td>Fulano de Tal</td>
+                      <td class="tab__acoes">
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1234567</td>
+                      <td>Fulano de Tal</td>
+                      <td class="tab__acoes">
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1234567</td>
+                      <td>Fulano de Tal</td>
+                      <td class="tab__acoes">
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
+                        <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <nav class="pagination">
+                  <span class="first"><a href="#"><span title='Primeira Página'><svg class="ico--esquerda"><use xlink:href="../svg/basico.svg#seta-dupla" /></svg></span></span></a></span>
+                  <span class="prev"><a href="#" rel="prev"><span title='Anterior'><svg class="ico--esquerda"><use xlink:href="../svg/basico.svg#seta-fina" /></svg></span></a></span>
+                  <span class="page"><a href="#" rel="prev">1</a></span>
+                  <span class="page current">2</span>
+                  <span class="page"><a href="#" rel="next">3</a></span>
+                  <span class="page"><a href="#">4</a></span>
+                  <span class="page gap">...</span>
+                  <span class="page"><a href="#">5</a></span>
+                  <span class="page"><a href="#">6</a></span>
+                  <span class="next"><a href="#" rel="next"><span title='Próxima'><svg class="ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg></span></a></span>
+                  <span class="last"><a href="#"><span title='Última Página'><svg class="ico"><use xlink:href="../svg/basico.svg#seta-dupla" /></svg></span></a></span>
+                </nav>
+              </article>
+              <article class="abas__conteudo aba-2">
+                <h1>h1. Lorem ipsum dolor sit amet</h1>
+                <h2>h2. Lorem ipsum dolor sit amet</h2>
+                <h3>h3. Lorem ipsum dolor sit amet</h3>
+                <h4>h4. Lorem ipsum dolor sit amet</h4>
+                <h5>h5. Lorem ipsum dolor sit amet</h5>
+                <h6>h6. Lorem ipsum dolor sit amet</h6>
+                <p>
+                  <strong>Parágrafo comum.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <ul>
+                  <li>Lista</li>
+                  <li>Lista</li>
+                </ul>
+                <ol>
+                  <li>Lista</li>
+                  <li>Lista</li>
+                </ol>
+                <p>
+                  <strong>Negrito</strong>. <em>Empashis (itálico)</em>. <u>Sublinhado</u>. <a href="al.go.leg.br" target="_blank">Link padrão</a>
+                </p>
+              </article>
+            </section><!-- abas -->
+          </section><!-- conteúdo -->
+        </section>
+      </main>
+      <aside class="aside">
+        <ul class="lista">
+          <li class="lista__titulo">Lista</li>
+          <li>Lista simples</li>
+          <li>Sem grandes frescuras</li>
+          <li>Pra ver formatação mesmo</li>
+        </ul>
+        <div class="card">
+          <header class="card__titulo">
+            <h1>Título do Card</h1>
+          </header>
+          <figure class="card__imagem">
+            <img src="../read-me/img/card-img.jpg" alt="" />
+          </figure>
+          <section class="card__principal">
+            <div class="card__item">
+              <p><strong>Teste:</strong> <span>Teste aqui</span></p>
+            </div>
+            <div class="card__item">
+              <p>Teste aqui</p>
+            </div>
+          </section>
+          <footer class="card__footer">
+            <button class="bt--secundario">Cancela</button>
+            <button class="bt">Confirma</button>
+          </footer>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

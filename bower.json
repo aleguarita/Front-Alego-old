@@ -1,15 +1,18 @@
 {
-  "name": "Front-Alego",
-  "homepage": "https://github.com/aleguarita/Front-Alego",
+  "name": "front-alego",
+  "homepage": "https://github.com/aleguarita/front-alego",
   "authors": [
     "Alessandro Guarita"
   ],
-  "description": "Framework da Assembleia Legislativa do Estado de Goiás. Desenvolvido ao longo de 2015 pela Seção de Programação Web com o objetivo de padronizar o CSS e facilitar a criação do front-end dos sistemas.",
+  "description": "Framework da ALEGO. Desenvolvido pela Seção de Programação Web para padronizar o CSS e facilitar a criação do front-end dos sistemas",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependences": {
+    "ngSweetAlert": "^1.1.0"
+  }
 }

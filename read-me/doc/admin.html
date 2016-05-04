@@ -1,0 +1,163 @@
+<article id="admin">
+  <header>
+    <h1>Admin</h1>
+    <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> modelos/login.html</samp></p>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="admin__basico" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="admin__basico">
+        <span class="secao-lista__titulo">Básico</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>A view de admin se divide em dois arquivos HTML que podem ser encontrados na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> modelos</samp>: <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> login.html</samp> e <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.html</samp>. Evidentemente o Ruby fará uso de outros modelos, mas ajuste o mesmo para que as classes sejam as mesmas.</p>
+      <p>O arquivo básico para trabalhar (<samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp>) está na raíz do FRONT-ALEGO e já está pré-formatado. Sinta-se à vontade para alterar as cores e medidas conforme a necessidade.</p>
+      <h2>O admin.scss</h2>
+      <p>Este arquivo vai englobar toda a área administrativa do site (e vai ser o arquivo básico que vamos usar para a maioria dos sistemas da Alego, já que eles são modelos administrativos).</p>
+      <h3>Comentários iniciais</h3>
+      <p>A primeira coisa que você vai fazer é editar o comentário inicial para identificar o arquivo em questão:</p>
+      <ol class="lista-ordenada">
+        <li>Substitua o texto <samp class="texto--caixa-alta">nome do sistema</samp> para o nome do sistema atual utilizando de <span class="texto--caixa-alta">caixa alta</span></li>
+        <li>No campo <samp>Autor:</samp> coloque o seu nome</li>
+        <li>No campo <samp>Data:</samp> coloque a data que iniciou o arquivo</li>
+      </ol>
+      <p>Se quiser manter um changelog, separe com a mesma quantidade de traços (<samp>-</samp>) e siga a seguinte ordem:</p>
+      <ol class="lista-ordenada">
+        <li>Separador de traços</li>
+        <li>Título <samp class="texto--caixa-alta">changelog:</samp> todo em maiúsculo</li>
+        <li>Cada dia você coloca a data separa com um traço e coloca a descrição. <strong>As alterações mais recentes devem aparecer no topo e as mais antigas aparecem embaixo</strong></li>
+      </ol>
+      <p>Exemplo de changelog:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>// -----------------------------------------------------------------------------</p>
+        <p>// CHANGELOG:</p>
+        <p>// 10/03/2016 - Esta foi minha última alteração</p>
+        <p>// 08/03/2016 - Esta foi a minha primeira alteração</p>
+        <p>// 05/03/2016 - Arquivo criado e finalizado</p>
+        <p>// -----------------------------------------------------------------------------</p>
+      </code>
+      <p>Cada entrada do changelog é depois que o arquivo já foi encerrado e serve para mostrar alterações depois que o sistema já estava pronto. Um exemplo de entrada: <samp>acrescentada formatação para a tela de registro de usuário</samp> ou <samp>unificadas classes da tabela x e tabela y</samp>.</p>
+      <h3>Configurações iniciais</h3>
+      <p>Depois dos comentários vem as configurações iniciais do arquivo.</p>
+      <p>A primeira configuração é a de importação de arquivos SASS. Por padrão já importa o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base</samp>. Se você tiver arquivos específicos, inclua-os aqui. Em particular aqueles que você alterou alguma configuração padrão do FRONT-ALEGO e jogou na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extra</samp> (exemplo: você criou um modelo de tabela personalizada para usar com a classe <samp>.tab</samp>, então a importação seria <samp>@import "extra/tabela";</samp>).</p>
+      <blockquote class="aviso--grave">
+        Há uma exceção: arquivos de ajustes emergencial devem aparecer no <strong>final</strong> do arquivo, para que as configurações sobreponham a deste. Estes arquivos, no entanto, são temporários
+      </blockquote>
+      <p>Depois da importação está as configurações de grid (<a href="#grid" class="link--readme">Veja mais detalhes aqui</a>)l</p>
+      <p>Em seguida você coloca as variáveis que pertencem apenas a este arquivo. Isso só é relevante se você está trabalhando com mais de um arquivo diferente (como área administrativa e site). Algumas já foram definidas e indicam o tamanho da tela. <strong>Por padrão as classes devem aparecer em <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/variaveis.scss</samp></strong>.</p>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="admin__login" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="admin__login">
+        <span class="secao-lista__titulo">Login</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>As classes para serem usadas no login são:</p>
+      <dl class="lista-definicao">
+        <dt><samp>.login</samp></dt>
+          <dd>Fundo da tela de login. Utilize esta classe para definir a cor de fundo. <strong>Não faça isso no <samp>body</samp> pois este arquivo é herdado também para o resto do admin</strong></dd>
+        <dt><samp>.login__janela</samp></dt>
+          <dd>A janela de login. Vem pré-configurada para ocupar a tela inteira em smartphone (de nada).</dd>
+        <dt><samp>.login__header</samp></dt>
+          <dd>Normalmente fica a imagem com o ícone e nome do sistema. Mas se quiser alterar o conteúdo fique à vontade.</dd>
+        <dt><samp>.login__principal</samp></dt>
+          <dd>A área principal da tela de login, onde ficam os formulários</dd>
+        <dt><samp>.login__acoes</samp></dt>
+          <dd>A área que fica o botão de logar e eventuais links de "esqueceu a senha" ou algo parecido</dd>
+      </dl>
+      <p>Além disso os campos fazem uso de outras classes anteriormente explicadas:</p>
+      <dl class="lista-definicao">
+        <dt><samp>.field-12</samp></dt>
+          <dd>Campo de texto que ocupa a largura toda (<a href="#form-grupo" class="link--readme">veja mais aqui</a>)</dd>
+        <dt><samp>.form-texto</samp></dt>
+          <dd>Para formulários que tenham campo de texto (<a href="#form" class="link--readme">Veja mais aqui</a>)</dd>
+        <dt><samp>.bt</samp></dt>
+          <dd>Ícone de botão (<a href="#botao" class="link--readme">Veja mais aqui</a>)</dd>
+      </dl>
+      <blockquote class="aviso--dica">
+        Se você abrir o arquivo para visualizar não conseguirá ver as imagens, pois o ela já faz a referência para o caminho correto no Rails. Altere se necessário para seu sistema.
+      </blockquote>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="admin__admin" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="admin__admin">
+        <span class="secao-lista__titulo">Admin</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>O admin é dividido em pedaços específicos, cada qual com sua classe (as classes são idênticas ao tag que as usa):</p>
+      <dl class="lista-definicao">
+        <dt><samp>.header</samp></dt>
+          <dd>O cabeçalho do sistema. Aqui vai ficar a marca, a indicação do nome do usuário e o botão de sair</dd>
+        <dt><samp>.nav</samp></dt>
+          <dd>A navegação do site. Contém o menu (mas pode conter algum outro elemento que se repete - como os dados de quem está logado, nome do sistema e assim por diante)</dd>
+        <dt><samp>.main</samp></dt>
+          <dd>A parte principal do site. Você pode incluir classes filhas com <samp>main__</samp> ou sem o nome <samp>main</samp> para facilitar</dd>
+        <dt><samp>.aside</samp></dt>
+          <dd>Uma área extra. Pode ser área de banners, de relatórios. <strong>Esta tag/classe é opcional. Se não for usar delete o HTML e o CSS</strong>.</dd>
+        <dt><samp>.footer</samp></dt>
+          <dd>O rodapé do site, se houver. <strong>Esta tag/classe é opcional. Se não for usar delete o HTML e o CSS</strong>.</dd>
+      </dl>
+      <h2>Configuração do menu</h2>
+      <p>Esta configuração não aparece dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/base.svg#documento" /></svg> config.scss</samp> por se tratar de uma configuração específica para esta view (podemos ter um menu horizontal no site e vertical no admin, por exemplo).</p>
+      <dl class="lista-definicao">
+        <dt><samp>$menu-tipo</samp></dt>
+          <dd>Determina como o menu vai aparecer. Valores: <samp>vertical</samp> (padrão) e <samp>horizontal</samp></dd>
+      </dl>
+      <h2>Configurações de grid</h2>
+      <p>O arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> contém toda a configuração de grid que está sendo usada. Conforme discutido na seção de <a href="#grid" class="link--readme">grids</a> não se usa classes próprias para grid e elas são inseridas diretamente no CSS. Neste caso fica no começo do arquivo.</p>
+      <dl class="lista-definicao">
+        <dt><samp>$gd-header</samp></dt>
+          <dd>A largura do header. O valor atual é <samp>$grid-qtd</samp> (a quantidade de grids definidas no arquivo de configuração)</dd>
+        <dt><samp>$gd-menu</samp></dt>
+          <dd>A largura do menu, que fica na lateral esquerda. O valor atual de exemplo é <samp>2</samp>. Se o menu for horizontal ele é configurado automaticamente para <samp>$grid-qtd</samp></dd>
+        <dt><samp>$gd-aside</samp></dt>
+          <dd>A largura da parte lateral. Se você não for usar o <samp>.aside</samp> basta inserir o valor <samp>0</samp></dd>
+        <dt><samp>$gd-footer</samp></dt>
+          <dd>O rodapé do site tem como valor <samp>$grid-qtd</samp> pois ocupa a largura toda</dd>
+        <dt><samp>$gd-nav</samp></dt>
+          <dd>A lagura da área de navegação. O valor depende se o menu é vertical ou horizontal. <strong>Valor automático, não há necessidade de alterar</strong></dd>
+        <dt><samp>$gd-main</samp></dt>
+          <dd>A largura da parte principal. É uma conta que subtrai do valor total da grid o tamanho do menu e da parte lateral, para facilitar ajustes. <strong>Valor automático, não há necessidade de alterar</strong></dd>
+      </dl>
+      <h2>Variáveis</h2>
+      <p>Algumas variáveis já foram aplicadas e você deve alterar conforme o sistema:</p>
+      <dl class="lista-definicao">
+        <dt><samp>$header-altura</samp></dt>
+          <dd>A altura do header. O valor atual é baseado na imagem de exemplo. Altere este valor conforme a necessidade do seu sistema.</dd>
+        <dt><samp>$footer-altura-min</samp></dt>
+          <dd>Regula a altura mínima do <samp>.footer</samp>. Se você não usar rodapé no sistema, coloque este valor como <samp>0</samp>.</dd>
+        <dt><samp>$main-altura-min</samp></dt>
+          <dd>A altura mínima da área principal. Ela subtrai as duas variáveis acima (daí a importância de declará-las) e as margens da altura da tela para preencher o que falta na tela.</dd>
+      </dl>
+      <h2>Formatações específicas</h2>
+      <p>O CSS já vem pronto com algumas poucas formatações específicas. Algumas delas você formatou com as variáveis acima e outras formata posicionamento e grids. Cores de fundo, margens e espaçamento são sugestões.</p>
+      <p>As subclasses já estão aplicadas dentro delas (com o uso de <samp>&__filho</samp>).</p>
+      <p>Note, por exemplo, que o menu não tem fundo, bordas, etc. Ele tem apenas posicionamento e algum padding. O resto fica por sua conta.</p>
+      <h2>Submenu</h2>
+      <p>No exemplo já vem aplicado um submenu mais simples. Se o sistema que você não estiver trabalhando não tiver submenu, apague isso do <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> ou comente (caso queira ter submenu no futuro).</p>
+      <p>Muito cuidado com a estrutura. Se você quiser diferenciar o menu pai do menu filho, no seletor <samp>&__menu</samp> mude o elemento filho de <samp>li</samp> para <samp>&gt; li</samp>.</p>
+      <h2>Menu horizontal ou vertical</h2>
+      <p>Por padrão o menu está na lateral esquerda. No entanto é possível fazer com que o menu fique horizontal. Para isso siga os passos:</p>
+      <ol class="lista-ordenada">
+        <li>Altera a variável <samp>$menu-tipo</samp> de <samp>vertical</samp> para <samp>horizontal</samp></li>
+        <li>Acrescente uma variável de altura para o menu (<samp>$nav-altura</samp>).</li>
+        <li>Acrescente <samp> - #{$nav-altura}</samp> na fórmula <samp>$main-altura-min</samp>. Com isso você está reduzindo a altura da parte principal com a inclusão do menu.</li>
+        <li>Na classe <samp>.nav</samp> acrescente a altura criada anteriormente.</li>
+      </ol>
+      <blockquote class="aviso--dica">
+        Se você abrir o arquivo para visualizar não conseguirá ver as imagens, pois o ela já faz a referência para o caminho correto no Rails. Altere se necessário para seu sistema.
+      </blockquote>
+    </section>
+  </section>
+</article>

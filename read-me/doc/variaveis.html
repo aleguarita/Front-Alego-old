@@ -1,0 +1,95 @@
+<article id="variaveis">
+  <header>
+    <h1>Variáveis</h1>
+    <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_variaveis.scss</samp></p>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="variaveis__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="variaveis__doc">
+        <span class="secao-lista__titulo">Documentacão</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Todas as variáveis globais do sistema devem ficar neste arquivo. Ele já vem com um conjunto de variáveis prontas para uso, bastando modificar conforme a necessidade do sistema. Note que diversas delas já estão, inclusive, sendo usadas (por exemplo: <samp>$sombra-modal</samp>).</p>
+      <dl class="lista-definicao">
+        <dt><samp>$sombra-nenhuma</samp></dt>
+          <dd><samp class="codigo-sombra-nenhuma"></samp>. Use para eliminar a sombra do elemento (exemplo: o estágio hover de um botão).</dd>
+        <dt><samp>$sombra-padrao</samp></dt>
+          <dd><samp class="codigo-sombra-padrao"></samp>. Use como padrão.</dd>
+        <dt><samp>$sombra-simples</samp></dt>
+          <dd><samp class="codigo-sombra-simples"></samp>. Sombra mais discreta para caixas.</dd>
+        <dt><samp>$sombra-difusa</samp></dt>
+          <dd><samp class="codigo-sombra-difusa"></samp></dd>
+        <dt><samp>$sombra-texto</samp></dt>
+          <dd><samp class="codigo-sombra-texto"></samp>. Use no texto.</dd>
+        <dt><samp>$sombra-texto-relevo</samp></dt>
+          <dd><samp class="codigo-sombra-texto-relevo"></samp>. Use no texto para fazer o efeito de relevo.</dd>
+        <dt><samp>$sombra-card</samp></dt>
+          <dd><samp class="codigo-sombra-card"></samp></dd>
+        <dt><samp>$sombra-modal</samp></dt>
+          <dd><samp class="codigo-sombra-modal"></samp></dd>
+        <dt><samp>$sombra-toaster</samp></dt>
+          <dd><samp class="codigo-sombra-toaster"></samp></dd>
+        <dt><samp>$sombra-botao</samp></dt>
+          <dd><samp class="codigo-sombra-botao"></samp></dd>
+      </dl>
+      <dl class="lista-definicao">
+        <dt><samp>$borda-nenhuma</samp></dt>
+          <dd><samp class="codigo-borda-nenhuma"></samp>. Retira a borda do elemento.</dd>
+        <dt><samp>$borda-padrao</samp></dt>
+          <dd><samp class="codigo-borda-padrao"></samp>. A borda padrão dos elementos.</dd>
+        <dt><samp>$borda-variante</samp></dt>
+          <dd><samp class="codigo-borda-variante"></samp>. Borda variante (com a outra cor de borda)</dd>
+      </dl>
+      <dl class="lista-definicao">
+        <dt><samp>$calha</samp></dt>
+          <dd><samp class="codigo-calha"></samp>. A variável <samp>$grid-margem</samp> foi definida em grid e é <samp class="codigo-grid-margem"></samp>. Use para dar espaço entre os elementos.</dd>
+        <dt><samp>$margem</samp></dt>
+          <dd><samp class="codigo-margem"></samp>. Use esta variável como margem padrão dos elementos, gerando consistência. Se necessário use multiplicadores para valores maior (exemplo: <samp>margin: $margem * 2;</samp>)</dd>
+        <dt><samp>$pd</samp></dt>
+          <dd><samp class="codigo-pd"></samp>. Use para determinar o padding do objeto. O nome é simplificado para poder usar no padding agrupado (como por exemplo: <samp>padding: $pd 0;</samp>)</dd>
+        <dt><samp>$padding</samp></dt>
+          <dd><samp class="codigo-padding"></samp>. Igual ao de cima. Criado apenas para o caso de esquecer a variável acima</dd>
+        <dt><samp>$transition</samp></dt>
+          <dd><samp class="codigo-transition"></samp>. Animação de transição básica</dd>
+        <dt><samp>$rd</samp></dt>
+          <dd><samp class="codigo-rd"></samp>. Use como raio de arredondamento padrão (em <samp>border-radius</samp>). Esta variável tem o nome menos semântico para facilitar na escrita.</dd>
+      </dl>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="variaveis__demo" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="variaveis__demo">
+        <span class="secao-lista__titulo">Demonstração</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Apesar de ter sido usado uma caixa para demonstrar as variáveis, elas podem ser usadas em outros elementos (como texto, por exemplo).</p>
+      <p>A variável <samp>$calha</samp> está sendo aplicada como espaço horizontal entre os elementos abaixo.</p>
+      <ul class="demo__variaveis">
+        <li class="demo__var--sombra-nenhuma"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-padrao"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-simples"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-difusa"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-texto"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-texto-relevo"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-card"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-modal"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-toaster"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--sombra-botao"><span class="caixa"></span><span class="funcao"></span></li>
+
+        <li class="demo__var--borda-nenhuma"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--borda-padrao"><span class="caixa"></span><span class="funcao"></span></li>
+        <li class="demo__var--borda-variante"><span class="caixa"></span><span class="funcao"></span></li>
+
+        <li class="demo__var--transition"><span class="caixa">passe o mouse</span><span class="funcao"></span></li>
+
+        <li class="demo__var--rd"><span class="caixa"></span><span class="funcao"></span></li>
+      </ul>
+    </section>
+  </section>
+</article>

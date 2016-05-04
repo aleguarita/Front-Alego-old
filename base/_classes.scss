@@ -5,17 +5,21 @@ CLASSES FIXAS
 */
 
 // =============================================================================
-// Front-Alego | Framework da Assembleia Legislativa
+// Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 08/12/2015
+// Alterado em: 14/03/2016
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/03/2016 | Correção da classe .text-- para .texto--
+// 19/01/2016 | Mudada a ordem do placeholder para ficar mais próximo da classe
+//              gerada
+// 06/01/2016 | Acrescentadas variações de texto e fundo --urgente
 // 08/12/2015 | Tiradas classes da tipografia e inseridas aqui
 //              Criada classe "pointer"
 // 21/10/2015 | Criado o arquivo com as classes básicas
@@ -31,26 +35,23 @@ CLASSES FIXAS
 // =============================================================================
 // CORES DE SISTEMA
 // =============================================================================
-%texto-status--claro {
-	color: cor(texto, claro);
-}
-%texto-status--escuro {
-	color: cor(texto);
-}
 .texto--ok {
 	color: cor-status(ok);
 }
-.texto--erro {
+.texto--erro, .texto--urgente {
 	color: cor-status(erro);
 }
 .texto--alerta {
 	color: cor-status(alerta);
 }
+%texto-status--claro {
+  color: cor(texto, claro);
+}
 .fundo--ok {
 	background: cor-status(ok);
 	@extend %texto-status--claro;
 }
-.fundo--erro {
+.fundo--erro, .fundo--urgente {
 	background: cor-status(erro);
 	@extend %texto-status--claro;
 }
@@ -78,7 +79,7 @@ $tamanho-fonte: (
 );
 
 @each $classe, $tamanho in $tamanho-fonte {
-	.fonte--#{$classe}, .text--#{$classe} {
+	.fonte--#{$classe}, .texto--#{$classe} {
 		font-size: $tamanho * 1em;
 	}
 }

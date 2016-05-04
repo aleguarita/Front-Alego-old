@@ -1,0 +1,162 @@
+<article id="simbolos">
+  <header>
+    <h1>Símbolos</h1>
+    <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_simbolos.scss</samp></p>
+    <blockquote class="aviso--grave">
+      Este método vai cair em desuso e está aqui apenas por retrocompatibilidade
+    </blockquote>
+  </header>
+  <section class="secao-lista">
+    <input type="checkbox" id="simbolos__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="simbolos__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Este arquivo contém todos os símbolos usados no Front-Alego e classes para uso com eles.</p>
+      <h2 id="simbolos__icones">Lista de Ícones</h2>
+      <p>O mapa <samp>$icones</samp> lista todos os ícones usados. Para acrescentar um novo olhe o ícone na lista de ícones da fonte e crie o nome da classe. Siga o padrão de organização (sempre em ordem alfabética e cada letra separada por ENTER).</p>
+      <p><strong class="texto--erro">Tamanho do arquivo:</strong> este arquivo gera um CSS final imenso pois cada símbolo no mapa cria 5 linhas de CSS. Quando for fazer sites externos, a recomendação é comentar os símbolos não usados (com <samp>//</samp>) e deixar o arquivo menor. Um comentário ao lado do símbolo mostra quais são as classes que estão sempre em uso, não comente essas.</p>
+      <h2 id="simbolos__classes">Classes</h2>
+      <dl class="lista-definicao">
+        <dt><samp>.ico-</samp></dt>
+        <dd>Todo ícone começa com <samp>.ico-</samp>. O nome que aparece depois do <samp>.ico-</samp> é o mesmo que aparece no mapa <samp>$icones</samp> (por exemplo: <samp>.ico-pdf</samp>).</dd>
+        <dt><samp>.ico--espaco</samp></dt>
+        <dd>Acrescenta um espaço depois do ícone (para quando você usa um texto dentro do <samp>&lt;span&gt;</samp> e manter o ícone separado do texto)</dd>
+      </dl>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="simbolo__demo" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="simbolo__demo">
+        <span class="secao-lista__titulo">Demonstração | Ícones utilizados</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>Se você tiver acrescentado algum símbolo novo no seu sistema e quiser visualizá-lo aqui (como referência) vai ser necessário acrescentar o ícone na unha no arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-me/doc.html</samp> e copiar uma das linhas existentes para o seu ícone (alterando a classe). Depois disso recompile o <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-me/info.scss</samp> para <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> read-info.css</samp>.</p>
+      <p>Se na lista abaixo aparecer um "buraco" entre dois ícones é porque o mesmo foi comentado no seu arquivo de símbolos.</p>
+      <ul class="demo__simbolos">
+        <li class="demo__ico-abrir"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-adicionar"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-ajuda"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-apontando"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-asterisco"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-aviso-destaque"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-cadeado-aberto"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-cadeado-fechado"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-cadeado"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-calendario"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-calendario-2"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-calendario-3"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-carregando"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-casa"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-celular"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-chat"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-chat-2"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-chat-3"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-chat-4"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-chave"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-clipe"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-cone-seguranca"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-cracha"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-curtir"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-descurtir"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-desligar"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-documento"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-documento-2"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-download"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-engrenagem"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-envelope"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-equipe"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-erro"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-estrela-metade"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-estrela-vazia"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-estrela"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-facebook"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-fechar"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-ferramentas"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-figura"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-filtro"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-foto"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-globo"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-google-mais"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-grafico-barra"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-grafico-linha"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-grafico-pizza"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-impressora"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-info"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-janela-up"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-janela"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-lampada"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-lapis"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-link"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-livro"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-lixo"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-lixo-2"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-local"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-lupa"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-mais"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-megafone"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-menos"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-monitor"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-nao-ok"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-novo"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-ok-tique"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-ok"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-olho-fechado"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-olho"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-ordenar-baixo"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-ordenar-cima"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-ordenar"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-pasta"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-pdf"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-pessoa"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-pessoa-2"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-pessoa-3"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-prancheta"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-proibido"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-relogio"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-sair"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-salvar"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-baixo"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-cima"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-direita"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-esquerda"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-direita-dupla"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-esquerda-dupla"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-baixo-fina"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-cima-fina"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-direita-fina"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-seta-esquerda-fina"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-tabela"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-tablet"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-teclado"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-telefone"><span class="icone"></span><span class="funcao"></span></li>
+        <li class="demo__ico-twitter"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-x"><span class="icone"></span><span class="funcao"></span></li>
+
+        <li class="demo__ico-zip"><span class="icone"></span><span class="funcao"></span></li>
+      </ul>
+    </section>
+  </section>
+</article>
