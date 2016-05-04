@@ -10,12 +10,15 @@ ABAS
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
-// cards.scss
+// abas.scss
 // Criado em: 29/03/2016
+// Alterado em: 04/05/2016
 // -----------------------------------------------------------------------------
 // Definições padrão de abas
 // -----------------------------------------------------------------------------
 // Changelog
+// 04/05/2016 | Texto da aba agora usa a variável $fonte-titulo ao invés de
+//              $fonte-serifa
 // 29/03/2016 | Criado o arquivo
 // =============================================================================
 
@@ -51,7 +54,7 @@ ABAS
   // ---------------------------------------------------------------------------
   @if $tag == label {
     &__aba {
-      font-family: $fonte-serifa;
+      font-family: $fonte-titulo;
       font-size: rem(14);
       padding: .5em 1em;
       color: cor(abas, inativa);

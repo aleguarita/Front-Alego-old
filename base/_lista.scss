@@ -10,13 +10,14 @@ LISTA
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
-// form_input_texto.scss
+// lista.scss
 // Criado em: 20/11/2015
-// Última alteração em: 25/01/2016
+// Última alteração em: 04/05/2016
 // -----------------------------------------------------------------------------
 // Formata caixas de listas
 // ----------------------------------------------------------------------------
 // Changelog
+// 04/05/2016 | Título faz uso da variável $fonte-titulo ao invés de $fonte-serifa
 // 25/01/2016 | Não se usa mais placeholder e sim mixin
 // 11/01/2016 | Arrumado .lista__titulo que aparecia sem padding quando estava
 //              dentro de .lista--link
@@ -63,7 +64,7 @@ $lista-padding: .5rem .75rem;
   // PADRÕES DE TÍTULO
   // ---------------------------------------------------------------------------
   @else if $tag == titulo {
-    font-family: $fonte-serifa;
+    font-family: $fonte-titulo;
     font-size: 1.6em;
   }
 }

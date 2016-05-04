@@ -10,11 +10,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 18/04/2016
+// Última alteração: 04/05/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 04/05/2016 | Título agora utiliza a $fonte-titulo ao invés de $fonte-serifa
 // 18/04/2016 | Alteração para o novo esquema de cores
 // 27/01/2016 | Alterado placeholder para mixin
 // 07/01/2016 | Retirado "thead" do seletor "thead th". Agora é todos os <th>
@@ -47,7 +48,7 @@ table {
 	width: 100%;
 }
 th {
-	font-family: $fonte-serifa;
+	font-family: $fonte-titulo;
 	text-align: left;
 	font-size: em(15, 14);
 }

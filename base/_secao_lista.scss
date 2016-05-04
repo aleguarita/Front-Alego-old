@@ -10,9 +10,9 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
-// form_radio_check.scss
+// secao_lista.scss
 // Criado em: 18/11/2015
-// Última alteração: 22/03/2016
+// Última alteração: 04/05/2016
 // -----------------------------------------------------------------------------
 // Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
 // com uma seta indicativa.
@@ -20,6 +20,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // Se estiver checado, não exibe conteúdo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 04/05/2016 | Header agora usa $fonte-titulo ao invés de $fonte-serifa
 // 22/03/2016 | Refletindo alteração do mixin lista-oculta para item-checado
 // 15/03/2016 | Utilizando SVG e não mais fonte para a seta
 // 27/01/2016 | Mudado placeholders para mixins
@@ -62,7 +63,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
   @else if $tag == header {
     padding: $margem/2 $margem;
     font-size: modular-scale($secao-lista-titulo, $modular-font-size);
-    font-family: $fonte-serifa;
+    font-family: $fonte-titulo;
     background: cor(secao-lista, clara);
     color: cor(secao-lista);
     label {

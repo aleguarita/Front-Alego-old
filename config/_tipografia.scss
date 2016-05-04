@@ -8,12 +8,13 @@
 // -----------------------------------------------------------------------------
 // tipografia.scss
 // Criado em: 13/01/2015
-// Última alteração em: 03/02/2016
+// Última alteração em: 04/05/2016
 // -----------------------------------------------------------------------------
 // Configurações genéricas e específicas de tipografia. Note que algumas
 // configurações são feitas diretamente por classes
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 04/05/2016 | Correção no mixin de título para usar a variável $fonte-titulo
 // 03/02/2016 | Removido o mixin "link-bloco" do arquivo mixins e acrescentado
 // 							como opção no mixin link
 // 01/02/2016 | Retirados "resets" dos tags e movidos para o reset.scss
@@ -75,7 +76,7 @@ $tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
 	}
 	// TEXTO DO TÍTULO
 	@else if $mod == titulo {
-		font-family: $fonte-serifa;
+		font-family: $fonte-titulo;
 		margin: $margem-titulo;
 		color: cor(texto, titulo);
 		line-height: 1.2;
