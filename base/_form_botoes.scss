@@ -12,11 +12,13 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 13/04/2016
+// Última alteração em: 04/05/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // ----------------------------------------------------------------------------
 // Changelog
+// 04/05/2016 | Substituído o uso da função cor-status() para paleta()
+//              May the 4th be with you
 // 13/04/2016 | Adequado à nova paleta de cores
 // 05/02/2016 | Ajustado o tamanho do botão
 //              Acrescando arredondamento de botão
@@ -112,11 +114,11 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 @each $status in $botoes-status {
   %bt-tipo-1--#{$status} {
     @extend %bt-tipo-1;
-    color: cor-status(#{$status});
+    color: paleta(#{$status});
   }
   %bt-tipo-2--#{$status} {
     @extend %bt-tipo-2;
-    color: cor-status(#{$status});
+    color: paleta(#{$status});
   }
 }
 // =============================================================================

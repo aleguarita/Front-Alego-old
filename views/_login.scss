@@ -1,0 +1,47 @@
+/*
+================================================================================
+LOGIN
+================================================================================
+*/
+.login {
+  // configuração da propriedade de fundo
+  background: cor(fundo);
+  width: 100vw;
+  height: 100vh;
+  // janela principal do login
+  &__janela {
+    @include centraliza-caixa;
+    background: cor(fundo, x-claro);
+    box-shadow: $sombra-card;
+    // media query para telas pequenas (ocupa toda a área útil)
+    @include media-tipo(pequeno, max) {
+      @include display-flex;
+      @include flex-wrap;
+      @include flex-direction;
+      @include align-content(stretch);
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  // header do formulário
+  &__header {
+    margin-bottom: $margem;
+  }
+  // área central do login
+  &__principal {
+    @include display-flex;
+    @include flex-wrap;
+    margin-bottom: $margem;
+    padding: $margem;
+    // media query para telas pequenas
+    @include media-tipo(pequeno, max) {
+      @include flex(1);
+      @include align-content(center);
+    }
+  }
+  // área dos botões
+  &__acoes {
+    padding: $margem / 2;
+    text-align: center;
+  }
+}

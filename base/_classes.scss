@@ -10,12 +10,13 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 14/03/2016
+// Alterado em: 04/05/2016
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 04/05/2016 | Retirado uso da função cor-status() e substituído por paleta()
 // 14/03/2016 | Correção da classe .text-- para .texto--
 // 19/01/2016 | Mudada a ordem do placeholder para ficar mais próximo da classe
 //              gerada
@@ -36,27 +37,27 @@ CLASSES FIXAS
 // CORES DE SISTEMA
 // =============================================================================
 .texto--ok {
-	color: cor-status(ok);
+	color: paleta(ok);
 }
 .texto--erro, .texto--urgente {
-	color: cor-status(erro);
+	color: paleta(erro);
 }
 .texto--alerta {
-	color: cor-status(alerta);
+	color: paleta(alerta);
 }
 %texto-status--claro {
   color: cor(texto, claro);
 }
 .fundo--ok {
-	background: cor-status(ok);
+	background: paleta(ok);
 	@extend %texto-status--claro;
 }
 .fundo--erro, .fundo--urgente {
-	background: cor-status(erro);
+	background: paleta(erro);
 	@extend %texto-status--claro;
 }
 .fundo--alerta {
-	background: cor-status(alerta);
+	background: paleta(alerta);
 	@extend %texto-status--claro;
 }
 

@@ -15,10 +15,10 @@ Seção de Programação Web
 	==============================================================================
 	FRONT-ALEGO | Framework da Assembleia Legislativa
 	Autor: Alessandro Guarita
-	Colaboradores: Alessandro Guimarães de Andrade e Renato Brandão
+	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 29/03/2016
+	Última alteração: 13/04/2016
 	------------------------------------------------------------------------------
 */
 /*
@@ -98,7 +98,8 @@ img {
 }
 
 body {
-  color: #000;
+  color: black;
+  background: white;
   font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
   word-wrap: break-word;
 }
@@ -273,16 +274,23 @@ FORMULÁRIOS | ELEMENTOS COMUM
   padding: 0.3125rem 0.5em;
   cursor: pointer;
   color: #00949a;
-  background: #fff;
+  background: white;
   border-bottom: 1px #00949a dotted;
 }
 .form__ico:hover {
   background: #00949a;
-  color: #fff;
+  color: white;
 }
 
 button.form__ico {
   border: 0;
+}
+
+.actions, .form__acoes {
+  text-align: right;
+}
+.actions * + *, .form__acoes * + * {
+  margin-left: 0.3125rem;
 }
 
 /*
@@ -319,6 +327,8 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
   appearance: none;
   border-radius: 0;
   font-size: .9em;
+  background: transparent;
+  color: black;
   border: 0;
   border-bottom: 1px dotted #00949a;
 }
@@ -449,13 +459,14 @@ FORMULÁRIOS | SELECT
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
-  background: #fff;
+  background: white;
   border: 0;
   border-radius: 0;
   line-height: 1.6;
   font-size: 1em;
   padding: .25em;
   padding-right: 2em;
+  color: black;
   border-bottom: 1px #00949a dotted;
 }
 .form-select label {
@@ -486,7 +497,7 @@ FORMULÁRIO | BOTÕES
 }
 
 .bt, .bt--secundario, .bt--urgente, .bt--ok, .bt--aviso {
-  color: #fff;
+  color: white;
 }
 
 .bt {
@@ -507,21 +518,21 @@ FORMULÁRIO | BOTÕES
   background: #d51920;
 }
 .bt--urgente:hover {
-  background: #ab1b29;
+  background: #be161d;
 }
 
 .bt--ok {
   background: #33a343;
 }
 .bt--ok:hover {
-  background: #00853d;
+  background: #2e913b;
 }
 
 .bt--aviso {
   background: #e0a914;
 }
 .bt--aviso:hover {
-  background: #d79f05;
+  background: #c79612;
 }
 
 /*
@@ -539,13 +550,13 @@ FORMULÁRIOS | AUTOCOMPLETE
 .ui-autocomplete li {
   padding: .25em .5em;
   cursor: pointer;
-  background: #fff;
+  background: white;
   color: gray;
   font-size: .85em;
   border-bottom: 1px dotted #66dde1;
 }
 .ui-autocomplete li:hover {
-  color: #000;
+  color: black;
 }
 .ui-autocomplete li:last-child {
   border-bottom: 0;
@@ -593,10 +604,10 @@ th {
 }
 
 tr {
-  color: #000;
+  color: black;
 }
 tbody tr {
-  background: #fff;
+  background: white;
 }
 
 th {
@@ -611,7 +622,7 @@ td {
 }
 
 .tab thead tr, .tab--form thead tr {
-  color: #fff;
+  color: white;
   background: #006367;
   border-bottom: 2px solid #40d4da;
 }
@@ -628,7 +639,7 @@ td {
   background: #bff1f3;
 }
 .tab tbody tr:nth-child(even) .tab__acoes, .tab--form tbody tr:nth-child(even) .tab__acoes {
-  background: #7fe3e7;
+  background: #c5eced;
 }
 
 .tab--form tbody tr:nth-child(even) {
@@ -729,7 +740,6 @@ PAGINAÇÃO
 }
 .pagination .gap, .pagination .current, .pagination a {
   color: #cd5800;
-  background: white;
   border-bottom: 2px solid transparent;
 }
 .pagination .gap {
@@ -743,7 +753,7 @@ PAGINAÇÃO
   font-weight: bold;
   z-index: 2;
   padding: 0.26rem 0.65rem;
-  box-shadow: 0 0 6px rgba(77, 77, 77, 0.5);
+  box-shadow: 0 0 6px rgba(90, 90, 90, 0.5);
   border-bottom-color: #cd5800;
 }
 .pagination a {
@@ -768,7 +778,7 @@ CARD
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  background-color: #fff;
+  background-color: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 .card h1, .card p {
@@ -777,7 +787,7 @@ CARD
 }
 .card h1 {
   font-size: 1.70859rem;
-  color: #fff;
+  color: white;
 }
 .card__titulo {
   padding: 0.625rem 0;
@@ -832,7 +842,7 @@ CARD
 }
 .card__item--destaque strong {
   background: #00949a;
-  color: #fff;
+  color: white;
 }
 
 /*
@@ -857,6 +867,7 @@ BREADCRUMBS
   font-weight: bold;
 }
 .breadcrumbs a {
+  border-bottom: 1px dotted transparent;
   display: block;
   text-decoration: none;
   color: inherit;
@@ -868,7 +879,7 @@ BREADCRUMBS
   margin-right: .2em;
 }
 .breadcrumbs a:hover {
-  border-bottom: 1px dotted;
+  border-bottom-color: inherit;
 }
 
 /*
@@ -894,7 +905,7 @@ TOASTER
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   line-height: 1;
   margin-top: 1.5em;
-  color: #fff;
+  color: white;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 .toast .close {
@@ -905,51 +916,51 @@ TOASTER
   top: -.8em;
   display: block;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: white;
   font-weight: bold;
   font-size: 1.2em;
   line-height: 1;
   border: 0;
 }
 .toast .success {
-  background: #009444;
+  background: #309a3f;
 }
 .toast .success .close {
   color: #39b54a;
 }
 .toast .success .close:hover {
-  background: #009444;
-  color: #fff;
+  background: #2b8838;
+  color: white;
 }
 .toast .error {
-  background: #be1e2d;
+  background: #c9181f;
 }
 .toast .error .close {
   color: #ed1c24;
 }
 .toast .error .close:hover {
-  background: #be1e2d;
-  color: #fff;
+  background: #b2151b;
+  color: white;
 }
 .toast .alert {
-  background: #efb106;
+  background: #d4a013;
 }
 .toast .alert .close {
   color: #f9bc16;
 }
 .toast .alert .close:hover {
-  background: #efb106;
-  color: #fff;
+  background: #bb8d11;
+  color: white;
 }
 .toast .info {
-  background: #000;
+  background: #8d8d8d;
 }
 .toast .info .close {
-  color: #4d4d4d;
+  color: #a6a6a6;
 }
 .toast .info .close:hover {
-  background: #000;
-  color: #fff;
+  background: #7d7d7d;
+  color: white;
 }
 
 /*
@@ -972,19 +983,19 @@ MODAL
   overflow: hidden;
 }
 .modal__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
   max-width: 100%;
   max-height: 100%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  background: #fff;
+  background: white;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   overflow: auto;
 }
@@ -1026,7 +1037,7 @@ MODAL
   font-size: 1.375rem;
   -webkit-flex-grow: 1;
   flex-grow: 1;
-  color: #fff;
+  color: white;
   margin: 0;
   font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
 }
@@ -1037,7 +1048,7 @@ MODAL
   display: block;
   text-decoration: none;
   transition: all 0.5s ease 0s;
-  color: #fff;
+  color: white;
 }
 .modal__fechar a:hover {
   text-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
@@ -1070,7 +1081,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
   background: #bff1f3;
   color: #00949a;
   background: #00949a;
-  color: #fff;
+  color: white;
 }
 .secao-lista__header label {
   display: -webkit-flex;
@@ -1174,7 +1185,7 @@ LISTA
   border-bottom: 1px solid #00c5cd;
 }
 .lista li:not(.lista__titulo), .lista--link li:not(.lista__titulo) {
-  background: #fff;
+  background: white;
 }
 .lista li:last-child, .lista--link li:last-child {
   border-bottom-width: 0;
@@ -1183,7 +1194,7 @@ LISTA
   font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
   font-size: 1.6em;
   background: #006367;
-  color: #fff;
+  color: white;
 }
 .lista--link li:not(.lista__titulo) {
   padding: 0;
@@ -1255,7 +1266,7 @@ CLASSES FIXAS
 }
 
 .fundo--ok, .fundo--erro, .fundo--urgente, .fundo--alerta {
-  color: #fff;
+  color: white;
 }
 
 .fundo--ok {
@@ -1309,14 +1320,14 @@ LOGIN
   height: 100vh;
 }
 .login__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
   max-width: 100%;
   max-height: 100%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  background: #fff;
+  background: white;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 @media (max-width: 30em) {
@@ -1393,7 +1404,7 @@ ADMIN | ÁREA INTERNA
 }
 .header__usuario a {
   text-decoration: none;
-  color: #fff;
+  color: white;
 }
 .header__usuario a:hover {
   color: rgba(255, 255, 255, 0.5);
@@ -1474,6 +1485,67 @@ a:hover ~ .nav__submenu, .nav__submenu:hover {
     -webkit-flex: 12 0 100%;
     flex: 12 0 100%;
   }
+}
+
+/*
+================================================================================
+LOGIN
+================================================================================
+*/
+.login {
+  background: #00c5cd;
+  width: 100vw;
+  height: 100vh;
+}
+.login__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 30em) {
+  .login__janela {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+.login__header {
+  margin-bottom: 0.625rem;
+}
+.login__principal {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-bottom: 0.625rem;
+  padding: 0.625rem;
+}
+@media (max-width: 30em) {
+  .login__principal {
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-align-content: center;
+    align-content: center;
+  }
+}
+.login__acoes {
+  padding: 0.3125rem;
+  text-align: center;
 }
 
 /*# sourceMappingURL=admin.css.map */
