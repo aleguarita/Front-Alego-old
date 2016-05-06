@@ -15,10 +15,9 @@ FORMULÁRIO | BOTÕES
 // Última alteração em: 04/05/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
-// ----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Changelog
-// 04/05/2016 | Substituído o uso da função cor-status() para paleta()
-//              May the 4th be with you
+// 05/05/2016 | Arrumado problema de borda
 // 13/04/2016 | Adequado à nova paleta de cores
 // 05/02/2016 | Ajustado o tamanho do botão
 //              Acrescando arredondamento de botão
@@ -95,6 +94,7 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 }
 %bt-tipo-2 {
   @extend %bt-simples-base;
+  border-color: cor(botao);
   &:hover {
     outline: 1px solid;
   }
@@ -104,10 +104,12 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 %bt-tipo-1--secundario {
   @extend %bt-tipo-1;
   color: cor(botao, secundario);
+  border-color: cor(botao, secundario);
 }
 %bt-tipo-2--secundario {
   @extend %bt-tipo-2;
   color: cor(botao, secundario);
+  border-color: cor(botao, secundario);
 }
 // BOTÃO STATUS
 // -----------------------------------------------------------------------------
@@ -115,10 +117,12 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   %bt-tipo-1--#{$status} {
     @extend %bt-tipo-1;
     color: paleta(#{$status});
+    border-color: paleta(#{$status});
   }
   %bt-tipo-2--#{$status} {
     @extend %bt-tipo-2;
     color: paleta(#{$status});
+    border-color: paleta(#{$status});
   }
 }
 // =============================================================================
@@ -126,6 +130,7 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 // =============================================================================
 %bt-claro-base {
   @extend %bt-base;
+  border-color: cor(botao);
   &:hover {
     box-shadow: $bt-sombra;
   }
@@ -146,11 +151,13 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   @extend %bt-claro-base;
   @include bt-claro(cor(botao, secundario-claro));
   color: cor(botao, secundario-escuro);
+  border-color: cor(botao, secundario-escuro);
 }
 %bt-tipo-4--secundario {
   @extend %bt-claro-base;
   @include bt-claro-gradient(cor(botao, secundario-claro));
   color: cor(botao, secundario-escuro);
+  border-color: cor(botao, secundario-escuro);
 }
 // BOTÃO STATUS
 // -----------------------------------------------------------------------------
@@ -159,11 +166,13 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
     @extend %bt-claro-base;
     @include bt-claro(cor-status(#{$status}, claro, 50%));
     color: cor-status(#{$status}, escuro, 40%);
+    border-color: cor-status(#{$status}, escuro, 40%);
   }
   %bt-tipo-4--#{$status} {
     @extend %bt-claro-base;
     @include bt-claro-gradient(cor-status(#{$status}, claro, 50%));
-    color: cor-status(#{$status}, escuro, 20%);
+    color: cor-status(#{$status}, escuro, 40%);
+    border-color: cor-status(#{$status}, escuro, 40%);
   }
 }
 // =============================================================================
@@ -178,6 +187,7 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 %bt-tipo-5 {
   @extend %bt-escuro-base;
   background: cor(botao);
+  border-color: cor(botao);
   &:hover {
     background: cor(botao, escuro);
   }
@@ -192,8 +202,10 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 %bt-tipo-5--secundario {
   @extend %bt-escuro-base;
   background: cor(botao, secundario);
+  border-color: cor(botao, secundario);
   &:hover {
     background: cor(botao, secundario-escuro);
+    border-color: cor(botao, secundario-escuro);
   }
 }
 %bt-tipo-6--secundario {
@@ -207,8 +219,10 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   %bt-tipo-5--#{$status} {
     @extend %bt-escuro-base;
     background: cor-status(#{$status}, escuro, 10%);
+    border-color: cor-status(#{$status}, escuro, 10%);
     &:hover {
       background: cor-status(#{$status}, escuro, 20%);
+      border-color: cor-status(#{$status}, escuro, 20%);
     }
   }
   %bt-tipo-6--#{$status} {

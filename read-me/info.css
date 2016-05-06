@@ -341,6 +341,13 @@ button.form__ico {
   border: 0;
 }
 
+.actions, .form__acoes {
+  text-align: right;
+}
+.actions * + *, .form__acoes * + * {
+  margin-left: 0.3125rem;
+}
+
 /*
 ================================================================================
 FORMULÁRIOS | INPUT[TEXT], TEXTAREA
@@ -555,42 +562,36 @@ FORMULÁRIO | BOTÕES
   border-color: transparent;
 }
 
+.bt--tipo-2--secundario, .bt--tipo-2--urgente, .bt--tipo-2--ok, .bt--tipo-2--aviso, .bt--tipo-2 {
+  border-color: #cd5800;
+}
 .bt--tipo-2--secundario:hover, .bt--tipo-2--urgente:hover, .bt--tipo-2--ok:hover, .bt--tipo-2--aviso:hover, .bt--tipo-2:hover {
   outline: 1px solid;
 }
 
 .bt--tipo-1--secundario {
   color: #00c5cd;
+  border-color: #00c5cd;
 }
 
 .bt--tipo-2--secundario {
   color: #00c5cd;
-}
-
-.bt--tipo-1--urgente {
-  color: #ed1c24;
-}
-
-.bt--tipo-2--urgente {
-  color: #ed1c24;
+  border-color: #00c5cd;
 }
 
 .bt--tipo-1--ok {
   color: #39b54a;
+  border-color: #39b54a;
 }
 
 .bt--tipo-2--ok {
   color: #39b54a;
+  border-color: #39b54a;
 }
 
-.bt--tipo-1--aviso {
-  color: #f9bc16;
+.bt--tipo-3, .bt--tipo-4, .bt--tipo-3--secundario, .bt--tipo-4--secundario, .bt--tipo-3--urgente, .bt--tipo-4--urgente, .bt--tipo-3--ok, .bt--tipo-4--ok, .bt--tipo-3--aviso, .bt--tipo-4--aviso {
+  border-color: #cd5800;
 }
-
-.bt--tipo-2--aviso {
-  color: #f9bc16;
-}
-
 .bt--tipo-3:hover, .bt--tipo-4:hover, .bt--tipo-3--secundario:hover, .bt--tipo-4--secundario:hover, .bt--tipo-3--urgente:hover, .bt--tipo-4--urgente:hover, .bt--tipo-3--ok:hover, .bt--tipo-4--ok:hover, .bt--tipo-3--aviso:hover, .bt--tipo-4--aviso:hover {
   box-shadow: 0 0 6px;
 }
@@ -612,6 +613,7 @@ FORMULÁRIO | BOTÕES
 .bt--tipo-3--secundario {
   background: #bff1f3;
   color: #00949a;
+  border-color: #00949a;
 }
 .bt--tipo-3--secundario:hover {
   background: #effcfc;
@@ -620,6 +622,7 @@ FORMULÁRIO | BOTÕES
 .bt--tipo-4--secundario {
   background: linear-gradient(to top, #bff1f3, #dff8f9);
   color: #00949a;
+  border-color: #00949a;
 }
 .bt--tipo-4--secundario:hover {
   background: #effcfc;
@@ -628,6 +631,7 @@ FORMULÁRIO | BOTÕES
 .bt--tipo-3--urgente {
   background: #f68e92;
   color: #8e1116;
+  border-color: #8e1116;
 }
 .bt--tipo-3--urgente:hover {
   background: #fde3e4;
@@ -635,7 +639,8 @@ FORMULÁRIO | BOTÕES
 
 .bt--tipo-4--urgente {
   background: linear-gradient(to top, #f68e92, #fbc7c9);
-  color: #be161d;
+  color: #8e1116;
+  border-color: #8e1116;
 }
 .bt--tipo-4--urgente:hover {
   background: #fde3e4;
@@ -644,6 +649,7 @@ FORMULÁRIO | BOTÕES
 .bt--tipo-3--ok {
   background: #9cdaa5;
   color: #226d2c;
+  border-color: #226d2c;
 }
 .bt--tipo-3--ok:hover {
   background: #e6f6e9;
@@ -651,7 +657,8 @@ FORMULÁRIO | BOTÕES
 
 .bt--tipo-4--ok {
   background: linear-gradient(to top, #9cdaa5, #ceedd2);
-  color: #2e913b;
+  color: #226d2c;
+  border-color: #226d2c;
 }
 .bt--tipo-4--ok:hover {
   background: #e6f6e9;
@@ -660,6 +667,7 @@ FORMULÁRIO | BOTÕES
 .bt--tipo-3--aviso {
   background: #fcde8b;
   color: #95710d;
+  border-color: #95710d;
 }
 .bt--tipo-3--aviso:hover {
   background: #fef7e2;
@@ -667,7 +675,8 @@ FORMULÁRIO | BOTÕES
 
 .bt--tipo-4--aviso {
   background: linear-gradient(to top, #fcde8b, #feefc5);
-  color: #c79612;
+  color: #95710d;
+  border-color: #95710d;
 }
 .bt--tipo-4--aviso:hover {
   background: #fef7e2;
@@ -679,6 +688,7 @@ FORMULÁRIO | BOTÕES
 
 .bt, .bt--tipo-5 {
   background: #cd5800;
+  border-color: #cd5800;
 }
 .bt:hover, .bt--tipo-5:hover {
   background: #9a4200;
@@ -695,9 +705,11 @@ FORMULÁRIO | BOTÕES
 
 .bt--secundario, .bt--tipo-5--secundario {
   background: #00c5cd;
+  border-color: #00c5cd;
 }
 .bt--secundario:hover, .bt--tipo-5--secundario:hover {
   background: #00949a;
+  border-color: #00949a;
 }
 
 .bt--tipo-6--secundario {
@@ -711,9 +723,11 @@ FORMULÁRIO | BOTÕES
 
 .bt--urgente, .bt--tipo-5--urgente {
   background: #d51920;
+  border-color: #d51920;
 }
 .bt--urgente:hover, .bt--tipo-5--urgente:hover {
   background: #be161d;
+  border-color: #be161d;
 }
 
 .bt--tipo-6--urgente {
@@ -727,9 +741,11 @@ FORMULÁRIO | BOTÕES
 
 .bt--ok, .bt--tipo-5--ok {
   background: #33a343;
+  border-color: #33a343;
 }
 .bt--ok:hover, .bt--tipo-5--ok:hover {
   background: #2e913b;
+  border-color: #2e913b;
 }
 
 .bt--tipo-6--ok {
@@ -743,9 +759,11 @@ FORMULÁRIO | BOTÕES
 
 .bt--aviso, .bt--tipo-5--aviso {
   background: #e0a914;
+  border-color: #e0a914;
 }
 .bt--aviso:hover, .bt--tipo-5--aviso:hover {
   background: #c79612;
+  border-color: #c79612;
 }
 
 .bt--tipo-6--aviso {
@@ -1089,6 +1107,7 @@ BREADCRUMBS
   font-weight: bold;
 }
 .breadcrumbs a {
+  border-bottom: 1px dotted transparent;
   display: block;
   text-decoration: none;
   color: inherit;
@@ -1100,7 +1119,7 @@ BREADCRUMBS
   margin-right: .2em;
 }
 .breadcrumbs a:hover {
-  border-bottom: 1px dotted;
+  border-bottom-color: inherit;
 }
 
 /*
@@ -1204,13 +1223,13 @@ MODAL
   overflow: hidden;
 }
 .modal__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
   max-width: 100%;
   max-height: 100%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -2533,7 +2552,7 @@ CORES | PALETA
 .demo__paleta--basica li:nth-child(19) {
   -webkit-order: 2;
   order: 2;
-  background: #001414;
+  background: #001415;
 }
 .demo__paleta--basica li:nth-child(19) .funcao {
   color: white;
@@ -2544,7 +2563,7 @@ CORES | PALETA
 .demo__paleta--basica li:nth-child(10) {
   -webkit-order: 0;
   order: 0;
-  background: #19cbd2;
+  background: #1acbd2;
 }
 .demo__paleta--basica li:nth-child(10) .funcao::before {
   content: "paleta(basica, clara, 10)";
@@ -2746,7 +2765,7 @@ CORES | PALETA
 .demo__paleta--secundaria li:nth-child(19) {
   -webkit-order: 2;
   order: 2;
-  background: #140900;
+  background: #150900;
 }
 .demo__paleta--secundaria li:nth-child(19) .funcao {
   color: white;
@@ -2757,7 +2776,7 @@ CORES | PALETA
 .demo__paleta--secundaria li:nth-child(10) {
   -webkit-order: 0;
   order: 0;
-  background: #d26919;
+  background: #d2691a;
 }
 .demo__paleta--secundaria li:nth-child(10) .funcao::before {
   content: "paleta(secundaria, clara, 10)";
@@ -4237,7 +4256,7 @@ CORES | PALETA
 .demo__paleta--amarelo-bandeira li:nth-child(19) {
   -webkit-order: 2;
   order: 2;
-  background: #191703;
+  background: #1a1703;
 }
 .demo__paleta--amarelo-bandeira li:nth-child(19) .funcao {
   color: white;
@@ -4450,7 +4469,7 @@ CORES | PALETA
 .demo__paleta--rosa li:nth-child(19) {
   -webkit-order: 2;
   order: 2;
-  background: #160e14;
+  background: #170e14;
 }
 .demo__paleta--rosa li:nth-child(19) .funcao {
   color: white;
@@ -5928,6 +5947,7 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   font-weight: bold;
 }
 .breadcrumbs--tipo-1 a {
+  border-bottom: 1px dotted transparent;
   display: block;
   text-decoration: none;
   color: inherit;
@@ -5939,7 +5959,7 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   margin-right: .2em;
 }
 .breadcrumbs--tipo-1 a:hover {
-  border-bottom: 1px dotted;
+  border-bottom-color: inherit;
 }
 .breadcrumbs--tipo-2 {
   list-style: none;
@@ -7320,13 +7340,13 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   height: 100%;
 }
 .modal--demo__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
   max-width: 100%;
   max-height: 100%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -7405,13 +7425,13 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   height: 100%;
 }
 .modal--tipo-1__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
   max-width: 100%;
   max-height: 100%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -7490,13 +7510,13 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   height: 100%;
 }
 .modal--tipo-2__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
   max-width: 100%;
   max-height: 100%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
