@@ -38,6 +38,7 @@
           <dt><samp>simbolos-svg</samp></dt><dd>Inclusão das classes de símbolos de SVG</dd>
           <dt><samp>simbolos</samp></dt><dd>Símbolos por fontes. Está aqui por retrocompatibilidade (deixe comentado para simplificar o código)</dd>
           <dt><samp>sprite</samp></dt><dd>Arquivos de sprites</dd>
+          <dt><samp>datepicker</samp></dt><dd>Formata o datepicker, se estiver em uso</dd>
           <dt><samp>fonte-serifa</samp><dd>Define se usa fontes personalizadas serifadas (patua one)</dd></dt>
           <dt><samp>fonte-sans-serifa</samp><dd>Define se usa fontes personalizadas sem serifa (open-sans)</dd></dt>
         </dl>
@@ -184,6 +185,16 @@
             <dd>Determina a medida horizontal e vertical de cada imagem. <strong>Valor padrão</strong>: 150px</dd>
           <dt><samp>$sprites</samp></dt>
             <dd>Mapa que cria as classes. Coloque o nome da classe desejada e entre com os valores das coordenadas x, y. Caso a imagem seja maior ou menor que o padrão coloque o multiplicador logo depois, separados por vírgula (ex.: 2, .5; neste caso a imagem tem o dobro da largura e metade da altura). A altura pode ser omitida se ela for igual à largura. Veja <a href="sprite" class="link--readme">aqui</a> mais detalhes de uso.</dd>
+        </dl>
+      <h2 id="config__datepicker">Datepicker</h2>
+        <p>Definições do datepicker.</p>
+        <dl class="lista-definicao">
+          <dt><samp>$datepicker-tipo</samp></dt>
+            <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp></dd>
+          <dt><samp>$datepicker-sombra</samp></dt>
+            <dd>Define se o datepicker vai ter sombra. Valores: <samp>sim</samp> | <samp>não</samp></dd>
+          <dt><samp>$datepicker-arredondado</samp></dt>
+            <dd>Determina se os links do datepicker vão ter as bordas com o arredondamento padrão (definido na variável <samp>$rd</samp>). Valores: <samp>sim</samp> | <samp>não</samp></dd>
         </dl>
     </section>
   </section>

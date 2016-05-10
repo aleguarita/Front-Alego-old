@@ -524,6 +524,10 @@ $codigo-selecionado: (
 
   abas-tipo: if(index($uso-classes, abas), $abas-tipo, 'nenhuma'),
   abas-qtd: $abas-qtd,
+
+  datepicker-tipo: if(index($uso-classes, datepicker), $datepicker-tipo, 'nenhum'),
+  datepicker-sombra: $datepicker-sombra,
+  datepicker-arredondado: $datepicker-arredondado,
 );
 
 @each $classe, $valor in $codigo-selecionado {
@@ -1148,6 +1152,17 @@ $abas-tipos: tipo-1, tipo-2, tipo-3, tipo-4;
 @each $item in $abas-tipos {
   .abas--#{$item} {
     @include abas($item);
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | datepicker
+================================================================================
+*/
+$datepicker-tipos: tipo-1, tipo-2, tipo-3;
+@each $item in $datepicker-tipos {
+  .ui-datepicker--#{$item} {
+    @include datepicker($item);
   }
 }
 /*

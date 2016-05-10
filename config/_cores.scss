@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // cores.scss
 // Criado em: 07/01/2015
-// Última alteração: 14/04/2016
+// Última alteração: 09/05/2016
 // -----------------------------------------------------------------------------
 // Aqui fica os temas de cores. As paletas são definidas no arquivo
 // cores_paletas (e é neste arquivo que se acrescenta novas cores)
@@ -15,6 +15,7 @@
 // Para alterar o tema faça isso no arquivo config
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 09/05/2016 | Acrescentado "datepicker" nos temas
 // 14/04/2016 | Retirado branco e preto para utilizar cinza
 // 13/04/2016 | Unificação da paleta-padrao com paleta
 // 28/03/2016 | Inclusão de abas
@@ -160,6 +161,12 @@ $temas: (
 			inativa: paleta(secundaria, clara, 50),
 			fundo-inativo: paleta(secundaria, clara, 85),
 		),
+		datepicker: (
+			padrao: paleta(basica, escura, 25),
+			claro: paleta(basica, clara, 25),
+			escuro: paleta(basica, escura, 50),
+			contraste: paleta(secundaria, clara, 25),
+		),
 		//elementos do sistema
 	),
 
@@ -246,6 +253,12 @@ $temas: (
 		  padrao: paleta(cinza),
 		  inativa: paleta(cinza, clara, 45),
 		  fundo-inativo: paleta(cinza, clara, 85),
+		),
+		datepicker: (
+			padrao: paleta(cinza, escura, 25),
+			claro: paleta(cinza, clara, 25),
+			escuro: paleta(cinza, escura, 50),
+			contraste: paleta(cinza, escura, 35),
 		),
 		//elementos do sistema
 	),
@@ -334,6 +347,12 @@ $temas: (
 			inativa: paleta(secundaria, escura, 50),
 			fundo-inativo: paleta(secundaria, escura, 85),
 		),
+		datepicker: (
+			padrao: paleta(basica, clara, 25),
+			claro: paleta(basica, escura, 25),
+			escuro: paleta(basica, clara, 50),
+			contraste: paleta(secundaria, clara, 25),
+		),
 		//elementos do sistema
 	),
 
@@ -420,6 +439,12 @@ $temas: (
 			padrao: paleta(azul-bandeira, escura, 35),
 			inativa: paleta(azul-bandeira, clara, 25),
 			fundo-inativo: paleta(azul-bandeira, clara, 75),
+		),
+		datepicker: (
+			padrao: paleta(verde-bandeira, escura, 25),
+			claro: paleta(verde-bandeira, clara, 25),
+			escuro: paleta(verde-bandeira, escura, 50),
+			contraste: paleta(amarelo-bandeira, escura, 15),
 		),
 		//elementos do sistema
 	),
@@ -508,6 +533,12 @@ $temas: (
 			inativa: paleta(rosa, clara, 20),
 			fundo-inativo: paleta(rosa, clara, 85),
 		),
+		datepicker: (
+			padrao: paleta(rosa, escura, 25),
+			claro: paleta(rosa, clara, 25),
+			escuro: paleta(rosa, escura, 50),
+			contraste: paleta(rosa, escura, 35),
+		),
 		//elementos do sistema
 	),
 
@@ -594,6 +625,12 @@ $temas: (
 				padrao: paleta(azul-bandeira),
 				inativa: paleta(azul-bandeira, clara, 20),
 				fundo-inativo: paleta(azul-bandeira, clara, 85),
+			),
+			datepicker: (
+				padrao: paleta(azul-bandeira, escura, 25),
+				claro: paleta(azul-bandeira, clara, 25),
+				escuro: paleta(azul-bandeira, escura, 50),
+				contraste: paleta(azul-bandeira, escura, 35),
 			),
 			//elementos do sistema
 	),
