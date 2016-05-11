@@ -12,11 +12,13 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 04/05/2016
+// Última alteração em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 05/05/2016 | Arrumado problema de borda
 // 13/04/2016 | Adequado à nova paleta de cores
 // 05/02/2016 | Ajustado o tamanho do botão
@@ -32,6 +34,14 @@ FORMULÁRIO | BOTÕES
 // lugar de placeholders. Devido à complexidade desse arquivo em particular
 // o uso de placeholders é mais fácil de gerenciar
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$botao-tipo: tipo-5 !default; // 6 tipos
+$botao-secundario: $botao-tipo !default; // 6 tipos + $botao-tipo
+$botao-sombra-colorida: sim !default;
+$botao-arredondamento: não !default;
 
 // =============================================================================
 // VARIÁVEIS

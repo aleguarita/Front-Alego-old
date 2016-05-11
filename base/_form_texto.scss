@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 17/03/2016
+// Última alteração em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,8 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 17/03/2016 | Retirado cursor: pointer do label
 // 04/02/2016 | Agrupando labels para o arquivo final ficar melhor (agora o
 //              mixin de label permite escrever o conteúdo do label)
@@ -35,6 +37,13 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 //              performance do CSS final)
 // 09/11/2015 | Criação do arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$form-tipo: tipo-1 !default; // 3 tipos
+$label-tipo: flutuante !default; // flutuante | colado
+$form-radio-check-personaliza: sim !default;
 
 // =============================================================================
 // PLACEHOLDERS | LABEL

@@ -11,11 +11,13 @@ MODAL
 // -----------------------------------------------------------------------------
 // modal.scss
 // Criado em: 01/07/2015
-// Última alteraçãom em: 18/04/2016
+// Última alteraçãom em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Definição dos padrões de modal
 // -----------------------------------------------------------------------------
 // Changelog:
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 18/04/2016 | Incluída uma borda transparente quando usar o tema alto-contraste
 // 11/02/2016 | Ajustado espaço do botão de fechar no tipo-1
 //              Acrescentado tamanho mínimo da janela
@@ -29,6 +31,12 @@ MODAL
 //              Inclusão de dois modelos
 // 01/07/2015 | Criado o arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$modal-tipo: tipo-1 !default; // 2 tipos
+$modal-transparencia: .15 !default; // entre 0 e 1
 
 // =============================================================================
 // VARIÁVEIS

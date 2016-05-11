@@ -11,14 +11,22 @@ SPRITES
 // -----------------------------------------------------------------------------
 // sprites.scss
 // Criado em: 15/02/2016
-// Última alteração em: 16/02/2016
+// Última alteração em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Definição dos padrões de modal
 // -----------------------------------------------------------------------------
 // Changelog:
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 16/02/2016 | Agora coloca-se o nome do arquivo no arquivo de configurações
 // 15/02/2016 | Criado o arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$sprite-arquivo: "sprite.png" !default;
+$sprite-medida: 150px !default;
 
 // =============================================================================
 // VARIÁVEIS

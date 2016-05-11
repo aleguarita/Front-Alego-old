@@ -168,7 +168,7 @@ $sprite-medida: 150px;
 // mapa que cria as classes
 // os valores obrigatórios depois do nome é a posição na grid
 // existem mais 2 valores opcionais que é aumento de largura e altura
-// (respectivamente)
+// (respectivamente). Neste caso ficaria exemplo: (1, 1, 2, 2);
 $sprites: (
   exemplo: (1, 1),
 );

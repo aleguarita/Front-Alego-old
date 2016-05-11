@@ -12,7 +12,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // -----------------------------------------------------------------------------
 // secao_lista.scss
 // Criado em: 18/11/2015
-// Última alteração: 04/05/2016
+// Última alteração: 11/05/2016
 // -----------------------------------------------------------------------------
 // Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
 // com uma seta indicativa.
@@ -20,6 +20,8 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // Se estiver checado, não exibe conteúdo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 04/05/2016 | Header agora usa $fonte-titulo ao invés de $fonte-serifa
 // 22/03/2016 | Refletindo alteração do mixin lista-oculta para item-checado
 // 15/03/2016 | Utilizando SVG e não mais fonte para a seta
@@ -33,6 +35,11 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // 18/11/2015 | Criação do arquivo
 // =============================================================================
 
+// =============================================================================
+// CONFIG
+// =============================================================================
+$secao-lista-tipo: tipo-1 !default; // 2 tipos
+$secao-lista-titulo: 3 !default;
 
 // =============================================================================
 // MIXIN | BÁSICO

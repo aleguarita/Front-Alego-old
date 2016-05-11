@@ -12,11 +12,13 @@ PAGINAÇÃO
 // -----------------------------------------------------------------------------
 // paginacao.scss
 // Criado em: 07/04/2015
-// Última alteração: 18/04/2016
+// Última alteração: 11/05/2016
 // -----------------------------------------------------------------------------
 // Definição da paginação. Formata o tipo padrão gerado pelo Rails.
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 18/04/2016 | Retirada a cor de fundo o item para melhor se adequar a outros
 // 							temas
 // 26/01/2016 | Substituídos placeholders por mixins
@@ -29,6 +31,13 @@ PAGINAÇÃO
 // 21/08/2015 | Colocado dentro do padrão. Usando Flexbox
 // 07/04/2015 | Criação do básico para trabalhar
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$paginacao-tipo: tipo-1 !default; // 2 tipos
+$paginacao-posicao: center !default;
+$paginacao-fonte: .65rem !default;
 
 // =============================================================================
 // VARIÁVEIS

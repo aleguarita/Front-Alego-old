@@ -10,11 +10,13 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 04/05/2016
+// Última alteração: 11/05/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 04/05/2016 | Título agora utiliza a $fonte-titulo ao invés de $fonte-serifa
 // 18/04/2016 | Alteração para o novo esquema de cores
 // 27/01/2016 | Alterado placeholder para mixin
@@ -37,7 +39,16 @@ TABELAS
 // 						  definições. Uso de uma classe de tabela, além de extensões
 // 05/02/2015 | Criada a base do arquivo
 // =============================================================================
-//
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$tab-tipo: tipo-1 !default; // 2 tipos
+$tab--zebra: sim !default;
+$tab-acao-link-bloco: não !default;
+$tab-col--maximo: 600 !default;
+
+
 // =============================================================================
 // DEFINIÇÕES PADRÃO DE TABELA
 // -----------------------------------------------------------------------------

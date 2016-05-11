@@ -11,12 +11,14 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 03/05/2016
+// Última alteração em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 03/05/2016 | Alinhamento à direita dos botões de ação
 // 18/04/2016 | Ajuste de fundo e texto dos campos do formulário
 // 16/03/2016 | Ajuste do ícone que é elemento comum
@@ -29,6 +31,13 @@ FORMULÁRIOS | ELEMENTOS COMUM
 //              Incluído elementos "flex" que estavam em "form_tamanhos"
 // 11/11/2015 | Criado o arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$form-tipo: tipo-1 !default; // 3 tipos
+$label-tipo: flutuante !default; // flutuante | colado
+$form-radio-check-personaliza: sim !default;
 
 // =============================================================================
 // VARIÁVEIS

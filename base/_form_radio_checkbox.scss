@@ -12,11 +12,13 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 11/11/2015
-// Última alteração em: 17/03/2016
+// Última alteração em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os radio buttons
 // ----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 17/03/2016 | Ajuste do padding no tipo-3 para dar consistência visual
 //              Uso de SVG no lugar da fonte. Veja os passos de como fazer/trocar
 // 04/02/2016 | Mudado alinhamento do checkbox/radio
@@ -26,6 +28,13 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // 17/11/2015 | Utilizada nova forma chamar as classes
 // 11/11/2015 | Criação do arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$form-tipo: tipo-1 !default; // 3 tipos
+$label-tipo: flutuante !default; // flutuante | colado
+$form-radio-check-personaliza: sim !default;
 
 // =============================================================================
 // SVG - como usar no ::before

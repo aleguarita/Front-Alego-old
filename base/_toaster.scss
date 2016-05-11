@@ -12,11 +12,13 @@ TOASTER
 // -----------------------------------------------------------------------------
 // toaster.scss
 // Criado em: 20/03/2015
-// Última alteração em: 13/04/2016
+// Última alteração em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Notificações do sistema. Aparecendo de baixo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 13/04/2016 | Alterado esquema de cores para paleta única
 // 11/02/2016 | Toaster usa cores mais escuras
 // 28/01/2016 | Retirado o uso de placeholders para uso de mixins
@@ -28,6 +30,15 @@ TOASTER
 // 						  Opção de escolha entre dois modelos.
 // 20/03/2015 | Criado o arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$toaster-tipo: tipo-1 !default; // 2 tipos
+$toaster-horizontal: right !default;
+$toaster-vertical: bottom !default;
+$toaster-distancia: 2em !default;
+$toaster-distancia-vertical: 1 !default;
 
 // =============================================================================
 // CORES TOASTER

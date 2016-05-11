@@ -12,11 +12,13 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 18/04/2016
+// Última alteração em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 18/04/2016 | Alterada a cor do texto para mudar conforme tema
 // 17/03/2016 | Corrigido posicionamento da seta.
 // 15/03/2016 | Substituído seletor [class^="ico"] para .form__ico
@@ -30,6 +32,13 @@ FORMULÁRIOS | SELECT
 //              Incluído elementos "flex" que estavam em "form_tamanhos"
 // 12/11/2015 | Criação do arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$form-tipo: tipo-1 !default; // 3 tipos
+$label-tipo: flutuante !default; // flutuante | colado
+$form-radio-check-personaliza: sim !default;
 
 // =============================================================================
 // MIXIN | SELECT

@@ -12,11 +12,13 @@ LISTA
 // -----------------------------------------------------------------------------
 // lista.scss
 // Criado em: 20/11/2015
-// Última alteração em: 04/05/2016
+// Última alteração em: 11/05/2016
 // -----------------------------------------------------------------------------
 // Formata caixas de listas
 // ----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 04/05/2016 | Título faz uso da variável $fonte-titulo ao invés de $fonte-serifa
 // 25/01/2016 | Não se usa mais placeholder e sim mixin
 // 11/01/2016 | Arrumado .lista__titulo que aparecia sem padding quando estava
@@ -29,6 +31,13 @@ LISTA
 // 24/11/2015 | Acrescentado lista para link que ocupa a célula inteira
 // 20/11/2015 | Criação do arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$lista-tipo: tipo-1 !default; // 2 tipos
+$lista--zebra: não !default;
+$lista--sombra: não !default;
 
 // =============================================================================
 // VARIÁVEIS

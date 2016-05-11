@@ -12,7 +12,7 @@ CARD
 // -----------------------------------------------------------------------------
 // cards.scss
 // Criado em: 23/10/2015
-// Última alteração: 19/01/2016
+// Última alteração: 11/05/2016
 // -----------------------------------------------------------------------------
 // Definições padrão de cards e classes modelo
 // ATENÇÃO: aqui tem a configuração APENAS do card e não do grupo do elemento
@@ -20,6 +20,8 @@ CARD
 // use o mixin grupo-flex()
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
 // 19/01/2016 | Abandonado placeholders para usar mixins
 // 15/01/2016 | Ajustes: inclusão de padding no título
 //              Imagem ganhou max-width: 100%;
@@ -31,6 +33,11 @@ CARD
 // 03/11/2015 | Classes para os sub-itens. Usando BEM
 // 23/10/2015 | Criado o arquivo
 // =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$card-tipo: tipo-1 !default; // 2 tipos
 
 // =============================================================================
 // VARIÁVEIS
