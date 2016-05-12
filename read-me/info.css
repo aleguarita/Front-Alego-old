@@ -532,6 +532,9 @@ FORMULÁRIOS | SELECT
   width: 100%;
 }
 .form-select .form__ico {
+  pointer-events: none;
+  position: absolute;
+  right: 0;
   color: #00949a;
 }
 
@@ -6336,6 +6339,9 @@ LABEL flutuante
   width: 100%;
 }
 .form--label-flutuante .form-select--tipo-1 .form__ico {
+  pointer-events: none;
+  position: absolute;
+  right: 0;
   color: #00949a;
 }
 .form--label-flutuante .ui-autocomplete--tipo-1 {
@@ -6520,6 +6526,9 @@ LABEL colado
   border-bottom: 1px dotted #00949a;
 }
 .form--label-colado .form-select--tipo-1 .form__ico {
+  pointer-events: none;
+  position: absolute;
+  right: 0;
   color: #00949a;
 }
 .form--label-colado .ui-autocomplete--tipo-1 {
@@ -6703,6 +6712,9 @@ LABEL flutuante
   width: 100%;
 }
 .form--label-flutuante .form-select--tipo-2 .form__ico {
+  pointer-events: none;
+  position: absolute;
+  right: 0;
   color: #00949a;
 }
 .form--label-flutuante .ui-autocomplete--tipo-2 {
@@ -6887,6 +6899,9 @@ LABEL colado
   border-bottom: 1px solid #00949a;
 }
 .form--label-colado .form-select--tipo-2 .form__ico {
+  pointer-events: none;
+  position: absolute;
+  right: 0;
   color: #00949a;
 }
 .form--label-colado .ui-autocomplete--tipo-2 {
@@ -7075,12 +7090,12 @@ LABEL flutuante
   width: 100%;
 }
 .form--label-flutuante .form-select--tipo-3 .form__ico {
-  color: #003133;
-  font-size: 1.2em;
-  background: transparent;
+  pointer-events: none;
   position: absolute;
   right: 0;
-  pointer-events: none;
+  font-size: 1.2em;
+  background: transparent;
+  color: #003133;
 }
 .form--label-flutuante .ui-autocomplete--tipo-3 {
   list-style: none;
@@ -7293,12 +7308,12 @@ LABEL colado
   line-height: 2.2;
 }
 .form--label-colado .form-select--tipo-3 .form__ico {
-  color: #003133;
-  font-size: 1.2em;
-  background: transparent;
+  pointer-events: none;
   position: absolute;
   right: 0;
-  pointer-events: none;
+  font-size: 1.2em;
+  background: transparent;
+  color: #003133;
 }
 .form--label-colado .ui-autocomplete--tipo-3 {
   list-style: none;

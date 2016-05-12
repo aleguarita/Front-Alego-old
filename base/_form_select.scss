@@ -12,11 +12,13 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 11/05/2016
+// Última alteração em: 12/05/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 12/05/2016 | Arrumado problema que dava para clicar na seta e selecionar o
+//              elemento
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 18/04/2016 | Alterada a cor do texto para mudar conforme tema
@@ -59,8 +61,9 @@ $form-radio-check-personaliza: sim !default;
 // MIXIN | ÍCONE (que substitui a seta)
 // =============================================================================
 @mixin form-select__seta {
-  @include form__icone;
   pointer-events: none;
+  position: absolute;
+  right: 0;
   @content;
 }
 // =============================================================================
@@ -83,7 +86,9 @@ $form-radio-check-personaliza: sim !default;
       }
     }
     .form__ico {
-      color: cor(formulario); // VERIFICAR
+      @include form-select__seta {
+        color: cor(formulario);
+      }
     }
   }
   // ---------------------------------------------------------------------------
@@ -102,7 +107,9 @@ $form-radio-check-personaliza: sim !default;
       }
     }
     .form__ico {
-      color: cor(formulario); // VERIFICAR
+      @include form-select__seta {
+        color: cor(formulario);
+      }
     }
   }
   // ---------------------------------------------------------------------------
@@ -130,12 +137,11 @@ $form-radio-check-personaliza: sim !default;
       }
     }
     .form__ico {
-      color: cor(formulario, ativo);
-      font-size: 1.2em;
-      background: transparent;
-      position: absolute;
-      right: 0;
-      pointer-events: none;
+      @include form-select__seta {
+        font-size: 1.2em;
+        background: transparent;
+        color: cor(formulario, ativo);
+      }
     }
   }
 }
