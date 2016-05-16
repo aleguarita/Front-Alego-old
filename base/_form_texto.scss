@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 11/05/2016
+// Última alteração em: 13/05/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 13/05/2016 | Corrigo destaque no label quando há foco no input
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 17/03/2016 | Retirado cursor: pointer do label
@@ -92,9 +93,9 @@ $form-radio-check-personaliza: sim !default;
     border-bottom: 1px $tipo $cor;
     &:focus {
       border-bottom-color: $cor-destaque;
-      @if $label-tipo == "colado" {
-        & ~ label {
-          color: $cor-destaque;
+      & ~ label {
+        color: $cor-destaque;
+        @if $label-tipo == "colado" {
           border-bottom-color: $cor-destaque;
         }
       }
@@ -138,9 +139,12 @@ $form-radio-check-personaliza: sim !default;
         outline: 0;
         box-shadow: 0 0 3px cor(formulario);
       }
-      @if $label-tipo == "colado" {
-        &:focus ~ label {
+      &:focus ~ label {
+        @if $label-tipo == "colado" {
           background: cor(formulario, ativo);
+        }
+        @else {
+          color: cor(formulario, ativo);
         }
       }
     }

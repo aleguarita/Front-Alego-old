@@ -403,6 +403,9 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 .form-texto input:focus, .form-texto textarea:focus {
   border-bottom-color: #003133;
 }
+.form-texto input:focus ~ label, .form-texto textarea:focus ~ label {
+  color: #003133;
+}
 
 /*
 ================================================================================
@@ -6301,6 +6304,9 @@ LABEL flutuante
 .form--label-flutuante .form-texto--tipo-1 input:focus, .form--label-flutuante .form-texto--tipo-1 textarea:focus {
   border-bottom-color: #003133;
 }
+.form--label-flutuante .form-texto--tipo-1 input:focus ~ label, .form--label-flutuante .form-texto--tipo-1 textarea:focus ~ label {
+  color: #003133;
+}
 .form--label-flutuante .form-select--tipo-1 {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6673,6 +6679,9 @@ LABEL flutuante
 }
 .form--label-flutuante .form-texto--tipo-2 input:focus, .form--label-flutuante .form-texto--tipo-2 textarea:focus {
   border-bottom-color: #003133;
+}
+.form--label-flutuante .form-texto--tipo-2 input:focus ~ label, .form--label-flutuante .form-texto--tipo-2 textarea:focus ~ label {
+  color: #003133;
 }
 .form--label-flutuante .form-select--tipo-2 {
   display: -webkit-flex;
@@ -7047,6 +7056,9 @@ LABEL flutuante
 .form--label-flutuante .form-texto--tipo-3 input:focus, .form--label-flutuante .form-texto--tipo-3 textarea:focus {
   outline: 0;
   box-shadow: 0 0 3px #00949a;
+}
+.form--label-flutuante .form-texto--tipo-3 input:focus ~ label, .form--label-flutuante .form-texto--tipo-3 textarea:focus ~ label {
+  color: #003133;
 }
 .form--label-flutuante .form-select--tipo-3 {
   display: -webkit-flex;
