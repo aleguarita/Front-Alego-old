@@ -10,11 +10,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 11/05/2016
+// Última alteração: 16/05/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 16/05/2016 | Tabelas responsivas
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 04/05/2016 | Título agora utiliza a $fonte-titulo ao invés de $fonte-serifa
@@ -44,9 +45,13 @@ TABELAS
 // CONFIG
 // =============================================================================
 $tab-tipo: tipo-1 !default; // 2 tipos
+
 $tab--zebra: sim !default;
+$tab--responsiva: sim !default;
+
 $tab-acao-link-bloco: não !default;
 $tab-col--maximo: 600 !default;
+$tab-resp-tamanho: pequeno !default; // pequeno | medio
 
 
 // =============================================================================
@@ -92,6 +97,14 @@ td {
 			.tab__acoes {
 				background: desaturate(cor(tabela, fundo), 15%);
 			}
+			@if $tab--responsiva == "sim" {
+				@include media-tipo($tab-resp-tamanho, max) {
+					background: inherit;
+					.tab__acoes {
+						background: inherit;
+					}
+				}
+			}
 		}
 	}
 	// ---------------------------------------------------------------------------
@@ -127,6 +140,44 @@ td {
 			}
 		}
 	}
+	// ---------------------------------------------------------------------------
+	// RESPONSIVA
+	// ---------------------------------------------------------------------------
+	@include media-tipo($tab-resp-tamanho, max) {
+		@if $tab--responsiva == "sim" {
+			@if $tag == responsiva {
+				thead {
+					display: none;
+				}
+			}
+			@else if $tag == responsiva-tr {
+				margin-bottom: $margem;
+				display: block;
+				@content;
+			}
+			@else if $tag == responsiva-td {
+				display: block;
+				text-align: right;
+				@content;
+				@if $tab--zebra == "sim" {
+					&:nth-child(even) {
+						background: cor(tabela, fundo);
+					}
+				}
+			}
+			@else if $tag == responsiva-td-before {
+				&::before {
+					content: attr(data-title);
+					float: left;
+					@content;
+				}
+			}
+			@else if $tag == responsiva-acoes {
+				background: transparent;
+				@content;
+			}
+		}
+	}
 }
 
 // =============================================================================
@@ -137,6 +188,7 @@ td {
 	// TIPO 1
 	// ---------------------------------------------------------------------------
 	@if $tipo == tipo-1 {
+		@include tab--opcoes(responsiva);
 		thead tr {
 			color: cor(texto, claro);
 			background: cor(tabela, titulo);
@@ -145,11 +197,32 @@ td {
 		tbody tr {
 			border-bottom: 1px solid cor(tabela, borda-clara);
 			&:nth-child(odd) {
-				color: cor(texto, medio);
+				// Muda a cor da fonte para cinza em linhas intercaladas para telas maiores
+				@if $tab--responsiva == "sim" {
+					@include media-tipo($tab-resp-tamanho) {
+						color: cor(texto, medio);
+					}
+				}
+			}
+			@include tab--opcoes(responsiva-tr) {
+				border-bottom-width: 2px;
+			}
+		}
+		td {
+			@include tab--opcoes(responsiva-td) {
+				border-bottom: 1px solid cor(tabela, borda-clara);
+				&:last-child {
+					border-bottom-width: 0;
+				}
+			}
+			@include tab--opcoes(responsiva-td-before) {
+				color: cor(tabela, titulo);
+				font-weight: bold;
 			}
 		}
 		.tab__acoes {
 			background: lighten(cor(tabela, fundo), 5%);
+			@include tab--opcoes(responsiva-acoes);
 		}
 	}
 	// ---------------------------------------------------------------------------
@@ -157,6 +230,7 @@ td {
 	// ---------------------------------------------------------------------------
 	@else if $tipo == tipo-2 {
 		border-bottom: 2px solid cor(tabela, borda);
+		@include tab--opcoes(responsiva);
 		thead tr {
 			color: cor(tabela, titulo);
 			border-bottom: 2px solid cor(tabela, borda);
@@ -166,10 +240,28 @@ td {
 			&:last-of-type {
 				border-bottom: none;
 			}
+			@include tab--opcoes(responsiva-tr) {
+				border-bottom: 1px solid cor(tabela, borda);
+			}
+		}
+		td {
+			@include tab--opcoes(responsiva-td) {
+				border-bottom: 1px dashed cor(tabela, borda);
+				&:last-child {
+					border-bottom-width: 0;
+				}
+			}
+			@include tab--opcoes(responsiva-td-before) {
+				color: cor(tabela, titulo);
+				font-weight: bold;
+			}
 		}
 		.tab__acoes {
 			background: cor(tabela, fundo);
 			border-left: 2px solid cor(tabela, borda);
+			@include tab--opcoes(responsiva-acoes) {
+				border-left: 0;
+			}
 		}
 	}
 }
@@ -182,6 +274,9 @@ td {
 		@include tab($tab-tipo);
 		@if $tab--zebra == "sim" {
 			@include tab--opcoes(zebra);
+		}
+		@if $tab--responsiva == "sim" {
+
 		}
 	}
 	@if index($uso-classes, tabela-form) {

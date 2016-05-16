@@ -25,6 +25,40 @@
         <dt><samp>.col--X</samp></dt>
           <dd><strong><samp>&lt;th&gt;</samp></strong>. Use nas colunas de título (<samp>&lt;th&gt;</samp>). <strong>X</strong> é substituído pelo nome que você criou dentro do arquivo de <span class="arquivo">config</span> e determina a largura desta coluna. No momento já temos criada a <strong>.col--acoes</strong></dd>
       </dl>
+      <h2>Regras para a tabela responsiva</h2>
+      <p>Para que a tabela responsiva funcione, é necessário inserir o atributo <samp>data-title</samp> em cada uma das células e dentro dela colocar o mesmo texto que aparece no <samp>&lt;th&gt;</samp> (incluindo acentos e espaço, pois este texto será escrito pelo CSS). O código da tabela seria como o seguinte:</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;table class="tab"&gt;</p>
+          <p class="recuo-1">&lt;thead&gt;</p>
+            <p class="recuo-2">&lt;tr&gt;</p>
+              <p class="recuo-3">&lt;th&gt;Nome do Usuário&lt;/th&gt;</p>
+              <p class="recuo-3">&lt;th&gt;Matrícula&lt;/th&gt;</p>
+              <p class="recuo-3">&lt;th&gt;Status&lt;/th&gt;</p>
+            <p class="recuo-2">&lt;/tr&gt;</p>
+          <p class="recuo-1">&lt;/thead&gt;</p>
+          <p class="recuo-1">&lt;tbody&gt;</p>
+          <p class="recuo-2">&lt;tr&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Nome do Usuário"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Matrícula"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Status"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-2">&lt;/tr&gt;</p>
+          <p class="recuo-2">&lt;tr&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Nome do Usuário"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Matrícula"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Status"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-2">&lt;/tr&gt;</p>
+          <p class="recuo-2">&lt;tr&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Nome do Usuário"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Matrícula"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-3">&lt;td data-title="Status"&gt;...&lt;/td&gt;</p>
+          <p class="recuo-2">&lt;/tr&gt;</p>
+          <p class="recuo-1">&lt;/tbody&gt;</p>
+        <p>&lt;/table&gt;</p>
+      </code>
+      <blockquote class="aviso--grave">
+        Não coloque item de ação em células diferentes, mesmo que você tenha configurado para aparecer como bloco
+      </blockquote>
     </section>
   </section>
   <section class="secao-lista">
@@ -53,37 +87,37 @@
         </thead>
         <tbody>
           <tr>
-            <td>Item 1</td>
-            <td>Item 2</td>
-            <td>Item 3</td>
-            <td class="tab__acoes">
+            <td data-title="Coluna 1">Item 1</td>
+            <td data-title="Coluna 2">Item 2</td>
+            <td data-title="Coluna 3">Item 3</td>
+            <td data-title="Ações" class="tab__acoes">
               <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
               <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
             </td>
           </tr>
           <tr>
-            <td>Item 1</td>
-            <td>Item 2</td>
-            <td>Item 3</td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1">Item 1</td>
+            <td data-title="Coluna 2">Item 2</td>
+            <td data-title="Coluna 3">Item 3</td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
-            <td>Item 1</td>
-            <td>Item 2</td>
-            <td>Item 3</td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1">Item 1</td>
+            <td data-title="Coluna 2">Item 2</td>
+            <td data-title="Coluna 3">Item 3</td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
-            <td>Item 1</td>
-            <td>Item 2</td>
-            <td>Item 3</td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1">Item 1</td>
+            <td data-title="Coluna 2">Item 2</td>
+            <td data-title="Coluna 3">Item 3</td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
-            <td>Item 1</td>
-            <td>Item 2</td>
-            <td>Item 3</td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1">Item 1</td>
+            <td data-title="Coluna 2">Item 2</td>
+            <td data-title="Coluna 3">Item 3</td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
         </tbody>
       </table>
@@ -97,34 +131,34 @@
         </thead>
         <tbody>
           <tr>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td><input type="text" placeholder="digite aqui" /></td>
-            <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
           </tr>
         </tbody>
       </table>

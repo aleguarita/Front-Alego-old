@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 09/05/2016
+// Última alteração em: 16/05/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 16/05/2016 | Tabelas responsivas
 // 09/05/2016 | Acrescentado datepicker e suas opções
 // 12/04/2016 | Escolhe se usa fontes personalizadas ou não
 // 31/03/2016 | Inclusão de ocultar as classes de símbolos SVG
@@ -80,9 +81,14 @@ $grid-max: rem(1600);
 // TABELAS
 // =============================================================================
 $tab-tipo: tipo-1; // 2 tipos
+
 $tab--zebra: sim;
+$tab--responsiva: sim;
+
 $tab-acao-link-bloco: não;
 $tab-col--maximo: 600;
+$tab-resp-tamanho: pequeno; // pequeno | medio
+
 $largura-tabela-col: (
 	acoes: 70,
 );
