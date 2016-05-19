@@ -1585,6 +1585,28 @@ DATEPICKER
 
 /*
 ================================================================================
+TELAS DE MENSAGENS
+================================================================================
+*/
+.tela-mensagem {
+  width: 100vw;
+  height: 100vh;
+  background: #003b3e;
+}
+.tela-mensagem__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  color: white;
+}
+
+/*
+================================================================================
 SÍMBOLOS EM SVG
 ================================================================================
 */
@@ -1746,6 +1768,10 @@ CLASSES
 .container, .container--gutter, .container--calha {
   max-width: 80rem;
   padding: 0 0.6rem;
+}
+
+.padding-0 {
+  padding: 0;
 }
 
 .link--readme, .link--externo {
@@ -2323,6 +2349,10 @@ HEADER
 
 .codigo-abas-qtd::before {
   content: "5";
+}
+
+.codigo-tela-mensagem--tipo::before {
+  content: "tipo-1";
 }
 
 .codigo-datepicker-tipo::before {
@@ -7833,6 +7863,76 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
 }
 .modal--tipo-2__fechar a:hover {
   box-shadow: 0 0 6px rgba(90, 90, 90, 0.5);
+}
+
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | tela de mensagem
+================================================================================
+*/
+#tela-mensagem .secao-lista__conteudo {
+  position: relative;
+  min-height: 25em;
+}
+
+.tela-mensagem--demo {
+  width: 100vw;
+  height: 100vh;
+  background: #003b3e;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.tela-mensagem--demo__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  color: white;
+}
+
+.tela-mensagem--tipo-1 {
+  width: 100vw;
+  height: 100vh;
+  background: #003b3e;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.tela-mensagem--tipo-1__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  color: white;
+}
+
+.tela-mensagem--tipo-2 {
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.tela-mensagem--tipo-2__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  color: #cd5800;
 }
 
 /*

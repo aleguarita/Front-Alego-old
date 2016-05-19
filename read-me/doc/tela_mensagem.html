@@ -1,0 +1,87 @@
+<article id="tela-mensagem">
+  <header><h1>Telas de Mensagem</h1></header>
+  <p>As configurações básicas da telas de mensagem são encontradas no <a href="#config__tela-mensagem" class="link--readme">arquivo de configuração</a>. Abaixo você vê os tipos disponíveis.</p>
+  <section class="secao-lista">
+    <input type="checkbox" id="tela-mensagem__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="tela-mensagem__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>A Tela de Mensagens formata as páginas de aviso, como por exemplo a página 404 ou a de Permissão Negada. Apesar do CSS da mesma ser pequena, não tem porque carregar se não existir mensagem de erro no sistema atual.</p>
+      <p>O HTML é bem simples e deve ter a seguinte estrutura:</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;section class="tela-mensagem"&gt;</p>
+          <p class="recuo-1">&lt;article title="Tipo de Erro" class="tela-mensagem__janela"&gt;</p>
+            <p class="recuo-2">&lt;figure class="tela-mensagem__imagem"&gt;</p>
+              <p class="recuo-3">...</p>
+            <p class="recuo-2">&lt;/figure&gt;</p>
+            <p class="recuo-2">&lt;p&gt;...&lt;/p&gt;</p>
+          <p class="recuo-1">&lt;/article&gt;</p>
+        <p>&lt;/section&gt;</p>
+      </code>
+      <p>Você pode usar a tag <samp>&lt;strong&gt;</samp> para negritar e acrescentar a classe <samp>texto--xx-maior</samp> para aumentar o texto.</p>
+      <p>Se precisar de configurações específicas (de tamanho, por exemplo), faça isso na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> /views/</samp></p>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="tela-mensagem__escolhida" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="tela-mensagem__escolhida">
+        <span class="secao-lista__titulo">Tipo de Tela de Mensagem escolhido <span class="codigo-tela-mensagem--tipo"></span></span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo padding-0">
+      <section class="tela-mensagem--demo">
+        <article title="Tipo de Erro" class="tela-mensagem--demo__janela">
+          <figure class="tela-mensagem__imagem">
+            💡
+          </figure>
+          <p>Aqui está a mensagem básica. Você pode usar tags como &lt;strong&gt; com classes de tamanho (tipo a .texto--xx-maior)</p>
+        </article>
+      </section>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="tela-mensagem__tipo-1" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="tela-mensagem__tipo-1">
+        <span class="secao-lista__titulo">Tela de Mensagem tipo 1</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo padding-0">
+      <section class="tela-mensagem--tipo-1">
+        <article title="Tipo de Erro" class="tela-mensagem--tipo-1__janela">
+          <figure class="tela-mensagem__imagem">
+            💡
+          </figure>
+          <p>Aqui está a mensagem básica. Você pode usar tags como &lt;strong&gt; com classes de tamanho (tipo a .texto--xx-maior)</p>
+        </article>
+      </section>
+    </section>
+  </section>
+  <section class="secao-lista">
+    <input type="checkbox" id="tela-mensagem__tipo-2" class="secao-lista__check" checked="checked">
+    <header class="secao-lista__header">
+      <label for="tela-mensagem__tipo-2">
+        <span class="secao-lista__titulo">Tela de Mensagem tipo 2</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo padding-0">
+      <section class="tela-mensagem--tipo-2">
+        <article title="Tipo de Erro" class="tela-mensagem--tipo-2__janela">
+          <figure class="tela-mensagem__imagem">
+            💡
+          </figure>
+          <p>Aqui está a mensagem básica. Você pode usar tags como &lt;strong&gt; com classes de tamanho (tipo a .texto--xx-maior)</p>
+        </article>
+      </section>
+    </section>
+  </section>
+</article>

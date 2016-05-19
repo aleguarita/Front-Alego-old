@@ -102,6 +102,12 @@ CLASSES
   padding: 0 $pd * 3;
 }
 // -----------------------------------------------------------------------------
+// Padding 0
+// -----------------------------------------------------------------------------
+.padding-0 {
+  padding: 0;
+}
+// -----------------------------------------------------------------------------
 // Links
 // -----------------------------------------------------------------------------
 %link-basico {
@@ -524,6 +530,8 @@ $codigo-selecionado: (
 
   abas-tipo: if(index($uso-classes, abas), $abas-tipo, 'nenhuma'),
   abas-qtd: $abas-qtd,
+
+  tela-mensagem--tipo: if(index($uso-classes, tela-mensagem), $tela-mensagem--tipo, 'nenhuma'),
 
   datepicker-tipo: if(index($uso-classes, datepicker), $datepicker-tipo, 'nenhum'),
   datepicker-sombra: $datepicker-sombra,
@@ -1073,6 +1081,30 @@ $modal-tipos: tipo-1, tipo-2;
 @each $modal in $modal-tipos {
   .modal--#{$modal} {
     @include modal($modal);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | tela de mensagem
+================================================================================
+*/
+#tela-mensagem .secao-lista__conteudo {
+  position: relative;
+  min-height: 25em;
+}
+.tela-mensagem--demo {
+  @include tela-mensagem($tela-mensagem--tipo);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+$tela-mensagem-tipos: tipo-1, tipo-2;
+@each $tela-mensagem in $tela-mensagem-tipos {
+  .tela-mensagem--#{$tela-mensagem} {
+    @include tela-mensagem($tela-mensagem);
     position: absolute;
     width: 100%;
     height: 100%;

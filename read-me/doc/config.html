@@ -35,6 +35,7 @@
           <dt><samp>toaster</samp></dt><dd>Formata os toasters do sistema</dd>
           <dt><samp>secao-lista</samp></dt><dd>Seções que podem ser fechadas, ocultando o conteúdo e mostrando o título, formando uma lista de seções</dd>
           <dt><samp>abas</samp></dt><dd>Formata as abas (e inclui a exibição/ocultamento do conteúdo)</dd>
+          <dt><samp>tela-mensagem</samp></dt><dd>Classe para a criação de telas de mensagens curtas (como erro 404 ou de permissão negada)</dd>
           <dt><samp>simbolos-svg</samp></dt><dd>Inclusão das classes de símbolos de SVG</dd>
           <dt><samp>simbolos</samp></dt><dd>Símbolos por fontes. Está aqui por retrocompatibilidade (deixe comentado para simplificar o código)</dd>
           <dt><samp>sprite</samp></dt><dd>Arquivos de sprites</dd>
@@ -179,6 +180,12 @@
             <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp> | <samp>tipo-4</samp></dd>
           <dt><samp>$abas-qtd</samp></dt>
             <dd>Define a quantidade de abas disponível. Não coloque mais que o necessário, pois isso infla o código final</dd>
+        </dl>
+      <h2 id="config__tela-mensagem">Tela de Mensagem</h2>
+        <p>Definição de mensagens de tela inteira (como a página 404 ou de permissão negada)</p>
+        <dl class="lista-definicao">
+          <dt><samp>$tela-mensagem--tipo</samp></dt>
+            <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp></dd>
         </dl>
       <h2 id="config__sprite">Sprites</h2>
         <p>Definições dos sprites. Cria várias classes conforme o nome que você atribuir.</p>

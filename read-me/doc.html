@@ -81,6 +81,7 @@
             <li><a href="#toaster">Toaster</a></li>
             <li><a href="#secao-lista">Seção Lista</a></li>
             <li><a href="#abas">Abas</a></li>
+            <li><a href="#tela-mensagem">Telas de Mensagem</a></li>
             <li><a href="#datepicker">Datepicker</a></li>
           </ul>
         </div>
@@ -94,6 +95,7 @@
           </div>
           <ul class="lista--link">
             <li><a href="#admin">Admin</a></li>
+            <li><a href="#permissao">Tela de Permissão</a></li>
             <li><a href="#caixa-check">Caixas clicáveis</a></li>
           </ul>
         </div>
@@ -146,9 +148,11 @@
     $.get("doc/toaster.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/secao-lista.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/abas.html", '', function (data) { $(".principal").append(data); });
+    $.get("doc/tela_mensagem.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/datepicker.html", '', function (data) { $(".principal").append(data); });
 
     $.get("doc/admin.html", '', function (data) { $(".principal").append(data); });
+    $.get("doc/permissao.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/caixa-check.html", '', function (data) { $(".principal").append(data); });
 
     $.get("doc/funcoes.html", '', function (data) { $(".principal").append(data); });

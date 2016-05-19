@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 16/05/2016
+// Última alteração em: 18/05/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 18/05/2016 | Acrescentada opção de tela de mensagem
 // 16/05/2016 | Tabelas responsivas
 // 09/05/2016 | Acrescentado datepicker e suas opções
 // 12/04/2016 | Escolhe se usa fontes personalizadas ou não
@@ -57,6 +58,7 @@ $uso-classes: (
   toaster,
   secao-lista,
   abas,
+  tela-mensagem,
   simbolos-svg,
   // simbolos,
   // sprite,
@@ -165,6 +167,11 @@ $secao-lista-titulo: 3;
 // =============================================================================
 $abas-tipo: tipo-1; // 4 tipos
 $abas-qtd: 5;
+
+// =============================================================================
+// TELA DE MENSAGENS
+// =============================================================================
+$tela-mensagem--tipo: tipo-1; // 2 tipos
 
 // =============================================================================
 // SPRITES
