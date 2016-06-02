@@ -10,12 +10,13 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 04/05/2016
+// Alterado em: 02/06/2016
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 02/06/2016 | Acrescentada a classe .oculta--pequeno e .oculta--medio
 // 04/05/2016 | Retirado uso da função cor-status() e substituído por paleta()
 // 14/03/2016 | Correção da classe .text-- para .texto--
 // 19/01/2016 | Mudada a ordem do placeholder para ficar mais próximo da classe
@@ -28,6 +29,16 @@ CLASSES FIXAS
 
 .oculta {
   display: none;
+  &--pequeno {
+    @include media-tipo(pequeno, max) {
+      display: none;
+    }
+  }
+  &--medio {
+    @include media-tipo(medio, max) {
+      display: none;
+    }
+  }
 }
 .pointer {
   cursor: pointer;
