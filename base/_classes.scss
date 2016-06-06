@@ -40,6 +40,18 @@ CLASSES FIXAS
     }
   }
 }
+.exibe {
+  &--pequeno {
+    @include media-tipo(pequeno) {
+      display: none;
+    }
+  }
+  &--medio {
+    @include media-tipo(medio) {
+      display: none;
+    }
+  }
+}
 .pointer {
   cursor: pointer;
 }
