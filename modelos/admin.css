@@ -348,6 +348,9 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 .form-texto input:focus, .form-texto textarea:focus {
   border-bottom-color: #003133;
 }
+.form-texto input:focus ~ label, .form-texto textarea:focus ~ label {
+  color: #003133;
+}
 
 /*
 ================================================================================
@@ -477,6 +480,9 @@ FORMULÁRIOS | SELECT
   width: 100%;
 }
 .form-select .form__ico {
+  pointer-events: none;
+  position: absolute;
+  right: 0;
   color: #00949a;
 }
 
@@ -502,6 +508,7 @@ FORMULÁRIO | BOTÕES
 
 .bt {
   background: #cd5800;
+  border-color: #cd5800;
 }
 .bt:hover {
   background: #9a4200;
@@ -509,30 +516,38 @@ FORMULÁRIO | BOTÕES
 
 .bt--secundario {
   background: #00c5cd;
+  border-color: #00c5cd;
 }
 .bt--secundario:hover {
   background: #00949a;
+  border-color: #00949a;
 }
 
 .bt--urgente {
   background: #d51920;
+  border-color: #d51920;
 }
 .bt--urgente:hover {
   background: #be161d;
+  border-color: #be161d;
 }
 
 .bt--ok {
   background: #33a343;
+  border-color: #33a343;
 }
 .bt--ok:hover {
   background: #2e913b;
+  border-color: #2e913b;
 }
 
 .bt--aviso {
   background: #e0a914;
+  border-color: #e0a914;
 }
 .bt--aviso:hover {
   background: #c79612;
+  border-color: #c79612;
 }
 
 /*
@@ -621,6 +636,11 @@ td {
   font-size: 0.85714em;
 }
 
+@media (max-width: 30em) {
+  .tab thead, .tab--form thead {
+    display: none;
+  }
+}
 .tab thead tr, .tab--form thead tr {
   color: white;
   background: #006367;
@@ -629,17 +649,60 @@ td {
 .tab tbody tr, .tab--form tbody tr {
   border-bottom: 1px solid #40d4da;
 }
-.tab tbody tr:nth-child(odd), .tab--form tbody tr:nth-child(odd) {
-  color: gray;
+@media (min-width: 30em) {
+  .tab tbody tr:nth-child(odd), .tab--form tbody tr:nth-child(odd) {
+    color: gray;
+  }
+}
+@media (max-width: 30em) {
+  .tab tbody tr, .tab--form tbody tr {
+    margin-bottom: 0.625rem;
+    display: block;
+    border-bottom-width: 2px;
+  }
+}
+@media (max-width: 30em) {
+  .tab td, .tab--form td {
+    display: block;
+    text-align: right;
+    border-bottom: 1px solid #40d4da;
+  }
+  .tab td:last-child, .tab--form td:last-child {
+    border-bottom-width: 0;
+  }
+  .tab td:nth-child(even), .tab--form td:nth-child(even) {
+    background: #bff1f3;
+  }
+}
+@media (max-width: 30em) {
+  .tab td::before, .tab--form td::before {
+    content: attr(data-title);
+    float: left;
+    color: #006367;
+    font-weight: bold;
+  }
 }
 .tab .tab__acoes, .tab--form .tab__acoes {
   background: #d4f6f7;
+}
+@media (max-width: 30em) {
+  .tab .tab__acoes, .tab--form .tab__acoes {
+    background: transparent;
+  }
 }
 .tab tbody tr:nth-child(even), .tab--form tbody tr:nth-child(even) {
   background: #bff1f3;
 }
 .tab tbody tr:nth-child(even) .tab__acoes, .tab--form tbody tr:nth-child(even) .tab__acoes {
   background: #c5eced;
+}
+@media (max-width: 30em) {
+  .tab tbody tr:nth-child(even), .tab--form tbody tr:nth-child(even) {
+    background: inherit;
+  }
+  .tab tbody tr:nth-child(even) .tab__acoes, .tab--form tbody tr:nth-child(even) .tab__acoes {
+    background: inherit;
+  }
 }
 
 .tab--form tbody tr:nth-child(even) {
@@ -1207,6 +1270,112 @@ LISTA
 
 /*
 ================================================================================
+DATEPICKER
+================================================================================
+*/
+.ui-datepicker {
+  background: white;
+  padding-bottom: 0.0625rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.ui-datepicker .ui-icon {
+  display: none;
+}
+.ui-datepicker a {
+  text-decoration: none;
+}
+.ui-datepicker-unselectable, .ui-datepicker-disabled {
+  cursor: not-allowed;
+}
+.ui-datepicker-header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.3125rem;
+  font-size: .8em;
+  background: #006367;
+}
+.ui-datepicker-title {
+  -webkit-flex: 1;
+  flex: 1;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+}
+.ui-datepicker-next, .ui-datepicker-prev {
+  cursor: pointer;
+}
+.ui-datepicker-next {
+  -webkit-order: 2;
+  order: 2;
+  margin-left: .3em;
+}
+.ui-datepicker-next::before {
+  content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%229%22%20viewBox%3D%220%200%208%2013%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M8%206.5c0%200.1%200%200.2-0.1%200.3L1.4%2012.9C1.4%2013%201.3%2013%201.1%2013c-0.1%200-0.2%200-0.3-0.1l-0.7-0.6C0%2012.1%200%2012%200%2011.9c0-0.1%200-0.2%200.1-0.3L5.6%206.5%200.1%201.4C0%201.3%200%201.2%200%201.1c0-0.1%200-0.2%200.1-0.3l0.7-0.7C0.9%200%201%200%201.1%200c0.1%200%200.2%200%200.3%200.1l6.5%206.1C8%206.3%208%206.4%208%206.5z%22%2F%3E%3C%2Fsvg%3E);
+}
+.ui-datepicker-prev {
+  margin-right: .3em;
+}
+.ui-datepicker-prev::before {
+  content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%229%22%20viewBox%3D%220%200%208%2013%22%3E%3Cpath%20fill%3D%22white%22%20d%3D%22M0%206.5c0-0.1%200-0.2%200.1-0.3L6.6%200.1C6.6%200%206.7%200%206.9%200c0.1%200%200.2%200%200.3%200.1l0.7%200.6C8%200.9%208%201%208%201.1%208%201.2%208%201.3%207.9%201.4L2.4%206.5l5.4%205.1C8%2011.7%208%2011.8%208%2011.9c0%200.1%200%200.2-0.1%200.3l-0.7%200.7C7.1%2013%207%2013%206.9%2013c-0.1%200-0.2%200-0.3-0.1L0.1%206.8C0%206.7%200%206.6%200%206.5z%22%2F%3E%3C%2Fsvg%3E);
+}
+.ui-datepicker-calendar th, .ui-datepicker-calendar td {
+  text-align: center;
+  width: calc(100% / 7);
+  padding: 0;
+}
+.ui-datepicker-calendar th {
+  font-size: .8em;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+}
+.ui-datepicker-calendar a {
+  display: block;
+  padding: .6em;
+  color: #006367;
+}
+.ui-datepicker-calendar a:hover {
+  background: #40d4da;
+}
+.ui-datepicker-week-end {
+  opacity: .8;
+}
+.ui-datepicker-today a {
+  border-bottom: 2px solid;
+}
+.ui-datepicker-current-day a {
+  background: #da8240;
+  color: white;
+}
+.ui-datepicker-current-day a:hover {
+  border-bottom: #da8240;
+  background: #e3a170;
+}
+
+/*
+================================================================================
+TELAS DE MENSAGENS
+================================================================================
+*/
+.tela-mensagem {
+  width: 100vw;
+  height: 100vh;
+  background: #003b3e;
+}
+.tela-mensagem__janela {
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+  color: white;
+}
+
+/*
+================================================================================
 SÍMBOLOS EM SVG
 ================================================================================
 */
@@ -1247,6 +1416,27 @@ CLASSES FIXAS
 */
 .oculta {
   display: none;
+}
+@media (max-width: 30em) {
+  .oculta--pequeno {
+    display: none;
+  }
+}
+@media (max-width: 48em) {
+  .oculta--medio {
+    display: none;
+  }
+}
+
+@media (min-width: 30em) {
+  .exibe--pequeno {
+    display: none;
+  }
+}
+@media (min-width: 48em) {
+  .exibe--medio {
+    display: none;
+  }
 }
 
 .pointer {
@@ -1307,67 +1497,6 @@ CLASSES FIXAS
 
 .fonte--xx-maior, .texto--xx-maior {
   font-size: 1.42383em;
-}
-
-/*
-================================================================================
-LOGIN
-================================================================================
-*/
-.login {
-  background: #00c5cd;
-  width: 100vw;
-  height: 100vh;
-}
-.login__janela {
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-width: 100%;
-  max-height: 100%;
-  background: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-@media (max-width: 30em) {
-  .login__janela {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -webkit-align-content: stretch;
-    align-content: stretch;
-    width: 100vw;
-    height: 100vh;
-  }
-}
-.login__header {
-  margin-bottom: 0.625rem;
-}
-.login__principal {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-bottom: 0.625rem;
-  padding: 0.625rem;
-}
-@media (max-width: 30em) {
-  .login__principal {
-    -webkit-flex: 1;
-    flex: 1;
-    -webkit-align-content: center;
-    align-content: center;
-  }
-}
-.login__acoes {
-  padding: 0.3125rem;
-  text-align: center;
 }
 
 /*
@@ -1517,8 +1646,8 @@ LOGIN
     flex-wrap: wrap;
     -webkit-flex-direction: column;
     flex-direction: column;
-    -webkit-align-content: stretch;
-    align-content: stretch;
+    -webkit-justify-content: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
   }
@@ -1534,14 +1663,6 @@ LOGIN
   flex-wrap: wrap;
   margin-bottom: 0.625rem;
   padding: 0.625rem;
-}
-@media (max-width: 30em) {
-  .login__principal {
-    -webkit-flex: 1;
-    flex: 1;
-    -webkit-align-content: center;
-    align-content: center;
-  }
 }
 .login__acoes {
   padding: 0.3125rem;
