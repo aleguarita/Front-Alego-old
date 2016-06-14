@@ -17,6 +17,7 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/06/2016 | Acréscimo da variável $cor-svg (estava em form_radio_checkbox)
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 03/05/2016 | Alinhamento à direita dos botões de ação
@@ -45,6 +46,11 @@ $form-radio-check-personaliza: sim !default;
 $tamanho-fonte-form: $tamanho-fonte-textos;
 $borda-form: 1px cor(formulario);
 $borda-form-tipo: if($form-tipo == "tipo-1", dotted, solid);
+
+// =============================================================================
+// COR SVG (para os casos que é usado SVG)
+// =============================================================================
+$svg-cor: cor(formulario);
 
 // =============================================================================
 // MIXINS

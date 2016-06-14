@@ -19,6 +19,7 @@ FORMULÁRIOS | SELECT
 // Changelog
 // 12/05/2016 | Arrumado problema que dava para clicar na seta e selecionar o
 //              elemento
+//              Retirado o span de ícone
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 18/04/2016 | Alterada a cor do texto para mudar conforme tema
@@ -43,11 +44,31 @@ $label-tipo: flutuante !default; // flutuante | colado
 $form-radio-check-personaliza: sim !default;
 
 // =============================================================================
+// SVG
+// -----------------------------------------------------------------------------
+// 1. Abra a imagem no Illustrator (está na pasta svg/avulsos/seta-select.svg)
+//    ou crie um novo arquivo
+// 2. Edite e exporte cada pedaço como SVG
+// 3. Vá em http://petercollingridge.appspot.com/svg-optimiser/ para otimizar
+// 4. Nos objetos que vão mudar de cor conforme o elemento pai, use
+//    fill=currentColor
+// 5. Vá em http://meyerweb.com/eric/tools/dencoder/ e cole o texto. Tire todos
+//    os espaços
+// 6. Clique em "encode"
+// 7. Copie e cole o código na variáveis abaixo;
+// 8. Selecione as quatro variáveis e mande substituir currentColor por #{$svg-cor}
+//    SELECIONAR É IMPORTANTE PRA NÃO SUBSTITUIR AQUI NESTE COMENTÁRIO
+// =============================================================================
+$svg-seta-fina: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22#{$svg-cor}%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A";
+$select-svg-bg: url("data:image/svg+xml;utf8,#{$svg-seta-fina}") no-repeat right center;
+$select-gradiente: $select-svg-bg, linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, cor(fundo, x-claro) 21px);
+$select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
+
+// =============================================================================
 // MIXIN | SELECT
 // =============================================================================
 @mixin form-select--basico {
   @include appearance(none);
-  background: cor(fundo, x-claro);
   border: 0;
   border-radius: 0;
   line-height: 1.6;
@@ -57,15 +78,7 @@ $form-radio-check-personaliza: sim !default;
   color: cor(texto);
   @content;
 }
-// =============================================================================
-// MIXIN | ÍCONE (que substitui a seta)
-// =============================================================================
-@mixin form-select__seta {
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  @content;
-}
+
 // =============================================================================
 // MIXIN | TIPOS
 // =============================================================================
@@ -77,17 +90,13 @@ $form-radio-check-personaliza: sim !default;
     @include form-base(flex);
     select {
       @include form-select--basico {
+        background: $select-bg-simples;
         border-bottom: $borda-form dotted;
       }
     }
     @include form-texto__label($label-tipo) {
       @if $label-tipo == "colado" {
         border-bottom: 1px dotted cor(formulario);
-      }
-    }
-    .form__ico {
-      @include form-select__seta {
-        color: cor(formulario);
       }
     }
   }
@@ -98,17 +107,13 @@ $form-radio-check-personaliza: sim !default;
     @include form-base(flex);
     select {
       @include form-select--basico {
+        background: $select-bg-simples;
         border-bottom: $borda-form solid;
       }
     }
     @include form-texto__label($label-tipo) {
       @if $label-tipo == "colado" {
         border-bottom: 1px solid cor(formulario);
-      }
-    }
-    .form__ico {
-      @include form-select__seta {
-        color: cor(formulario);
       }
     }
   }
@@ -119,7 +124,7 @@ $form-radio-check-personaliza: sim !default;
     @include form-base(flex);
     select {
       @include form-select--basico {
-        @include linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, cor(fundo, x-claro) 21px);
+        background: $select-gradiente;
         border: $borda-form solid;
         padding-left: .2em;
         @if $label-tipo == "colado" {
@@ -134,13 +139,6 @@ $form-radio-check-personaliza: sim !default;
         background: cor(formulario);
         color: cor(texto, claro);
         line-height: 2.2;
-      }
-    }
-    .form__ico {
-      @include form-select__seta {
-        font-size: 1.2em;
-        background: transparent;
-        color: cor(formulario, ativo);
       }
     }
   }

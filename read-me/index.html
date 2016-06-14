@@ -38,85 +38,7 @@
         </article>
         <article id="changelog">
           <h2>Changelog</h2>
-          <dl class="lista-changelog">
-            <dt>10/06/2016</dt>
-              <dd>
-                Ajustes na view de login (para visualização melhor em mobile)<br />
-                Correção em alguns SVG<br />
-                Passada a função <samp>z()</samp> do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>config/_z-index.scss</samp> para o arquivo de <samp>_funcoes.scss</samp> (<strong class="texto--erro">Atenção:</strong> pode ser necessário a substituição do seu arquivo de configuração)
-              </dd>
-            <dt>06/06/2016</dt>
-              <dd>
-                Acréscimo de mais duas classes: <samp>.exibe--pequeno</samp> (exibe o elemento apenas em telas pequenas) e <samp>.exibe--medio</samp> (exibe o elemento em telas pequenas e médias e oculta acima disso)
-              </dd>
-            <dt>02/06/2016</dt>
-              <dd>
-                Acréscimo de mais duas classes: <samp>.oculta--pequeno</samp> (oculta o elemento em telas pequenas) e <samp>.oculta--medio</samp> (oculta o elemento em telas pequenas e médias)
-              </dd>
-            <dt>18/05/2016</dt>
-              <dd>
-                Inclusão do CSS de telas de mensagem (para telas de erro, por exemplo).<br />
-                <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>config/+config.scss</samp> (nova opção no mapa de <samp>$uso-classes</samp> e configuração)
-              </dd>
-            <dt>16/05/2016</dt>
-              <dd>
-                Inclusão de tabelas responsivas.<br />
-                <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>config/+config.scss</samp> (novas opções de tabela)
-              </dd>
-            <dt>13/05/2016</dt>
-              <dd>Corrigido falta de destaque no label quando o input está focado</dd>
-            <dt>12/05/2016</dt>
-              <dd>
-                Acrescentadas as variáveis do config.scss nos arquivos com o valor !default<br />
-                Correção do bug que impedia de clicar na seta do select personalizado
-              </dd>
-            <dt>09/05/2016</dt>
-              <dd>
-                Acrescentado datepicker.<br />
-                <strong class="texto--erro">Atenção:</strong> Essa alteração afeta os seguintes arquivos:<br />
-                <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>config/cores.scss</samp> (novo conjunto de cor para cada um dos temas)<br />
-                <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>config/+config.scss</samp> (novas configurações para o datepicker)
-              </dd>
-            <dt>18/04/2016</dt>
-              <dd>
-                Finalizada as cores:<br />
-                Inclusão de cores de temas<br />
-                Criado todos os temas<br />
-                <strong class="texto--erro">Atenção:</strong> Essa alteração afeta o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>config/cores.scss</samp>
-              </dd>
-            <dt>05/05/2016</dt>
-              <dd>
-                Alteração da estrutura de arquivos com a inclusão do arquivo para importar os arquivos da pasta extra. Criação da pasta views com a inclusão do import e do login<br />
-                Correção de como chamava as fontes de título
-              </dd>
-            <dt>04/05/2016</dt>
-              <dd>Inclusão de uma classe para alinhar as ações do formulário</dd>
-            <dt>12/04/2016</dt>
-              <dd>Agora pode escolher se pode usar fonte personalizada ou não. <strong class="texto--erro">Atenção: </strong>Essa alteração mudou o <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>config.scss</samp></dd>
-            <dt>11/04/2016</dt>
-              <dd>Acréscimo de submenu no modelo de admin e mixin para isso</dd>
-            <dt>31/03/2016</dt>
-              <dd>Reestrutração do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base.scss</samp>. Ele voltou para a pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> /config/</samp>. Mas para evitar uma reatualização constante deste arquivo ao ocorrer inclusão de novas funcionalidades na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> /base/</samp>, foi criado um novo arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> /base/+arquivo.scss</samp> que importa todos estes arquivos.</dd>
-            <dt>29/03/2016</dt>
-              <dd>Inclusão do sistema de abas. <strong class="texto--erro">Atenção</strong>: essa alteração afeta o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_+config.scss</samp> e <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_cores.scss</samp>. Certifique-se de manter suas configurações e incluir o valor <samp>abas</samp> (comentado se necessário) no mapa <samp>$uso-classes</samp> e também as variáveis de abas e as cores (veja mais detalhes no arquivo de <a href="doc.html#abas" class="link--readme">documentação</a>).</dd>
-            <dt>22/03/2016</dt>
-              <dd>O mixin <samp>lista-oculta</samp> passou a ser chamado <samp>item-checado</samp> e agora aceita qualquer seletor além de classe (como variável) e oferece a opção de formatar o elemento quando estiver selecionado.</dd>
-            <dt>15/03/2016</dt>
-              <dd>Inclusão dos ícones em SVG</dd>
-            <dt>14/03/2016</dt>
-              <dd>
-                Correções das classes de texto<br />
-                Alteração da localização da localização do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> _base.scss</samp> da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> config</samp> para a pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> base</samp>
-              </dd>
-            <dt>09/03/2016</dt>
-              <dd>Inclusão do modelo básico de admin. Isso inclui uma pasta chamada <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> modelos</samp> que tem um CSS compilado do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> e três modelos de HTML.</dd>
-            <dt>03/03/2016</dt>
-              <dd>Alteração do mixin <samp>grupo-flex</samp> para que ele fique responsivo.</dd>
-            <dt>15/02/2016</dt>
-              <dd>Acréscimo de sprites.</dd>
-            <dt>12/02/2016</dt>
-              <dd>Pronto para uso (em alfa), pois ainda faltam ajustes e acréscimos de novas funcionalidades.</dd>
-          </dl>
+          <dl class="lista-changelog"></dl>
         </article>
         <article id="aplicando">
           <h2>Aplicando o Front-Alego</h2>
@@ -150,6 +72,11 @@
         </article>
       </section>
     </main>
-
+    <script src="js/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    jQuery.ajaxSetup({ async: false }); //if order matters
+    $.get("changelog.html", '', function (data) { $(".lista-changelog").append(data); });
+    jQuery.ajaxSetup({ async: true });  //if order matters
+    </script>
   </body>
 </html>
