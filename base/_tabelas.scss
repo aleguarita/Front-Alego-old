@@ -10,11 +10,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 16/05/2016
+// Última alteração: 20/06/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 20/06/2016 | Agora é possível escolher a orientação da tabela responsiva
 // 16/05/2016 | Tabelas responsivas
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
@@ -48,6 +49,7 @@ $tab-tipo: tipo-1 !default; // 2 tipos
 
 $tab--zebra: sim !default;
 $tab--responsiva: sim !default;
+$tab--responsiva-tipo: tamanho !default; // tamanho | orientação
 
 $tab-acao-link-bloco: não !default;
 $tab-col--maximo: 600 !default;
@@ -82,6 +84,22 @@ td {
 	line-height: 1;
 	padding: .5em;
 	font-size: em(12, 14);
+}
+
+// =============================================================================
+// MIXIN | Media query: orientação ou tamanho
+// =============================================================================
+@mixin tab-responsiva($tipo) {
+	@if $tipo == "tamanho" {
+		@include media-tipo($tab-resp-tamanho, max) {
+			@content;
+		}
+	}
+	@else {
+		@media (orientation: portrait) {
+			@content;
+		}
+	}
 }
 
 // =============================================================================
@@ -143,7 +161,7 @@ td {
 	// ---------------------------------------------------------------------------
 	// RESPONSIVA
 	// ---------------------------------------------------------------------------
-	@include media-tipo($tab-resp-tamanho, max) {
+	@include tab-responsiva($tab--responsiva-tipo) {
 		@if $tab--responsiva == "sim" {
 			@if $tag == responsiva {
 				thead {
