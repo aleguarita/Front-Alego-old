@@ -14,12 +14,16 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
 // -----------------------------------------------------------------------------
 // form_grupo.scss
 // Criado em: 20/01/2015
-// Última alteração: 18/03/2016
+// Última alteração: 24/06/2016
 // -----------------------------------------------------------------------------
 // Este arquivo cria grupos de formulários para definições de tamanhos.
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
 // -----------------------------------------------------------------------------
 // Changelog
+// 24/06/2016 | .form-container--linha alinha os elementos na base (flex-end)
+//              para quando não houver <label>
+//              Acrescentado mais especificidade nos filhos do --linha
+//              (seletor elemento > elemento)
 // 18/03/2016 | Alterada função de "@while" para "@for" ao gerar as classes
 // 03/02/2016 | Alterado o nome form-field para form-grupo para fazer mais sentido
 //              Renomeado este arquivo para form_grupo
@@ -83,14 +87,15 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 @if index($uso-classes, form-grupo) {
   .form-container--linha {
     @extend %form-container;
+    @include align-items(flex-end);
     & + & {
       margin-top: $calha;
     }
     @include media-tipo(pequeno) {
-      *:first-child {
+      > *:first-child {
         padding-left: 0;
       }
-      *:last-child {
+      > *:last-child {
         padding-right: 0;
       }
     }

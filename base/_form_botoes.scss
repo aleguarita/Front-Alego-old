@@ -12,11 +12,14 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 11/05/2016
+// Última alteração em: 24/06/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // -----------------------------------------------------------------------------
 // Changelog
+// 24/06/2016 | Retirado o tamanho da fonte do botão e acrescentado caso seja
+//              filho de um <p> (o botão estava ficando muito grande quando não
+//              precisava)
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 05/05/2016 | Arrumado problema de borda
@@ -78,10 +81,12 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   color: cor(botao);
   cursor: pointer;
   border: 1px solid;
-  font-size: .9em;
   font-weight: bold;
   text-transform: uppercase;
   transition: background 0.5s ease 0s;
+  p & {
+    font-size: .9em;
+  }
   @if $botao-arredondamento != não {
     border-radius: $rd;
   }
