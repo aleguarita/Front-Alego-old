@@ -12,10 +12,12 @@ DATEPICKER
 // -----------------------------------------------------------------------------
 // datepicker.scss
 // Criado em: 06/05/2016
+// Alterado em: 24/06/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o datepicker padrão do jquery
 // ----------------------------------------------------------------------------
 // Changelog
+// 24/06/2016 | Centralizando o conteúdo do header
 // 06/05/2016 | Criação do arquivo
 // =============================================================================
 
@@ -97,6 +99,7 @@ $svg-seta-back-clara: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%
   @if $tag == header {
     &-header {
       @include display-flex;
+      @include align-items(center);
       padding: $margem / 2;
       font-size: .8em;
       @content;

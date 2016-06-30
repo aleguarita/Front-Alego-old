@@ -14,12 +14,13 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
 // -----------------------------------------------------------------------------
 // form_grupo.scss
 // Criado em: 20/01/2015
-// Última alteração: 24/06/2016
+// Última alteração: 30/06/2016
 // -----------------------------------------------------------------------------
 // Este arquivo cria grupos de formulários para definições de tamanhos.
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
 // -----------------------------------------------------------------------------
 // Changelog
+// 30/06/2016 | Versão responsiva
 // 24/06/2016 | .form-container--linha alinha os elementos na base (flex-end)
 //              para quando não houver <label>
 //              Acrescentado mais especificidade nos filhos do --linha
@@ -44,6 +45,8 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
 // VARIÁVEIS
 // =============================================================================
 $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
+$tamanho-tela: breakpoint(pequeno);
+$responsivo: if($label-tipo == colado, "orientation: portrait", "max-width: #{$tamanho-tela}");
 
 // =============================================================================
 // CONTAINER
@@ -99,6 +102,11 @@ $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
         padding-right: 0;
       }
     }
+    @media (#{$responsivo}) {
+      @include flex-wrap;
+      width: calc(100% + #{$calha});
+      margin-left: -$calha / 2;
+    }
   }
 }
 
@@ -144,6 +152,29 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
   .field--responsivo {
     @include media-tipo(pequeno, max) {
       min-width: 100%;
+    }
+  }
+  @if index($uso-classes, form-grupo-responsivo) {
+    // Responsivo automático
+    @media (#{$responsivo}) {
+      %field-menor {
+        padding: $field-pd;
+        width: $medida * ($max / 2);
+      }
+      %field-maior {
+        padding: $field-pd;
+        width: $medida * $max;
+      }
+      @for $i from 1 through ($max / 2) {
+        .field-#{$i} {
+          @extend %field-menor;
+        }
+      }
+      @for $i from ($max / 2) + 1 through $max {
+        .field-#{$i} {
+          @extend %field-maior;
+        }
+      }
     }
   }
 }
