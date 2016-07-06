@@ -1169,7 +1169,7 @@ $toaster-tipos: tipo-1, tipo-2;
 ÁREA PRINCIPAL | DEMO | seção-lista
 ================================================================================
 */
-$secao-lista-tipos: tipo-1, tipo-2;
+$secao-lista-tipos: tipo-1, tipo-2, tipo-3;
 @each $item in $secao-lista-tipos {
   .secao-lista--#{$item} {
     @include secao-lista($item);

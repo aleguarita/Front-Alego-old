@@ -12,7 +12,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // -----------------------------------------------------------------------------
 // secao_lista.scss
 // Criado em: 18/11/2015
-// Última alteração: 11/05/2016
+// Última alteração: 06/07/2016
 // -----------------------------------------------------------------------------
 // Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
 // com uma seta indicativa.
@@ -20,6 +20,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // Se estiver checado, não exibe conteúdo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 06/07/2016 | Acrescentado tipo-3 e ajustes nos outros 2 tipos
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 04/05/2016 | Header agora usa $fonte-titulo ao invés de $fonte-serifa
@@ -38,7 +39,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // =============================================================================
 // CONFIG
 // =============================================================================
-$secao-lista-tipo: tipo-1 !default; // 2 tipos
+$secao-lista-tipo: tipo-1 !default; // 3 tipos
 $secao-lista-titulo: 3 !default;
 
 // =============================================================================
@@ -49,7 +50,6 @@ $secao-lista-titulo: 3 !default;
   // BÁSICO
   // ---------------------------------------------------------------------------
   @if $tag == basico {
-    border: 1px solid cor(secao-lista);
     & + & {
       margin-top: 1px;
     }
@@ -68,13 +68,11 @@ $secao-lista-titulo: 3 !default;
   // HEADER
   // ---------------------------------------------------------------------------
   @else if $tag == header {
-    padding: $margem/2 $margem;
     font-size: modular-scale($secao-lista-titulo, $modular-font-size);
     font-family: $fonte-titulo;
-    background: cor(secao-lista, clara);
-    color: cor(secao-lista);
     label {
       @include display-flex;
+      @include align-items(center);
       cursor: pointer;
     }
   }
@@ -97,7 +95,6 @@ $secao-lista-titulo: 3 !default;
   // ---------------------------------------------------------------------------
   @else if $tag == conteudo {
     padding: $margem;
-    border-top: 1px dashed cor(secao-lista);
   }
 }
 
@@ -110,8 +107,10 @@ $secao-lista-titulo: 3 !default;
   // TIPO 1
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
+    border: 1px solid cor(secao-lista);
     &__header {
       @include secao-lista--basico(header);
+      padding: $margem/2 $margem;
       background: cor(secao-lista);
       color: cor(texto, claro);
     }
@@ -123,14 +122,19 @@ $secao-lista-titulo: 3 !default;
     }
     &__conteudo {
       @include secao-lista--basico(conteudo);
+      border-top: 1px dashed cor(secao-lista);
     }
   }
   // ---------------------------------------------------------------------------
   // TIPO 2
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-2 {
+    border: 1px solid cor(secao-lista);
     &__header {
       @include secao-lista--basico(header);
+      padding: $margem/2 $margem;
+      background: cor(secao-lista, clara);
+      color: cor(secao-lista);
     }
     &__titulo {
       @include secao-lista--basico(titulo);
@@ -140,6 +144,32 @@ $secao-lista-titulo: 3 !default;
     }
     &__conteudo {
       @include secao-lista--basico(conteudo);
+      border-top: 1px dashed cor(secao-lista);
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 3
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-3 {
+    & + & {
+      margin-top: $margem;
+    }
+    &__header {
+      @include secao-lista--basico(header);
+      padding-bottom: $margem;
+      border-bottom: 1px solid cor(secao-lista, clara);
+      background: cor(fundo, x-claro);
+      color: cor(secao-lista);
+    }
+    &__titulo {
+      @include secao-lista--basico(titulo);
+    }
+    &__icone {
+      @include secao-lista--basico(icone);
+    }
+    &__conteudo {
+      padding-top: $margem;
+      margin-bottom: $margem * 2;
     }
   }
 }

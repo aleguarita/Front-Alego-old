@@ -231,15 +231,27 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
   margin-left: -0.3125rem;
 }
 
+.form-container--linha {
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
 .form-container--linha + .form-container--linha {
   margin-top: 0.625rem;
 }
 @media (min-width: 30em) {
-  .form-container--linha *:first-child {
+  .form-container--linha > *:first-child {
     padding-left: 0;
   }
-  .form-container--linha *:last-child {
+  .form-container--linha > *:last-child {
     padding-right: 0;
+  }
+}
+@media (max-width: 30em) {
+  .form-container--linha {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: calc(100% + 0.625rem);
+    margin-left: -0.3125rem;
   }
 }
 
@@ -320,6 +332,17 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
   }
 }
 
+@media (max-width: 30em) {
+  .field-1, .field-2, .field-3, .field-4, .field-5, .field-6 {
+    padding: 0 0.3125rem 0.625rem;
+    width: 50%;
+  }
+
+  .field-7, .field-8, .field-9, .field-10, .field-11, .field-12 {
+    padding: 0 0.3125rem 0.625rem;
+    width: 100%;
+  }
+}
 /*
 ================================================================================
 FORMULÁRIOS | ELEMENTOS COMUM
@@ -366,6 +389,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 .form-texto input, .form-texto textarea, .form-texto select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form-texto label {
   -webkit-order: -1;
@@ -510,6 +534,7 @@ FORMULÁRIOS | SELECT
 .form-select input, .form-select textarea, .form-select select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form-select select {
   -webkit-appearance: none;
@@ -534,12 +559,6 @@ FORMULÁRIOS | SELECT
   color: #00949a;
   width: 100%;
 }
-.form-select .form__ico {
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  color: #00949a;
-}
 
 /*
 ================================================================================
@@ -551,10 +570,12 @@ FORMULÁRIO | BOTÕES
   color: #cd5800;
   cursor: pointer;
   border: 1px solid;
-  font-size: .9em;
   font-weight: bold;
   text-transform: uppercase;
   transition: background 0.5s ease 0s;
+}
+p .bt--tipo-1--secundario, p .bt--tipo-1--urgente, p .bt--tipo-1--ok, p .bt--tipo-1--aviso, p .bt--tipo-1, p .bt--tipo-2--secundario, p .bt--tipo-2--urgente, p .bt--tipo-2--ok, p .bt--tipo-2--aviso, p .bt--tipo-2, p .bt--tipo-3, p .bt--tipo-4, p .bt--tipo-3--secundario, p .bt--tipo-4--secundario, p .bt--tipo-3--urgente, p .bt--tipo-4--urgente, p .bt--tipo-3--ok, p .bt--tipo-4--ok, p .bt--tipo-3--aviso, p .bt--tipo-4--aviso, p .bt, p .bt--tipo-5, p .bt--tipo-6, p .bt--secundario, p .bt--tipo-5--secundario, p .bt--tipo-6--secundario, p .bt--urgente, p .bt--tipo-5--urgente, p .bt--tipo-6--urgente, p .bt--ok, p .bt--tipo-5--ok, p .bt--tipo-6--ok, p .bt--aviso, p .bt--tipo-5--aviso, p .bt--tipo-6--aviso {
+  font-size: .9em;
 }
 
 .bt--tipo-1--secundario, .bt--tipo-1--urgente, .bt--tipo-1--ok, .bt--tipo-1--aviso, .bt--tipo-1, .bt--tipo-2--secundario, .bt--tipo-2--urgente, .bt--tipo-2--ok, .bt--tipo-2--aviso, .bt--tipo-2 {
@@ -891,6 +912,9 @@ td {
     display: block;
     border-bottom-width: 2px;
   }
+  .tab tbody tr:last-child, .tab--form tbody tr:last-child {
+    margin-bottom: 0;
+  }
 }
 @media (max-width: 30em) {
   .tab td, .tab--form td {
@@ -913,11 +937,11 @@ td {
     font-weight: bold;
   }
 }
-.tab .tab__acoes, .tab--form .tab__acoes {
+.tab__acoes {
   background: #d4f6f7;
 }
 @media (max-width: 30em) {
-  .tab .tab__acoes, .tab--form .tab__acoes {
+  .tab__acoes {
     background: transparent;
   }
 }
@@ -1369,11 +1393,9 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
   transform: rotate(0deg);
 }
 .secao-lista__header {
-  padding: 0.3125rem 0.625rem;
   font-size: 1.70859rem;
   font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
-  background: #bff1f3;
-  color: #00949a;
+  padding: 0.3125rem 0.625rem;
   background: #00949a;
   color: white;
 }
@@ -1381,6 +1403,8 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  align-items: center;
   cursor: pointer;
 }
 .secao-lista__titulo {
@@ -1522,6 +1546,8 @@ DATEPICKER
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  align-items: center;
   padding: 0.3125rem;
   font-size: .8em;
   background: #006367;
@@ -1650,23 +1676,23 @@ CLASSES FIXAS
 }
 @media (max-width: 30em) {
   .oculta--pequeno {
-    display: none;
+    display: none !important;
   }
 }
 @media (max-width: 48em) {
   .oculta--medio {
-    display: none;
+    display: none !important;
   }
 }
 
 @media (min-width: 30em) {
   .exibe--pequeno {
-    display: none;
+    display: none !important;
   }
 }
 @media (min-width: 48em) {
   .exibe--medio {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -5817,6 +5843,9 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
     display: block;
     border-bottom-width: 2px;
   }
+  .tab--tipo-1 tbody tr:last-child, .tab--tipo-1--form tbody tr:last-child {
+    margin-bottom: 0;
+  }
 }
 @media (max-width: 30em) {
   .tab--tipo-1 td, .tab--tipo-1--form td {
@@ -5839,11 +5868,11 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
     font-weight: bold;
   }
 }
-.tab--tipo-1 .tab__acoes, .tab--tipo-1--form .tab__acoes {
+.tab--tipo-1__acoes {
   background: #d4f6f7;
 }
 @media (max-width: 30em) {
-  .tab--tipo-1 .tab__acoes, .tab--tipo-1--form .tab__acoes {
+  .tab--tipo-1__acoes {
     background: transparent;
   }
 }
@@ -5918,6 +5947,9 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
     display: block;
     border-bottom: 1px solid #00c5cd;
   }
+  .tab--tipo-2 tbody tr:last-child, .tab--tipo-2--form tbody tr:last-child {
+    margin-bottom: 0;
+  }
 }
 @media (max-width: 30em) {
   .tab--tipo-2 td, .tab--tipo-2--form td {
@@ -5940,12 +5972,12 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
     font-weight: bold;
   }
 }
-.tab--tipo-2 .tab__acoes, .tab--tipo-2--form .tab__acoes {
+.tab--tipo-2__acoes {
   background: #bff1f3;
   border-left: 2px solid #00c5cd;
 }
 @media (max-width: 30em) {
-  .tab--tipo-2 .tab__acoes, .tab--tipo-2--form .tab__acoes {
+  .tab--tipo-2__acoes {
     background: transparent;
     border-left: 0;
   }
@@ -6453,6 +6485,7 @@ LABEL flutuante
 .form--label-flutuante .form-texto--tipo-1 input, .form--label-flutuante .form-texto--tipo-1 textarea, .form--label-flutuante .form-texto--tipo-1 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-flutuante .form-texto--tipo-1 label {
   -webkit-order: -1;
@@ -6506,6 +6539,7 @@ LABEL flutuante
 .form--label-flutuante .form-select--tipo-1 input, .form--label-flutuante .form-select--tipo-1 textarea, .form--label-flutuante .form-select--tipo-1 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-flutuante .form-select--tipo-1 select {
   -webkit-appearance: none;
@@ -6529,12 +6563,6 @@ LABEL flutuante
   font-weight: bold;
   color: #00949a;
   width: 100%;
-}
-.form--label-flutuante .form-select--tipo-1 .form__ico {
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  color: #00949a;
 }
 .form--label-flutuante .ui-autocomplete--tipo-1 {
   list-style: none;
@@ -6637,6 +6665,7 @@ LABEL colado
 .form--label-colado .form-texto--tipo-1 input, .form--label-colado .form-texto--tipo-1 textarea, .form--label-colado .form-texto--tipo-1 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-colado .form-texto--tipo-1 label {
   -webkit-order: -1;
@@ -6692,6 +6721,7 @@ LABEL colado
 .form--label-colado .form-select--tipo-1 input, .form--label-colado .form-select--tipo-1 textarea, .form--label-colado .form-select--tipo-1 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-colado .form-select--tipo-1 select {
   -webkit-appearance: none;
@@ -6716,12 +6746,6 @@ LABEL colado
   color: #00949a;
   padding: 0 .65em;
   border-bottom: 1px dotted #00949a;
-}
-.form--label-colado .form-select--tipo-1 .form__ico {
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  color: #00949a;
 }
 .form--label-colado .ui-autocomplete--tipo-1 {
   list-style: none;
@@ -6829,6 +6853,7 @@ LABEL flutuante
 .form--label-flutuante .form-texto--tipo-2 input, .form--label-flutuante .form-texto--tipo-2 textarea, .form--label-flutuante .form-texto--tipo-2 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-flutuante .form-texto--tipo-2 label {
   -webkit-order: -1;
@@ -6882,6 +6907,7 @@ LABEL flutuante
 .form--label-flutuante .form-select--tipo-2 input, .form--label-flutuante .form-select--tipo-2 textarea, .form--label-flutuante .form-select--tipo-2 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-flutuante .form-select--tipo-2 select {
   -webkit-appearance: none;
@@ -6905,12 +6931,6 @@ LABEL flutuante
   font-weight: bold;
   color: #00949a;
   width: 100%;
-}
-.form--label-flutuante .form-select--tipo-2 .form__ico {
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  color: #00949a;
 }
 .form--label-flutuante .ui-autocomplete--tipo-2 {
   list-style: none;
@@ -7013,6 +7033,7 @@ LABEL colado
 .form--label-colado .form-texto--tipo-2 input, .form--label-colado .form-texto--tipo-2 textarea, .form--label-colado .form-texto--tipo-2 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-colado .form-texto--tipo-2 label {
   -webkit-order: -1;
@@ -7068,6 +7089,7 @@ LABEL colado
 .form--label-colado .form-select--tipo-2 input, .form--label-colado .form-select--tipo-2 textarea, .form--label-colado .form-select--tipo-2 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-colado .form-select--tipo-2 select {
   -webkit-appearance: none;
@@ -7092,12 +7114,6 @@ LABEL colado
   color: #00949a;
   padding: 0 .65em;
   border-bottom: 1px solid #00949a;
-}
-.form--label-colado .form-select--tipo-2 .form__ico {
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  color: #00949a;
 }
 .form--label-colado .ui-autocomplete--tipo-2 {
   list-style: none;
@@ -7205,6 +7221,7 @@ LABEL flutuante
 .form--label-flutuante .form-texto--tipo-3 input, .form--label-flutuante .form-texto--tipo-3 textarea, .form--label-flutuante .form-texto--tipo-3 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-flutuante .form-texto--tipo-3 label {
   -webkit-order: -1;
@@ -7259,6 +7276,7 @@ LABEL flutuante
 .form--label-flutuante .form-select--tipo-3 input, .form--label-flutuante .form-select--tipo-3 textarea, .form--label-flutuante .form-select--tipo-3 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-flutuante .form-select--tipo-3 select {
   -webkit-appearance: none;
@@ -7283,14 +7301,6 @@ LABEL flutuante
   font-weight: bold;
   color: #00949a;
   width: 100%;
-}
-.form--label-flutuante .form-select--tipo-3 .form__ico {
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  font-size: 1.2em;
-  background: transparent;
-  color: #003133;
 }
 .form--label-flutuante .ui-autocomplete--tipo-3 {
   list-style: none;
@@ -7411,6 +7421,7 @@ LABEL colado
 .form--label-colado .form-texto--tipo-3 input, .form--label-colado .form-texto--tipo-3 textarea, .form--label-colado .form-texto--tipo-3 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-colado .form-texto--tipo-3 label {
   -webkit-order: -1;
@@ -7468,6 +7479,7 @@ LABEL colado
 .form--label-colado .form-select--tipo-3 input, .form--label-colado .form-select--tipo-3 textarea, .form--label-colado .form-select--tipo-3 select {
   -webkit-flex: 1;
   flex: 1;
+  max-width: 100%;
 }
 .form--label-colado .form-select--tipo-3 select {
   -webkit-appearance: none;
@@ -7498,14 +7510,6 @@ LABEL colado
   background: #00949a;
   color: white;
   line-height: 2.2;
-}
-.form--label-colado .form-select--tipo-3 .form__ico {
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  font-size: 1.2em;
-  background: transparent;
-  color: #003133;
 }
 .form--label-colado .ui-autocomplete--tipo-3 {
   list-style: none;
@@ -8212,11 +8216,9 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   transform: rotate(0deg);
 }
 .secao-lista--tipo-1__header {
-  padding: 0.3125rem 0.625rem;
   font-size: 1.70859rem;
   font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
-  background: #bff1f3;
-  color: #00949a;
+  padding: 0.3125rem 0.625rem;
   background: #00949a;
   color: white;
 }
@@ -8224,6 +8226,8 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  align-items: center;
   cursor: pointer;
 }
 .secao-lista--tipo-1__titulo {
@@ -8256,9 +8260,9 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   transform: rotate(0deg);
 }
 .secao-lista--tipo-2__header {
-  padding: 0.3125rem 0.625rem;
   font-size: 1.70859rem;
   font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  padding: 0.3125rem 0.625rem;
   background: #bff1f3;
   color: #00949a;
 }
@@ -8266,6 +8270,8 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  align-items: center;
   cursor: pointer;
 }
 .secao-lista--tipo-2__titulo {
@@ -8280,6 +8286,51 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
 .secao-lista--tipo-2__conteudo {
   padding: 0.625rem;
   border-top: 1px dashed #00949a;
+}
+
+.secao-lista--tipo-3 + .secao-lista--tipo-3 {
+  margin-top: 1px;
+}
+.secao-lista--tipo-3__check {
+  display: none;
+}
+.secao-lista--tipo-3__check:checked ~ .secao-lista__conteudo {
+  display: none;
+}
+.secao-lista--tipo-3__check:checked ~ .secao-lista__header .secao-lista__icone {
+  transform: rotate(0deg);
+}
+.secao-lista--tipo-3 + .secao-lista--tipo-3 {
+  margin-top: 0.625rem;
+}
+.secao-lista--tipo-3__header {
+  font-size: 1.70859rem;
+  font-family: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid #bff1f3;
+  background: white;
+  color: #00949a;
+}
+.secao-lista--tipo-3__header label {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  cursor: pointer;
+}
+.secao-lista--tipo-3__titulo {
+  -webkit-flex: 1;
+  flex: 1;
+}
+.secao-lista--tipo-3__icone {
+  transition: all 0.5s ease 0s;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+.secao-lista--tipo-3__conteudo {
+  padding-top: 0.625rem;
+  margin-bottom: 1.25rem;
 }
 
 /*
@@ -8528,6 +8579,8 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  align-items: center;
   padding: 0.3125rem;
   font-size: .8em;
   border-bottom: 1px dotted #00949a;
@@ -8607,6 +8660,8 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  align-items: center;
   padding: 0.3125rem;
   font-size: .8em;
   border-bottom: 1px solid #40d4da;
@@ -8686,6 +8741,8 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-align-items: center;
+  align-items: center;
   padding: 0.3125rem;
   font-size: .8em;
   background: #006367;

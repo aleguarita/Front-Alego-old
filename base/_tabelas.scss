@@ -10,11 +10,13 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 20/06/2016
+// Última alteração: 01/07/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 01/07/2016 | Correção na especificidade do .tab__acoes no tipo
+// 30/06/2016 | Corrigido problema com a última linha da tabela responsiva
 // 20/06/2016 | Agora é possível escolher a orientação da tabela responsiva
 // 16/05/2016 | Tabelas responsivas
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
@@ -172,6 +174,9 @@ td {
 				margin-bottom: $margem;
 				display: block;
 				@content;
+				&:last-child {
+					margin-bottom: 0;
+				}
 			}
 			@else if $tag == responsiva-td {
 				display: block;
@@ -238,7 +243,7 @@ td {
 				font-weight: bold;
 			}
 		}
-		.tab__acoes {
+		&__acoes {
 			background: lighten(cor(tabela, fundo), 5%);
 			@include tab--opcoes(responsiva-acoes);
 		}
@@ -274,7 +279,7 @@ td {
 				font-weight: bold;
 			}
 		}
-		.tab__acoes {
+		&__acoes {
 			background: cor(tabela, fundo);
 			border-left: 2px solid cor(tabela, borda);
 			@include tab--opcoes(responsiva-acoes) {
