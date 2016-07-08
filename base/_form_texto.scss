@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 13/05/2016
+// Última alteração em: 06/07/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,8 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 06/07/2016 | Acréscimo de cor específica para o label
+//              Acréscimo de campo obrigatório
 // 13/05/2016 | Corrigo destaque no label quando há foco no input
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
@@ -53,7 +55,7 @@ $form-radio-check-personaliza: sim !default;
   @include order(-1);
   font-weight: bold;
   // cursor: pointer;
-  color: cor(formulario);
+  color: cor(formulario, label);
 }
 @mixin form-texto__label($tipo) {
   @if $tipo == flutuante {
@@ -91,6 +93,7 @@ $form-radio-check-personaliza: sim !default;
     @include form__caixa-texto;
     border: 0;
     border-bottom: 1px $tipo $cor;
+    // FOCO
     &:focus {
       border-bottom-color: $cor-destaque;
       & ~ label {
@@ -98,6 +101,20 @@ $form-radio-check-personaliza: sim !default;
         @if $label-tipo == "colado" {
           border-bottom-color: $cor-destaque;
         }
+      }
+    }
+    // OBRIGATÓRIO
+    &:required {
+      background-image: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}");
+      background-repeat: no-repeat;
+      background-size: rem($form-obrigatorio) * .9;
+      padding-left: rem($form-obrigatorio);
+      box-shadow: 0 3px 0 lighten($svg-placeholder, 15%);
+      // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
+      &:valid {
+        background-image: none;
+        padding-left: 0;
+        box-shadow: none;
       }
     }
   }
@@ -145,6 +162,21 @@ $form-radio-check-personaliza: sim !default;
         }
         @else {
           color: cor(formulario, ativo);
+        }
+      }
+      // OBRIGATÓRIO
+      &:required {
+        background-image: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}");
+        background-repeat: no-repeat;
+        background-position: .5em .5em;
+        background-size: rem($form-obrigatorio);
+        padding-left: em($form-obrigatorio) + 1em;
+        outline: 2px solid lighten($svg-placeholder, 15%);
+        // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
+        &:valid {
+          background-image: none;
+          padding-left: inherit;
+          outline: 0;
         }
       }
     }

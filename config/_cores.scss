@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // cores.scss
 // Criado em: 07/01/2015
-// Última alteração: 09/05/2016
+// Última alteração: 06/07/2016
 // -----------------------------------------------------------------------------
 // Aqui fica os temas de cores. As paletas são definidas no arquivo
 // cores_paletas (e é neste arquivo que se acrescenta novas cores)
@@ -15,6 +15,7 @@
 // Para alterar o tema faça isso no arquivo config
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 06/07/2016 | Acrescentado "label" nos formulários
 // 09/05/2016 | Acrescentado "datepicker" nos temas
 // 14/04/2016 | Retirado branco e preto para utilizar cinza
 // 13/04/2016 | Unificação da paleta-padrao com paleta
@@ -108,6 +109,7 @@ $temas: (
 		),
 		formulario: (
 			padrao: paleta(basica, escura, 25),
+			label: paleta(basica, escura, 25),
 			placeholder: paleta(basica, clara, 25),
 			ativo: paleta(basica, escura, 75),
 			fundo: paleta(basica, clara, 75),
@@ -201,6 +203,7 @@ $temas: (
 		),
 		formulario: (
 		  padrao: paleta(cinza, escura, 25),
+		  label: paleta(cinza, escura, 25),
 		  placeholder: paleta(cinza, clara, 25),
 		  ativo: paleta(cinza, escura, 80),
 		  fundo: paleta(cinza, clara, 60),
@@ -294,6 +297,7 @@ $temas: (
 		),
 		formulario: (
 			padrao: paleta(basica, clara, 25),
+			label: paleta(basica, clara, 25),
 			placeholder: paleta(basica, escura, 35),
 			ativo: paleta(basica, escura, 15),
 			fundo: paleta(basica, escura, 75),
@@ -387,6 +391,7 @@ $temas: (
 		),
 		formulario: (
 			padrao: paleta(verde-bandeira, escura, 45),
+			label: paleta(verde-bandeira, escura, 45),
 			placeholder: paleta(verde-bandeira, clara, 15),
 			ativo: paleta(verde-bandeira, escura, 75),
 			fundo: paleta(verde-bandeira, clara, 75),
@@ -480,6 +485,7 @@ $temas: (
 		),
 		formulario: (
 			padrao: paleta(rosa, escura, 25),
+			formulario: paleta(rosa, escura, 25),
 			placeholder: paleta(rosa, clara, 25),
 			ativo: paleta(rosa, escura, 75),
 			fundo: paleta(rosa, clara, 75),
@@ -573,6 +579,7 @@ $temas: (
 			),
 			formulario: (
 				padrao: paleta(azul-bandeira, escura, 25),
+				formulario: paleta(azul-bandeira, escura, 25),
 				placeholder: paleta(azul-bandeira, clara, 25),
 				ativo: paleta(azul-bandeira, escura, 75),
 				fundo: paleta(azul-bandeira, clara, 75),

@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 12/05/2016
+// Última alteração em: 08/07/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/07/2016 | Acréscimo do campo de obrigatório
 // 12/05/2016 | Arrumado problema que dava para clicar na seta e selecionar o
 //              elemento
 //              Retirado o span de ícone
@@ -92,6 +93,19 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
       @include form-select--basico {
         background: $select-bg-simples;
         border-bottom: $borda-form dotted;
+        // OBRIGATÓRIO
+        &:required {
+          background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat left center, $select-bg-simples;
+          background-size: rem($form-obrigatorio) * .9, auto;
+          padding-left: rem($form-obrigatorio);
+          box-shadow: 0 3px 0 lighten($svg-placeholder, 15%);
+          // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
+          &:valid {
+            background: $select-bg-simples;
+            padding-left: 0;
+            box-shadow: none;
+          }
+        }
       }
     }
     @include form-texto__label($label-tipo) {
@@ -109,6 +123,19 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
       @include form-select--basico {
         background: $select-bg-simples;
         border-bottom: $borda-form solid;
+        // OBRIGATÓRIO
+        &:required {
+          background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat left center, $select-bg-simples;
+          background-size: rem($form-obrigatorio) * .9, auto;
+          padding-left: rem($form-obrigatorio);
+          box-shadow: 0 3px 0 lighten($svg-placeholder, 15%);
+          // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
+          &:valid {
+            background: $select-bg-simples;
+            padding-left: 0;
+            box-shadow: none;
+          }
+        }
       }
     }
     @include form-texto__label($label-tipo) {
@@ -130,6 +157,19 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
         @if $label-tipo == "colado" {
           &:focus ~ label {
             background: cor(formulario, ativo);
+          }
+        }
+        // OBRIGATÓRIO
+        &:required {
+          background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat .2em center, $select-gradiente;
+          background-size: rem($form-obrigatorio) * .9, auto, auto;
+          padding-left: rem($form-obrigatorio);
+          outline: 2px solid lighten($svg-placeholder, 15%);
+          // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
+          &:valid {
+            background: $select-gradiente;
+            padding-left: inherit;
+            outline: 0;
           }
         }
       }
