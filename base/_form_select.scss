@@ -162,8 +162,8 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
         // OBRIGATÓRIO
         &:required {
           background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat .2em center, $select-gradiente;
-          background-size: rem($form-obrigatorio) * .9, auto, auto;
-          padding-left: rem($form-obrigatorio);
+          background-size: rem($form-obrigatorio), auto, auto;
+          padding-left: rem($form-obrigatorio) + .35rem;
           outline: 2px solid lighten($svg-placeholder, 15%);
           // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
           &:valid {

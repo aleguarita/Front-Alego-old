@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 06/07/2016
+// Última alteração em: 11/07/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 11/07/2016 | Acrescentado fundo tranparente somente para o tipo-1 e tipo-2
 // 06/07/2016 | Acréscimo de cor específica para o label
 //              Acréscimo de campo obrigatório
 // 13/05/2016 | Corrigo destaque no label quando há foco no input
@@ -93,6 +94,7 @@ $form-radio-check-personaliza: sim !default;
     @include form__caixa-texto;
     border: 0;
     border-bottom: 1px $tipo $cor;
+    background: transparent;
     // FOCO
     &:focus {
       border-bottom-color: $cor-destaque;

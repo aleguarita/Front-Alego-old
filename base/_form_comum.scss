@@ -11,12 +11,15 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 06/07/2016
+// Última alteração em: 11/07/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 11/07/2016 | Retirado o fundo transparente do mixin de grupo de input
+//              Ajustado form-base para que se tiver um único filho, alinhe
+//              no final do flex
 // 06/07/2016 | Acréscimo do fundo obrigatório
 // 30/06/2016 | Correção da largura do field que superava a lagura do container
 // 14/06/2016 | Acréscimo da variável $cor-svg (estava em form_radio_checkbox)
@@ -65,6 +68,9 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
   font-size: $tamanho-fonte-form;
   min-height: 2.25rem;
   position: relative;
+  > :only-child {
+    @include align-self(flex-end);
+  }
   @if $flex != null {
     input, textarea, select {
       @include flex(1);
@@ -76,7 +82,6 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
   @include appearance(none);
   border-radius: 0;
   font-size: .9em;
-  background: transparent;
   color: cor(texto);
   @include placeholder {
     text-transform: uppercase;
