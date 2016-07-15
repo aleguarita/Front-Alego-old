@@ -14,12 +14,15 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
 // -----------------------------------------------------------------------------
 // form_grupo.scss
 // Criado em: 20/01/2015
-// Última alteração: 30/06/2016
+// Última alteração: 15/07/2016
 // -----------------------------------------------------------------------------
 // Este arquivo cria grupos de formulários para definições de tamanhos.
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
 // -----------------------------------------------------------------------------
 // Changelog
+// 15/07/2016 | Retirada a margem inferior entre os containers (notei que era
+//              necessário quebrar linha de formulário e manter o espaçamento)
+//              Incluído .form-container--responsivo
 // 30/06/2016 | Versão responsiva
 // 24/06/2016 | .form-container--linha alinha os elementos na base (flex-end)
 //              para quando não houver <label>
@@ -62,8 +65,6 @@ $responsivo: if($label-tipo == colado, "orientation: portrait", "max-width: #{$t
 // -----------------------------------------------------------------------------
 %form-container {
   @include display-flex(100%);
-  // @include flex-wrap;
-  margin-bottom: 1em;
 }
 // -----------------------------------------------------------------------------
 // CONTAINER CORRIDO
@@ -73,7 +74,7 @@ $responsivo: if($label-tipo == colado, "orientation: portrait", "max-width: #{$t
 // todos os elementos filhos
 // -----------------------------------------------------------------------------
 @if index($uso-classes, form-grupo) {
-  .form-container {
+  .form-container, .form-container--responsivo {
     @extend %form-container;
     @include flex-wrap;
     width: calc(100% + #{$calha});
@@ -143,11 +144,13 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
     .field-#{$i} {
       padding: $field-pd;
       width: $medida * $i;
+      @extend %field--responsivo;
     }
   }
   .field {
     padding: $field-pd;
     @include flex(1);
+    @extend %field--responsivo;
   }
   .field--responsivo {
     @include media-tipo(pequeno, max) {
@@ -174,6 +177,14 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
         .field-#{$i} {
           @extend %field-maior;
         }
+      }
+    }
+  }
+  // Placeholder para filho responsivo
+  %field--responsivo {
+    .form-container--responsivo & {
+      @include media-tipo(pequeno, max) {
+        width: 100%;
       }
     }
   }

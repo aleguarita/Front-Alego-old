@@ -10,12 +10,13 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 14/07/2016
+// Alterado em: 15/07/2016
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 15/07/2016 | Inclusão das classes de margen inferior e superior
 // 14/07/2016 | Ajustes no tamanho da fonte das variações --menor e --maior
 //              Acréscimo da classe .texto--caixa-baixa
 // 21/06/2016 | Acrescentei !important nas classes de oculta pois o flex do
@@ -113,4 +114,15 @@ $tamanho-fonte: (
 	.fonte--#{$classe}, .texto--#{$classe} {
 		font-size: $tamanho;
 	}
+}
+// =============================================================================
+// MARGENS
+// =============================================================================
+.margem {
+  &--inferior {
+    margin-bottom: 1em;
+  }
+  &--superior {
+    margin-top: 1em;
+  }
 }

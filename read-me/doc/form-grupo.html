@@ -12,12 +12,14 @@
       <p>Os formulários são agrupados em um sistema similar ao de grids. Primeiro você determina se vai usar este sistema ou se vai determinar o tamanho dos formulários na unha (essa alteração é feita no <a href="#config__classes" class="link--readme">arquivo de configuração</a>).</p>
       <p>Para determinar o tamanho usamos flex-box, portanto é necessário perceber que teremos dois níveis de configuração: o elemento pai (que acaba separando o grupo de formulários) e o elemento filho (o elemento menor, que vai contér um pedaço do formulário).</p>
       <h2>O Container</h2>
-        <p>O container é que vai determinar o flexbox e distribuir os elementos de formulário. Se <samp>form-grupo</samp> estiver ativo no mapa <samp>$uso-classes</samp> (nas <a href="#config__classes" class="link--readme">configurações</a>) serão criadas duas classes de container para serem usadas:</p>
+        <p>O container é que vai determinar o flexbox e distribuir os elementos de formulário. Se <samp>form-grupo</samp> estiver ativo no mapa <samp>$uso-classes</samp> (nas <a href="#config__classes" class="link--readme">configurações</a>) serão criadas essas classes de container para serem usadas:</p>
         <dl class="lista-definicao">
           <dt><samp>.form-container</samp></dt>
             <dd>Este container permite que coloque todo o formulário dentro dele. Ele tem margem negativa e padding para alinhamento. Se quiser usar fundo, borda ou sombra não é o método adequado (a menos que se acrescente um elemento pai com estas configurações). A grande vantagem deste container é que evita o excesso de divs dentro do HTML, deixando-o mais limpo e de fácil manutenção</dd>
           <dt><samp>.form-container--linha</samp></dt>
             <dd>Este container é para ser usado para cada linha de formulário. A diferença é que vai deixar o HTML maior (com mais divs). No entanto tem a grande vantagem de permitir que formulários sem tamanho determinado, ajustando-se ao espaço restante (flex: 1).</dd>
+          <dt><samp>.form-container--responsivo</samp></dt>
+            <dd>Igual ao <samp>.form-container</samp>, mas com a diferença que em telas pequenas <strong>todos</strong> os filhos diretos terão largura de 100%.</dd>
         </dl>
       <h2>Caixas de formulário</h2>
         <p>Cada pedaço de formulário deve receber um agrupamento (através de uma <samp>div</samp>) que deve contér o <samp>label</samp> e o <samp>input</samp>. Por padrão, o Ruby já faz esta separação, então basta utilizar a que ele cria, modificando a classe conforme o tamanho.</p>
