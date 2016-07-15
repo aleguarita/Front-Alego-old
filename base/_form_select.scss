@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 08/07/2016
+// Última alteração em: 14/07/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/07/2016 | Alterado tamanho de fontes
 // 08/07/2016 | Acréscimo do campo de obrigatório
 // 12/05/2016 | Arrumado problema que dava para clicar na seta e selecionar o
 //              elemento
@@ -73,7 +74,7 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
   border: 0;
   border-radius: 0;
   line-height: 1.6;
-  font-size: 1em;
+  font-size: $tamanho-fonte-form;
   padding: .25em;
   padding-right: 2em;
   color: cor(texto);

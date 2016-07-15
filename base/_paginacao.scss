@@ -12,11 +12,12 @@ PAGINAÇÃO
 // -----------------------------------------------------------------------------
 // paginacao.scss
 // Criado em: 07/04/2015
-// Última alteração: 11/05/2016
+// Última alteração: 14/07/2016
 // -----------------------------------------------------------------------------
 // Definição da paginação. Formata o tipo padrão gerado pelo Rails.
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/07/2016 | Alteração da fonte padrão de "rem" para "em"
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 18/04/2016 | Retirada a cor de fundo o item para melhor se adequar a outros
@@ -37,7 +38,7 @@ PAGINAÇÃO
 // =============================================================================
 $paginacao-tipo: tipo-1 !default; // 2 tipos
 $paginacao-posicao: center !default;
-$paginacao-fonte: .65rem !default;
+$paginacao-fonte: .75em !default;
 
 // =============================================================================
 // VARIÁVEIS

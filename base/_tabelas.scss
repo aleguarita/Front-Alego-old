@@ -10,11 +10,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 01/07/2016
+// Última alteração: 14/07/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/07/2016 | Alterado tamanho da fonte
 // 01/07/2016 | Correção na especificidade do .tab__acoes no tipo
 // 30/06/2016 | Corrigido problema com a última linha da tabela responsiva
 // 20/06/2016 | Agora é possível escolher a orientação da tabela responsiva
@@ -153,7 +154,7 @@ td {
 			width: 100%;
 			padding: .25em;
 			font-family: $fonte-sem-serifa;
-			font-size: rem(14);
+			font-size: $tamanho-fonte-padrao;
 			&:hover, &:focus {
 				border-color: cor(tabela, borda-escura);
 				box-shadow: $sombra-padrao;
@@ -317,6 +318,7 @@ td {
 // -----------------------------------------------------------------------------
 @mixin tab-acoes-icone($bloco: $tab-acao-link-bloco) {
 	color: darken(cor(tabela, titulo), 5%);
+	font-size: 1.1em;
 	@if $bloco == sim {
 		display: inline-block;
 		padding: .5em;

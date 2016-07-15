@@ -8,12 +8,15 @@
 // -----------------------------------------------------------------------------
 // tipografia.scss
 // Criado em: 13/01/2015
-// Última alteração em: 04/05/2016
+// Última alteração em: 14/07/2016
 // -----------------------------------------------------------------------------
 // Configurações genéricas e específicas de tipografia. Note que algumas
 // configurações são feitas diretamente por classes
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 14/07/2016 | As fontes agora utilizam tamanho relativo com o elemento pai:
+// 							Alterada $modular-font-size de "rem" para "em"
+// 							Acrescentado $tamanho-fonte-padrao
 // 04/05/2016 | Correção no mixin de título para usar a variável $fonte-titulo
 // 03/02/2016 | Removido o mixin "link-bloco" do arquivo mixins e acrescentado
 // 							como opção no mixin link
@@ -45,8 +48,8 @@ $margem-texto: 1em 0;
 // Modular scale no bourbon.io
 // -----------------------------------------------------------------------------
 $modular-scale-ratio: $major-second;
-$modular-font-size: 1.2rem;
-$tamanho-fonte-textos: modular-scale(-3, $modular-font-size);
+$modular-font-size: 1.2em; // Tamanho da fonte básica
+$tamanho-fonte-padrao: modular-scale(-3, $modular-font-size);
 
 // =============================================================================
 // MIXINS

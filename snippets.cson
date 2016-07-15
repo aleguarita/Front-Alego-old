@@ -1,0 +1,125 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it here:
+# https://github.com/bevry/cson#what-is-cson
+'.source.scss, .source.css':
+  'Teste fundo':
+    'prefix': 'bg-teste'
+    'body': 'background: red;'
+  'Teste borda':
+    'prefix': 'borda-teste'
+    'body': 'outline: 1px solid red;'
+
+'.source.scss':
+  'Cor (funcao)':
+    'prefix': 'cor'
+    'body': 'cor($1)$0'
+
+'.source.html, .text.html':
+  'Modal':
+    'prefix': 'Modal'
+    'body':'<div class="modal-fundo">\n\t
+              </div class="modal-janela">\n\t\t
+                <header>$1\n\t\t
+                </header>\n\t
+              </div>\n
+        </div>'
+  'Secao Lista':
+    'prefix': 'secao-lista'
+    'body': '<section class="secao-lista">\n\t<input type="checkbox" id="$1" class="secao-lista__check">\n\t<header class="secao-lista__header">\n\t\t<label for="$1">\n\t\t\t<span class="secao-lista__titulo">$2</span>\n\t\t\t<svg class="secao-lista__icone ico"><use xlink:href="assets/ico.svg#seta-fina" /></svg>\n\t\t</label>\n\t</header>\n\t<article class="secao-lista__conteudo">\n\t$3\n\t</article>\n</section>'
+  'SVG':
+    'prefix': 'svg-use'
+    'body': '<svg class="ico"><use xlink:href="assets/ico.svg#$1" /></svg>'
+  'SVG Rails':
+    'prefix': 'svg-ruby'
+    'body': '<svg class="ico"><use xlink:href="<%= asset_path("ico.svg#$1") %>" /></svg>'
+  'Form Grupo':
+    'prefix': 'form-grupo'
+    'body': '<section class="form--grupo">\n\t<div class="form--grupo__principal">\n\t\t$1\n\t</div>\n\t<footer class="form--grupo__acao">\n\t\t<button class="bt--vazio" title="Excluir"><svg class="ico"><use xlink:href="assets/ico.svg#lixo" /></svg></button>\n\t</footer>\n</section>'
+
+  'Form Texto 1':
+    'prefix': 'txt1'
+    'body': '<div class="field-1 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 2':
+    'prefix': 'txt2'
+    'body': '<div class="field-2 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 3':
+    'prefix': 'txt3'
+    'body': '<div class="field-3 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 4':
+    'prefix': 'txt4'
+    'body': '<div class="field-4 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 5':
+    'prefix': 'txt5'
+    'body': '<div class="field-5 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 6':
+    'prefix': 'txt6'
+    'body': '<div class="field-6 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 7':
+    'prefix': 'txt7'
+    'body': '<div class="field-7 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 8':
+    'prefix': 'txt8'
+    'body': '<div class="field-8 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 9':
+    'prefix': 'txt9'
+    'body': '<div class="field-9 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 10':
+    'prefix': 'txt10'
+    'body': '<div class="field-10 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 11':
+    'prefix': 'txt11'
+    'body': '<div class="field-11 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Texto 12':
+    'prefix': 'txt12'
+    'body': '<div class="field-12 form-texto">\n\t<label>$1</label>\n\t<input type="text" />\n</div>'
+  'Form Select 1':
+    'prefix': 'sel1'
+    'body': '<div class="field-1 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 2':
+    'prefix': 'sel2'
+    'body': '<div class="field-2 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 3':
+    'prefix': 'sel3'
+    'body': '<div class="field-3 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 4':
+    'prefix': 'sel4'
+    'body': '<div class="field-4 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 5':
+    'prefix': 'sel5'
+    'body': '<div class="field-5 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 6':
+    'prefix': 'sel6'
+    'body': '<div class="field-6 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 7':
+    'prefix': 'sel7'
+    'body': '<div class="field-7 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 8':
+    'prefix': 'sel8'
+    'body': '<div class="field-8 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 9':
+    'prefix': 'sel9'
+    'body': '<div class="field-9 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 10':
+    'prefix': 'sel10'
+    'body': '<div class="field-10 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 12':
+    'prefix': 'sel12'
+    'body': '<div class="field-12 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'
+  'Form Select 11':
+    'prefix': 'sel11'
+    'body': '<div class="field-11 form-select">\n\t<label>$1</label>\n\t<select>\n\t\t<option>Escolha</option>\n\t\t<option>Tipo 1</option>\n\t</select>\n</div>'

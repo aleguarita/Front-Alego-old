@@ -12,11 +12,12 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 24/06/2016
+// Última alteração em: 14/07/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/07/2016 | Padronizado o tamanho do botão para 1em
 // 24/06/2016 | Retirado o tamanho da fonte do botão e acrescentado caso seja
 //              filho de um <p> (o botão estava ficando muito grande quando não
 //              precisava)
@@ -84,9 +85,7 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   font-weight: bold;
   text-transform: uppercase;
   transition: background 0.5s ease 0s;
-  p & {
-    font-size: .9em;
-  }
+  font-size: $tamanho-fonte-padrao;
   @if $botao-arredondamento != não {
     border-radius: $rd;
   }

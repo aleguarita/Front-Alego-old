@@ -10,12 +10,14 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 21/06/2016
+// Alterado em: 14/07/2016
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/07/2016 | Ajustes no tamanho da fonte das variações --menor e --maior
+//              Acréscimo da classe .texto--caixa-baixa
 // 21/06/2016 | Acrescentei !important nas classes de oculta pois o flex do
 //              elemento pai sobrepunha o dessas classes
 // 02/06/2016 | Acrescentada a classe .oculta--pequeno e .oculta--medio
@@ -92,20 +94,23 @@ CLASSES FIXAS
 .texto--caixa-alta, .texto--uppercase {
 	text-transform: uppercase;
 }
+.texto--caixa-baixa, .texto--lowercase {
+  text-transform: lowercase;
+}
 // -----------------------------------------------------------------------------
 // TAMANHO DAS FONTES
 // -----------------------------------------------------------------------------
 $tamanho-fonte: (
-	menor: modular-scale(-1, 1),
-	x-menor: modular-scale(-2, 1),
-	xx-menor: modular-scale(-3, 1),
-	maior: modular-scale(1, 1),
-	x-maior: modular-scale(2, 1),
-	xx-maior: modular-scale(3, 1),
+	menor: .85em,
+	x-menor: .75em,
+	xx-menor: .5em,
+	maior: 1.15em,
+	x-maior: 1.25em,
+	xx-maior: 1.5em,
 );
 
 @each $classe, $tamanho in $tamanho-fonte {
 	.fonte--#{$classe}, .texto--#{$classe} {
-		font-size: $tamanho * 1em;
+		font-size: $tamanho;
 	}
 }

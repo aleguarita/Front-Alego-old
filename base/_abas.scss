@@ -12,11 +12,12 @@ ABAS
 // -----------------------------------------------------------------------------
 // abas.scss
 // Criado em: 29/03/2016
-// Alterado em: 11/05/2016
+// Alterado em: 14/07/2016
 // -----------------------------------------------------------------------------
 // Definições padrão de abas
 // -----------------------------------------------------------------------------
 // Changelog
+// 14/07/2016 | Retirado o tamanho da fonte da aba
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 04/05/2016 | Texto da aba agora usa a variável $fonte-titulo ao invés de
@@ -63,7 +64,6 @@ $abas-qtd: 5 !default;
   @if $tag == label {
     &__aba {
       font-family: $fonte-titulo;
-      font-size: rem(14);
       padding: .5em 1em;
       color: cor(abas, inativa);
       cursor: pointer;

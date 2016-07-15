@@ -44,9 +44,9 @@
           <dt><samp>$modular-scale-ratio</samp></dt>
           <dd>Modifica o valor padrão estabelecido pelo Bourbon.</dd>
           <dt><samp>$modular-font-size</samp></dt>
-          <dd>O tamanho base a ser usado pelo <samp>modular-scale()</samp></dd>
-          <dt><samp>$tamanho-fonte-textos</samp></dt>
-          <dd>A variação do tamanho de texto padrão (inclui tabelas e listas) baseado no <samp>modular-scale()</samp></dd>
+          <dd>O tamanho base a ser usado pelo <samp>modular-scale()</samp>. Se você quiser que o sistema <strong>todo</strong> tenha uma fonte maior ou menor, altere aqui</dd>
+          <dt><samp>$tamanho-fonte-padrao</samp></dt>
+          <dd>A variação do tamanho de texto padrão baseado no <samp>modular-scale()</samp></dd>
         </dl>
         <blockquote class="aviso--dica">
           Estas variáveis estão no arquivo de configuração (<samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_tipografia.scss</samp>) para que você possa alterar conforme a necessidade do sistema atual.
@@ -133,9 +133,9 @@
       <header><h1>Tipografia modificada (com classes/placeholders)</h1></header>
       <main>
         <h1 class="titulo--borda">h1 - titulo(borda)</h1>
-        <p><a href="al.go.leg.br" class="link--sem-sublinhado">%link--sem-sublinhado</a></p>
-        <p><a href="al.go.leg.br" class="link--borda">%link--borda</a></p>
-        <p><a href="al.go.leg.br" class="link--pontilhado">%link--pontilhado</a></p>
+        <p><a href="al.go.leg.br" class="link--sem-sublinhado">link--sem-sublinhado</a></p>
+        <p><a href="al.go.leg.br" class="link--borda">link--borda</a></p>
+        <p><a href="al.go.leg.br" class="link--pontilhado">link--pontilhado</a></p>
         <p>Tamanho padrão</p>
         <p><samp>.fonte--menor</samp> <span class="fonte--menor">Tamanho menor</span></p>
         <p><samp>.fonte--x-menor</samp> <span class="fonte--x-menor">Tamanho x-menor</span></p>
@@ -144,6 +144,7 @@
         <p><samp>.fonte--x-maior</samp> <span class="fonte--x-maior">Tamanho x-maior</span></p>
         <p><samp>.fonte--xx-maior</samp> <span class="fonte--xx-maior">Tamanho xx-maior</span></p>
         <p><samp>.texto--caixa-alta</samp> <span class="texto--caixa-alta">Texto modificado para caixa alta</span></p>
+        <p><samp>.texto--caixa-baixa</samp> <span class="texto--caixa-alta">Texto modificado para caixa baixa</span></p>
         <p><samp>.texto--ok</samp> <span class="texto--ok">Texto ok</span></p>
         <p><samp>.texto--erro</samp> <span class="texto--erro">Texto erro</span></p>
         <p><samp>.texto--alerta</samp> <span class="texto--alerta">Texto alerta</span></p>
