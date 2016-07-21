@@ -10,12 +10,13 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 15/07/2016
+// Alterado em: 18/07/2016
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/07/2016 | Ajuste das margens inferior e superior
 // 15/07/2016 | Inclusão das classes de margen inferior e superior
 // 14/07/2016 | Ajustes no tamanho da fonte das variações --menor e --maior
 //              Acréscimo da classe .texto--caixa-baixa
@@ -124,5 +125,13 @@ $tamanho-fonte: (
   }
   &--superior {
     margin-top: 1em;
+  }
+  // ---------------------------------------------------------------------------
+  // Por alguma razão, um elemento com margin-top que aparece DEPOIS de um com
+  // margin-bottom pega apenas o valor maior. Este seletor tem o objetivo de
+  // corrigir isso
+  // ---------------------------------------------------------------------------
+  &--inferior + &--superior {
+    margin-top: 2em;
   }
 }
