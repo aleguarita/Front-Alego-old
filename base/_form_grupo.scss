@@ -14,12 +14,14 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
 // -----------------------------------------------------------------------------
 // form_grupo.scss
 // Criado em: 20/01/2015
-// Última alteração: 21/07/2016
+// Última alteração: 22/07/2016
 // -----------------------------------------------------------------------------
 // Este arquivo cria grupos de formulários para definições de tamanhos.
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
 // -----------------------------------------------------------------------------
 // Changelog
+// 22/07/2016 | Corrigida a largura do .form-container, que estava maior do que
+//              devia
 // 21/07/2016 | Inclusão do field-0, que é igual aos outros, mas sem largura
 // 15/07/2016 | Retirada a margem inferior entre os containers (notei que era
 //              necessário quebrar linha de formulário e manter o espaçamento)
@@ -51,6 +53,7 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
 $campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
 $tamanho-tela: breakpoint(pequeno);
 $responsivo: if($label-tipo == colado, "orientation: portrait", "max-width: #{$tamanho-tela}");
+$margem-field: $calha / 2;
 
 // =============================================================================
 // CONTAINER
@@ -79,7 +82,7 @@ $responsivo: if($label-tipo == colado, "orientation: portrait", "max-width: #{$t
     @extend %form-container;
     @include flex-wrap;
     width: calc(100% + #{$calha});
-    margin-left: -$calha / 2;
+    margin-left: -$margem-field;
   }
 }
 // -----------------------------------------------------------------------------
@@ -107,7 +110,7 @@ $responsivo: if($label-tipo == colado, "orientation: portrait", "max-width: #{$t
     @media (#{$responsivo}) {
       @include flex-wrap;
       width: calc(100% + #{$calha});
-      margin-left: -$calha / 2;
+      margin-left: -$margem-field;
     }
   }
 }
@@ -123,7 +126,7 @@ $responsivo: if($label-tipo == colado, "orientation: portrait", "max-width: #{$t
 // -----------------------------------------------------------------------------
 // VARIÁVEL | PADDING
 // -----------------------------------------------------------------------------
-$field-pd: 0 ($calha / 2) $calha;
+$field-pd: 0 $margem-field $calha;
 
 // -----------------------------------------------------------------------------
 // FIELDS
