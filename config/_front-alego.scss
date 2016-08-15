@@ -1,0 +1,86 @@
+/*!
+	==============================================================================
+	FRONT-ALEGO | Framework da Assembleia Legislativa
+	Autor: Alessandro Guarita
+	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
+	------------------------------------------------------------------------------
+	Criado em: 07/01/2015
+	Última alteração: 15/08/2016
+	------------------------------------------------------------------------------
+*/
+// font-alego.scss
+// Inclua neste arquivo somente chamadas para os demais arquivos,
+// usando @import
+// NÃO COMENTE E NEM ALTERE A ORDEM ATUAL.
+// Coloque os demais elementos dentro das respectivas pastas:
+// 	/front-alego
+// 		Esta pasta é invisível e está dentro da GEM
+// 	/bourbon
+// 		Os arquivos do Bourbon para sistemas que não usem o Rails (e para a
+// 		a compilação de CSS). VEJA ARQUIVO front-alego-local
+// 	/config
+// 		Contém os arquivos de configuração básica do sistema atual, como cores
+// 		e variáveis
+// 	/extra
+// 		Contém os arquivos similares ao do /front-alego, mas que são personalizados
+// 		para o sistema atual (exemplo: uma tabela diferente do padrão).
+// 	/views
+// 		Contém os arquivos personalizados da views do sistema atual.
+// 	/read-me
+// 		As informações básicas do sistema, incluíndo a documentação e um arquivo
+// 		para visualizar os elementos usados
+// -----------------------------------------------------------------------------
+// Changelog:
+// 15/08/2016 | Atualizado para uso em GEM. Isso incluiu renomeação de arquivos
+// 13/04/2016 | Alterada ordem das cores
+// 31/03/2016 | Devolvido para a pasta config/. Apesar de o usuário não mexer
+// 								neste arquivo, ele deve existir como cópia para o caso de ter
+// 								folhas de estilo com configurações diferentes
+// 29/03/2016 | Inclusão de Abas
+// 14/03/2016 | Alterada localização deste arquivo, de config/ para front-alego/
+// 								(melhor o usuário configurar arquivos extras/ dentro do
+// 								arquivo de CSS dele, minimizando o uso de configurações
+// 								personalizadas)
+// 							Inclusão do arquivo de SVG de símbolos
+// 15/02/2016 | Inclusão dos sprites
+// 05/02/2016 | O arquivo de classes e ícones foram colocados no final do
+// 							arquivo para que eles tenham prioridade ao alterar um tag
+// 04/02/2016 | Alterada a ordem dos arquivos de formulário
+// 01/02/2016 | Alterado a ordem dos arquivo.
+// 							Configurações de tags foi movida do config/tipografia para
+// 								o arquivo reset.scss
+// 28/01/2016 | Retirado o arquivo placeholder.scss. Muitos placeholders foram
+// 						  transformados em mixins (ver o arquivo próprio) e outros foram
+// 							incorporados dentro dos arquivos
+// 11/12/2015 | Arquivo de cores unificados
+// 26/11/2015 | Criado breakpoints.scss para facilitar o uso do config.scss
+// 17/11/2015 | Este arquivo foi movido para a pasta /config/ para que seja
+// 							possível manter duas pastas config diferentes (para sistemas
+// 							com substistema, como o SGU/Requisição de Acessos).
+// 19/10/2015 | Nova estruturação de arquivos
+// 07/01/2015 | Primeira forma de organizar arquivos
+// =============================================================================
+
+// Bourbon: http://bourbon.io
+// Atenção: acrescentar a gem "bourbon" no Gemfile
+@import "bourbon"; // (se usado no rails)
+
+// Configurações gerais
+@import "front-alego/breakpoints";
+@import "front-alego/funcoes";
+@import "front-alego/mixins";
+
+// Configuração básica
+@import "+config";
+@import "cores";
+
+// Arquivos básicos e de configuração gerais
+// NÃO ALTERE A ORDEM
+@import "front-alego/cores_status";
+@import "front-alego/fontes";
+@import "variaveis";
+@import "tipografia";
+@import "z-index";
+@import "simbolos";
+
+@import "front-alego/+arquivos.scss"; // Todos os demais arquivos

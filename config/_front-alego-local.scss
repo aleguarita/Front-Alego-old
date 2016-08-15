@@ -5,40 +5,44 @@
 	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 14/07/2016
+	Última alteração: 15/08/2016
 	------------------------------------------------------------------------------
 */
-// base.scss
+// font-alego-local.scss
+// Use este arquivo para quando estiver trabalhando com um sistema sem ser em
+// RAILS
 // Inclua neste arquivo somente chamadas para os demais arquivos,
 // usando @import
 // NÃO COMENTE E NEM ALTERE A ORDEM ATUAL.
 // Coloque os demais elementos dentro das respectivas pastas:
-// 	/base
-// 		Contém os arquivos básicos do front-alego que não podem ser alterados
-// 		para o sistema atual. Se precisar alterar qualquer um deles, basta
-// 		substituir
+// 	/front-alego
+// 		Os arquivos básicos do sistema. Não devem ser alterados. Quando houver
+// 		atualização você deve instalar manualmente copiando e colando
 // 	/bourbon
 // 		Os arquivos do Bourbon para sistemas que não usem o Rails (e para a
 // 		a compilação de CSS).
 // 	/config
 // 		Contém os arquivos de configuração básica do sistema atual, como cores
 // 		e variáveis
+//  /fontes
+// 		As fontes do sistema
 // 	/extra
-// 		Contém os arquivos similares ao do /base, mas que são personalizados
+// 		Contém os arquivos similares ao do /front-alego, mas que são personalizados
 // 		para o sistema atual (exemplo: uma tabela diferente do padrão).
-// 	/fontes
-// 		Contém as fontes do sistema. Aqui não tem scss nem nada
-// 	/info
+// 	/views
+// 		Contém os arquivos personalizados da views do sistema atual.
+// 	/read-me
 // 		As informações básicas do sistema, incluíndo a documentação e um arquivo
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 15/08/2016 | Atualizado para uso em GEM. Isso incluiu renomeação de arquivos
 // 13/04/2016 | Alterada ordem das cores
 // 31/03/2016 | Devolvido para a pasta config/. Apesar de o usuário não mexer
 // 								neste arquivo, ele deve existir como cópia para o caso de ter
 // 								folhas de estilo com configurações diferentes
 // 29/03/2016 | Inclusão de Abas
-// 14/03/2016 | Alterada localização deste arquivo, de config/ para base/
+// 14/03/2016 | Alterada localização deste arquivo, de config/ para front-alego/
 // 								(melhor o usuário configurar arquivos extras/ dentro do
 // 								arquivo de CSS dele, minimizando o uso de configurações
 // 								personalizadas)
@@ -64,13 +68,12 @@
 
 // Bourbon: http://bourbon.io
 // Atenção: acrescentar a gem "bourbon" no Gemfile
-// @import "../bourbon"; // (se usado no rails)
 @import "../bourbon/bourbon"; // (se instalado o bourbon manualmente)
 
 // Configurações gerais
-@import "../base/breakpoints";
-@import "../base/funcoes";
-@import "../base/mixins";
+@import "../front-alego/breakpoints";
+@import "../front-alego/funcoes";
+@import "../front-alego/mixins";
 
 // Configuração básica
 @import "+config";
@@ -78,11 +81,11 @@
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
-@import "../base/cores_status";
-@import "../base/fontes";
+@import "../front-alego/cores_status";
+@import "../front-alego/fontes";
 @import "variaveis";
 @import "tipografia";
 @import "z-index";
 @import "simbolos";
 
-@import "../base/+arquivos.scss"; // Todos os demais arquivos
+@import "../front-alego/+arquivos.scss"; // Todos os demais arquivos

@@ -1,14 +1,14 @@
 <article id="config">
   <header>
     <h1>Configurações básicas</h1>
-    <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/_+config.scss</samp></p>
+    <p><samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> config/_+config.scss</samp></p>
   </header>
   <section class="secao-lista">
     <input type="checkbox" id="config__doc" class="secao-lista__check">
     <header class="secao-lista__header">
       <label for="config__doc">
         <span class="secao-lista__titulo">Documentação</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
@@ -16,7 +16,7 @@
 
       <h2 id="config__classes">Uso de Classes</h2>
         <p>O mapa <samp>$uso-classes</samp> define se vai criar algumas classes no CSS final. Caso não vá usar alguma função comente o nome dentro do mapa (<span class="tecla-atalho">cmd</span> + <span class="tecla-atalho">/</span>), isso vai fazer com que as classes não apareçam no arquivo CSS compilado, deixando-o mais leve (especialmente útil em sites externos).</p>
-        <p>As classes criadas nos arquivos adicionais na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>. Isso significa que se você criar uma tabela personalizada somente a sua tabela vai aparecer no CSS final.</p>
+        <p>As classes criadas nos arquivos adicionais na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> extra</samp> sempre aparecerão, mesmo que você comente as classes criadas pelo <samp>@uso-classes</samp>. Isso significa que se você criar uma tabela personalizada somente a sua tabela vai aparecer no CSS final.</p>
         <dl class="lista-definicao">
           <dt><samp>form</samp></dt><dd>Formatação dos tags básicos de formulário, incluindo sua relação entre <samp>label</samp> e <samp>input</samp>. Inclui formatação de campos de textos (e derivados dos HTML 5), caixa de texto, radiobutton, checkbox e select.</dd>
           <dt><samp>form-pre</samp></dt><dd>Espaçamento entre os formulários. Cada <samp>pre-x</samp> dá o mesmo espaço de uma "grid" de formulário. Por ser algo de uso raro, por padrão já vem comentado</dd>

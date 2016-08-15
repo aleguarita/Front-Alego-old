@@ -6,7 +6,7 @@
     <header class="secao-lista__header">
       <label for="tabelas__doc">
         <span class="secao-lista__titulo">Documentação</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
@@ -17,7 +17,7 @@
         <dt><samp>.tab--form</samp></dt>
           <dd><strong><samp>&lt;table&gt;</samp></strong>. Use para tabelas formulários (estilo planilha)</dd>
       </dl>
-      <p>Caso precise de variantes ou de modificar a classe básica para atender à necessidade do layout, faça-o em um arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> tabela.scss</samp> dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extra/</samp>.</p>
+      <p>Caso precise de variantes ou de modificar a classe básica para atender à necessidade do layout, faça-o em um arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> tabela.scss</samp> dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> extra/</samp>.</p>
       <p>Existem algumas classes para serem usadas dentro das tabelas:</p>
       <dl class="lista-definicao">
         <dt><samp>.tab__acoes</samp></dt>
@@ -26,7 +26,7 @@
           <dd><strong><samp>&lt;th&gt;</samp></strong>. Use nas colunas de título (<samp>&lt;th&gt;</samp>). <strong>X</strong> é substituído pelo nome que você criou dentro do arquivo de <span class="arquivo">config</span> e determina a largura desta coluna. No momento já temos criada a <strong>.col--acoes</strong></dd>
       </dl>
       <h2>Regras para a tabela responsiva</h2>
-      <p>No arquivo de <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg>config/+config.scss</samp> é possível determinar o tipo de media query usado para isso (o padrão é tamanho máximo, mas você pode decidir por orientação para sempre exibir "responsiva" quando a largura da tela for menor que a altura).</p>
+      <p>No arquivo de <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> é possível determinar o tipo de media query usado para isso (o padrão é tamanho máximo, mas você pode decidir por orientação para sempre exibir "responsiva" quando a largura da tela for menor que a altura).</p>
       <p>Para que a tabela responsiva funcione, é necessário inserir o atributo <samp>data-title</samp> em cada uma das células e dentro dela colocar o mesmo texto que aparece no <samp>&lt;th&gt;</samp> (incluindo acentos e espaço, pois este texto será escrito pelo CSS). O código da tabela seria como o seguinte:</p>
       <code class="codigo--html">
         <header>HTML</header>
@@ -67,7 +67,7 @@
     <header class="secao-lista__header">
       <label for="tabelas__escolhida">
         <span class="secao-lista__titulo">Tabela escolhida: <span class="codigo-tab-tipo"></span></span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
@@ -100,33 +100,33 @@
             <td data-title="Coluna 2">Item 2</td>
             <td data-title="Coluna 3">Item 3</td>
             <td data-title="Ações" class="tab__acoes">
-              <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a>
-              <a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#fechar" /></svg></a>
+              <a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a>
+              <a href=""><svg class="ico"><use xlink:href="../images/ico.svg#fechar" /></svg></a>
             </td>
           </tr>
           <tr>
             <td data-title="Coluna 1">Item 1</td>
             <td data-title="Coluna 2">Item 2</td>
             <td data-title="Coluna 3">Item 3</td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
             <td data-title="Coluna 1">Item 1</td>
             <td data-title="Coluna 2">Item 2</td>
             <td data-title="Coluna 3">Item 3</td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
             <td data-title="Coluna 1">Item 1</td>
             <td data-title="Coluna 2">Item 2</td>
             <td data-title="Coluna 3">Item 3</td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
             <td data-title="Coluna 1">Item 1</td>
             <td data-title="Coluna 2">Item 2</td>
             <td data-title="Coluna 3">Item 3</td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
         </tbody>
       </table>
@@ -143,31 +143,31 @@
             <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
             <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
             <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
             <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
           <tr>
             <td data-title="Coluna 1"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 2"><input type="text" placeholder="digite aqui" /></td>
             <td data-title="Coluna 3"><input type="text" placeholder="digite aqui" /></td>
-            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+            <td data-title="Ações" class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
           </tr>
         </tbody>
       </table>
@@ -178,7 +178,7 @@
     <header class="secao-lista__header">
       <label for="tabelas__tipo-1">
         <span class="secao-lista__titulo">tipo-1</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
@@ -212,31 +212,31 @@
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
             </tbody>
           </table>
@@ -255,31 +255,31 @@
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
             </tbody>
           </table>
@@ -315,31 +315,31 @@
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
             </tbody>
           </table>
@@ -358,31 +358,31 @@
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
             </tbody>
           </table>
@@ -395,7 +395,7 @@
     <header class="secao-lista__header">
       <label for="tabelas__tipo-2">
         <span class="secao-lista__titulo">tipo-2</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
@@ -429,31 +429,31 @@
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
             </tbody>
           </table>
@@ -472,31 +472,31 @@
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
             </tbody>
           </table>
@@ -532,31 +532,31 @@
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td>Item 1</td>
                 <td>Item 2</td>
                 <td>Item 3</td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
             </tbody>
           </table>
@@ -575,31 +575,31 @@
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
               <tr>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
                 <td><input type="text" placeholder="digite aqui" /></td>
-                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../svg/basico.svg#ok-tique" /></svg></a></td>
+                <td class="tab__acoes"><a href=""><svg class="ico"><use xlink:href="../images/ico.svg#ok-tique" /></svg></a></td>
               </tr>
             </tbody>
           </table>

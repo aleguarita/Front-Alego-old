@@ -1,19 +1,19 @@
 <article id="admin">
   <header>
     <h1>Admin</h1>
-    <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> modelos/login.html</samp></p>
+    <p><samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> admin.scss</samp> <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> modelos/login.html</samp></p>
   </header>
   <section class="secao-lista">
     <input type="checkbox" id="admin__basico" class="secao-lista__check">
     <header class="secao-lista__header">
       <label for="admin__basico">
         <span class="secao-lista__titulo">Básico</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
-      <p>A view de admin se divide em dois arquivos HTML que podem ser encontrados na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> modelos</samp>: <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> login.html</samp> e <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.html</samp>. Evidentemente o Ruby fará uso de outros modelos, mas ajuste o mesmo para que as classes sejam as mesmas.</p>
-      <p>O arquivo básico para trabalhar (<samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp>) está na raíz do FRONT-ALEGO e já está pré-formatado. Sinta-se à vontade para alterar as cores e medidas conforme a necessidade.</p>
+      <p>A view de admin se divide em dois arquivos HTML que podem ser encontrados na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> modelos</samp>: <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> login.html</samp> e <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> admin.html</samp>. Evidentemente o Ruby fará uso de outros modelos, mas ajuste o mesmo para que as classes sejam as mesmas.</p>
+      <p>O arquivo básico para trabalhar (<samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> admin.scss</samp>) está na raíz do FRONT-ALEGO e já está pré-formatado. Sinta-se à vontade para alterar as cores e medidas conforme a necessidade.</p>
       <h2>O admin.scss</h2>
       <p>Este arquivo vai englobar toda a área administrativa do site (e vai ser o arquivo básico que vamos usar para a maioria dos sistemas da Alego, já que eles são modelos administrativos).</p>
       <h3>Comentários iniciais</h3>
@@ -42,12 +42,12 @@
       <p>Cada entrada do changelog é depois que o arquivo já foi encerrado e serve para mostrar alterações depois que o sistema já estava pronto. Um exemplo de entrada: <samp>acrescentada formatação para a tela de registro de usuário</samp> ou <samp>unificadas classes da tabela x e tabela y</samp>.</p>
       <h3>Configurações iniciais</h3>
       <p>Depois dos comentários vem as configurações iniciais do arquivo.</p>
-      <p>A primeira configuração é a de importação de arquivos SASS. Por padrão já importa o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base</samp>. Se você tiver arquivos específicos, inclua-os aqui. Em particular aqueles que você alterou alguma configuração padrão do FRONT-ALEGO e jogou na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extra</samp> (exemplo: você criou um modelo de tabela personalizada para usar com a classe <samp>.tab</samp>, então a importação seria <samp>@import "extra/tabela";</samp>).</p>
+      <p>A primeira configuração é a de importação de arquivos SASS. Por padrão já importa o arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> base</samp>. Se você tiver arquivos específicos, inclua-os aqui. Em particular aqueles que você alterou alguma configuração padrão do FRONT-ALEGO e jogou na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> extra</samp> (exemplo: você criou um modelo de tabela personalizada para usar com a classe <samp>.tab</samp>, então a importação seria <samp>@import "extra/tabela";</samp>).</p>
       <blockquote class="aviso--grave">
         Há uma exceção: arquivos de ajustes emergencial devem aparecer no <strong>final</strong> do arquivo, para que as configurações sobreponham a deste. Estes arquivos, no entanto, são temporários
       </blockquote>
       <p>Depois da importação está as configurações de grid (<a href="#grid" class="link--readme">Veja mais detalhes aqui</a>)l</p>
-      <p>Em seguida você coloca as variáveis que pertencem apenas a este arquivo. Isso só é relevante se você está trabalhando com mais de um arquivo diferente (como área administrativa e site). Algumas já foram definidas e indicam o tamanho da tela. <strong>Por padrão as classes devem aparecer em <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> config/variaveis.scss</samp></strong>.</p>
+      <p>Em seguida você coloca as variáveis que pertencem apenas a este arquivo. Isso só é relevante se você está trabalhando com mais de um arquivo diferente (como área administrativa e site). Algumas já foram definidas e indicam o tamanho da tela. <strong>Por padrão as classes devem aparecer em <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> config/variaveis.scss</samp></strong>.</p>
     </section>
   </section>
   <section class="secao-lista">
@@ -55,7 +55,7 @@
     <header class="secao-lista__header">
       <label for="admin__login">
         <span class="secao-lista__titulo">Login</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
@@ -91,7 +91,7 @@
     <header class="secao-lista__header">
       <label for="admin__admin">
         <span class="secao-lista__titulo">Admin</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
@@ -115,7 +115,7 @@
           <dd>Determina como o menu vai aparecer. Valores: <samp>vertical</samp> (padrão) e <samp>horizontal</samp></dd>
       </dl>
       <h2>Configurações de grid</h2>
-      <p>O arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> contém toda a configuração de grid que está sendo usada. Conforme discutido na seção de <a href="#grid" class="link--readme">grids</a> não se usa classes próprias para grid e elas são inseridas diretamente no CSS. Neste caso fica no começo do arquivo.</p>
+      <p>O arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> admin.scss</samp> contém toda a configuração de grid que está sendo usada. Conforme discutido na seção de <a href="#grid" class="link--readme">grids</a> não se usa classes próprias para grid e elas são inseridas diretamente no CSS. Neste caso fica no começo do arquivo.</p>
       <dl class="lista-definicao">
         <dt><samp>$gd-header</samp></dt>
           <dd>A largura do header. O valor atual é <samp>$grid-qtd</samp> (a quantidade de grids definidas no arquivo de configuração)</dd>
@@ -145,7 +145,7 @@
       <p>As subclasses já estão aplicadas dentro delas (com o uso de <samp>&__filho</samp>).</p>
       <p>Note, por exemplo, que o menu não tem fundo, bordas, etc. Ele tem apenas posicionamento e algum padding. O resto fica por sua conta.</p>
       <h2>Submenu</h2>
-      <p>No exemplo já vem aplicado um submenu mais simples. Se o sistema que você não estiver trabalhando não tiver submenu, apague isso do <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> admin.scss</samp> ou comente (caso queira ter submenu no futuro).</p>
+      <p>No exemplo já vem aplicado um submenu mais simples. Se o sistema que você não estiver trabalhando não tiver submenu, apague isso do <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> admin.scss</samp> ou comente (caso queira ter submenu no futuro).</p>
       <p>Muito cuidado com a estrutura. Se você quiser diferenciar o menu pai do menu filho, no seletor <samp>&__menu</samp> mude o elemento filho de <samp>li</samp> para <samp>&gt; li</samp>.</p>
       <h2>Menu horizontal ou vertical</h2>
       <p>Por padrão o menu está na lateral esquerda. No entanto é possível fazer com que o menu fique horizontal. Para isso siga os passos:</p>
