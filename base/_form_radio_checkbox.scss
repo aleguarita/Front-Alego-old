@@ -12,11 +12,12 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 11/11/2015
-// Última alteração em: 14/07/2016
+// Última alteração em: 01/08/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os radio buttons
 // ----------------------------------------------------------------------------
 // Changelog
+// 01/08/2016 | Ajuste no padding no tipo-3 para funcionar quando for field-0
 // 14/07/2016 | Ajuste nas medidas do tipo-3
 // 11/07/2016 | Ajuste no fundo do tipo-3
 // 14/06/2016 | A variável $svg-cor foi transferida para o arquivo form_comum
@@ -172,6 +173,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
       background: cor(fundo, x-claro);
       border: $borda-form solid;
       padding: .45em;
+      padding-right: .9em;
       &::before {
         margin-left: .4em;
       }

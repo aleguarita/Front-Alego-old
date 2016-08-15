@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // cores.scss
 // Criado em: 07/01/2015
-// Última alteração: 06/07/2016
+// Última alteração: 01/08/2016
 // -----------------------------------------------------------------------------
 // Aqui fica os temas de cores. As paletas são definidas no arquivo
 // cores_paletas (e é neste arquivo que se acrescenta novas cores)
@@ -15,6 +15,7 @@
 // Para alterar o tema faça isso no arquivo config
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 01/08/2016 | acrescentado footer da tabela
 // 06/07/2016 | Acrescentado "label" nos formulários
 // 09/05/2016 | Acrescentado "datepicker" nos temas
 // 14/04/2016 | Retirado branco e preto para utilizar cinza
@@ -128,6 +129,7 @@ $temas: (
 			borda-escura: paleta(basica, escura, 25),
 			fundo: paleta(basica, clara, 75),
 			titulo: paleta(basica, escura, 50),
+			footer: paleta(basica, escura, 25),
 		),
 		lista: (
 			padrao: paleta(basica),
@@ -222,6 +224,7 @@ $temas: (
 		  borda-escura: paleta(cinza, escuro, 25),
 		  fundo: paleta(cinza, clara, 75),
 		  titulo: paleta(cinza, escura, 50),
+			footer: paleta(cinza, clara, 60),
 		),
 		lista: (
 		  padrao: paleta(cinza, escura, 7),
@@ -316,6 +319,7 @@ $temas: (
 			borda-escura: paleta(basica, clara, 25),
 			fundo: paleta(basica, escura, 15),
 			titulo: paleta(basica, escura, 50),
+			footer: paleta(basica, escura, 30),
 		),
 		lista: (
 			padrao: paleta(basica),
@@ -410,6 +414,7 @@ $temas: (
 			borda-escura: paleta(amarelo-bandeira, escura, 25),
 			fundo: paleta(amarelo-bandeira, clara, 55),
 			titulo: paleta(verde-bandeira, escura, 40),
+			footer: paleta(verde-bandeira, escura, 16),
 		),
 		lista: (
 			padrao: paleta(amarelo-bandeira, escuro, 12),
@@ -504,6 +509,7 @@ $temas: (
 			borda-escura: paleta(rosa, escura, 25),
 			fundo: paleta(rosa, clara, 75),
 			titulo: paleta(rosa, escura, 50),
+			footer: paleta(rosa, escura, 25),
 		),
 		lista: (
 			padrao: paleta(rosa),
@@ -598,6 +604,7 @@ $temas: (
 				borda-escura: paleta(azul-bandeira, escura, 25),
 				fundo: paleta(azul-bandeira, clara, 75),
 				titulo: paleta(azul-bandeira, escura, 50),
+				footer: paleta(azul-bandeira, escura, 25)
 			),
 			lista: (
 				padrao: paleta(azul-bandeira),

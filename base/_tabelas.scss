@@ -10,11 +10,13 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 14/07/2016
+// Última alteração: 01/08/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 01/08/2016 | Acrescentado footer da tabela
+// 							Ajustado tamanho do input
 // 14/07/2016 | Alterado tamanho da fonte
 // 01/07/2016 | Correção na especificidade do .tab__acoes no tipo
 // 30/06/2016 | Corrigido problema com a última linha da tabela responsiva
@@ -154,7 +156,6 @@ td {
 			width: 100%;
 			padding: .25em;
 			font-family: $fonte-sem-serifa;
-			font-size: $tamanho-fonte-padrao;
 			&:hover, &:focus {
 				border-color: cor(tabela, borda-escura);
 				box-shadow: $sombra-padrao;
@@ -248,6 +249,15 @@ td {
 			background: lighten(cor(tabela, fundo), 5%);
 			@include tab--opcoes(responsiva-acoes);
 		}
+		tfoot {
+			tr {
+				background: cor(tabela, footer);
+				border-bottom-width: 0;
+			}
+			td {
+				color: cor(texto, claro);
+			}
+		}
 	}
 	// ---------------------------------------------------------------------------
 	// TIPO 2
@@ -285,6 +295,14 @@ td {
 			border-left: 2px solid cor(tabela, borda);
 			@include tab--opcoes(responsiva-acoes) {
 				border-left: 0;
+			}
+		}
+		tfoot {
+			tr {
+				border-top: 1px solid cor(tabela, borda);
+			}
+			td {
+				color: cor(tabela, footer);
 			}
 		}
 	}
