@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 21/07/2016
+// Última alteração em: 17/08/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 17/08/2016 | Corrigida compatibilidade com o Firefox
 // 21/07/2016 | Alterado o campo obrigatório de padding-left para text-indente
 //              (dava problema com a largura do formulário)
 // 14/07/2016 | Alterado tamanho de fontes
@@ -60,10 +61,10 @@ $form-radio-check-personaliza: sim !default;
 //    os espaços
 // 6. Clique em "encode"
 // 7. Copie e cole o código na variáveis abaixo;
-// 8. Selecione as quatro variáveis e mande substituir currentColor por #{$svg-cor}
+// 8. Selecione as quatro variáveis e mande substituir currentColor por %23#{$svg-cor}
 //    SELECIONAR É IMPORTANTE PRA NÃO SUBSTITUIR AQUI NESTE COMENTÁRIO
 // =============================================================================
-$svg-seta-fina: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22#{$svg-cor}%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A";
+$svg-seta-fina: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22%23#{$svg-cor}%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A";
 $select-svg-bg: url("data:image/svg+xml;utf8,#{$svg-seta-fina}") no-repeat right center;
 $select-gradiente: $select-svg-bg, linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, cor(fundo, x-claro) 21px);
 $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
@@ -101,7 +102,7 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
           background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat left center, $select-bg-simples;
           background-size: rem($form-obrigatorio) * .9, auto;
           text-indent: rem($form-obrigatorio);
-          box-shadow: 0 3px 0 lighten($svg-placeholder, 15%);
+          box-shadow: 0 3px 0 lighten($svg-placeholder-original, 15%);
           // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
           &:valid {
             background: $select-bg-simples;
@@ -131,7 +132,7 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
           background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat left center, $select-bg-simples;
           background-size: rem($form-obrigatorio) * .9, auto;
           padding-left: rem($form-obrigatorio);
-          box-shadow: 0 3px 0 lighten($svg-placeholder, 15%);
+          box-shadow: 0 3px 0 lighten($svg-placeholder-original, 15%);
           // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
           &:valid {
             background: $select-bg-simples;
@@ -167,7 +168,7 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
           background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat .2em center, $select-gradiente;
           background-size: rem($form-obrigatorio), auto, auto;
           padding-left: rem($form-obrigatorio) + .35rem;
-          outline: 2px solid lighten($svg-placeholder, 15%);
+          outline: 2px solid lighten($svg-placeholder-original, 15%);
           // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
           &:valid {
             background: $select-gradiente;

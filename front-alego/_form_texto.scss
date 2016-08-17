@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 21/07/2016
+// Última alteração em: 17/08/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 17/08/2016 | Corrigida compatibilidade com o Firefox
 // 21/07/2016 | Alterado o campo obrigatório de padding-left para text-indente
 //              (dava problema com a largura do formulário)
 // 11/07/2016 | Acrescentado fundo tranparente somente para o tipo-1 e tipo-2
@@ -113,7 +114,7 @@ $form-radio-check-personaliza: sim !default;
       background-repeat: no-repeat;
       background-size: rem($form-obrigatorio) * .9;
       text-indent: rem($form-obrigatorio);
-      box-shadow: 0 3px 0 lighten($svg-placeholder, 15%);
+      box-shadow: 0 3px 0 lighten($svg-placeholder-original, 15%);
       // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
       &:valid {
         background-image: none;
@@ -175,7 +176,7 @@ $form-radio-check-personaliza: sim !default;
         background-position: .5em .5em;
         background-size: rem($form-obrigatorio);
         padding-left: em($form-obrigatorio) + 1em;
-        outline: 2px solid lighten($svg-placeholder, 15%);
+        outline: 2px solid lighten($svg-placeholder-original, 15%);
         // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
         &:valid {
           background-image: none;
