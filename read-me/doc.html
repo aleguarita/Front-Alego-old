@@ -96,6 +96,7 @@
           <ul class="lista--link">
             <li><a href="#admin">Admin</a></li>
             <li><a href="#permissao">Tela de Permissão</a></li>
+            <li><a href="#loading">Loading</a></li>
             <li><a href="#caixa-check">Caixas clicáveis</a></li>
           </ul>
         </div>
@@ -154,6 +155,7 @@
     $.get("doc/admin.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/permissao.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/caixa-check.html", '', function (data) { $(".principal").append(data); });
+    $.get("doc/loading.html", '', function (data) { $(".principal").append(data); });
 
     $.get("doc/funcoes.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/mixins.html", '', function (data) { $(".principal").append(data); });

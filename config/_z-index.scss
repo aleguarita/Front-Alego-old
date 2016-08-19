@@ -6,11 +6,12 @@
 // -----------------------------------------------------------------------------
 // z-index.scss
 // Criado em: 12/08/2015
-// Última alteração em: 10/06/2016
+// Última alteração em: 18/08/2016
 // -----------------------------------------------------------------------------
 // Definição da ordem dos elementos
 // =============================================================================
 // CHANGELOG:
+// 18/08/2016 | Acrescentando o loading
 // 10/06/2016 | Movida a função para o arquivo de funções
 // 01/04/2016 | Acrescentado o menu (estrutura nova de admin)
 // 12/08/2015 | Criado o arquivo
@@ -28,5 +29,6 @@ $z: (
 	submenu,
 	topo,
 	modal,
+	loading,
   toaster,
 );

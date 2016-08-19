@@ -1229,3 +1229,15 @@ $datepicker-tipos: tipo-1, tipo-2, tipo-3;
     }
   }
 }
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | loading
+================================================================================
+*/
+.loading--exemplo {
+  @extend .loading;
+  position: inherit;
+  width: 100%;
+  height: 100%;
+  padding: 1.2em;
+}

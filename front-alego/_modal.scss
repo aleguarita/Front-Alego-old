@@ -11,11 +11,13 @@ MODAL
 // -----------------------------------------------------------------------------
 // modal.scss
 // Criado em: 01/07/2015
-// Última alteraçãom em: 11/05/2016
+// Última alteraçãom em: 18/08/2016
 // -----------------------------------------------------------------------------
 // Definição dos padrões de modal
 // -----------------------------------------------------------------------------
 // Changelog:
+// 18/08/2016 | Top e Left utiliza do viewport para posicionamento
+//              Agora utiliza o mixin overlay
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 18/04/2016 | Incluída uma borda transparente quando usar o tema alto-contraste
@@ -51,14 +53,9 @@ $padding-modal-interno: $margem * 2;
   // BÁSICO
   // ---------------------------------------------------------------------------
   @if $tag == basico {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    @include overlay;
     background: fade-out(cor(modal, fundo), $modal-transparencia);
     z-index: z(modal);
-    overflow: hidden;
   }
   // ---------------------------------------------------------------------------
   // JANELA

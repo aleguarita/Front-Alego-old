@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 11/04/2016
+// Última alteração: 18/08/2016
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -19,6 +19,7 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 18/08/2016 | Criado mixin de overlay para criação de fundos de modal
 // 11/04/2016 | Criação dos mixins menu e submenu
 // 22/03/2016 | Mixin lista-oculta foi alterado para item-checado e agora aceita
 // 							colocar qualquer seletor (e não mais apenas classe), além da
@@ -234,6 +235,29 @@
 	left: 50%;
 	max-width: 100%;
 	max-height: 100%;
+}
+
+// =============================================================================
+// OVERLAY
+// -----------------------------------------------------------------------------
+// Cria uma camada transparente que ocupa todo o viewport. Pode ser utilizada
+// em modal, por exemplo
+// =============================================================================
+@mixin overlay($full: sim) {
+	position: fixed;
+	overflow: hidden;
+	pointer-events: none;
+	@if $full == sim {
+		width: 100vw;
+		height: 100vh;
+		top: 0vh;
+		left: 0vw;
+	} @else {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
 }
 
 // =============================================================================
