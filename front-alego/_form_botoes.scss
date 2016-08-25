@@ -12,11 +12,12 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 14/07/2016
+// Última alteração em: 25/08/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // -----------------------------------------------------------------------------
 // Changelog
+// 25/08/2016 | Ajustes para quando o .bt estiver na em um link
 // 14/07/2016 | Padronizado o tamanho do botão para 1em
 // 24/06/2016 | Retirado o tamanho da fonte do botão e acrescentado caso seja
 //              filho de um <p> (o botão estava ficando muito grande quando não
@@ -89,6 +90,12 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   @if $botao-arredondamento != não {
     border-radius: $rd;
   }
+  @at-root {
+    a#{&} {
+      text-decoration: none;
+      text-align: center;
+    }
+  }
 }
 // =============================================================================
 // PLACEHOLDERS | TIPO SIMPLES (tipo-1 e tipo-2)
@@ -119,11 +126,17 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   @extend %bt-tipo-1;
   color: cor(botao, secundario);
   border-color: cor(botao, secundario);
+  &:hover {
+    color: cor(botao, secundario);
+  }
 }
 %bt-tipo-2--secundario {
   @extend %bt-tipo-2;
   color: cor(botao, secundario);
   border-color: cor(botao, secundario);
+  &:hover {
+    color: cor(botao, secundario);
+  }
 }
 // BOTÃO STATUS
 // -----------------------------------------------------------------------------
@@ -132,11 +145,17 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
     @extend %bt-tipo-1;
     color: paleta(#{$status});
     border-color: paleta(#{$status});
+    &:hover {
+      color: paleta(#{$status});
+    }
   }
   %bt-tipo-2--#{$status} {
     @extend %bt-tipo-2;
     color: paleta(#{$status});
     border-color: paleta(#{$status});
+    &:hover {
+      color: paleta(#{$status});
+    }
   }
 }
 // =============================================================================
@@ -166,12 +185,18 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   @include bt-claro(cor(botao, secundario-claro));
   color: cor(botao, secundario-escuro);
   border-color: cor(botao, secundario-escuro);
+  &:hover {
+    color: cor(botao, secundario-escuro);
+  }
 }
 %bt-tipo-4--secundario {
   @extend %bt-claro-base;
   @include bt-claro-gradient(cor(botao, secundario-claro));
   color: cor(botao, secundario-escuro);
   border-color: cor(botao, secundario-escuro);
+  &:hover {
+    color: cor(botao, secundario-escuro);
+  }
 }
 // BOTÃO STATUS
 // -----------------------------------------------------------------------------
@@ -181,12 +206,18 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
     @include bt-claro(cor-status(#{$status}, claro, 50%));
     color: cor-status(#{$status}, escuro, 40%);
     border-color: cor-status(#{$status}, escuro, 40%);
+    &:hover {
+      color: cor-status(#{$status}, escuro, 40%);
+    }
   }
   %bt-tipo-4--#{$status} {
     @extend %bt-claro-base;
     @include bt-claro-gradient(cor-status(#{$status}, claro, 50%));
     color: cor-status(#{$status}, escuro, 40%);
     border-color: cor-status(#{$status}, escuro, 40%);
+    &:hover {
+      color: cor-status(#{$status}, escuro, 40%);
+    }
   }
 }
 // =============================================================================
@@ -204,12 +235,16 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   border-color: cor(botao);
   &:hover {
     background: cor(botao, escuro);
+    color: cor(texto, claro);
   }
 }
 %bt-tipo-6 {
   @extend %bt-escuro-base;
   @include bt-escuro-gradient(cor(botao), cor(botao, escuro));
   border-color: cor(botao, escuro);
+  &:hover {
+    color: cor(texto, claro);
+  }
 }
 // BOTÃO SECUNDÁRIO
 // -----------------------------------------------------------------------------
@@ -220,12 +255,16 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
   &:hover {
     background: cor(botao, secundario-escuro);
     border-color: cor(botao, secundario-escuro);
+    color: cor(texto, claro);
   }
 }
 %bt-tipo-6--secundario {
   @extend %bt-escuro-base;
   @include bt-escuro-gradient(cor(botao, secundario), cor(botao, secundario-escuro));
   border-color: cor(botao, secundario-escuro);
+  &:hover {
+    color: cor(texto, claro);
+  }
 }
 // BOTÃO STATUS
 // -----------------------------------------------------------------------------
@@ -237,12 +276,16 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
     &:hover {
       background: cor-status(#{$status}, escuro, 20%);
       border-color: cor-status(#{$status}, escuro, 20%);
+      color: cor(texto, claro);
     }
   }
   %bt-tipo-6--#{$status} {
     @extend %bt-escuro-base;
     @include bt-escuro-gradient(cor-status(#{$status}, escuro, 10%), cor-status(#{$status}, escuro, 20%));
     border-color: cor-status(#{$status}, escuro, 30%);
+    &:hover {
+      color: cor(texto, claro);
+    }
   }
 }
 // =============================================================================
@@ -250,7 +293,7 @@ $bt-sombra: if($botao-sombra-colorida == "sim", 0 0 6px, $sombra-botao);
 // =============================================================================
 @if index($uso-classes, botao) {
   .bt {
-    @extend %bt-#{$botao-tipo}
+    @extend %bt-#{$botao-tipo};
   }
   @each $status in $botoes-status {
     .bt--#{$status} {

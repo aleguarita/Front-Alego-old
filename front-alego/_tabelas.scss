@@ -10,11 +10,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 01/08/2016
+// Última alteração: 24/08/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 24/08/2016 | Retirada cor cinza da zebra no tipo-1
 // 01/08/2016 | Acrescentado footer da tabela
 // 							Ajustado tamanho do input
 // 14/07/2016 | Alterado tamanho da fonte
@@ -221,14 +222,6 @@ td {
 		}
 		tbody tr {
 			border-bottom: 1px solid cor(tabela, borda-clara);
-			&:nth-child(odd) {
-				// Muda a cor da fonte para cinza em linhas intercaladas para telas maiores
-				@if $tab--responsiva == "sim" {
-					@include media-tipo($tab-resp-tamanho) {
-						color: cor(texto, medio);
-					}
-				}
-			}
 			@include tab--opcoes(responsiva-tr) {
 				border-bottom-width: 2px;
 			}
