@@ -11,12 +11,13 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 24/08/2016
+// Última alteração em: 30/08/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 30/08/2016 | Mudado o padding do .form__ico
 // 24/08/2016 | Incluida a compatibilidade conforme requisitado ao compilar
 // 17/08/2016 | Corrigida compatibilidade com o Firefox
 // 14/07/2016 | Alteração na tipografia
@@ -97,7 +98,7 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
 // CLASSES DOS ELEMENTOS COMUM
 // =============================================================================
 .form__ico {
-  padding: $calha/2 .5em;
+  padding: .5em;
   cursor: pointer;
   @if $form-tipo == "tipo-3" {
     background: cor(formulario);

@@ -19,6 +19,15 @@
         <li>O <samp>div</samp> também pode ganhar a classe de medida <samp>field-x</samp> conforme exemplicado em <a href="#form-grupo" class="link--readme">Grupo de Formulários</a></li>
         <li>Algumas formatações especiais visuais são feitas colocando o <samp>label</samp> depois do <samp>input</samp>. Apesar de aumentar a experiência de uso, pode prejudicar quem usa leitores de tela. Use este recurso com cuidado.</li>
       </ol>
+      <h2>Alternativa</h2>
+      <p>Apesar de ser alternativa, isso tenderá a ser padrão de uso nos sistemas: ao invés de usar um <samp>div</samp>, use <samp>label</samp> como elemento pai e use um <samp>span</samp> com a class <samp>.label</samp>. Dessa forma você não precisará uso de id no label. O código seria:</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;label class="field-1 form-texto"&gt;</p>
+          <p class="recuo-1">&lt;span class="label"&gt;Teste&lt;/span&gt;</p>
+          <p class="recuo-1">&lt;input type="text"&gt;</p>
+        <p>&lt;/label&gt;</p>
+      </code>
       <h2>Configurações</h2>
         <p>No <a href="#config__form" class="link--readme">arquivo de configuração</a> você determina algumas configurações além do tipo.</p>
       <h2>input type="text" (e equivalentes) e textarea</h2>

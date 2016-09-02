@@ -12,11 +12,12 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 11/11/2015
-// Última alteração em: 17/08/2016
+// Última alteração em: 02/09/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os radio buttons
 // ----------------------------------------------------------------------------
 // Changelog
+// 02/09/2016 | Criada classe .label para simular o label
 // 17/08/2016 | Corrigida compatibilidade com o Firefox
 // 01/08/2016 | Ajuste no padding no tipo-3 para funcionar quando for field-0
 // 14/07/2016 | Ajuste nas medidas do tipo-3
@@ -114,12 +115,12 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
 // =============================================================================
 @mixin form-radio($var: $form-radio-check-personaliza) {
   @if $var == "sim" {
-    label {
+    label, .label {
       &::before {
         content: url(data:image/svg+xml,#{$svg-radio});
       }
     }
-    input:checked ~ label::before {
+    input:checked ~ label::before, input:checked ~ .label::before {
       content: url(data:image/svg+xml,#{$svg-radio-ok});
     }
   }
@@ -130,12 +131,12 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
 // =============================================================================
 @mixin form-checkbox($var: $form-radio-check-personaliza) {
   @if $var == "sim" {
-    label {
+    label, .label {
       &::before {
         content: url(data:image/svg+xml,#{$svg-check});
       }
     }
-    input:checked ~ label::before {
+    input:checked ~ label::before, input:checked ~ .label::before {
       content: url(data:image/svg+xml,#{$svg-check-ok});
     }
   }
@@ -151,7 +152,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
   // TIPO 1
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
-    label {
+    label, .label {
       @include form-radio-check--basico(label);
       border-bottom: $borda-form dotted;
     }
@@ -160,7 +161,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
   // TIPO 2
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-2 {
-    label {
+    label, .label {
       @include form-radio-check--basico(label);
       border-bottom: $borda-form solid;
     }
@@ -169,7 +170,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
   // TIPO 3
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-3 {
-    label {
+    label, .label {
       @include form-radio-check--basico(label);
       background: cor(fundo, x-claro);
       border: $borda-form solid;
