@@ -65,7 +65,7 @@ $form-radio-check-personaliza: sim !default;
 @mixin form-texto__label($tipo) {
   @if $tipo == flutuante {
     @include flex-wrap;
-    label {
+    label, .label {
       @include form-texto__label--basico;
       width: 100%;
       @content;
