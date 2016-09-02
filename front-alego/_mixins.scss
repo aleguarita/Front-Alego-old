@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // mixins.scss
 // Criado em: 13/01/2015
-// Última alteração: 18/08/2016
+// Última alteração: 02/09/2016
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizado pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo de grid tem um
@@ -19,6 +19,8 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 02/09/2016 | Retirado o pointer-events do overlay, pois estava impedindo o
+// 							uso do mouse na modal
 // 18/08/2016 | Criado mixin de overlay para criação de fundos de modal
 // 11/04/2016 | Criação dos mixins menu e submenu
 // 22/03/2016 | Mixin lista-oculta foi alterado para item-checado e agora aceita
@@ -246,7 +248,6 @@
 @mixin overlay($full: sim) {
 	position: fixed;
 	overflow: hidden;
-	pointer-events: none;
 	@if $full == sim {
 		width: 100vw;
 		height: 100vh;

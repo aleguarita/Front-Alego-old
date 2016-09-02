@@ -11,11 +11,12 @@ MODAL
 // -----------------------------------------------------------------------------
 // modal.scss
 // Criado em: 01/07/2015
-// Última alteraçãom em: 18/08/2016
+// Última alteraçãom em: 02/09/2016
 // -----------------------------------------------------------------------------
 // Definição dos padrões de modal
 // -----------------------------------------------------------------------------
 // Changelog:
+// 02/09/2016 | Corrigido o erro que desabilitava o mouse em toda a modal
 // 18/08/2016 | Top e Left utiliza do viewport para posicionamento
 //              Agora utiliza o mixin overlay
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
@@ -54,6 +55,7 @@ $padding-modal-interno: $margem * 2;
   // ---------------------------------------------------------------------------
   @if $tag == basico {
     @include overlay;
+    pointer-events: none;
     background: fade-out(cor(modal, fundo), $modal-transparencia);
     z-index: z(modal);
   }
@@ -67,6 +69,7 @@ $padding-modal-interno: $margem * 2;
     background: cor(fundo, x-claro);
     box-shadow: $sombra-modal;
     overflow: auto;
+    pointer-events: all;
     @if $cores-tema == "alto-contraste" {
       border: 1px solid fade-out(cor(fundo, escuro), .8);
     }
