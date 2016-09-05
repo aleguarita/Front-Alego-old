@@ -1,0 +1,183 @@
+@if index($uso-classes, secao-lista) {
+/*
+================================================================================
+SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// secao_lista.scss
+// Criado em: 18/11/2015
+// Última alteração: 06/07/2016
+// -----------------------------------------------------------------------------
+// Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
+// com uma seta indicativa.
+// Não faz uso de javascript e sim de label para funcionar.
+// Se estiver checado, não exibe conteúdo.
+// -----------------------------------------------------------------------------
+// Changelog
+// 06/07/2016 | Acrescentado tipo-3 e ajustes nos outros 2 tipos
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 04/05/2016 | Header agora usa $fonte-titulo ao invés de $fonte-serifa
+// 22/03/2016 | Refletindo alteração do mixin lista-oculta para item-checado
+// 15/03/2016 | Utilizando SVG e não mais fonte para a seta
+// 27/01/2016 | Mudado placeholders para mixins
+// 16/12/2015 | Incluído transition na seta
+// 08/12/2015 | Tirado o extend para o placeholder %icone, que não existe mais
+// 23/11/2015 | Mudado nomes de secao-bloco para secao-lista
+//              Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
+// 20/11/2015 | Inclusão de mixin para fazer o abre e fecha
+// 18/11/2015 | Criação do arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$secao-lista-tipo: tipo-1 !default; // 3 tipos
+$secao-lista-titulo: 3 !default;
+
+// =============================================================================
+// MIXIN | BÁSICO
+// =============================================================================
+@mixin secao-lista--basico($tag: basico) {
+  // ---------------------------------------------------------------------------
+  // BÁSICO
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    & + & {
+      margin-top: 1px;
+    }
+    &__check {
+      @include item-checado(".secao-lista__conteudo") {
+        display: none;
+      }
+      &:checked ~  {
+        .secao-lista__header .secao-lista__icone {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // HEADER
+  // ---------------------------------------------------------------------------
+  @else if $tag == header {
+    font-size: modular-scale($secao-lista-titulo, $modular-font-size);
+    font-family: $fonte-titulo;
+    label {
+      @include display-flex;
+      @include align-items(center);
+      cursor: pointer;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TÍTULO
+  // ---------------------------------------------------------------------------
+  @else if $tag == titulo {
+    @include flex(1);
+  }
+  // ---------------------------------------------------------------------------
+  // ÍCONES
+  // ---------------------------------------------------------------------------
+  @else if $tag == icone {
+    transition: $transition;
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+  // ---------------------------------------------------------------------------
+  // CONTEÚDO
+  // ---------------------------------------------------------------------------
+  @else if $tag == conteudo {
+    padding: $margem;
+  }
+}
+
+// =============================================================================
+// MIXIN | TIPOS
+// =============================================================================
+@mixin secao-lista($tipo) {
+  @include secao-lista--basico;
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    border: 1px solid cor(secao-lista);
+    &__header {
+      @include secao-lista--basico(header);
+      padding: $margem/2 $margem;
+      background: cor(secao-lista);
+      color: cor(texto, claro);
+    }
+    &__titulo {
+      @include secao-lista--basico(titulo);
+    }
+    &__icone {
+      @include secao-lista--basico(icone);
+    }
+    &__conteudo {
+      @include secao-lista--basico(conteudo);
+      border-top: 1px dashed cor(secao-lista);
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-2 {
+    border: 1px solid cor(secao-lista);
+    &__header {
+      @include secao-lista--basico(header);
+      padding: $margem/2 $margem;
+      background: cor(secao-lista, clara);
+      color: cor(secao-lista);
+    }
+    &__titulo {
+      @include secao-lista--basico(titulo);
+    }
+    &__icone {
+      @include secao-lista--basico(icone);
+    }
+    &__conteudo {
+      @include secao-lista--basico(conteudo);
+      border-top: 1px dashed cor(secao-lista);
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 3
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-3 {
+    & + & {
+      margin-top: $margem;
+    }
+    &__header {
+      @include secao-lista--basico(header);
+      padding-bottom: $margem;
+      border-bottom: 1px solid cor(secao-lista, clara);
+      background: cor(fundo, x-claro);
+      color: cor(secao-lista);
+    }
+    &__titulo {
+      @include secao-lista--basico(titulo);
+    }
+    &__icone {
+      @include secao-lista--basico(icone);
+    }
+    &__conteudo {
+      padding-top: $margem;
+      margin-bottom: $margem * 2;
+    }
+  }
+}
+// =============================================================================
+// CLASSE MONTADA
+// =============================================================================
+@if index($uso-classes, secao-lista) {
+  .secao-lista {
+    @include secao-lista($secao-lista-tipo);
+  }
+}

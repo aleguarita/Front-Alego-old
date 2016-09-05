@@ -18,7 +18,7 @@ LOGIN
       @include display-flex;
       @include flex-wrap;
       @include flex-direction;
-      @include align-content(stretch);
+      @include justify-content(center);
       width: 100vw;
       height: 100vh;
     }
@@ -33,11 +33,6 @@ LOGIN
     @include flex-wrap;
     margin-bottom: $margem;
     padding: $margem;
-    // media query para telas pequenas
-    @include media-tipo(pequeno, max) {
-      @include flex(1);
-      @include align-content(center);
-    }
   }
   // área dos botões
   &__acoes {

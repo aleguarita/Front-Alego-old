@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+	<style>
+		/*
+			==========================================================================
+			ANIMACAO
+			==========================================================================
+		*/
+		@keyframes bola {
+			0%, 100% {
+				opacity: 0;
+			}
+			100% {
+				transform: scale(225);
+				opacity: 1;
+			}
+		}
+		/*
+		==========================================================================
+		BOLA
+		==========================================================================
+		*/
+		.bola {
+			fill: #fff;
+			transform-origin: center;
+			opacity: 0;
+			animation: bola 550ms ease-in-out infinite alternate-reverse;
+		}
+	</style>
+
+	<g id="bola">
+		<circle class="bola" cx="250" cy="250" r="1"/>
+	</g>
+</svg>

@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 12/04/2016
+// Última alteração em: 18/08/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,15 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 18/08/2016 | Acrescentada opção de fazer um "loading" de tela inteira
+// 14/07/2016 | Alterado o valor da variável da paginação de "rem" para "em"
+// 08/07/2016 | Acrescentava variável para indicar o tamanho da imagem de
+//              obrigatório
+// 30/06/2016 | Acrescentada opção de formulário responsivo (em $uso-classes)
+// 20/06/2016 | Acrescentada opção de tabela responsiva através de orientação
+// 18/05/2016 | Acrescentada opção de tela de mensagem
+// 16/05/2016 | Tabelas responsivas
+// 09/05/2016 | Acrescentado datepicker e suas opções
 // 12/04/2016 | Escolhe se usa fontes personalizadas ou não
 // 31/03/2016 | Inclusão de ocultar as classes de símbolos SVG
 // 29/03/2016 | Sistema de abas
@@ -40,6 +49,7 @@
 $uso-classes: (
   form,
   form-grupo,
+  form-grupo-responsivo,
   // form-pre,
   botao,
   botao-secundario,
@@ -55,11 +65,14 @@ $uso-classes: (
   toaster,
   secao-lista,
   abas,
+  tela-mensagem,
   simbolos-svg,
   // simbolos,
   // sprite,
+  datepicker,
   fonte-serifa,
   fonte-sans-serif,
+  loading,
 );
 
 // =============================================================================
@@ -78,9 +91,15 @@ $grid-max: rem(1600);
 // TABELAS
 // =============================================================================
 $tab-tipo: tipo-1; // 2 tipos
+
 $tab--zebra: sim;
+$tab--responsiva: sim;
+$tab--responsiva-tipo: tamanho; // tamanho | orientação
+
 $tab-acao-link-bloco: não;
 $tab-col--maximo: 600;
+$tab-resp-tamanho: pequeno; // pequeno | medio
+
 $largura-tabela-col: (
 	acoes: 70,
 );
@@ -95,7 +114,7 @@ $largura-tabela-col-max: (
 // =============================================================================
 $paginacao-tipo: tipo-1; // 2 tipos
 $paginacao-posicao: center;
-$paginacao-fonte: .65rem;
+$paginacao-fonte: .75em;
 
 // =============================================================================
 // MODAL
@@ -128,6 +147,7 @@ $toaster-distancia-vertical: 1;
 $form-tipo: tipo-1; // 3 tipos
 $label-tipo: flutuante; // flutuante | colado
 $form-radio-check-personaliza: sim;
+$form-obrigatorio: 16; // tamanho do SVG de obrigatório (*) em px
 
 $botao-tipo: tipo-5; // 6 tipos
 $botao-secundario: $botao-tipo; // 6 tipos + $botao-tipo
@@ -159,6 +179,11 @@ $abas-tipo: tipo-1; // 4 tipos
 $abas-qtd: 5;
 
 // =============================================================================
+// TELA DE MENSAGENS
+// =============================================================================
+$tela-mensagem--tipo: tipo-1; // 2 tipos
+
+// =============================================================================
 // SPRITES
 // =============================================================================
 $sprite-arquivo: "sprite.png";
@@ -166,7 +191,13 @@ $sprite-medida: 150px;
 // mapa que cria as classes
 // os valores obrigatórios depois do nome é a posição na grid
 // existem mais 2 valores opcionais que é aumento de largura e altura
-// (respectivamente)
+// (respectivamente). Neste caso ficaria exemplo: (1, 1, 2, 2);
 $sprites: (
   exemplo: (1, 1),
 );
+// =============================================================================
+// DATEPICKER
+// =============================================================================
+$datepicker-tipo: tipo-3;
+$datepicker-sombra: sim;
+$datepicker-arredondado: não;

@@ -1,0 +1,233 @@
+@if index($uso-classes, card) {
+/*
+================================================================================
+CARD
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// cards.scss
+// Criado em: 23/10/2015
+// Última alteração: 11/05/2016
+// -----------------------------------------------------------------------------
+// Definições padrão de cards e classes modelo
+// ATENÇÃO: aqui tem a configuração APENAS do card e não do grupo do elemento
+// pai. Caso queira criar um grupo de cards, crie um div pai no seu layout e
+// use o mixin grupo-flex()
+// -----------------------------------------------------------------------------
+// Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 19/01/2016 | Abandonado placeholders para usar mixins
+// 15/01/2016 | Ajustes: inclusão de padding no título
+//              Imagem ganhou max-width: 100%;
+//              Inclusão da possibilidade de não usar .card__item e formatação
+//              do primeiro <p> sozinho
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
+// 17/11/2015 | Utilizada nova forma chamar as classes
+// 03/11/2015 | Classes para os sub-itens. Usando BEM
+// 23/10/2015 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$card-tipo: tipo-1 !default; // 2 tipos
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$card-padding: 0 $margem;
+
+// =============================================================================
+// SUBITENS DO CARD
+// -----------------------------------------------------------------------------
+// Aqui está cada seção que vai receber uma classe. Ao criar a classe .card
+// será criada cada uma das classes sem o seletor aninhado (ex.: .card--titulo)
+// =============================================================================
+$card-sub: (
+  titulo,
+  imagem,
+  principal,
+  item,
+  footer,
+);
+
+// =============================================================================
+// MIXINS | Configurações básicas
+// =============================================================================
+@mixin card-basico($classe: basico) {
+  // ---------------------------------------------------------------------------
+  // BÁSICO
+  // ---------------------------------------------------------------------------
+  @if $classe == basico {
+    @include display-flex;
+    @include flex-direction;
+    background-color: cor(card, fundo);
+    box-shadow: $sombra-card;
+  }
+  // ---------------------------------------------------------------------------
+  // TEXTO GERAL
+  // ---------------------------------------------------------------------------
+  @else if $classe == texto {
+    margin: 0;
+    padding: $card-padding;
+  }
+  // ---------------------------------------------------------------------------
+  // ELEMENTO TÍTULO
+  // ---------------------------------------------------------------------------
+  @else if $classe == titulo {
+    padding: $margem 0;
+  }
+  // ---------------------------------------------------------------------------
+  // TAG H1
+  // ---------------------------------------------------------------------------
+  @else if $classe == h1 {
+    font-size: modular-scale(3, $modular-font-size);
+  }
+  // ---------------------------------------------------------------------------
+  // ELEMENTO IMAGEM
+  // ---------------------------------------------------------------------------
+  @else if $classe == imagem {
+    line-height: 0;
+    img {
+      max-width: 100%;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // ELEMENTO PRINCIPAL
+  // ---------------------------------------------------------------------------
+  @else if $classe == principal {
+    @include flex(1);
+    > *:first-child:not(.card__item) {
+      padding-top: .5em;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // ELEMENTO ITEM
+  // ---------------------------------------------------------------------------
+  @else if $classe == item {
+    padding: $margem/2 0;
+    border-top: 1px cor(card, borda);
+    &:first-child { border-width: 0; }
+  }
+  // ---------------------------------------------------------------------------
+  // ELEMENTO FOOTER
+  // ---------------------------------------------------------------------------
+  @else if $classe == footer {
+    @include display-flex;
+    * {
+      @include flex(1);
+      + * {
+        margin-left: .5em;
+      }
+    }
+  }
+}
+// ---------------------------------------------------------------------------
+
+// =============================================================================
+// MIXINS | Tipos
+// =============================================================================
+@mixin card($tipo) {
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    @include card-basico;
+    h1, p {
+      @include card-basico(texto);
+    }
+    h1 {
+      @include card-basico(h1);
+      color: cor(texto, claro);
+    }
+    &__titulo {
+      @include card-basico(titulo);
+      background: cor(card, titulo);
+    }
+    &__imagem {
+      @include card-basico(imagem);
+    }
+    &__principal {
+      @include card-basico(principal);
+    }
+    &__item {
+      @include card-basico(item);
+      border-top-style: solid;
+    }
+    &__footer {
+      @include card-basico(footer);
+      padding: $margem;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-2 {
+    @include card-basico;
+    h1, p {
+      @include card-basico(texto);
+    }
+    h1 {
+      @include card-basico(h1);
+      color: cor(card, titulo);
+    }
+    &__titulo {
+      @include card-basico(titulo);
+    }
+    &__imagem {
+      @include card-basico(imagem);
+    }
+    &__principal {
+      @include card-basico(principal);
+    }
+    &__item {
+      @include card-basico(item);
+      border-top-style: dashed;
+    }
+    &__footer {
+      @include card-basico(footer);
+    }
+    &__titulo + &__principal {
+      section:first-of-type { border-top-width: 1px; }
+    }
+  }
+}
+
+// =============================================================================
+// CLASSES | .card montado
+// =============================================================================
+@if index($uso-classes, card) {
+  .card {
+    @include card($card-tipo);
+  }
+}
+
+// =============================================================================
+// CLASSES | Variantes
+// =============================================================================
+// .card__linha-destaque é aplicado no section e faz com que o <strong> vire uma
+// caixa escura.
+// dentro dele deve ter um <strong> para o destaque e um <span> para o texto
+// -----------------------------------------------------------------------------
+@if index($uso-classes, card) {
+  .card__item--destaque {
+    @extend .card__item;
+    padding: 0;
+    p {
+      @include display-flex;
+      padding: 0;
+    }
+    strong, span { padding: $margem/2 $margem; }
+    strong {
+      background: cor(card, destaque);
+      color: cor(texto, claro);
+    }
+  }
+}

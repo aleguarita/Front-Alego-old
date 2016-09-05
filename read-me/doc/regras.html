@@ -7,7 +7,7 @@
     <header class="secao-lista__header">
       <label for="regras__doc">
         <span class="secao-lista__titulo">Documentação</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
@@ -85,8 +85,8 @@
         <dt>form</dt><dd>formulário</dd>
       </dl>
     <h2 id="regras__sass">Organização dos arquivos SCSS</h2>
-      <p>Como explicado <a href="index.html#aplicando" class="link--readme">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> /extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Se você tiver classes genéricas (que são usadas em todo o seu sistema e não em parte específicas) é recomendado que você crie um arquivo chamado <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> classes</samp> nessa pasta. Inclua os <samp>@import</samp> dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#arquivo" /></svg> /extra/_+import.scss</samp> e importe este arquivo no seu SCSS (o modelo atual já tem).</p>
-      <p>Na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> /views</samp> você vai colocar arquivos que alterem um pedaço específico do sistema que seja único. Esta pasta já vem com um arquivo de import e este bloco inteiro deve ser importado no <strong>final</strong> do seu arquivo principal.</p>
+      <p>Como explicado <a href="index.html#aplicando" class="link--readme">aqui</a> os arquivos são armazenados em pastas específicas. Elementos gerais que fujam do padrão do Front-Alego devem ser salvos em arquivos separados dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> /extra</samp>. Um exemplo disso é tabelas. Mixins e funções também vão nesta pasta. Se você tiver classes genéricas (que são usadas em todo o seu sistema e não em parte específicas) é recomendado que você crie um arquivo chamado <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> classes</samp> nessa pasta. Inclua os <samp>@import</samp> dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#arquivo" /></svg> /extra/_+import.scss</samp> e importe este arquivo no seu SCSS (o modelo atual já tem).</p>
+      <p>Na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> /views</samp> você vai colocar arquivos que alterem um pedaço específico do sistema que seja único. Esta pasta já vem com um arquivo de import e este bloco inteiro deve ser importado no <strong>final</strong> do seu arquivo principal.</p>
       <h3>Comentários</h3>
         <p>O arquivo deve ser totalmente comentado ao estilo SASS para identificar seus trechos.</p>
         <p>Ele deve abrir com um comentário maior com o nome do sistema, o usuário que criou o arquivo e a data de criação. Veja como exemplo o CSS usado neste arquivo:</p>
@@ -119,7 +119,7 @@
         <p>Os elementos dentro de um arquivo devem obedecer a seguinte ordem (sempre comentado, conforme explicado acima):</p>
         <ol class="lista-ordenada">
           <li>Variáveis e mapas gerais</li>
-          <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica. Se for usada em mais de um arquivo, salve em um arquivo em <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> extra/classes.scss</samp>)</li>
+          <li>Classes gerais (que só usam neste arquivo e não são de nenhuma seção específica. Se for usada em mais de um arquivo, salve em um arquivo em <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> extra/classes.scss</samp>)</li>
           <li>Seções do site (header, menu, principal, footer)</li>
         </ol>
         <blockquote class="aviso--dica">
@@ -128,7 +128,7 @@
       <h3>Atualização emergencial</h3>
         <p>Você conhece a situação: você tem que fazer uma alteração <strong class="texto-erro">pra ontem</strong>. Por mais que o objetivo do <strong>Front-Alego™</strong> seja organizar os arquivos, isso pode levar um tempo que não se dispõe. Neste caso haverá uma quebra das regras, temporariamente. Mas mesmo quebrando regras, temos regras, porque aqui não é a Casa da Mãe Joana. Siga os passos:</p>
         <ol class="lista-ordenada">
-          <li>Crie um arquivo chamado <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> ajustes.scss</samp> na pasta <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#pasta" /></svg> extras</samp></li>
+          <li>Crie um arquivo chamado <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> ajustes.scss</samp> na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> extras</samp></li>
           <li>Escreva um comentário indicando para quê é essa alteração e seu nome</li>
           <li>Escreva as regras. Não tenha medo de usar <samp>!important</samp> e outras regras <strike>escrotas</strike> pouco apropriadas</li>
           <li>No final do arquivo principal do seu CSS que a regra tem que ser aplicada dê um import para o arquivo:

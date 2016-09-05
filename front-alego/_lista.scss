@@ -1,0 +1,150 @@
+@if index($uso-classes, lista) {
+/*
+================================================================================
+LISTA
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// lista.scss
+// Criado em: 20/11/2015
+// Última alteração em: 11/05/2016
+// -----------------------------------------------------------------------------
+// Formata caixas de listas
+// ----------------------------------------------------------------------------
+// Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 04/05/2016 | Título faz uso da variável $fonte-titulo ao invés de $fonte-serifa
+// 25/01/2016 | Não se usa mais placeholder e sim mixin
+// 11/01/2016 | Arrumado .lista__titulo que aparecia sem padding quando estava
+//              dentro de .lista--link
+//              Ajuste no tipo-2
+//              RIP David Bowie :(
+// 16/12/2015 | Correções de bugs
+// 30/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
+// 24/11/2015 | Acrescentado lista para link que ocupa a célula inteira
+// 20/11/2015 | Criação do arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$lista-tipo: tipo-1 !default; // 2 tipos
+$lista--zebra: não !default;
+$lista--sombra: não !default;
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$lista-padding: .5rem .75rem;
+
+// =============================================================================
+// MIXIN | BÁSICO
+// =============================================================================
+@mixin lista-basico($tag: basico) {
+  // ---------------------------------------------------------------------------
+  // DEFINE A RAÍZ
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    @include lista-sem-marcador;
+    @if $lista--sombra == "sim" {
+      box-shadow: $sombra-card;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // DEFINE A TAG LI
+  // ---------------------------------------------------------------------------
+  @else if $tag == li {
+    padding: $lista-padding;
+    &:not(.lista__titulo) {
+      background: cor(fundo, x-claro);
+      @if $lista--zebra == "sim" {
+        &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // PADRÕES DE TÍTULO
+  // ---------------------------------------------------------------------------
+  @else if $tag == titulo {
+    font-family: $fonte-titulo;
+    font-size: 1.6em;
+  }
+}
+
+// =============================================================================
+// MIXIN LISTA | TIPOS
+// =============================================================================
+@mixin lista($tipo) {
+  @include lista-basico;
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    border: 1px solid cor(lista);
+    li {
+      @include lista-basico(li);
+      border-bottom: 1px solid cor(lista);
+      &:last-child {
+        border-bottom-width: 0;
+      }
+    }
+    &__titulo {
+      @include lista-basico(titulo);
+      background: cor(lista, escura);
+      color: cor(texto, claro);
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-2 {
+    li {
+      @include lista-basico(li);
+      &:not(.lista__titulo) {
+        border-color: cor(lista);
+        border-width: 1px 2px 0;
+        border-style: dotted solid;
+      }
+      &:first-child:not(.lista__titulo) {
+        border-top: 2px solid cor(lista);
+      }
+      &:last-child {
+        border-bottom: 2px solid cor(lista);
+      }
+    }
+    &__titulo {
+      @include lista-basico(titulo);
+      border-bottom: 2px solid cor(lista);
+      color: cor(lista, escura);
+      & + li {
+        border-top-width: 0 !important;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// CLASSE MONTADA
+// =============================================================================
+@if index($uso-classes, lista) {
+  .lista {
+    @include lista($lista-tipo);
+    &--link {
+      @extend .lista;
+      li:not(.lista__titulo) {
+        padding: 0;
+      }
+      a, span {
+        @include link(bloco);
+        padding: $lista-padding;
+      }
+    }
+  }
+}

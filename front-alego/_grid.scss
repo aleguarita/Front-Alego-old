@@ -1,0 +1,135 @@
+@if index($uso-classes, grid-container) {
+/*
+================================================================================
+GRID
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// grid.scss
+// Criado em: 12/01/2015
+// Última alteração: 11/05/2016
+// -----------------------------------------------------------------------------
+// Este arquivo cria o sistema de grid, com uso de Flex-box
+// As configurações devem ficar no início do documento (editando as variáveis)
+// -----------------------------------------------------------------------------
+// Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 22/01/2016 | Não se usa mais placeholder e sim mixins. Desta forma a forma
+//              de definir a quantidade de grids é diretamente no objeto e não
+//              no arquivo de config.
+// 08/12/2015 | Usado o seletor > para a coruja lobotomizada (pois da forma que
+//              estava, aplicava a todos os elementos inferiores ao gutter)
+// 17/11/2015 | Utilizada nova forma chamar as classes
+// 04/11/2015 | Alterado sistema de gutter usando o método "coruja lobotomizada"
+//              (* + *).
+//              Correções de erros (container de gutter/calha não colocava a
+//              margem, .container--calha não replicava tudo de
+//              .container--gutter)
+// 20/10/2015 | Configurações básicas transferidas para /config.scss
+// 19/08/2015 | Alterada a ordem dos elementos pra facilitar configurações
+// 03/07/2015 | Flexbox
+// 12/01/2015 | Grid com sistema de float e utilizando mixin
+// =============================================================================
+
+// =============================================================================
+//  SISTEMA DE GRIDS DINÂMICO E FLUÍDO
+// -----------------------------------------------------------------------------
+// Para utilizar este sistema, determine:
+// * a quantidade de colunas no sistema de grids ($grid-qtd);
+// * o tamanho máximo do container ($grid-max);
+// * a medida da calha ($grid-margem)
+// Estes valores estão no começo do arquivo, na seção "Variáveis"
+//
+// Por questão de organização e facilidade de alteração, a grid
+// fica dentro deste arquivo mesmo, no mapa $grid (evitando buscar em
+// diversos arquivos as medidas). Veja em "Seções do Sistema" pra saber como
+// usar.
+//
+// O @extend %pre-x serve para pular a quantidade de grids necessária entre
+// uma grid e outra.
+// Por exemplo: o logo do sistema ocupa 3 colunas e a opção de logout ocupa
+// 2 colunas. Entre um e outro tem espaço de 7 grids. Ao invés de criar um
+// div em branco com a medida de grid-7, extenda o .pre-7 no logout
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$grid-qtd: 12 !default;
+$grid-margem: rem(10) !default;
+$grid-max: rem(1600) !default;
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$grid-medida: 100% / $grid-qtd;
+$grid-margem-porcento: ($grid-margem / $grid-max) * 100%;
+$grid-medida-gutter-total: ($grid-margem-porcento * ($grid-qtd - 1))/12;
+$grid-medida-com-gutter: $grid-medida - $grid-medida-gutter-total;
+
+// =============================================================================
+// CONTAINER
+// -----------------------------------------------------------------------------
+// Aqui é determinado o container. Este é o elemento pai que vai abrigar um
+// grupo de grids. Para cada linha de grid, utilize um .container
+// Existem duas opções de container:
+// .container: sistema sem margem
+// .container--gutter (ou .container--calha): sistema com margem entre as colunas
+// =============================================================================
+%container-basico {
+  @include display-flex;
+  @include flex-wrap;
+  margin: auto;
+  max-width: $grid-max;
+}
+@if index($uso-classes, grid-container) {
+  .container {
+    @extend %container-basico;
+  }
+  .container--gutter, .container--calha {
+    @extend %container-basico;
+    padding: 0 $grid-margem;
+    > * + * {
+      margin-left: $grid-margem-porcento;
+    }
+  }
+}
+// =============================================================================
+// GRIDS
+// -----------------------------------------------------------------------------
+// Gera as grids dinamicamente para uso com @extend. Não mude nada
+// =============================================================================
+
+%grid-gutter {
+  margin-right: $grid-margem-porcento;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+@mixin grid($grid, $gutter: não, $responsivo: sim) {
+  $basis: if($gutter == "não", $grid-medida, $grid-medida-com-gutter) * $grid;
+  @if $responsivo == sim {
+    @include flex(1 0 100%);
+    @include media-tipo(grande) {
+      @include flex($grid 0 $basis);
+    }
+  } @else {
+      @include flex($grid 0 $basis);
+  }
+}
+@mixin pre($pre, $gutter: não, $responsivo: sim) {
+  $margem: if($gutter == "não", $grid-medida, $grid-medida-com-gutter + $grid-margem-porcento) * $pre;
+  @if $responsivo == sim {
+    @include media-tipo(grande) {
+      margin-left: $margem;
+    }
+  } @else {
+    margin-left: $margem;
+  }
+}

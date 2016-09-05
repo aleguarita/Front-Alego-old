@@ -1,0 +1,59 @@
+@if index($uso-classes, sprite) {
+/*
+================================================================================
+SPRITES
+================================================================================
+*/
+}
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// sprites.scss
+// Criado em: 15/02/2016
+// Última alteração em: 11/05/2016
+// -----------------------------------------------------------------------------
+// Definição dos padrões de modal
+// -----------------------------------------------------------------------------
+// Changelog:
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 16/02/2016 | Agora coloca-se o nome do arquivo no arquivo de configurações
+// 15/02/2016 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$sprite-arquivo: "sprite.png" !default;
+$sprite-medida: 150px !default;
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+// Estabelece o valor padrão de modificador do tamanho do sprite
+// -----------------------------------------------------------------------------
+$mod-h: 1;
+$mod-w: 1;
+
+// =============================================================================
+// CLASSE
+// =============================================================================
+@if index($uso-classes, sprite) {
+  @each $sprite, $mapa in $sprites {
+    .sprite-#{$sprite} {
+      $x: $sprite-medida * (nth($mapa, 1) - 1) * -1;
+      $y: $sprite-medida * (nth($mapa, 2) - 1) * -1;
+      @if length($mapa) == 3 {
+        $mod-w: nth($mapa, 3);
+        $mod-h: $mod-w;
+      }
+      @else if length($mapa) == 4 {
+        $mod-h: nth($mapa, 4);
+      }
+      background: url(#{$sprite-arquivo}) no-repeat $x $y;
+      width: $sprite-medida * $mod-w;
+      height: $sprite-medida * $mod-h;
+    }
+  }
+}

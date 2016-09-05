@@ -1,0 +1,39 @@
+<article id="permissao">
+  <header><h1>Permissão</h1></header>
+  <section class="secao-lista">
+    <input type="checkbox" id="tela-mensagem__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="tela-mensagem__doc">
+        <span class="secao-lista__titulo">HTML para uso</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <section class="secao-lista__conteudo">
+      <p>A tela de permissão deve seguir o seguinte HMTL para funcionar. A imagem já está embutida na GEM. Caso você não esteja usando a GEM a imagem está na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> /images</samp>.</p>
+      <p>Mesmo usando a GEM é possível alterar a imagem colocando ela em <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> /assets/image</samp> (a sua vai prevalecer sobre ela).</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;section class="tela-mensagem permissao"&gt;</p>
+          <p class="recuo-1">&lt;article id="Permissao" title="Permissão Negada" class="tela-mensagem__janela"&gt;</p>
+            <p class="recuo-2">&lt;figure class="tela-mensagem__imagem"&gt;</p>
+              <p class="recuo-3">&lt;object class="svg-permissao" data="<%= asset_path("permissao.svg") %>"&gt;&lt;/object&gt;</p>
+            <p class="recuo-2">&lt;/figure&gt;</p>
+            <p class="recuo-2">&lt;p&gt;</p>
+              <p class="recuo-3">&lt;strong class="texto--xx-maior"&gt;Você não tem permissão para acessar esta tela&lt;/strong&gt;</p>
+            <p class="recuo-2">&lt;/p&gt;</p>
+          <p class="recuo-1">&lt;/article&gt;</p>
+        <p>&lt;/section&gt;</p>
+      </code>
+      <p>Se você precisar editar algo específico nesta view, acrescente o arquivo na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> /views</samp></p>
+      <p>A imagem que aparece é:</p>
+      <p><object class="svg-permissao" data="../svg/permissao.svg"></object></p>
+      <p>Se precisar alterar a cor da camiseta, abra o SVG no editor de código e acrescente a classe <samp>.roupa</samp>, como no exemplo a seguir:</p>
+      <code class="codigo--css">
+        <header>CSS</header>
+        <p>.roupa {</p>
+          <p class="recuo-1">fill: red;</p>
+        <p>}</p>
+      </code>
+    </section>
+  </section>
+</article>

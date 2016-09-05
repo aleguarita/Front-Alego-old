@@ -1,0 +1,210 @@
+@if index($uso-classes, form-grupo) {
+/*
+================================================================================
+FORMULÁRIOS | GRUPOS DE FORMULÁRIOS
+================================================================================
+FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
+--------------------------------------------------------------------------------
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// form_grupo.scss
+// Criado em: 20/01/2015
+// Última alteração: 22/07/2016
+// -----------------------------------------------------------------------------
+// Este arquivo cria grupos de formulários para definições de tamanhos.
+// Baseado na forma que o Rails chama os divs de formulário com o nome field.
+// -----------------------------------------------------------------------------
+// Changelog
+// 22/07/2016 | Corrigida a largura do .form-container, que estava maior do que
+//              devia
+// 21/07/2016 | Inclusão do field-0, que é igual aos outros, mas sem largura
+// 15/07/2016 | Retirada a margem inferior entre os containers (notei que era
+//              necessário quebrar linha de formulário e manter o espaçamento)
+//              Incluído .form-container--responsivo
+// 30/06/2016 | Versão responsiva
+// 24/06/2016 | .form-container--linha alinha os elementos na base (flex-end)
+//              para quando não houver <label>
+//              Acrescentado mais especificidade nos filhos do --linha
+//              (seletor elemento > elemento)
+// 18/03/2016 | Alterada função de "@while" para "@for" ao gerar as classes
+// 03/02/2016 | Alterado o nome form-field para form-grupo para fazer mais sentido
+//              Renomeado este arquivo para form_grupo
+//              O elemento comum dos containers voltou a ser placeholder
+// 21/01/2016 | De placeholder para mixin
+// 17/11/2015 | Utilizada nova forma chamar as classes
+//              Transferidos elementos direto para as classes de formulário
+// 09/11/2015 | Incluída opção de não criar as classes (através de config.scss)
+//              Ajuste no responsive
+//              Nome alterado para form_tamanhos
+// 14/09/2015 | Transformado o arquivo em form_grupo.scss
+// 07/08/2015 | Eliminado a parte de texto e transformado em flexbox
+// 20/01/2015 | Arquivo _colunas.scss com uso de inline-block e de grupos
+// 						 tanto para texto quanto para formulário
+// =============================================================================
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$campos-texto: "input:not([type="checkbox"]):not([type="radio"]), textarea,";
+$tamanho-tela: breakpoint(pequeno);
+$responsivo: if($label-tipo == colado, "orientation: portrait", "max-width: #{$tamanho-tela}");
+$margem-field: $calha / 2;
+
+// =============================================================================
+// CONTAINER
+// -----------------------------------------------------------------------------
+// Configura o elemento "pai" do formulário. Existem dois tipos: container
+// corrido e container linha a linha.
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// PLACEHOLDER | OBJETO COMUM AOS CONTAINERS
+// -----------------------------------------------------------------------------
+// Usei placeholder ao invés de mixin pois os elementos estão próximos
+// -----------------------------------------------------------------------------
+%form-container {
+  @include display-flex(100%);
+}
+// -----------------------------------------------------------------------------
+// CONTAINER CORRIDO
+// -----------------------------------------------------------------------------
+// Este é o container básico, usa margem negativa, o que impede o uso de fundo
+// Mantém o código de HTML mais simples pois usa apenas um container para
+// todos os elementos filhos
+// -----------------------------------------------------------------------------
+@if index($uso-classes, form-grupo) {
+  .form-container, .form-container--responsivo {
+    @extend %form-container;
+    @include flex-wrap;
+    width: calc(100% + #{$calha});
+    margin-left: -$margem-field;
+  }
+}
+// -----------------------------------------------------------------------------
+// CONTAINER LINHA A LINHA
+// -----------------------------------------------------------------------------
+// Use para cada linha do formulário. É possível fazer uso de fundo.
+// Aumenta a complexidade do HTML pois acrescenta muitos grupos de containers
+// porém possibilita ter elementos filhos que se ajustam automaticamente
+// -----------------------------------------------------------------------------
+@if index($uso-classes, form-grupo) {
+  .form-container--linha {
+    @extend %form-container;
+    @include align-items(flex-end);
+    & + & {
+      margin-top: $calha;
+    }
+    @include media-tipo(pequeno) {
+      > *:first-child {
+        padding-left: 0;
+      }
+      > *:last-child {
+        padding-right: 0;
+      }
+    }
+    @media (#{$responsivo}) {
+      @include flex-wrap;
+      width: calc(100% + #{$calha});
+      margin-left: -$margem-field;
+    }
+  }
+}
+
+// =============================================================================
+// LARGURAS DOS CAMPOS DE FIELD
+// -----------------------------------------------------------------------------
+// Configura os elementos field (ainda sem personalização). Gera classes
+// automaticamente. O uso da classe "field" ocorre por conta do padrão do
+// Rails que faz uso dessa classe.
+// =============================================================================
+//
+// -----------------------------------------------------------------------------
+// VARIÁVEL | PADDING
+// -----------------------------------------------------------------------------
+$field-pd: 0 $margem-field $calha;
+
+// -----------------------------------------------------------------------------
+// FIELDS
+// -----------------------------------------------------------------------------
+// Gera as classes básicas automaticamente. Para personalização dos elementos,
+// vá abaixo. O ideal é formatar o mesmo elemento que recebe o .form-container
+// -----------------------------------------------------------------------------
+$max: 12;
+$medida: 100% / $max;
+
+@if index($uso-classes, form-grupo) {
+/*
+--------------------------------------------------------------------------------
+FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
+--------------------------------------------------------------------------------
+*/
+  //	Cada um dos fields gerado automaticamente
+  @for $i from 1 through $max {
+    .field-#{$i} {
+      padding: $field-pd;
+      width: $medida * $i;
+      @extend %field--responsivo;
+    }
+  }
+  .field {
+    padding: $field-pd;
+    @include flex(1);
+    @extend %field--responsivo;
+  }
+  .field-0 {
+    padding: $field-pd;
+  }
+  .field--responsivo {
+    @include media-tipo(pequeno, max) {
+      min-width: 100%;
+    }
+  }
+  @if index($uso-classes, form-grupo-responsivo) {
+    // Responsivo automático
+    @media (#{$responsivo}) {
+      %field-menor {
+        padding: $field-pd;
+        width: $medida * ($max / 2);
+      }
+      %field-maior {
+        padding: $field-pd;
+        width: $medida * $max;
+      }
+      @for $i from 1 through ($max / 2) {
+        .field-#{$i} {
+          @extend %field-menor;
+        }
+      }
+      @for $i from ($max / 2) + 1 through $max {
+        .field-#{$i} {
+          @extend %field-maior;
+        }
+      }
+    }
+  }
+  // Placeholder para filho responsivo
+  %field--responsivo {
+    .form-container--responsivo & {
+      @include media-tipo(pequeno, max) {
+        width: 100%;
+      }
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// PRE
+// -----------------------------------------------------------------------------
+// Gera classes de espaçamento entre as colunas do formulário.
+// -----------------------------------------------------------------------------
+@if index($uso-classes, form-pre) {
+  @for $i from 1 through $max - 1 {
+    .pre-#{$i} {
+      margin-left: $medida * $i;
+    }
+  }
+}

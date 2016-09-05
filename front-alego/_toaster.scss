@@ -1,0 +1,191 @@
+@if index($uso-classes, toaster) {
+/*
+================================================================================
+TOASTER
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// toaster.scss
+// Criado em: 20/03/2015
+// Última alteração em: 11/05/2016
+// -----------------------------------------------------------------------------
+// Notificações do sistema. Aparecendo de baixo.
+// -----------------------------------------------------------------------------
+// Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 13/04/2016 | Alterado esquema de cores para paleta única
+// 11/02/2016 | Toaster usa cores mais escuras
+// 28/01/2016 | Retirado o uso de placeholders para uso de mixins
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
+// 17/11/2015 | Utilizada nova forma chamar as classes
+// 05/11/2015 | Incluído fundo branco no toaster de linha
+// 04/11/2015 | Alteração para os novos padrões.
+// 						  Opção de escolha entre dois modelos.
+// 20/03/2015 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$toaster-tipo: tipo-1 !default; // 2 tipos
+$toaster-horizontal: right !default;
+$toaster-vertical: bottom !default;
+$toaster-distancia: 2em !default;
+$toaster-distancia-vertical: 1 !default;
+
+// =============================================================================
+// CORES TOASTER
+// -----------------------------------------------------------------------------
+// Lista as cores do status
+// =============================================================================
+$tipos-toaster: (
+	success: sucesso,
+	error: erro,
+	alert: alerta,
+	info: notice,
+);
+
+// =============================================================================
+// MIXIN | Básico
+// =============================================================================
+@mixin toaster--base($tag: basico) {
+	// ---------------------------------------------------------------------------
+	// BASICO
+	// ---------------------------------------------------------------------------
+	@if $tag == basico {
+		@include lista-sem-marcador;
+		position: fixed;
+		margin: 0;
+		width: rem(300);
+		#{$toaster-horizontal}: $toaster-distancia;
+		#{$toaster-vertical}: $toaster-distancia * $toaster-distancia-vertical;
+		z-index: z(toaster);
+	}
+	// ---------------------------------------------------------------------------
+	// LI
+	// ---------------------------------------------------------------------------
+	@else if $tag == li {
+		position: relative;
+		padding: 1.5em;
+		font-family: $fonte-sem-serifa;
+		text-align: center;
+		box-shadow: $sombra-toaster;
+		line-height: 1;
+		@if $toaster-vertical == "top" {
+			margin-bottom: $toaster-distancia * .75;
+		} @else if $toaster-vertical == "bottom" {
+			margin-top: $toaster-distancia * .75;
+		}
+	}
+	// ---------------------------------------------------------------------------
+	// .close
+	// ---------------------------------------------------------------------------
+	@else if $tag == close {
+		transition: $transition;
+		cursor: pointer;
+		position: absolute;
+		right: 1em;
+		top: -.8em;
+		display: block;
+		box-shadow: $sombra-toaster;
+		background: cor(fundo, x-claro);
+		font-weight: bold;
+		font-size: 1.2em;
+		line-height: 1;
+	}
+}
+// =============================================================================
+// MIXIN | TIPOS
+// =============================================================================
+@mixin toaster($tipo) {
+	@include toaster--base;
+	// ---------------------------------------------------------------------------
+	// TIPO 1
+	// ---------------------------------------------------------------------------
+	@if $tipo == tipo-1 {
+		li {
+			@include toaster--base(li);
+			color: cor(texto, claro);
+			text-shadow: $sombra-texto;
+		}
+		.close {
+			@include toaster--base(close);
+			border: 0;
+		}
+	}
+	// ---------------------------------------------------------------------------
+	// TIPO 2
+	// ---------------------------------------------------------------------------
+	@else if $tipo == tipo-2 {
+		li {
+			@include toaster--base(li);
+			border: 3px solid;
+			background: cor(fundo, x-claro);
+		}
+		.close {
+			@include toaster--base(close);
+			border: 1px solid;
+		}
+	}
+}
+// =============================================================================
+// CLASSES | cores de toast
+// =============================================================================
+@if index($uso-classes, toaster) {
+  @each $status, $classe in $tipos-toaster {
+		%toaster {
+  		.#{$status} {
+  			.close {
+  				color: cor-status($classe);
+  				&:hover {
+  					background: cor-status(#{$classe}, escuro, 25%);
+						color: cor(texto, claro);
+  				}
+  			}
+  		}
+		}
+		%toaster--tipo-1 {
+			.#{$status} {
+				background: cor-status($classe);
+			}
+		}
+		%toaster--tipo-2 {
+			.#{$status} {
+				color: cor-status(#{$classe}, escuro, 25%);
+			}
+		}
+  }
+}
+
+// =============================================================================
+// CLASSES | .toast montado
+// =============================================================================
+@if index($uso-classes, toaster) {
+  .toast {
+		@include toaster($toaster-tipo);
+		@each $status, $classe in $tipos-toaster {
+			.#{$status} {
+				@if $toaster-tipo == tipo-1 {
+					background: cor-status(#{$classe}, escuro, 15%);
+				}
+				@else if $toaster-tipo == tipo-2 {
+					color: cor-status(#{$classe}, escuro, 25%);
+				}
+				.close {
+					color: cor-status($classe);
+					&:hover {
+						background: cor-status(#{$classe}, escuro, 25%);
+						color: cor(texto, claro);
+					}
+				}
+			}
+	  }
+  }
+}

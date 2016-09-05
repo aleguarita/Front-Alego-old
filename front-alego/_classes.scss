@@ -1,0 +1,137 @@
+/*
+================================================================================
+CLASSES FIXAS
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// classes.scss
+// Criado em: 21/10/2015
+// Alterado em: 18/07/2016
+// -----------------------------------------------------------------------------
+// Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
+// sistema.
+// -----------------------------------------------------------------------------
+// Changelog
+// 18/07/2016 | Ajuste das margens inferior e superior
+// 15/07/2016 | Inclusão das classes de margen inferior e superior
+// 14/07/2016 | Ajustes no tamanho da fonte das variações --menor e --maior
+//              Acréscimo da classe .texto--caixa-baixa
+// 21/06/2016 | Acrescentei !important nas classes de oculta pois o flex do
+//              elemento pai sobrepunha o dessas classes
+// 02/06/2016 | Acrescentada a classe .oculta--pequeno e .oculta--medio
+// 04/05/2016 | Retirado uso da função cor-status() e substituído por paleta()
+// 14/03/2016 | Correção da classe .text-- para .texto--
+// 19/01/2016 | Mudada a ordem do placeholder para ficar mais próximo da classe
+//              gerada
+// 06/01/2016 | Acrescentadas variações de texto e fundo --urgente
+// 08/12/2015 | Tiradas classes da tipografia e inseridas aqui
+//              Criada classe "pointer"
+// 21/10/2015 | Criado o arquivo com as classes básicas
+// =============================================================================
+
+.oculta {
+  display: none;
+  &--pequeno {
+    @include media-tipo(pequeno, max) {
+      display: none !important; // para evitar sobreposição do display: flex no elemento pai
+    }
+  }
+  &--medio {
+    @include media-tipo(medio, max) {
+      display: none !important; // para evitar sobreposição do display: flex no elemento pai
+    }
+  }
+}
+.exibe {
+  &--pequeno {
+    @include media-tipo(pequeno) {
+      display: none !important; // para evitar sobreposição do display: flex no elemento pai
+    }
+  }
+  &--medio {
+    @include media-tipo(medio) {
+      display: none !important; // para evitar sobreposição do display: flex no elemento pai
+    }
+  }
+}
+.pointer {
+  cursor: pointer;
+}
+
+// =============================================================================
+// CORES DE SISTEMA
+// =============================================================================
+.texto--ok {
+	color: paleta(ok);
+}
+.texto--erro, .texto--urgente {
+	color: paleta(erro);
+}
+.texto--alerta {
+	color: paleta(alerta);
+}
+%texto-status--claro {
+  color: cor(texto, claro);
+}
+.fundo--ok {
+	background: paleta(ok);
+	@extend %texto-status--claro;
+}
+.fundo--erro, .fundo--urgente {
+	background: paleta(erro);
+	@extend %texto-status--claro;
+}
+.fundo--alerta {
+	background: paleta(alerta);
+	@extend %texto-status--claro;
+}
+
+// =============================================================================
+// TIPOGRAFIA
+// =============================================================================
+.texto--caixa-alta, .texto--uppercase {
+	text-transform: uppercase;
+}
+.texto--caixa-baixa, .texto--lowercase {
+  text-transform: lowercase;
+}
+// -----------------------------------------------------------------------------
+// TAMANHO DAS FONTES
+// -----------------------------------------------------------------------------
+$tamanho-fonte: (
+	menor: .85em,
+	x-menor: .75em,
+	xx-menor: .5em,
+	maior: 1.15em,
+	x-maior: 1.25em,
+	xx-maior: 1.5em,
+);
+
+@each $classe, $tamanho in $tamanho-fonte {
+	.fonte--#{$classe}, .texto--#{$classe} {
+		font-size: $tamanho;
+	}
+}
+// =============================================================================
+// MARGENS
+// =============================================================================
+.margem {
+  &--inferior {
+    margin-bottom: 1em;
+  }
+  &--superior {
+    margin-top: 1em;
+  }
+  // ---------------------------------------------------------------------------
+  // Por alguma razão, um elemento com margin-top que aparece DEPOIS de um com
+  // margin-bottom pega apenas o valor maior. Este seletor tem o objetivo de
+  // corrigir isso
+  // ---------------------------------------------------------------------------
+  &--inferior + &--superior {
+    margin-top: 2em;
+  }
+}

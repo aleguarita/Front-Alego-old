@@ -1,0 +1,206 @@
+@if index($uso-classes, modal) {
+/*
+================================================================================
+MODAL
+================================================================================
+*/
+}
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// modal.scss
+// Criado em: 01/07/2015
+// Última alteraçãom em: 02/09/2016
+// -----------------------------------------------------------------------------
+// Definição dos padrões de modal
+// -----------------------------------------------------------------------------
+// Changelog:
+// 02/09/2016 | Corrigido o erro que desabilitava o mouse em toda a modal
+// 18/08/2016 | Top e Left utiliza do viewport para posicionamento
+//              Agora utiliza o mixin overlay
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 18/04/2016 | Incluída uma borda transparente quando usar o tema alto-contraste
+// 11/02/2016 | Ajustado espaço do botão de fechar no tipo-1
+//              Acrescentado tamanho mínimo da janela
+// 10/02/2016 | Retirado mapa de classes
+//              Inclusão de variável para transparência
+// 26/01/2016 | Retirado os placeholders
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
+// 17/11/2015 | Utilizada nova forma chamar as classes
+// 05/11/2015 | Adaptado para o novo padrão
+//              Inclusão de dois modelos
+// 01/07/2015 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$modal-tipo: tipo-1 !default; // 2 tipos
+$modal-transparencia: .15 !default; // entre 0 e 1
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$padding-modal-interno: $margem * 2;
+
+// =============================================================================
+// MIXIN | Configurações básicas
+// =============================================================================
+@mixin modal-estrutura($tag: basico) {
+  // ---------------------------------------------------------------------------
+  // BÁSICO
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    @include overlay;
+    pointer-events: none;
+    background: fade-out(cor(modal, fundo), $modal-transparencia);
+    z-index: z(modal);
+  }
+  // ---------------------------------------------------------------------------
+  // JANELA
+  // ---------------------------------------------------------------------------
+  @else if $tag == janela {
+    @include centraliza-caixa;
+    @include display-flex;
+    @include flex-direction;
+    background: cor(fundo, x-claro);
+    box-shadow: $sombra-modal;
+    overflow: auto;
+    pointer-events: all;
+    @if $cores-tema == "alto-contraste" {
+      border: 1px solid fade-out(cor(fundo, escuro), .8);
+    }
+    @include media-tipo(medio, max) {
+      width: 100%;
+      height: 100%;
+    }
+    @include media-tipo(medio) {
+      max-width: 85%;
+      min-width: 25em;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TÍTULO - container
+  // ---------------------------------------------------------------------------
+  @else if $tag == titulo {
+    padding: $margem $padding-modal-interno;
+  }
+  // ---------------------------------------------------------------------------
+  // TÍTULO - H1
+  // ---------------------------------------------------------------------------
+  @else if $tag == h1 {
+    text-transform: uppercase;
+    font-size: rem(22);
+  }
+  // ---------------------------------------------------------------------------
+  // FECHAR - tag a
+  // ---------------------------------------------------------------------------
+  @else if $tag == fechar {
+    @include link(bloco);
+    transition: $transition;
+  }
+  // ---------------------------------------------------------------------------
+  // CONTEUDO
+  // ---------------------------------------------------------------------------
+  @else if $tag == conteudo {
+    @include flex-grow(1);
+    padding: $padding-modal-interno;
+  }
+  // -----------------------------------------------------------------------------
+  // ACOES
+  // -----------------------------------------------------------------------------
+  @else if $tag == acoes {
+    padding: $padding-modal-interno;
+    text-align: right;
+    * + * {
+      margin-left: $padding-modal-interno;
+    }
+  }
+}
+
+// =============================================================================
+// MIXIN | Tipos
+// =============================================================================
+@mixin modal($tipo) {
+  @include modal-estrutura;
+  &__janela {
+    @include modal-estrutura(janela);
+  }
+  &__conteudo {
+    @include modal-estrutura(conteudo);
+  }
+  &__acoes {
+    @include modal-estrutura(acoes);
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    &__titulo {
+      @include modal-estrutura(titulo);
+      @include display-flex;
+      @include align-items(baseline);
+      background: cor(modal, titulo-fundo);
+      h1 {
+        @include modal-estrutura(h1);
+        @include flex-grow(1);
+        color: cor(texto, claro);
+        margin: 0;
+        font-family: $fonte-sem-serifa;
+      }
+    }
+    &__fechar {
+      padding-left: $padding-modal-interno;
+      a {
+        @include modal-estrutura(fechar);
+        color: cor(texto, claro);
+        &:hover {
+          text-shadow: 0 0 7px fade-out(cor(fundo, sombra), .3);
+        }
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-2 {
+    &__titulo {
+      @include modal-estrutura(titulo);
+      h1 {
+        @include modal-estrutura(h1);
+        text-align: center;
+        color: cor(modal, titulo-texto);
+        width: calc(100% - #{$padding-modal-interno});
+      }
+    }
+    &__fechar {
+      position: fixed;
+      right: $padding-modal-interno;
+      top: 1rem;
+      a {
+        @include modal-estrutura(fechar);
+        padding: .3em .5em;
+        font-size: 60%;
+        color: cor(modal, titulo-texto);
+        &:hover {
+          box-shadow: $sombra-botao;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// CLASSES
+// =============================================================================
+@if index($uso-classes, modal) {
+  .modal--oculta {
+    display: none;
+  }
+  .modal {
+    @include modal($modal-tipo);
+  }
+}

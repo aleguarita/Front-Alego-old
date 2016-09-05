@@ -1,0 +1,101 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   Alterado: Alessandro Guarita em 28/03/2016
+*/
+// Alterações:
+// 14/07/2016 - inclusão do tamanho básico da fonte para os elementos pai
+// 14/04/2016 - acrescentado cor no fundo para adequar aos temas
+// 28/03/2016 - agrupamento dos título
+// 14/01/2016 - eliminados elementos que eram resetados por padrão
+// 						  (strong que fica sem negrito), tirad a lista de ol, ul. Imagem responsiva
+// 01/02/2016 - configurações de tipografia movidos para cá
+
+// =============================================================================
+// VARIÁVEIS BÁSICAS
+// =============================================================================
+$modular-scale-ratio: $major-second !default;
+$modular-font-size: 1.2em !default; // Tamanho da fonte básica
+$tamanho-fonte-textos: 1em !default; // Evite alterar, altere a variável acima, no entanto
+$tamanho-fonte-padrao: modular-scale(-3, $modular-font-size) !default;
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, main {
+	margin: 0;
+	// padding: 0;
+	// font-size: 100%;
+	// vertical-align: baseline;
+}
+// HTML5 display-role reset for older browsers
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+	display: block;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+* {
+	box-sizing: border-box;
+}
+img {
+	max-width: 100%;
+}
+// =============================================================================
+// ALTERAÇÕES DOS TAGS
+// -----------------------------------------------------------------------------
+// Alteração básica. Evite alterar demais para que isso não afete em cascata
+// É preferível o uso de classes para isso (no final do arquivo)
+// =============================================================================
+body {
+	color: cor(texto);
+	background: cor(fundo, x-claro);
+	font-family: $fonte-sem-serifa;
+	word-wrap: break-word;
+	// Coloca o tamanho da fonte padrão para elementos pai
+	> div, > object, > iframe, > blockquote, > code, > form,
+	> article, > aside, > canvas, > embed, > figure, > footer, > header,
+	> menu, > nav, > section, > main {
+		font-size: $tamanho-fonte-padrao;
+	}
+}
+%titulo { @include texto(titulo); }
+h1 {
+	@extend %titulo;
+	font-size: modular-scale(5, $modular-font-size);
+}
+h2 {
+	@extend %titulo;
+	font-size: modular-scale(4, $modular-font-size);
+}
+h3 {
+	@extend %titulo;
+	font-size: modular-scale(3, $modular-font-size);
+}
+h4 {
+	@extend %titulo;
+	font-size: modular-scale(2, $modular-font-size);
+}
+h5 {
+	@extend %titulo;
+	font-size: modular-scale(1, $modular-font-size);
+}
+h6 {
+	@extend %titulo;
+	font-size: modular-scale(0, $modular-font-size);
+}
+p, ul, ol, dl, table, blockquote, {
+	@include texto(padrao);
+}
+a {
+	color: cor(link);
+	&:hover {
+		color: cor(link, hover);
+	}
+}

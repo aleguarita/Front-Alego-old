@@ -1,0 +1,206 @@
+@if index($uso-classes, paginacao) {
+/*
+================================================================================
+PAGINAÇÃO
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// paginacao.scss
+// Criado em: 07/04/2015
+// Última alteração: 14/07/2016
+// -----------------------------------------------------------------------------
+// Definição da paginação. Formata o tipo padrão gerado pelo Rails.
+// -----------------------------------------------------------------------------
+// Changelog
+// 14/07/2016 | Alteração da fonte padrão de "rem" para "em"
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 18/04/2016 | Retirada a cor de fundo o item para melhor se adequar a outros
+// 							temas
+// 26/01/2016 | Substituídos placeholders por mixins
+// 03/12/2015 | Reduzida a paleta para 3 elementos
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
+// 17/11/2015 | Utilizada nova forma chamar as classes
+// 20/10/2015 | Inclusão de arquivo separado para o sistema
+// 						  Configurações básicas transferidas para base/config.scss
+// 21/08/2015 | Colocado dentro do padrão. Usando Flexbox
+// 07/04/2015 | Criação do básico para trabalhar
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$paginacao-tipo: tipo-1 !default; // 2 tipos
+$paginacao-posicao: center !default;
+$paginacao-fonte: .75em !default;
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
+
+// =============================================================================
+// MIXIN BASE
+// =============================================================================
+@mixin paginacao-base($tag: basico) {
+	// ---------------------------------------------------------------------------
+	// BÁSICO
+	// ---------------------------------------------------------------------------
+	@if $tag == basico {
+		@include display-flex;
+		@include justify-content($paginacao-posicao);
+		@include align-items(flex-end);
+		font-size: $paginacao-fonte;
+		padding: .5rem 0;
+	}
+	// ---------------------------------------------------------------------------
+	// ITEM GERAL
+	// ---------------------------------------------------------------------------
+	@else if $tag == item {
+		color: cor(paginacao);
+	}
+	// ---------------------------------------------------------------------------
+	// ELEMENTO ATIVO
+	// ---------------------------------------------------------------------------
+	@else if $tag == ativo {
+		font-weight: bold;
+	}
+	// ---------------------------------------------------------------------------
+	// NAVEGAÇÃO
+	// ---------------------------------------------------------------------------
+	@else if $tag == navegacao {
+		font-size: .95em;
+	}
+	// ---------------------------------------------------------------------------
+	// GAP
+	// ---------------------------------------------------------------------------
+	@else if $tag == gap {
+		padding: $paginacao-padding;
+		color: cor(paginacao, escura);
+	}
+	// ---------------------------------------------------------------------------
+	// A
+	// ---------------------------------------------------------------------------
+	@else if $tag == a {
+		@include link(bloco);
+		color: cor(paginacao);
+		padding: $paginacao-padding;
+	}
+	// ---------------------------------------------------------------------------
+	// CURRENT
+	// ---------------------------------------------------------------------------
+	@else if $tag == current {
+		z-index: 2;
+		padding: $paginacao-padding;
+	}
+}
+
+// =============================================================================
+// MIXIN TIPOS
+// =============================================================================
+@mixin paginacao($tipo) {
+	@include paginacao-base;
+	// ---------------------------------------------------------------------------
+	// TIPO 1
+	// ---------------------------------------------------------------------------
+	@if $tipo == tipo-1 {
+		// Itens gerais
+		// -------------------------------------------------------------------------
+		@at-root {
+			%paginacao-item--tipo-1 {
+				@include paginacao-base(item);
+				border-bottom: 2px solid transparent;
+			}
+		}
+		// CLASSES
+		// -------------------------------------------------------------------------
+		.gap {
+			@extend %paginacao-item--tipo-1;
+			@include paginacao-base(gap);
+		}
+		.prev, .first, .next, .last {
+			@include paginacao-base(navegacao);
+		}
+		.current {
+			@extend %paginacao-item--tipo-1;
+			@include paginacao-base(ativo);
+			@include paginacao-base(current);
+			box-shadow: $sombra-botao;
+			border-bottom-color: cor(paginacao);
+		}
+		// TAGS
+		// -------------------------------------------------------------------------
+		a {
+			@extend %paginacao-item--tipo-1;
+			@include paginacao-base(a);
+			&:hover {
+				@include paginacao-base(ativo);
+				border-bottom-color: cor(paginacao);
+			}
+		}
+	}
+	// ---------------------------------------------------------------------------
+	// TIPO 2
+	// ---------------------------------------------------------------------------
+	@else if $tipo == tipo-2 {
+		// Itens gerais
+		// -------------------------------------------------------------------------
+		$borda-paginacao: 1px solid cor(paginacao, clara);
+		@at-root {
+			%paginacao-item--tipo-2 {
+				@include paginacao-base(item);
+				border-top: $borda-paginacao;
+				border-bottom: $borda-paginacao;
+			}
+		}
+		// CLASSES
+		// -------------------------------------------------------------------------
+		.gap {
+			@extend %paginacao-item--tipo-2;
+			@include paginacao-base(gap);
+			border-left: $borda-paginacao;
+			border-right: $borda-paginacao;
+		}
+		.prev, .first, .next, .last {
+			@include paginacao-base(navegacao);
+		}
+		.prev, .first, .next {
+			border-left: $borda-paginacao;
+		}
+		.next, .last, .prev {
+			border-right: $borda-paginacao;
+		}
+		.current {
+			@extend %paginacao-item--tipo-2;
+			@include paginacao-base(ativo);
+			@include paginacao-base(current);
+			outline: 2px solid cor(paginacao, escura);
+			box-shadow: 0 0 8px cor(fundo, sombra);
+		}
+		// TAGS
+		// -------------------------------------------------------------------------
+		a {
+			@extend %paginacao-item--tipo-2;
+			@include paginacao-base(a);
+			&:hover {
+				background: cor(paginacao, escura);
+				color: cor(texto, claro);
+			}
+		}
+	}
+}
+
+// =============================================================================
+// CLASSE MONTADA
+// =============================================================================
+@if index($uso-classes, paginacao) {
+	.pagination {
+		@include paginacao($paginacao-tipo);
+	}
+}

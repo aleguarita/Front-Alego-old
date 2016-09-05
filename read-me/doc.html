@@ -30,7 +30,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__regras">
               <span class="secao-lista__titulo">Básico</span>
-              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+              <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -44,7 +44,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__config">
               <span class="secao-lista__titulo">Configurações</span>
-              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+              <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -64,7 +64,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__elementos">
               <span class="secao-lista__titulo">Elementos</span>
-              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+              <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -81,6 +81,8 @@
             <li><a href="#toaster">Toaster</a></li>
             <li><a href="#secao-lista">Seção Lista</a></li>
             <li><a href="#abas">Abas</a></li>
+            <li><a href="#tela-mensagem">Telas de Mensagem</a></li>
+            <li><a href="#datepicker">Datepicker</a></li>
           </ul>
         </div>
         <div class="menu__grupo">
@@ -88,11 +90,13 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__pg">
               <span class="secao-lista__titulo">Exemplos</span>
-              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+              <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
             <li><a href="#admin">Admin</a></li>
+            <li><a href="#permissao">Tela de Permissão</a></li>
+            <li><a href="#loading">Loading</a></li>
             <li><a href="#caixa-check">Caixas clicáveis</a></li>
           </ul>
         </div>
@@ -101,7 +105,7 @@
           <div class="menu__subtitulo lista__titulo">
             <label for="menu__listas">
               <span class="secao-lista__titulo">Listas</span>
-              <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+              <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
             </label>
           </div>
           <ul class="lista--link">
@@ -145,9 +149,13 @@
     $.get("doc/toaster.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/secao-lista.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/abas.html", '', function (data) { $(".principal").append(data); });
+    $.get("doc/tela_mensagem.html", '', function (data) { $(".principal").append(data); });
+    $.get("doc/datepicker.html", '', function (data) { $(".principal").append(data); });
 
     $.get("doc/admin.html", '', function (data) { $(".principal").append(data); });
+    $.get("doc/permissao.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/caixa-check.html", '', function (data) { $(".principal").append(data); });
+    $.get("doc/loading.html", '', function (data) { $(".principal").append(data); });
 
     $.get("doc/funcoes.html", '', function (data) { $(".principal").append(data); });
     $.get("doc/mixins.html", '', function (data) { $(".principal").append(data); });

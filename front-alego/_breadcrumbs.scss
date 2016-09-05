@@ -1,0 +1,136 @@
+@if index($uso-classes, breadcrumb) {
+/*
+================================================================================
+BREADCRUMBS
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// breadcrumbs.scss
+// Criado em: 27/10/2015
+// Última alteração em: 11/05/2016
+// -----------------------------------------------------------------------------
+// Definições padrão de breadcrumbs e classes modelo
+// ATENÇÃO: a forma como o breadcrumb é chamado deve ser editado direto na view
+// e deve ser:
+// <ul class="breadcrumbs">
+//     <%= render_breadcrumbs :tag => :li, :separator => "" %>
+// </ul>
+// -----------------------------------------------------------------------------
+// Changelog
+// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
+//              evitar incompatibilidade no caso de atualizações do config.scss
+// 19/04/2016 | Ajuste para evitar que o tipo 1 fique dançando
+// 18/01/2016 | Abandonado uso de @extend
+// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
+// 							por tipo
+// 17/11/2015 | Utilizada nova forma chamar as classes
+// 27/10/2015 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$breadcrumbs-tipo: tipo-1 !default; // 2 tipos
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$breadcrumbs--box__padding: .25em .5em;
+
+// =============================================================================
+// MIXIN | BÁSICO
+// =============================================================================
+@mixin breadcrumbs-basico($tag: basico) {
+  // ---------------------------------------------------------------------------
+  // DEFINE A RAÍZ
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    @include lista-sem-marcador(flex);
+    font-size: rem(11);
+  }
+  // ---------------------------------------------------------------------------
+  // DEFINE O TAG A
+  // ---------------------------------------------------------------------------
+  @else if $tag == a {
+    @include link(bloco);
+    color: inherit;
+  }
+  // ---------------------------------------------------------------------------
+  // DEFINE O TAG LI
+  // ---------------------------------------------------------------------------
+  @else if $tag == li {
+    color: cor(breadcrumbs, link);
+    &:last-child {
+      color: cor(breadcrumbs, atual);
+      font-weight: bold;
+    }
+  }
+}
+
+// =============================================================================
+// PLACEHOLDER | TIPOS
+// =============================================================================
+@mixin breadcrumbs($tipo) {
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    @include breadcrumbs-basico;
+    li {
+      @include breadcrumbs-basico(li);
+      padding-left: .2em;
+    }
+    a {
+      border-bottom: 1px dotted transparent;
+      @include breadcrumbs-basico(a);
+      &::after {
+        content: " > ";
+        font-weight: bold;
+        margin-left: .2em;
+        margin-right: .2em;
+      }
+      &:hover {
+        border-bottom-color: inherit;
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @else if $tipo == tipo-2 {
+    @include breadcrumbs-basico;
+    li {
+      @include breadcrumbs-basico(li);
+      border: 1px solid;
+      &:last-child {
+        outline: 1px solid;
+        padding: $breadcrumbs--box__padding;
+      }
+      &:not(:last-child) {
+        border-right-width: 0;
+      }
+    }
+    a {
+      @include breadcrumbs-basico(a);
+      padding: $breadcrumbs--box__padding;
+      &:hover {
+        background: cor(breadcrumbs, link);
+        color: cor(texto, claro);
+      }
+    }
+  }
+}
+
+// =============================================================================
+// CLASSE MONTADA
+// =============================================================================
+@if index($uso-classes, breadcrumb) {
+  .breadcrumbs {
+    @include breadcrumbs($breadcrumbs-tipo);
+  }
+}

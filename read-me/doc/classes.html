@@ -1,21 +1,29 @@
 <article id="classes">
   <header>
     <h1>Classes globais</h1>
-    <p><samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_classes.scss</samp></p>
+    <p><samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> base/_classes.scss</samp></p>
   </header>
   <section class="secao-lista">
     <input type="checkbox" id="classes__doc" class="secao-lista__check">
     <header class="secao-lista__header">
       <label for="classes__doc">
         <span class="secao-lista__titulo">Documentação</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="../svg/basico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
     <section class="secao-lista__conteudo">
-      <p>Além das inúmeras classes geradas em vários outros arquivos, o arquivo <samp class="local"><svg class="ico"><use xlink:href="../svg/basico.svg#documento" /></svg> base/_classes.scss</samp> contém várias classes globais comum a todos os sistemas da Alego. Em seu projeto, quando criar classes genéricas (a exemplo da <samp>.oculta</samp>), faça dentro de um arquivo <samp>_classes.scss</samp> na pasta <samp>extra</samp>.</p>
+      <p>Além das inúmeras classes geradas em vários outros arquivos, o arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> base/_classes.scss</samp> contém várias classes globais comum a todos os sistemas da Alego. Em seu projeto, quando criar classes genéricas (a exemplo da <samp>.oculta</samp>), faça dentro de um arquivo <samp>_classes.scss</samp> na pasta <samp>extra</samp>.</p>
       <dl class="lista-definicao">
         <dt><samp>.oculta</samp></dt>
           <dd>Some com o elemento que usar esta classe. Usada, normalmente com script que acrescenta essa classe</dd>
+        <dt><samp>.oculta--pequeno</samp></dt>
+          <dd>Some com o elemento em telas pequenas</dd>
+        <dt><samp>.oculta--medio</samp></dt>
+          <dd>Some com o elemento em telas pequenas e médias</dd>
+        <dt><samp>.exibe--pequeno</samp></dt>
+          <dd>Exibe o elemento <strong>apenas</strong> em telas pequenas (usa <samp>display: none</samp> para telas maiores, possibilitando o uso de qualquer <samp>display</samp> em telas pequenas)</dd>
+        <dt><samp>.exibe--medio</samp></dt>
+          <dd>Exibe o elemento em telas pequenas e médias e <strong>oculta</strong> em maiores que isso (usa <samp>display: none</samp> para telas maiores, possibilitando o uso de qualquer <samp>display</samp> em telas pequenas)</dd>
         <dt><samp>.pointer</samp></dt>
           <dd class="pointer">O elemento ganha o cursor de link quando passa o mouse por cima. Passe o mouse por cima deste texto para ver</dd>
       </dl>
@@ -36,18 +44,26 @@
       <dl class="lista-definicao">
         <dt><samp>.texto--caixa-alta</samp><br /><samp>.texto--uppercase</samp></dt>
           <dd>Deixa o texto em caixa alta. <span class="texto--uppercase">O resultado é assim</span></dd>
+        <dt><samp>.texto--caixa-baixa</samp><br /><samp>.texto--lowercase</samp></dt>
+          <dd>Deixa o texto em caixa alta. <span class="texto--lowercase">O resultado é assim</span></dd>
         <dt><samp>.fonte--menor</samp><br /><samp>.texto--menor</samp></dt>
-          <dd>Diminui o tamanho da fonte 1 passo através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele diminui utilizando <samp>em</samp>. <span class="fonte--menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
+          <dd>Diminui o tamanho da fonte em 15%. <span class="fonte--menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
         <dt><samp>.fonte--x-menor<br /><samp>.texto--x-menor</samp></samp></dt>
-          <dd>Diminui o tamanho da fonte 2 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele diminui utilizando <samp>em</samp>. <span class="fonte--x-menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
+          <dd>Diminui o tamanho da fonte em 25%. <span class="fonte--x-menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
         <dt><samp>.fonte--xx-menor</samp><br /><samp>.texto--xx-menor</samp></dt>
-          <dd>Diminui o tamanho da fonte 3 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele diminui utilizando <samp>em</samp>. <span class="fonte--xx-menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
+          <dd>Diminui o tamanho da fonte em 50%. <span class="fonte--xx-menor">Este é o resultado diminuindo o tamanho da fonte da lista atual</span></dd>
         <dt><samp>.fonte--maior</samp><br /><samp>.texto--maior</samp></dt>
-          <dd>Aumenta o tamanho da fonte 1 passo através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
+          <dd>Aumenta o tamanho da fonte em 15%. <span class="fonte--maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
         <dt><samp>.fonte--x-maior</samp><br /><samp>.texto--x-maior</samp></dt>
-          <dd>Aumenta o tamanho da fonte 2 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--x-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
+          <dd>Aumenta o tamanho da fonte em 25%. <span class="fonte--x-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
         <dt><samp>.fonte--xx-maior</samp><br /><samp>.texto--xx-maior</samp></dt>
-          <dd>Aumenta o tamanho da fonte 3 passos através de <a href="http://bourbon.io/docs/#modular-scale" class="link--externo" target="_blank">modular scale, do Bourbon</a>. Utilize em tags inline (como <samp>span</samp>) pois ele aumenta utilizando <samp>em</samp>. <span class="fonte--xx-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
+          <dd>Aumenta o tamanho da fonte em 50%. <span class="fonte--xx-maior">Este é o resultado aumentando o tamanho da fonte da lista atual</span></dd>
+      </dl>
+      <dl class="lista-definicao">
+        <dt><samp>.margem--inferior</samp></dt>
+          <dd>Coloca o espaço de uma linha depois do elemento (<samp>1em;</samp>)</dd>
+        <dt><samp>.margem--superior</samp></dt>
+          <dd>Coloca o espaço de uma linha antes do elemento (<samp>1em;</samp>)</dd>
       </dl>
     </section>
   </section>

@@ -1,0 +1,362 @@
+@if index($uso-classes, datepicker) {
+/*
+================================================================================
+DATEPICKER
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// datepicker.scss
+// Criado em: 06/05/2016
+// Alterado em: 24/06/2016
+// -----------------------------------------------------------------------------
+// Este arquivo formata o datepicker padrão do jquery
+// ----------------------------------------------------------------------------
+// Changelog
+// 24/06/2016 | Centralizando o conteúdo do header
+// 06/05/2016 | Criação do arquivo
+// =============================================================================
+
+// =============================================================================
+// SVG - como usar no ::before
+// =============================================================================
+// 1. Crie a imagem no Illustrator
+// 2. Exporte cada pedaço como SVG
+// 3. Vá em http://petercollingridge.appspot.com/svg-optimiser/ para otimizar
+// 4. Edite o SVG se for necessário.
+// 5. Nos objetos que vão mudar de cor conforme o elemento pai, use
+//    fill=currentColor
+// 6. Vá em http://meyerweb.com/eric/tools/dencoder/ e cole o texto. Tire todos
+//    os espaços
+// 6. Clique em "encode"
+// 7. Copie e cole o código dentro das variáveis abaixo;
+// 8. Selecione as variáveis e mande substituir currentColor por #{$svg-cor}
+//    SELECIONAR É IMPORTANTE PRA NÃO SUBSTITUIR AQUI NESTE COMENTÁRIO
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$datepicker-tipo: tipo-3 !default;
+$datepicker-sombra: sim !default;
+$datepicker-arredondado: não !default;
+
+// =============================================================================
+// VARIÁVEIS | SVG
+// =============================================================================
+
+$svg-seta-tamanho: 9;
+// -----------------------------------------------------------------------------
+// ESCURA (APARECE EM FUNDO CLARO)
+// -----------------------------------------------------------------------------
+$svg-cor-escura: cor(formulario);
+$svg-seta-next-escura: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22#{$svg-seta-tamanho}%22%20viewBox%3D%220%200%208%2013%22%3E%3Cpath%20fill%3D%22#{$svg-cor-escura}%22%20d%3D%22M8%206.5c0%200.1%200%200.2-0.1%200.3L1.4%2012.9C1.4%2013%201.3%2013%201.1%2013c-0.1%200-0.2%200-0.3-0.1l-0.7-0.6C0%2012.1%200%2012%200%2011.9c0-0.1%200-0.2%200.1-0.3L5.6%206.5%200.1%201.4C0%201.3%200%201.2%200%201.1c0-0.1%200-0.2%200.1-0.3l0.7-0.7C0.9%200%201%200%201.1%200c0.1%200%200.2%200%200.3%200.1l6.5%206.1C8%206.3%208%206.4%208%206.5z%22%2F%3E%3C%2Fsvg%3E";
+$svg-seta-back-escura: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22#{$svg-seta-tamanho}%22%20viewBox%3D%220%200%208%2013%22%3E%3Cpath%20fill%3D%22#{$svg-cor-escura}%22%20d%3D%22M0%206.5c0-0.1%200-0.2%200.1-0.3L6.6%200.1C6.6%200%206.7%200%206.9%200c0.1%200%200.2%200%200.3%200.1l0.7%200.6C8%200.9%208%201%208%201.1%208%201.2%208%201.3%207.9%201.4L2.4%206.5l5.4%205.1C8%2011.7%208%2011.8%208%2011.9c0%200.1%200%200.2-0.1%200.3l-0.7%200.7C7.1%2013%207%2013%206.9%2013c-0.1%200-0.2%200-0.3-0.1L0.1%206.8C0%206.7%200%206.6%200%206.5z%22%2F%3E%3C%2Fsvg%3E";
+// -----------------------------------------------------------------------------
+// CLARA (APARECE EM FUNDO ESCURO)
+// -----------------------------------------------------------------------------
+$svg-cor-clara: cor(texto, claro);
+$svg-seta-next-clara: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22#{$svg-seta-tamanho}%22%20viewBox%3D%220%200%208%2013%22%3E%3Cpath%20fill%3D%22#{$svg-cor-clara}%22%20d%3D%22M8%206.5c0%200.1%200%200.2-0.1%200.3L1.4%2012.9C1.4%2013%201.3%2013%201.1%2013c-0.1%200-0.2%200-0.3-0.1l-0.7-0.6C0%2012.1%200%2012%200%2011.9c0-0.1%200-0.2%200.1-0.3L5.6%206.5%200.1%201.4C0%201.3%200%201.2%200%201.1c0-0.1%200-0.2%200.1-0.3l0.7-0.7C0.9%200%201%200%201.1%200c0.1%200%200.2%200%200.3%200.1l6.5%206.1C8%206.3%208%206.4%208%206.5z%22%2F%3E%3C%2Fsvg%3E";
+$svg-seta-back-clara: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%22#{$svg-seta-tamanho}%22%20viewBox%3D%220%200%208%2013%22%3E%3Cpath%20fill%3D%22#{$svg-cor-clara}%22%20d%3D%22M0%206.5c0-0.1%200-0.2%200.1-0.3L6.6%200.1C6.6%200%206.7%200%206.9%200c0.1%200%200.2%200%200.3%200.1l0.7%200.6C8%200.9%208%201%208%201.1%208%201.2%208%201.3%207.9%201.4L2.4%206.5l5.4%205.1C8%2011.7%208%2011.8%208%2011.9c0%200.1%200%200.2-0.1%200.3l-0.7%200.7C7.1%2013%207%2013%206.9%2013c-0.1%200-0.2%200-0.3-0.1L0.1%206.8C0%206.7%200%206.6%200%206.5z%22%2F%3E%3C%2Fsvg%3E";
+
+
+// =============================================================================
+// MIXINS
+// =============================================================================
+// -----------------------------------------------------------------------------
+// MIXINS | BÁSICO
+// -----------------------------------------------------------------------------
+@mixin datepicker-base($tag: "basico") {
+  // ---------------------------------------------------------------------------
+  // Base
+  // ---------------------------------------------------------------------------
+  @if $tag == basico {
+    background: cor(fundo, x-claro);
+    padding-bottom: $margem / 10;
+    .ui-icon {
+      display: none;
+    }
+    a {
+      text-decoration: none;
+      @if $datepicker-arredondado == sim {
+        border-radius: $rd;
+      }
+    }
+    @if $datepicker-sombra == sim {
+      box-shadow: $sombra-card;
+    }
+    &-unselectable, &-disabled {
+      cursor: not-allowed;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // Header
+  // ---------------------------------------------------------------------------
+  @if $tag == header {
+    &-header {
+      @include display-flex;
+      @include align-items(center);
+      padding: $margem / 2;
+      font-size: .8em;
+      @content;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // Título
+  // ---------------------------------------------------------------------------
+  @if $tag == title {
+    &-title {
+      @include flex(1);
+      text-align: center;
+      text-transform: uppercase;
+      @content;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // Ativo
+  // ---------------------------------------------------------------------------
+  @if $tag == active {
+    .ui-state-active {
+      font-weight: bold;
+      @content;
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// MIXINS | SETAS
+// -----------------------------------------------------------------------------
+@mixin datepicker-seta($tipo: clara) {
+  &-next, &-prev {
+    @content;
+    cursor: pointer;
+  }
+  &-next {
+    @include order(2);
+    margin-left: .3em;
+    &::before {
+      @if $tipo == clara {
+        content: url(data:image/svg+xml,#{$svg-seta-next-clara});
+      } @else {
+        content: url(data:image/svg+xml,#{$svg-seta-next-escura});
+      }
+    }
+  }
+  &-prev {
+    margin-right: .3em;
+    &::before {
+      @if $tipo == clara {
+        content: url(data:image/svg+xml,#{$svg-seta-back-clara});
+      } @else {
+        content: url(data:image/svg+xml,#{$svg-seta-back-escura});
+      }
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// MIXINS | CALENDÁRIO
+// -----------------------------------------------------------------------------
+@mixin datepicker-calendario($tag: calendar) {
+  &-calendar {
+    // -------------------------------------------------------------------------
+    // Calendário
+    // -------------------------------------------------------------------------
+    @if $tag == calendar {
+      th, td {
+        text-align: center;
+        width: calc(100% / 7);
+        padding: 0;
+      }
+    }
+    // -------------------------------------------------------------------------
+    // Cabeçalho tabela
+    // -------------------------------------------------------------------------
+    @if $tag == thead {
+      thead {
+        @content;
+      }
+    }
+    // -------------------------------------------------------------------------
+    // Célula título
+    // -------------------------------------------------------------------------
+    @if $tag == th {
+      th {
+        font-size: .8em;
+        font-family: $fonte-sem-serifa;
+        @content;
+      }
+    }
+    // -------------------------------------------------------------------------
+    // Célula
+    // -------------------------------------------------------------------------
+    @if $tag == td {
+      td {
+        @content;
+      }
+    }
+    // -------------------------------------------------------------------------
+    // Link
+    // -------------------------------------------------------------------------
+    @if $tag == a {
+      a {
+        display: block;
+        padding: .6em;
+        @content;
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // Final de semana
+  // ---------------------------------------------------------------------------
+  @if $tag == weekend {
+    &-week-end {
+      opacity: .8;
+      @content;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // Hoje
+  // ---------------------------------------------------------------------------
+  @if $tag == today {
+    &-today {
+      a {
+        @content;
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // Dia selecionado
+  // ---------------------------------------------------------------------------
+  @if $tag == currentday {
+    &-current-day {
+      a {
+        @content;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// TIPOS
+// =============================================================================
+@mixin datepicker($tipo) {
+  @include datepicker-base;
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    border-bottom: 1px dotted cor(datepicker);
+    @include datepicker-base(header) {
+      border-bottom: 1px dotted cor(datepicker);
+    }
+    @include datepicker-base(title) {
+      color: cor(datepicker, escuro);
+    }
+    @include datepicker-seta(escura);
+    @include datepicker-calendario;
+    @include datepicker-calendario(thead);
+    @include datepicker-calendario(th);
+    @include datepicker-calendario(td);
+    @include datepicker-calendario(a) {
+      color: cor(datepicker, escuro);
+      &:hover {
+        background: cor(datepicker, claro);
+      }
+    }
+    @include datepicker-calendario(weekend);
+    @include datepicker-calendario(today) {
+      border-bottom: 2px solid;
+    }
+    @include datepicker-calendario(currentday) {
+      background: cor(datepicker, contraste);
+      color: cor(texto, claro);
+      &:hover {
+        border-bottom: cor(datepicker, contraste);
+        background: tint(cor(datepicker, contraste), 25%);
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-2 {
+    border-bottom: 3px solid cor(datepicker, claro);
+    @include datepicker-base(header) {
+      border-bottom: 1px solid cor(datepicker, claro);
+    }
+    @include datepicker-base(title) {
+      color: cor(datepicker, escuro);
+      font-weight: bold;
+    }
+    @include datepicker-seta(escura);
+    @include datepicker-calendario;
+    @include datepicker-calendario(thead);
+    @include datepicker-calendario(th);
+    @include datepicker-calendario(td);
+    @include datepicker-calendario(a) {
+      color: cor(datepicker, escuro);
+      &:hover {
+        background: cor(datepicker, claro);
+      }
+    }
+    @include datepicker-calendario(weekend);
+    @include datepicker-calendario(today) {
+      border-bottom: 2px solid;
+    }
+    @include datepicker-calendario(currentday) {
+      background: cor(datepicker, contraste);
+      color: cor(texto, claro);
+      &:hover {
+        border-bottom: cor(datepicker, contraste);
+        background: tint(cor(datepicker, contraste), 25%);
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 3
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-3 {
+    @include datepicker-base(header) {
+      background: cor(datepicker, escuro);
+    }
+    @include datepicker-base(title) {
+      color: cor(texto, claro);
+      font-weight: bold;
+    }
+    @include datepicker-seta(clara);
+    @include datepicker-calendario;
+    @include datepicker-calendario(thead);
+    @include datepicker-calendario(th);
+    @include datepicker-calendario(td);
+    @include datepicker-calendario(a) {
+      color: cor(datepicker, escuro);
+      &:hover {
+        background: cor(datepicker, claro);
+      }
+    }
+    @include datepicker-calendario(weekend);
+    @include datepicker-calendario(today) {
+      border-bottom: 2px solid;
+    }
+    @include datepicker-calendario(currentday) {
+      background: cor(datepicker, contraste);
+      color: cor(texto, claro);
+      &:hover {
+        border-bottom: cor(datepicker, contraste);
+        background: tint(cor(datepicker, contraste), 25%);
+      }
+    }
+  }
+}
+
+// =============================================================================
+// CLASSES
+// =============================================================================
+@if index($uso-classes, datepicker) {
+  .ui-datepicker {
+    @include datepicker($datepicker-tipo);
+  }
+}
