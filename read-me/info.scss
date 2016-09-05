@@ -34,7 +34,7 @@ INÍCIO DO CSS ESPECÍFICO DO READ-ME
 // =============================================================================
 // VARIÁVEIS GLOBAIS
 // =============================================================================
-$rd: 3px; // arredondamento
+// $rd: 3px; // arredondamento
 $pd: .2rem; // padding
 
 // =============================================================================
@@ -1046,14 +1046,17 @@ $form-personaliza: personaliza, comum;
 ================================================================================
 */
 $botoes-tipos: tipo-1, tipo-2, tipo-3, tipo-4, tipo-5, tipo-6;
-$botoes-adicionais: secundario, urgente, ok, aviso;
+$botoes-adicionais: urgente, ok, aviso;
 @each $tipo in $botoes-tipos {
   .bt--#{$tipo} {
-    @extend %bt-#{$tipo};
+    @include botao($tipo);
+  }
+  .bt--#{$tipo}--secundario {
+    @include botao($tipo, cor(botao, secundario));
   }
   @each $bt in $botoes-adicionais {
     .bt--#{$tipo}--#{$bt} {
-      @extend %bt-#{$tipo}--#{$bt};
+      @include botao($tipo, cor-status($bt));
     }
   }
 }
