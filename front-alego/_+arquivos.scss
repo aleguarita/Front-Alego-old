@@ -7,8 +7,8 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // arquivos.scss
-// Criado em: 31/03/2016
-// Última alteração: 21/03/2016
+// Criado em: 21/03/2016
+// Última alteração: 05/09/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os imports dos arquivos desta pasta que não dependem da
 // pasta de config/ e, portanto, são importados todos de uma vez.
@@ -25,6 +25,8 @@
 // fontes.scss
 // -----------------------------------------------------------------------------
 // Changelog:
+// 05/09/2016 | Acréscimo de um novo arquivo de botão
+// 18/08/2016 | Acrescentado o loading
 // 21/03/2016 | Criado o arquivo
 // =============================================================================
 
@@ -38,6 +40,7 @@
 @import "form_texto";
 @import "form_radio_checkbox";
 @import "form_select";
+@import "form_botoes--retro";
 @import "form_botoes";
 @import "form_autocomplete";
 

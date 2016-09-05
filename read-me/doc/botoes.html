@@ -27,7 +27,18 @@
       <blockquote class="aviso--dica">
         O tipo escolhido para os botões de status é o mesmo do botão secundário
       </blockquote>
-      <p>O tamanho dos botões é relativo ao elemento pai (<samp>.9em</samp>). Teste colocar dentro de um <samp>&lt;p&gt;</samp> ou direto em um <samp>&lt;div&gt;</samp> e verá a diferença. Se prefere criar uma <samp>lgt;div class="actions"&gt;</samp> (como o padrão do Ruby) você pode formatar o tamanho da fonte da própria <samp>div</samp>, dispensando o uso de <samp>p</samp>. O tamanho também pode ser alterado acrescentando no botão uma das <a href="#classes" class="link--readme">classes de tamanho de fonte</a>.</p>
+      <p>O tamanho dos botões é relativo ao elemento pai (<samp>.9em</samp>). Se prefere criar uma <samp>&gt;div class="actions"&gt;</samp> (como o padrão do Ruby) você pode formatar o tamanho da fonte da própria <samp>div</samp>, dispensando o uso de <samp>p</samp>. O tamanho também pode ser alterado acrescentando no botão uma das <a href="#classes" class="link--readme">classes de tamanho de fonte</a>.</p>
+      <h2>Personalizando o botão</h2>
+      <p>Através do <a href="#config__form" class="link--readme">arquivo de configuração</a> você pode arredondar a borda do botão. No arquivo de <a href="#variavies" class="link--readme">variáveis</a> você determina quanto na variável <samp>$bt</samp>. Se precisar de mais configurações, faça-o num arquivo separado, através das classes.</p>
+      <h2>Criando seu próprio botão ou personalizando</h2>
+      <p>Se para seu sistema não é adequado nenhum tipo dos seis botões você pode criar seu botão desabilitando o botão no arquivo de configuração e usando o mixin <samp>botao()</samp>. Simplesmente chame o mixin <samp>botao()</samp> com algum tipo que não existe, que ele vai limpar algumas configurações básicas do botão (mas vai faltar definir bordas, cores do texto e do fundo). Veja o código abaixo como exemplo:</p>
+      <code class="codigo--sass">
+        <header>SASS</header>
+        <p>.bt--personalizado {</p>
+          <p class="recuo-1">@include botao(personalizado);</p>
+          <p class="recuo-1">... personalização</p>
+        <p>}</p>
+      </code>
     </section>
   </section>
   <section class="secao-lista">
