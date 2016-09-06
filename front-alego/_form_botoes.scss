@@ -12,11 +12,14 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 05/09/2016
+// Última alteração em: 06/09/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // -----------------------------------------------------------------------------
 // Changelog
+// 06/09/2016 | Retirada referência à retrocompatibilidade (já estava
+//              retrocompatível uma vez que não acrescentei cores novas, apenas
+//              tirei cores da paleta)
 // 05/09/2016 | Reformulado a forma dos botões, incluindo cores e uso de mixin
 // 25/08/2016 | Ajustes para quando o .bt estiver na em um link
 // 14/07/2016 | Padronizado o tamanho do botão para 1em
@@ -154,64 +157,31 @@ $botao-arredondamento: $botao-arredondamento
 // CLASSE
 // =============================================================================
 @if index($uso-classes, botao) {
-  // ===========================================================================
-  // RETROCOMPATILIDADE
-  // ===========================================================================
-  @if cor(botao, escuro) {
-    // -------------------------------------------------------------------------
-    // BOTÃO BÁSICO
-    // -------------------------------------------------------------------------
-    .bt {
-      @extend %bt-#{$botao-tipo};
+  //--------------------------------------------------------------------------
+  // BOTÃO BÁSICO
+  //--------------------------------------------------------------------------
+  .bt {
+    @include botao($botao-tipo);
+  }
+  //--------------------------------------------------------------------------
+  // BOTÃO STATUS
+  //--------------------------------------------------------------------------
+  @each $status in $botoes-status {
+    /* BOTÃO STATUS: #{$status} */
+    .bt--#{$status} {
+      @include botao($botao-tipo, cor-status(#{$status}));
     }
-    //--------------------------------------------------------------------------
-    // BOTÃO STATUS
-    //--------------------------------------------------------------------------
-    @each $status in $botoes-status {
-      .bt--#{$status} {
-        @extend %bt-#{$botao-secundario}--#{$status};
-      }
-    }
-    //--------------------------------------------------------------------------
-    // BOTÃO SECUNDÁRIO
-    //--------------------------------------------------------------------------
-    @if index($uso-classes, botao-secundario) {
-      .bt--secundario {
-        @if $botao-tipo == $botao-secundario {
-          @extend %bt-#{$botao-secundario}--secundario;
-        } @else {
-          @extend %bt-#{$botao-secundario};
-        }
-      }
-    }
-  // ===========================================================================
-  // BOTÃO DA MANEIRA ATUAL
-  // ===========================================================================
-  } @else {
-    //--------------------------------------------------------------------------
-    // BOTÃO BÁSICO
-    //--------------------------------------------------------------------------
-    .bt {
-      @include botao($botao-tipo);
-    }
-    //--------------------------------------------------------------------------
-    // BOTÃO STATUS
-    //--------------------------------------------------------------------------
-    @each $status in $botoes-status {
-      .bt--#{$status} {
-        @include botao($botao-tipo, cor-status(#{$status}));
-      }
-    }
-    //--------------------------------------------------------------------------
-    // BOTÃO SECUNDÁRIO
-    //--------------------------------------------------------------------------
-    @if index($uso-classes, botao-secundario) {
-      .bt--secundario {
-        @if $botao-tipo == $botao-secundario {
-          @include botao($botao-tipo, cor(botao, secundario));
-        } @else {
-          @include botao($botao-secundario);
-        }
+  }
+  //--------------------------------------------------------------------------
+  // BOTÃO SECUNDÁRIO
+  //--------------------------------------------------------------------------
+  @if index($uso-classes, botao-secundario) {
+    /* BOTÃO SECUNDÁRIO */
+    .bt--secundario {
+      @if $botao-tipo == $botao-secundario {
+        @include botao($botao-tipo, cor(botao, secundario));
+      } @else {
+        @include botao($botao-secundario);
       }
     }
   }
