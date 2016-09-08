@@ -11,11 +11,12 @@ MODAL
 // -----------------------------------------------------------------------------
 // modal.scss
 // Criado em: 01/07/2015
-// Última alteraçãom em: 02/09/2016
+// Última alteraçãom em: 08/09/2016
 // -----------------------------------------------------------------------------
 // Definição dos padrões de modal
 // -----------------------------------------------------------------------------
 // Changelog:
+// 08/09/2016 | Conteúdo comum vai direto no mixin
 // 02/09/2016 | Corrigido o erro que desabilitava o mouse em toda a modal
 // 18/08/2016 | Top e Left utiliza do viewport para posicionamento
 //              Agora utiliza o mixin overlay
@@ -49,20 +50,38 @@ $padding-modal-interno: $margem * 2;
 // =============================================================================
 // MIXIN | Configurações básicas
 // =============================================================================
-@mixin modal-estrutura($tag: basico) {
+@mixin modal-estrutura($tag) {
   // ---------------------------------------------------------------------------
-  // BÁSICO
+  // TÍTULO - container
   // ---------------------------------------------------------------------------
-  @if $tag == basico {
-    @include overlay;
-    pointer-events: none;
-    background: fade-out(cor(modal, fundo), $modal-transparencia);
-    z-index: z(modal);
+  @if $tag == titulo {
+    padding: $margem $padding-modal-interno;
   }
   // ---------------------------------------------------------------------------
-  // JANELA
+  // TÍTULO - H1
   // ---------------------------------------------------------------------------
-  @else if $tag == janela {
+  @else if $tag == h1 {
+    text-transform: uppercase;
+    font-size: rem(22);
+  }
+  // ---------------------------------------------------------------------------
+  // FECHAR - tag a
+  // ---------------------------------------------------------------------------
+  @else if $tag == fechar {
+    @include link(bloco);
+    transition: $transition;
+  }
+}
+
+// =============================================================================
+// MIXIN | Tipos
+// =============================================================================
+@mixin modal($tipo) {
+  @include overlay;
+  pointer-events: none;
+  background: fade-out(cor(modal, fundo), $modal-transparencia);
+  z-index: z(modal);
+  &__janela {
     @include centraliza-caixa;
     @include display-flex;
     @include flex-direction;
@@ -82,58 +101,16 @@ $padding-modal-interno: $margem * 2;
       min-width: 25em;
     }
   }
-  // ---------------------------------------------------------------------------
-  // TÍTULO - container
-  // ---------------------------------------------------------------------------
-  @else if $tag == titulo {
-    padding: $margem $padding-modal-interno;
-  }
-  // ---------------------------------------------------------------------------
-  // TÍTULO - H1
-  // ---------------------------------------------------------------------------
-  @else if $tag == h1 {
-    text-transform: uppercase;
-    font-size: rem(22);
-  }
-  // ---------------------------------------------------------------------------
-  // FECHAR - tag a
-  // ---------------------------------------------------------------------------
-  @else if $tag == fechar {
-    @include link(bloco);
-    transition: $transition;
-  }
-  // ---------------------------------------------------------------------------
-  // CONTEUDO
-  // ---------------------------------------------------------------------------
-  @else if $tag == conteudo {
+  &__conteudo {
     @include flex-grow(1);
     padding: $padding-modal-interno;
   }
-  // -----------------------------------------------------------------------------
-  // ACOES
-  // -----------------------------------------------------------------------------
-  @else if $tag == acoes {
+  &__acoes {
     padding: $padding-modal-interno;
     text-align: right;
     * + * {
       margin-left: $padding-modal-interno;
     }
-  }
-}
-
-// =============================================================================
-// MIXIN | Tipos
-// =============================================================================
-@mixin modal($tipo) {
-  @include modal-estrutura;
-  &__janela {
-    @include modal-estrutura(janela);
-  }
-  &__conteudo {
-    @include modal-estrutura(conteudo);
-  }
-  &__acoes {
-    @include modal-estrutura(acoes);
   }
   // ---------------------------------------------------------------------------
   // TIPO 1

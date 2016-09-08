@@ -12,7 +12,7 @@ BREADCRUMBS
 // -----------------------------------------------------------------------------
 // breadcrumbs.scss
 // Criado em: 27/10/2015
-// Última alteração em: 11/05/2016
+// Última alteração em: 08/09/2016
 // -----------------------------------------------------------------------------
 // Definições padrão de breadcrumbs e classes modelo
 // ATENÇÃO: a forma como o breadcrumb é chamado deve ser editado direto na view
@@ -22,6 +22,7 @@ BREADCRUMBS
 // </ul>
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/09/2016 | Pequena correção de padronização
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 19/04/2016 | Ajuste para evitar que o tipo 1 fique dançando
@@ -45,18 +46,12 @@ $breadcrumbs--box__padding: .25em .5em;
 // =============================================================================
 // MIXIN | BÁSICO
 // =============================================================================
-@mixin breadcrumbs-basico($tag: basico) {
-  // ---------------------------------------------------------------------------
-  // DEFINE A RAÍZ
-  // ---------------------------------------------------------------------------
-  @if $tag == basico {
-    @include lista-sem-marcador(flex);
-    font-size: rem(11);
-  }
+@mixin breadcrumbs-basico($tag) {
+
   // ---------------------------------------------------------------------------
   // DEFINE O TAG A
   // ---------------------------------------------------------------------------
-  @else if $tag == a {
+  @if $tag == a {
     @include link(bloco);
     color: inherit;
   }
@@ -76,11 +71,12 @@ $breadcrumbs--box__padding: .25em .5em;
 // PLACEHOLDER | TIPOS
 // =============================================================================
 @mixin breadcrumbs($tipo) {
+  @include lista-sem-marcador(flex);
+  font-size: rem(11);
   // ---------------------------------------------------------------------------
   // TIPO 1
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
-    @include breadcrumbs-basico;
     li {
       @include breadcrumbs-basico(li);
       padding-left: .2em;
@@ -103,7 +99,6 @@ $breadcrumbs--box__padding: .25em .5em;
   // TIPO 2
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-2 {
-    @include breadcrumbs-basico;
     li {
       @include breadcrumbs-basico(li);
       border: 1px solid;

@@ -12,11 +12,12 @@ PAGINAÇÃO
 // -----------------------------------------------------------------------------
 // paginacao.scss
 // Criado em: 07/04/2015
-// Última alteração: 14/07/2016
+// Última alteração: 08/09/2016
 // -----------------------------------------------------------------------------
 // Definição da paginação. Formata o tipo padrão gerado pelo Rails.
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/09/2016 | Conteúdo comum vai direto no mixin
 // 14/07/2016 | Alteração da fonte padrão de "rem" para "em"
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
@@ -48,21 +49,11 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 // =============================================================================
 // MIXIN BASE
 // =============================================================================
-@mixin paginacao-base($tag: basico) {
-	// ---------------------------------------------------------------------------
-	// BÁSICO
-	// ---------------------------------------------------------------------------
-	@if $tag == basico {
-		@include display-flex;
-		@include justify-content($paginacao-posicao);
-		@include align-items(flex-end);
-		font-size: $paginacao-fonte;
-		padding: .5rem 0;
-	}
+@mixin paginacao-base($tag) {
 	// ---------------------------------------------------------------------------
 	// ITEM GERAL
 	// ---------------------------------------------------------------------------
-	@else if $tag == item {
+	@if $tag == item {
 		color: cor(paginacao);
 	}
 	// ---------------------------------------------------------------------------
@@ -105,7 +96,11 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 // MIXIN TIPOS
 // =============================================================================
 @mixin paginacao($tipo) {
-	@include paginacao-base;
+	@include display-flex;
+	@include justify-content($paginacao-posicao);
+	@include align-items(flex-end);
+	font-size: $paginacao-fonte;
+	padding: .5rem 0;
 	// ---------------------------------------------------------------------------
 	// TIPO 1
 	// ---------------------------------------------------------------------------

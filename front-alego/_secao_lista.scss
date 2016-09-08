@@ -12,7 +12,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // -----------------------------------------------------------------------------
 // secao_lista.scss
 // Criado em: 18/11/2015
-// Última alteração: 06/07/2016
+// Última alteração: 08/09/2016
 // -----------------------------------------------------------------------------
 // Bloco de conteúdo que pode ser exibido e ocultado, deixando apenas o título,
 // com uma seta indicativa.
@@ -20,6 +20,7 @@ SEÇÃO LISTA | Exibe e oculta conteúdo, mostrando título em forma de lista
 // Se estiver checado, não exibe conteúdo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/09/2016 | Passado o básico direto para o mixin
 // 06/07/2016 | Acrescentado tipo-3 e ajustes nos outros 2 tipos
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
@@ -45,29 +46,11 @@ $secao-lista-titulo: 3 !default;
 // =============================================================================
 // MIXIN | BÁSICO
 // =============================================================================
-@mixin secao-lista--basico($tag: basico) {
-  // ---------------------------------------------------------------------------
-  // BÁSICO
-  // ---------------------------------------------------------------------------
-  @if $tag == basico {
-    & + & {
-      margin-top: 1px;
-    }
-    &__check {
-      @include item-checado(".secao-lista__conteudo") {
-        display: none;
-      }
-      &:checked ~  {
-        .secao-lista__header .secao-lista__icone {
-          transform: rotate(0deg);
-        }
-      }
-    }
-  }
+@mixin secao-lista--basico($tag) {
   // ---------------------------------------------------------------------------
   // HEADER
   // ---------------------------------------------------------------------------
-  @else if $tag == header {
+  @if $tag == header {
     font-size: modular-scale($secao-lista-titulo, $modular-font-size);
     font-family: $fonte-titulo;
     label {
@@ -102,7 +85,19 @@ $secao-lista-titulo: 3 !default;
 // MIXIN | TIPOS
 // =============================================================================
 @mixin secao-lista($tipo) {
-  @include secao-lista--basico;
+  & + & {
+    margin-top: 1px;
+  }
+  &__check {
+    @include item-checado(".secao-lista__conteudo") {
+      display: none;
+    }
+    &:checked ~  {
+      .secao-lista__header .secao-lista__icone {
+        transform: rotate(0deg);
+      }
+    }
+  }
   // ---------------------------------------------------------------------------
   // TIPO 1
   // ---------------------------------------------------------------------------

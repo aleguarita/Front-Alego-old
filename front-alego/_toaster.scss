@@ -12,11 +12,12 @@ TOASTER
 // -----------------------------------------------------------------------------
 // toaster.scss
 // Criado em: 20/03/2015
-// Última alteração em: 11/05/2016
+// Última alteração em: 08/09/2016
 // -----------------------------------------------------------------------------
 // Notificações do sistema. Aparecendo de baixo.
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/09/2016 | Padronização na raíz do mixin
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 13/04/2016 | Alterado esquema de cores para paleta única
@@ -55,23 +56,11 @@ $tipos-toaster: (
 // =============================================================================
 // MIXIN | Básico
 // =============================================================================
-@mixin toaster--base($tag: basico) {
-	// ---------------------------------------------------------------------------
-	// BASICO
-	// ---------------------------------------------------------------------------
-	@if $tag == basico {
-		@include lista-sem-marcador;
-		position: fixed;
-		margin: 0;
-		width: rem(300);
-		#{$toaster-horizontal}: $toaster-distancia;
-		#{$toaster-vertical}: $toaster-distancia * $toaster-distancia-vertical;
-		z-index: z(toaster);
-	}
+@mixin toaster--base($tag) {
 	// ---------------------------------------------------------------------------
 	// LI
 	// ---------------------------------------------------------------------------
-	@else if $tag == li {
+	@if $tag == li {
 		position: relative;
 		padding: 1.5em;
 		font-family: $fonte-sem-serifa;
@@ -105,7 +94,13 @@ $tipos-toaster: (
 // MIXIN | TIPOS
 // =============================================================================
 @mixin toaster($tipo) {
-	@include toaster--base;
+	@include lista-sem-marcador;
+	position: fixed;
+	margin: 0;
+	width: rem(300);
+	#{$toaster-horizontal}: $toaster-distancia;
+	#{$toaster-vertical}: $toaster-distancia * $toaster-distancia-vertical;
+	z-index: z(toaster);
 	// ---------------------------------------------------------------------------
 	// TIPO 1
 	// ---------------------------------------------------------------------------
