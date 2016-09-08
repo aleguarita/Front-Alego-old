@@ -20,6 +20,8 @@ FORMULÁRIO | BOTÕES
 // 06/09/2016 | Retirada referência à retrocompatibilidade (já estava
 //              retrocompatível uma vez que não acrescentei cores novas, apenas
 //              tirei cores da paleta)
+//              Incluíndo um :hover para a cor do texto, mesmo que não mude
+//              (para funcionar com links)
 // 05/09/2016 | Reformulado a forma dos botões, incluindo cores e uso de mixin
 // 25/08/2016 | Ajustes para quando o .bt estiver na em um link
 // 14/07/2016 | Padronizado o tamanho do botão para 1em
@@ -90,6 +92,7 @@ $botao-arredondamento: $botao-arredondamento
     border: 1px solid transparent;
     &:hover {
       box-shadow: $bt-sombra;
+      color: if(lightness($cor) < 40, $cor, shade($cor, 15));
     }
   }
   // ---------------------------------------------------------------------------
@@ -101,6 +104,7 @@ $botao-arredondamento: $botao-arredondamento
     border: 1px solid;
     &:hover {
       outline: 1px solid;
+      color: if(lightness($cor) < 40, $cor, shade($cor, 15));
     }
   }
   // ---------------------------------------------------------------------------
@@ -112,6 +116,7 @@ $botao-arredondamento: $botao-arredondamento
     background: tint($cor, 75);
     &:hover {
       background: tint($cor, 90);
+      color: if(lightness($cor) < 40, $cor, shade($cor, 15));
     }
   }
   // ---------------------------------------------------------------------------
@@ -124,6 +129,7 @@ $botao-arredondamento: $botao-arredondamento
     &:hover {
       // uso de gradiente pra evitar a piscada no hover
       background: linear-gradient(to top, tint($cor, 90), tint($cor, 90));
+      color: if(lightness($cor) < 40, $cor, shade($cor, 15));
     }
   }
   // ---------------------------------------------------------------------------
@@ -134,6 +140,7 @@ $botao-arredondamento: $botao-arredondamento
     color: cor(texto, claro);
     border: 1px solid $cor;
     &:hover {
+      color: cor(texto, claro);
       background: shade($cor, 24);
       border-color: shade($cor, 24);
     }
@@ -147,6 +154,7 @@ $botao-arredondamento: $botao-arredondamento
     border: 1px solid $cor;
     text-shadow: $sombra-texto-relevo;
     &:hover {
+      color: cor(texto, claro);
       background: linear-gradient(to bottom, shade($cor, 25), tint($cor, 25%));
       border-color: shade($cor, 24);
     }

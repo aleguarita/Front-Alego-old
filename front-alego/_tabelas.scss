@@ -10,11 +10,14 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 24/08/2016
+// Última alteração: 06/09/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 06/09/2016 | Reduzida a quantidade de cores necessárias para formar a tabela
+// 							no arquivo de cores (retirado borda-clara e borda-escura que
+// 							agora clarea/escurece a borda)
 // 24/08/2016 | Retirada cor cinza da zebra no tipo-1
 // 01/08/2016 | Acrescentado footer da tabela
 // 							Ajustado tamanho do input
@@ -140,16 +143,16 @@ td {
 		}
 		td {
 			padding: 0 .25em;
-			border-left: 2px solid cor(tabela, borda-clara);
+			border-left: 2px solid tint(cor(tabela, borda), 25);
 			&:last-child {
-				border-right: 2px solid cor(tabela, borda-clara);
+				border-right: 2px solid tint(cor(tabela, borda), 25);
 			}
 		}
 		input:not([type="checkbox"]):not([type="radio"]),
 		textarea,
 		select {
 			@include placeholder {
-				color: cor(tabela, borda-clara);
+				color: tint(cor(tabela, borda), 25);
 				text-transform: uppercase;
 			}
 			border: 0;
@@ -158,7 +161,7 @@ td {
 			padding: .25em;
 			font-family: $fonte-sem-serifa;
 			&:hover, &:focus {
-				border-color: cor(tabela, borda-escura);
+				border-color: shade(cor(tabela, borda), 25);
 				box-shadow: $sombra-padrao;
 			}
 		}
@@ -218,17 +221,17 @@ td {
 		thead tr {
 			color: cor(texto, claro);
 			background: cor(tabela, titulo);
-			border-bottom: 2px solid cor(tabela, borda-clara);
+			border-bottom: 2px solid tint(cor(tabela, borda), 25);
 		}
 		tbody tr {
-			border-bottom: 1px solid cor(tabela, borda-clara);
+			border-bottom: 1px solid tint(cor(tabela, borda), 25);
 			@include tab--opcoes(responsiva-tr) {
 				border-bottom-width: 2px;
 			}
 		}
 		td {
 			@include tab--opcoes(responsiva-td) {
-				border-bottom: 1px solid cor(tabela, borda-clara);
+				border-bottom: 1px solid tint(cor(tabela, borda), 25);
 				&:last-child {
 					border-bottom-width: 0;
 				}
