@@ -12,11 +12,12 @@ DATEPICKER
 // -----------------------------------------------------------------------------
 // datepicker.scss
 // Criado em: 06/05/2016
-// Alterado em: 24/06/2016
+// Alterado em: 08/09/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o datepicker padrão do jquery
 // ----------------------------------------------------------------------------
 // Changelog
+// 08/09/2016 | Simplificação
 // 24/06/2016 | Centralizando o conteúdo do header
 // 06/05/2016 | Criação do arquivo
 // =============================================================================
@@ -70,29 +71,7 @@ $svg-seta-back-clara: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%
 // -----------------------------------------------------------------------------
 // MIXINS | BÁSICO
 // -----------------------------------------------------------------------------
-@mixin datepicker-base($tag: "basico") {
-  // ---------------------------------------------------------------------------
-  // Base
-  // ---------------------------------------------------------------------------
-  @if $tag == basico {
-    background: cor(fundo, x-claro);
-    padding-bottom: $margem / 10;
-    .ui-icon {
-      display: none;
-    }
-    a {
-      text-decoration: none;
-      @if $datepicker-arredondado == sim {
-        border-radius: $rd;
-      }
-    }
-    @if $datepicker-sombra == sim {
-      box-shadow: $sombra-card;
-    }
-    &-unselectable, &-disabled {
-      cursor: not-allowed;
-    }
-  }
+@mixin datepicker-base($tag) {
   // ---------------------------------------------------------------------------
   // Header
   // ---------------------------------------------------------------------------
@@ -243,7 +222,23 @@ $svg-seta-back-clara: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%
 // TIPOS
 // =============================================================================
 @mixin datepicker($tipo) {
-  @include datepicker-base;
+  background: cor(fundo, x-claro);
+  padding-bottom: $margem / 10;
+  .ui-icon {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+    @if $datepicker-arredondado == sim {
+      border-radius: $rd;
+    }
+  }
+  @if $datepicker-sombra == sim {
+    box-shadow: $sombra-card;
+  }
+  &-unselectable, &-disabled {
+    cursor: not-allowed;
+  }
   // ---------------------------------------------------------------------------
   // TIPO 1
   // ---------------------------------------------------------------------------

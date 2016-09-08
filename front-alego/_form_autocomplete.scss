@@ -11,11 +11,12 @@ FORMULÁRIOS | AUTOCOMPLETE
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 17/11/2015
-// Última alteração em: 11/05/2016
+// Última alteração em: 08/09/2016
 // -----------------------------------------------------------------------------
 //	Definições padrão do autocomplete (elemento RAILS/jquery-ui)
 // ----------------------------------------------------------------------------
 // Changelog
+// 08/09/2016 | Simplificação
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
 // 19/01/2016 | Placeholders trocados por Mixins
@@ -35,19 +36,11 @@ $form-radio-check-personaliza: sim !default;
 // =============================================================================
 // MIXIN | BASE
 // =============================================================================
-@mixin autocomplete-base($tag: basico) {
-  // ---------------------------------------------------------------------------
-  // ELEMENTO BÁSICO
-  // ---------------------------------------------------------------------------
-  @if $tag == basico {
-    @include lista-sem-marcador;
-    position: absolute !important;
-    box-shadow: $sombra-difusa;
-  }
+@mixin autocomplete-base($tag) {
   // ---------------------------------------------------------------------------
   // TAG LI
   // ---------------------------------------------------------------------------
-  @else if $tag == li {
+  @if $tag == li {
     padding: .25em .5em;
     cursor: pointer;
     background: cor(fundo, x-claro);
@@ -66,11 +59,13 @@ $form-radio-check-personaliza: sim !default;
 // MIXIN | TIPOS
 // =============================================================================
 @mixin autocomplete($tipo) {
+  @include lista-sem-marcador;
+  position: absolute !important;
+  box-shadow: $sombra-difusa;
   // ---------------------------------------------------------------------------
   // TIPO 1
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
-    @include autocomplete-base;
     border-bottom: 1px dotted cor(formulario);
     li {
       @include autocomplete-base(li);
@@ -81,7 +76,6 @@ $form-radio-check-personaliza: sim !default;
   // TIPO 2
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-2 {
-    @include autocomplete-base;
     border-bottom: 1px solid cor(formulario);
     li {
       @include autocomplete-base(li);
@@ -92,7 +86,6 @@ $form-radio-check-personaliza: sim !default;
   // TIPO 3
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-3 {
-    @include autocomplete-base;
     border: 1px solid cor(formulario);
     border-top-width: 0;
     li {

@@ -12,11 +12,12 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 11/11/2015
-// Última alteração em: 02/09/2016
+// Última alteração em: 08/09/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os radio buttons
 // ----------------------------------------------------------------------------
 // Changelog
+// 08/09/2016 | Padronização do conteúdo base do mixin
 // 02/09/2016 | Criada classe .label para simular o label
 // 17/08/2016 | Corrigida compatibilidade com o Firefox
 // 01/08/2016 | Ajuste no padding no tipo-3 para funcionar quando for field-0
@@ -70,17 +71,11 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
 // =============================================================================
 // MIXIN | CONTAINER
 // =============================================================================
-@mixin form-radio-check--basico($tag: basico) {
-  // ---------------------------------------------------------------------------
-  // RAÍZ
-  // ---------------------------------------------------------------------------
-  @if $tag == basico {
-    @include form-base;
-  }
+@mixin form-radio-check--basico($tag) {
   // ---------------------------------------------------------------------------
   // LABEL
   // ---------------------------------------------------------------------------
-  @else if $tag == label {
+  @if $tag == label {
     @if $form-radio-check-personaliza == "não" {
       input + & {
         margin-left: -1.5em;
@@ -146,7 +141,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
 // MIXIN | TIPOS
 // =============================================================================
 @mixin form-radio-check($tipo) {
-  @include form-radio-check--basico;
+  @include form-base;
   input { @include form-radio-check--basico(input); }
   // ---------------------------------------------------------------------------
   // TIPO 1

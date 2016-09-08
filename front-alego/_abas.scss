@@ -12,11 +12,12 @@ ABAS
 // -----------------------------------------------------------------------------
 // abas.scss
 // Criado em: 29/03/2016
-// Alterado em: 14/07/2016
+// Alterado em: 06/09/2016
 // -----------------------------------------------------------------------------
 // Definições padrão de abas
 // -----------------------------------------------------------------------------
 // Changelog
+// 06/09/2016 | Pequena correção, incluindo
 // 14/07/2016 | Retirado o tamanho da fonte da aba
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
 //              evitar incompatibilidade no caso de atualizações do config.scss
@@ -34,20 +35,7 @@ $abas-qtd: 5 !default;
 // =============================================================================
 // MIXIN | BÁSICO
 // =============================================================================
-@mixin abas-basico($tag: basico) {
-  // ---------------------------------------------------------------------------
-  // DEFINE A RAÍZ
-  // ---------------------------------------------------------------------------
-  @if $tag == basico {
-    &__input {
-      display: none;
-    }
-    @at-root {
-      &__conteudo {
-        display: none;
-      }
-    }
-  }
+@mixin abas-basico($tag) {
   // ---------------------------------------------------------------------------
   // DEFINE A NAVEGAÇÃO
   // ---------------------------------------------------------------------------
@@ -87,10 +75,18 @@ $abas-qtd: 5 !default;
 // =============================================================================
 @mixin abas($tipo) {
   // ---------------------------------------------------------------------------
+  // RAÍZ, COMUM À TODOS
+  // ---------------------------------------------------------------------------
+  &__input {
+    display: none;
+  }
+  &__conteudo {
+    display: none;
+  }
+  // ---------------------------------------------------------------------------
   // TIPO 1
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
-    @include abas-basico;
     @include abas-basico(nav) {
       background: linear-gradient(to top, transparent 1px, cor(abas, inativa) 1px, transparent 2px);
     }
@@ -110,7 +106,6 @@ $abas-qtd: 5 !default;
   // TIPO 2
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-2 {
-    @include abas-basico;
     @include abas-basico(nav) {
       background: linear-gradient(to top, cor(abas, fundo-inativo) 3px, transparent 3px);
     }
@@ -130,7 +125,6 @@ $abas-qtd: 5 !default;
   // TIPO 3
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-3 {
-    @include abas-basico;
     @include abas-basico(nav) {
       border-bottom: 1px solid cor(abas);
       position: relative;
@@ -157,7 +151,6 @@ $abas-qtd: 5 !default;
   // TIPO 4
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-4 {
-    @include abas-basico;
     @include abas-basico(nav);
     @include abas-basico(label) {
       border: 1px solid;
