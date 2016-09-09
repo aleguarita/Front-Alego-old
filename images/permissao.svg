@@ -1,22 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
 <style>
-	/* Animação */
-	@-webkit-keyframes mao {
-	  0%, 100% {
-	    -webkit-transform: rotate(-15deg);
-	  }
-	  50% {
-	    -webkit-transform: rotate(15deg);
-	  }
-	}
-	@-moz-keyframes mao {
-	  0%, 100% {
-	    -moz-transform: rotate(-15deg);
-	  }
-	  50% {
-	    -moz-transform: rotate(15deg);
-	  }
-	}
+	/* Animacao */
 	@keyframes mao {
 	  0%, 100% {
 	    transform: rotate(-15deg);
@@ -26,11 +10,8 @@
 	  }
 	}
 	.mao {
-	  -webkit-animation: mao 1s infinite;
-	  -moz-animation: mao 1s infinite;
 	  animation: mao 1s infinite;
-	  -webkit-transform-origin: 50% 100%;
-	  transform-origin: 50% 100%;
+	  transform-origin: center bottom;
 	}
 	/* estado do boneco */
 	.boneco:hover #normal {
