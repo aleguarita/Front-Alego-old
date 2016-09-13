@@ -630,10 +630,12 @@ a.bt {
   text-align: center;
 }
 .bt:hover {
+  color: white;
   background: #9c4300;
   border-color: #9c4300;
 }
 
+/* BOTÃO STATUS: urgente */
 .bt--urgente {
   padding: .5em 1em;
   cursor: pointer;
@@ -650,10 +652,12 @@ a.bt--urgente {
   text-align: center;
 }
 .bt--urgente:hover {
+  color: white;
   background: #b4151b;
   border-color: #b4151b;
 }
 
+/* BOTÃO STATUS: ok */
 .bt--ok {
   padding: .5em 1em;
   cursor: pointer;
@@ -670,10 +674,12 @@ a.bt--ok {
   text-align: center;
 }
 .bt--ok:hover {
+  color: white;
   background: #2b8a38;
   border-color: #2b8a38;
 }
 
+/* BOTÃO STATUS: aviso */
 .bt--aviso {
   padding: .5em 1em;
   cursor: pointer;
@@ -690,10 +696,12 @@ a.bt--aviso {
   text-align: center;
 }
 .bt--aviso:hover {
+  color: white;
   background: #bd8f11;
   border-color: #bd8f11;
 }
 
+/* BOTÃO SECUNDÁRIO */
 .bt--secundario {
   padding: .5em 1em;
   cursor: pointer;
@@ -710,6 +718,7 @@ a.bt--secundario {
   text-align: center;
 }
 .bt--secundario:hover {
+  color: white;
   background: #00969c;
   border-color: #00969c;
 }
@@ -961,6 +970,8 @@ PAGINAÇÃO
 ================================================================================
 */
 .pagination {
+  list-style: none;
+  padding-left: 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -971,7 +982,7 @@ PAGINAÇÃO
   font-size: 0.75em;
   padding: .5rem 0;
 }
-.pagination .gap, .pagination .current, .pagination a, .pagination--tipo-1 .gap, .pagination--tipo-1 .current, .pagination--tipo-1 a {
+.pagination .gap, .pagination .current, .pagination .active a, .pagination a, .pagination--tipo-1 .gap, .pagination--tipo-1 .current, .pagination--tipo-1 .active a, .pagination--tipo-1 a {
   color: #cd5800;
   border-bottom: 2px solid transparent;
 }
@@ -979,15 +990,22 @@ PAGINAÇÃO
   padding: 0.3em 0.75em;
   color: #9a4200;
 }
-.pagination .prev, .pagination .first, .pagination .next, .pagination .last {
+.pagination .prev, .pagination .first, .pagination .next, .pagination .last, .pagination > :first-child, .pagination > :last-child {
   font-size: .95em;
 }
-.pagination .current {
+.pagination .current, .pagination .active a {
   font-weight: bold;
   z-index: 2;
   padding: 0.3em 0.75em;
   box-shadow: 0 0 6px rgba(90, 90, 90, 0.5);
   border-bottom-color: #cd5800;
+}
+.pagination .disabled a {
+  cursor: not-allowed;
+  opacity: .5;
+}
+.pagination .disabled a:hover {
+  border-bottom-color: transparent;
 }
 .pagination a {
   display: block;
@@ -1688,7 +1706,7 @@ CLASSES FIXAS
 
 /*
 ================================================================================
-ABAS
+LOADING
 ================================================================================
 */
 .loading, .loading--exemplo {
@@ -6122,6 +6140,8 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
 ================================================================================
 */
 .pagination--tipo-1 {
+  list-style: none;
+  padding-left: 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -6132,7 +6152,7 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   font-size: 0.75em;
   padding: .5rem 0;
 }
-.pagination .gap, .pagination .current, .pagination a, .pagination--tipo-1 .gap, .pagination--tipo-1 .current, .pagination--tipo-1 a {
+.pagination .gap, .pagination .current, .pagination .active a, .pagination a, .pagination--tipo-1 .gap, .pagination--tipo-1 .current, .pagination--tipo-1 .active a, .pagination--tipo-1 a {
   color: #cd5800;
   border-bottom: 2px solid transparent;
 }
@@ -6140,15 +6160,22 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   padding: 0.3em 0.75em;
   color: #9a4200;
 }
-.pagination--tipo-1 .prev, .pagination--tipo-1 .first, .pagination--tipo-1 .next, .pagination--tipo-1 .last {
+.pagination--tipo-1 .prev, .pagination--tipo-1 .first, .pagination--tipo-1 .next, .pagination--tipo-1 .last, .pagination--tipo-1 > :first-child, .pagination--tipo-1 > :last-child {
   font-size: .95em;
 }
-.pagination--tipo-1 .current {
+.pagination--tipo-1 .current, .pagination--tipo-1 .active a {
   font-weight: bold;
   z-index: 2;
   padding: 0.3em 0.75em;
   box-shadow: 0 0 6px rgba(90, 90, 90, 0.5);
   border-bottom-color: #cd5800;
+}
+.pagination--tipo-1 .disabled a {
+  cursor: not-allowed;
+  opacity: .5;
+}
+.pagination--tipo-1 .disabled a:hover {
+  border-bottom-color: transparent;
 }
 .pagination--tipo-1 a {
   display: block;
@@ -6161,6 +6188,8 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   border-bottom-color: #cd5800;
 }
 .pagination--tipo-2 {
+  list-style: none;
+  padding-left: 0;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -6171,7 +6200,7 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   font-size: 0.75em;
   padding: .5rem 0;
 }
-.pagination--tipo-2 .gap, .pagination--tipo-2 .current, .pagination--tipo-2 a {
+.pagination--tipo-2 .gap, .pagination--tipo-2 .current, .pagination--tipo-2 .active a, .pagination--tipo-2 a {
   color: #cd5800;
   border-top: 1px solid #da8240;
   border-bottom: 1px solid #da8240;
@@ -6185,18 +6214,26 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
 .pagination--tipo-2 .prev, .pagination--tipo-2 .first, .pagination--tipo-2 .next, .pagination--tipo-2 .last {
   font-size: .95em;
 }
-.pagination--tipo-2 .prev, .pagination--tipo-2 .first, .pagination--tipo-2 .next {
+.pagination--tipo-2 .prev, .pagination--tipo-2 .first, .pagination--tipo-2 .next, .pagination--tipo-2 > :first-child {
   border-left: 1px solid #da8240;
 }
-.pagination--tipo-2 .next, .pagination--tipo-2 .last, .pagination--tipo-2 .prev {
+.pagination--tipo-2 .next, .pagination--tipo-2 .last, .pagination--tipo-2 .prev, .pagination--tipo-2 > :last-child {
   border-right: 1px solid #da8240;
 }
-.pagination--tipo-2 .current {
+.pagination--tipo-2 .current, .pagination--tipo-2 .active a {
   font-weight: bold;
   z-index: 2;
   padding: 0.3em 0.75em;
   outline: 2px solid #9a4200;
   box-shadow: 0 0 8px black;
+}
+.pagination--tipo-2 .disabled a {
+  cursor: not-allowed;
+  color: rgba(205, 88, 0, 0.5);
+}
+.pagination--tipo-2 .disabled a:hover {
+  background: inherit;
+  color: rgba(205, 88, 0, 0.5);
 }
 .pagination--tipo-2 a {
   display: block;
@@ -7817,6 +7854,7 @@ a.bt--tipo-1 {
 }
 .bt--tipo-1:hover {
   box-shadow: 0 0 6px;
+  color: #ae4b00;
 }
 
 .bt--tipo-1--secundario {
@@ -7836,6 +7874,7 @@ a.bt--tipo-1--secundario {
 }
 .bt--tipo-1--secundario:hover {
   box-shadow: 0 0 6px;
+  color: #00a7ae;
 }
 
 .bt--tipo-1--urgente {
@@ -7855,6 +7894,7 @@ a.bt--tipo-1--urgente {
 }
 .bt--tipo-1--urgente:hover {
   box-shadow: 0 0 6px;
+  color: #c9181f;
 }
 
 .bt--tipo-1--ok {
@@ -7874,6 +7914,7 @@ a.bt--tipo-1--ok {
 }
 .bt--tipo-1--ok:hover {
   box-shadow: 0 0 6px;
+  color: #309a3f;
 }
 
 .bt--tipo-1--aviso {
@@ -7893,6 +7934,7 @@ a.bt--tipo-1--aviso {
 }
 .bt--tipo-1--aviso:hover {
   box-shadow: 0 0 6px;
+  color: #d4a013;
 }
 
 .bt--tipo-2 {
@@ -7912,6 +7954,7 @@ a.bt--tipo-2 {
 }
 .bt--tipo-2:hover {
   outline: 1px solid;
+  color: #ae4b00;
 }
 
 .bt--tipo-2--secundario {
@@ -7931,6 +7974,7 @@ a.bt--tipo-2--secundario {
 }
 .bt--tipo-2--secundario:hover {
   outline: 1px solid;
+  color: #00a7ae;
 }
 
 .bt--tipo-2--urgente {
@@ -7950,6 +7994,7 @@ a.bt--tipo-2--urgente {
 }
 .bt--tipo-2--urgente:hover {
   outline: 1px solid;
+  color: #c9181f;
 }
 
 .bt--tipo-2--ok {
@@ -7969,6 +8014,7 @@ a.bt--tipo-2--ok {
 }
 .bt--tipo-2--ok:hover {
   outline: 1px solid;
+  color: #309a3f;
 }
 
 .bt--tipo-2--aviso {
@@ -7988,6 +8034,7 @@ a.bt--tipo-2--aviso {
 }
 .bt--tipo-2--aviso:hover {
   outline: 1px solid;
+  color: #d4a013;
 }
 
 .bt--tipo-3 {
@@ -8007,6 +8054,7 @@ a.bt--tipo-3 {
 }
 .bt--tipo-3:hover {
   background: #faeee6;
+  color: #ae4b00;
 }
 
 .bt--tipo-3--secundario {
@@ -8026,6 +8074,7 @@ a.bt--tipo-3--secundario {
 }
 .bt--tipo-3--secundario:hover {
   background: #e6f9fa;
+  color: #00a7ae;
 }
 
 .bt--tipo-3--urgente {
@@ -8045,6 +8094,7 @@ a.bt--tipo-3--urgente {
 }
 .bt--tipo-3--urgente:hover {
   background: #fde8e9;
+  color: #c9181f;
 }
 
 .bt--tipo-3--ok {
@@ -8064,6 +8114,7 @@ a.bt--tipo-3--ok {
 }
 .bt--tipo-3--ok:hover {
   background: #ebf8ed;
+  color: #309a3f;
 }
 
 .bt--tipo-3--aviso {
@@ -8083,6 +8134,7 @@ a.bt--tipo-3--aviso {
 }
 .bt--tipo-3--aviso:hover {
   background: #fef8e8;
+  color: #d4a013;
 }
 
 .bt--tipo-4 {
@@ -8102,6 +8154,7 @@ a.bt--tipo-4 {
 }
 .bt--tipo-4:hover {
   background: linear-gradient(to top, #faeee6, #faeee6);
+  color: #ae4b00;
 }
 
 .bt--tipo-4--secundario {
@@ -8121,6 +8174,7 @@ a.bt--tipo-4--secundario {
 }
 .bt--tipo-4--secundario:hover {
   background: linear-gradient(to top, #e6f9fa, #e6f9fa);
+  color: #00a7ae;
 }
 
 .bt--tipo-4--urgente {
@@ -8140,6 +8194,7 @@ a.bt--tipo-4--urgente {
 }
 .bt--tipo-4--urgente:hover {
   background: linear-gradient(to top, #fde8e9, #fde8e9);
+  color: #c9181f;
 }
 
 .bt--tipo-4--ok {
@@ -8159,6 +8214,7 @@ a.bt--tipo-4--ok {
 }
 .bt--tipo-4--ok:hover {
   background: linear-gradient(to top, #ebf8ed, #ebf8ed);
+  color: #309a3f;
 }
 
 .bt--tipo-4--aviso {
@@ -8178,6 +8234,7 @@ a.bt--tipo-4--aviso {
 }
 .bt--tipo-4--aviso:hover {
   background: linear-gradient(to top, #fef8e8, #fef8e8);
+  color: #d4a013;
 }
 
 .bt--tipo-5 {
@@ -8196,6 +8253,7 @@ a.bt--tipo-5 {
   text-align: center;
 }
 .bt--tipo-5:hover {
+  color: white;
   background: #9c4300;
   border-color: #9c4300;
 }
@@ -8216,6 +8274,7 @@ a.bt--tipo-5--secundario {
   text-align: center;
 }
 .bt--tipo-5--secundario:hover {
+  color: white;
   background: #00969c;
   border-color: #00969c;
 }
@@ -8236,6 +8295,7 @@ a.bt--tipo-5--urgente {
   text-align: center;
 }
 .bt--tipo-5--urgente:hover {
+  color: white;
   background: #b4151b;
   border-color: #b4151b;
 }
@@ -8256,6 +8316,7 @@ a.bt--tipo-5--ok {
   text-align: center;
 }
 .bt--tipo-5--ok:hover {
+  color: white;
   background: #2b8a38;
   border-color: #2b8a38;
 }
@@ -8276,6 +8337,7 @@ a.bt--tipo-5--aviso {
   text-align: center;
 }
 .bt--tipo-5--aviso:hover {
+  color: white;
   background: #bd8f11;
   border-color: #bd8f11;
 }
@@ -8297,6 +8359,7 @@ a.bt--tipo-6 {
   text-align: center;
 }
 .bt--tipo-6:hover {
+  color: white;
   background: linear-gradient(to bottom, #9a4200, #da8240);
   border-color: #9c4300;
 }
@@ -8318,6 +8381,7 @@ a.bt--tipo-6--secundario {
   text-align: center;
 }
 .bt--tipo-6--secundario:hover {
+  color: white;
   background: linear-gradient(to bottom, #00949a, #40d4da);
   border-color: #00969c;
 }
@@ -8339,6 +8403,7 @@ a.bt--tipo-6--urgente {
   text-align: center;
 }
 .bt--tipo-6--urgente:hover {
+  color: white;
   background: linear-gradient(to bottom, #b2151b, #f2555b);
   border-color: #b4151b;
 }
@@ -8360,6 +8425,7 @@ a.bt--tipo-6--ok {
   text-align: center;
 }
 .bt--tipo-6--ok:hover {
+  color: white;
   background: linear-gradient(to bottom, #2b8838, #6bc877);
   border-color: #2b8a38;
 }
@@ -8381,6 +8447,7 @@ a.bt--tipo-6--aviso {
   text-align: center;
 }
 .bt--tipo-6--aviso:hover {
+  color: white;
   background: linear-gradient(to bottom, #bb8d11, #fbcd50);
   border-color: #bd8f11;
 }

@@ -12,11 +12,13 @@ PAGINAÇÃO
 // -----------------------------------------------------------------------------
 // paginacao.scss
 // Criado em: 07/04/2015
-// Última alteração: 08/09/2016
+// Última alteração: 13/09/2016
 // -----------------------------------------------------------------------------
 // Definição da paginação. Formata o tipo padrão gerado pelo Rails.
 // -----------------------------------------------------------------------------
 // Changelog
+// 13/09/2016 | Atualizado para angular
+// 							Acrescentada opção de arredondar a borda (tipo-2)
 // 08/09/2016 | Conteúdo comum vai direto no mixin
 // 14/07/2016 | Alteração da fonte padrão de "rem" para "em"
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
@@ -40,6 +42,7 @@ PAGINAÇÃO
 $paginacao-tipo: tipo-1 !default; // 2 tipos
 $paginacao-posicao: center !default;
 $paginacao-fonte: .75em !default;
+$paginacao-arredondamento: não !default;
 
 // =============================================================================
 // VARIÁVEIS
@@ -96,7 +99,7 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 // MIXIN TIPOS
 // =============================================================================
 @mixin paginacao($tipo) {
-	@include display-flex;
+	@include lista-sem-marcador(flex);
 	@include justify-content($paginacao-posicao);
 	@include align-items(flex-end);
 	font-size: $paginacao-fonte;
@@ -119,15 +122,25 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 			@extend %paginacao-item--tipo-1;
 			@include paginacao-base(gap);
 		}
-		.prev, .first, .next, .last {
+		.prev, .first, .next, .last, > :first-child, > :last-child {
 			@include paginacao-base(navegacao);
 		}
-		.current {
+		.current, .active a {
 			@extend %paginacao-item--tipo-1;
 			@include paginacao-base(ativo);
 			@include paginacao-base(current);
 			box-shadow: $sombra-botao;
 			border-bottom-color: cor(paginacao);
+			@if $paginacao-arredondamento != não {
+				border-radius: $rd;
+			}
+		}
+		.disabled a {
+			cursor: not-allowed;
+			opacity: .5;
+			&:hover {
+				border-bottom-color: transparent;
+			}
 		}
 		// TAGS
 		// -------------------------------------------------------------------------
@@ -165,18 +178,39 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 		.prev, .first, .next, .last {
 			@include paginacao-base(navegacao);
 		}
-		.prev, .first, .next {
+		.prev, .first, .next, > :first-child {
 			border-left: $borda-paginacao;
+			@if $paginacao-arredondamento != não {
+				border-radius: $rd 0 0 $rd;
+			}
 		}
-		.next, .last, .prev {
+		.next, .last, .prev, > :last-child {
 			border-right: $borda-paginacao;
+			@if $paginacao-arredondamento != não {
+				border-radius: 0 $rd $rd 0;
+			}
 		}
-		.current {
+		.active {
+			z-index: 2;
+		}
+		.current, .active a {
 			@extend %paginacao-item--tipo-2;
 			@include paginacao-base(ativo);
 			@include paginacao-base(current);
 			outline: 2px solid cor(paginacao, escura);
 			box-shadow: 0 0 8px cor(fundo, sombra);
+			border-color: transparent;
+			@if $paginacao-arredondamento != não {
+				border-radius: $rd;
+			}
+		}
+		.disabled a {
+			cursor: not-allowed;
+			color: fade-out(cor(paginacao), .5);
+			&:hover {
+				background: inherit;
+				color: fade-out(cor(paginacao), .5);
+			}
 		}
 		// TAGS
 		// -------------------------------------------------------------------------
