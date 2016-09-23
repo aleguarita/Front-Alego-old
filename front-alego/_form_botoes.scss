@@ -12,11 +12,12 @@ FORMULÁRIO | BOTÕES
 // -----------------------------------------------------------------------------
 // form_botoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 06/09/2016
+// Última alteração em: 23/09/2016
 // -----------------------------------------------------------------------------
 // Definições de botões para formulários
 // -----------------------------------------------------------------------------
 // Changelog
+// 23/09/2016 | Alterada forma que os botões aparecem se for dentro da .tab--form
 // 06/09/2016 | Retirada referência à retrocompatibilidade (já estava
 //              retrocompatível uma vez que não acrescentei cores novas, apenas
 //              tirei cores da paleta)
@@ -71,6 +72,14 @@ $botao-arredondamento: $botao-arredondamento
       text-align: center;
     }
   }
+  // ---------------------------------------------------------------------------
+  // MUDA A CONFIGURAÇÃO DO BOTÃO PARA O CASO DE APARECER DENTRO DA tabela-form
+  // ---------------------------------------------------------------------------
+  @if index($uso-classes, tabela-form) {
+		.tab--form & {
+			width: 100%;
+		}
+	}
   // ---------------------------------------------------------------------------
   // CONFIGURAÇÕES BÁSICAS DO BOTÃO
   // ---------------------------------------------------------------------------

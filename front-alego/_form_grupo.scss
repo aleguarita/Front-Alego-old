@@ -14,12 +14,13 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIO | container
 // -----------------------------------------------------------------------------
 // form_grupo.scss
 // Criado em: 20/01/2015
-// Última alteração: 22/07/2016
+// Última alteração: 23/09/2016
 // -----------------------------------------------------------------------------
 // Este arquivo cria grupos de formulários para definições de tamanhos.
 // Baseado na forma que o Rails chama os divs de formulário com o nome field.
 // -----------------------------------------------------------------------------
 // Changelog
+// 23/09/2016 | Acrescenta a class .pos--x
 // 22/07/2016 | Corrigida a largura do .form-container, que estava maior do que
 //              devia
 // 21/07/2016 | Inclusão do field-0, que é igual aos outros, mas sem largura
@@ -205,6 +206,18 @@ FORMULÁRIOS | GRUPOS DE FORMULÁRIOS | fields
   @for $i from 1 through $max - 1 {
     .pre-#{$i} {
       margin-left: $medida * $i;
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// POS
+// -----------------------------------------------------------------------------
+// Gera classes de espaçamento entre as colunas do formulário.
+// -----------------------------------------------------------------------------
+@if index($uso-classes, form-pos) {
+  @for $i from 1 through $max - 1 {
+    .pos-#{$i} {
+      margin-right: $medida * $i;
     }
   }
 }

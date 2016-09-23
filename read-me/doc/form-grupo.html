@@ -25,8 +25,15 @@
         <p>Cada pedaço de formulário deve receber um agrupamento (através de uma <samp>div</samp>) que deve contér o <samp>label</samp> e o <samp>input</samp>. Por padrão, o Ruby já faz esta separação, então basta utilizar a que ele cria, modificando a classe conforme o tamanho.</p>
         <p>Cada caixa vai receber uma classe <samp>.field-x</samp> onde <samp>x</samp> é o tamanho dela de <strong>1</strong> a <strong>12</strong>. Cada valor é 1/12 do tamanho máximo (valor escolhido por ser divísivel por 3 e 4, permitindo a flexibilidade na formatação. Cada valor equivale a uma medida num sistema de grid).</p>
         <p>Se você o elemento for filho direto de um <samp>.form-container--linha</samp> ele pode ser apenas <samp>.field</samp>. Neste caso o elemento vai esticar para caber no que sobrar do elemento pai.</p>
-        <p>Nesta caixa você também colocará a classe que formata o elemento filho (mais detalhes em <a href="#form" class=><!-- COLOCAR LINK -->AQUI, LINK TEMPORÁRIO</a>).</p>
-        <p>Se quiser inserir um espaço em branco entre dois elementos, coloque a classe <samp>.pre-x</samp>. O <samp>x</samp> é a mesma medida de um <samp>field</samp> demonstrado acima. No entanto, para usar estas classes é necessário "ativar" no <a href="#config__classes" class="link--readme">arquivo de configuração</a>.</p>
+        <p>Nesta caixa você também colocará a classe que formata o elemento filho (mais detalhes <a href="#form" class="link--readme">aqui</a>).</p>
+      <h2>Espaço entre fields</h2>
+        <p>Você pode acrescentar espaços antes ou depois dos elementos através das classes abaixo:</p>
+        <dl class="lista-definicao">
+          <dt><samp>.pre-x</samp></dt>
+            <dd>Acrescenta um espaço à esquerda do seu item atual. <samp>x</samp> é a medida igual à de um <samp>field</samp></dd>
+          <dt><samp>.pos-x</samp></dt>
+            <dd>Acrescenta um espaço à direita do seu item atual. <samp>x</samp> é a medida igual à de um <samp>field</samp>. <strong>Particularmente útil para quebrar a linha do formulário</strong>. Para fazer isso, coloque <samp>x</samp> com a mesma medida que falta para aquela linha (por exemplo, se faltam o espaço de um <samp>field-3</samp>)</dd>
+        </dl>
       <h2>Exemplos de código</h2>
         <p>O exemplo abaixo pega um formulário de duas linhas. A primeira linha tem apenas um campo de texto que ocupa a linha inteira, já a segunda tem três caixas de texto do mesmo tamanho.</p>
         <code class="codigo--sass">
