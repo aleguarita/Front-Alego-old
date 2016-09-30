@@ -12,11 +12,12 @@ PAGINAÇÃO
 // -----------------------------------------------------------------------------
 // paginacao.scss
 // Criado em: 07/04/2015
-// Última alteração: 13/09/2016
+// Última alteração: 29/09/2016
 // -----------------------------------------------------------------------------
 // Definição da paginação. Formata o tipo padrão gerado pelo Rails.
 // -----------------------------------------------------------------------------
 // Changelog
+// 29/09/2016 | Inclusão do dir-pagination-controls
 // 13/09/2016 | Atualizado para angular
 // 							Acrescentada opção de arredondar a borda (tipo-2)
 // 08/09/2016 | Conteúdo comum vai direto no mixin
@@ -231,5 +232,10 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 @if index($uso-classes, paginacao) {
 	.pagination {
 		@include paginacao($paginacao-tipo);
+	}
+	dir-pagination-controls {
+		@include display(flex);
+		@include justify-content($paginacao-posicao);
+		width: 100%;
 	}
 }

@@ -536,6 +536,11 @@ $codigo-selecionado: (
   datepicker-tipo: if(index($uso-classes, datepicker), $datepicker-tipo, 'nenhum'),
   datepicker-sombra: $datepicker-sombra,
   datepicker-arredondado: $datepicker-arredondado,
+
+  barra-ferramentas-tipo: if(index($uso-classes, barra-ferramentas), $barra-ferramentas-tipo, 'nenhum'),
+  barra-ferramentas-fundo: $barra-ferramentas-fundo,
+
+  tab-mutante-qtd: $tab-mutante-qtd,
 );
 
 @each $classe, $valor in $codigo-selecionado {
@@ -1243,4 +1248,20 @@ $datepicker-tipos: tipo-1, tipo-2, tipo-3;
   width: 100%;
   height: 100%;
   padding: 1.2em;
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | barra de ferramentas
+================================================================================
+*/
+$barra-ferramentas-tipos: tipo-1;
+@each $tipo in $barra-ferramentas-tipos {
+  .barra-ferramentas--#{$tipo}--sem-fundo {
+    $barra-ferramentas-fundo: não;
+    @include barra-ferramentas($tipo);
+  }
+  .barra-ferramentas--#{$tipo}--com-fundo {
+    $barra-ferramentas-fundo: sim;
+    @include barra-ferramentas($tipo);
+  }
 }

@@ -1,0 +1,152 @@
+@if index($uso-classes, barra-ferramentas) {
+/*
+================================================================================
+BARRA DE FERRAMENTAS
+================================================================================
+*/
+}
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// barra-ferramentas.scss
+// Criado em: 27/09/2016
+// -----------------------------------------------------------------------------
+// Definições padrão de barra de ferramentas
+// -----------------------------------------------------------------------------
+// Changelog
+// 27/09/2016 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$barra-ferramentas-tipo: tipo-1 !default; // 2 tipos
+$barra-ferramentas-fundo: sim !default;
+
+// =============================================================================
+// MIXIN | BASE
+// =============================================================================
+@mixin barra-ferramentas-base($tag: basico) {
+  @if $tag == basico {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1em;
+    align-items: center;
+    // -------------------------------------------------------------------------
+    // FUNDO
+    // -------------------------------------------------------------------------
+    @if $barra-ferramentas-fundo == sim {
+      padding: $pd;
+      background: if($form-tipo == tipo-3, tint(cor(formulario, fundo), 25), cor(formulario, fundo));
+      @if $form-tipo == tipo-3 {
+        border: $borda-form $borda-form-tipo;
+      }
+    }
+    // -------------------------------------------------------------------------
+    // FILHOS DIRETOS
+    // -------------------------------------------------------------------------
+    > * {
+      min-height: inherit; // para resolver alinhamento dos itens
+      align-self: stretch;
+      padding-bottom: 0;
+      > :only-child {
+        align-self: inherit;
+      }
+      // FILHO + FILHO
+      + * {
+        margin-left: $margem;
+      }
+      // PRIMEIRO ITEM
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+    // -------------------------------------------------------------------------
+    // AÇÕES
+    // -------------------------------------------------------------------------
+    &__acoes {
+      flex: 1;
+      display: flex;
+      align-self: stretch;
+      justify-content: flex-end;
+      > * + * {
+        margin-left: $margem / 2;
+      }
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // SEPARADOR
+  // ---------------------------------------------------------------------------
+  @if $tag == separador {
+    &__separador {
+      margin-left: $margem;
+      margin-right: $margem / 2;
+      @content;
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // ÍCONES
+  // ---------------------------------------------------------------------------
+  @if $tag == icones {
+    @at-root {
+      .form-icones {
+        @include display-flex;
+        @include align-items(center);
+        // ---------------------------------------------------------------------
+        > * {
+          cursor: pointer;
+          @content;
+          + * {
+            margin-left: $margem;
+          }
+        }
+        // ---------------------------------------------------------------------
+      }
+    }
+  }
+}
+// =============================================================================
+// MIXIN FINAL
+// =============================================================================
+@mixin barra-ferramentas($tipo) {
+  @include barra-ferramentas-base;
+  // ---------------------------------------------------------------------------
+  // TIPO 1
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-1 {
+    @include barra-ferramentas-base(separador) {
+      padding: 0 $pd;
+      border-left: $borda-form $borda-form-tipo;
+      border-right: $borda-form $borda-form-tipo;
+      &:first-child {
+        padding-left: 0;
+        margin-left: 0;
+        border-left-width: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+        margin-right: 0;
+        border-right-width: 0;
+      }
+    }
+    @include barra-ferramentas-base(icones) {
+      color: cor(formulario, label);
+    }
+  }
+  // ---------------------------------------------------------------------------
+  // TIPO 2
+  // ---------------------------------------------------------------------------
+  @if $tipo == tipo-2 {
+
+  }
+}
+// =============================================================================
+// CLASSES MONTADAS
+// =============================================================================
+@if index($uso-classes, barra-ferramentas) {
+  .barra-ferramentas {
+    @include barra-ferramentas($barra-ferramentas-tipo);
+  }
+}

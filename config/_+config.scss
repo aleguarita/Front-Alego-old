@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 23/09/2016
+// Última alteração em: 29/09/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,7 +13,9 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
-// 23/09/2016 | Acrescentada a opção de form-pos
+// 29/09/2016 | Acrescentada barra-ferramentas
+//              Acrescentada tab--mutante (tabela mutante)
+// 23/09/2016 | Acrescentada a opção de form-pos (margem depois de field)
 // 13/09/2016 | Acrescentada opção de borda arredondada para paginação
 // 18/08/2016 | Acrescentada opção de fazer um "loading" de tela inteira
 // 14/07/2016 | Alterado o valor da variável da paginação de "rem" para "em"
@@ -76,6 +78,8 @@ $uso-classes: (
   fonte-serifa,
   fonte-sans-serif,
   loading,
+  barra-ferramentas,
+  tab-mutante,
 );
 
 // =============================================================================
@@ -199,9 +203,23 @@ $sprite-medida: 150px;
 $sprites: (
   exemplo: (1, 1),
 );
+
 // =============================================================================
 // DATEPICKER
 // =============================================================================
 $datepicker-tipo: tipo-3;
 $datepicker-sombra: sim;
 $datepicker-arredondado: não;
+
+// =============================================================================
+// BARRA DE FERRAMENTAS
+// =============================================================================
+$barra-ferramentas-tipo: tipo-1; // 1 tipo (aguarde o segundo)
+$barra-ferramentas-fundo: não;
+
+// =============================================================================
+// TABELA MUTANTE
+// -----------------------------------------------------------------------------
+// ATENÇÃO: tabela e card precisam estar ativos em #uso-classes
+// =============================================================================
+$tab-mutante-qtd: (1, 1, 2, 4);

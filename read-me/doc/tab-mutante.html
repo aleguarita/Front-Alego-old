@@ -1,0 +1,367 @@
+<article id="tab-mutante">
+  <header><h1>Tabela Mutante</h1></header>
+  <p>Links para as configurações: <a href="#config__tab-form" class="link--readme">Tabela Mutante</a>, <a href="#config__tab" class="link--readme">Tabela</a> e <a href="#config__card" class="link--readme">Cards</a></p>
+  <section class="secao-lista">
+    <input type="checkbox" id="tab-mutante__doc" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="tab-mutante__doc">
+        <span class="secao-lista__titulo">Documentação</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="assets/ico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <article class="secao-lista__conteudo">
+      <p>A tabela mutante altera a apresentação do conteúdo entre tabela e card, conforme a escolha do usuário.</p>
+      <p>Para isso funcionar é necessário colocar dois radios ocultos, no mesmo nível da tabela (copie e cole o código abaixo, pois os ids são essenciais):</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;input type="radio" id="modo-tabela" name="tab--mutante" class="oculta" checked="checked" /&gt;</p>
+        <p>&lt;input type="radio" id="modo-card" name="tab--mutante" class="oculta" /&gt;</p>
+      </code>
+
+      <p>A escolha de qual dos dois vai estar <samp>checked</samp> vai determinar a apresentação inicial da tabela (se vai ser em tabela ou card).</p>
+      <p>Em seguida crie os label para escolher o modo que deseja visualizar. Recomendo o uso de ícones de da Barra de Ferramentas:</p>
+
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;section class="barra-ferramentas"&gt;</p>
+          <p class="recuo-1">&lt;div class="form-icones"&gt;</p>
+            <p class="recuo-2">&lt;label for="modo-tabela"&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="../images/ico.svg#lista" /&gt;&lt;/svg&gt;&lt;/label&gt;</p>
+            <p class="recuo-2">&lt;label for="modo-card"&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="../images/ico.svg#card" /&gt;&lt;/svg&gt;&lt;/label&gt;</p>
+          <p class="recuo-1">&lt;/div&gt;</p>
+        <p>&lt;/section&gt;</p>
+      </code>
+
+      <p>Por fim, você coloca a tabela, repetindo, <strong>no mesmo nível hierárquico</strong> dos inputs.</p>
+      <p>Uma observação importante: o conteúdo da coluna de título (<samp>&lt;th&gt;</samp>) deve aparecer em um atributo <samp>data-title</samp> dentro do respectivo <samp>&lt;td&gt;</samp></p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;table class="tab--mutante"&gt;</p>
+          <p class="recuo-1">&lt;thead&gt;</p>
+            <p class="recuo-2">&lt;tr&gt;</p>
+              <p class="recuo-3">&lt;th&gt;Nome&lt;/th&gt;</p>
+              <p class="recuo-3">&lt;th&gt;Matrícula&lt;/th&gt;</p>
+              <p class="recuo-3">&lt;th class="col--acoes"&gt;&lt;/th&gt;</p>
+            <p class="recuo-2">&lt;/tr&gt;</p>
+          <p class="recuo-1">&lt;/thead&gt;</p>
+          <p class="recuo-1">&lt;tbody&gt;</p>
+            <p class="recuo-2">&lt;tr&gt;</p>
+              <p class="recuo-3">&lt;td data-title="Nome"&gt;</p>
+                <p class="recuo-4">Nome da Pessoa</p>
+              <p class="recuo-3">&lt;/td&gt;</p>
+              <p class="recuo-3">&lt;td data-title="Matrícula" class="tab__link"&gt;</p>
+                <p class="recuo-4">Matrícula da Pessoa</p>
+              <p class="recuo-3">&lt;/td&gt;</p>
+              <p class="recuo-3">&lt;td class="tab__acoes"&gt;</p>
+                <p class="recuo-4">&lt;a href="" title="Exibir"&gt;</p>
+                  <p class="recuo-5">&lt;svg class="ico"&gt;&lt;use xlink:href="../images/ico.svg#olho" /&gt;&lt;/svg&gt;</p>
+                <p class="recuo-4">&lt;/a&gt;</p>
+                <p class="recuo-4">&lt;a href="" title="Editar"&gt;</p>
+                  <p class="recuo-5">&lt;svg class="ico"&gt;&lt;use xlink:href="../images/ico.svg#lapis" /&gt;&lt;/svg&gt;</p>
+                <p class="recuo-4">&lt;/a&gt;</p>
+              <p class="recuo-3">&lt;/td&gt;</p>
+            <p class="recuo-2">&lt;/tr&gt;</p>
+            <p class="recuo-2">...</p>
+          <p class="recuo-1">&lt;/tbody&gt;</p>
+        <p>&lt;/table&gt;</p>
+      </code>
+
+      <p>Uma breve explicação sobre a variável <samp>$tab-mutante-qtd</samp>: ela faz uso do mixin <samp>grupo-flex</samp> (dá um cmd+f aí pra achar entre os <a href="#mixins" class="link--readme">mixins</a>). Por isso deve aparecer entre parênteses e ter no máximo 4 valores. Cada número representa a quantidade de cards que vai aparecer em cada linha conforme o tamanho da tela: pequeno/acima (celular), médio/acima (tablet), grande/acima (notebook) e extra-grande (computador). Se você colocar menos valores, ele assume que o valor seguinte é o mesmo do anterior</p>
+    </article>
+  </section>
+
+  <section class="secao-lista">
+    <input type="checkbox" id="tabela-mutante_demo" class="secao-lista__check">
+    <header class="secao-lista__header">
+      <label for="tabela-mutante_demo">
+        <span class="secao-lista__titulo">Demonstração</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="assets/ico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+    <article class="secao-lista__conteudo">
+      <p>Vale lembrar que a apresentação da tabela e do card depende dos tipos e cores que você configurou anteriormente.</p>
+      <p>Experimente redimensionar a página no modo de card para ver a quantidade mudar.</p>
+      <ul class="lista-config">
+        <li><samp>$tab-mutante-qtd:</samp> (<span class="codigo-tab-mutante-qtd"></span>)</li>
+      </ul>
+
+      <input type="radio" id="modo-tabela" name="tab--mutante" class="oculta" checked="checked" />
+      <input type="radio" id="modo-card" name="tab--mutante" class="oculta" />
+
+      <section class="barra-ferramentas">
+        <div class="form-icones">
+          <label for="modo-tabela"><svg class="ico"><use xlink:href="../images/ico.svg#lista" /></svg></label>
+          <label for="modo-card"><svg class="ico"><use xlink:href="../images/ico.svg#card" /></svg></label>
+        </div>
+      </section>
+
+      <table class="tab--mutante">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Matrícula</th>
+            <th class="col--acoes"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td data-title="Nome">
+              Nome da Pessoa
+            </td>
+            <td data-title="Matrícula" class="tab__link">
+              Matrícula da Pessoa
+            </td>
+            <td class="tab__acoes">
+              <a href="" title="Exibir">
+                <svg class="ico"><use xlink:href="../images/ico.svg#olho" /></svg>
+              </a>
+              <a href="" title="Editar">
+                <svg class="ico"><use xlink:href="../images/ico.svg#lapis" /></svg>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </article>
+  </section>
+</article>

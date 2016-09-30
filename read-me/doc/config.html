@@ -44,6 +44,9 @@
           <dt><samp>datepicker</samp></dt><dd>Formata o datepicker, se estiver em uso</dd>
           <dt><samp>fonte-serifa</samp><dd>Define se usa fontes personalizadas serifadas (patua one)</dd></dt>
           <dt><samp>fonte-sans-serifa</samp><dd>Define se usa fontes personalizadas sem serifa (open-sans)</dd></dt>
+          <dt><samp>loading</samp></dt><dd>Define se usa uma tela de carregando</dd>
+          <dt><samp>barra-ferramentas</samp></dt><dd>Define se usa a barra de ferramentas (para campos de pesquisa, por exemplo)</dd>
+          <dt><samp>tab-mutante</samp></dt><dd>Define se usa a tabela mutante, que pode mudar entre visualização de tabela e cards. <strong>Atenção: </strong>para funcionar é necessário que tanto <samp>card</samp> quanto <samp>tabela</samp> também estejam ativos</dd>
         </dl>
         <blockquote class="aviso--grave">
           Apenas comente! Não altere os nomes em hipótese nenhuma (do contrário será o mesmo efeito de comentar e a classe não será criada)
@@ -213,6 +216,20 @@
             <dd>Define se o datepicker vai ter sombra. Valores: <samp>sim</samp> | <samp>não</samp></dd>
           <dt><samp>$datepicker-arredondado</samp></dt>
             <dd>Determina se os links do datepicker vão ter as bordas com o arredondamento padrão (definido na variável <samp>$rd</samp>). Valores: <samp>sim</samp> | <samp>não</samp></dd>
+        </dl>
+      <h2 id="config__barra-ferramentas">Barra de Ferramentas</h2>
+        <p>Definições da barra de ferramentas.</p>
+        <dl class="lista-definicao">
+          <dt><samp>$barra-ferramentas-tipo</samp></dt>
+            <dd>Valores: <samp>tipo-1</samp> (em breve o segundo tipo)</dd>
+          <dt><samp>$barra-ferramentas-fundo</samp></dt>
+            <dd>Define se a barra de ferramentas vai ter uma cor de fundo. Se o formulário for o <samp>tipo-3</samp> ela também ganha uma borda ao redor. Valores: <samp>sim</samp> | <samp>não</samp></dd>
+        </dl>
+      <h2 id="config__tab-form">Tabela Mutante</h2>
+        <p>Definições da barra de ferramentas.</p>
+        <dl class="lista-definicao">
+          <dt><samp>$tab-mutante-qtd</samp></dt>
+            <dd>Define a quantidade de cards que vai aparecer por linha. É um mapa e por isso deve aparecer entre parênteses (até quatro valores, separados por tamanhos crescentes de tela de celular à tela grande).</dd>
         </dl>
     </section>
   </section>

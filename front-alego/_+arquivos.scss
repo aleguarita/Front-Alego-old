@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // arquivos.scss
 // Criado em: 21/03/2016
-// Última alteração: 06/09/2016
+// Última alteração: 30/09/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os imports dos arquivos desta pasta que não dependem da
 // pasta de config/ e, portanto, são importados todos de uma vez.
@@ -25,6 +25,7 @@
 // fontes.scss
 // -----------------------------------------------------------------------------
 // Changelog:
+// 30/09/2016 | Acréscimo da barra de ferramentas e tabela mutante
 // 06/09/2016 | Retirado arquivo de retrocompatilidade do botão (não precisava
 //              dele, uma vez que reestruturei corretamente)
 // 05/09/2016 | Acréscimo de um novo arquivo de botão
@@ -59,8 +60,10 @@
 @import "sprites";
 @import "datepicker";
 @import "tela_mensagem";
+@import "barra_ferramentas";
+@import "tabela_mutante";
 
 // Formatações especiais
-@import "simbolos-svg";
+@import "simbolos_svg";
 @import "classes";
 @import "loading";
