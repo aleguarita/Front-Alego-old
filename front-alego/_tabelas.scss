@@ -1,8 +1,10 @@
+@if index($uso-classes, tabela) {
 /*
 ================================================================================
 TABELAS
 ================================================================================
 */
+}
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -10,11 +12,13 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 06/09/2016
+// Última alteração: 07/10/2016
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 07/10/2016 | Retirada borda e fundo de .tab__acoes
+// 							Alinhamento à direita de .tab__acoes
 // 06/09/2016 | Reduzida a quantidade de cores necessárias para formar a tabela
 // 							no arquivo de cores (retirado borda-clara e borda-escura que
 // 							agora clarea/escurece a borda)
@@ -71,28 +75,30 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 // Definições básicas
 // =============================================================================
 
-table {
-	width: 100%;
-}
-th {
-	font-family: $fonte-titulo;
-	text-align: left;
-	font-size: em(15, 14);
-}
-tr {
-	color: cor(texto);
-	tbody & {
-		background: cor(fundo, x-claro);
+@if index($uso-classes, tabela) {
+	table {
+		width: 100%;
 	}
-}
-th {
-	padding: .25em .45em;
-	text-transform: uppercase;
-}
-td {
-	line-height: 1;
-	padding: .5em;
-	font-size: em(12, 14);
+	th {
+		font-family: $fonte-titulo;
+		text-align: left;
+		font-size: em(15, 14);
+	}
+	tr {
+		color: cor(texto);
+		tbody & {
+			background: cor(fundo, x-claro);
+		}
+	}
+	th {
+		padding: .25em .45em;
+		text-transform: uppercase;
+	}
+	td {
+		line-height: 1;
+		padding: .5em;
+		font-size: em(12, 14);
+	}
 }
 
 // =============================================================================
@@ -121,19 +127,19 @@ td {
 	@if $tag == zebra {
 		tbody tr:nth-child(even) {
 			background: cor(tabela, fundo);
-			.tab__acoes {
-				background: desaturate(cor(tabela, fundo), 15%);
-			}
 			@if $tab--responsiva == "sim" {
 				@include media-tipo($tab-resp-tamanho, max) {
 					background: inherit;
-					.tab__acoes {
-						background: inherit;
-					}
 				}
 			}
 		}
 	}
+	// ---------------------------------------------------------------------------
+	// AÇÕES
+	// ---------------------------------------------------------------------------
+  @else if $tag == acoes {
+    text-align: right;
+  }
 	// ---------------------------------------------------------------------------
 	// FORM
 	// ---------------------------------------------------------------------------
@@ -242,7 +248,7 @@ td {
 			}
 		}
 		&__acoes {
-			background: lighten(cor(tabela, fundo), 5%);
+			@include tab--opcoes(acoes);
 			@include tab--opcoes(responsiva-acoes);
 		}
 		tfoot {
@@ -250,7 +256,7 @@ td {
 				background: cor(tabela, footer);
 				border-bottom-width: 0;
 			}
-			td {
+			th, td {
 				color: cor(texto, claro);
 			}
 		}
@@ -287,18 +293,70 @@ td {
 			}
 		}
 		&__acoes {
-			background: cor(tabela, fundo);
-			border-left: 2px solid cor(tabela, borda);
-			@include tab--opcoes(responsiva-acoes) {
-				border-left: 0;
-			}
+			@include tab--opcoes(acoes);
+			@include tab--opcoes(responsiva-acoes);
 		}
 		tfoot {
 			tr {
 				border-top: 1px solid cor(tabela, borda);
 			}
-			td {
+			th, td {
 				color: cor(tabela, footer);
+			}
+		}
+	}
+	// ---------------------------------------------------------------------------
+	// TIPO 3
+	// ---------------------------------------------------------------------------
+	@else if $tipo == tipo-3 {
+		@include tab--opcoes(responsiva);
+		thead {
+			border-right: 1px solid cor(tabela, titulo);
+			border-left: 1px solid cor(tabela, titulo);
+			tr {
+				color: cor(texto, claro);
+				background: cor(tabela, titulo);
+			}
+		}
+		tbody {
+			border-right: 1px solid cor(tabela, borda);
+			border-left: 1px solid cor(tabela, borda);
+			tr {
+				border-bottom: 1px solid tint(cor(tabela, borda), 25);
+				@include tab--opcoes(responsiva-tr) {
+					border-bottom-width: 2px;
+				}
+			}
+		}
+		td {
+			border-left: 1px solid cor(tabela, borda);
+			@include tab--opcoes(responsiva-td) {
+				border-bottom: 1px solid tint(cor(tabela, borda), 25);
+				&:last-child {
+					border-bottom-width: 0;
+				}
+			}
+			@include tab--opcoes(responsiva-td-before) {
+				color: cor(tabela, titulo);
+				font-weight: bold;
+			}
+			&:first-child {
+				border-left-width: 0;
+			}
+		}
+		&__acoes {
+			@include tab--opcoes(acoes);
+			@include tab--opcoes(responsiva-acoes);
+		}
+		tfoot {
+			border-right: 1px solid cor(tabela, footer);
+			border-left: 1px solid cor(tabela, footer);
+			tr {
+				background: cor(tabela, footer);
+				border-bottom-width: 0;
+			}
+			th, td {
+				color: cor(texto, claro);
 			}
 		}
 	}
