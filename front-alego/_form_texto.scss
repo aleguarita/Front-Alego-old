@@ -20,6 +20,8 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 03/11/2016 | Incluida a formatação para o caso de :focus (somente :valid
+//              não estava suficiente para o caso de e-mail)
 // 02/09/2016 | Criada classe .label para simular o label
 // 17/08/2016 | Corrigida compatibilidade com o Firefox
 // 21/07/2016 | Alterado o campo obrigatório de padding-left para text-indente
@@ -179,7 +181,7 @@ $form-radio-check-personaliza: sim !default;
         padding-left: em($form-obrigatorio) + 1em;
         outline: 2px solid lighten($svg-placeholder-original, 15%);
         // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
-        &:valid {
+        &:valid, &:focus {
           background-image: none;
           padding-left: inherit;
           outline: 0;
