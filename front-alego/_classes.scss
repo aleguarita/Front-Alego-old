@@ -10,12 +10,15 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 18/07/2016
+// Alterado em: 10/11/2106
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 10/11/2106 | Inclusão de !important (shame on you) nas classes de margem
+//              (como a classe pode ser aplicada ou não, isso serve para
+//              substituir resets de margem como no caso do :first-child)
 // 18/07/2016 | Ajuste das margens inferior e superior
 // 15/07/2016 | Inclusão das classes de margen inferior e superior
 // 14/07/2016 | Ajustes no tamanho da fonte das variações --menor e --maior
@@ -121,10 +124,10 @@ $tamanho-fonte: (
 // =============================================================================
 .margem {
   &--inferior {
-    margin-bottom: 1em;
+    margin-bottom: 1em !important; // existem resets de margem que sobrepõem a esse
   }
   &--superior {
-    margin-top: 1em;
+    margin-top: 1em !important; // existem resets de margem que sobrepõem a esse
   }
   // ---------------------------------------------------------------------------
   // Por alguma razão, um elemento com margin-top que aparece DEPOIS de um com
@@ -132,6 +135,6 @@ $tamanho-fonte: (
   // corrigir isso
   // ---------------------------------------------------------------------------
   &--inferior + &--superior {
-    margin-top: 2em;
+    margin-top: 2em !important;
   }
 }

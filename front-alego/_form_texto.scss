@@ -20,6 +20,11 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 04/11/2016 | Tentando novo ajuste da formatação dos :required. Retirei os
+//              pseudoseletores :valid e :focus de ser filho do :required e
+//              estou contando com a cascata do CSS aceitar isso. Também alterei
+//              o valor de padding-left: inherit para .5em para garantir a
+//              medida
 // 03/11/2016 | Incluida a formatação para o caso de :focus (somente :valid
 //              não estava suficiente para o caso de e-mail)
 // 02/09/2016 | Criada classe .label para simular o label
@@ -181,11 +186,11 @@ $form-radio-check-personaliza: sim !default;
         padding-left: em($form-obrigatorio) + 1em;
         outline: 2px solid lighten($svg-placeholder-original, 15%);
         // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
-        &:valid, &:focus {
-          background-image: none;
-          padding-left: inherit;
-          outline: 0;
-        }
+      }
+      &:valid, &:focus {
+        background-image: none;
+        padding-left: .5em;
+        outline: 0;
       }
     }
   }
