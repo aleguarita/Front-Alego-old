@@ -14,10 +14,13 @@ ATENÇÃO: Você encontrará pedaços desta tabela em TABELA e CARD
 // -----------------------------------------------------------------------------
 // tabela_mutante.scss
 // Criado em: 28/09/2016
+// Última alteração: 24/11/2016
 // -----------------------------------------------------------------------------
 // Tabela que muda conforme a escolha do usuário (altera entre tabela e cards)
 // -----------------------------------------------------------------------------
 // Changelog
+// 25/11/2016 | Comentado o word-wrap: pre. O parâmetro não existe e não sei o
+//              motivo de ter colocado isso.
 // 28/09/2016 | Criado o arquivo
 // =============================================================================
 
@@ -103,7 +106,7 @@ $tab-mutante-qtd: (1, 1, 2, 4) !default;
       @extend .card__footer;
       > * {
         text-align: center;
-        word-wrap: pre;
+        // word-wrap: pre; // investigar pq coloquei isso originalmente
       }
       &::before {
         display: none;
