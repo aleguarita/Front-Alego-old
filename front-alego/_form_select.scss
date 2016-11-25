@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 24/11/2016
+// Última alteração em: 25/11/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 25/11/2016 | Desfeita a alteração anterior (a visualização ficou errada)
 // 24/11/2016 | Correção: appearance não tem "none" e sim "normal"
 // 17/08/2016 | Corrigida compatibilidade com o Firefox
 // 21/07/2016 | Alterado o campo obrigatório de padding-left para text-indente
@@ -74,7 +75,7 @@ $select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
 // MIXIN | SELECT
 // =============================================================================
 @mixin form-select--basico {
-  @include appearance(normal);
+  @include appearance(none);
   border: 0;
   border-radius: 0;
   line-height: 1.6;

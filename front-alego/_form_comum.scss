@@ -11,12 +11,13 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 24/11/2016
+// Última alteração em: 25/11/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 25/11/2016 | Desfeita a alteração anterior (a visualização ficou errada)
 // 24/11/2016 | Correção: appearance não tem "none" e sim "normal"
 // 30/08/2016 | Mudado o padding do .form__ico
 // 24/08/2016 | Incluida a compatibilidade conforme requisitado ao compilar
@@ -85,7 +86,7 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
   }
 }
 @mixin form__caixa-texto {
-  @include appearance(normal);
+  @include appearance(none);
   border-radius: 0;
   font-size: $tamanho-fonte-form;
   color: cor(texto);
