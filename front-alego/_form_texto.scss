@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 02/09/2016
+// Última alteração em: 07/12/2016
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 07/12/2016 | Correção para formulários tipo-1 e tipo-2 no Linux
 // 04/11/2016 | Tentando novo ajuste da formatação dos :required. Retirei os
 //              pseudoseletores :valid e :focus de ser filho do :required e
 //              estou contando com a cascata do CSS aceitar isso. Também alterei
@@ -98,6 +99,7 @@ $form-radio-check-personaliza: sim !default;
   ) {
   @include form-texto__label($label-tipo) {
     @if $label-tipo == "colado" {
+      border: 1px $tipo transparent;
       border-bottom: 1px $tipo $cor;
     }
   }

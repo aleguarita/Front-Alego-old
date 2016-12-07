@@ -11,12 +11,16 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 25/11/2016
+// Última alteração em: 07/12/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 07/12/2016 | .form__ico centralizado através de flex
+//              Transparência para o item desabilitado
+//              form-comum inclui agora o align-content: flex-start pra alinhar
+//               para cima
 // 25/11/2016 | Desfeita a alteração anterior (a visualização ficou errada)
 // 24/11/2016 | Correção: appearance não tem "none" e sim "normal"
 // 30/08/2016 | Mudado o padding do .form__ico
@@ -73,10 +77,11 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
 // =============================================================================
 @mixin form-base($flex: null) {
   @include display-flex;
+  @include align-self(flex-start); // alinha no início
   min-height: 2.25rem;
   position: relative;
   > :only-child {
-    @include align-self(flex-end);
+    // @include align-self(flex-end); // para o caso do elemento ficar sozinho. Comparar
   }
   @if $flex != null {
     input, textarea, select {
@@ -99,7 +104,11 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
 // =============================================================================
 // CLASSES DOS ELEMENTOS COMUM
 // =============================================================================
+// FORM ICO (ícone que aparece no formulário)
+// -----------------------------------------------------------------------------
 .form__ico {
+  @include display-flex;
+  @include align-items(center);
   padding: .5em;
   cursor: pointer;
   @if $form-tipo == "tipo-3" {
@@ -122,9 +131,18 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
 button.form__ico {
   border: 0;
 }
+// -----------------------------------------------------------------------------
+// AÇÕES
+// -----------------------------------------------------------------------------
 .actions, .form__acoes {
   text-align: right;
   * + * {
     margin-left: $margem / 2;
   }
+}
+// -----------------------------------------------------------------------------
+// DESABILITADO
+// -----------------------------------------------------------------------------
+[disabled] {
+  opacity: .5;
 }
