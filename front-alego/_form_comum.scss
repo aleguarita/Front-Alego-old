@@ -11,12 +11,14 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 07/12/2016
+// Última alteração em: 08/12/2016
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 08/12/2016 | Retirado border: 0; de button.form__ico e movido apenas para
+//              .form__ico para corrigir a ausência de linha
 // 07/12/2016 | .form__ico centralizado através de flex
 //              Transparência para o item desabilitado
 //              form-comum inclui agora o align-content: flex-start pra alinhar
@@ -111,6 +113,7 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
   @include align-items(center);
   padding: .5em;
   cursor: pointer;
+  border: 0;
   @if $form-tipo == "tipo-3" {
     background: cor(formulario);
     color: cor(texto, claro);
@@ -127,9 +130,6 @@ $svg-obrigatorio: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2
       color: cor(texto, claro);
     }
   }
-}
-button.form__ico {
-  border: 0;
 }
 // -----------------------------------------------------------------------------
 // AÇÕES
