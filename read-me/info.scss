@@ -176,18 +176,20 @@ $largura-dt-pq: 9em;
   }
 }
 .lista-changelog {
+  $largura-versao: 8rem;
   @include grupo-flex(2, 0);
   dt, dd {
     margin-bottom: .5em;
   }
   dt {
     font-weight: bold;
-    width: 5rem;
-    margin-right: $calha / 2;
+    width: $largura-versao;
+    margin-right: $calha;
     color: cor(texto, medio);
+    text-align: right;
   }
   dd {
-    width: calc(100% - 5rem - (#{$calha} / 2));
+    width: calc(100% - #{$largura-versao} - #{$calha});
   }
 }
 .lista-itens {

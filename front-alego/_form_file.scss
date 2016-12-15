@@ -1,58 +1,24 @@
 @if index($uso-classes, form) {
 /*
 ================================================================================
-FORMULÁRIOS | INPUT[TEXT], TEXTAREA
+FORMULÁRIOS | FILE
 ================================================================================
 */
 }
-
 // =============================================================================
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
-// form_input_texto.scss
-// Criado em: 09/11/2015
-// Última alteração em: 08/12/2016
+// form_arquivo.scss
+// Criado em: 14/12/2016
 // -----------------------------------------------------------------------------
-// Este arquivo formata os inputs de texto e sua relação com o label, e demais
-// elementos (placeholder, etc).
-// Inputs similares ao de texto também fazem uso dessa classe (exemplos:
-// data, e-mail, etc)
+// Este arquivo formata os arquivos de input de arquivo. Para que o texto seja
+// substituído por uma mensagem válida é necessário chamar o javascript
+// input-file.js
+// Este arquivo depende da existência do _form_texto.scss
 // ----------------------------------------------------------------------------
 // Changelog
-// 08/12/2016 | O parâmetro de correção para Linux estava no seletor errado
-// 07/12/2016 | Correção para formulários tipo-1 e tipo-2 no Linux
-// 04/11/2016 | Tentando novo ajuste da formatação dos :required. Retirei os
-//              pseudoseletores :valid e :focus de ser filho do :required e
-//              estou contando com a cascata do CSS aceitar isso. Também alterei
-//              o valor de padding-left: inherit para .5em para garantir a
-//              medida
-// 03/11/2016 | Incluida a formatação para o caso de :focus (somente :valid
-//              não estava suficiente para o caso de e-mail)
-// 02/09/2016 | Criada classe .label para simular o label
-// 17/08/2016 | Corrigida compatibilidade com o Firefox
-// 21/07/2016 | Alterado o campo obrigatório de padding-left para text-indente
-//              (dava problema com a largura do formulário)
-// 11/07/2016 | Acrescentado fundo tranparente somente para o tipo-1 e tipo-2
-// 06/07/2016 | Acréscimo de cor específica para o label
-//              Acréscimo de campo obrigatório
-// 13/05/2016 | Corrigo destaque no label quando há foco no input
-// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
-//              evitar incompatibilidade no caso de atualizações do config.scss
-// 17/03/2016 | Retirado cursor: pointer do label
-// 04/02/2016 | Agrupando labels para o arquivo final ficar melhor (agora o
-//              mixin de label permite escrever o conteúdo do label)
-//              Movida classe .form__ico para form_comum
-// 22/01/2016 | Retirado placeholder para mixin
-// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
-// 							por tipo
-// 17/11/2015 | Utilizada nova forma chamar as classes
-//              Agrupados arquivos similares como o de data e busca)
-//              Incluído elementos "flex" que estavam em "form_tamanhos"
-// 10/11/2015 | Alterada forma de pensar. Ao invés de ser "automático" (com
-//              placeholder/mixin, criei uma classe própria pra melhorar a
-//              performance do CSS final)
-// 09/11/2015 | Criação do arquivo
+// 14/12/2016 | Criação do arquivo
 // =============================================================================
 
 // =============================================================================
@@ -63,37 +29,26 @@ $label-tipo: flutuante !default; // flutuante | colado
 $form-radio-check-personaliza: sim !default;
 
 // =============================================================================
-// PLACEHOLDERS | LABEL
+// MIXIN | FORM-FILE__INFO
 // =============================================================================
-@mixin form-texto__label--basico {
-  @include order(-1);
-  font-weight: bold;
-  // cursor: pointer;
-  color: cor(formulario, label);
-}
-@mixin form-texto__label($tipo) {
-  @if $tipo == flutuante {
-    @include flex-wrap;
-    label, .label {
-      @include form-texto__label--basico;
-      width: 100%;
-      @content;
-    }
+@mixin form-file__info {
+  cursor: pointer;
+  &:hover {
+    opacity: .8;
   }
-  @else if $tipo == colado {
-    @include align-items(stretch);
-    label, .label {
-      @include form-texto__label--basico;
-      padding: 0 .65em;
-      @content;
-    }
-  }
+
+  // em form-comum
+  @include flex(1);
+  max-width: 100%;
+  // em form-comum (form__caixa-texto)
+  font-size: $tamanho-fonte-form;
+  color: cor(texto);
 }
 
 // =============================================================================
 // MIXIN | BORDA INFERIOR
 // =============================================================================
-@mixin form-texto__field--borda-inferior(
+@mixin form-file--borda-inferior(
     $tipo,
     $cor: cor(formulario),
     $cor-destaque: cor(formulario, ativo)
@@ -103,8 +58,10 @@ $form-radio-check-personaliza: sim !default;
       border-bottom: 1px $tipo $cor;
     }
   }
-  input, textarea {
-    @include form__caixa-texto;
+  &__info {
+    @include form-file__info;
+    line-height: 1.4; // alinhando melhor o espaço
+    // em form-texto
     border: 1px $tipo transparent;
     border-bottom: 1px $tipo $cor;
     background: transparent;
@@ -136,26 +93,35 @@ $form-radio-check-personaliza: sim !default;
 }
 
 // =============================================================================
-// PLACEHOLDERS | TIPOS
+// MIXIN | FILE
 // =============================================================================
-@mixin form-texto($tipo) {
+@mixin form-file($tipo) {
   @include form-base(flex);
+  // Oculta o input file
+  input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
   // ---------------------------------------------------------------------------
   // TIPO 1
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
-    @include  form-texto__field--borda-inferior(dotted);
+    @include form-file--borda-inferior(dotted);
   }
   // ---------------------------------------------------------------------------
   // TIPO 2
   // ---------------------------------------------------------------------------
-  @else if $tipo == tipo-2 {
-    @include  form-texto__field--borda-inferior(solid);
+  @if $tipo == tipo-2 {
+    @include form-file--borda-inferior(solid);
   }
   // ---------------------------------------------------------------------------
   // TIPO 3
   // ---------------------------------------------------------------------------
-  @else if $tipo == tipo-3 {
+  @if $tipo == tipo-3 {
     @include form-texto__label($label-tipo) {
       @if $label-tipo == "colado" {
         background: cor(formulario);
@@ -163,8 +129,8 @@ $form-radio-check-personaliza: sim !default;
         line-height: 2.2;
       }
     }
-    input, textarea {
-      @include form__caixa-texto;
+    &__info {
+      @include form-file__info;
       border: 1px solid cor(formulario);
       padding: .5em;
       &:focus {
@@ -202,13 +168,7 @@ $form-radio-check-personaliza: sim !default;
 // CLASSES
 // =============================================================================
 @if index($uso-classes, form) {
-  .form-texto {
-    @include form-texto($form-tipo);
-  }
-  .form__ico {
-
-  }
-  .form-texto--label-inverso {
-    // pensar num nome melhor
+  .form-file {
+    @include form-file($form-tipo);
   }
 }

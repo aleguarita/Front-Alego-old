@@ -1,6 +1,7 @@
 <article id="form">
   <header><h1>Formulários</h1></header>
   <p>Abaixo você verá os diversos elementos de formulários e como utilizá-los. Os tipos e algumas configurações especiais podem ser encontradas no <a href="#config__form" class="link--readme">arquivo de configuração</a></p>
+
   <section class="secao-lista">
     <input type="checkbox" id="form__doc" class="secao-lista__check">
     <header class="secao-lista__header">
@@ -9,6 +10,7 @@
         <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
+
     <section class="secao-lista__conteudo">
       <p>Para que os formulários sejam formatados direito siga os passos abaixo:</p>
       <ol class="lista-ordenada">
@@ -19,6 +21,7 @@
         <li>O <samp>div</samp> também pode ganhar a classe de medida <samp>field-x</samp> conforme exemplicado em <a href="#form-grupo" class="link--readme">Grupo de Formulários</a></li>
         <li>Algumas formatações especiais visuais são feitas colocando o <samp>label</samp> depois do <samp>input</samp>. Apesar de aumentar a experiência de uso, pode prejudicar quem usa leitores de tela. Use este recurso com cuidado.</li>
       </ol>
+
       <h2>Alternativa</h2>
       <p>Apesar de ser alternativa, isso tenderá a ser padrão de uso nos sistemas: ao invés de usar um <samp>div</samp>, use <samp>label</samp> como elemento pai e use um <samp>span</samp> com a class <samp>.label</samp>. Dessa forma você não precisará uso de id no label. O código seria:</p>
       <code class="codigo--html">
@@ -28,6 +31,7 @@
           <p class="recuo-1">&lt;input type="text"&gt;</p>
         <p>&lt;/label&gt;</p>
       </code>
+
       <h2>Configurações</h2>
         <p>No <a href="#config__form" class="link--readme">arquivo de configuração</a> você determina algumas configurações além do tipo.</p>
       <h2>input type="text" (e equivalentes) e textarea</h2>
@@ -66,9 +70,10 @@
         <div class="form-container--linha">
           <div class="form-texto field">
             <input type="text" placeholder="Busca" id="exemplo-texto-2" />
-            <span class="form__ico"><svg class="ico"><use xlink:href="../ico.svg#lupa" /></svg></span>
+            <span class="form__ico"><svg class="ico"><use xlink:href="../images/ico.svg#lupa" /></svg></span>
           </div>
         </div>
+
       <h2>select</h2>
         <dl class="lista-definicao">
           <dt>Classe do elemento pai</dt>
@@ -98,6 +103,7 @@
             </select>
           </div>
         </div>
+
       <h2>radio button e checkbox</h2>
         <dl class="lista-definicao">
           <dt>Classe do elemento pai</dt>
@@ -174,12 +180,49 @@
             <label for="campo3b">Exemplo checkbox</label>
           </div>
         </div>
+
+      <h2>input file</h2>
+      <p><strong class="texto--erro">Atenção:</strong> para que o <samp>&lt;input type="file"&gt;</samp> funcione com informação para o usuário de qual arquivo subiu, inclua o seguinte script no HTML (além do jQuery):</p>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;script src="../scripts/input-file.js"&gt;&lt;/script&gt;</p>
+      </code>
+      <dl class="lista-definicao">
+        <dt>Classe do elemento pai</dt>
+          <dd><samp>.form-file</samp></dd>
+        <dt>Elementos que formata</dt>
+          <dd><samp>&lt;input type="file"&gt;</samp></dd>
+        <dt>Elementos extra</dt>
+          <dd><samp>&lt;span class="form-file__info"&gt;</samp> Texto para a mensagem de download ou com o nome do arquivo que subiu</dd>
+      </dl>
+      <code class="codigo--html">
+        <header>HTML</header>
+        <p>&lt;label class="form-file"&gt;</p>
+          <p class="recuo-1">&lt;span class="label"&gt;PDF&lt;/span&gt;</p>
+          <p class="recuo-1">&lt;input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} arquivos" multiple /&gt;</p>
+          <p class="recuo-1">&lt;span class="form-file__info"&gt;</p>
+            <p class="recuo-2">Insira aqui o arquivo</p>
+          <p class="recuo-1">&lt;/span&gt;</p>
+        <p>&lt;/label&gt;</p>
+      </code>
+      <div class="form-container--linha">
+        <label class="field-12 form-file">
+          <span class="label">PDF</span>
+          <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} arquivos" multiple />
+          <span class="form-file__info">
+            Insira aqui o arquivo
+          </span>
+        </label>
+      </div>
+
       <h2>autocomplete</h2>
       <p>O autocomplete é inserido diretamente no Rails.</p>
+
       <h2>Ações</h2>
       <p>No final do formulário você pode inserir apenas os botões dentro de uma <samp>&lt;div&gt;</samp> com uma das duas classes: <samp>actions</samp> (Ruby já usa por padrão), <samp>form__acoes</samp></p>
     </section>
   </section>
+
   <section class="secao-lista">
     <input type="checkbox" id="form__escolhido" class="secao-lista__check" checked="checked">
     <header class="secao-lista__header">
@@ -188,6 +231,7 @@
         <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
+
     <section class="secao-lista__conteudo">
       <ul class="lista-config">
         <li><samp>$label-tipo</samp> <span class="codigo-label-tipo"></span></li>
