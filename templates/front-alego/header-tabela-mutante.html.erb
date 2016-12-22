@@ -15,11 +15,11 @@
 
   <!-- ESTE ELEMENTO ADICIONA OS CONTROLES ENTRE TABELA E CARD -->
   <div class="form-icones barra-ferramentas__tabela-mutante" ng-show="deveExibirControlesTabela()">
-    <span ng-click="mudarPreferencia('tabela')" ng-class="{'ativo': modo == 'tabela'}" class="barra-ferramentas__acao">
+    <span ng-click="mudarPreferencia('tabela')" ng-class="{'ativo': modo == 'tabela'}" class="barra-ferramentas__ico">
       <svg class="ico"><use xlink:href="<%= asset_path('ico.svg#lista') %>" ></use></svg>
     </span>
 
-    <span ng-click="mudarPreferencia('card')" ng-class="{'ativo': modo == 'card'}" class="barra-ferramentas__acao">
+    <span ng-click="mudarPreferencia('card')" ng-class="{'ativo': modo == 'card'}" class="barra-ferramentas__ico">
       <svg class="ico"><use xlink:href="<%= asset_path('ico.svg#card') %>"></use></svg>
     </span>
   </div>
