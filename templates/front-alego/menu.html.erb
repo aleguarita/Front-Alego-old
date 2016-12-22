@@ -9,11 +9,11 @@
       </label>
     </li>
 
-    <li 
-    class="nav__menu__titulo" 
-    rota-ativa="{{menu.stateBase}}"  
+    <li
+    class="nav__menu__item" 
+    rota-ativa="{{menu.stateBase}}"
     ng-repeat="menu in grupo.itens">
-    <a ui-sref="{{menu.state}}" 
+    <a ui-sref="{{menu.state}}"
     ui-sref-opts="{inherit: false}">{{menu.titulo}}</a>
   </li>
 </ul>

@@ -14,6 +14,7 @@
 // -----------------------------------------------------------------------------
 // CHANGELOG
 // 22/12/2016 | Alterada barra de ferramentas
+//              Acréscimo do menu
 // 07/12/2016 | Acrescentado form-erro dentro de $uso-classes
 // 29/09/2016 | Acrescentada barra-ferramentas
 //              Acrescentada tab--mutante (tabela mutante)
@@ -81,8 +82,9 @@ $uso-classes: (
   fonte-serifa,
   fonte-sans-serif,
   loading,
-  // barra-ferramentas,
+  barra-ferramentas,
   tab-mutante,
+  menu,
 );
 
 // =============================================================================
@@ -230,3 +232,9 @@ $barra-ferramentas-icone-acao: igual; // pode ser "igual" ou qualquer outro valo
 // ATENÇÃO: tabela e card precisam estar ativos em #uso-classes
 // =============================================================================
 $tab-mutante-qtd: (1, 1, 2, 4);
+
+// =============================================================================
+// MENU
+// =============================================================================
+$menu-titulo: sim;
+$menu-animacao: não;

@@ -1,3 +1,6 @@
+// Personaliza <input type="file">
+// Substitui o texto normal pelo nome do arquivo subido
+
 $(function() {
   var inputs = document.querySelectorAll( '.form-file input' );
   Array.prototype.forEach.call( inputs, function( input )
