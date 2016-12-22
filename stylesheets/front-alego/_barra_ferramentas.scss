@@ -4,7 +4,6 @@
 BARRA DE FERRAMENTAS
 ================================================================================
 */
-}
 
 // =============================================================================
 // Framework da Assembleia Legislativa
@@ -24,8 +23,11 @@ BARRA DE FERRAMENTAS
 // =============================================================================
 // CONFIG
 // =============================================================================
-$barra-ferramentas-titulo: $fonte-sem-serifa !default;
+$barra-ferramentas-titulo: sem-serifa !default; // sem-serifa ou serifa
 $barra-ferramentas-margem: $margem !default;
+$barra-ferramentas-icone-acao: igual !default;
+
+$barra-ferramentas-titulo-tipo: if($barra-ferramentas-titulo == "sem-serifa", $fonte-sem-serifa, $fonte-serifa);
 
 // =============================================================================
 // CLASSE
@@ -48,7 +50,7 @@ $barra-ferramentas-margem: $margem !default;
   &__titulo {
     margin: 0;
     margin-left: $barra-ferramentas-margem;
-    font-family: $barra-ferramentas-titulo;
+    font-family: $barra-ferramentas-titulo-tipo;
     line-height: 1.4;
   }
 
@@ -103,4 +105,16 @@ $barra-ferramentas-margem: $margem !default;
     display: flex;
     align-self: stretch;
   }
+
+  // ---------------------------------------------------------------------------
+  // ÍCONE
+  // ---------------------------------------------------------------------------
+  &__ico {
+    @if $barra-ferramentas-icone-acao == igual {
+      @extend .barra-ferramentas__acao;
+    }
+  }
+
+}
+
 }

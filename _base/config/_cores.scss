@@ -264,6 +264,13 @@ $temas: (
 			escuro: paleta(cinza, escura, 50),
 			contraste: paleta(cinza, escura, 35),
 		),
+		barra-ferramentas: (
+			fundo: paleta(cinza, clara, 60),
+			fundo-bt: paleta(cinza, escura, 45),
+			fundo-bt-hover: paleta(cinza, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
+		),
 		//elementos do sistema
 	),
 
@@ -352,6 +359,13 @@ $temas: (
 			claro: paleta(basica, escura, 25),
 			escuro: paleta(basica, clara, 50),
 			contraste: paleta(secundaria, clara, 25),
+		),
+		barra-ferramentas: (
+			fundo: paleta(basica, escura, 75),
+			fundo-bt: paleta(secundaria, clara, 25),
+			fundo-bt-hover: paleta(secundaria, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
 		),
 		//elementos do sistema
 	),
@@ -442,6 +456,13 @@ $temas: (
 			escuro: paleta(verde-bandeira, escura, 50),
 			contraste: paleta(amarelo-bandeira, escura, 15),
 		),
+		barra-ferramentas: (
+			fundo: paleta(verde-bandeira, clara, 75),
+			fundo-bt: paleta(amarelo-bandeira, escura, 10),
+			fundo-bt-hover: paleta(amarelo-bandeira),
+			texto-bt: paleta(verde-bandeira, escura, 20),
+			texto-bt-hover: paleta(verde-bandeira, escura, 20),
+		),
 		//elementos do sistema
 	),
 
@@ -531,6 +552,13 @@ $temas: (
 			escuro: paleta(rosa, escura, 50),
 			contraste: paleta(rosa, escura, 35),
 		),
+		barra-ferramentas: (
+			fundo: paleta(rosa, clara, 75),
+			fundo-bt: paleta(rosa, escura, 45),
+			fundo-bt-hover: paleta(rosa, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
+		),
 		//elementos do sistema
 	),
 
@@ -619,6 +647,13 @@ $temas: (
 			claro: paleta(azul-bandeira, clara, 25),
 			escuro: paleta(azul-bandeira, escura, 50),
 			contraste: paleta(azul-bandeira, escura, 35),
+		),
+		barra-ferramentas: (
+			fundo: paleta(azul-bandeira, clara, 75),
+			fundo-bt: paleta(azul-bandeira, escura, 45),
+			fundo-bt-hover: paleta(azul-bandeira, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
 		),
 		//elementos do sistema
 	),

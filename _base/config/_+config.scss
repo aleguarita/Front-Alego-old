@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 07/12/2016
+// Última alteração em: 22/12/2016
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 22/12/2016 | Alterada barra de ferramentas
 // 07/12/2016 | Acrescentado form-erro dentro de $uso-classes
 // 29/09/2016 | Acrescentada barra-ferramentas
 //              Acrescentada tab--mutante (tabela mutante)
@@ -216,8 +217,12 @@ $datepicker-arredondado: não;
 // =============================================================================
 // BARRA DE FERRAMENTAS
 // =============================================================================
-$barra-ferramentas-tipo: tipo-1; // 1 tipo (aguarde o segundo)
-$barra-ferramentas-fundo: não;
+$barra-ferramentas-titulo: sem-serifa; // sem-serifa ou serifa
+$barra-ferramentas-margem: $grid-margem;
+
+// determina se os ícones da tabela dinâmica tem a mesma aparência dos ícones
+// de ações. Se não for "igual" você deverá personalizar no seu código
+$barra-ferramentas-icone-acao: igual; // pode ser "igual" ou qualquer outro valor
 
 // =============================================================================
 // TABELA MUTANTE
