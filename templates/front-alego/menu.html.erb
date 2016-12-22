@@ -1,0 +1,20 @@
+<nav class="nav">
+  <ul class="nav__menu" ng-repeat="grupo in permitidos">
+    <li class="nav__menu__titulo">
+      <label>
+        {{grupo.titulo}}
+        <svg class="ico">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<%= asset_path('ico.svg#seta-fina') %>"></use>
+        </svg>
+      </label>
+    </li>
+
+    <li 
+    class="nav__menu__titulo" 
+    rota-ativa="{{menu.stateBase}}"  
+    ng-repeat="menu in grupo.itens">
+    <a ui-sref="{{menu.state}}" 
+    ui-sref-opts="{inherit: false}">{{menu.titulo}}</a>
+  </li>
+</ul>
+</nav>

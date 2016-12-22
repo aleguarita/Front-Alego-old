@@ -1,0 +1,47 @@
+
+<section class="barra-ferramentas">
+
+  <h2>{{titulo}}</h2>
+
+
+  <footer class="barra-ferramentas__footer field-4">
+    <div class="field form-texto form-texto--pesquisa texto--menor">
+      <form method="GET" ng-submit="busca()" class="field-3 form-texto" ng-show="deveExibirControlesTabela()">
+        <!-- O placeholder deve conter quais parâmetros pode pesquisar. Exemplo: Pesquisa por nome ou matrícula -->
+        <input type="text" ng-model="termo" placeholder="Pesquisa " />
+        <button ng-click="busca()" class="form__ico"><svg class="ico">
+          <use xlink:href="<%= asset_path('ico.svg#lupa') %>" ></use></svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- ESTE ELEMENTO ADICIONA OS CONTROLES ENTRE TABELA E CARD -->
+    <div class="form-icones" ng-show="deveExibirControlesTabela()">
+      <label ng-click="mudarPreferencia('tabela')" ng-class="{'selecionado': modo == 'tabela'}">
+        <svg class="ico"><use xlink:href="<%= asset_path('ico.svg#lista') %>" ></use></svg>
+      </label>
+
+      <label ng-click="mudarPreferencia('card')" ng-class="{'selecionado': modo == 'card'}" >
+        <svg class="ico"><use xlink:href="<%= asset_path('ico.svg#card') %>"></use></svg>
+      </label>
+    </div>
+    <div class="form-acoes--fim">
+      <a ng-if="linkNewTitulo" ui-sref="{{linkNewState}}" class="texto--x-maior" title="{{linkNewTitulo}}">
+        <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#mais") %>"></svg>
+        </a>
+
+        <a ng-if="linkShowTitulo" ui-sref="{{linkShowState}}" class="texto--x-maior" title="{{linkShowTitulo}}">
+          <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#olho")%>"></use></svg>
+        </a>
+
+        <a ng-if="linkEditTitulo" ui-sref="{{linkEditState}}" class="texto--x-maior" title="{{linkEditTitulo}}">
+          <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#lapis") %>"></use></svg>
+        </a>
+
+        <a ng-if="linkBackTitulo" ui-sref="{{linkBackState}}" class="texto--x-maior" title="{{linkBackTitulo}}">
+          <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#voltar") %>"></use></svg>
+        </a>
+        <span ng-transclude></span>
+      </div>
+    </footer>
+  </section>

@@ -1,6 +1,7 @@
 
 *.scssc
 _temp/
+_+temp/
 
 *.map
 

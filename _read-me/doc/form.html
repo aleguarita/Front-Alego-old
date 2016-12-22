@@ -185,23 +185,24 @@
       <p><strong class="texto--erro">Atenção:</strong> para que o <samp>&lt;input type="file"&gt;</samp> funcione com informação para o usuário de qual arquivo subiu, inclua o seguinte script no HTML (além do jQuery):</p>
       <code class="codigo--html">
         <header>HTML</header>
-        <p>&lt;script src="../javascripts/input-file.js"&gt;&lt;/script&gt;</p>
+        <p>&lt;script src="../javascripts/front-alego/input-file.js"&gt;&lt;/script&gt;</p>
       </code>
+      <p>Em Ruby siga as instruções de <a href="#javascripts" class="link--readme">inclusão de javascripts</a></p>
       <dl class="lista-definicao">
         <dt>Classe do elemento pai</dt>
           <dd><samp>.form-file</samp></dd>
         <dt>Elementos que formata</dt>
-          <dd><samp>&lt;input type="file"&gt;</samp></dd>
+          <dd><samp>&lt;input type="file"&gt;</samp>. Inclua neste tag o parâmetro <samp>data-multiple-caption="{count}</samp></dd>
         <dt>Elementos extra</dt>
-          <dd><samp>&lt;span class="form-file__info"&gt;</samp> Texto para a mensagem de download ou com o nome do arquivo que subiu</dd>
+          <dd><samp>&lt;span class="form-file__info"&gt;</samp> Texto para a mensagem de download ou com o nome do arquivo que subiu. Para uma maior acessibilidade, insira o ícone de upload antes ou depois do texto.</dd>
       </dl>
       <code class="codigo--html">
         <header>HTML</header>
         <p>&lt;label class="form-file"&gt;</p>
           <p class="recuo-1">&lt;span class="label"&gt;PDF&lt;/span&gt;</p>
-          <p class="recuo-1">&lt;input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} arquivos" multiple /&gt;</p>
+          <p class="recuo-1">&lt;input type="file" name="file" id="file" data-multiple-caption="{count} arquivos" multiple /&gt;</p>
           <p class="recuo-1">&lt;span class="form-file__info"&gt;</p>
-            <p class="recuo-2">Insira aqui o arquivo</p>
+            <p class="recuo-2">&lt;svg class="ico"&gt;&lt;use xlink:href="assets/ico.svg#upload" /&gt;&lt;/svg&gt; Insira aqui o arquivo</p>
           <p class="recuo-1">&lt;/span&gt;</p>
         <p>&lt;/label&gt;</p>
       </code>
@@ -210,7 +211,7 @@
           <span class="label">PDF</span>
           <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} arquivos" multiple />
           <span class="form-file__info">
-            Insira aqui o arquivo
+            <svg class="ico"><use xlink:href="../images/ico.svg#upload" /></svg> Insira aqui o arquivo
           </span>
         </label>
       </div>

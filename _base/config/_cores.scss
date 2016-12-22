@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // cores.scss
 // Criado em: 07/01/2015
-// Última alteração: 06/09/2016
+// Última alteração: 21/12/2016
 // -----------------------------------------------------------------------------
 // Aqui fica os temas de cores. As paletas são definidas no arquivo
 // cores_paletas (e é neste arquivo que se acrescenta novas cores)
@@ -15,6 +15,7 @@
 // Para alterar o tema faça isso no arquivo config
 // -----------------------------------------------------------------------------
 // CHANGELOG:
+// 21/12/2016 | Acrescentada cores da barra de ferramentas
 // 06/09/2016 | Simplificada cores das tabelas
 // 05/09/2016 | Reformulação nos botões (menos cores pra configurar)
 // 01/08/2016 | acrescentado footer da tabela
@@ -166,6 +167,13 @@ $temas: (
 			claro: paleta(basica, clara, 25),
 			escuro: paleta(basica, escura, 50),
 			contraste: paleta(secundaria, clara, 25),
+		),
+		barra-ferramentas: (
+			fundo: paleta(basica, clara, 75),
+			fundo-bt: paleta(basica, escura, 45),
+			fundo-bt-hover: paleta(basica, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
 		),
 		//elementos do sistema
 	),
