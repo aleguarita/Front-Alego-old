@@ -21,7 +21,7 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog:
-// 10/01/2017 | Tirado o gerenciamento de erro, pois agora trabalha em GEM e 
+// 10/01/2017 | Tirado o gerenciamento de erro, pois agora trabalha em GEM e
 //              acrescentar novas cores não pode alterar sistemas anteriores
 // 19/08/2016 | Incluída a opção de dar uma mensagem de erro para a ausência de
 //              cor
@@ -93,7 +93,7 @@
     @return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);
   }
   // @error "VÉI, DEU ERRO NO FRONT-ALEGO: \a A cor '#{$tipo}' ou seu variante '#{$cor}' não está no tema '#{$cores-tema}',\a ou procure por 'cor(#{tipo})' ou 'cor(#{$tipo}, #{$cor})' em seu SCSS e corrija o valor \a ou inclua '#{$tipo}' ou '#{$cor}' no tema '#{$cores-tema}' no arquivo cores.scss";
-  @return cyan !essa cor não existe, reveja o código;
+  @return cyan; /* essa cor nao existe, verifique */
 
 }
 //	============================================================================
