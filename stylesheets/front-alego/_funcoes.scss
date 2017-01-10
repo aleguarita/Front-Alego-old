@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // funcoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 19/08/2016
+// Última alteração em: 10/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos as funções utilizadas pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo z-index tem uma
@@ -21,6 +21,8 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog:
+// 10/01/2017 | Tirado o gerenciamento de erro, pois agora trabalha em GEM e 
+//              acrescentar novas cores não pode alterar sistemas anteriores
 // 19/08/2016 | Incluída a opção de dar uma mensagem de erro para a ausência de
 //              cor
 // 18/08/2016 | A função de z-index acrescenta o valor caso não tenha sido
@@ -90,7 +92,8 @@
   @if map-has-key(map-get($temas, #{$cores-tema}), $tipo) {
     @return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);
   }
-  @error "VÉI, DEU ERRO NO FRONT-ALEGO: \a A cor '#{$tipo}' ou seu variante '#{$cor}' não está no tema '#{$cores-tema}',\a ou procure por 'cor(#{tipo})' ou 'cor(#{$tipo}, #{$cor})' em seu SCSS e corrija o valor \a ou inclua '#{$tipo}' ou '#{$cor}' no tema '#{$cores-tema}' no arquivo cores.scss";
+  // @error "VÉI, DEU ERRO NO FRONT-ALEGO: \a A cor '#{$tipo}' ou seu variante '#{$cor}' não está no tema '#{$cores-tema}',\a ou procure por 'cor(#{tipo})' ou 'cor(#{$tipo}, #{$cor})' em seu SCSS e corrija o valor \a ou inclua '#{$tipo}' ou '#{$cor}' no tema '#{$cores-tema}' no arquivo cores.scss";
+  @return cyan !essa cor não existe, reveja o código;
 
 }
 //	============================================================================
