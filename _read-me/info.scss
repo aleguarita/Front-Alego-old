@@ -23,7 +23,7 @@ A PARTIR DAQUI É O CSS GENÉRICO DO FRONT-END
 // IMPORTAÇÃO DO FRONT-ALEGO
 // =============================================================================
 @import "fontes"; // Este arquivo precisa ser importado por conta do endereço da pasta
-@import "../config/front-alego-local";
+@import "../_base/config/front-alego-local";
 
 /*
 ================================================================================
@@ -539,8 +539,9 @@ $codigo-selecionado: (
   datepicker-sombra: $datepicker-sombra,
   datepicker-arredondado: $datepicker-arredondado,
 
-  barra-ferramentas-tipo: if(index($uso-classes, barra-ferramentas), $barra-ferramentas-tipo, 'nenhum'),
-  barra-ferramentas-fundo: $barra-ferramentas-fundo,
+  barra-ferramentas-titulo: $barra-ferramentas-titulo,
+  barra-ferramentas-margem: $barra-ferramentas-margem,
+  barra-ferramentas-icone-acao: $barra-ferramentas-icone-acao,
 
   tab-mutante-qtd: $tab-mutante-qtd,
 );
@@ -1250,20 +1251,4 @@ $datepicker-tipos: tipo-1, tipo-2, tipo-3;
   width: 100%;
   height: 100%;
   padding: 1.2em;
-}
-/*
-================================================================================
-ÁREA PRINCIPAL | DEMO | barra de ferramentas
-================================================================================
-*/
-$barra-ferramentas-tipos: tipo-1;
-@each $tipo in $barra-ferramentas-tipos {
-  .barra-ferramentas--#{$tipo}--sem-fundo {
-    $barra-ferramentas-fundo: não;
-    @include barra-ferramentas($tipo);
-  }
-  .barra-ferramentas--#{$tipo}--com-fundo {
-    $barra-ferramentas-fundo: sim;
-    @include barra-ferramentas($tipo);
-  }
 }

@@ -1,146 +1,92 @@
 <article id="barra-ferramentas">
+  ''
   <header><h1>Barra de Ferramentas</h1></header>
-  <p>As configurações básicas da abas são encontradas no <a href="#config__barra-ferramentas" class="link--readme">arquivo de configuração</a>. Abaixo você vê os tipos disponíveis e suas variações.</p>
+  <p>As configurações básicas da abas são encontradas no <a href="#config__barra-ferramentas" class="link--readme">arquivo de configuração</a>.</p>
+
   <section class="secao-lista">
     <input type="checkbox" id="barra-ferramentas__doc" class="secao-lista__check">
     <header class="secao-lista__header">
       <label for="barra-ferramentas__doc">
         <span class="secao-lista__titulo">Documentação</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="assets/ico.svg#seta-fina" /></svg>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
+
     <article class="secao-lista__conteudo">
-      <p>Cria uma barra de ferramentas para colocar botões e itens de formulário.</p>
-      <p>A aparência dela muda ligeiramente conforme o tipo de formulário escolhido. Veja as opções nas <a href="#config__barra-ferramentas" class="link--readme">configurações</a>.</p>
-      <p>As classes usadas são</p>
+      <p>As barras de ferramentas são criadas através de uma diretiva de angular que já está instalada no FRONT-ALEGO. Ela inclui o título da página, campo de busca, opções de <a href="#tabela-mutante" class="link--readme">tabela mutante</a> e as ações do sistema (exemplo: novo, editar). Veja as opções nas <a href="#config__barra-ferramentas" class="link--readme">configurações</a>.</p>
+
+      <p>As classes usadas são:</p>
       <dl class="lista-definicao">
         <dt><samp>.barra-ferramentas</samp></dt>
-          <dd>A classe básica. Já formata como <samp>flex</samp> e dispensa o uso de <samp>.form-container</samp> (os formulários podem usar <samp>.field-x</samp> normalmente)</dd>
-        <dt><samp>.barra-ferramentas__separador</samp></dt>
-          <dd>Distancia e separa o elemento atual dos demais</dd>
-        <dt><samp>.barra-ferramentas__acoes</samp></dt>
-          <dd>Para alinhar o botão à direita, no final</dd>
+          <dd>A classe básica do elemento.</dd>
+        <dt><samp>.barra-ferramentas__titulo</samp></dt>
+          <dd>O título da página. Se é serifado ou não é definido no arquivo de configuração.</dd>
+        <dt><samp>.barra-ferramentas__acao</samp></dt>
+          <dd>Os ícones de ação no final da barra (novo, editar, etc)</dd>
+        <dt><samp>.barra-ferramentas__ico</samp></dt>
+          <dd>Ícones de tabela dinâmica. Eles podem aparecer com a mesma aparência de <samp>.barra-ferramentas__acao</samp>, conforme a <a href="#config__barra-ferramentas" class="link--readme">configuração</a>. Se for diferente, você deverá formatar no seu sistema.</dd>
+        <dt><samp>.barra-ferramentas__tabela-mutante</samp></dt>
+          <dd>O elemento pai dos ícones que definem a <a href="#tabela-mutante" class="link--readme">tabela dinâmica</a></dd>
+        <dt><samp>.barra-ferramentas__busca</samp></dt>
+          <dd>A formatação do campo de busca</dd>
+        <dt><samp>.ativo</samp></dt>
+          <dd>A formatação de quando seleciona um tipo da tabela dinâmica</dd>
+        <dt><samp>.voltar</samp></dt>
+          <dd>A formatação da ação de voltar, se houver. Necessário criar separadamente em seu sistema, se quiser diferenciar</dd>
       </dl>
-      <p>O código dos exemplos a seguir é:</p>
-      <code class="codigo--html">
-        <header>HTML</header>
-        <p>&lt;section class="barra-ferramentas"&gt;</p>
-          <p class="recuo-1">&lt;div class="field-3 form-texto"&gt;</p>
-            <p class="recuo-2">&lt;input type="text" placeholder="Pesquisa exemplo" /&gt;</p>
-            <p class="recuo-2">&lt;button class="form__ico"&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="../images/ico.svg#lupa" /&gt;&lt;/svg&gt;&lt;/button&gt;</p>
-          <p class="recuo-1">&lt;/div&gt;</p>
-          <p class="recuo-1">&lt;div class="form-icones barra-ferramentas__separador"&gt;</p>
-            <p class="recuo-2">&lt;label for="modo-tabela"&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="../images/ico.svg#lista" /&gt;&lt;/svg&gt;&lt;/label&gt;</p>
-            <p class="recuo-2">&lt;label for="modo-card"&gt;&lt;svg class="ico"&gt;&lt;use xlink:href="../images/ico.svg#card" /&gt;&lt;/svg&gt;&lt;/label&gt;</p>
-          <p class="recuo-1">&lt;/div&gt;</p>
-          <p class="recuo-1">&lt;div class="form-select"&gt;</p>
-            <p class="recuo-2">&lt;select id="sort"&gt;</p>
-              <p class="recuo-3">&lt;option&gt;Exemplo&lt;/option&gt;</p>
-              <p class="recuo-3">&lt;option&gt;Exemplo&lt;/option&gt;</p>
-            <p class="recuo-2">&lt;/select&gt;</p>
-          <p class="recuo-1">&lt;/div&gt;</p>
-          <p class="recuo-1">&lt;div class="barra-ferramentas__acoes"&gt;</p>
-            <p class="recuo-2">&lt;button class="bt"&gt;Botão&lt;/button&gt;</p>
-            <p class="recuo-2">&lt;button class="bt"&gt;Botão&lt;/button&gt;</p>
-          <p class="recuo-1">&lt;/div&gt;</p>
-        <p>&lt;/section&gt;</p>
-      </code>
     </article>
   </section>
 
   <section class="secao-lista">
     <input type="checkbox" id="barra-ferramentas__escolhido" class="secao-lista__check" checked="checked">
+
     <header class="secao-lista__header">
       <label for="barra-ferramentas__escolhido">
-        <span class="secao-lista__titulo">Barra de Ferramentas escolhida: <span class="codigo-barra-ferramentas-tipo"></span> </span>
-        <svg class="secao-lista__icone ico"><use xlink:href="assets/ico.svg#seta-fina" /></svg>
+        <span class="secao-lista__titulo">Formatação <span class="codigo-barra-ferramentas-tipo"></span> </span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
+
     <article class="secao-lista__conteudo">
       <ul class="lista-config">
-        <li><samp>$barra-ferramentas-fundo</samp> <span class="codigo-barra-ferramentas-fundo"></span></li>
+        <li><samp>$barra-ferramentas-titulo</samp> <span class="codigo-barra-ferramentas-titulo"></span></li>
+        <li><samp>$barra-ferramentas-margem</samp> <span class="codigo-barra-ferramentas-margem"></span></li>
+        <li><samp>$barra-ferramentas-icone-acao</samp> <span class="codigo-barra-ferramentas-icone-acao"></span></li>
       </ul>
+
       <section class="barra-ferramentas">
-        <div class="field-3 form-texto">
-          <input type="text" placeholder="Pesquisa exemplo" />
-          <button class="form__ico"><svg class="ico"><use xlink:href="../images/ico.svg#lupa" /></svg></button>
+
+        <a class="barra-ferramentas__acao voltar" title="Voltar">
+          <svg class="ico"><use xlink:href="../images/ico.svg#voltar"></use></svg>
+        </a>
+
+        <h2 class="barra-ferramentas__titulo">Título da página</h2>
+
+        <form method="GET" class="barra-ferramentas__busca form-texto">
+          <input type="text" placeholder="Pesquisa " />
+          <button ng-click="busca()" class="form__ico">
+            <svg class="ico"><use xlink:href="../images/ico.svg#lupa"></use></svg>
+          </button>
+        </form>
+
+        <div class="form-icones barra-ferramentas__tabela-mutante">
+          <span class="barra-ferramentas__ico ativo">
+            <svg class="ico"><use xlink:href="../images/ico.svg#lista" ></use></svg>
+          </span>
+
+          <span class="barra-ferramentas__ico">
+            <svg class="ico"><use xlink:href="../images/ico.svg#card"></use></svg>
+          </span>
         </div>
-        <div class="form-icones barra-ferramentas__separador">
-          <label for="modo-tabela"><svg class="ico"><use xlink:href="../images/ico.svg#lista" /></svg></label>
-          <label for="modo-card"><svg class="ico"><use xlink:href="../images/ico.svg#card" /></svg></label>
-        </div>
-        <div class="form-select">
-          <select id="sort">
-            <option>Exemplo</option>
-            <option>Exemplo</option>
-          </select>
-        </div>
-        <div class="barra-ferramentas__acoes">
-          <button class="bt">Botão</button>
-          <button class="bt">Botão</button>
-        </div>
+
+        <a class="barra-ferramentas__acao" title="Novo">
+          <svg class="ico"><use xlink:href="../images/ico.svg#mais"></svg>
+        </a>
+
       </section>
+
+
     </article>
   </section>
 
-  <section class="secao-lista">
-    <input type="checkbox" id="barra-ferramentas__tipo-1" class="secao-lista__check" checked="checked">
-    <header class="secao-lista__header">
-      <label for="barra-ferramentas__tipo-1">
-        <span class="secao-lista__titulo">Barra de Ferramentas tipo-1</span>
-        <svg class="secao-lista__icone ico"><use xlink:href="assets/ico.svg#seta-fina" /></svg>
-      </label>
-    </header>
-    <article class="secao-lista__conteudo">
-      <h2>Barra de ferramentas, sem fundo</h2>
-      <ul class="lista-config">
-        <li><samp>$barra-ferramentas-fundo</samp> <span>não</span></li>
-      </ul>
-      <section class="barra-ferramentas--tipo-1--sem-fundo">
-        <div class="field-3 form-texto">
-          <input type="text" placeholder="Pesquisa exemplo" />
-          <button class="form__ico"><svg class="ico"><use xlink:href="../images/ico.svg#lupa" /></svg></button>
-        </div>
-        <div class="form-icones barra-ferramentas__separador">
-          <label for="modo-tabela"><svg class="ico"><use xlink:href="../images/ico.svg#lista" /></svg></label>
-          <label for="modo-card"><svg class="ico"><use xlink:href="../images/ico.svg#card" /></svg></label>
-        </div>
-        <div class="form-select">
-          <select id="sort">
-            <option>Exemplo</option>
-            <option>Exemplo</option>
-          </select>
-        </div>
-        <div class="barra-ferramentas__acoes">
-          <button class="bt">Botão</button>
-          <button class="bt">Botão</button>
-        </div>
-      </section>
-      <h2>Barra de ferramentas, com fundo</h2>
-      <ul class="lista-config">
-        <li><samp>$barra-ferramentas-fundo</samp> <span>sim</span></li>
-      </ul>
-      <p><strong>Atenção</strong>: a aparência muda conforme o tipo de formulário. O tipo de formulário ativo é <samp class="codigo-form-tipo"></samp></p>
-      <section class="barra-ferramentas--tipo-1--com-fundo">
-        <div class="field-3 form-texto">
-          <input type="text" placeholder="Pesquisa exemplo" />
-          <button class="form__ico"><svg class="ico"><use xlink:href="../images/ico.svg#lupa" /></svg></button>
-        </div>
-        <div class="form-icones barra-ferramentas__separador">
-          <label for="modo-tabela"><svg class="ico"><use xlink:href="../images/ico.svg#lista" /></svg></label>
-          <label for="modo-card"><svg class="ico"><use xlink:href="../images/ico.svg#card" /></svg></label>
-        </div>
-        <div class="form-select">
-          <select id="sort">
-            <option>Exemplo</option>
-            <option>Exemplo</option>
-          </select>
-        </div>
-        <div class="barra-ferramentas__acoes">
-          <button class="bt">Botão</button>
-          <button class="bt">Botão</button>
-        </div>
-      </section>
-    </article>
-  </section>
 </article>

@@ -26,43 +26,43 @@ FONTES
 */
 @font-face {
   font-family: 'serifa-titulo';
-  src: url("../fontes/serifatitulo-regular-webfont.eot");
-  src: url("../fontes/serifatitulo-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fontes/serifatitulo-regular-webfont.woff") format("woff"), url("../fontes/serifatitulo-regular-webfont.ttf") format("truetype"), url("../fontes/serifatitulo-regular-webfont.svg#serifa-titulo") format("svg");
+  src: url("../stylesheets/fontes/serifatitulo-regular-webfont.eot");
+  src: url("../stylesheets/fontes/serifatitulo-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fontes/serifatitulo-regular-webfont.woff") format("woff"), url("../stylesheets/fontes/serifatitulo-regular-webfont.ttf") format("truetype"), url("../stylesheets/fontes/serifatitulo-regular-webfont.svg#serifa-titulo") format("svg");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSans';
-  src: url("../fontes/OpenSans-Regular-webfont.eot");
-  src: url("../fontes/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fontes/OpenSans-Regular-webfont.woff") format("woff"), url("../fontes/OpenSans-Regular-webfont.ttf") format("truetype"), url("../fontes/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
+  src: url("../stylesheets/fontes/OpenSans-Regular-webfont.eot");
+  src: url("../stylesheets/fontes/OpenSans-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fontes/OpenSans-Regular-webfont.woff") format("woff"), url("../stylesheets/fontes/OpenSans-Regular-webfont.ttf") format("truetype"), url("../stylesheets/fontes/OpenSans-Regular-webfont.svg#OpenSansRegular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSans';
-  src: url("../fontes/OpenSans-Italic-webfont.eot");
-  src: url("../fontes/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fontes/OpenSans-Italic-webfont.woff") format("woff"), url("../fontes/OpenSans-Italic-webfont.ttf") format("truetype"), url("../fontes/OpenSans-Italic-webfont.svg#OpenSansItalic") format("svg");
+  src: url("../stylesheets/fontes/OpenSans-Italic-webfont.eot");
+  src: url("../stylesheets/fontes/OpenSans-Italic-webfont.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fontes/OpenSans-Italic-webfont.woff") format("woff"), url("../stylesheets/fontes/OpenSans-Italic-webfont.ttf") format("truetype"), url("../stylesheets/fontes/OpenSans-Italic-webfont.svg#OpenSansItalic") format("svg");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: 'OpenSans';
-  src: url("../fontes/OpenSans-Bold-webfont.eot");
-  src: url("../fontes/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fontes/OpenSans-Bold-webfont.woff") format("woff"), url("../fontes/OpenSans-Bold-webfont.ttf") format("truetype"), url("../fontes/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
+  src: url("../stylesheets/fontes/OpenSans-Bold-webfont.eot");
+  src: url("../stylesheets/fontes/OpenSans-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fontes/OpenSans-Bold-webfont.woff") format("woff"), url("../stylesheets/fontes/OpenSans-Bold-webfont.ttf") format("truetype"), url("../stylesheets/fontes/OpenSans-Bold-webfont.svg#OpenSansBold") format("svg");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'OpenSans';
-  src: url("../fontes/OpenSans-BoldItalic-webfont.eot");
-  src: url("../fontes/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fontes/OpenSans-BoldItalic-webfont.woff") format("woff"), url("../fontes/OpenSans-BoldItalic-webfont.ttf") format("truetype"), url("../fontes/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic") format("svg");
+  src: url("../stylesheets/fontes/OpenSans-BoldItalic-webfont.eot");
+  src: url("../stylesheets/fontes/OpenSans-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fontes/OpenSans-BoldItalic-webfont.woff") format("woff"), url("../stylesheets/fontes/OpenSans-BoldItalic-webfont.ttf") format("truetype"), url("../stylesheets/fontes/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic") format("svg");
   font-weight: bold;
   font-style: italic;
 }
 @font-face {
   font-family: 'font-alego';
-  src: url("../fontes/font-alego.eot");
-  src: url("../fontes/font-alego.eot?#iefix") format("embedded-opentype"), url("../fontes/font-alego.woff") format("woff"), url("../fontes/font-alego.ttf") format("truetype"), url("../fontes/font-alego.svg#font-alego") format("svg");
+  src: url("../stylesheets/fontes/font-alego.eot");
+  src: url("../stylesheets/fontes/font-alego.eot?#iefix") format("embedded-opentype"), url("../stylesheets/fontes/font-alego.woff") format("woff"), url("../stylesheets/fontes/font-alego.ttf") format("truetype"), url("../stylesheets/fontes/font-alego.svg#font-alego") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -1715,62 +1715,41 @@ BARRA DE FERRAMENTAS
 .barra-ferramentas {
   display: flex;
   width: 100%;
-  margin-bottom: 1em;
+  background: #bff1f3;
   align-items: center;
 }
-.barra-ferramentas > * {
-  min-height: inherit;
+.barra-ferramentas__titulo {
+  margin: 0;
+  margin-left: 0.625rem;
+  font-family: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+  line-height: 1.4;
+}
+.barra-ferramentas__acao, .barra-ferramentas__ico {
+  display: flex;
+  align-items: center;
   align-self: stretch;
-  padding-bottom: 0;
+  padding: 0.625rem;
+  background: #006c71;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
 }
-.barra-ferramentas > * > :only-child {
-  align-self: inherit;
+.barra-ferramentas__acao:hover, .barra-ferramentas__ico:hover {
+  background: #003133;
+  color: white;
 }
-.barra-ferramentas > * + * {
+.barra-ferramentas__acao.ativo, .ativo.barra-ferramentas__ico {
+  background: white;
+  color: #003133;
+}
+.barra-ferramentas__busca {
   margin-left: 0.625rem;
 }
-.barra-ferramentas > *:first-child {
-  padding-left: 0;
-}
-.barra-ferramentas__acoes {
+.barra-ferramentas__tabela-mutante {
+  margin-left: 0.625rem;
   flex: 1;
   display: flex;
   align-self: stretch;
-  justify-content: flex-end;
-}
-.barra-ferramentas__acoes > * + * {
-  margin-left: 0.3125rem;
-}
-.barra-ferramentas__separador {
-  margin-left: 0.625rem;
-  margin-right: 0.3125rem;
-  padding: 0 0.625rem;
-  border-left: 1px #00949a solid;
-  border-right: 1px #00949a solid;
-}
-.barra-ferramentas__separador:first-child {
-  padding-left: 0;
-  margin-left: 0;
-  border-left-width: 0;
-}
-.barra-ferramentas__separador:last-child {
-  padding-right: 0;
-  margin-right: 0;
-  border-right-width: 0;
-}
-.form-icones {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.form-icones > * {
-  cursor: pointer;
-  color: #00949a;
-}
-.form-icones > * + * {
-  margin-left: 0.625rem;
 }
 
 /*
@@ -1897,6 +1876,37 @@ ATENÇÃO: Você encontrará pedaços desta tabela em TABELA e CARD
 }
 .tab--card .tab__acoes::before, #modo-card:checked ~ .tab--mutante .tab__acoes::before {
   display: none;
+}
+
+/*
+================================================================================
+MENU
+================================================================================
+*/
+.nav__menu {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.25rem;
+}
+.nav__menu__titulo span {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__menu__titulo .ico {
+  transition: all 0.5s ease 0s;
+  transform: rotate(90deg);
+}
+.nav__menu__titulo.fechado ~ .nav__menu__item {
+  display: none;
+}
+.nav__menu__titulo.fechado .ico {
+  transform: rotate(0deg);
+}
+.nav__menu a {
+  cursor: pointer;
+  display: block;
 }
 
 /*
@@ -2724,12 +2734,16 @@ HEADER
   content: "não";
 }
 
-.codigo-barra-ferramentas-tipo::before {
-  content: "tipo-1";
+.codigo-barra-ferramentas-titulo::before {
+  content: "sem-serifa";
 }
 
-.codigo-barra-ferramentas-fundo::before {
-  content: "não";
+.codigo-barra-ferramentas-margem::before {
+  content: "0.625rem";
+}
+
+.codigo-barra-ferramentas-icone-acao::before {
+  content: "igual";
 }
 
 .codigo-tab-mutante-qtd::before {
@@ -10077,136 +10091,6 @@ fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
   width: 100%;
   height: 100%;
   padding: 1.2em;
-}
-
-/*
-================================================================================
-ÁREA PRINCIPAL | DEMO | barra de ferramentas
-================================================================================
-*/
-.barra-ferramentas--tipo-1--sem-fundo {
-  display: flex;
-  width: 100%;
-  margin-bottom: 1em;
-  align-items: center;
-}
-.barra-ferramentas--tipo-1--sem-fundo > * {
-  min-height: inherit;
-  align-self: stretch;
-  padding-bottom: 0;
-}
-.barra-ferramentas--tipo-1--sem-fundo > * > :only-child {
-  align-self: inherit;
-}
-.barra-ferramentas--tipo-1--sem-fundo > * + * {
-  margin-left: 0.625rem;
-}
-.barra-ferramentas--tipo-1--sem-fundo > *:first-child {
-  padding-left: 0;
-}
-.barra-ferramentas--tipo-1--sem-fundo__acoes {
-  flex: 1;
-  display: flex;
-  align-self: stretch;
-  justify-content: flex-end;
-}
-.barra-ferramentas--tipo-1--sem-fundo__acoes > * + * {
-  margin-left: 0.3125rem;
-}
-.barra-ferramentas--tipo-1--sem-fundo__separador {
-  margin-left: 0.625rem;
-  margin-right: 0.3125rem;
-  padding: 0 0.2rem;
-  border-left: 1px #00949a solid;
-  border-right: 1px #00949a solid;
-}
-.barra-ferramentas--tipo-1--sem-fundo__separador:first-child {
-  padding-left: 0;
-  margin-left: 0;
-  border-left-width: 0;
-}
-.barra-ferramentas--tipo-1--sem-fundo__separador:last-child {
-  padding-right: 0;
-  margin-right: 0;
-  border-right-width: 0;
-}
-.form-icones {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.form-icones > * {
-  cursor: pointer;
-  color: #00949a;
-}
-.form-icones > * + * {
-  margin-left: 0.625rem;
-}
-
-.barra-ferramentas--tipo-1--com-fundo {
-  display: flex;
-  width: 100%;
-  margin-bottom: 1em;
-  align-items: center;
-  padding: 0.2rem;
-  background: #cff5f6;
-  border: 1px #00949a solid;
-}
-.barra-ferramentas--tipo-1--com-fundo > * {
-  min-height: inherit;
-  align-self: stretch;
-  padding-bottom: 0;
-}
-.barra-ferramentas--tipo-1--com-fundo > * > :only-child {
-  align-self: inherit;
-}
-.barra-ferramentas--tipo-1--com-fundo > * + * {
-  margin-left: 0.625rem;
-}
-.barra-ferramentas--tipo-1--com-fundo > *:first-child {
-  padding-left: 0;
-}
-.barra-ferramentas--tipo-1--com-fundo__acoes {
-  flex: 1;
-  display: flex;
-  align-self: stretch;
-  justify-content: flex-end;
-}
-.barra-ferramentas--tipo-1--com-fundo__acoes > * + * {
-  margin-left: 0.3125rem;
-}
-.barra-ferramentas--tipo-1--com-fundo__separador {
-  margin-left: 0.625rem;
-  margin-right: 0.3125rem;
-  padding: 0 0.2rem;
-  border-left: 1px #00949a solid;
-  border-right: 1px #00949a solid;
-}
-.barra-ferramentas--tipo-1--com-fundo__separador:first-child {
-  padding-left: 0;
-  margin-left: 0;
-  border-left-width: 0;
-}
-.barra-ferramentas--tipo-1--com-fundo__separador:last-child {
-  padding-right: 0;
-  margin-right: 0;
-  border-right-width: 0;
-}
-.form-icones {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-}
-.form-icones > * {
-  cursor: pointer;
-  color: #00949a;
-}
-.form-icones > * + * {
-  margin-left: 0.625rem;
 }
 
 /*# sourceMappingURL=info.css.map */

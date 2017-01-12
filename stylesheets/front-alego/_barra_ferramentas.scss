@@ -11,11 +11,12 @@ BARRA DE FERRAMENTAS
 // -----------------------------------------------------------------------------
 // barra-ferramentas.scss
 // Criado em: 27/09/2016
-// Alterado em: 21/12/2016
+// Alterado em: 12/01/2017
 // -----------------------------------------------------------------------------
 // Definições padrão de barra de ferramentas
 // -----------------------------------------------------------------------------
 // Changelog
+// 12/01/2017 | Melhoria na parte comum do ícone e da ação
 // 21/12/2016 | Reformulado para adequar à diretiva
 // 27/09/2016 | Criado o arquivo
 // =============================================================================
@@ -25,9 +26,30 @@ BARRA DE FERRAMENTAS
 // =============================================================================
 $barra-ferramentas-titulo: sem-serifa !default; // sem-serifa ou serifa
 $barra-ferramentas-margem: $margem !default;
-$barra-ferramentas-icone-acao: igual !default;
+$barra-ferramentas--texto-acao: nao !default;
 
 $barra-ferramentas-titulo-tipo: if($barra-ferramentas-titulo == "sem-serifa", $fonte-sem-serifa, $fonte-serifa);
+
+// =============================================================================
+// PLACEHOLDER | ACOES E ICO
+// =============================================================================
+%barra-ferramenta--acao {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  padding: $pd;
+  background: cor(barra-ferramentas, fundo-bt);
+  color: cor(barra-ferramentas, texto-bt);
+  cursor: pointer;
+  transition: $transition;
+  // -------------------------------------------------------------------------
+  // AÇÃO | HOVER
+  // -------------------------------------------------------------------------
+  &:hover {
+    background: cor(barra-ferramentas, fundo-bt-hover);
+    color: cor(barra-ferramentas, texto-bt-hover);
+  }
+}
 
 // =============================================================================
 // CLASSE
@@ -58,28 +80,7 @@ $barra-ferramentas-titulo-tipo: if($barra-ferramentas-titulo == "sem-serifa", $f
   // AÇÃO
   // ---------------------------------------------------------------------------
   &__acao {
-    display: flex;
-    align-items: center;
-    align-self: stretch;
-    padding: $pd;
-    background: cor(barra-ferramentas, fundo-bt);
-    color: cor(barra-ferramentas, texto-bt);
-    cursor: pointer;
-    transition: $transition;
-    // -------------------------------------------------------------------------
-    // AÇÃO | HOVER
-    // -------------------------------------------------------------------------
-    &:hover {
-      background: cor(barra-ferramentas, fundo-bt-hover);
-      color: cor(barra-ferramentas, texto-bt-hover);
-    }
-    // -------------------------------------------------------------------------
-    // AÇÃO | ATIVO
-    // -------------------------------------------------------------------------
-    &.ativo {
-      background: cor(barra-ferramentas, texto-bt-hover);
-      color: cor(barra-ferramentas, fundo-bt-hover);
-    }
+    @extend %barra-ferramentas--acao;
 
     // -------------------------------------------------------------------------
     // AÇÃO | VOLTAR
@@ -111,7 +112,14 @@ $barra-ferramentas-titulo-tipo: if($barra-ferramentas-titulo == "sem-serifa", $f
   // ---------------------------------------------------------------------------
   &__ico {
     @if $barra-ferramentas-icone-acao == igual {
-      @extend .barra-ferramentas__acao;
+      @extend %barra-ferramentas--acao;
+      // -------------------------------------------------------------------------
+      // ÍCONE | ATIVO
+      // -------------------------------------------------------------------------
+      &.ativo {
+        background: cor(barra-ferramentas, texto-bt-hover);
+        color: cor(barra-ferramentas, fundo-bt-hover);
+      }
     }
   }
 
