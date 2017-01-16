@@ -1,0 +1,78 @@
+<article id="diretivas">
+  <header><h1>Diretivas</h1></header>
+
+  <section class="secao-lista">
+    <input type="checkbox" id="diretivas__doc" class="secao-lista__check">
+
+    <header class="secao-lista__header">
+      <label for="diretivas__doc">
+        <span class="secao-lista__titulo">Diretivas</span>
+        <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
+      </label>
+    </header>
+
+    <article class="secao-lista__conteudo">
+
+      <p class="texto--erro texto--xx-maior"><strong>Explicar e formatar melhor depois</strong></p>
+
+      <hr>
+      <p><strong>Menu (classes):</strong></p>
+      <dl class="lista-definicao">
+        <dt><samp>.nav</samp></dt>
+          <dd>Container da navegação completa</dd>
+        <dt><samp>.menu</samp></dt>
+          <dd>Cada menu individual</dd>
+        <dt><samp>.menu__item</samp></dt>
+          <dd>Cada item de navegação. <strong>Formate diretamente o <samp>&lt;a&lgt;</samp></strong></dd>
+        <dt><samp>.menu__titulo</samp></dt>
+          <dd>Título do menu. Fecha ao clicar sobre ele. Formate ele diretamente. Filhos: <samp>&lt;span&glt;</samp> (o título propriamente dito) e <samp>.ico</samp> (a seta) </dd>
+        <dt><samp>.fechado</samp></dt>
+          <dd>A clicar no <samp>.nav__menu__titulo</samp> aplica essa classe no mesmo (para fechar)</dd>
+        <dt><samp>.ativo</samp></dt>
+          <dd>Item ativo do menu</dd>
+      </dl>
+
+      <p><strong>Menu (config):</strong></p>
+      <dl class="lista-definicao">
+        <dt><samp>$menu-titulo</samp></dt>
+          <dd>Exibe o título do menu (para o caso de ter mais de um menu e você deseja fechar o grupo).</dd>
+        <dt><samp>$menu-animacao</samp></dt>
+          <dd>Se estiver usando o título do menu para exibir/ocultar o conteúdo do mesmo, define se haverá efeito de animação para isso. Se o valor for <samp>não</samp> o menu ainda será oculto ao clicar no título, com a diferença de que será sem animação</dd>
+        <dt><samp>$menu-max</samp></dt>
+          <dd>Use este valor somente se <samp>$menu-animacao</samp> for <samp>sim</samp>. Determina a quantidade de itens a serem animados. Deixe um pouco de sobra (mais itens que o de itens de menu), assim se for acrescentado novos itens do menu eles serão animados, mas lembre-se que cada valor é um seletor a mais.</dd>
+      </dl>
+
+      <hr>
+      <p><strong>Barra de Ferramentas (classes):</strong></p>
+        <dl class="lista-definicao">
+          <dt><samp>.barra-ferramentas</samp></dt>
+            <dd>O container da barra de ferramentas</dd>
+          <dt><samp>.barra-ferramentas__titulo</samp></dt>
+            <dd>O título da barra de ferramentas (está como <samp>&lt;h2&gt;</samp>)</dd>
+          <dt><samp>.barra-ferramentas__busca</samp></dt>
+            <dd>O container do campo de busca (formate a largura que achar apropriado)</dd>
+          <dt><samp>.barra-ferramentas__tabela-mutante</samp></dt>
+            <dd>O container dos ícones de ação para mudar entre tabela/card</dd>
+          <dt><samp>.barra-ferramentas__acao</samp></dt>
+            <dd>A formatação das ações (novo, editar, etc)</dd>
+          <dt><samp>.barra-ferramentas__ico</samp></dt>
+            <dd>Os ícones de ação que alterna entre tabela e card (filho de <samp>.barra-ferramentas__tabela-mutante</samp>)</dd>
+          <dt><samp>.ativo</samp></dt>
+            <dd>Formatação do ícone está selecionado</dd>
+        </dl>
+
+      <p><strong>Barra de Ferramentas (config):</strong></p>
+        <dl class="lista-definicao">
+          <dt><samp>$barra-ferramentas-titulo</samp></dt>
+            <dd>Determina se o título vai ser serifado ou não. Valores: <samp>sem-serifa</samp> ou <samp>serifa</samp></dd>
+          <dt><samp>$barra-ferramentas-margem</samp></dt>
+            <dd>O espaço entre os elementos internos da barra de ferramentas</dd>
+          <dt><samp>$barra-ferramentas-icone-acao</samp></dt>
+            <dd>Determina se os ícones da tabela mutante (aqueles que alternam entre card e tabela) tem a mesma formatação dos botões de ação da tabela. Valores: <samp>igual</samp> ou qualquer outra coisa</dd>
+        </dl>
+
+
+    </article>
+  </section>
+
+</article>

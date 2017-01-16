@@ -1,0 +1,41 @@
+<section class="barra-ferramentas">
+
+  <a ng-if="linkBackTitulo" ui-sref="{{linkBackState}}" class="barra-ferramentas__acao voltar" title="{{linkBackTitulo}}">
+    <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#voltar") %>"></use></svg>
+  </a>
+
+  <h2 class="barra-ferramentas__titulo">{{titulo}}</h2>
+
+  <form method="GET" ng-submit="busca()" class="barra-ferramentas__busca form-texto" ng-show="deveExibirControlesTabela()">
+    <input type="text" ng-model="termo" placeholder="Pesquisa " />
+    <button ng-click="busca()" class="form__ico">
+      <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#lupa") %>"></use></svg>
+    </button>
+  </form>
+
+  <!-- ESTE ELEMENTO ADICIONA OS CONTROLES ENTRE TABELA E CARD -->
+  <div class="form-icones barra-ferramentas__tabela-mutante" ng-show="deveExibirControlesTabela()">
+    <span ng-click="mudarPreferencia('tabela')" ng-class="{'ativo': modo == 'tabela'}" class="barra-ferramentas__ico">
+      <svg class="ico"><use xlink:href="<%= asset_path('ico.svg#lista') %>" ></use></svg>
+    </span>
+
+    <span ng-click="mudarPreferencia('card')" ng-class="{'ativo': modo == 'card'}" class="barra-ferramentas__ico">
+      <svg class="ico"><use xlink:href="<%= asset_path('ico.svg#card') %>"></use></svg>
+    </span>
+  </div>
+
+  <a ng-if="linkNewTitulo" ui-sref="{{linkNewState}}" class="barra-ferramentas__acao" title="{{linkNewTitulo}}">
+    <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#mais") %>"></svg>
+  </a>
+
+  <a ng-if="linkShowTitulo" ui-sref="{{linkShowState}}" class="barra-ferramentas__acao" title="{{linkShowTitulo}}">
+    <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#olho")%>"></use></svg>
+  </a>
+
+  <a ng-if="linkEditTitulo" ui-sref="{{linkEditState}}" class="barra-ferramentas__acao" title="{{linkEditTitulo}}">
+    <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#lapis") %>"></use></svg>
+  </a>
+
+  <div ng-transclude></div>
+
+</section>

@@ -1,0 +1,128 @@
+@if index($uso-classes, barra-ferramentas) {
+/*
+================================================================================
+BARRA DE FERRAMENTAS
+================================================================================
+*/
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// barra-ferramentas.scss
+// Criado em: 27/09/2016
+// Alterado em: 12/01/2017
+// -----------------------------------------------------------------------------
+// Definições padrão de barra de ferramentas
+// -----------------------------------------------------------------------------
+// Changelog
+// 12/01/2017 | Melhoria na parte comum do ícone e da ação
+// 21/12/2016 | Reformulado para adequar à diretiva
+// 27/09/2016 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// CONFIG
+// =============================================================================
+$barra-ferramentas-titulo: sem-serifa !default; // sem-serifa ou serifa
+$barra-ferramentas-margem: $margem !default;
+$barra-ferramentas--texto-acao: nao !default;
+
+$barra-ferramentas-titulo-tipo: if($barra-ferramentas-titulo == "sem-serifa", $fonte-sem-serifa, $fonte-serifa);
+
+// =============================================================================
+// PLACEHOLDER | ACOES E ICO
+// =============================================================================
+%barra-ferramentas--acao {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  padding: $pd;
+  background: cor(barra-ferramentas, fundo-bt);
+  color: cor(barra-ferramentas, texto-bt);
+  cursor: pointer;
+  transition: $transition;
+  // -------------------------------------------------------------------------
+  // AÇÃO | HOVER
+  // -------------------------------------------------------------------------
+  &:hover {
+    background: cor(barra-ferramentas, fundo-bt-hover);
+    color: cor(barra-ferramentas, texto-bt-hover);
+  }
+}
+
+// =============================================================================
+// CLASSE
+// =============================================================================
+.barra-ferramentas {
+  display: flex;
+  width: 100%;
+  background: cor(barra-ferramentas, fundo);
+  align-items: center;
+
+  // ---------------------------------------------------------------------------
+  // FILHOS DIRETOS
+  // ---------------------------------------------------------------------------
+  > * {
+  }
+
+  // ---------------------------------------------------------------------------
+  // TÍTULO
+  // ---------------------------------------------------------------------------
+  &__titulo {
+    margin: 0;
+    margin-left: $barra-ferramentas-margem;
+    font-family: $barra-ferramentas-titulo-tipo;
+    line-height: 1.4;
+  }
+
+  // ---------------------------------------------------------------------------
+  // AÇÃO
+  // ---------------------------------------------------------------------------
+  &__acao {
+    @extend %barra-ferramentas--acao;
+
+    // -------------------------------------------------------------------------
+    // AÇÃO | VOLTAR
+    // -------------------------------------------------------------------------
+    &.voltar {
+
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // BUSCA
+  // ---------------------------------------------------------------------------
+  &__busca {
+    margin-left: $barra-ferramentas-margem;
+  }
+
+  // ---------------------------------------------------------------------------
+  // TABELA MUTANTE
+  // ---------------------------------------------------------------------------
+  &__tabela-mutante {
+    margin-left: $barra-ferramentas-margem;
+    flex: 1;
+    display: flex;
+    align-self: stretch;
+  }
+
+  // ---------------------------------------------------------------------------
+  // ÍCONE
+  // ---------------------------------------------------------------------------
+  &__ico {
+    @if $barra-ferramentas-icone-acao == igual {
+      @extend %barra-ferramentas--acao;
+      // -------------------------------------------------------------------------
+      // ÍCONE | ATIVO
+      // -------------------------------------------------------------------------
+      &.ativo {
+        background: cor(barra-ferramentas, texto-bt-hover);
+        color: cor(barra-ferramentas, fundo-bt-hover);
+      }
+    }
+  }
+
+}
+
+}

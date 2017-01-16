@@ -1,0 +1,660 @@
+// =============================================================================
+// CORES
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// cores.scss
+// Criado em: 07/01/2015
+// Última alteração: 21/12/2016
+// -----------------------------------------------------------------------------
+// Aqui fica os temas de cores. As paletas são definidas no arquivo
+// cores_paletas (e é neste arquivo que se acrescenta novas cores)
+// JAMAIS coloque uma cor diretamente em outro arquivo e sim chame através da
+// função cor(). Isso possibilita mudar o tema rapidamente através deste arquivo
+// Para alterar o tema faça isso no arquivo config
+// -----------------------------------------------------------------------------
+// CHANGELOG:
+// 21/12/2016 | Acrescentada cores da barra de ferramentas
+// 06/09/2016 | Simplificada cores das tabelas
+// 05/09/2016 | Reformulação nos botões (menos cores pra configurar)
+// 01/08/2016 | acrescentado footer da tabela
+// 06/07/2016 | Acrescentado "label" nos formulários
+// 09/05/2016 | Acrescentado "datepicker" nos temas
+// 14/04/2016 | Retirado branco e preto para utilizar cinza
+// 13/04/2016 | Unificação da paleta-padrao com paleta
+// 28/03/2016 | Inclusão de abas
+// 08/03/2016 | Inclusão de mais um tipo de link (claro)
+// 11/12/2015 | A paleta de cores agora aceita apenas um cor de cada e a função
+// 							cor() cria as variações tonais.
+// 							Arquivos _cores_paletas.scss e _cores_temas.scss mesclados
+// 							em apenas um arquivo: _cores.scss
+// 03/12/2015 | Reduzida paleta de paginação para três elementos
+// 							Acrescentado tema cinza
+// 17/11/2015 | Separado paletas de temas
+// 21/10/2015 | Criação dos temas
+//  						Criação de grupos de elementos dentro dos temas
+// 20/10/2015 | Alterado a forma de trabalhar
+// 07/01/2015 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// PALETA DE CORES
+// -----------------------------------------------------------------------------
+// Só há a necessidade de acrescentar uma cor por tema. Evite nomes de cores,
+// pois facilita mudança mais brusca de cores (quando mudar o tema não é o ideal)
+// =============================================================================
+$paleta: (
+	// cores reservadas - evite mudar
+	cinza: gray,
+	erro: #ed1c24, // vermelho
+	ok: #39b54a, // verde
+	alerta: #f9bc16, // amarelo
+
+	// cores de temas específicos - evite mudar
+	verde-bandeira: #16b83e,
+	azul-bandeira: #1651B8,
+	amarelo-bandeira: #ffea1f,
+	rosa: #e18ccc,
+
+	// cores do sistema
+	basica: #00c5cd, //turquesa
+	secundaria: #cd5800, //marrom
+);
+// =============================================================================
+// TEMAS DE COR
+// -----------------------------------------------------------------------------
+// Cada mapa contém um pacote de cores para texto, fundo e borda.
+// Além disso, elementos que tem várias categorias diferentes, tem seu próprio
+// grupo (como por exemplo paginação).
+// Para o sistema atual, edite o tema $cores-principal.
+// Acrescente temas conforme a necessidade. Por exemplo, é possível ter uma
+// uma paleta apenas para o natal.
+// A cor chamada "padrao" é chamada automaticamente, sem precisar especificar
+// na função.
+// -----------------------------------------------------------------------------
+// Temas disponíveis:
+// principal | Tema padrão. Edite essa
+// cinza | Tema com tons de cinza
+// alto-contraste | Tema de alto contraste para acessibilidade
+// bandeira-goiana | Tema com as cores da bandeira goiana
+// rosa | Tema para o Outubro Rosa
+// azul | Tema para o Novembro Azul
+// =============================================================================
+$temas: (
+	principal: (
+		//elementos genéricos
+		texto: (
+			padrao: paleta(cinza, escuro, 100),
+			claro: paleta(cinza, claro, 100),
+			medio: paleta(cinza),
+			destaque: paleta(secundaria),
+			titulo: paleta(secundaria),
+		),
+		fundo: (
+			padrao: paleta(basica),
+			claro: paleta(basica, clara, 25),
+			x-claro: paleta(cinza, claro, 100),
+			escuro: paleta(basica, escura, 70),
+			sombra: paleta(cinza, escuro, 100),
+		),
+		borda: (
+			padrao: paleta(basica),
+			variante: paleta(secundaria),
+		),
+		//elementos específicos
+		link: (
+			padrao: paleta(basica),
+			hover: paleta(basica, clara, 25),
+			escuro: paleta(basica, escura, 25),
+			escuro-hover: paleta(basica),
+			claro: paleta(cinza, claro, 100),
+			claro-hover: fade-out(paleta(cinza, claro, 100), .5),
+		),
+		formulario: (
+			padrao: paleta(basica, escura, 25),
+			label: paleta(basica, escura, 25),
+			placeholder: paleta(basica, clara, 25),
+			ativo: paleta(basica, escura, 75),
+			fundo: paleta(basica, clara, 75),
+		),
+		botao: (
+			padrao: paleta(secundaria),
+			secundario: paleta(basica),
+		),
+		tabela: (
+			borda: paleta(basica),
+			fundo: paleta(basica, clara, 75),
+			titulo: paleta(basica, escura, 50),
+			footer: paleta(basica, escura, 25),
+		),
+		lista: (
+			padrao: paleta(basica),
+			clara: paleta(basica, clara, 75),
+			escura: paleta(basica, escura, 50),
+		),
+		modal: (
+			fundo: paleta(cinza, claro, 100),
+			titulo-fundo: paleta(basica, escura, 25),
+			titulo-texto: paleta(cinza, escura, 30),
+		),
+		paginacao: (
+			padrao: paleta(secundaria),
+			clara: paleta(secundaria, clara, 25),
+			escura: paleta(secundaria, escura, 25),
+		),
+		breadcrumbs: (
+			link: paleta(secundaria, clara, 25),
+			atual: paleta(secundaria, escura, 25),
+		),
+		card: (
+			fundo: paleta(cinza, claro, 100),
+			borda: paleta(basica),
+			titulo: paleta(basica, escura, 50),
+			destaque: paleta(basica, escura, 25),
+		),
+		secao-lista: (
+			padrao: paleta(basica, escura, 25),
+			clara: paleta(basica, clara, 75),
+		),
+		abas: (
+			padrao: paleta(secundaria),
+			inativa: paleta(secundaria, clara, 50),
+			fundo-inativo: paleta(secundaria, clara, 85),
+		),
+		datepicker: (
+			padrao: paleta(basica, escura, 25),
+			claro: paleta(basica, clara, 25),
+			escuro: paleta(basica, escura, 50),
+			contraste: paleta(secundaria, clara, 25),
+		),
+		barra-ferramentas: (
+			fundo: paleta(basica, clara, 75),
+			fundo-bt: paleta(basica, escura, 45),
+			fundo-bt-hover: paleta(basica, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
+		),
+		//elementos do sistema
+	),
+
+	cinza: (
+		//elementos genéricos
+		texto: (
+		  padrao: paleta(cinza, escuro, 100),
+		  claro: paleta(cinza, claro, 100),
+		  medio: paleta(cinza),
+		  destaque: paleta(cinza, escura, 25),
+		  titulo: paleta(cinza, clara, 5),
+		),
+		fundo: (
+		  padrao: paleta(cinza),
+		  claro: paleta(cinza, clara, 25),
+		  x-claro: paleta(cinza, claro, 100),
+		  escuro: paleta(cinza, escura, 70),
+		  sombra: paleta(cinza, escuro, 100),
+		),
+		borda: (
+		  padrao: paleta(cinza),
+		  variante: paleta(cinza, clara, 20),
+		),
+		//elementos específicos
+		link: (
+		  padrao: paleta(cinza, escura, 20),
+		  hover: paleta(cinza),
+		  escuro: paleta(cinza, escura, 70),
+		  escuro-hover: paleta(cinza),
+		  claro: paleta(cinza, claro, 100),
+		  claro-hover: fade-out(paleta(cinza, claro, 100), .5),
+		),
+		formulario: (
+		  padrao: paleta(cinza, escura, 25),
+		  label: paleta(cinza, escura, 25),
+		  placeholder: paleta(cinza, clara, 25),
+		  ativo: paleta(cinza, escura, 80),
+		  fundo: paleta(cinza, clara, 60),
+		),
+		botao: (
+		  padrao: paleta(cinza, escura, 80),
+		  secundario: paleta(cinza),
+		),
+		tabela: (
+		  borda: paleta(cinza),
+		  fundo: paleta(cinza, clara, 75),
+		  titulo: paleta(cinza, escura, 50),
+			footer: paleta(cinza, clara, 60),
+		),
+		lista: (
+		  padrao: paleta(cinza, escura, 7),
+		  clara: paleta(cinza, clara, 37),
+		  escura: paleta(cinza, escura, 85),
+		),
+		modal: (
+		  fundo: paleta(cinza, claro, 100),
+		  titulo-fundo: paleta(cinza, escura, 85),
+		  titulo-texto: paleta(cinza, escura, 90),
+		),
+		paginacao: (
+		  padrao: paleta(cinza, escura, 70),
+		  clara: paleta(cinza, clara, 25),
+		  escura: paleta(cinza, escuro, 100),
+		),
+		breadcrumbs: (
+		  link: paleta(cinza, clara, 15),
+		  atual: paleta(cinza, escura, 75),
+		),
+		card: (
+		  fundo: paleta(cinza, claro, 100),
+		  borda: paleta(cinza),
+		  titulo: paleta(cinza, escura, 50),
+		  destaque: paleta(cinza, escura, 25),
+		),
+		secao-lista: (
+		  padrao: paleta(cinza, escura, 65),
+		  clara: paleta(cinza, clara, 75),
+		),
+		abas: (
+		  padrao: paleta(cinza),
+		  inativa: paleta(cinza, clara, 45),
+		  fundo-inativo: paleta(cinza, clara, 85),
+		),
+		datepicker: (
+			padrao: paleta(cinza, escura, 25),
+			claro: paleta(cinza, clara, 25),
+			escuro: paleta(cinza, escura, 50),
+			contraste: paleta(cinza, escura, 35),
+		),
+		barra-ferramentas: (
+			fundo: paleta(cinza, clara, 60),
+			fundo-bt: paleta(cinza, escura, 45),
+			fundo-bt-hover: paleta(cinza, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
+		),
+		//elementos do sistema
+	),
+
+	alto-contraste: (
+		//elementos genéricos
+		texto: (
+		  padrao: paleta(basica, claro, 90),
+		  claro: paleta(cinza, escuro, 100),
+		  medio: paleta(cinza),
+		  destaque: paleta(basica, clara, 75),
+		  titulo: paleta(secundaria, clara, 80),
+		),
+		fundo: (
+			padrao: paleta(basica),
+			claro: paleta(basica, escura, 25),
+			x-claro: paleta(cinza, escuro, 100),
+			escuro: paleta(basica, clara, 70),
+			sombra: paleta(cinza, claro, 100),
+		),
+		borda: (
+			padrao: paleta(basica),
+			variante: paleta(secundaria),
+		),
+		//elementos específicos
+		link: (
+			padrao: paleta(basica),
+			hover: paleta(basica, escura, 25),
+			escuro: paleta(basica, claro, 25),
+			escuro-hover: paleta(basica),
+			claro: paleta(cinza, escuro, 100),
+			claro-hover: fade-out(paleta(cinza, escuro, 100), .5),
+		),
+		formulario: (
+			padrao: paleta(basica, clara, 25),
+			label: paleta(basica, clara, 25),
+			placeholder: paleta(basica, escura, 35),
+			ativo: paleta(basica, escura, 15),
+			fundo: paleta(basica, escura, 75),
+		),
+		botao: (
+			padrao: paleta(secundaria),
+			secundario: paleta(basica),
+		),
+		tabela: (
+			borda: paleta(basica),
+			fundo: paleta(basica, escura, 15),
+			titulo: paleta(basica, escura, 50),
+			footer: paleta(basica, escura, 30),
+		),
+		lista: (
+			padrao: paleta(basica),
+			clara: paleta(basica, escura, 75),
+			escura: paleta(basica, clara, 50),
+		),
+		modal: (
+			fundo: paleta(cinza, escuro, 100),
+			titulo-fundo: paleta(basica, clara, 25),
+			titulo-texto: paleta(cinza, clara, 70),
+		),
+		paginacao: (
+			padrao: paleta(secundaria),
+			clara: paleta(secundaria, escura, 25),
+			escura: paleta(secundaria, clara, 25),
+		),
+		breadcrumbs: (
+			link: paleta(secundaria, escura, 25),
+			atual: paleta(secundaria, clara, 25),
+		),
+		card: (
+			fundo: paleta(cinza, escuro, 100),
+			borda: paleta(basica),
+			titulo: paleta(basica, clara, 25),
+			destaque: paleta(basica, clara, 5),
+		),
+		secao-lista: (
+			padrao: paleta(basica, escura, 15),
+			clara: paleta(basica, escura, 95),
+		),
+		abas: (
+			padrao: paleta(secundaria),
+			inativa: paleta(secundaria, escura, 50),
+			fundo-inativo: paleta(secundaria, escura, 85),
+		),
+		datepicker: (
+			padrao: paleta(basica, clara, 25),
+			claro: paleta(basica, escura, 25),
+			escuro: paleta(basica, clara, 50),
+			contraste: paleta(secundaria, clara, 25),
+		),
+		barra-ferramentas: (
+			fundo: paleta(basica, escura, 75),
+			fundo-bt: paleta(secundaria, clara, 25),
+			fundo-bt-hover: paleta(secundaria, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
+		),
+		//elementos do sistema
+	),
+
+	bandeira: (
+		//elementos genéricos
+		texto: (
+			padrao: paleta(cinza, escuro, 100),
+			claro: paleta(cinza, claro, 100),
+			medio: paleta(cinza),
+			destaque: paleta(amarelo-bandeira, escuro, 30),
+			titulo: paleta(verde-bandeira, escuro, 40),
+		),
+		fundo: (
+			padrao: paleta(amarelo-bandeira),
+			claro: paleta(amarelo-bandeira, clara, 25),
+			x-claro: paleta(cinza, claro, 100),
+			escuro: paleta(amarelo-bandeira, escura, 35),
+			sombra: paleta(azul-bandeira, escuro, 80),
+		),
+		borda: (
+			padrao: paleta(amarelo-bandeira),
+			variante: paleta(azul-bandeira, clara, 20),
+		),
+		//elementos específicos
+		link: (
+			padrao: paleta(azul-bandeira, escura, 10),
+			hover: paleta(azul-bandeira, clara, 25),
+			escuro: paleta(azul-bandeira, escura, 25),
+			escuro-hover: paleta(azul-bandeira),
+			claro: paleta(cinza, claro, 100),
+			claro-hover: fade-out(paleta(cinza, claro, 100), .5),
+		),
+		formulario: (
+			padrao: paleta(verde-bandeira, escura, 45),
+			label: paleta(verde-bandeira, escura, 45),
+			placeholder: paleta(verde-bandeira, clara, 15),
+			ativo: paleta(verde-bandeira, escura, 75),
+			fundo: paleta(verde-bandeira, clara, 75),
+		),
+		botao: (
+			padrao: paleta(verde-bandeira, escuro, 35),
+			secundario: paleta(amarelo-bandeira, escura, 35),
+		),
+		tabela: (
+			borda: paleta(amarelo-bandeira),
+			fundo: paleta(amarelo-bandeira, clara, 55),
+			titulo: paleta(verde-bandeira, escura, 40),
+			footer: paleta(verde-bandeira, escura, 16),
+		),
+		lista: (
+			padrao: paleta(amarelo-bandeira, escuro, 12),
+			clara: paleta(amarelo-bandeira, clara, 55),
+			escura: paleta(verde-bandeira, escura, 40),
+		),
+		modal: (
+			fundo: paleta(amarelo-bandeira, claro, 90),
+			titulo-fundo: paleta(azul-bandeira, escura, 55),
+			titulo-texto: paleta(azul-bandeira, escura, 30),
+		),
+		paginacao: (
+			padrao: paleta(azul-bandeira),
+			clara: paleta(azul-bandeira, clara, 25),
+			escura: paleta(azul-bandeira, escura, 25),
+		),
+		breadcrumbs: (
+			link: paleta(verde-bandeira, escura, 35),
+			atual: paleta(amarelo-bandeira, escura, 23),
+		),
+		card: (
+			fundo: paleta(cinza, claro, 100),
+			borda: paleta(verde-bandeira),
+			titulo: paleta(azul-bandeira, escura, 50),
+			destaque: paleta(verde-bandeira, escura, 25),
+		),
+		secao-lista: (
+			padrao: paleta(verde-bandeira, escura, 25),
+			clara: paleta(amarelo-bandeira, clara, 75),
+		),
+		abas: (
+			padrao: paleta(azul-bandeira, escura, 35),
+			inativa: paleta(azul-bandeira, clara, 25),
+			fundo-inativo: paleta(azul-bandeira, clara, 75),
+		),
+		datepicker: (
+			padrao: paleta(verde-bandeira, escura, 25),
+			claro: paleta(verde-bandeira, clara, 25),
+			escuro: paleta(verde-bandeira, escura, 50),
+			contraste: paleta(amarelo-bandeira, escura, 15),
+		),
+		barra-ferramentas: (
+			fundo: paleta(verde-bandeira, clara, 75),
+			fundo-bt: paleta(amarelo-bandeira, escura, 10),
+			fundo-bt-hover: paleta(amarelo-bandeira),
+			texto-bt: paleta(verde-bandeira, escura, 20),
+			texto-bt-hover: paleta(verde-bandeira, escura, 20),
+		),
+		//elementos do sistema
+	),
+
+	rosa: (
+		//elementos genéricos
+		texto: (
+			padrao: paleta(cinza, escuro, 100),
+			claro: paleta(cinza, claro, 100),
+			medio: paleta(cinza),
+			destaque: paleta(rosa, escura, 30),
+			titulo: paleta(rosa, escura, 30),
+		),
+		fundo: (
+			padrao: paleta(rosa),
+			claro: paleta(rosa, clara, 25),
+			x-claro: paleta(rosa, claro, 100),
+			escuro: paleta(rosa, escura, 70),
+			sombra: paleta(rosa, escuro, 100),
+		),
+		borda: (
+			padrao: paleta(rosa),
+			variante: paleta(secundaria, escuro, 75),
+		),
+		//elementos específicos
+		link: (
+			padrao: paleta(rosa, escuro, 12),
+			hover: paleta(rosa, clara, 25),
+			escuro: paleta(rosa, escura, 25),
+			escuro-hover: paleta(rosa, escura, 75),
+			claro: paleta(rosa, claro, 90),
+			claro-hover: fade-out(paleta(rosa, claro, 90), .5),
+		),
+		formulario: (
+			padrao: paleta(rosa, escura, 25),
+			formulario: paleta(rosa, escura, 25),
+			placeholder: paleta(rosa, clara, 25),
+			ativo: paleta(rosa, escura, 75),
+			fundo: paleta(rosa, clara, 75),
+		),
+		botao: (
+			padrao: paleta(rosa, escuro, 56),
+			secundario: paleta(rosa),
+		),
+		tabela: (
+			borda: paleta(rosa),
+			fundo: paleta(rosa, clara, 75),
+			titulo: paleta(rosa, escura, 50),
+			footer: paleta(rosa, escura, 25),
+		),
+		lista: (
+			padrao: paleta(rosa),
+			clara: paleta(rosa, clara, 75),
+			escura: paleta(rosa, escura, 50),
+		),
+		modal: (
+			fundo: paleta(rosa, claro, 90),
+			titulo-fundo: paleta(rosa, escura, 25),
+			titulo-texto: paleta(rosa, clara, 35),
+		),
+		paginacao: (
+			padrao: paleta(rosa),
+			clara: paleta(rosa, clara, 25),
+			escura: paleta(rosa, escura, 25),
+		),
+		breadcrumbs: (
+			link: paleta(rosa, clara, 25),
+			atual: paleta(rosa, escura, 25),
+		),
+		card: (
+			fundo: paleta(rosa, claro, 100),
+			borda: paleta(rosa),
+			titulo: paleta(rosa, escura, 50),
+			destaque: paleta(rosa, escura, 25),
+		),
+		secao-lista: (
+			padrao: paleta(rosa, escura, 25),
+			clara: paleta(rosa, clara, 75),
+		),
+		abas: (
+			padrao: paleta(rosa),
+			inativa: paleta(rosa, clara, 20),
+			fundo-inativo: paleta(rosa, clara, 85),
+		),
+		datepicker: (
+			padrao: paleta(rosa, escura, 25),
+			claro: paleta(rosa, clara, 25),
+			escuro: paleta(rosa, escura, 50),
+			contraste: paleta(rosa, escura, 35),
+		),
+		barra-ferramentas: (
+			fundo: paleta(rosa, clara, 75),
+			fundo-bt: paleta(rosa, escura, 45),
+			fundo-bt-hover: paleta(rosa, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
+		),
+		//elementos do sistema
+	),
+
+	azul: (
+		//elementos genéricos
+		texto: (
+			padrao: paleta(cinza, escuro, 100),
+			claro: paleta(cinza, claro, 100),
+			medio: paleta(cinza),
+			destaque: paleta(azul-bandeira, escura, 30),
+			titulo: paleta(azul-bandeira, escura, 30),
+		),
+		fundo: (
+			padrao: paleta(azul-bandeira),
+			claro: paleta(azul-bandeira, clara, 25),
+			x-claro: paleta(azul-bandeira, claro, 100),
+			escuro: paleta(azul-bandeira, escura, 70),
+			sombra: paleta(azul-bandeira, escuro, 100),
+		),
+		borda: (
+			padrao: paleta(azul-bandeira),
+			variante: paleta(azul-bandeira, escuro, 75),
+		),
+		//elementos específicos
+		link: (
+			padrao: paleta(azul-bandeira, escuro, 12),
+			hover: paleta(azul-bandeira, clara, 25),
+			escuro: paleta(azul-bandeira, escura, 25),
+			escuro-hover: paleta(azul-bandeira, escura, 75),
+			claro: paleta(azul-bandeira, claro, 90),
+			claro-hover: fade-out(paleta(azul-bandeira, claro, 90), .5),
+		),
+		formulario: (
+			padrao: paleta(azul-bandeira, escura, 25),
+			formulario: paleta(azul-bandeira, escura, 25),
+			placeholder: paleta(azul-bandeira, clara, 25),
+			ativo: paleta(azul-bandeira, escura, 75),
+			fundo: paleta(azul-bandeira, clara, 75),
+		),
+		botao: (
+			padrao: paleta(azul-bandeira, escuro, 56),
+			secundario: paleta(azul-bandeira),
+		),
+		tabela: (
+			borda: paleta(azul-bandeira),
+			fundo: paleta(azul-bandeira, clara, 75),
+			titulo: paleta(azul-bandeira, escura, 50),
+			footer: paleta(azul-bandeira, escura, 25)
+		),
+		lista: (
+			padrao: paleta(azul-bandeira),
+			clara: paleta(azul-bandeira, clara, 75),
+			escura: paleta(azul-bandeira, escura, 50),
+		),
+		modal: (
+			fundo: paleta(azul-bandeira, claro, 90),
+			titulo-fundo: paleta(azul-bandeira, escura, 25),
+			titulo-texto: paleta(azul-bandeira, clara, 35),
+		),
+		paginacao: (
+			padrao: paleta(azul-bandeira),
+			clara: paleta(azul-bandeira, clara, 25),
+			escura: paleta(azul-bandeira, escura, 25),
+		),
+		breadcrumbs: (
+			link: paleta(azul-bandeira, clara, 25),
+			atual: paleta(azul-bandeira, escura, 25),
+		),
+		card: (
+			fundo: paleta(azul-bandeira, claro, 100),
+			borda: paleta(azul-bandeira),
+			titulo: paleta(azul-bandeira, escura, 50),
+			destaque: paleta(azul-bandeira, escura, 25),
+		),
+		secao-lista: (
+			padrao: paleta(azul-bandeira, escura, 25),
+			clara: paleta(azul-bandeira, clara, 75),
+		),
+		abas: (
+			padrao: paleta(azul-bandeira),
+			inativa: paleta(azul-bandeira, clara, 20),
+			fundo-inativo: paleta(azul-bandeira, clara, 85),
+		),
+		datepicker: (
+			padrao: paleta(azul-bandeira, escura, 25),
+			claro: paleta(azul-bandeira, clara, 25),
+			escuro: paleta(azul-bandeira, escura, 50),
+			contraste: paleta(azul-bandeira, escura, 35),
+		),
+		barra-ferramentas: (
+			fundo: paleta(azul-bandeira, clara, 75),
+			fundo-bt: paleta(azul-bandeira, escura, 45),
+			fundo-bt-hover: paleta(azul-bandeira, escura, 75),
+			texto-bt: paleta(cinza, clara, 100),
+			texto-bt-hover: paleta(cinza, clara, 100),
+		),
+		//elementos do sistema
+	),
+);

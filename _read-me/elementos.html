@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Front-Alego | Elementos do Projeto</title>
+    <meta name="description" content="Framework da Assembleia Legislativa do Estado de Goiás">
+    <meta name="author" content="Alessandro de Andrade Guarita">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="info.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="../javascripts/front-alego/input-file.js"></script>
+  </head>
+  <body>
+
+    <header class="header">
+      <nav class="header__menu container">
+        <ul>
+          <li class="header__menu__titulo">Front-Alego</li>
+          <li><a href="index.html">Index</a></li>
+          <li><a href="doc.html">Documentação</a></li>
+          <li><span class="header__menu__ativo">Elementos</span></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container" id="demo">
+      <nav class="menu">
+        <ul class="lista--link">
+          <li><a href="#tipografia">Tipografia básica</a></li>
+          <li><a href="#tipografia--modificada">Tipografia modificada</a></li>
+          <li><a href="#cores">Cores</a></li>
+          <li><a href="#simbolos">Símbolos</a></li>
+          <li><a href="#variaveis">Variáveis</a></li>
+        </ul>
+      </nav>
+      <section class="principal">
+        <article id="tipografia">
+          <header><h1>Tipografia básica (sem classes/placeholders)</h1></header>
+          <h1>h1. Lorem ipsum dolor sit amet</h1>
+          <h2>h2. Lorem ipsum dolor sit amet</h2>
+          <h3>h3. Lorem ipsum dolor sit amet</h3>
+          <h4>h4. Lorem ipsum dolor sit amet</h4>
+          <h5>h5. Lorem ipsum dolor sit amet</h5>
+          <h6>h6. Lorem ipsum dolor sit amet</h6>
+          <p>
+            <strong>Parágrafo comum.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <ul>
+            <li>Lista</li>
+            <li>Lista</li>
+          </ul>
+          <ol>
+            <li>Lista</li>
+            <li>Lista</li>
+          </ol>
+          <p>
+            <strong>Negrito</strong>. <em>Empashis (itálico)</em>. <u>Sublinhado</u>. <a href="al.go.leg.br" target="_blank">Link padrão</a>
+          </p>
+        </article>
+
+        <article id="tipografia--modificada">
+          <header><h1>Tipografia modificada (com classes/placeholders)</h1></header>
+          <main>
+            <h1 class="titulo-borda">h1. %titulo--borda</h1>
+            <p><a href="al.go.leg.br" class="link--sem-sublinhado">%link--sem-sublinhado</a></p>
+            <p><a href="al.go.leg.br" class="link--borda">%link--borda</a></p>
+            <p><a href="al.go.leg.br" class="link--pontilhado">%link--pontilhado</a></p>
+            <p>Tamanho padrão</p>
+            <p><samp>.fonte--menor</samp> <span class="fonte--menor">Tamanho menor</span></p>
+            <p><samp>.fonte--x-menor</samp> <span class="fonte--x-menor">Tamanho x-menor</span></p>
+            <p><samp>.fonte--xx-menor</samp> <span class="fonte--xx-menor">Tamanho xx-menor</span></p>
+            <p><samp>.fonte--maior</samp> <span class="fonte--maior">Tamanho maior</span></p>
+            <p><samp>.fonte--x-maior</samp> <span class="fonte--x-maior">Tamanho x-maior</span></p>
+            <p><samp>.fonte--xx-maior</samp> <span class="fonte--xx-maior">Tamanho xx-maior</span></p>
+            <p><samp>.texto--caixa-alta</samp> <span class="texto--caixa-alta">Texto modificado para caixa alta</span></p>
+            <p><samp>.texto--ok</samp> <span class="texto--ok">Texto ok</span></p>
+            <p><samp>.texto--erro</samp> <span class="texto--erro">Texto erro</span></p>
+            <p><samp>.texto--alerta</samp> <span class="texto--alerta">Texto alerta</span></p>
+            <p><samp>.fundo--ok</samp> <span class="fundo--ok">Fundo ok</span></p>
+            <p><samp>.fundo--erro</samp> <span class="fundo--erro">Fundo erro</span></p>
+            <p><samp>.fundo--alerta</samp> <span class="fundo--alerta">Fundo alerta</span></p>
+            <ul class="lista-sem-marcador">
+              <li>Lista sem marcadores</li>
+              <li>Lista sem marcadores</li>
+            </ul>
+        </article>
+
+        <article id="cores">
+          <header><h1>Cores</h1></header>
+          <p><a href="doc.html#cores" class="link--readme">Documentação</a></p>
+          <h2 id="cores__paleta-padrao">Paleta Padrão</h2>
+            <ul class="demo__paleta">
+              <li class="demo__cor--branco"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--preto"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--vermelho"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--verde"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--amarelo"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-5"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-10"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-15"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-20"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-25"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-30"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-35"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-40"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-45"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-50"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-55"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-60"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-65"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-70"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-75"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-80"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-85"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-90"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--cinza-95"><span class="cor"></span><span class="funcao"></span></li>
+            </ul>
+
+          <h2 id="cores__status">Cores de status</h2>
+            <ul class="demo__paleta">
+              <li class="demo__cor--erro-claro"><span class="cor"></span><span class="funcao">cor-status(urgente-claro)</span></li>
+              <li class="demo__cor--erro"><span class="cor"></span><span class="funcao">cor-status(urgente)</span></li>
+              <li class="demo__cor--erro-escuro"><span class="cor"></span><span class="funcao">cor-status(urgente-escuro)</span></li>
+            </ul>
+            <ul class="demo__paleta">
+              <li class="demo__cor--sucesso-claro"><span class="cor"></span><span class="funcao">cor-status(ok-claro)</span></li>
+              <li class="demo__cor--sucesso"><span class="cor"></span><span class="funcao">cor-status(ok)</span></li>
+              <li class="demo__cor--sucesso-escuro"><span class="cor"></span><span class="funcao">cor-status(ok-escuro)</span></li>
+            </ul>
+            <ul class="demo__paleta">
+              <li class="demo__cor--alerta-claro"><span class="cor"></span><span class="funcao">cor-status(aviso-claro)</span></li>
+              <li class="demo__cor--alerta"><span class="cor"></span><span class="funcao">cor-status(aviso)</span></li>
+              <li class="demo__cor--alerta-escuro"><span class="cor"></span><span class="funcao">cor-status(aviso-escuro)</span></li>
+            </ul>
+            <ul class="demo__paleta">
+              <li class="demo__cor--notice-claro"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--notice"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--notice-escuro"><span class="cor"></span><span class="funcao"></span></li>
+            </ul>
+
+          <h2 id="cores__paleta">Paleta</h2>
+            <p>Se acrescentar mais cores, abra o arquivo <samp class="arquivo">read-me/elementos.html</samp> e duplique a lista e acrescente o modificador <samp>--nome-paleta</samp>. Depois abra o <samp class="arquivo">read-me/info.scss</samp> e acrescente o nome da paleta no mapa <samp>$cores-paleta</samp> (e recompile o arquivo).</p>
+            <ul class="demo__paleta--basica">
+              <li class="demo__cor--xx-clara"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--x-clara"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--clara"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--principal"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--escura"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--x-escura"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--xx-escura"><span class="cor"></span><span class="funcao"></span></li>
+            </ul>
+            <ul class="demo__paleta--secundaria">
+              <li class="demo__cor--xx-clara"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--x-clara"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--clara"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--principal"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--escura"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--x-escura"><span class="cor"></span><span class="funcao"></span></li>
+              <li class="demo__cor--xx-escura"><span class="cor"></span><span class="funcao"></span></li>
+            </ul>
+
+          <h2 id="cores__tema">Temas</h2>
+            <p>O tema selecionado atualmente é o <samp class="escolha--tema"></samp>. Abaixo está todos os temas previamente cadastrados no tema atual, inclusive elementos específicos (exemplo: tabela), que podem servir de referência para quando você precisar alterar/criar alguma variação. Você pode ir diretamente nos modelos de cada elemento para ver como as cores funcionam nele, inclusive se mudar o tema. Se quiser visualizar elementos do sistema que você criou, coloque-os manualmente no HTML/CSS (nem tudo vem de mão beijada, sabe?).</p>
+            <blockquote class="aviso--dica">
+              Lembre-se de recompilar o arquivo <samp class="pasta">read-me/info.scss</samp> para aplicar a mudança de tema
+            </blockquote>
+            <h3>Tema <span class="escolha--tema"></span>: Texto</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__texto--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__texto--claro"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__texto--medio"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__texto--destaque"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__texto--titulo"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Fundo</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__fundo--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__fundo--claro"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__fundo--x-claro"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__fundo--escuro"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__fundo--sombra"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Borda</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__borda--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__borda--variante"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Link</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__link--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__link--hover"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__link--escuro"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__link--escuro-hover"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Formulário</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__formulario--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__formulario--placeholder"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__formulario--ativo"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__formulario--fundo"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Botão</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__botao--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__botao--claro"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__botao--escuro"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__botao--secundario"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__botao--secundario-claro"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__botao--secundario-escuro"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Tabela</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__tabela--borda"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__tabela--borda-clara"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__tabela--borda-escura"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__tabela--fundo"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__tabela--titulo"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Lista</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__lista--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__lista--clara"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__lista--escura"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Modal</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__modal--fundo"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__modal--titulo-fundo"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__modal--titulo--texto"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Paginação</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__paginacao--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__paginacao--clara"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__paginacao--escura"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Breadcrumbs</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__breadcrumbs--link"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__breadcrumbs--atual"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Card</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__card--fundo"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__card--borda"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__card--titulo"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__card--destaque"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+            <h3>Tema <span class="escolha--tema"></span>: Seção Lista</h3>
+              <ul class="demo__paleta">
+                <li class="demo__cor__secao-lista--padrao"><span class="cor"></span><span class="funcao"></span></li>
+                <li class="demo__cor__secao-lista--clara"><span class="cor"></span><span class="funcao"></span></li>
+              </ul>
+        </article>
+
+        <article id="simbolos">
+          <header><h1>Símbolos</h1></header>
+          <p><a href="doc.html#simbolos" class="link--readme">Documentação</a></p>
+          <h2>Lista de ícones utilizados</h2>
+            <p>Se quiser ver mais símbolos, abra o <samp class="arquivo">read-me/elementos.html</samp> acrescente no final da lista as classes que você criou. Os "buracos" que aparecerem é por que a classe foi retirada do CSS por performance, mas continuou no HTML</p>
+            <ul class="demo__simbolos">
+              <li class="demo__ico-abrir"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-adicionar"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-ajuda"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-apontando"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-asterisco"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-aviso-destaque"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-cadeado-aberto"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-cadeado-fechado"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-cadeado"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-calendario"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-calendario-2"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-calendario-3"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-carregando"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-casa"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-celular"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-chat"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-chat-2"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-chat-3"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-chat-4"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-chave"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-clipe"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-cone-seguranca"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-cracha"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-curtir"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-descurtir"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-desligar"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-documento"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-documento-2"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-download"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-engrenagem"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-envelope"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-equipe"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-erro"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-estrela-metade"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-estrela-vazia"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-estrela"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-facebook"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-fechar"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-ferramentas"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-figura"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-filtro"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-foto"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-globo"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-google-mais"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-grafico-barra"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-grafico-linha"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-grafico-pizza"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-impressora"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-info"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-janela-up"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-janela"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-lampada"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-lapis"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-link"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-livro"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-lixo"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-lixo-2"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-local"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-lupa"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-mais"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-megafone"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-menos"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-monitor"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-nao-ok"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-novo"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-ok-tique"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-ok"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-olho-fechado"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-olho"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-ordenar-baixo"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-ordenar-cima"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-ordenar"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-pasta"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-pdf"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-pessoa"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-pessoa-2"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-pessoa-3"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-prancheta"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-proibido"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-relogio"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-sair"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-salvar"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-baixo"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-cima"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-direita"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-esquerda"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-direita-dupla"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-esquerda-dupla"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-baixo-fina"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-cima-fina"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-direita-fina"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-seta-esquerda-fina"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-tabela"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-tablet"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-teclado"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-telefone"><span class="icone"></span><span class="funcao"></span></li>
+              <li class="demo__ico-twitter"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-x"><span class="icone"></span><span class="funcao"></span></li>
+
+              <li class="demo__ico-zip"><span class="icone"></span><span class="funcao"></span></li>
+            </ul>
+        </article>
+
+        <article id="variaveis">
+          <header><h1>Variáveis</h1></header>
+          <p><a href="doc.html#variaveis" class="link--readme">Documentação</a></p>
+          <p>Apesar de ter sido usado uma caixa para demonstrar as variáveis, elas podem ser usadas em outros elementos (como texto, por exemplo).</p>
+          <p>A variável <samp>$calha</samp> está sendo aplicada como espaço horizontal entre os elementos abaixo.</p>
+          <ul class="demo__variaveis">
+            <li class="demo__var--sombra-nenhuma"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-padrao"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-simples"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-difusa"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-texto"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-texto-relevo"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-card"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-modal"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-toaster"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--sombra-botao"><span class="caixa"></span><span class="funcao"></span></li>
+
+            <li class="demo__var--borda-nenhuma"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--borda-padrao"><span class="caixa"></span><span class="funcao"></span></li>
+            <li class="demo__var--borda-variante"><span class="caixa"></span><span class="funcao"></span></li>
+
+            <li class="demo__var--transition"><span class="caixa">passe o mouse</span><span class="funcao"></span></li>
+
+            <li class="demo__var--rd"><span class="caixa"></span><span class="funcao"></span></li>
+          </ul>
+        </article>
+
+      </section>
+    </main>
+
+  </body>
+</html>

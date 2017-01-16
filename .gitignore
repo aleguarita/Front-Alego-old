@@ -1,13 +1,10 @@
 
 *.scssc
 _temp/
+_+temp/
 
 *.map
 
 logo-exemplo.png
 
 modelos/logo-exemplo-header.png
-
-.DS_Store
-
-.DS_Store

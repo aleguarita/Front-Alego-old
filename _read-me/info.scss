@@ -1,0 +1,1254 @@
+/*
+================================================================================
+FRONT-ALEGO
+--------------------------------------------------------------------------------
+Arquivo de CSS modelo utilizado na documentação. Use o arquivo SCSS base desta
+pasta (info.scss) para ver como foi utilizado e também para acrescentar
+eventuais elementos para visualizar o arquivo final.
+Não se esqueça de compilar
+--------------------------------------------------------------------------------
+Algumas regras são quebradas intencionalmente. Por exemplo: como eu faço uso dos
+arquivos de cores básicos, eu não crio grupo de cores nos temas para elementos
+específicos (como código). Então eu uso o paleta() ao invés de cor()
+NÃO FAÇA ISSO EM CASA, CRIANÇAS
+--------------------------------------------------------------------------------
+Autor: Alessandro Guarita
+Criado em: 23/11/2015
+================================================================================
+A PARTIR DAQUI É O CSS GENÉRICO DO FRONT-END
+================================================================================
+*/
+
+// =============================================================================
+// IMPORTAÇÃO DO FRONT-ALEGO
+// =============================================================================
+@import "fontes"; // Este arquivo precisa ser importado por conta do endereço da pasta
+@import "../_base/config/front-alego-local";
+
+/*
+================================================================================
+INÍCIO DO CSS ESPECÍFICO DO READ-ME
+================================================================================
+*/
+
+// =============================================================================
+// VARIÁVEIS GLOBAIS
+// =============================================================================
+// $rd: 3px; // arredondamento
+$pd: .2rem; // padding
+
+// =============================================================================
+// MIXINS GLOBAIS
+// =============================================================================
+// Grupos de demonstração que cabem na mesma linha e fazem uso de flex-box
+@mixin grupo-demo($qtd: 2) {
+  $margem: ($qtd - 1) * 0.5rem;
+  $tamanho: 100% / $qtd;
+  @include display-flex;
+  @include justify-content(space-between);
+  > div {
+    width: calc(#{$tamanho} - #{$margem});
+  }
+}
+// Bloco de código
+@mixin codigo {
+  border-radius: $rd;
+  background: paleta(cinza, claro, 85);
+  border: 1px solid paleta(cinza, claro, 34);
+}
+/*
+================================================================================
+TAGS
+--------------------------------------------------------------------------------
+Estes tags foram modificados sem classes pois são mais raros de serem utilizados
+================================================================================
+*/
+body {
+  background: cor(fundo, x-claro);
+  * {
+    @include texto-selecionado;
+  }
+}
+samp {
+  @include codigo;
+  padding: .2em .4em;
+  color: cor-status(erro, clara, 15%);
+}
+figure:not([class]) {
+  @include display-flex;
+  @include align-items(flex-end);
+  img {
+    margin-right: $margem;
+  }
+  legend {
+    @include flex(1);
+    font-size: $tamanho-fonte-textos;
+    vertical-align: bottom;
+    font-weight: bold;
+    color: cor(texto, medio);
+  }
+}
+
+/*
+================================================================================
+CLASSES
+================================================================================
+*/
+// -----------------------------------------------------------------------------
+// Container. Altera o placeholder existente em _grid.scss
+// -----------------------------------------------------------------------------
+%container-basico {
+  max-width: 80rem;
+  padding: 0 $pd * 3;
+}
+// -----------------------------------------------------------------------------
+// Padding 0
+// -----------------------------------------------------------------------------
+.padding-0 {
+  padding: 0;
+}
+// -----------------------------------------------------------------------------
+// Links
+// -----------------------------------------------------------------------------
+%link-basico {
+  @include link(pontilhado);
+  font-weight: bold;
+  font-size: .85em;
+  color: cor(link, escuro);
+  text-transform: uppercase;
+  &:hover {
+    color: cor(link, escuro-hover);
+  }
+}
+.link--readme {
+  @extend %link-basico;
+}
+.link--externo {
+  @extend %link-basico;
+  &::after {
+    font-family: $fonte-simbolo;
+    font-size: .7em;
+    content: "\e014";
+    margin-left: .15em;
+    vertical-align: super;
+  }
+}
+// -----------------------------------------------------------------------------
+// Ícone de arquivo/pasta
+// -----------------------------------------------------------------------------
+.local {
+  color: paleta(cinza, escuro, 30%);
+}
+
+// -----------------------------------------------------------------------------
+// Listas
+// -----------------------------------------------------------------------------
+$largura-dt: 12em;
+$largura-dt-pq: 9em;
+.lista-definicao {
+  @include grupo-flex(2, 0);
+  dt, dd {
+    padding: .4em;
+    border: 1px solid tint(cor(borda), 20%);
+    margin-bottom: .5em;
+  }
+  dt {
+    text-align: right;
+    width: $largura-dt;
+    background: tint(cor(fundo, claro), 60%);
+    border-radius: $rd 0 0 $rd;
+    samp {
+      border: 0;
+      background: transparent;
+      padding: 0;
+    }
+    @media (max-width: breakpoint(pequeno)) {
+      width: $largura-dt-pq;
+    }
+  }
+  dd {
+    width: calc(100% - #{$largura-dt});
+    border-radius: 0 $rd $rd 0;
+    border-left-width: 0;
+    @media (max-width: breakpoint(pequeno)) {
+      width: calc(100% - #{$largura-dt-pq});
+    }
+  }
+}
+.lista-changelog {
+  $largura-versao: 8rem;
+  @include grupo-flex(2, 0);
+  dt, dd {
+    margin-bottom: .5em;
+  }
+  dt {
+    font-weight: bold;
+    width: $largura-versao;
+    margin-right: $calha;
+    color: cor(texto, medio);
+    text-align: right;
+  }
+  dd {
+    width: calc(100% - #{$largura-versao} - #{$calha});
+  }
+}
+.lista-itens {
+
+}
+.lista-ordenada {
+
+}
+.lista-config {
+  @include lista-sem-marcador(flex);
+  margin-left: $calha * -1;
+  margin-right: $calha * -1;
+  li {
+    margin: $calha;
+  }
+  span {
+    font-weight: bold;
+    font-family: $fonte-monoespacada;
+  }
+}
+// -----------------------------------------------------------------------------
+// Fragmentos de código
+// -----------------------------------------------------------------------------
+%codigo-bloco {
+  @include codigo;
+  display: block;
+  margin: 1em 0;
+  overflow-x: auto;
+  header {
+    background: fade-out(paleta(cinza, escuro, 100%), .2);
+    border-radius: $rd $rd 0 0;
+    padding: $pd $pd*2;
+    font-family: $fonte-sem-serifa;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: cor(texto, claro);
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 $pd * 2;
+    &:first-of-type {
+      margin-top: $pd;
+    }
+    &:last-child {
+      margin-bottom: $pd;
+    }
+  }
+}
+%codigo-css {
+  border-color: cor(borda, variante);
+  background: tint(cor(borda, variante), 90%);
+}
+.codigo--html {
+  @extend %codigo-bloco;
+  border-color: cor(borda);
+  background: tint(cor(borda), 90%);
+}
+.codigo--css {
+  @extend %codigo-bloco;
+  @extend %codigo-css;
+}
+.codigo--sass {
+  @extend %codigo-bloco;
+  @extend %codigo-css;
+}
+.funcao {
+  font-size: .7em;
+  font-family: $fonte-monoespacada;
+  &::before {
+    display: block;
+  }
+}
+// -----------------------------------------------------------------------------
+// Recuos
+// -----------------------------------------------------------------------------
+$i: 1;
+@while $i <= 5 {
+  .recuo-#{$i} {
+    margin-left: $i + ($pd * 2);
+  }
+  $i: $i + 1;
+}
+// -----------------------------------------------------------------------------
+// Espaços entre parágrafos
+// -----------------------------------------------------------------------------
+.espaco-2 {
+  margin: $margem * 2 0 !important;
+}
+
+// -----------------------------------------------------------------------------
+// Bloco de avisos
+// -----------------------------------------------------------------------------
+.aviso {
+  font-size: 1.2em;
+  border-left: 4px solid;
+  padding-left: $pd * 5;
+  color: cor(texto, medio);
+  @at-root {
+    %dica-aviso {
+      position: relative;
+      padding-left: 2.25rem;
+      &::before {
+        position: absolute;
+        display: block;
+        left: 0;
+        height: 100%;
+        font-family: $fonte-simbolo;
+        text-align: center;
+        width: 1.75rem;
+      }
+    }
+  }
+  &--dica {
+    @extend .aviso;
+    @extend %dica-aviso;
+    color: cor-status(sucesso, escuro, 15%);
+    &::before {
+      content: "\e084";
+      background: fade-out(cor-status(sucesso, claro, 25%), .85);
+    }
+  }
+  &--grave {
+    @extend .aviso;
+    @extend %dica-aviso;
+    color: cor-status(erro);
+    &::before {
+      content: "\e035";
+      background: fade-out(cor-status(erro, claro, 25%), .85);
+    }
+  }
+}
+// -----------------------------------------------------------------------------
+// Teclas de atalho
+// -----------------------------------------------------------------------------
+.tecla-atalho {
+
+}
+// -----------------------------------------------------------------------------
+// Grupos de imagens
+// -----------------------------------------------------------------------------
+.grupo-img {
+  @include grupo-flex(2);
+}
+.img-code {
+  @include display-flex;
+  code {
+    @include flex(1);
+  }
+}
+/*
+================================================================================
+HEADER
+================================================================================
+*/
+.header {
+  position: fixed;
+  background: cor(fundo, escuro);
+  text-align: center;
+  border-bottom: 1px solid cor(borda);
+  box-shadow: 0 0 3px cor(fundo, sombra);
+  width: 100%;
+  z-index: z(topo);
+  &__menu {
+    @include display-flex;
+    ul {
+      @include lista-sem-marcador(flex);
+      margin: 0;
+    }
+    li {
+      padding: .25em .5em;
+      font-weight: bold;
+    }
+    &__titulo {
+      background: fade-out(paleta(cinza, escuro, 100%), .3);
+      color: cor(texto, destaque);
+    }
+    a, &__ativo {
+      text-decoration: none;
+      font-size: .9em;
+      font-weight: bold;
+      color: cor(texto, claro);
+      opacity: .8;
+      text-shadow: 1px 1px 0 fade-out(cor(fundo, sombra), .8);
+    }
+    a {
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &__ativo {
+      opacity: 1;
+      font-weight: bold;
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | main
+================================================================================
+*/
+main {
+
+}
+
+/*
+================================================================================
+ÁREA PRINCIPAL | menu
+================================================================================
+*/
+.menu {
+  top: 3em;
+  position: relative;
+  overflow-y: auto;
+  max-height: 100vh;
+  @media (min-width: breakpoint(pequeno)) {
+    position: fixed;
+    width: 11em;
+    padding-bottom: 40rem;
+  }
+  ul {
+    margin: 0;
+  }
+  a {
+    color: cor(lista, escura);
+    font-weight: bold;
+    font-size: .9em;
+    transition: $transition;
+    &:hover {
+      background: cor(lista);
+      color: cor(texto, claro);
+    }
+  }
+  input:checked ~ {
+    ul.lista--link { display: none; }
+    .menu__subtitulo .secao-lista__icone {
+      transform: rotate(0deg);
+    }
+  }
+  &__subtitulo {
+    label {
+      @include display-flex;
+      cursor: pointer;
+      padding: $lista-padding;
+      font-size: 1rem;
+    }
+    .secao-lista__titulo {
+      font-family: $fonte-sem-serifa;
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | Conteúdo
+================================================================================
+*/
+.principal {
+  .menu + & {
+    @media (min-width: breakpoint(pequeno)) {
+      margin-left: 12em;
+    }
+  }
+  > article {
+    padding-top: 2.5em;
+    border-bottom: $borda-variante;
+    padding-bottom: 6 * $margem;
+    &:last-of-type {
+      border-bottom-width: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Config
+================================================================================
+*/
+// -----------------------------------------------------------------------------
+// Códigos selecionados
+// -----------------------------------------------------------------------------
+$codigo-selecionado: (
+  tab-col--maximo: $tab-col--maximo,
+  sombra-nenhuma: $sombra-nenhuma,
+  sombra-simples: $sombra-simples,
+  sombra-padrao: $sombra-padrao,
+  sombra-difusa: $sombra-difusa,
+  sombra-card: $sombra-card,
+  sombra-modal: $sombra-modal,
+  sombra-toaster: $sombra-toaster,
+  sombra-botao: $sombra-botao,
+  sombra-texto: $sombra-texto,
+  sombra-texto-relevo: $sombra-texto-relevo,
+  borda-nenhuma: $borda-nenhuma,
+  borda-padrao: $borda-padrao,
+  borda-variante: $borda-variante,
+  grid-margem: $grid-margem,
+  calha: '$grid-margem',
+  margem: '$calha',
+  pd: '$calha',
+  padding: '$pd',
+  transition: $transition,
+  rd: $rd,
+
+  tab-tipo: if(index($uso-classes, tabela), $tab-tipo, 'nenhuma'),
+  tab--zebra: $tab--zebra,
+  tab-acao-link-bloco: $tab-acao-link-bloco,
+
+  lista-tipo: if(index($uso-classes, lista), $lista-tipo, 'nenhuma'),
+  lista--zebra: $lista--zebra,
+  lista--sombra: $lista--sombra,
+
+  paginacao-tipo: if(index($uso-classes, paginacao), $paginacao-tipo, 'nenhuma'),
+  paginacao-posicao: $paginacao-posicao,
+  paginacao-fonte: $paginacao-fonte,
+
+  breadcrumbs-tipo: if(index($uso-classes, breadcrumb), $breadcrumbs-tipo, 'nenhum'),
+
+  card-tipo: if(index($uso-classes, card), $card-tipo, 'nenhum'),
+
+  form-tipo: if(index($uso-classes, form), $form-tipo, 'nenhum'),
+  label-tipo: $label-tipo,
+  form-radio-check-personaliza: $form-radio-check-personaliza,
+
+  lista-titulo: $secao-lista-titulo,
+
+  bt: $botao-tipo,
+  bt--secundario: $botao-secundario,
+
+  modal-tipo: if(index($uso-classes, modal), $modal-tipo, 'nenhum'),
+
+  toaster-tipo: if(index($uso-classes, toaster), $toaster-tipo, 'nenhum'),
+  toaster-horizontal: $toaster-horizontal,
+  toaster-vertical: $toaster-vertical,
+  toaster-distancia: $toaster-distancia,
+  toaster-distancia-vertical: $toaster-distancia-vertical,
+
+  secao-lista-tipo: if(index($uso-classes, secao-lista), $secao-lista-tipo, 'nenhum'),
+  secao-lista-titulo: $secao-lista-titulo,
+
+  abas-tipo: if(index($uso-classes, abas), $abas-tipo, 'nenhuma'),
+  abas-qtd: $abas-qtd,
+
+  tela-mensagem--tipo: if(index($uso-classes, tela-mensagem), $tela-mensagem--tipo, 'nenhuma'),
+
+  datepicker-tipo: if(index($uso-classes, datepicker), $datepicker-tipo, 'nenhum'),
+  datepicker-sombra: $datepicker-sombra,
+  datepicker-arredondado: $datepicker-arredondado,
+
+  barra-ferramentas-titulo: $barra-ferramentas-titulo,
+  barra-ferramentas-margem: $barra-ferramentas-margem,
+  barra-ferramentas-icone-acao: $barra-ferramentas-icone-acao,
+
+  tab-mutante-qtd: $tab-mutante-qtd,
+);
+
+@each $classe, $valor in $codigo-selecionado {
+  .codigo-#{$classe} {
+    &::before { content: "#{$valor}"; }
+  }
+}
+// breakpoints
+@each $classe, $valor in $breakpoints {
+  .codigo-bp--#{$classe} {
+    &::before { content: "#{$valor}"; }
+  }
+}
+// paleta de cores
+@each $classe, $valor in $paleta {
+  .codigo-paleta--#{$classe} {
+    &::before { content: "#{$classe}"; }
+  }
+}
+// lista de usos de classes:
+.codigo-uso-tab--form {
+  &::before { content: if(index($uso-classes, tabela-form), "sim", "não"); }
+}
+/*
+--------------------------------------------------------------------------------
+CONFIGURAÇÕES ESCOLHIDAS | TEXTOS
+--------------------------------------------------------------------------------
+*/
+
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Cores
+================================================================================
+*/
+// -----------------------------------------------------------------------------
+// CORES | PALETAS/TONS
+// -----------------------------------------------------------------------------
+// Acrescente as novas paletas aqui
+// -----------------------------------------------------------------------------
+$cores-paleta: (
+  basica,
+  secundaria,
+  erro,
+  ok,
+  alerta,
+  cinza,
+  verde-bandeira,
+  azul-bandeira,
+  amarelo-bandeira,
+  rosa,
+  // Insira o nome das paletas adicionais aqui
+);
+/*
+--------------------------------------------------------------------------------
+CORES | CLASSE BÁSICA
+--------------------------------------------------------------------------------
+*/
+.demo__paleta {
+  $qt: 7;
+  @include lista-sem-marcador;
+  @include grupo-flex($qt, rem(10));
+  li {
+    line-height: 1;
+  }
+  @each $paleta, $item in $cores-paleta {
+    &--#{$paleta} {
+      @include lista-sem-marcador(flex);
+    }
+  }
+}
+.cor {
+  width: 100%;
+  height: 45px;
+  display: block;
+  margin-bottom: .2em;
+}
+/*
+--------------------------------------------------------------------------------
+CORES | PALETA PADRÃO
+--------------------------------------------------------------------------------
+*/
+// @each $cor, $item in $paleta {
+//   .demo__cor--#{$cor} {
+//     .cor { background: $item; }
+//     .funcao {
+//       &::before {
+//         content: "paleta(#{$cor})";
+//       }
+//     }
+//   }
+// }
+/*
+--------------------------------------------------------------------------------
+CORES | CORES STATUS
+--------------------------------------------------------------------------------
+*/
+// @each $cor, $item in $cor-status {
+//   .demo__cor--#{$cor} {
+//     .cor { background: $item; }
+//     .funcao {
+//       &::before {
+//         content: "cor-status(#{$cor})"
+//       }
+//     }
+//   }
+// }
+/*
+--------------------------------------------------------------------------------
+CORES | PALETA
+--------------------------------------------------------------------------------
+*/
+$paleta-fonte: .8em;
+@each $paleta, $item in $cores-paleta {
+  .demo__paleta--#{$paleta} {
+    .demo__cor--principal {
+      @include flex(5);
+      @include order(1);
+      background: paleta(#{$paleta});
+      .funcao {
+        font-size: $paleta-fonte;
+        &::before {
+          content: "paleta(#{$paleta})";
+        }
+      }
+    }
+    $c: 1;
+    @while $c <=10 {
+      $d: $c + 10;
+      $x: $c * 10;
+      $y: 110 - $x;
+      li:nth-child(#{$c}) {
+        @include order(0);
+        background: paleta(#{$paleta}, clara, $y);
+        .funcao {
+          &::before {
+            content: "paleta(#{$paleta}, clara, #{$y})";
+          }
+        }
+      }
+      li:nth-child(#{$d}) {
+        @include order(2);
+        background: paleta(#{$paleta}, escura, $x);
+        .funcao {
+          color: paleta(cinza, claro, 100%);
+          &::before {
+            content: "paleta(#{$paleta}, escura, #{$x})";
+          }
+        }
+      }
+      $c: $c + 1;
+    }
+    .funcao {
+      font-size: 0;
+      margin: auto;
+    }
+    .cor {
+      @include display-flex;
+    }
+  }
+}
+.demo__cor {
+  @include flex(1);
+  transition:  all .5s $ease-out-quad 0s;
+  &--principal {
+    transition: all .5s $ease-out-quad 0s;
+  }
+  &:hover {
+    @include flex(5);
+    .funcao {
+      font-size: $paleta-fonte;
+    }
+    & ~ .demo__cor--principal {
+      @include flex(1);
+      font-size: 0;
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Tipografia
+================================================================================
+*/
+.titulo--borda {
+  @include titulo(borda);
+}
+$links: sem-sublinhado, borda, pontilhado;
+@each $link in $links {
+  .link--#{$link} {
+    @include link($link);
+  }
+}
+.lista--sem-marcador {
+  @include lista-sem-marcador;
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Símbolos
+================================================================================
+*/
+/*
+--------------------------------------------------------------------------------
+SÍMBOLOS | LISTA BÁSICA
+--------------------------------------------------------------------------------
+*/
+%demo__simbolos {
+  $qt: 12;
+  @include lista-sem-marcador;
+  @include grupo-flex($qt, rem(10));
+  li {
+    line-height: 1;
+  }
+  .icone {
+    @include codigo;
+    width: 100%;
+    display: block;
+    margin-bottom: .2em;
+    font-size: 3rem;
+    padding: .2em;
+    text-align: center;
+  }
+  .funcao {
+    display: block;
+    text-align: center;
+  }
+}
+.demo__simbolos {
+  @extend %demo__simbolos;
+  .icone {
+    &::before {
+      content: "?";
+    }
+  }
+  .funcao {
+    &::before { content: "sem ícone"; }
+  }
+}
+.demo__svg {
+  @extend %demo__simbolos;
+}
+/*
+--------------------------------------------------------------------------------
+SÍMBOLOS | SÍMBOLOS
+--------------------------------------------------------------------------------
+*/
+@each $classe, $ico in $icones {
+  .demo__ico-#{$classe} {
+    .icone {
+      &::before {
+        font-family: $fonte-simbolo;
+        content: "#{$ico}";
+      }
+    }
+    .funcao { &::before { content: ".ico-#{$classe}"; } }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Variáveis
+================================================================================
+*/
+/*
+--------------------------------------------------------------------------------
+VARIÁVEIS | DEMONSTRAÇÃO | lista básica
+--------------------------------------------------------------------------------
+*/
+.demo__variaveis {
+  $qt: 8;
+  @include lista-sem-marcador;
+  @include grupo-flex($qt, $calha);
+  li {
+    line-height: 1;
+    @include display-flex;
+    @include flex-wrap;
+  }
+  .caixa {
+    @include flex(1);
+    height: rem(70);
+    padding: 1em;
+    background: tint(cor(fundo, claro), 75%);
+    margin-bottom: .2em;
+    text-align: center;
+  }
+  .funcao {
+    width: 100%;
+    text-align: center;
+  }
+}
+// -----------------------------------------------------------------------------
+// VARIÁVEIS | DEMONSTRAÇÃO | lista de variáveis
+// -----------------------------------------------------------------------------
+$variaveis: (
+  // Sombras
+  sombra-nenhuma: $sombra-nenhuma,
+  sombra-padrao: $sombra-padrao,
+  sombra-simples: $sombra-simples,
+  sombra-difusa: $sombra-difusa,
+  sombra-texto: $sombra-texto,
+  sombra-texto-relevo: $sombra-texto-relevo,
+  sombra-card: $sombra-card,
+  sombra-modal: $sombra-modal,
+  sombra-toaster: $sombra-toaster,
+  sombra-botao: $sombra-botao,
+  // Bordas
+  borda-nenhuma: $borda-nenhuma,
+  borda-padrao: $borda-padrao,
+  borda-variante: $borda-variante,
+  transition: $transition,
+  // Raio de arredondamento
+  rd: $rd,
+);
+// -----------------------------------------------------------------------------
+// VARIÁVEIS | DEMONSTRAÇÃO | classes geradas
+// -----------------------------------------------------------------------------
+@each $var, $valor in $variaveis {
+  .demo__var--#{$var} {
+    .funcao { &::before { content: "$#{$var}"; } }
+    @if str-slice($var, 1, 6) == "sombra" {
+      .caixa { box-shadow: $valor; }
+    }
+    @if str-slice($var, 1, 5) == "borda" {
+      .caixa { border: $valor; }
+    }
+    @if $var == "transition" {
+      .caixa {
+        transition: $transition;
+        &:hover {
+          background: tint(cor(fundo, escuro), 15%);
+        }
+      }
+    }
+    @if $var == "rd" {
+      .caixa {
+        background: tint(cor(fundo, claro),25%);
+        border-radius: $rd;
+      }
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Tabelas
+================================================================================
+*/
+.tab-demo {
+  @include grupo-demo;
+}
+$tab-tipos: (tipo-1, tipo-2);
+.tab {
+  @each $tab in $tab-tipos {
+    &--#{$tab} {
+      @include tab(#{$tab});
+      &--form {
+        @extend .tab--#{$tab};
+        @include tab--opcoes(form);
+      }
+    }
+  }
+  &--zebra {
+    @include tab--opcoes(zebra);
+  }
+  &--acao-link-bloco {
+    .tab__acoes {
+  		a, button {
+  			@include tab-acoes-icone(sim);
+  		}
+  	}
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Listas
+================================================================================
+*/
+.lista-demo {
+  @include grupo-demo(3);
+}
+$lista-tipos: (tipo-1, tipo-2);
+.lista {
+  @each $lista in $lista-tipos {
+    &--#{$lista} {
+      @include lista($lista);
+      .lista__titulo {
+        @extend .lista--#{$lista}__titulo;
+      }
+      &--link {
+        @extend .lista--#{$lista};
+        li:not(.lista__titulo) {
+          padding: 0;
+        }
+        a, span {
+          @include link(bloco);
+          padding: $lista-padding;
+        }
+        .lista__titulo {
+          @extend .lista--#{$lista}__titulo;
+        }
+      }
+    }
+  }
+  &--zebra {
+    li {
+      &:not(.lista__titulo) {
+        background: cor(fundo, x-claro);
+        &:nth-child(odd):not(.lista__titulo) { background: cor(lista, clara); }
+      }
+    }
+  }
+  &--sombra {
+    box-shadow: $sombra-card;
+  }
+}
+.lista--tipo-2, .lista--tipo-2--link {
+  .lista__titulo {
+    background: transparent;
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Paginação
+================================================================================
+*/
+$paginacao-tipos: (tipo-1, tipo-2);
+.pagination {
+  @each $paginacao in $paginacao-tipos {
+    &--#{$paginacao} {
+      @include paginacao($paginacao);
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | Breadcrumbs
+================================================================================
+*/
+$breadcrumbs-tipos: (tipo-1, tipo-2);
+.breadcrumbs {
+  @each $breadcrumbs in $breadcrumbs-tipos {
+    &--#{$breadcrumbs} {
+      @include breadcrumbs($breadcrumbs);
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | cards
+================================================================================
+*/
+.card-demo {
+  @include grupo-demo(3);
+}
+$card-tipos: (tipo-1, tipo-2);
+.card {
+  @each $card in $card-tipos {
+    &--#{$card} {
+      @include card($card);
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | form
+================================================================================
+*/
+.form-demo {
+  @include grupo-demo;
+}
+$form-tipos: tipo-1, tipo-2, tipo-3;
+$label-tipos: flutuante, colado;
+$form-personaliza: personaliza, comum;
+.ui-autocomplete.autocomplete-demo {
+  position: inherit !important;
+}
+@each $tipo in $form-tipos {
+  /*
+  --------------------------------------------------------------------------------
+  FORM: #{$tipo}
+  --------------------------------------------------------------------------------
+  */
+  @each $label in $label-tipos {
+    /*
+    LABEL #{$label}
+    --------------------------------------------------------------------------------
+    */
+    .form--label-#{$label} {
+      $label-tipo: $label;
+      .form-texto--#{$tipo} { @include form-texto($tipo); }
+      .form-select--#{$tipo} { @include form-select($tipo); }
+      .ui-autocomplete--#{$tipo} {
+        @include autocomplete($tipo);
+        position: inherit !important;
+      }
+      @each $opcao in $form-personaliza {
+        $form-radio-check-personaliza: if($opcao == personaliza, sim, não);
+        .form-checkbox--#{$tipo}--#{$opcao}, .form-radio--#{$tipo}--#{$opcao} { @include form-radio-check($tipo); }
+        .form-checkbox--#{$tipo}--#{$opcao} {
+          @include form-checkbox;
+        }
+        .form-radio--#{$tipo}--#{$opcao} {
+          @include form-radio;
+        }
+      }
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | botões
+================================================================================
+*/
+$botoes-tipos: tipo-1, tipo-2, tipo-3, tipo-4, tipo-5, tipo-6;
+$botoes-adicionais: urgente, ok, aviso;
+@each $tipo in $botoes-tipos {
+  .bt--#{$tipo} {
+    @include botao($tipo);
+  }
+  .bt--#{$tipo}--secundario {
+    @include botao($tipo, cor(botao, secundario));
+  }
+  @each $bt in $botoes-adicionais {
+    .bt--#{$tipo}--#{$bt} {
+      @include botao($tipo, cor-status($bt));
+    }
+  }
+}
+/*
+Imagino que você deve estar se perguntando "hey, cadê os botões?"
+Procure na configuração mais básica pq estas coisas não escrevem aqui e sim
+fazem uso de @extend e placeholder. Tá vendo uma das vantagens de usar mixin?
+*/
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | modal
+================================================================================
+*/
+#modal .secao-lista__conteudo {
+  position: relative;
+  min-height: 25em;
+}
+.modal--demo {
+  @include modal($modal-tipo);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+$modal-tipos: tipo-1, tipo-2;
+@each $modal in $modal-tipos {
+  .modal--#{$modal} {
+    @include modal($modal);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | tela de mensagem
+================================================================================
+*/
+#tela-mensagem .secao-lista__conteudo {
+  position: relative;
+  min-height: 25em;
+}
+.tela-mensagem--demo {
+  @include tela-mensagem($tela-mensagem--tipo);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+$tela-mensagem-tipos: tipo-1, tipo-2;
+@each $tela-mensagem in $tela-mensagem-tipos {
+  .tela-mensagem--#{$tela-mensagem} {
+    @include tela-mensagem($tela-mensagem);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | toaster
+================================================================================
+*/
+.toaster--demo {
+  position: relative;
+  min-height: 25em;
+}
+.toast--demo {
+  @include toaster($toaster-tipo);
+  position: absolute;
+  @each $status, $classe in $tipos-toaster {
+    .#{$status} {
+      @if $toaster-tipo == tipo-1 {
+        background: cor-status(#{$classe}, escuro, 15%);
+      }
+      @else if $toaster-tipo == tipo-2 {
+        color: cor-status(#{$classe}, escuro, 25%);
+      }
+      .close {
+        color: cor-status($classe);
+        &:hover {
+          background: cor-status(#{$classe}, escuro, 25%);
+          color: cor(texto, claro);
+        }
+      }
+    }
+  }
+}
+$toaster-tipos: tipo-1, tipo-2;
+@each $toast in $toaster-tipos {
+  .toast--#{$toast} {
+    @include toaster($toast);
+    position: absolute;
+    @each $status, $classe in $tipos-toaster {
+      .#{$status} {
+        @if $toast == tipo-1 {
+          background: cor-status(#{$classe}, escuro, 15%);
+        }
+        @else if $toast == tipo-2 {
+          color: cor-status(#{$classe}, escuro, 25%);
+        }
+        .close {
+          color: cor-status($classe);
+          &:hover {
+            background: cor-status(#{$classe}, escuro, 25%);
+            color: cor(texto, claro);
+          }
+        }
+      }
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | seção-lista
+================================================================================
+*/
+$secao-lista-tipos: tipo-1, tipo-2, tipo-3;
+@each $item in $secao-lista-tipos {
+  .secao-lista--#{$item} {
+    @include secao-lista($item);
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | abas
+================================================================================
+*/
+$abas-tipos: tipo-1, tipo-2, tipo-3, tipo-4;
+@each $item in $abas-tipos {
+  .abas--#{$item} {
+    @include abas($item);
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | datepicker
+================================================================================
+*/
+$datepicker-tipos: tipo-1, tipo-2, tipo-3;
+@each $item in $datepicker-tipos {
+  .ui-datepicker--#{$item} {
+    @include datepicker($item);
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | caixa-clicavel
+================================================================================
+*/
+.caixa-clicavel {
+  max-width: 200px;
+  float: right;
+  &__label {
+    display: block;
+    border: 1px solid cor(borda);
+    p {
+      padding: $calha / 2;
+      text-align: center;
+      margin: 0;
+      &:nth-child(1) {
+        background: cor(fundo);
+        font-size: 3em;
+        color: cor(texto, claro);
+      }
+    }
+  }
+  &__check {
+    @include item-checado(".caixa-clicavel__label") {
+      outline: 1px solid cor(borda);
+      box-shadow: 0 0 30px cor(fundo);
+      p:nth-child(1) {
+        background: cor(fundo, escuro);
+      }
+    }
+  }
+}
+/*
+================================================================================
+ÁREA PRINCIPAL | DEMO | loading
+================================================================================
+*/
+.loading--exemplo {
+  @extend .loading;
+  position: inherit;
+  width: 100%;
+  height: 100%;
+  padding: 1.2em;
+}
