@@ -20,11 +20,11 @@
       <dl class="lista-definicao">
         <dt><samp>.nav</samp></dt>
           <dd>Container da navegação completa</dd>
-        <dt><samp>.nav__menu</samp></dt>
+        <dt><samp>.menu</samp></dt>
           <dd>Cada menu individual</dd>
-        <dt><samp>.nav__menu__item</samp></dt>
+        <dt><samp>.menu__item</samp></dt>
           <dd>Cada item de navegação. <strong>Formate diretamente o <samp>&lt;a&lgt;</samp></strong></dd>
-        <dt><samp>.nav__menu__titulo</samp></dt>
+        <dt><samp>.menu__titulo</samp></dt>
           <dd>Título do menu. Fecha ao clicar sobre ele. Formate ele diretamente. Filhos: <samp>&lt;span&glt;</samp> (o título propriamente dito) e <samp>.ico</samp> (a seta) </dd>
         <dt><samp>.fechado</samp></dt>
           <dd>A clicar no <samp>.nav__menu__titulo</samp> aplica essa classe no mesmo (para fechar)</dd>
@@ -35,9 +35,11 @@
       <p><strong>Menu (config):</strong></p>
       <dl class="lista-definicao">
         <dt><samp>$menu-titulo</samp></dt>
-          <dd>Determina se vai ter o cabeçalho (título) do menu ou não. <samp>sim</samp> | <samp>não</samp></dd>
+          <dd>Exibe o título do menu (para o caso de ter mais de um menu e você deseja fechar o grupo).</dd>
         <dt><samp>$menu-animacao</samp></dt>
-          <dd>Determina se abrir/fechar o menu vai ser animado. <strong class="texto--erro">Só que ainda não funciona</strong>. <samp>sim</samp> | <samp>não</samp></dd>
+          <dd>Se estiver usando o título do menu para exibir/ocultar o conteúdo do mesmo, define se haverá efeito de animação para isso. Se o valor for <samp>não</samp> o menu ainda será oculto ao clicar no título, com a diferença de que será sem animação</dd>
+        <dt><samp>$menu-max</samp></dt>
+          <dd>Use este valor somente se <samp>$menu-animacao</samp> for <samp>sim</samp>. Determina a quantidade de itens a serem animados. Deixe um pouco de sobra (mais itens que o de itens de menu), assim se for acrescentado novos itens do menu eles serão animados, mas lembre-se que cada valor é um seletor a mais.</dd>
       </dl>
 
       <hr>

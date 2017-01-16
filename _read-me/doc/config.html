@@ -53,6 +53,7 @@
           <dt><samp>loading</samp></dt><dd>Define se usa uma tela de carregando</dd>
           <dt><samp>barra-ferramentas</samp></dt><dd>Define se usa a barra de ferramentas (para campos de pesquisa, por exemplo)</dd>
           <dt><samp>tab-mutante</samp></dt><dd>Define se usa a tabela mutante, que pode mudar entre visualização de tabela e cards. <strong>Atenção: </strong>para funcionar é necessário que tanto <samp>card</samp> quanto <samp>tabela</samp> também estejam ativos</dd>
+          <dt><samp>menu</samp></dt><dd>Configuração básica do menu, sem determinar se ele está na lateral ou na horizontal.</dd>
         </dl>
 
         <blockquote class="aviso--grave">
@@ -256,6 +257,17 @@
         <dl class="lista-definicao">
           <dt><samp>$tab-mutante-qtd</samp></dt>
             <dd>Define a quantidade de cards que vai aparecer por linha. É um mapa e por isso deve aparecer entre parênteses (até quatro valores, separados por tamanhos crescentes de tela de celular à tela grande).</dd>
+        </dl>
+
+      <h2 id="config__tab-form">Menu</h2>
+        <p>Definições do menu.</p>
+        <dl class="lista-definicao">
+          <dt><samp>$menu-titulo</samp></dt>
+            <dd>Exibe o título do menu (para o caso de ter mais de um menu e você deseja fechar o grupo).</dd>
+          <dt><samp>$menu-animacao</samp></dt>
+            <dd>Se estiver usando o título do menu para exibir/ocultar o conteúdo do mesmo, define se haverá efeito de animação para isso. Se o valor for <samp>não</samp> o menu ainda será oculto ao clicar no título, com a diferença de que será sem animação</dd>
+          <dt><samp>$menu-max</samp></dt>
+            <dd>Use este valor somente se <samp>$menu-animacao</samp> for <samp>sim</samp>. Determina a quantidade de itens a serem animados. Deixe um pouco de sobra (mais itens que o de itens de menu), assim se for acrescentado novos itens do menu eles serão animados, mas lembre-se que cada valor é um seletor a mais.</dd>
         </dl>
     </section>
   </section>

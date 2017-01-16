@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 22/12/2016
+// Última alteração em: 16/01/2017
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 16/01/2017 | Inclusão de animação no menu
 // 22/12/2016 | Alterada barra de ferramentas
 //              Acréscimo do menu
 // 07/12/2016 | Acrescentado form-erro dentro de $uso-classes
@@ -238,3 +239,4 @@ $tab-mutante-qtd: (1, 1, 2, 4);
 // =============================================================================
 $menu-titulo: sim;
 $menu-animacao: não;
+$menu-max: 10;
