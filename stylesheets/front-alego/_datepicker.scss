@@ -12,11 +12,12 @@ DATEPICKER
 // -----------------------------------------------------------------------------
 // datepicker.scss
 // Criado em: 06/05/2016
-// Alterado em: 07/12/2016
+// Alterado em: 16/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo formata o datepicker padrão do jquery
 // ----------------------------------------------------------------------------
 // Changelog
+// 16/01/2017 | Ajustes para o display none
 // 07/12/2016 | Inclusão do <label> junto com o <a>
 // 08/09/2016 | Simplificação
 // 24/06/2016 | Centralizando o conteúdo do header
@@ -150,6 +151,9 @@ $svg-seta-back-clara: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%
         width: calc(100% / 7);
         padding: 0;
       }
+      th span:hover {
+        background: inherit;
+      }
     }
     // -------------------------------------------------------------------------
     // Cabeçalho tabela
@@ -223,6 +227,7 @@ $svg-seta-back-clara: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%
 // TIPOS
 // =============================================================================
 @mixin datepicker($tipo) {
+  display: none;
   background: cor(fundo, x-claro);
   padding-bottom: $margem / 10;
   .ui-icon {
