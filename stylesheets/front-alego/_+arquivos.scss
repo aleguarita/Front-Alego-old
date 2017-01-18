@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // arquivos.scss
 // Criado em: 21/03/2016
-// Última alteração: 15/12/2016
+// Última alteração: 18/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo contém os imports dos arquivos desta pasta que não dependem da
 // pasta de config/ e, portanto, são importados todos de uma vez.
@@ -25,6 +25,7 @@
 // fontes.scss
 // -----------------------------------------------------------------------------
 // Changelog:
+// 18/01/2017 | Alterada a ordem da tabela, pra ficar próxima dos cards
 // 15/12/2016 | Acréscimo do input file
 // 30/09/2016 | Acréscimo da barra de ferramentas e tabela mutante
 // 06/09/2016 | Retirado arquivo de retrocompatilidade do botão (não precisava
@@ -52,8 +53,9 @@
 // Formatação de objetos
 @import "grid";
 @import "tabelas";
-@import "paginacao";
 @import "cards";
+@import "tabela_mutante";
+@import "paginacao";
 @import "breadcrumbs";
 @import "toaster";
 @import "modal";
@@ -64,7 +66,6 @@
 @import "datepicker";
 @import "tela_mensagem";
 @import "barra_ferramentas";
-@import "tabela_mutante";
 @import "menu";
 
 // Formatações especiais

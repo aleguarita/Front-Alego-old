@@ -61,7 +61,7 @@ TABELAS
 // =============================================================================
 // CONFIG
 // =============================================================================
-$tab-tipo: tipo-1 !default; // 2 tipos
+$tab-tipo: tipo-1 !default; // 3 tipos
 
 $tab--zebra: sim !default;
 $tab--responsiva: sim !default;
@@ -159,16 +159,36 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 	// FORM
 	// ---------------------------------------------------------------------------
 	@else if $tag == form {
+
 		tbody tr:nth-child(even) {
-			background: #fff;
+			background: cor(fundo, x-claro);
 		}
 
 		td {
-			padding: 0 .25em;
-			border-left: 2px solid tint(cor(tabela, borda), 25);
+			padding: 0 .5em;
+			border-left: 1px solid tint(cor(tabela, borda), 25);
+
 			&:last-child {
-				border-right: 2px solid tint(cor(tabela, borda), 25);
+				border-right: 1px solid tint(cor(tabela, borda), 25);
 			}
+
+			// Caso esteja utilizando tab-responsiva
+			@include tab-responsiva($tab--responsiva-tipo) {
+				@if $tab--responsiva == "sim" {
+					border: 1px solid tint(cor(tabela, borda), 25);
+					border-bottom-width: 0;
+
+					&:nth-child(even) {
+						background: inherit;
+					}
+
+					&[data-title] {
+						padding: .5em 1em;
+					}
+
+				}
+			}
+
 		}
 
 		input:not([type="checkbox"]):not([type="radio"]),
@@ -179,9 +199,9 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 				text-transform: uppercase;
 			}
 			border: 0;
-			background: #fff;
+			background: cor(fundo, x-claro);
 			width: 100%;
-			padding: .25em;
+			padding: .5em;
 			font-family: $fonte-sem-serifa;
 
 			&:hover, &:focus {
@@ -191,7 +211,13 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 
 		}
 
+		select {
+			@include appearance(none);
+			background: $select-bg-simples;
+		}
+
 	}
+
 	// ---------------------------------------------------------------------------
 	// RESPONSIVA
 	// ---------------------------------------------------------------------------
