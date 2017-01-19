@@ -890,7 +890,7 @@ $variaveis: (
 .tab-demo {
   @include grupo-demo;
 }
-$tab-tipos: (tipo-1, tipo-2);
+$tab-tipos: (tipo-1, tipo-2, tipo-3);
 .tab {
   @each $tab in $tab-tipos {
     &--#{$tab} {

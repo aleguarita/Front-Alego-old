@@ -4,4 +4,4 @@
 //= require header-tabela-mutante.directive
 //= require autocomplete.directive
 //= require menu.directive
-//= require input-file
+//= require upload-file-name.directive
