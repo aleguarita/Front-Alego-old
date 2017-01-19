@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 16/01/2017
+// Última alteração em: 19/01/2017
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 19/01/2017 | Inclusão das variáveis de tipografia
 // 16/01/2017 | Inclusão de animação no menu
 // 22/12/2016 | Alterada barra de ferramentas
 //              Acréscimo do menu
@@ -101,6 +102,34 @@ $grid-margem: rem(10);
 $grid-max: rem(1600);
 
 // =============================================================================
+// TIPOGRAFIA
+// =============================================================================
+$titulo-tipo: serifa; // serifa | sem-serifa
+$margem-titulo: 1em 0 .5em;
+$margem-texto: 1em 0;
+
+// Modular scale no bourbon.io
+$modular-font-size: 1.2em; // Tamanho da fonte básica
+
+// =============================================================================
+// FORMULÁRIOS
+// =============================================================================
+$form-tipo: tipo-3; // 3 tipos
+$label-tipo: flutuante; // flutuante | colado
+$form-radio-check-personaliza: sim;
+$form-obrigatorio: 16; // tamanho do SVG de obrigatório (*) em px
+
+$botao-tipo: tipo-5; // 6 tipos
+$botao-secundario: $botao-tipo; // 6 tipos + $botao-tipo
+$botao-sombra-colorida: sim;
+$botao-arredondamento: não;
+$botoes-status: (
+urgente,
+ok,
+aviso,
+);
+
+// =============================================================================
 // TABELAS
 // =============================================================================
 $tab-tipo: tipo-3; // 3 tipos
@@ -154,24 +183,6 @@ $toaster-horizontal: right;
 $toaster-vertical: bottom;
 $toaster-distancia: 2em;
 $toaster-distancia-vertical: 1;
-
-// =============================================================================
-// FORMULÁRIOS
-// =============================================================================
-$form-tipo: tipo-3; // 3 tipos
-$label-tipo: flutuante; // flutuante | colado
-$form-radio-check-personaliza: sim;
-$form-obrigatorio: 16; // tamanho do SVG de obrigatório (*) em px
-
-$botao-tipo: tipo-5; // 6 tipos
-$botao-secundario: $botao-tipo; // 6 tipos + $botao-tipo
-$botao-sombra-colorida: sim;
-$botao-arredondamento: não;
-$botoes-status: (
-  urgente,
-  ok,
-  aviso,
-);
 
 // =============================================================================
 // LISTA

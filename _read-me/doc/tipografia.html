@@ -1,8 +1,6 @@
 <article id="tipografia">
   <header>
     <h1>Tipografia</h1>
-    <p><strong>Fontes: </strong><samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> base/_fontes.scss</samp></p>
-    <p><strong>Configuração: </strong><samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> config/_tipografia.scss</samp></p>
   </header>
   <section class="secao-lista">
     <input type="checkbox" id="tipografia__doc" class="secao-lista__check">
@@ -13,82 +11,33 @@
       </label>
     </header>
     <section class="secao-lista__conteudo">
-      <p>A tipografia é ajustada em dois arquivos separados. Um na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> base/</samp> (que não deve ser alterado) e outro na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> config</samp> (feito para alteração).</p>
+      <p>A tipografia é ajustada por padrão, inclusive o carregamento de fontes. Você pode alterar se o título é serifado ou não ou se usa fontes padrão do browser ao invés de carregamento personalizado. Se precisar de carregar as suas fontes, você deverá incluir isso manualmente.</p>
       <blockquote class="aviso--grave">
         Não coloque muita formatação dentro de tags básicos como <samp>&lt;h1&gt;</samp> ou <samp>&lt;a&gt;</samp>. Dê preferência para uso de classes ou seletores descendentes para formatações complexas (exemplo: <samp>.artigo-padrao h1</samp>)
       </blockquote>
+
       <h2 id="tipografia__fontes">Chamando fontes</h2>
-        <p>Dentro do arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> base/_fontes.scss</samp> tem as variáveis para as principais fontes a serem usadas.</p>
+        <p>A seguir as variáveis globais para as fontes:</p>
         <dl class="lista-definicao">
           <dt><samp>$fonte-serifa</samp></dt>
-          <dd>Fonte com serifa: variação da Patua One (se não usar tipografia personalizada, será a Palatino)</dd>
+            <dd>Fonte com serifa: variação da Patua One (se não usar tipografia personalizada, será a Palatino)</dd>
           <dt><samp>$fonte-sem-serifa</samp></dt>
-          <dd>Fonte sem serifa: OpenSans (se não usar tipografia personalizada, será a Helvetica)</dd>
+            <dd>Fonte sem serifa: OpenSans (se não usar tipografia personalizada, será a Helvetica)</dd>
           <dt><samp>$fonte-monoespacada</samp></dt>
-          <dd>Fonte monoespaçada: Consolas</dd>
+            <dd>Fonte monoespaçada: Consolas</dd>
           <dt><samp>$fonte-simbolo</samp></dt>
-          <dd>Fonte de símbolos da Assembleia</dd>
+            <dd>Fonte de símbolos da Assembleia. <strong>Os símbolos foram substituídos por SVG, mas essa fonte ainda existe por retrocompatibilidade</strong></dd>
         </dl>
+
       <h2 id="tipografia__variaveis">Configurações: variáveis</h2>
-        <p>As três primeiras variáveis do arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> config/_tipografia.scss</samp> determinam configurações básicas do texto:</p>
-        <dl class="lista-definicao">
-          <dt><samp>$fonte-titulo</samp></dt>
-          <dd>Qual a fonte padrão para os títulos do sistema. Por padrão é a <samp>$fonte-serifa</samp></dd>
-          <dt><samp>$margem-titulo</samp></dt>
-          <dd>Define a margem dos títulos <samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp></dd>
-          <dt><samp>$margem-texto</samp></dt>
-          <dd>Define a margem dos elementos de texto e similares. Incluindo tabelas e listas</dd>
-        </dl>
-        <p>As três variáveis seguintes determinam o tamanho do texto baseado no <samp>modular-scale</samp> do <a href="http://bourbon.io/docs/#modular-scale" class="link--externo">Bourbon</a>.</p>
-        <dl class="lista-definicao">
-          <dt><samp>$modular-scale-ratio</samp></dt>
-          <dd>Modifica o valor padrão estabelecido pelo Bourbon.</dd>
-          <dt><samp>$modular-font-size</samp></dt>
-          <dd>O tamanho base a ser usado pelo <samp>modular-scale()</samp>. Se você quiser que o sistema <strong>todo</strong> tenha uma fonte maior ou menor, altere aqui</dd>
-          <dt><samp>$tamanho-fonte-padrao</samp></dt>
-          <dd>A variação do tamanho de texto padrão baseado no <samp>modular-scale()</samp></dd>
-        </dl>
-        <blockquote class="aviso--dica">
-          Estas variáveis estão no arquivo de configuração (<samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> config/_tipografia.scss</samp>) para que você possa alterar conforme a necessidade do sistema atual.
-        </blockquote>
+        <p>Todas as configurações básicas de tipografia são encontradas no <a href="#config__tipografia" class="link--readme">arquivo de configuração</a>. Abaixo você vê todas as configurações.</p>
+
       <h2 id="tipografia__alterada">Formatação personalizada</h2>
         <p>Sempre que for criar estilos mais personalizados (como com uso de bordas e sombras), procure utilizar classes ou seletores descendentes (lembre-se de não abusar de elementos descendentes. Mantenha a regra de no máximo um nível, se for necessário mais do que isso, é adequado o uso de classe).</p>
-        <p>Existe disponível alguns mixins para variações de título, texto e link.</p>
-      <h3>Padrões de texto</h3>
-      <p>O mixin <samp>texto()</samp> altera as propriedades básicas dos textos. Este mixin é puxado no arquivo de <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> reset</samp> e qualquer alteração destas propriedades vai alterar todo o seu site/sistema, portanto, evite alterar. É possível acrescentar mais propriedades, para isso acrescente o seguinte fragmento de texto <strong>antes</strong> da última chave (<samp>}</samp>):</p>
-      <code class="codigo--sass">
-        <header>SASS</header>
-        <p>@else if $mod == nome-variante {</p>
-          <p class="recuo-1">Regras</p>
-        <p>}</p>
-      </code>
-      <p>Para usar este mixin (se precisar) chame com <samp>@include texto($mod)</samp> e coloque o nome do tipo no lugar de <samp>$mod</samp>:</p>
-      <dl class="lista-definicao">
-        <dt><samp>padrao</samp></dt>
-        <dd>Configurações básicas do corpo de texto, listas e tabelas.</dd>
-        <dt><samp>titulo</samp></dt>
-        <dd>Configuração básica do texto dos títulos.</dd>
-      </dl>
-      <h3>Demais mixins</h3>
-        <p>Estes são mixins para usar em classes ou seletores descedentes que formatam texto. Tem um para título (com apenas um variante) e três para links. Este mixin não está sendo usado ativamente e está disponível para seu uso ou alteração. Para usar o mixin ou acrescentar variantes neles siga as instruções acima.</p>
-        <h4>titulo()</h4>
-        <p>Use este mixin para configurações especiais de título, que fujam do padrão. Até o momento o Front-Alego oferece apenas uma opção: borda.</p>
-        <dl class="lista-definicao">
-          <dt><samp>borda</samp></dt>
-          <dd>Aplica uma borda na parte inferior do título, que fica com a mesma cor do texto.</dd>
-        </dl>
-        <h4>link()</h4>
-        <p>Use este mixin para configurações especiais de link e seus variantes. Algumas delas já usadas.</p>
-        <dl class="lista-definicao">
-          <dt><samp>sem-sublinhado</samp></dt>
-          <dd>Tira o sublinhado do link e aplica quando passa ou mouse por cima</dd>
-          <dt><samp>borda</samp></dt>
-          <dd>Tira o sublinhado e substitui por uma borda fina e cinza. Quando passa o mouse por cima, o sublinhado fica da cor do link (que não muda de cor).</dd>
-          <dt><samp>pontilhado</samp></dt>
-          <dd>Igual ao de cima, mas com a diferença que a borda é pontilhada e o link escurece ao passar por cima</dd>
-        </dl>
+
     </section>
   </section>
+
   <section class="secao-lista">
     <input type="checkbox" id="tipografia__demo--basica" class="secao-lista__check" checked="checked">
     <header class="secao-lista__header">
@@ -129,6 +78,7 @@
         <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
+    
     <section class="secao-lista__conteudo">
       <header><h1>Tipografia modificada (com classes/placeholders)</h1></header>
       <main>

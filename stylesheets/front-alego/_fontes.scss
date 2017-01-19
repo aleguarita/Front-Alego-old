@@ -10,13 +10,14 @@ FONTES
 // -----------------------------------------------------------------------------
 // fonts.scss
 // Criado em: 13/01/2015
-// Última modificação em: 12/04/2016
+// Última modificação em: 19/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo puxa as fontes do sistema.
 // No final são definidas as variáveis padrão pelos tipos de fonte (serifa,
 // símbolo, etc)
 // -----------------------------------------------------------------------------
 // Changelog:
+// 19/01/2017 | Inclusão do estado "default" nas variáveis
 // 11/05/2016 | Mudado a forma como o condicional trabalha com a escolha de
 //              fontes
 // 12/04/2016 | Opção de usar fontes padrão do browser ou personalizadas no
@@ -111,21 +112,3 @@ $diretorio: "fontes/";
     font-style: normal;
   }
 }
-
-// =============================================================================
-// VARIÁVEIS
-// -----------------------------------------------------------------------------
-// Estas são as variáveis para chamar a fonte. Elas são utilizadas no arquivo
-// tipografia.scss
-// =============================================================================
-$fonte-serifa: "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif !default;
-@if index($uso-classes, fonte-serifa) {
-  $fonte-serifa: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
-}
-$fonte-sem-serifa: "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif !default;
-@if index($uso-classes, fonte-sans-serif) {
-  $fonte-sem-serifa: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
-}
-
-$fonte-monoespacada: "consolas", "courier new", courier, freemono, "liberation mono", monospace;
-$fonte-simbolo: if(($uso-classes, simbolo), "font-alego", null);

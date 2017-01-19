@@ -8,12 +8,13 @@
 // -----------------------------------------------------------------------------
 // tipografia.scss
 // Criado em: 13/01/2015
-// Última alteração em: 14/07/2016
+// Última alteração em: 19/01/2017
 // -----------------------------------------------------------------------------
 // Configurações genéricas e específicas de tipografia. Note que algumas
 // configurações são feitas diretamente por classes
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 19/01/2017 | Incluídas as fontes com serifa e sem serifa aqui
 // 14/07/2016 | As fontes agora utilizam tamanho relativo com o elemento pai:
 // 							Alterada $modular-font-size de "rem" para "em"
 // 							Acrescentado $tamanho-fonte-padrao
@@ -37,18 +38,30 @@
 
 // =============================================================================
 // VARIÁVEIS
-// -----------------------------------------------------------------------------
-// Para uso nas tags e classes abaixo
 // =============================================================================
-$fonte-titulo: $fonte-serifa;
-$margem-titulo: 1em 0 .5em;
-$margem-texto: 1em 0;
+$fonte-serifa: "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+@if index($uso-classes, fonte-serifa) {
+  $fonte-serifa: "serifa-titulo", "palatino linotype", palatino, palladio, "book antiqua", "liberation serif", times, serif;
+}
+$fonte-sem-serifa: "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+@if index($uso-classes, fonte-sans-serif) {
+  $fonte-sem-serifa: "OpenSans", "helvetica neue", helvetica, arial, freesans, "liberation sans", sans-serif;
+}
+
+$fonte-monoespacada: "consolas", "courier new", courier, freemono, "liberation mono", monospace;
+$fonte-simbolo: if(($uso-classes, simbolo), "font-alego", null);
+
+$titulo-tipo: serifa !default;
+
+$fonte-titulo: if($titulo-tipo == "sem-serifa", $fonte-sem-serifa, $fonte-serifa);
+$margem-titulo: 1em 0 .5em !default;
+$margem-texto: 1em 0 !default;
 
 // -----------------------------------------------------------------------------
 // Modular scale no bourbon.io
 // -----------------------------------------------------------------------------
+$modular-font-size: 1.2em !default; // Tamanho da fonte básica
 $modular-scale-ratio: $major-second;
-$modular-font-size: 1.2em; // Tamanho da fonte básica
 $tamanho-fonte-padrao: modular-scale(-3, $modular-font-size);
 
 // =============================================================================

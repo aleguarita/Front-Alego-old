@@ -8,13 +8,10 @@
 // -----------------------------------------------------------------------------
 // arquivos.scss
 // Criado em: 21/03/2016
-// Última alteração: 18/01/2017
+// Última alteração: 19/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo contém os imports dos arquivos desta pasta que não dependem da
 // pasta de config/ e, portanto, são importados todos de uma vez.
-// Esta decisão foi tomada para poupar atualizações desnecessárias e constantes
-// no arquivo config/_base.scss (que, preferencialmente, não deve ser alterada
-// pelo usuário);
 // -----------------------------------------------------------------------------
 // Lista dos arquivos que os arquivos da pasta config dependem dele (e devem
 // aparecer antes deles):
@@ -22,9 +19,9 @@
 // funcoes.scss
 // mixins.scss
 // cores_status.scss
-// fontes.scss
 // -----------------------------------------------------------------------------
 // Changelog:
+// 19/01/2017 | Colocada as fontes no final
 // 18/01/2017 | Alterada a ordem da tabela, pra ficar próxima dos cards
 // 15/12/2016 | Acréscimo do input file
 // 30/09/2016 | Acréscimo da barra de ferramentas e tabela mutante
@@ -72,3 +69,6 @@
 @import "simbolos_svg";
 @import "classes";
 @import "loading";
+
+// Fontes (carrega por último pra garantir a legibilidade caso não carregue a fonte)
+@import "fontes";

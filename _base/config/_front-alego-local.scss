@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 15/08/2016
+	Última alteração: 19/01/2017
 	------------------------------------------------------------------------------
 */
 // font-alego-local.scss
@@ -36,6 +36,8 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 17/01/2017 | Mudada localização de tipografia.scss da pasta config para a
+//              padrão do sistema
 // 15/08/2016 | Atualizado para uso em GEM. Isso incluiu renomeação de arquivos
 // 13/04/2016 | Alterada ordem das cores
 // 31/03/2016 | Devolvido para a pasta config/. Apesar de o usuário não mexer
@@ -82,9 +84,8 @@
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
 @import "../../stylesheets/front-alego/cores_status";
-@import "../../stylesheets/front-alego/fontes";
+@import "../../stylesheets/front-alego/tipografia";
 @import "variaveis";
-@import "tipografia";
 @import "z-index";
 @import "simbolos";
 
