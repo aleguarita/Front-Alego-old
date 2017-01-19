@@ -36,8 +36,10 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
-// 17/01/2017 | Mudada localização de tipografia.scss da pasta config para a
+// 19/01/2017 | Mudada localização de tipografia.scss da pasta config para a
 //              padrão do sistema
+//              As fontes são puxadas no final para garantir a leitura do
+//               site
 // 15/08/2016 | Atualizado para uso em GEM. Isso incluiu renomeação de arquivos
 // 13/04/2016 | Alterada ordem das cores
 // 31/03/2016 | Devolvido para a pasta config/. Apesar de o usuário não mexer
@@ -90,3 +92,7 @@
 @import "simbolos";
 
 @import "../../stylesheets/front-alego/+arquivos.scss"; // Todos os demais arquivos
+
+
+// Fontes (carrega por último pra garantir a legibilidade caso não carregue a fonte)
+@import "fontes";

@@ -21,7 +21,8 @@
 // cores_status.scss
 // -----------------------------------------------------------------------------
 // Changelog:
-// 19/01/2017 | Colocada as fontes no final
+// 19/01/2017 | Colocada as fontes no final (retirado e passado para os
+//              arquivos de front-alego)
 // 18/01/2017 | Alterada a ordem da tabela, pra ficar próxima dos cards
 // 15/12/2016 | Acréscimo do input file
 // 30/09/2016 | Acréscimo da barra de ferramentas e tabela mutante
@@ -69,6 +70,3 @@
 @import "simbolos_svg";
 @import "classes";
 @import "loading";
-
-// Fontes (carrega por último pra garantir a legibilidade caso não carregue a fonte)
-@import "fontes";
