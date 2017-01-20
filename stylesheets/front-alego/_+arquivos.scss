@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 // arquivos.scss
 // Criado em: 21/03/2016
-// Última alteração: 19/01/2017
+// Última alteração: 20/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo contém os imports dos arquivos desta pasta que não dependem da
 // pasta de config/ e, portanto, são importados todos de uma vez.
@@ -21,6 +21,7 @@
 // cores_status.scss
 // -----------------------------------------------------------------------------
 // Changelog:
+// 20/01/2017 | Inclusão de fallback para incorporar as variáveis como !default
 // 19/01/2017 | Colocada as fontes no final (retirado e passado para os
 //              arquivos de front-alego)
 // 18/01/2017 | Alterada a ordem da tabela, pra ficar próxima dos cards
@@ -33,6 +34,11 @@
 // 21/03/2016 | Criado o arquivo
 // =============================================================================
 
+// Fallback (para variáveis globais)
+@import "+fallback";
+
+// Tipografia
+@import "tipografia";
 
 // Reset CSS
 @import "reset";
@@ -70,3 +76,6 @@
 @import "simbolos_svg";
 @import "classes";
 @import "loading";
+
+// Fontes, sempre no final
+@import "fontes_rails";

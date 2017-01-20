@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 19/01/2017
+	Última alteração: 20/01/2017
 	------------------------------------------------------------------------------
 */
 // font-alego-local.scss
@@ -36,6 +36,7 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 20/01/2017 | Não importa mais tipografia e fontes por aqui e sim direto na GEM
 // 19/01/2017 | Mudada localização de tipografia.scss da pasta config para a
 //              padrão do sistema
 //              As fontes são puxadas no final para garantir a leitura do
@@ -78,7 +79,6 @@
 @import "front-alego/breakpoints";
 @import "front-alego/funcoes";
 @import "front-alego/mixins";
-@import "front-alego/mixins";
 
 // Configuração básica
 @import "+config";
@@ -87,13 +87,8 @@
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
 @import "front-alego/cores_status";
-@import "front-alego/tipografia";
 @import "variaveis";
 @import "z-index";
 @import "simbolos";
 
 @import "front-alego/+arquivos.scss"; // Todos os demais arquivos
-
-
-// Fontes (carrega por último pra garantir a legibilidade caso não carregue a fonte)
-@import "fontes_rails";
