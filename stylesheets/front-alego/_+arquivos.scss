@@ -22,6 +22,7 @@
 // -----------------------------------------------------------------------------
 // Changelog:
 // 23/01/2017 | Separação dos arquivos normal para Rails
+//              Fallback agora está em breakpoints por questão de ordem de importação
 // 20/01/2017 | Inclusão de fallback para incorporar as variáveis como !default
 // 19/01/2017 | Colocada as fontes no final (retirado e passado para os
 //              arquivos de front-alego)
@@ -34,9 +35,6 @@
 // 18/08/2016 | Acrescentado o loading
 // 21/03/2016 | Criado o arquivo
 // =============================================================================
-
-// Fallback (para variáveis globais)
-@import "+fallback";
 
 // Tipografia
 @import "tipografia";

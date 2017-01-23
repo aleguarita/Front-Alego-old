@@ -7,14 +7,51 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // +fallback.scss
-// Criado em: 20/01/2015
+// Criado em: 20/01/2017
+// Última alteração em: 23/01/2017
 // -----------------------------------------------------------------------------
 // Inclusão de variáveis antigas aqui para não dar erro retroativo
 // -----------------------------------------------------------------------------
 // CHANGELOG
-// 20/01/2015 | Criado o arquivo
+// 23/01/2017 | Acrescentadas variáveis padrão
+// 20/01/2017 | Criado o arquivo
 // =============================================================================
 
+
+// =============================================================================
+// VARIÁVEIS DO ARQUIVO
+// =============================================================================
+// Sombras
+$sombra-nenhuma: none !default;
+$sombra-padrao: 0 0 3px red !default;
+$sombra-simples: 0 0 1px red !default;
+$sombra-difusa: 0 0 10px red !default;
+$sombra-texto: 1px 1px 0 red !default;
+$sombra-texto-relevo: 0 -1px 1px red !default;
+// Sombras de elementos
+$sombra-card: 0 0 20px red !default;
+$sombra-modal: 0 0 40px red !default;
+$sombra-toaster: 0 0 20px red !default;
+$sombra-botao: 0 0 6px red !default;
+
+//	Bordas
+$borda-nenhuma: none !default;
+$borda-padrao: 1px solid red !default;
+$borda-variante: 1px solid red !default;
+
+//	Margens
+$calha: 10px !default;
+$margem: $calha !default;
+
+// Padding padrão
+$pd: $calha !default;
+$padding: $pd !default;
+
+// Transition
+$transition: all 0.5s ease 0s !default;
+
+// Raio de arredondamento de borda (border-radius)
+$rd: 3px !default;
 
 // =============================================================================
 // TIPOGRAFIA
