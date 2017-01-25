@@ -6,9 +6,9 @@
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
-// arquivos.scss
+// arquivos-local.scss
 // Criado em: 21/03/2016
-// Última alteração: 23/01/2017
+// Última alteração: 25/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo contém os imports dos arquivos desta pasta que não dependem da
 // pasta de config/ e, portanto, são importados todos de uma vez.
@@ -21,6 +21,8 @@
 // cores_status.scss
 // -----------------------------------------------------------------------------
 // Changelog:
+// 25/01/2017 | A separação fez necessário a criação de um arquivo comum, para
+//              evitar subir toda alteração separadamente
 // 23/01/2017 | Separação dos arquivos normal para Rails
 //              Fallback agora está em breakpoints por questão de ordem de importação
 // 20/01/2017 | Inclusão de fallback para incorporar as variáveis como !default
@@ -36,48 +38,8 @@
 // 21/03/2016 | Criado o arquivo
 // =============================================================================
 
-// Fallback (para variáveis globais)
-@import "+fallback";
-
-// Tipografia
-@import "tipografia";
-
-// Reset CSS
-@import "reset";
-
-// Formatação de formulários
-@import "form_grupo";
-@import "form_comum";
-@import "form_texto";
-@import "form_radio_checkbox";
-@import "form_select";
-@import "form_botoes";
-@import "form_autocomplete";
-@import "form_erro";
-@import "form_file";
-
-// Formatação de objetos
-@import "grid";
-@import "tabelas";
-@import "cards";
-@import "tabela_mutante";
-@import "paginacao";
-@import "breadcrumbs";
-@import "toaster";
-@import "modal";
-@import "secao_lista";
-@import "abas";
-@import "lista";
-@import "sprites";
-@import "datepicker";
-@import "tela_mensagem";
-@import "barra_ferramentas";
-@import "menu";
-
-// Formatações especiais
-@import "simbolos_svg";
-@import "classes";
-@import "loading";
+// Arquivo com todos os arquivos genéricos para rails e css comum
+@import "+imports";
 
 // Fontes, sempre no final
 @import "fontes";

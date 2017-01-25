@@ -1,0 +1,59 @@
+// =============================================================================
+// ARQUIVOS DE IMPORTAÇÃO
+// =============================================================================
+
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// imports.scss
+// Criado em: 25/01/2017
+// -----------------------------------------------------------------------------
+// Este arquivo contém os imports dos arquivos desta pasta que não dependem da
+// pasta de config/ e, portanto, são importados todos de uma vez e são comuns
+// à versão local ou rails
+// -----------------------------------------------------------------------------
+// Changelog:
+// 25/01/2017 | Criado o arquivo
+// =============================================================================
+
+
+// Tipografia
+@import "tipografia";
+
+// Reset CSS
+@import "reset";
+
+// Formatação de formulários
+@import "form_grupo";
+@import "form_comum";
+@import "form_texto";
+@import "form_radio_checkbox";
+@import "form_select";
+@import "form_botoes";
+@import "form_autocomplete";
+@import "form_erro";
+@import "form_file";
+
+// Formatação de objetos
+@import "grid";
+@import "tabelas";
+@import "cards";
+@import "tabela_mutante";
+@import "paginacao";
+@import "breadcrumbs";
+@import "toaster";
+@import "modal";
+@import "secao_lista";
+@import "abas";
+@import "lista";
+@import "sprites";
+@import "datepicker";
+@import "tela_mensagem";
+@import "barra_ferramentas";
+@import "menu";
+
+// Formatações especiais
+@import "simbolos_svg";
+@import "classes";
+@import "loading";
