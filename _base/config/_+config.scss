@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 19/01/2017
+// Última alteração em: 25/01/2017
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,7 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 25/01/2017 | Inclusão de opções para o loading
 // 19/01/2017 | Inclusão das variáveis de tipografia
 // 16/01/2017 | Inclusão de animação no menu
 // 22/12/2016 | Alterada barra de ferramentas
@@ -251,3 +252,10 @@ $tab-mutante-qtd: (1, 1, 2, 4);
 $menu-titulo: sim;
 $menu-animacao: não;
 $menu-max: 10;
+
+// =============================================================================
+// LOADING
+// =============================================================================
+$loading: css; // svg | css
+$loading-tipo: tipo-3; // tipo 1 a 3
+$loading-tamanho: em(40);

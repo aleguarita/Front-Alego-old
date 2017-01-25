@@ -1245,10 +1245,13 @@ $datepicker-tipos: tipo-1, tipo-2, tipo-3;
 ÁREA PRINCIPAL | DEMO | loading
 ================================================================================
 */
-.loading--exemplo {
-  @extend .loading;
-  position: inherit;
-  width: 100%;
-  height: 100%;
+$loading-tipos: tipo-1, tipo-2, tipo-3;
+.loading-svg {
+  @include loading(svg, bloco, tipo-1);
   padding: 1.2em;
+}
+@each $item in $loading-tipos {
+  .loading-css--#{$item} {
+    @include loading(css, bloco, $item);
+  }
 }
