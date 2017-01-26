@@ -12,11 +12,13 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 25/11/2016
+// Última alteração em: 26/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 26/01/2017 | Mudada cor de fundo padrão (antes, branca) para transparente,
+//              permitindo ficar em fundos diferentes
 // 25/11/2016 | Desfeita a alteração anterior (a visualização ficou errada)
 // 24/11/2016 | Correção: appearance não tem "none" e sim "normal"
 // 17/08/2016 | Corrigida compatibilidade com o Firefox
@@ -68,8 +70,8 @@ $form-radio-check-personaliza: sim !default;
 // =============================================================================
 $svg-seta-fina: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22%23#{$svg-cor}%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A";
 $select-svg-bg: url("data:image/svg+xml;utf8,#{$svg-seta-fina}") no-repeat right center;
-$select-gradiente: $select-svg-bg, linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, cor(fundo, x-claro) 21px);
-$select-bg-simples: $select-svg-bg, cor(fundo, x-claro);
+$select-gradiente: $select-svg-bg, linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, transparent 21px);
+$select-bg-simples: $select-svg-bg, transparent;
 
 // =============================================================================
 // MIXIN | SELECT
