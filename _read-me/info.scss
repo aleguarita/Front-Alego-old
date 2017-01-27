@@ -175,6 +175,18 @@ $largura-dt-pq: 9em;
     }
   }
 }
+
+.lista-definicao--svg {
+  @extend .lista-definicao;
+  dd {
+    background: cor(fundo, escuro);
+  }
+  img {
+    max-height: rem(30);
+  }
+}
+
+
 .lista-changelog {
   $largura-versao: 8rem;
   @include grupo-flex(2, 0);

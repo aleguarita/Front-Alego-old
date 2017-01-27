@@ -1,33 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
 	<style>
 		/*
 			==========================================================================
 			ANIMACAO
 			==========================================================================
 		*/
-		@keyframes bola {
-			0%, 100% {
-				opacity: 0;
+		@keyframes giro {
+			0%{
+				transform: rotate(0deg);
 			}
-			100% {
-				transform: scale(225);
-				opacity: 1;
+			100%{
+				transform: rotate(360deg);
 			}
 		}
 		/*
-		==========================================================================
-		BOLA
-		==========================================================================
+			==========================================================================
+			1/4 CIRCULO
+			==========================================================================
 		*/
-		.bola {
+		.um-quarto {
+			animation: giro 550ms linear infinite;
+			transform-origin: center center;
+		}
+		.i {
 			fill: #fff;
-			transform-origin: center;
-			opacity: 0;
-			animation: bola 550ms ease-in-out infinite alternate-reverse;
 		}
 	</style>
-
-	<g id="bola">
-		<circle class="bola" cx="250" cy="250" r="1"/>
+	<g class="um-quarto">
+		<rect width="32" height="32" fill="none"/>
+		<path class="i" d="M1.5 19C0.7 19 0 18.3 0 17.5 0 7.9 7.9 0 17.5 0 18.3 0 19 0.7 19 1.5S18.3 3 17.5 3C9.5 3 3 9.5 3 17.5 3 18.3 2.3 19 1.5 19z"/>
 	</g>
 </svg>
