@@ -269,6 +269,10 @@ $largura-dt-pq: 9em;
   @extend %codigo-bloco;
   @extend %codigo-css;
 }
+.codigo--js {
+  @extend %codigo-bloco;
+  @extend %codigo-css;
+}
 .funcao {
   font-size: .7em;
   font-family: $fonte-monoespacada;

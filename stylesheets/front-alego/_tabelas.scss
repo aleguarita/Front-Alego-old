@@ -12,11 +12,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 18/01/2017
+// Última alteração: 01/02/2017
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 01/02/2017 | Incluído o input file
 // 18/01/2017 | Ajustes dos 3 tipos com as tabelas responsivas
 // 17/01/2017 | Criação do tipo-3 (similar ao tipo-1, mas com borda ao redor e
 // 							entre as colunas)
@@ -164,6 +165,9 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 			background: cor(fundo, x-claro);
 		}
 
+		// -------------------------------------------------------------------------
+		// AJUSTES DA CÉLULA
+		// -------------------------------------------------------------------------
 		td {
 			padding: 0 .5em;
 			border-left: 1px solid tint(cor(tabela, borda), 25);
@@ -191,6 +195,10 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 
 		}
 
+
+		// -------------------------------------------------------------------------
+		// AJUSTES DE FORMULÁRIO
+		// -------------------------------------------------------------------------
 		input:not([type="checkbox"]):not([type="radio"]),
 		textarea,
 		select {
@@ -214,6 +222,21 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 		select {
 			@include appearance(none);
 			background: $select-bg-simples;
+		}
+
+		input[type="file"] {
+			width: 0.1px;
+	    height: 0.1px;
+	    opacity: 0;
+	    overflow: hidden;
+	    position: absolute;
+	    z-index: -1;
+		}
+
+		.form-file__info {
+			// all: inherit; // incompatível com IE/EDGE :(
+			border-width: 0;
+			text-transform: uppercase;
 		}
 
 	}

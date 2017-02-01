@@ -1082,6 +1082,18 @@ td {
   appearance: none;
   background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22%2300949a%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A") no-repeat right center, transparent;
 }
+.tab--form input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.tab--form .form-file__info {
+  border-width: 0;
+  text-transform: uppercase;
+}
 
 .tab__acoes a {
   color: #004a4e;
@@ -1912,10 +1924,15 @@ MENU
   list-style: none;
   padding-left: 0;
   margin-bottom: 1.25rem;
+  z-index: 2;
 }
 .menu a {
   cursor: pointer;
   display: block;
+}
+.menu__titulo {
+  z-index: 3;
+  position: relative;
 }
 .menu__titulo span {
   cursor: pointer;
@@ -2432,7 +2449,7 @@ CLASSES
   font-family: "consolas", "courier new", courier, freemono, "liberation mono", monospace;
 }
 
-.codigo--html, .codigo--css, .codigo--sass {
+.codigo--html, .codigo--css, .codigo--sass, .codigo--js {
   border-radius: 3px;
   background: #ececec;
   border: 1px solid #ababab;
@@ -2440,7 +2457,7 @@ CLASSES
   margin: 1em 0;
   overflow-x: auto;
 }
-.codigo--html header, .codigo--css header, .codigo--sass header {
+.codigo--html header, .codigo--css header, .codigo--sass header, .codigo--js header {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 3px 3px 0 0;
   padding: 0.2rem 0.4rem;
@@ -2450,19 +2467,19 @@ CLASSES
   font-weight: bold;
   color: white;
 }
-.codigo--html p, .codigo--css p, .codigo--sass p {
+.codigo--html p, .codigo--css p, .codigo--sass p, .codigo--js p {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0 0.4rem;
 }
-.codigo--html p:first-of-type, .codigo--css p:first-of-type, .codigo--sass p:first-of-type {
+.codigo--html p:first-of-type, .codigo--css p:first-of-type, .codigo--sass p:first-of-type, .codigo--js p:first-of-type {
   margin-top: 0.2rem;
 }
-.codigo--html p:last-child, .codigo--css p:last-child, .codigo--sass p:last-child {
+.codigo--html p:last-child, .codigo--css p:last-child, .codigo--sass p:last-child, .codigo--js p:last-child {
   margin-bottom: 0.2rem;
 }
 
-.codigo--css, .codigo--sass {
+.codigo--css, .codigo--sass, .codigo--js {
   border-color: #cd5800;
   background: #faeee6;
 }
@@ -6473,6 +6490,18 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   appearance: none;
   background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22%2300949a%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A") no-repeat right center, transparent;
 }
+.tab--tipo-1--form input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.tab--tipo-1--form .form-file__info {
+  border-width: 0;
+  text-transform: uppercase;
+}
 .tab--tipo-2, .tab--tipo-2--form {
   border-bottom: 2px solid #00c5cd;
 }
@@ -6626,6 +6655,18 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   -o-appearance: none;
   appearance: none;
   background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22%2300949a%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A") no-repeat right center, transparent;
+}
+.tab--tipo-2--form input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.tab--tipo-2--form .form-file__info {
+  border-width: 0;
+  text-transform: uppercase;
 }
 @media (max-width: 30em) {
   .tab--tipo-3 thead, .tab--tipo-3--form thead {
@@ -6801,6 +6842,18 @@ VARIÁVEIS | DEMONSTRAÇÃO | lista básica
   -o-appearance: none;
   appearance: none;
   background: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22%2300949a%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A") no-repeat right center, transparent;
+}
+.tab--tipo-3--form input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.tab--tipo-3--form .form-file__info {
+  border-width: 0;
+  text-transform: uppercase;
 }
 .tab--zebra tbody tr:nth-child(even) {
   background: #bff1f3;

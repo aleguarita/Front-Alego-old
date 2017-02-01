@@ -188,13 +188,22 @@
         <p>&lt;script src="../javascripts/front-alego/input-file.js"&gt;&lt;/script&gt;</p>
       </code>
       <p>Em Ruby siga as instruções de <a href="#javascripts" class="link--readme">inclusão de javascripts</a></p>
+      <p>Se estiver usando a GEM, deve-se incluir "front-alego" no módulo do angular. O trecho seria algo assim:</p>
+      <code class="codigo--js">
+        <header>JS</header>
+        <p>angular.module('NOME-DO-APP', [</p>
+        <p class="recuo-1">...</p>
+        <p>'front-alego',</p>
+        <p class="recuo-1">...</p>
+        <p>])</p>
+      </code>
       <dl class="lista-definicao">
         <dt>Classe do elemento pai</dt>
           <dd><samp>.form-file</samp></dd>
         <dt>Elementos que formata</dt>
-          <dd><samp>&lt;input type="file"&gt;</samp>. Inclua neste tag o parâmetro <samp>data-multiple-caption="{count}</samp></dd>
+          <dd><samp>&lt;input type="file"&gt;</samp>. Inclua neste tag o parâmetro <samp>data-multiple-caption="{count}</samp> e, se for Ruby, <samp>upload-file-name</samp></dd>
         <dt>Elementos extra</dt>
-          <dd><samp>&lt;span class="form-file__info"&gt;</samp> Texto para a mensagem de download ou com o nome do arquivo que subiu. Para uma maior acessibilidade, insira o ícone de upload antes ou depois do texto.</dd>
+          <dd><samp>&lt;span class="form-file__info"&gt;</samp> Texto para a mensagem de download ou com o nome do arquivo que subiu. Para uma maior acessibilidade, insira o ícone de upload antes ou depois do texto (não se esqueça de incluir este elemento dentro de tabela formulário).</dd>
       </dl>
       <code class="codigo--html">
         <header>HTML</header>
