@@ -12,11 +12,13 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 01/02/2017
+// Última alteração: 02/02/2017
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 02/02/2017 | Retirado o input-file-name do escopo da formatação de inputs
+// 							gerais. Isso fazia a página ficar com um scroll horizontal
 // 01/02/2017 | Incluído o input file (com parâmetro "upload-file-name")
 // 18/01/2017 | Ajustes dos 3 tipos com as tabelas responsivas
 // 17/01/2017 | Criação do tipo-3 (similar ao tipo-1, mas com borda ao redor e
@@ -199,7 +201,7 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 		// -------------------------------------------------------------------------
 		// AJUSTES DE FORMULÁRIO
 		// -------------------------------------------------------------------------
-		input:not([type="checkbox"]):not([type="radio"]),
+		input:not([type="checkbox"]):not([type="radio"]):not([upload-file-name]),
 		textarea,
 		select {
 			@include placeholder {
