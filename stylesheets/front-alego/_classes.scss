@@ -10,13 +10,14 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 10/11/2106
+// Alterado em: 02/02/2107
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
-// 10/11/2106 | Inclusão de !important (shame on you) nas classes de margem
+// 02/02/2017 | Criação da classe de .ellipsis para links que quebram layout
+// 10/11/2016 | Inclusão de !important (shame on you) nas classes de margem
 //              (como a classe pode ser aplicada ou não, isso serve para
 //              substituir resets de margem como no caso do :first-child)
 // 18/07/2016 | Ajuste das margens inferior e superior
@@ -36,6 +37,10 @@ CLASSES FIXAS
 // 21/10/2015 | Criado o arquivo com as classes básicas
 // =============================================================================
 
+
+// =============================================================================
+// OCULTA
+// =============================================================================
 .oculta {
   display: none;
   &--pequeno {
@@ -49,6 +54,11 @@ CLASSES FIXAS
     }
   }
 }
+
+
+// =============================================================================
+// OCULTA
+// =============================================================================
 .exibe {
   &--pequeno {
     @include media-tipo(pequeno) {
@@ -119,6 +129,7 @@ $tamanho-fonte: (
 		font-size: $tamanho;
 	}
 }
+
 // =============================================================================
 // MARGENS
 // =============================================================================
@@ -137,4 +148,13 @@ $tamanho-fonte: (
   &--inferior + &--superior {
     margin-top: 2em !important;
   }
+}
+
+// =============================================================================
+// ELLIPSIS
+// =============================================================================
+.ellipsis, .elipse {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

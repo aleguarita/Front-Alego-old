@@ -14,11 +14,13 @@ ATENÇÃO: Você encontrará pedaços desta tabela em TABELA e CARD
 // -----------------------------------------------------------------------------
 // tabela_mutante.scss
 // Criado em: 28/09/2016
-// Última alteração: 24/11/2016
+// Última alteração: 02/02/2017
 // -----------------------------------------------------------------------------
 // Tabela que muda conforme a escolha do usuário (altera entre tabela e cards)
 // -----------------------------------------------------------------------------
 // Changelog
+// 02/02/2017 | Aumento do line-height quando na forma de card para o uso de
+//              ellipses
 // 25/11/2016 | Comentado o word-wrap: pre. O parâmetro não existe e não sei o
 //              motivo de ter colocado isso.
 // 28/09/2016 | Criado o arquivo
@@ -85,6 +87,7 @@ $tab-mutante-qtd: (1, 1, 2, 4) !default;
     td {
       @extend .card__item;
       padding: $pd / 2 $pd;
+      line-height: 1.2;
 
       &::before {
         content: attr(data-title) ": ";
