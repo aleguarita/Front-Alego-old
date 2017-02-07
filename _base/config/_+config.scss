@@ -181,10 +181,17 @@ $breadcrumbs-tipo: tipo-1; // 2 tipos
 // TOASTER
 // =============================================================================
 $toaster-tipo: tipo-1; // 2 tipos
+$toaster-biblioteca: toastr; //toastr (o atual) toaster o antigo
+$toaster-tamanho-img: rem(50);
+$toaster-arredondamento: não;
+
+// formatação antiga, com uso da modalidade do toaster. O atual é o toastr (acima).
+// mantido para retrocompatibilidade
 $toaster-horizontal: right;
 $toaster-vertical: bottom;
 $toaster-distancia: 2em;
 $toaster-distancia-vertical: 1;
+
 
 // =============================================================================
 // LISTA

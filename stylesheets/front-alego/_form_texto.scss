@@ -12,7 +12,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // -----------------------------------------------------------------------------
 // form_input_texto.scss
 // Criado em: 09/11/2015
-// Última alteração em: 08/12/2016
+// Última alteração em: 07/02/2017
 // -----------------------------------------------------------------------------
 // Este arquivo formata os inputs de texto e sua relação com o label, e demais
 // elementos (placeholder, etc).
@@ -20,6 +20,7 @@ FORMULÁRIOS | INPUT[TEXT], TEXTAREA
 // data, e-mail, etc)
 // ----------------------------------------------------------------------------
 // Changelog
+// 07/02/2017 | Centralizado na vertical o asterisco de obrigatório
 // 08/12/2016 | O parâmetro de correção para Linux estava no seletor errado
 // 07/12/2016 | Correção para formulários tipo-1 e tipo-2 no Linux
 // 04/11/2016 | Tentando novo ajuste da formatação dos :required. Retirei os
@@ -123,8 +124,10 @@ $form-radio-check-personaliza: sim !default;
       background-image: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}");
       background-repeat: no-repeat;
       background-size: rem($form-obrigatorio) * .9;
+      background-origin: content-box;
       text-indent: rem($form-obrigatorio);
       box-shadow: 0 3px 0 lighten($svg-placeholder-original, 15%);
+
       // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
       &:valid {
         background-image: none;

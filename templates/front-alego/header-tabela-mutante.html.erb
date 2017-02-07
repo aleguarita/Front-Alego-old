@@ -1,6 +1,6 @@
 <section class="barra-ferramentas">
 
-  <a ng-if="linkBackTitulo" ui-sref="{{linkBackState}}" class="barra-ferramentas__acao voltar" title="{{linkBackTitulo}}">
+  <a ng-if="exibirBotaoVoltar" ng-click="voltar()" class="barra-ferramentas__acao voltar" title="Voltar">
     <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#voltar") %>"></use></svg>
   </a>
 
