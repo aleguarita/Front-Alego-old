@@ -11,6 +11,7 @@ FORMULÁRIOS | FILE
 // -----------------------------------------------------------------------------
 // form_arquivo.scss
 // Criado em: 14/12/2016
+// Alterado em: 10/02/2017
 // -----------------------------------------------------------------------------
 // Este arquivo formata os arquivos de input de arquivo. Para que o texto seja
 // substituído por uma mensagem válida é necessário chamar o javascript
@@ -18,6 +19,7 @@ FORMULÁRIOS | FILE
 // Este arquivo depende da existência do _form_texto.scss
 // ----------------------------------------------------------------------------
 // Changelog
+// 10/02/2017 | Correção do campo obrigatório
 // 14/12/2016 | Criação do arquivo
 // =============================================================================
 
@@ -53,43 +55,61 @@ $form-radio-check-personaliza: sim !default;
     $cor: cor(formulario),
     $cor-destaque: cor(formulario, ativo)
   ) {
+
   @include form-texto__label($label-tipo) {
     @if $label-tipo == "colado" {
       border-bottom: 1px $tipo $cor;
     }
   }
+
   &__info {
     @include form-file__info;
     line-height: 1.4; // alinhando melhor o espaço
+
     // em form-texto
     border: 1px $tipo transparent;
     border-bottom: 1px $tipo $cor;
     background: transparent;
-    // FOCO
-    &:focus {
+  }
+
+  // FOCO
+  input:focus {
+    ~ .form-file__info {
       border-bottom-color: $cor-destaque;
+
       & ~ label, & ~ .label {
         color: $cor-destaque;
         @if $label-tipo == "colado" {
           border-bottom-color: $cor-destaque;
         }
       }
+
     }
-    // OBRIGATÓRIO
-    &:required {
+  }
+
+  // OBRIGATÓRIO
+  input:required {
+    ~ .form-file__info {
       background-image: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}");
       background-repeat: no-repeat;
+      background-position: 0 .5em;
       background-size: rem($form-obrigatorio) * .9;
       text-indent: rem($form-obrigatorio);
       box-shadow: 0 3px 0 lighten($svg-placeholder-original, 15%);
-      // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
-      &:valid {
+    }
+
+    // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
+    &:valid {
+      ~ .form-file__info {
         background-image: none;
         text-indent: 0;
         box-shadow: none;
       }
+
     }
+
   }
+
 }
 
 // =============================================================================
@@ -97,6 +117,7 @@ $form-radio-check-personaliza: sim !default;
 // =============================================================================
 @mixin form-file($tipo) {
   @include form-base(flex);
+
   // Oculta o input file
   input {
     width: 0.1px;
@@ -112,12 +133,14 @@ $form-radio-check-personaliza: sim !default;
   @if $tipo == tipo-1 {
     @include form-file--borda-inferior(dotted);
   }
+
   // ---------------------------------------------------------------------------
   // TIPO 2
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-2 {
     @include form-file--borda-inferior(solid);
   }
+
   // ---------------------------------------------------------------------------
   // TIPO 3
   // ---------------------------------------------------------------------------
@@ -129,15 +152,23 @@ $form-radio-check-personaliza: sim !default;
         line-height: 2.2;
       }
     }
+
     &__info {
       @include form-file__info;
       border: 1px solid cor(formulario);
       padding: .5em;
-      &:focus {
+    }
+
+    input:focus {
+      ~ .form-file__info {
         outline: 0;
         box-shadow: 0 0 3px cor(formulario);
       }
-      &:focus ~ label, &:focus ~ .label {
+    }
+
+    input:focus ~ label, &:focus ~ .label {
+      ~ .form-file__info {
+
         @if $label-tipo == "colado" {
           background: cor(formulario, ativo);
         }
@@ -145,22 +176,29 @@ $form-radio-check-personaliza: sim !default;
           color: cor(formulario, ativo);
         }
       }
-      // OBRIGATÓRIO
-      &:required {
+
+    }
+
+    // OBRIGATÓRIO
+    input:required {
+      ~ .form-file__info {
         background-image: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}");
         background-repeat: no-repeat;
         background-position: .5em .5em;
         background-size: rem($form-obrigatorio);
         padding-left: em($form-obrigatorio) + 1em;
         outline: 2px solid lighten($svg-placeholder-original, 15%);
-        // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
       }
-      &:valid, &:focus {
+    }
+
+    input:valid, input:focus {
+      ~ .form-file__info {
         background-image: none;
         padding-left: .5em;
         outline: 0;
       }
     }
+
   }
 }
 

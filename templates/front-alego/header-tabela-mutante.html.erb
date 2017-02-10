@@ -7,7 +7,7 @@
   <h2 class="barra-ferramentas__titulo">{{titulo}}</h2>
 
   <form method="GET" ng-submit="busca()" class="barra-ferramentas__busca form-texto" ng-show="deveExibirControlesTabela()">
-    <input type="text" ng-model="termo" placeholder="Pesquisa " />
+    <input type="search" ng-model="termo" placeholder="Pesquisa " />
     <button ng-click="busca()" class="form__ico">
       <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#lupa") %>"></use></svg>
     </button>
