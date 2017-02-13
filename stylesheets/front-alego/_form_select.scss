@@ -12,11 +12,14 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 25/11/2016
+// Última alteração em: 13/02/2017
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 13/02/2017 | Criação de variável para fundo de formulários
+// 26/01/2017 | Mudada cor de fundo padrão (antes, branca) para transparente,
+//              permitindo ficar em fundos diferentes
 // 25/11/2016 | Desfeita a alteração anterior (a visualização ficou errada)
 // 24/11/2016 | Correção: appearance não tem "none" e sim "normal"
 // 17/08/2016 | Corrigida compatibilidade com o Firefox

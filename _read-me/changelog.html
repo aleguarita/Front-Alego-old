@@ -1,16 +1,114 @@
-<dt>1.10.1 - xx/01/2017</dt>
-  <dd>
+<dt>1.14.4 - xx/01/2017</dt>
+<dd>
     Correção menor no datepicker<br />
-    Criação de variável que determina o fundo dos campos do formulário (<samp>$form-fundo-campos</samp>)<br />
+    Criação de variável que determina o fundo dos campos do formulário (<samp>$form-fundo-campos</samp>)
+</dd>
+
+<dt>1.14.3 - 10/02/2017</dt>
+  <dd>
+    Acréscimo de obrigatório em campo de arquivo<br />
+    Ajuste na tabela mutante: agora aceita ausência de <samp>data-title</samp><br />
+    Campo de busca na diretiva da barra de ferramentas agora é <samp>&lt;input type="search"&gt;</samp>
+
   </dd>
+<dt>1.14.2 - 09/02/2017</dt>
+  <dd>
+    Alterado caminho dos JS para uma subpasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg>/javascripts/front-alego</samp>
+  </dd>
+
+<dt>1.14.1 - 07/02/2017</dt>
+  <dd>Correção da GEM</dd>
+
+<dt>1.14.0 - 07/02/2017</dt>
+  <dd>
+    Novo toaster<br />
+    SVGs bases (utilizados no arquivo de símbolo) foram acrescentados na GEM (e movidos neste projeto) e agora estão dentro da pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg>images/ico/</samp>
+  </dd>
+
+<dt>1.13.1 - 03/02/2017</dt>
+  <dd>
+    Correção do posicionamento do ícone de obrigatório<br />
+    Botão de voltar na diretiva de header (ainda a ser formatado)
+  </dd>
+
+<dt>1.13.0 - 02/02/2017</dt>
+  <dd>Criação de nova classe para elementos inline: <samp>.elipse</samp></dd>
+
+<dt>1.12.9 - 02/02/2017</dt>
+  <dd>Correção do input file</dd>
+
+<dt>1.12.8 - 01/02/2017</dt>
+  <dd>Por questão de acessibilidade o conteúdo do input de arquivo só some em tabela se ele tiver o parâmetro <samp>upload-file-name</samp> do contrário ele iria sumir de todos os casos anteriores. Isso também possibilita usar o input padrão.</dd>
+
+<dt>1.12.7 - 01/02/2017</dt>
+  <dd>Ajuste na GEM</dd>
+
+<dt>1.12.6 - 01/02/2017</dt>
+  <dd>
+    Formatação do input de upload de arquivo quando aparece dentro da tabela formulário<br />
+    Ajustes nas abas para o caso de fazer uso de javascript ao invés de checkbox.
+  </dd>
+
+<dt>1.12.5 - 30/01/2017</dt>
+  <dd>Retirada animação do menu</dd>
+
+<dt>1.12.4 - 28/01/2017</dt>
+  <dd>Nova imagem SVG de loading. A anterior ainda pode ser acessada através de loading-1.svg</dd>
+
+<dt>1.12.2 ~ 1.12.3 - 27/01/2017</dt>
+  <dd>GEM (atualização da diretiva)</dd>
+
+<dt>1.12.1 - 26/01/2017</dt>
+  <dd>
+    Correção da GEM (arquivos de fontes duplicados)<br />
+    Select tem fundo transparente para adequar a formulários com fundos especiais
+  </dd>
+
+<dt>1.12.0 - 23/01/2017</dt>
+  <dd>
+    Arquivos separados de importação para gem ou para arquivo local<br />
+    Inclusão de arquivo de fallback no primeiro arquivo importado (breakpoints)<br />
+    Inclusão de dois novos símbolos SVG: <samp>#mais-1</samp> e <samp>#menos-1</samp><br />
+    Inclusão de loadings com puro CSS e três tipos (ver <a href="doc.html#loading" class="link--readme">loading</a> para maiores informações)
+  </dd>
+
+<dt>1.11.9 ~ 1.11.11 - 24/01/2017</dt>
+  <dd>GEM (atualização da diretiva)</dd>
+
+<dt>1.11.5 ~ 1.11.8 - 23/01/2017</dt>
+  <dd>
+    Versões apenas da GEM para corrigir erros
+  </dd>
+
+<dt>1.11.4 - 20/01/2017</dt>
+  <dd>
+    As fontes são importadas diretamente do front-alego e não mais do sistema atual (através da pasta <samp>config</samp>) <br />
+    A função <samp>cor()</samp> retorna cores diferentes caso não seja definida a cor no tema: ciano para a cor e magenta para o grupo inteiro
+  </dd>
+
+<dt>1.11.0 - 19/01/2017</dt>
+  <dd>
+    Inclusão de animação do menu<br />
+    Novo tipo de tabela <samp>tipo-3</samp><br />
+    Ajustes nas tabelas<br />
+    Diretiva de upload de arquivos<br />
+    Alteração da forma de chamar as fontes (o download é feito por último).<br />
+    <strong class="texto--erro">Atenção:</strong> O arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>_tipografia.scss</samp>
+    foi movido da pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg>config/</samp> para a pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg>front-alego</samp>. <strong>Se você tem alguma configuração neste arquivo (como o tipo de fonte), isso deve ser feito no arquivo de configuração</strong>
+  </dd>
+
 <dt>1.10.0 - 16/01/2017</dt>
   <dd>Inclusão na diretiva do menu. <strong class="texto--erro">Importante:</strong> mudanças nas classes e variáveis do config.scss</dd>
+
 <dt>1.9.3 - 12/01/2017</dt>
   <dd>Ajustes nas barra de ferramentas e no autocomplete</dd>
+
 <dt>1.9.2 - 10/01/2017</dt>
   <dd>Pequena correção</dd>
+
 <dt>1.9.1 - 10/01/2017</dt>
   <dd>Alteração de exibição de erros da função de cores</dd>
+
 <dt>1.9.0 - 22/12/2016</dt>
   <dd>
     Reformulação das pastas de arquivos (Esta mudança visa melhor aplicação do front-alego na gem).<br />
@@ -18,16 +116,19 @@
     Correção no datepicker.<br />
     <strong class="texto--erro">Atenção:</strong> esse acréscimo afeta o arquivo de cores <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_+cores.scss</samp> ao acrescentar <samp>barra-ferramentas</samp> no mapa <samp>$temas</samp>.
   </dd>
+
 <dt>1.8.0 - 20/12/2016</dt>
   <dd>
     Inclusão de diretivas do sistema rails.<br />
     Alteração na pasta de javascripts.<br />
   </dd>
+
 <dt>1.7.0 - 15/12/2016</dt>
   <dd>
     Inclusão da formatação de inputs de arquivo.<br />
     <strong class="texto--erro">Atenção:</strong> é necessário acrescentar um link para o javascript nas páginas (<a href="doc.html#form" class="link--readme">veja mais detalhes aqui</a>).
   </dd>
+
 <dt>1.6.1 - 08/12/2016</dt>
   <dd>Corrigida ausência de linha nos botões de busca em formulário tipo-1 e tipo-2</dd>
 <dt>1.6.0 - 07/12/2016</dt>
@@ -41,16 +142,22 @@
     <strong>Novidade:</strong> inclusão de <samp>.form--erro</samp> e <samp>.form--erro__bloco</samp> para indicar erros no formulário quando usando angular<br />
     <strong class="texto--erro">Atenção:</strong> esse acréscimo afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_+config.scss</samp> ao acrescentar <samp>form-erro</samp> no mapa <samp>$uso-classes</samp>.
   </dd>
+
 <dt>1.5.5 - 25/11/2016</dt>
   <dd>Desfeitas alterações anteriores, pois alterava visualização do formulário</dd>
+
 <dt>1.5.4 - 24/11/2016</dt>
   <dd>Ajustes relacionados à W3C</dd>
+
 <dt>1.5.3 - 10/11/2016</dt>
   <dd>Inclusão de <samp>!important</samp> (shame on you) nas classes de margem (como a classe pode ser aplicada ou não, isso serve para substituir resets de margem como no caso do <samp>:first-child</samp>)</dd>
+
 <dt>1.5.2 - 04/11/2016</dt>
   <dd>Correção no campo de formulário obrigatório</dd>
+
 <dt>1.5.1 - 03/11/2016</dt>
   <dd>Correção no campo de formulário obrigatório</dd>
+
 <dt>1.5.0 - 30/09/2016</dt>
   <dd>
     Novos ícones SVG: <samp>#atualizar</samp>, <samp>#binoculo</samp>, <samp>#card</samp>, <samp>#folheto</samp>, <samp>#lista</samp>, <samp>#ordenar-az</samp>, <samp>#ordenar-za</samp>.<br />
@@ -59,6 +166,7 @@
     Inclusão de uma nova classe para tabela <samp>.tab--card</samp><br />
     Inclusão da <samp>tab--mutante</samp> que pode alternar entre tabela e cards
   </dd>
+
 <dt>1.4.0 - 23/09/2016</dt>
   <dd>
     Os botões dentro de <samp>.tab--form</samp> ocupam a largura toda da célula<br />
@@ -66,16 +174,19 @@
     Nova opção de classe para a formatação de grupos de formulários: <samp>.pos-x</samp> (acrescenta um espaço à direita de um <samp>.field-x</samp>).<br />
     <strong class="texto--erro">Atenção:</strong> esse acréscimo afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_+config.scss</samp> ao acrescentar <samp>form-pos</samp> no mapa <samp>$uso-classes</samp>.
   </dd>
+
 <dt>1.3.0 - 13/09/2016</dt>
   <dd>
     Acrescentado elementos da paginação para angular<br />
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_+config.scss</samp> ao acrescentar a variável <samp>$paginacao-arredondamento</samp>.
   </dd>
+
 <dt>1.2.0 - 09/09/2016</dt>
   <dd>
     Dois novos ícones em <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>images/ico.svg</samp>: <samp>#compartilhar</samp> e <samp>#compartilhar-1</samp> (<a href="doc.html#simbolos-svg" class="link--readme">veja aqui</a>). <br />
     Removidos arquivos da pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg>svg</samp> uma vez que já apareciam em <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg>images</samp> (os SVG avulsos ainda continuam na pasta para edição ou comparação)
   </dd>
+
 <dt>1.1.4 - 08/09/2016</dt>
   <dd>
     Pequenos ajustes nos arquivos que usam mixin para mudar as classes<br />
@@ -83,11 +194,13 @@
     Ajuste no botão para evitar inconsistência com <samp>:hover</samp> quando ele é um link<br />
     Simplificação nas cores da tabela (retirado <samp>borda-clara</samp> e <samp>borda-escura</samp> do mapa de cores, ao invés disso ele clarea e escurece a cor estabelecida em <samp>borda</samp>)
   </dd>
+
 <dt>1.1.3 - 05/09/2016</dt>
   <dd>
     Alterada a forma de construção dos botões. Continua tendo 6 tipos, mas agora só precisa de suas cores para criar os botões.<br />
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de cores <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_cores.scss</samp> ao reduzir a quantidade necessária de cores. Nenhuma cor teve seu nome trocado e se você não substituir, ainda usará a forma antiga de cores.<br />
   </dd>
+
 <dt>1.1.0 - 02/09/2016</dt>
   <dd>
     Ajustado o padding de <samp>.form__ico</samp><br />
@@ -95,23 +208,27 @@
     Criada a classe <samp>.label</samp><br />
     Corrigido erro da modal que desabilitava o mouse
   </dd>
+
 <dt>1.0.1 - 25/08/2016</dt>
   <dd>
     Corrigida compatibilidade com o uso de <samp>unquote</samp><br />
     Retirada cor cinza da zebra da tabela <samp>$tipo-1</samp><br />
     Ajuste nos botões para quando ele for um link (<samp>a.bt</samp>)
   </dd>
+
 <dt>1.0.0 - 19/08/2016</dt>
   <dd>
     Aviso de erro mais adequado para quando não existir a cor indicada <br />
     Acrescentada tela de loading (ver <a href="doc.html#loading" class="link--readme">a documentação</a>).<br />
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de config <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_+config.scss</samp> e <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_z-index.scss</samp>.<br />
   </dd>
+
 <dt>17/08/2016</dt>
   <dd>
     Alterações nos formulários para ter compatibilidade com o Firefox<br />
     Retirado prefixos do svg de permissão
   </dd>
+
 <dt>15/08/2016</dt>
   <dd>
     Ajustado para funcionar como GEM do Rails. Essa alteração foi maior e com isso tevemos algumas mudanças com nomes de pastas e arquivos:<br />
@@ -119,6 +236,7 @@
     <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_base.scss</samp> foi renomado para <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_front-alego.scss</samp><br />
     Além disso foi criado o arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_front-alego-local.scss</samp> para uso em sistemas fora de Rails.
   </dd>
+
 <dt>12/08/2016</dt>
   <dd>
     Ajuste no checkbox e radio de <samp>tipo-3</samp><br />
@@ -126,16 +244,19 @@
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de tipografia <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_tipografia.scss</samp> (inclusão inclusão da variável <samp>$tamanho-fonte-padrao</samp> e alteração da <samp>$tamanho-fonte-textos</samp>.<br />
     Também afeta o arquivo de cores  <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_cores.scss</samp> ao acrescentar o tipo <samp>footer</samp> no mapa <samp>tabela</samp>
   </dd>
+
 <dt>29/07/2016</dt>
   <dd>
     Corrigida largura do <samp>.form-container</samp>
   </dd>
+
 <dt>21/07/2016</dt>
   <dd>
     Ajuste nas classes <samp>.margem--inferior</samp> e <samp>.margem--superior</samp>. Se elas aparecem em elementos irmãos, a classe superior é maior para acrescentar um espaço maior entre os elementos <br />
     Acrescentada classe <samp>.field-0</samp> que é um campo de field sem largura, mas que é igual aos demais<br />
     Ajustado espaço interno dos campos obrigatórios (deixava o formulário maior do que deveria)
   </dd>
+
 <dt>15/07/2016</dt>
   <dd>
     Retirada margem inferior do <samp>.form-container</samp><br />
@@ -147,28 +268,33 @@
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de tipografia <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_tipografia.scss</samp> (inclusão inclusão da variável <samp>$tamanho-fonte-padrao</samp> e alteração da <samp>$tamanho-fonte-textos</samp>.<br />
     Também afeta o arquivo de configuração  <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> alterando o valor da variável <samp>$paginacao-fonte</samp>
   </dd>
+
 <dt>11/07/2016</dt>
   <dd>
     Ajustes no formulário tipo-3
   </dd>
+
 <dt>08/07/2016</dt>
   <dd>
     Acréscimo de "label" nas paletas de cores<br />
     Acréscimo do status "obrigatório" nos formulários<br />
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de cores <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_cores.scss</samp> (inclusão da opção <samp>label</samp> nos temas de cores), e também do arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> (acréscimo da variável <samp>$form-obrigatorio</samp>)
   </dd>
+
 <dt>06/07/2016</dt>
   <dd>
     Correção na tabela responsiva<br />
     Correção na especificidade do <samp>.tab__acoes</samp> (estava ficando com código aninhado)<br />
     Acréscimo do <samp>tipo-3</samp> apra Seção Lista
   </dd>
+
 <dt>30/06/2016</dt>
   <dd>
     Alteração no datepicker: centralizado o header<br />
     Alteração nos formulários: ajuste de erros e responsivo automático (a classe <samp>.field--responsivo</samp> continua para deixar a largura 100%).<br />
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> (inclusão de mais uma opção dentro do mapa <samp>$uso-classes</samp>)
   </dd>
+
 <dt>24/06/2016</dt>
   <dd>
     Acréscimo do <samp>!important</samp> nas classes de ocultar pois o <samp>display: flex</samp> do elemento pai tinha prioridade sobre ela.<br />
@@ -176,46 +302,56 @@
     Alteração no grupo de formulário para ser mais específico o padding do <samp>&lt;div&gt;</samp><br />
     Alteração no grupo de formulário <samp>.form-container--linha</samp> para que alinhe os elementos na base (para os botões ficarem mais alinhados)
   </dd>
+
 <dt>20/06/2016</dt>
   <dd>
     Alteração na forma que as tabelas responsivas trabalham. Agora é possível escolher a orientação do browser. O padrão é igual ao anterior. <br />
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> (inclusão da variável <samp>$tab--responsiva-tipo</samp>)
   </dd>
+
 <dt>14/06/2016</dt>
   <dd>
     Alteração no <samp>&lt;select&gt;</samp>. Agora não é mais necessário usar <samp>&lt;span class="form__ico"&gt;</samp>. <strong class="texto--erro">Atenção: </strong> se você estiver usando este span, delete de seu HTML pois vai parar de funcionar.
   </dd>
+
 <dt>10/06/2016</dt>
   <dd>
     Ajustes na view de login (para visualização melhor em mobile)<br />
     Correção em alguns SVG<br />
     Passada a função <samp>z()</samp> do arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/_z-index.scss</samp> para o arquivo de <samp>_funcoes.scss</samp> (<strong class="texto--erro">Atenção:</strong> pode ser necessário a substituição do seu arquivo de configuração)
   </dd>
+
 <dt>06/06/2016</dt>
   <dd>
     Acréscimo de mais duas classes: <samp>.exibe--pequeno</samp> (exibe o elemento apenas em telas pequenas) e <samp>.exibe--medio</samp> (exibe o elemento em telas pequenas e médias e oculta acima disso)
   </dd>
+
 <dt>02/06/2016</dt>
   <dd>
     Acréscimo de mais duas classes: <samp>.oculta--pequeno</samp> (oculta o elemento em telas pequenas) e <samp>.oculta--medio</samp> (oculta o elemento em telas pequenas e médias)
   </dd>
+
 <dt>18/05/2016</dt>
   <dd>
     Inclusão do CSS de telas de mensagem (para telas de erro, por exemplo).<br />
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> (nova opção no mapa de <samp>$uso-classes</samp> e configuração)
   </dd>
+
 <dt>16/05/2016</dt>
   <dd>
     Inclusão de tabelas responsivas.<br />
     <strong class="texto--erro">Atenção:</strong> essa alteração afeta o arquivo de configuração <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> (novas opções de tabela)
   </dd>
+
 <dt>13/05/2016</dt>
   <dd>Corrigido falta de destaque no label quando o input está focado</dd>
+
 <dt>12/05/2016</dt>
   <dd>
     Acrescentadas as variáveis do config.scss nos arquivos com o valor !default<br />
     Correção do bug que impedia de clicar na seta do select personalizado
   </dd>
+
 <dt>09/05/2016</dt>
   <dd>
     Acrescentado datepicker.<br />
@@ -223,6 +359,7 @@
     <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/cores.scss</samp> (novo conjunto de cor para cada um dos temas)<br />
     <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> (novas configurações para o datepicker)
   </dd>
+
 <dt>18/04/2016</dt>
   <dd>
     Finalizada as cores:<br />
@@ -230,35 +367,48 @@
     Criado todos os temas<br />
     <strong class="texto--erro">Atenção:</strong> Essa alteração afeta o arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/cores.scss</samp>
   </dd>
+
 <dt>05/05/2016</dt>
   <dd>
     Alteração da estrutura de arquivos com a inclusão do arquivo para importar os arquivos da pasta extra. Criação da pasta views com a inclusão do import e do login<br />
     Correção de como chamava as fontes de título
   </dd>
+
 <dt>04/05/2016</dt>
   <dd>Inclusão de uma classe para alinhar as ações do formulário</dd>
+
 <dt>12/04/2016</dt>
   <dd>Agora pode escolher se pode usar fonte personalizada ou não. <strong class="texto--erro">Atenção: </strong>Essa alteração mudou o <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config.scss</samp></dd>
+
 <dt>11/04/2016</dt>
   <dd>Acréscimo de submenu no modelo de admin e mixin para isso</dd>
+
 <dt>31/03/2016</dt>
   <dd>Reestrutração do arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> base.scss</samp>. Ele voltou para a pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> /config/</samp>. Mas para evitar uma reatualização constante deste arquivo ao ocorrer inclusão de novas funcionalidades na pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> /base/</samp>, foi criado um novo arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> /base/+arquivo.scss</samp> que importa todos estes arquivos.</dd>
+
 <dt>29/03/2016</dt>
   <dd>Inclusão do sistema de abas. <strong class="texto--erro">Atenção</strong>: essa alteração afeta o arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> config/_+config.scss</samp> e <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> config/_cores.scss</samp>. Certifique-se de manter suas configurações e incluir o valor <samp>abas</samp> (comentado se necessário) no mapa <samp>$uso-classes</samp> e também as variáveis de abas e as cores (veja mais detalhes no arquivo de <a href="doc.html#abas" class="link--readme">documentação</a>).</dd>
+
 <dt>22/03/2016</dt>
   <dd>O mixin <samp>lista-oculta</samp> passou a ser chamado <samp>item-checado</samp> e agora aceita qualquer seletor além de classe (como variável) e oferece a opção de formatar o elemento quando estiver selecionado.</dd>
+
 <dt>15/03/2016</dt>
   <dd>Inclusão dos ícones em SVG</dd>
+
 <dt>14/03/2016</dt>
   <dd>
     Correções das classes de texto<br />
     Alteração da localização da localização do arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> _base.scss</samp> da pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> config</samp> para a pasta <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> base</samp>
   </dd>
+
 <dt>09/03/2016</dt>
   <dd>Inclusão do modelo básico de admin. Isso inclui uma pasta chamada <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#pasta" /></svg> modelos</samp> que tem um CSS compilado do arquivo <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg> admin.scss</samp> e três modelos de HTML.</dd>
+
 <dt>03/03/2016</dt>
   <dd>Alteração do mixin <samp>grupo-flex</samp> para que ele fique responsivo.</dd>
+
 <dt>15/02/2016</dt>
   <dd>Acréscimo de sprites.</dd>
+
 <dt>12/02/2016</dt>
   <dd>Pronto para uso (em alfa), pois ainda faltam ajustes e acréscimos de novas funcionalidades.</dd>

@@ -19,14 +19,14 @@
         linkShowState: "@",
         linkEditTitulo: "@",
         linkEditState: "@",
-        linkBackState: "@",
-        linkBackTitulo: "@",
+        exibirBotaoVoltar: "@",
         busca: "=",
         termo: "="
       },
       controller: ['$scope','$rootScope',function($scope, $rootScope) {
         $scope.mudarPreferencia = mudarPreferencia;
         $scope.deveExibirControlesTabela = deveExibirControlesTabela;
+        $scope.voltar = voltar;
 
         $scope.modo = $window.localStorage.getItem('preferencia_visualizacao_conteudo');
 
@@ -42,6 +42,10 @@
           $scope.modo = tipoVisualizacao;
           $window.localStorage.setItem('preferencia_visualizacao_conteudo', tipoVisualizacao);
           $rootScope.$broadcast("atualizar-tabela-mutante");
+        }
+
+        function voltar() {
+          $window.history.back();
         }
 
       }],

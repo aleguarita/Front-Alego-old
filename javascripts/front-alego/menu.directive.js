@@ -19,6 +19,7 @@
 
         var menus = frontAlegoConfig.menus;
         var permitidos = [];
+        var gruposFechados = [];
 
         for(var i=0; i < menus.length; i++) {
           var menu = menus[i];
@@ -42,6 +43,24 @@
 
         $scope.permitidos = permitidos;
 
+        $scope.toogleGrupoFechado = toogleGrupoFechado;
+        $scope.grupoFechado = grupoFechado;
+
+
+        function toogleGrupoFechado(grupo) {
+          if(grupoFechado(grupo)) {
+            _.pull(gruposFechados, grupo);
+          }
+          else {
+            gruposFechados.push(grupo);
+          }
+          console.log(gruposFechados);
+        }
+
+        function grupoFechado(grupo) {
+          return _.indexOf(gruposFechados, grupo) > -1;
+        }
+  
 
 
       }],

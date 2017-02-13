@@ -1,6 +1,7 @@
 <article id="abas">
   <header><h1>Abas</h1></header>
   <p>As configurações básicas da abas são encontradas no <a href="#config__abas" class="link--readme">arquivo de configuração</a>. Abaixo você vê os tipos disponíveis.</p>
+
   <section class="secao-lista">
     <input type="checkbox" id="abas__doc" class="secao-lista__check">
     <header class="secao-lista__header">
@@ -9,13 +10,16 @@
         <svg class="secao-lista__icone ico"><use xlink:href="../images/ico.svg#seta-fina" /></svg>
       </label>
     </header>
+
     <section class="secao-lista__conteudo">
-      <p>Para criar abas que exibem e ocultem o conteúdo é necessário deixar o HTML bem estruturado ou não vai dar certo.</p>
+      <p>Para criar abas que exibem e ocultem o conteúdo é necessário deixar o HTML bem estruturado ou não vai dar certo (<strong class="texto--erro">Atenção, se estiver usando Ruby/Angular o procedimento é diferente, veja abaixo</strong>).</p>
       <p>Você também vai notar que existem várias classes que devem receber um número. Lembre-se que o maior número disponível da classe é configurado no <a href="#config__abas" class="link--readme">arquivo de configuração</a> através da classe <samp>$abas-qtd</samp>.</p>
       <p>Siga os passos:</p>
-      <ol class="lista-ordenad">
+
+      <ol class="lista-ordenada">
         <li>Crie uma <samp>section</samp> e acrescente a classe <samp>abas</samp>.</li>
         <li>Essa <samp>section</samp> é dividida em três partes: radio buttons, nav e conteúdo. Estes três grupos devem estar no mesmo nível.</li>
+
           <p>Até o momento será algo como:</p>
           <code class="codigo--html">
             <header>HTML</header>
@@ -25,10 +29,12 @@
             <p class="recuo-1">&lt;!-- conteúdo das abas --&gt;</p>
             <p>&lt;/section&gt;</p>
           </code>
-        <li><strong>radio buttons</strong>: eles devem ser filhos diretos do <samp>&lt;section class="abas"&gt;</samp>. Você deverá ter um radio para cada aba.</li>
+
+        <li><strong>radio buttons</strong>: eles devem ser filhos diretos do <samp>&lt;section class="abas"&gt;</samp>. Você deverá ter um radio para cada aba. <strong class="texto--erro">Obs.:</strong> se você estiver usando Javascript, não precisa incluir os radios</li>
         <li>Coloque um <samp>name</samp> para todos os radios. Como padrão sugiro <samp>abas</samp>.</li>
         <li>Cada radio deve ter um <samp>id</samp> que seria <samp>aba-x</samp> e as classes <samp>abas__input</samp> e <samp>aba-x</samp> (substitua <samp>x</samp> pelo número da aba).</li>
         <li>Defina qual a aba padrão para ser a ativa e acrescente <samp>checked="checked"</samp> no radio específico.</li>
+
           <p>Se tivermos três abas como exemplo com a primeira aba sendo exibida por padrão, o código seria:</p>
           <code class="codigo--html">
             <header>HTML</header>
@@ -40,9 +46,11 @@
             <p class="recuo-1">&lt;!-- conteúdo das abas --&gt;</p>
             <p>&lt;/section&gt;</p>
           </code>
+
         <li><strong>navegação</strong>: abra um tag <samp>nav</samp> com a classe <samp>abas__nav</samp>.</li>
-        <li>Dentro dela coloque os labels para os radio.</li>
-        <li>Cada label deve ter o <samp>for</samp> equivalente ao id do radio que você criou anteriormente e deve ter as classes <samp>abas__aba</samp> e <samp>aba-x</samp> (substitua <samp>x</samp> pelo número do label, que deve ser igual ao id e classe do radio).</li>
+        <li>Dentro dela coloque os labels para os radio. <strong class="texto--erro">Obs.:</strong> caso esteja usando JS, use <samp>&lt;a&gt;</samp> ou <samp>&lt;span&gt;</samp></li>
+        <li>Cada label deve ter o <samp>for</samp> equivalente ao id do radio que você criou anteriormente e deve ter as classes <samp>abas__aba</samp> e <samp>aba-x</samp> (substitua <samp>x</samp> pelo número do label, que deve ser igual ao id e classe do radio). <strong class="texto--erro">Obs.:</strong> essa classe não é necessária se estiver usando JS, mas ajuda a identificar o conteúdo e qual aba ela abre/fecha.</li>
+
           <p>No momento, com três abas teríamos:</p>
           <code class="codigo--html">
             <header>HTML</header>
@@ -57,9 +65,12 @@
             <p class="recuo-1">&lt;/nav&gt;</p>
             <p class="recuo-1">&lt;!-- conteúdo das abas --&gt;</p>
             <p>&lt;/section&gt;</p>
+
           </code>
         <li><strong>abas</strong>: cada aba deve estar no mesmo nível. Use a tag <samp>article</samp> para cada uma delas.</li>
-        <li>Cada aba deve ter uma classe <samp>abas__conteudo</samp> e a classe <samp>aba-x</samp> que deve ser igual à do label e radio.</li>
+        <li>Cada aba deve ter uma classe <samp>abas__conteudo</samp> e a classe <samp>aba-x</samp> que deve ser igual à do label (ou <samp>a</samp>/<samp>span</samp>) e radio. <strong class="texto--erro">Obs.:</strong> se estiver fazendo uso de JS, inclua a classe <samp>ativa</samp> na aba que deve ser aberta</li>
+        <li>Caso esteja utilizando de JS, inclua a classe <samp>.ativa</samp> no elemento <samp>.abas__aba</samp>.</li>
+
           <p>O HTML final ficaria:</p>
           <code class="codigo--html">
             <header>HTML</header>
@@ -82,8 +93,10 @@
                 <p class="recuo-2">Conteúdo da aba 3</p>
               <p class="recuo-1">&lt;/article&gt;</p>
             <p>&lt;/section&gt;</p>
+
           </code>
       </ol>
+
       <p>Lista de classes usadas:</p>
       <dl class="lista-definicao">
         <dt><samp>.abas</samp></dt>
@@ -95,9 +108,11 @@
         <dt><samp>.abas__input</samp></dt>
           <dd><samp><strong>&lt;input type="radio"&gt;</strong></samp>. Serve para ocultar o input.</dd>
         <dt><samp>.abas__aba</samp></dt>
-          <dd><samp><strong>&lt;label&gt;</strong></samp>. Formata os itens de navegação.</dd>
+          <dd><samp><strong>&lt;label&gt;</strong></samp> | <samp><strong>&lt;a&gt;</strong></samp> | <samp><strong>&lt;span&gt;</strong></samp>. Formata os itens de navegação.</dd>
         <dt><samp>.abas__conteudo</samp></dt>
           <dd><samp><strong>&lt;article&gt;</strong></samp>. Formatação do conteúdo (que estará oculto por padrão).</dd>
+        <dt><samp>.ativa</samp></dt>
+          <dd><samp><strong>&lt;.abas__conteudo&gt;</strong></samp> | <samp><strong>.abas__aba</strong></samp>. Para uso de JS. Se aplicada na classe <samp>.abas__conteudo</samp> vai exibir o conteúdo dela, se aplicada na classe <samp>.abas__aba</samp> vai indicar qual é a aba aberta na barra de navegação.</dd>
       </dl>
     </section>
   </section>

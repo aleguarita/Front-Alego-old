@@ -92,6 +92,46 @@
             <dd>O tamanho máximo da grid na tela (<samp>max-width</samp>). Quando a tela for maior que essa medida, fica centralizado (usa no <samp>.container</samp>)</dd>
         </dl>
 
+      <h2 id="config__tipografia">Tipografia</h2>
+        <!-- LINK -->
+        <p>Define os valores padrões de tipografia</p>
+        <dl class="lista-definicao">
+          <dt><samp>$titulo-tipo</samp></dt>
+            <dd>Se está usando fonte serifada ou sem serifa. O valor padrão é <samp>serifa</samp>. Valores: <samp>serifa</samp> | <samp>sans-serif</samp></dd>
+          <dt><samp>$margem-titulo</samp></dt>
+            <dd>A margem antes e depois de cada um dos títulos (<samp>&lt;h1&gt;</samp> até <samp>&lt;h6&gt;</samp>)</dd>
+          <dt><samp>$margem-texto</samp></dt>
+            <dd>Espaço padrão entre os elementos de texto, tabelas, listas, etc.</dd>
+          <dt><samp>$modular-font-size</samp></dt>
+            <dd>Tamanho da fonte básica. Se alterar este valor, o tamanho da fonte de todo o sistema é alterado</dd>
+        </dl>
+
+      <h2 id="config__form">Formulários</h2>
+        <p>Configuração dos formulários</p>
+        <dl class="lista-definicao">
+          <dt><samp>$form-tipo</samp></dt>
+            <dd>Tipo de formulário: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp></dd>
+          <dt><samp>$label-tipo</samp></dt>
+            <dd>Define se o label vai ser na mesma linha do input ou se vai ter quebra de linha. Valores: <samp>flutuante</samp> (quebra de linha) | <samp>colado</samp> (na mesma linha)</dd>
+          <dt><samp>$form-radio-check-personaliza</samp></dt>
+            <dd>Determina se vai usar formatação personalizada nos radio button e checkbox ou se vai usar o padrão do browser. Valores <samp>sim</samp> | <samp>não</samp></dd>
+          <dt><samp>$form-obrigatorio</samp></dt>
+            <dd>Define o tamanho do asterisco de obrigatório dentor dos campos. A medida é o equivalente em pixels mas <strong>deve ser escrita sem a medida</strong></dd>
+            <dt><samp>$form-fundo-campos</samp></dt>
+            <dd>Define a cor de fundo dos campos de formulário. Pode ser usado a função <samp>cor()</samp> para determinar o que quiser</dd>
+
+          <dt><samp>$botao-tipo</samp></dt>
+            <dd>Determina o tipo de botão a ser usado. Valores: <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
+          <dt><samp>$botao-secundario</samp></dt>
+            <dd>Determina o tipo secundário de botão. Se for o mesmo tipo do acima, aparecerá com outra cor. Valores: <samp>$botao-tipo</samp> ou <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
+          <dt><samp>$botao-sombra-colorida</samp></dt>
+            <dd>Define se a sombra vai ser colorida, da cor do texto (ao passar o mouse por cima do tipo-1). <samp>sim</samp> | <samp>não</samp></dd>
+          <dt><samp>$botao-arredondamento</samp></dt>
+            <dd>Define se o botão vai ter borda arredondada. <samp>sim</samp> | <samp>não</samp></dd>
+          <dt><samp>$botoes-status</samp></dt>
+            <dd>Não crie classes neste mapa (pois vai dar erro), apenas comente as que não for usar. Usam o mesmo tipo do <samp>$botao-secundario</samp></dd>
+        </dl>
+
       <h2 id="config__tab">Tabelas</h2>
         <p>Configurações de tabela.</p>
         <dl class="lista-definicao">
@@ -161,32 +201,6 @@
             <dd>Um multiplicador para a distância vertical. Isso é usado para distanciar o toaster do rodapé (se aparecer de baixo) ou do cabeçalho (se estiver vindo de cima) sem ocultar estes elementos.</dd>
         </dl>
 
-      <h2 id="config__form">Formulários</h2>
-        <p>Configuração dos formulários</p>
-        <dl class="lista-definicao">
-          <dt><samp>$form-tipo</samp></dt>
-            <dd>Tipo de formulário: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp></dd>
-          <dt><samp>$label-tipo</samp></dt>
-            <dd>Define se o label vai ser na mesma linha do input ou se vai ter quebra de linha. Valores: <samp>flutuante</samp> (quebra de linha) | <samp>colado</samp> (na mesma linha)</dd>
-          <dt><samp>$form-radio-check-personaliza</samp></dt>
-            <dd>Determina se vai usar formatação personalizada nos radio button e checkbox ou se vai usar o padrão do browser. Valores <samp>sim</samp> | <samp>não</samp></dd>
-          <dt><samp>$form-obrigatorio</samp></dt>
-            <dd>Define o tamanho do asterisco de obrigatório dentor dos campos. A medida é o equivalente em pixels mas <strong>deve ser escrita sem a medida</strong></dd>
-          <dt><samp>$form-fundo-campos</samp></dt>
-            <dd>Define a cor de fundo dos campos de formulário. Pode ser usado a função <samp>cor()</samp> para determinar o que quiser</dd>
-
-          <dt><samp>$botao-tipo</samp></dt>
-            <dd>Determina o tipo de botão a ser usado. Valores: <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
-          <dt><samp>$botao-secundario</samp></dt>
-            <dd>Determina o tipo secundário de botão. Se for o mesmo tipo do acima, aparecerá com outra cor. Valores: <samp>$botao-tipo</samp> ou <samp>tipo-1</samp> até <samp>tipo-6</samp></dd>
-          <dt><samp>$botao-sombra-colorida</samp></dt>
-            <dd>Define se a sombra vai ser colorida, da cor do texto (ao passar o mouse por cima do tipo-1). <samp>sim</samp> | <samp>não</samp></dd>
-          <dt><samp>$botao-arredondamento</samp></dt>
-            <dd>Define se o botão vai ter borda arredondada. <samp>sim</samp> | <samp>não</samp></dd>
-          <dt><samp>$botoes-status</samp></dt>
-            <dd>Não crie classes neste mapa (pois vai dar erro), apenas comente as que não for usar. Usam o mesmo tipo do <samp>$botao-secundario</samp></dd>
-        </dl>
-
       <h2 id="config__lista">Lista</h2>
         <dl class="lista-definicao">
           <dt><samp>$lista-tipo</samp></dt>
@@ -212,7 +226,7 @@
           <dt><samp>$abas-tipo</samp></dt>
             <dd>Valores: <samp>tipo-1</samp> | <samp>tipo-2</samp> | <samp>tipo-3</samp> | <samp>tipo-4</samp></dd>
           <dt><samp>$abas-qtd</samp></dt>
-            <dd>Define a quantidade de abas disponível. Não coloque mais que o necessário, pois isso infla o código final</dd>
+            <dd>Define a quantidade de abas disponível. Não coloque mais que o necessário, pois isso infla o código final. <strong class="texto--erro">Atenção: </strong> se você estiver usando JS, coloque este valor como 0 para deixar o código mais enxuto.</dd>
         </dl>
 
       <h2 id="config__tela-mensagem">Tela de Mensagem</h2>
@@ -268,7 +282,7 @@
           <dt><samp>$menu-titulo</samp></dt>
             <dd>Exibe o título do menu (para o caso de ter mais de um menu e você deseja fechar o grupo).</dd>
           <dt><samp>$menu-animacao</samp></dt>
-            <dd>Se estiver usando o título do menu para exibir/ocultar o conteúdo do mesmo, define se haverá efeito de animação para isso. Se o valor for <samp>não</samp> o menu ainda será oculto ao clicar no título, com a diferença de que será sem animação</dd>
+            <dd>Se estiver usando o título do menu para exibir/ocultar o conteúdo do mesmo, define se haverá efeito de animação para isso. Se o valor for <samp>não</samp> o menu ainda será oculto ao clicar no título, com a diferença de que será sem animação. <strong class="texto--erro">Não implementado ainda!</strong></dd>
           <dt><samp>$menu-max</samp></dt>
             <dd>Use este valor somente se <samp>$menu-animacao</samp> for <samp>sim</samp>. Determina a quantidade de itens a serem animados. Deixe um pouco de sobra (mais itens que o de itens de menu), assim se for acrescentado novos itens do menu eles serão animados, mas lembre-se que cada valor é um seletor a mais.</dd>
         </dl>

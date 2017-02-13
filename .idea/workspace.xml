@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e8b26cbb-de10-4ec4-96d3-5458f9f1e279" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ico/mais-1.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ico/mais.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ico/menos-1.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ico/menos.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/loading-1.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/toastr-error.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/toastr-info.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/toastr-success.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/toastr-warning.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascripts/front-alego/menu-rota-ativa.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/javascripts/front-alego/upload-file-name.directive.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_+arquivos-local.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_+fallback.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_+imports.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_fontes_rails.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_toaster_antigo.scss" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_base/svg/mais.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_base/svg/menos.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_base/svg/svg-info.md" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/config/_tipografia.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_tipografia.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/abrir.svg" afterPath="$PROJECT_DIR$/images/ico/abrir.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/ajuda.svg" afterPath="$PROJECT_DIR$/images/ico/ajuda.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/apontando.svg" afterPath="$PROJECT_DIR$/images/ico/apontando.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/asterisco.svg" afterPath="$PROJECT_DIR$/images/ico/asterisco.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/aviso.svg" afterPath="$PROJECT_DIR$/images/ico/aviso.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/cadeado-aberto.svg" afterPath="$PROJECT_DIR$/images/ico/cadeado-aberto.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/cadeado-fechado.svg" afterPath="$PROJECT_DIR$/images/ico/cadeado-fechado.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/cadeado.svg" afterPath="$PROJECT_DIR$/images/ico/cadeado.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/calendario-1.svg" afterPath="$PROJECT_DIR$/images/ico/calendario-1.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/calendario-2.svg" afterPath="$PROJECT_DIR$/images/ico/calendario-2.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/calendario.svg" afterPath="$PROJECT_DIR$/images/ico/calendario.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/carregando-1.svg" afterPath="$PROJECT_DIR$/images/ico/carregando-1.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/carregando.svg" afterPath="$PROJECT_DIR$/images/ico/carregando.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/casa.svg" afterPath="$PROJECT_DIR$/images/ico/casa.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/celular.svg" afterPath="$PROJECT_DIR$/images/ico/celular.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/chat-1.svg" afterPath="$PROJECT_DIR$/images/ico/chat-1.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/chat-2.svg" afterPath="$PROJECT_DIR$/images/ico/chat-2.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/chat-3.svg" afterPath="$PROJECT_DIR$/images/ico/chat-3.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/chat-4.svg" afterPath="$PROJECT_DIR$/images/ico/chat-4.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/chave.svg" afterPath="$PROJECT_DIR$/images/ico/chave.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/clip.svg" afterPath="$PROJECT_DIR$/images/ico/clip.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/compartilhar.svg" afterPath="$PROJECT_DIR$/images/ico/compartilhar.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/compartilhar2.svg" afterPath="$PROJECT_DIR$/images/ico/compartilhar2.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/cone-seguranca.svg" afterPath="$PROJECT_DIR$/images/ico/cone-seguranca.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/cracha.svg" afterPath="$PROJECT_DIR$/images/ico/cracha.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/curtir.svg" afterPath="$PROJECT_DIR$/images/ico/curtir.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/descurtir.svg" afterPath="$PROJECT_DIR$/images/ico/descurtir.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/desligar.svg" afterPath="$PROJECT_DIR$/images/ico/desligar.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/doc.svg" afterPath="$PROJECT_DIR$/images/ico/doc.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/documento-2.svg" afterPath="$PROJECT_DIR$/images/ico/documento-2.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/documento.svg" afterPath="$PROJECT_DIR$/images/ico/documento.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/download.svg" afterPath="$PROJECT_DIR$/images/ico/download.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/engrenagem.svg" afterPath="$PROJECT_DIR$/images/ico/engrenagem.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/envelope.svg" afterPath="$PROJECT_DIR$/images/ico/envelope.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/erro-1.svg" afterPath="$PROJECT_DIR$/images/ico/erro-1.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/erro.svg" afterPath="$PROJECT_DIR$/images/ico/erro.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/estrela-metade.svg" afterPath="$PROJECT_DIR$/images/ico/estrela-metade.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/estrela-vazia.svg" afterPath="$PROJECT_DIR$/images/ico/estrela-vazia.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/estrela.svg" afterPath="$PROJECT_DIR$/images/ico/estrela.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/facebook.svg" afterPath="$PROJECT_DIR$/images/ico/facebook.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/facebook2.svg" afterPath="$PROJECT_DIR$/images/ico/facebook2.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/fechar.svg" afterPath="$PROJECT_DIR$/images/ico/fechar.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/ferramentas.svg" afterPath="$PROJECT_DIR$/images/ico/ferramentas.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/figura.svg" afterPath="$PROJECT_DIR$/images/ico/figura.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/filtro.svg" afterPath="$PROJECT_DIR$/images/ico/filtro.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/fluxograma.svg" afterPath="$PROJECT_DIR$/images/ico/fluxograma.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/foto.svg" afterPath="$PROJECT_DIR$/images/ico/foto.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/globo.svg" afterPath="$PROJECT_DIR$/images/ico/globo.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/google+.svg" afterPath="$PROJECT_DIR$/images/ico/google+.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/grafico-1.svg" afterPath="$PROJECT_DIR$/images/ico/grafico-1.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/grafico-2.svg" afterPath="$PROJECT_DIR$/images/ico/grafico-2.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/grafico-3.svg" afterPath="$PROJECT_DIR$/images/ico/grafico-3.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/grupo.svg" afterPath="$PROJECT_DIR$/images/ico/grupo.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/impressora.svg" afterPath="$PROJECT_DIR$/images/ico/impressora.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/info.svg" afterPath="$PROJECT_DIR$/images/ico/info.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/janela-up.svg" afterPath="$PROJECT_DIR$/images/ico/janela-up.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/janela.svg" afterPath="$PROJECT_DIR$/images/ico/janela.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/lampada.svg" afterPath="$PROJECT_DIR$/images/ico/lampada.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/lapis.svg" afterPath="$PROJECT_DIR$/images/ico/lapis.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/link.svg" afterPath="$PROJECT_DIR$/images/ico/link.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/livro.svg" afterPath="$PROJECT_DIR$/images/ico/livro.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/lixo-1.svg" afterPath="$PROJECT_DIR$/images/ico/lixo-1.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/lixo-2.svg" afterPath="$PROJECT_DIR$/images/ico/lixo-2.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/local.svg" afterPath="$PROJECT_DIR$/images/ico/local.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/lupa.svg" afterPath="$PROJECT_DIR$/images/ico/lupa.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/megafone.svg" afterPath="$PROJECT_DIR$/images/ico/megafone.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/menu.svg" afterPath="$PROJECT_DIR$/images/ico/menu.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/monitor.svg" afterPath="$PROJECT_DIR$/images/ico/monitor.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/novo.svg" afterPath="$PROJECT_DIR$/images/ico/novo.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/ok-tique.svg" afterPath="$PROJECT_DIR$/images/ico/ok-tique.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/olho-fechado.svg" afterPath="$PROJECT_DIR$/images/ico/olho-fechado.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/olho.svg" afterPath="$PROJECT_DIR$/images/ico/olho.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/ordena-baixo.svg" afterPath="$PROJECT_DIR$/images/ico/ordena-baixo.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/ordena-cima.svg" afterPath="$PROJECT_DIR$/images/ico/ordena-cima.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/ordenar.svg" afterPath="$PROJECT_DIR$/images/ico/ordenar.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/pasta.svg" afterPath="$PROJECT_DIR$/images/ico/pasta.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/pdf.svg" afterPath="$PROJECT_DIR$/images/ico/pdf.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/pessoa-1.svg" afterPath="$PROJECT_DIR$/images/ico/pessoa-1.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/pessoa-2.svg" afterPath="$PROJECT_DIR$/images/ico/pessoa-2.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/pessoa-3.svg" afterPath="$PROJECT_DIR$/images/ico/pessoa-3.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/prancheta.svg" afterPath="$PROJECT_DIR$/images/ico/prancheta.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/proibido.svg" afterPath="$PROJECT_DIR$/images/ico/proibido.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/relogio.svg" afterPath="$PROJECT_DIR$/images/ico/relogio.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/sair.svg" afterPath="$PROJECT_DIR$/images/ico/sair.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/salvar.svg" afterPath="$PROJECT_DIR$/images/ico/salvar.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/seta-dupla.svg" afterPath="$PROJECT_DIR$/images/ico/seta-dupla.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/seta-fina.svg" afterPath="$PROJECT_DIR$/images/ico/seta-fina.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/seta-select.svg" afterPath="$PROJECT_DIR$/images/ico/seta-select.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/seta.svg" afterPath="$PROJECT_DIR$/images/ico/seta.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/tabela.svg" afterPath="$PROJECT_DIR$/images/ico/tabela.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/tablet.svg" afterPath="$PROJECT_DIR$/images/ico/tablet.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/teclado.svg" afterPath="$PROJECT_DIR$/images/ico/teclado.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/telefone.svg" afterPath="$PROJECT_DIR$/images/ico/telefone.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/twitter.svg" afterPath="$PROJECT_DIR$/images/ico/twitter.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/upload.svg" afterPath="$PROJECT_DIR$/images/ico/upload.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_base/svg/zip.svg" afterPath="$PROJECT_DIR$/images/ico/zip.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/javascripts/app.js" afterPath="$PROJECT_DIR$/javascripts/front-alego/app.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/javascripts/autocomplete.directive.js" afterPath="$PROJECT_DIR$/javascripts/front-alego/autocomplete.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/javascripts/header-tabela-mutante.directive.js" afterPath="$PROJECT_DIR$/javascripts/front-alego/header-tabela-mutante.directive.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/javascripts/input-file.js" afterPath="$PROJECT_DIR$/javascripts/front-alego/input-file.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/javascripts/menu.directive.js" afterPath="$PROJECT_DIR$/javascripts/front-alego/menu.directive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_base/config/_+config.scss" afterPath="$PROJECT_DIR$/_base/config/_+config.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_base/config/_front-alego-local.scss" afterPath="$PROJECT_DIR$/_base/config/_front-alego-local.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_base/config/_front-alego.scss" afterPath="$PROJECT_DIR$/_base/config/_front-alego.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/changelog.html" afterPath="$PROJECT_DIR$/_read-me/changelog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/doc/abas.html" afterPath="$PROJECT_DIR$/_read-me/doc/abas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/doc/classes.html" afterPath="$PROJECT_DIR$/_read-me/doc/classes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/doc/config.html" afterPath="$PROJECT_DIR$/_read-me/doc/config.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/doc/form.html" afterPath="$PROJECT_DIR$/_read-me/doc/form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/doc/loading.html" afterPath="$PROJECT_DIR$/_read-me/doc/loading.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/doc/simbolos-svg.html" afterPath="$PROJECT_DIR$/_read-me/doc/simbolos-svg.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/doc/tabelas.html" afterPath="$PROJECT_DIR$/_read-me/doc/tabelas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/doc/tipografia.html" afterPath="$PROJECT_DIR$/_read-me/doc/tipografia.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/info.css" afterPath="$PROJECT_DIR$/_read-me/info.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_read-me/info.scss" afterPath="$PROJECT_DIR$/_read-me/info.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/ico.svg" afterPath="$PROJECT_DIR$/images/ico.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/loading.svg" afterPath="$PROJECT_DIR$/images/loading.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascripts/front-alego.js" afterPath="$PROJECT_DIR$/javascripts/front-alego.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_+arquivos.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_+arquivos.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_abas.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_abas.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_barra_ferramentas.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_barra_ferramentas.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_breakpoints.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_breakpoints.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_classes.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_classes.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_fontes.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_fontes.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_form_file.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_form_file.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_form_select.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_form_select.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_form_texto.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_form_texto.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_funcoes.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_funcoes.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_loading.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_loading.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_menu.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_menu.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_tabela_mutante.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_tabela_mutante.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_tabelas.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_tabelas.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/front-alego/_toaster.scss" afterPath="$PROJECT_DIR$/stylesheets/front-alego/_toaster.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/front-alego/header-tabela-mutante.html.erb" afterPath="$PROJECT_DIR$/templates/front-alego/header-tabela-mutante.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/front-alego/menu.html.erb" afterPath="$PROJECT_DIR$/templates/front-alego/menu.html.erb" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="260" />
+    <option name="y" value="49" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Front-Alego" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Front-Alego" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="GAPID_ENABLED" value="false" />
+        <option name="GAPID_DISABLE_PCS" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Front-Alego" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8b26cbb-de10-4ec4-96d3-5458f9f1e279" name="Default" comment="" />
+      <created>1487005574492</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1487005574492</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="260" y="49" width="1400" height="1000" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+</project>

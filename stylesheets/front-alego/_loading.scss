@@ -2,6 +2,8 @@
 /*
 ================================================================================
 LOADING
+--------------------------------------------------------------------------------
+Loadings em CSS: https://webkul.github.io/csspin/
 ================================================================================
 */
 }
@@ -11,31 +13,236 @@ LOADING
 // -----------------------------------------------------------------------------
 // loading.scss
 // Criado em: 18/08/2016
+// Última alteração em: 24/01/2017
 // -----------------------------------------------------------------------------
 // Definições padrão de loading
 // -----------------------------------------------------------------------------
 // Changelog
+// 25/01/2017 | Inclusão da classe .loading--bloco
+//              Criação do tipo-3
+// 24/01/2017 | Utilização de loadings em CSS
+//              Inclusão da classe .loading--inline
 // 18/08/2016 | Criado o arquivo
 // =============================================================================
+
+// =============================================================================
+// VARIÁVEIS CONFIG (fallback)
+// =============================================================================
+$loading: svg !default; // svg | css
+$loading-tipo: tipo-1 !default; // tipo 1 a 3
+$loading-tamanho: em(40) !default;
+
+// =============================================================================
+// VARIÁVEIS
+// =============================================================================
+$speed2x: 2s;
+$speed3x: 1s;
+$speed4x: .5s;
+
+$cor: cor(fundo);
+$cor--clara: tint(cor(fundo, claro), 10%);
+$cor--escura: shade(cor(fundo, escuro), 20%);
+
+
+// =============================================================================
+// ANIMAÇÕES
+// =============================================================================
+@keyframes giro {
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+// =============================================================================
+// MIXIN | CAIXA
+// =============================================================================
+@mixin bounding-box($width: $loading-tamanho, $height: $loading-tamanho) {
+	width: $width;
+	height: $height;
+}
+
+// =============================================================================
+// MIXIN | BORDA
+// =============================================================================
+@mixin border($borderWidth, $top, $right, $bottom, $left) {
+  border: $borderWidth solid;
+	border-top-color: $top;
+	border-right-color: $right;
+	border-bottom-color: $bottom;
+	border-left-color: $left;
+}
+
+// =============================================================================
+// MIXIN | LOADING
+// =============================================================================
+@mixin loading($modo: "svg", $display: "total", $tipo: null) {
+  // ---------------------------------------------------------------------------
+  // CONTEÚDO GENÉRICO
+  // ---------------------------------------------------------------------------
+  font-size: 1.2em;
+  pointer-events: inherit;
+  cursor: progress;
+
+  // CONTEÚDO OCUPA TODO VIEW PORT
+  // ---------------------------------------------------------------------------
+  @if $display == total {
+    @include overlay;
+    z-index: z(loading);
+  }
+
+  // CONTEÚDO É BLOCO
+  // ---------------------------------------------------------------------------
+  @if $display == bloco {
+    width: 100%;
+    height: 100%;
+    padding-top: $margem;
+  }
+
+  // CONTEÚDO É INLINE
+  // ---------------------------------------------------------------------------
+  @if $display == inline {
+    width: 100%;
+    height: 100%;
+  }
+
+  // ---------------------------------------------------------------------------
+  // SVG
+  // ---------------------------------------------------------------------------
+  @if $modo == svg {
+    background: fade-out(cor(fundo, escuro), .05);
+    color: cor(texto, claro);
+		display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img, .loading__img {
+      width: 1em;
+      margin-right: .5em;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+  // CSS
+  // ---------------------------------------------------------------------------
+  @if $modo == css {
+    // CONFIGURAÇÕES ESPECIAIS PARA QUANDO FOR INLINE
+    $loading-tamanho: if($display == inline, 1em, $loading-tamanho);
+    $cor: if($display == inline, inherit, $cor);
+    background: if($display == inline, tranparent, fade-out(cor(fundo, x-claro), .05));
+
+    // LOADING TEXTO CONFORME O TIPO DE VISUALIZAÇÃO
+    .loading__texto {
+      @if $display != inline {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: $margem * 2;
+      }
+
+      @if $display == inline {
+        margin-left: 2em;
+      }
+    }
+
+    // LOADING IMG CONFORME O TIPO DE VISUALIZAÇÃO
+    .loading__img {
+      width: if($display == bloco, 100%, $loading-tamanho);
+      height: $loading-tamanho;
+
+      @if $display != inline {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-left: $loading-tamanho * -0.5;
+      }
+
+      @if $display == total {
+        margin-top: 25%;
+      }
+
+      // CSS TIPO 1 (round)
+      // -------------------------------------------------------------------------
+      @if $tipo == tipo-1 {
+        &::before, &::after {
+          @include bounding-box($loading-tamanho, $loading-tamanho);
+          content: " ";
+          position: absolute;
+          border-radius: 50%;
+        }
+
+        &::before {
+          @include border($loading-tamanho /8, $cor, $cor, $cor, $cor);
+        }
+
+        &::after {
+          animation: giro $speed3x linear infinite;
+          @include border($loading-tamanho /8, $cor--escura, transparent, transparent, transparent);
+        }
+      }
+
+      // CSS TIPO 2 (skeleton)
+      // -------------------------------------------------------------------------
+      @if $tipo == tipo-2 {
+        &::before, &::after {
+          @include bounding-box($loading-tamanho, $loading-tamanho);
+          @include border($loading-tamanho /8, $cor, transparent, transparent, transparent);
+          content: " ";
+          animation: giro $speed3x linear infinite;
+          border-radius: 50%;
+          position: absolute;
+        }
+
+        &::before {
+          @include border($loading-tamanho /8, transparent, transparent, transparent, $cor);
+          transform: rotateZ(-30deg);
+        }
+
+        &::after {
+          @include border($loading-tamanho /8, transparent, $cor, transparent, transparent);
+          transform: rotateZ(30deg);
+        }
+
+      }
+
+      // CSS TIPO 3
+      // -------------------------------------------------------------------------
+      @if $tipo == tipo-3 {
+        &::before {
+          @include bounding-box($loading-tamanho, $loading-tamanho);
+          @include border($loading-tamanho /8, transparent, transparent, transparent, $cor);
+          content: " ";
+          animation: giro $speed3x linear infinite;
+          border-radius: 50%;
+          position: absolute;
+          transform: rotateZ(-30deg);
+        }
+
+      }
+
+    }
+
+  }
+
+}
 
 // =============================================================================
 // CLASSE
 // =============================================================================
 @if index($uso-classes, loading) {
+
   .loading {
-    @include overlay;
-    display: flex;
-    background: fade-out(cor(fundo, escuro), .05);
-    color: cor(texto, claro);
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    z-index: z(loading);
-    pointer-events: inherit;
-    cursor: progress;
-    img {
-      width: 1em;
-      margin-right: .5em;
+    @include loading($loading, total, $loading-tipo);
+
+    &--inline {
+      @include loading($loading, inline, $loading-tipo);
+    }
+
+    &--bloco {
+      @include loading($loading, bloco, $loading-tipo);
     }
   }
+
 }

@@ -11,11 +11,12 @@ BARRA DE FERRAMENTAS
 // -----------------------------------------------------------------------------
 // barra-ferramentas.scss
 // Criado em: 27/09/2016
-// Alterado em: 12/01/2017
+// Alterado em: 24/01/2017
 // -----------------------------------------------------------------------------
 // Definições padrão de barra de ferramentas
 // -----------------------------------------------------------------------------
 // Changelog
+// 24/01/2017 | Fallback
 // 12/01/2017 | Melhoria na parte comum do ícone e da ação
 // 21/12/2016 | Reformulado para adequar à diretiva
 // 27/09/2016 | Criado o arquivo
@@ -27,6 +28,7 @@ BARRA DE FERRAMENTAS
 $barra-ferramentas-titulo: sem-serifa !default; // sem-serifa ou serifa
 $barra-ferramentas-margem: $margem !default;
 $barra-ferramentas--texto-acao: nao !default;
+$barra-ferramentas-icone-acao: igual !default;
 
 $barra-ferramentas-titulo-tipo: if($barra-ferramentas-titulo == "sem-serifa", $fonte-sem-serifa, $fonte-serifa);
 

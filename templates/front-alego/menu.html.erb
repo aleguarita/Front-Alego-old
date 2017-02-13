@@ -1,6 +1,6 @@
 <nav class="nav">
-  <ul class="menu" ng-repeat="grupo in permitidos">
-    <li class="menu__titulo">
+  <ul class="menu" ng-repeat="grupo in permitidos"  >
+    <li class="menu__titulo" ng-click="toogleGrupoFechado(grupo.titulo)" ng-class="{'fechado':grupoFechado(grupo.titulo)}">
       <span>
         {{grupo.titulo}}
         <svg class="ico">
@@ -11,7 +11,7 @@
 
     <li
       class="menu__item"
-      rota-ativa="{{menu.stateBase}}"
+      front-alego-rota-ativa="{{menu.stateBase}}"
       ng-repeat="menu in grupo.itens">
       <a ui-sref="{{menu.state}}"
       ui-sref-opts="{inherit: false}">{{menu.titulo}}</a>

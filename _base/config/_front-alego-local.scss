@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 15/08/2016
+	Última alteração: 20/01/2017
 	------------------------------------------------------------------------------
 */
 // font-alego-local.scss
@@ -36,6 +36,11 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 20/01/2017 | Não importa mais tipografia e fontes por aqui e sim direto na GEM
+// 19/01/2017 | Mudada localização de tipografia.scss da pasta config para a
+//              padrão do sistema
+//              As fontes são puxadas no final para garantir a leitura do
+//               site
 // 15/08/2016 | Atualizado para uso em GEM. Isso incluiu renomeação de arquivos
 // 13/04/2016 | Alterada ordem das cores
 // 31/03/2016 | Devolvido para a pasta config/. Apesar de o usuário não mexer
@@ -66,6 +71,9 @@
 // 07/01/2015 | Primeira forma de organizar arquivos
 // =============================================================================
 
+// ATENÇÃO, QUANDO FOR LOCAL ALTERE O ARQUIVO DE front_alego/+arquivos
+// na última linha comente @import fontes_rails
+
 // Bourbon: http://bourbon.io
 // Atenção: acrescentar a gem "bourbon" no Gemfile
 @import "../bourbon/bourbon"; // (se instalado o bourbon manualmente)
@@ -82,10 +90,8 @@
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
 @import "../../stylesheets/front-alego/cores_status";
-@import "../../stylesheets/front-alego/fontes";
 @import "variaveis";
-@import "tipografia";
 @import "z-index";
 @import "simbolos";
 
-@import "../../stylesheets/front-alego/+arquivos.scss"; // Todos os demais arquivos
+@import "../../stylesheets/front-alego/+arquivos-local.scss"; // Todos os demais arquivos

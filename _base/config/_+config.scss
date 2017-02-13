@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 17/01/2017
+// Última alteração em: 13/02/2017
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,8 +13,11 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
-// 17/01/2017 | Inclusão de variável para determinar o fundo dos campos dos
+// 13/02/2017 | Inclusão de variável para determinar o fundo dos campos dos
 //              formulários
+// 01/02/2017 | Inclusão do valor 0 para abas, enxugar o código
+// 25/01/2017 | Inclusão de opções para o loading
+// 19/01/2017 | Inclusão das variáveis de tipografia
 // 16/01/2017 | Inclusão de animação no menu
 // 22/12/2016 | Alterada barra de ferramentas
 //              Acréscimo do menu
@@ -103,9 +106,38 @@ $grid-margem: rem(10);
 $grid-max: rem(1600);
 
 // =============================================================================
+// TIPOGRAFIA
+// =============================================================================
+$titulo-tipo: serifa; // serifa | sem-serifa
+$margem-titulo: 1em 0 .5em;
+$margem-texto: 1em 0;
+
+// Modular scale no bourbon.io
+$modular-font-size: 1.2em; // Tamanho da fonte básica
+
+// =============================================================================
+// FORMULÁRIOS
+// =============================================================================
+$form-tipo: tipo-3; // 3 tipos
+$label-tipo: flutuante; // flutuante | colado
+$form-radio-check-personaliza: sim;
+$form-obrigatorio: 16; // tamanho do SVG de obrigatório (*) em px
+$form-fundo-campos: transparent; // fundo das caixas de texto
+
+$botao-tipo: tipo-5; // 6 tipos
+$botao-secundario: $botao-tipo; // 6 tipos + $botao-tipo
+$botao-sombra-colorida: sim;
+$botao-arredondamento: não;
+$botoes-status: (
+    urgente,
+    ok,
+    aviso,
+);
+
+// =============================================================================
 // TABELAS
 // =============================================================================
-$tab-tipo: tipo-1; // 2 tipos
+$tab-tipo: tipo-3; // 3 tipos
 
 $tab--zebra: sim;
 $tab--responsiva: sim;
@@ -152,29 +184,17 @@ $breadcrumbs-tipo: tipo-1; // 2 tipos
 // TOASTER
 // =============================================================================
 $toaster-tipo: tipo-1; // 2 tipos
+$toaster-biblioteca: toastr; //toastr (o atual) toaster o antigo
+$toaster-tamanho-img: rem(50);
+$toaster-arredondamento: não;
+
+// formatação antiga, com uso da modalidade do toaster. O atual é o toastr (acima).
+// mantido para retrocompatibilidade
 $toaster-horizontal: right;
 $toaster-vertical: bottom;
 $toaster-distancia: 2em;
 $toaster-distancia-vertical: 1;
 
-// =============================================================================
-// FORMULÁRIOS
-// =============================================================================
-$form-tipo: tipo-1; // 3 tipos
-$label-tipo: flutuante; // flutuante | colado
-$form-radio-check-personaliza: sim;
-$form-obrigatorio: 16; // tamanho do SVG de obrigatório (*) em px
-$form-fundo-campos: transparent; // fundo das caixas de texto
-
-$botao-tipo: tipo-5; // 6 tipos
-$botao-secundario: $botao-tipo; // 6 tipos + $botao-tipo
-$botao-sombra-colorida: sim;
-$botao-arredondamento: não;
-$botoes-status: (
-  urgente,
-  ok,
-  aviso,
-);
 
 // =============================================================================
 // LISTA
@@ -193,7 +213,7 @@ $secao-lista-titulo: 3;
 // ABAS
 // =============================================================================
 $abas-tipo: tipo-1; // 4 tipos
-$abas-qtd: 5;
+$abas-qtd: 0; // coloque 0 se for fazer uso de js
 
 // =============================================================================
 // TELA DE MENSAGENS
@@ -241,5 +261,12 @@ $tab-mutante-qtd: (1, 1, 2, 4);
 // MENU
 // =============================================================================
 $menu-titulo: sim;
-$menu-animacao: não;
+$menu-animacao: não; // não implementada ainda
 $menu-max: 10;
+
+// =============================================================================
+// LOADING
+// =============================================================================
+$loading: css; // svg | css
+$loading-tipo: tipo-3; // tipo 1 a 3
+$loading-tamanho: em(40);

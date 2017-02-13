@@ -1,45 +1,26 @@
-@if index($uso-classes, toaster) {
-/*
-================================================================================
-TOASTER
-================================================================================
-*/
-}
-
 // =============================================================================
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // toaster.scss
-// Criado em: 20/03/2015
-// Última alteração em: 08/09/2016
+// Criado em: 03/02/2017
+// Alterado em: 07/02/2017
 // -----------------------------------------------------------------------------
 // Notificações do sistema. Aparecendo de baixo.
+// Faz uso da biblioteca toastr: https://github.com/Foxandxss/angular-toastr
 // -----------------------------------------------------------------------------
 // Changelog
-// 08/09/2016 | Padronização na raíz do mixin
-// 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
-//              evitar incompatibilidade no caso de atualizações do config.scss
-// 13/04/2016 | Alterado esquema de cores para paleta única
-// 11/02/2016 | Toaster usa cores mais escuras
-// 28/01/2016 | Retirado o uso de placeholders para uso de mixins
-// 23/11/2015 | Alterado tipos para "tipo-x" ao invés de um nome diferente
-// 							por tipo
-// 17/11/2015 | Utilizada nova forma chamar as classes
-// 05/11/2015 | Incluído fundo branco no toaster de linha
-// 04/11/2015 | Alteração para os novos padrões.
-// 						  Opção de escolha entre dois modelos.
-// 20/03/2015 | Criado o arquivo
+// 07/02/2017 | Correção da condicional
+// 03/02/2017 | Criado o arquivo
 // =============================================================================
 
 // =============================================================================
 // CONFIG
 // =============================================================================
 $toaster-tipo: tipo-1 !default; // 2 tipos
-$toaster-horizontal: right !default;
-$toaster-vertical: bottom !default;
-$toaster-distancia: 2em !default;
-$toaster-distancia-vertical: 1 !default;
+$toaster-biblioteca: toaster !default;
+$toaster-tamanho-img: rem(50) !default;
+$toaster-arredondamento: não !default;
 
 // =============================================================================
 // CORES TOASTER
@@ -49,29 +30,40 @@ $toaster-distancia-vertical: 1 !default;
 $tipos-toaster: (
 	success: sucesso,
 	error: erro,
-	alert: alerta,
+	warning: alerta,
 	info: notice,
 );
 
 // =============================================================================
 // MIXIN | Básico
 // =============================================================================
+
 @mixin toaster--base($tag) {
+
 	// ---------------------------------------------------------------------------
-	// LI
+	// TOAST (CONTAINER)
 	// ---------------------------------------------------------------------------
-	@if $tag == li {
-		position: relative;
-		padding: 1.5em;
+	@if $tag == toast {
 		font-family: $fonte-sem-serifa;
-		text-align: center;
 		box-shadow: $sombra-toaster;
-		line-height: 1;
-		@if $toaster-vertical == "top" {
-			margin-bottom: $toaster-distancia * .75;
-		} @else if $toaster-vertical == "bottom" {
-			margin-top: $toaster-distancia * .75;
+		width: rem(300);
+		padding: 1em;
+		opacity: 1;
+		margin: 0 0 $margem * 2;
+		overflow: initial;
+		color: cor(texto, claro);
+
+		@if $toaster-tamanho-img != 0 {
+			padding-left: $toaster-tamanho-img;
 		}
+
+		@if $toaster-arredondamento == sim {
+			border-radius: $rd;
+		}
+		@else if $toaster-arredondamento != sim {
+			border-radius: 0;
+		}
+
 	}
 	// ---------------------------------------------------------------------------
 	// .close
@@ -80,107 +72,95 @@ $tipos-toaster: (
 		transition: $transition;
 		cursor: pointer;
 		position: absolute;
-		right: 1em;
-		top: -.8em;
+		right: .5em;
+		top: -1.2em;
 		display: block;
 		box-shadow: $sombra-toaster;
 		background: cor(fundo, x-claro);
 		font-weight: bold;
-		font-size: 1.2em;
+		font-size: .8em;
 		line-height: 1;
+		opacity: 1;
+		padding: .5em;
 	}
 }
 // =============================================================================
 // MIXIN | TIPOS
 // =============================================================================
 @mixin toaster($tipo) {
-	@include lista-sem-marcador;
-	position: fixed;
-	margin: 0;
-	width: rem(300);
-	#{$toaster-horizontal}: $toaster-distancia;
-	#{$toaster-vertical}: $toaster-distancia * $toaster-distancia-vertical;
 	z-index: z(toaster);
+
 	// ---------------------------------------------------------------------------
 	// TIPO 1
 	// ---------------------------------------------------------------------------
 	@if $tipo == tipo-1 {
-		li {
-			@include toaster--base(li);
+
+		.toast {
+			@include toaster--base(toast);
 			color: cor(texto, claro);
 			text-shadow: $sombra-texto;
 		}
-		.close {
+
+		.toast-close-button {
 			@include toaster--base(close);
 			border: 0;
 		}
+
+		@each $classe, $cor in $tipos-toaster {
+
+			.toast.toast-#{$classe} {
+				background-color: cor-status($cor);
+				background-image: url(asset-path("toastr-#{$classe}.svg")) !important;
+				filter: brightness(100%);
+				background-size: $toaster-tamanho-img / 2;
+
+				.toast-close-button {
+					color: cor-status($cor);
+				}
+			}
+		}
+
 	}
+
 	// ---------------------------------------------------------------------------
 	// TIPO 2
 	// ---------------------------------------------------------------------------
 	@else if $tipo == tipo-2 {
-		li {
-			@include toaster--base(li);
+
+		.toast {
+			@include toaster--base(toast);
 			border: 3px solid;
 			background: cor(fundo, x-claro);
+			padding-left: 1em;
 		}
-		.close {
+
+		.toast-close-button {
 			@include toaster--base(close);
 			border: 1px solid;
+
+		}
+
+		@each $classe, $cor in $tipos-toaster {
+			.toast-#{$classe} {
+				color: cor-status($cor);
+
+				.toast-close-button {
+					color: cor-status($cor);
+				}
+			}
 		}
 	}
-}
-// =============================================================================
-// CLASSES | cores de toast
-// =============================================================================
-@if index($uso-classes, toaster) {
-  @each $status, $classe in $tipos-toaster {
-		%toaster {
-  		.#{$status} {
-  			.close {
-  				color: cor-status($classe);
-  				&:hover {
-  					background: cor-status(#{$classe}, escuro, 25%);
-						color: cor(texto, claro);
-  				}
-  			}
-  		}
-		}
-		%toaster--tipo-1 {
-			.#{$status} {
-				background: cor-status($classe);
-			}
-		}
-		%toaster--tipo-2 {
-			.#{$status} {
-				color: cor-status(#{$classe}, escuro, 25%);
-			}
-		}
-  }
 }
 
 // =============================================================================
 // CLASSES | .toast montado
 // =============================================================================
 @if index($uso-classes, toaster) {
-  .toast {
-		@include toaster($toaster-tipo);
-		@each $status, $classe in $tipos-toaster {
-			.#{$status} {
-				@if $toaster-tipo == tipo-1 {
-					background: cor-status(#{$classe}, escuro, 15%);
-				}
-				@else if $toaster-tipo == tipo-2 {
-					color: cor-status(#{$classe}, escuro, 25%);
-				}
-				.close {
-					color: cor-status($classe);
-					&:hover {
-						background: cor-status(#{$classe}, escuro, 25%);
-						color: cor(texto, claro);
-					}
-				}
-			}
-	  }
-  }
+	@if $toaster-biblioteca == toastr {
+
+		#toast-container {
+			@include toaster($toaster-tipo);
+		}
+
+	}
 }

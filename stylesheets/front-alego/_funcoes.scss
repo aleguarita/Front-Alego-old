@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 // funcoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 10/01/2017
+// Última alteração em: 20/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos as funções utilizadas pelo sistema que já não façam
 // parte de algum arquivo específico (por exemplo, o arquivo z-index tem uma
@@ -21,6 +21,9 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog:
+// 20/01/2017 | Nova forma de evitar erros futuros nas cores: se o grupo de
+//               cores não estiver definido aparecerá a cor magenta;
+//               se a cor não estiver definido aparecerá ciano
 // 10/01/2017 | Tirado o gerenciamento de erro, pois agora trabalha em GEM e
 //              acrescentar novas cores não pode alterar sistemas anteriores
 // 19/08/2016 | Incluída a opção de dar uma mensagem de erro para a ausência de
@@ -89,11 +92,31 @@
   }
 }
 @function cor($tipo, $cor: "padrao") {
-  @if map-has-key(map-get($temas, #{$cores-tema}), $tipo) {
-    @return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);
+  // verifica que se tem o tipo (exemplo: texto, fundo)
+  @if map-has-key(
+    map-get(
+      $temas, #{$cores-tema}
+    ), $tipo
+  ) {
+    // se tiver o tipo checa se tem a cor
+    @if map-has-key(
+      map-get(
+        map-get(
+          $temas, #{$cores-tema}
+        ), $tipo
+      ), $cor
+    ) {
+      @return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);
+    }
+    // caso não tenha a cor definida
+    @else {
+      @return magenta;
+    }
   }
-  // @error "VÉI, DEU ERRO NO FRONT-ALEGO: \a A cor '#{$tipo}' ou seu variante '#{$cor}' não está no tema '#{$cores-tema}',\a ou procure por 'cor(#{tipo})' ou 'cor(#{$tipo}, #{$cor})' em seu SCSS e corrija o valor \a ou inclua '#{$tipo}' ou '#{$cor}' no tema '#{$cores-tema}' no arquivo cores.scss";
-  @return cyan; /* essa cor nao existe, verifique */
+  // caso não tenha o tipo definido
+  @else {
+    @return cyan;
+  }
 
 }
 //	============================================================================

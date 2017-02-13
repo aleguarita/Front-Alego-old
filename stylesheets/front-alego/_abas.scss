@@ -12,11 +12,12 @@ ABAS
 // -----------------------------------------------------------------------------
 // abas.scss
 // Criado em: 29/03/2016
-// Alterado em: 06/09/2016
+// Alterado em: 01/02/2017
 // -----------------------------------------------------------------------------
 // Definições padrão de abas
 // -----------------------------------------------------------------------------
 // Changelog
+// 01/02/2017 | Ajuste para quando não fizer uso de checkbox (Ruby)
 // 06/09/2016 | Pequena correção, incluindo
 // 14/07/2016 | Retirado o tamanho da fonte da aba
 // 11/05/2016 | Acréscimo do arquivo das configurações no modo "default" para
@@ -30,7 +31,7 @@ ABAS
 // CONFIG
 // =============================================================================
 $abas-tipo: tipo-3 !default; // 4 tipos
-$abas-qtd: 5 !default;
+$abas-qtd: 0 !default; // 0 é pra quando usa Ruby
 
 // =============================================================================
 // MIXIN | BÁSICO
@@ -50,7 +51,7 @@ $abas-qtd: 5 !default;
   // DEFINE O LABEL
   // ---------------------------------------------------------------------------
   @if $tag == label {
-    &__aba {
+    &__aba, &__nav a {
       font-family: $fonte-titulo;
       padding: .5em 1em;
       color: cor(abas, inativa);
@@ -63,11 +64,20 @@ $abas-qtd: 5 !default;
   // FORMATA O ITEM FOCADO
   // ---------------------------------------------------------------------------
   @if $tag == foco {
-    @for $i from 1 through $abas-qtd {
-      .aba-#{$i}:checked ~ &__nav .aba-#{$i} {
-        @content;
-      }
+    &__aba.ativa {
+      @content;
     }
+
+    @if $abas-qtd != 0 {
+
+      @for $i from 1 through $abas-qtd {
+        .aba-#{$i}:checked ~ &__nav .aba-#{$i} {
+          @content;
+        }
+      }
+
+    }
+
   }
 }
 // =============================================================================
@@ -78,10 +88,18 @@ $abas-qtd: 5 !default;
   // RAÍZ, COMUM À TODOS
   // ---------------------------------------------------------------------------
   &__input {
-    display: none;
+    @if $abas-qtd != 0 {
+      display: none;
+    }
   }
   &__conteudo {
     display: none;
+    @if $abas-qtd == 0 {
+      // ativa a aba se estiver utilizando de javascript
+      &.ativa {
+        display: block;
+      }
+    }
   }
   // ---------------------------------------------------------------------------
   // TIPO 1
@@ -177,13 +195,17 @@ $abas-qtd: 5 !default;
     @include abas($abas-tipo);
   }
   // -------------------------------------------------------------------------
-  // EXIBE O CONTEÚDO
+  // EXIBE O CONTEÚDO DE ABAS ESPECÍFICAS. POR JS ESTÁ NA PRÓPRIA CLASSE ACIMA
   // -------------------------------------------------------------------------
-  @for $i from 1 through $abas-qtd {
-    @at-root {
-      .aba-#{$i}:checked ~ .aba-#{$i} {
-        display: block;
+  @if $abas-qtd != 0 {
+
+    @for $i from 1 through $abas-qtd {
+      @at-root {
+        .aba-#{$i}:checked ~ .aba-#{$i} {
+          display: block;
+        }
       }
     }
+
   }
 }

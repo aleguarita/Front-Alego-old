@@ -175,6 +175,18 @@ $largura-dt-pq: 9em;
     }
   }
 }
+
+.lista-definicao--svg {
+  @extend .lista-definicao;
+  dd {
+    background: cor(fundo, escuro);
+  }
+  img {
+    max-height: rem(30);
+  }
+}
+
+
 .lista-changelog {
   $largura-versao: 8rem;
   @include grupo-flex(2, 0);
@@ -254,6 +266,10 @@ $largura-dt-pq: 9em;
   @extend %codigo-css;
 }
 .codigo--sass {
+  @extend %codigo-bloco;
+  @extend %codigo-css;
+}
+.codigo--js {
   @extend %codigo-bloco;
   @extend %codigo-css;
 }
@@ -890,7 +906,7 @@ $variaveis: (
 .tab-demo {
   @include grupo-demo;
 }
-$tab-tipos: (tipo-1, tipo-2);
+$tab-tipos: (tipo-1, tipo-2, tipo-3);
 .tab {
   @each $tab in $tab-tipos {
     &--#{$tab} {
@@ -1245,10 +1261,13 @@ $datepicker-tipos: tipo-1, tipo-2, tipo-3;
 ÁREA PRINCIPAL | DEMO | loading
 ================================================================================
 */
-.loading--exemplo {
-  @extend .loading;
-  position: inherit;
-  width: 100%;
-  height: 100%;
+$loading-tipos: tipo-1, tipo-2, tipo-3;
+.loading-svg {
+  @include loading(svg, bloco, tipo-1);
   padding: 1.2em;
+}
+@each $item in $loading-tipos {
+  .loading-css--#{$item} {
+    @include loading(css, bloco, $item);
+  }
 }

@@ -4,18 +4,31 @@
 // -----------------------------------------------------------------------------
 // breakpoints.scss
 // Criado em: 26/11/2015
-// Última alteração em: 17/03/2016
+// Última alteração em: 23/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo contém o mapa de breakpoints. Não foi colocado dentro do arquivo
 // de variáveis pois deve aparecer antes dos mixins e funções (que fazem uso
 // dela)
 // -----------------------------------------------------------------------------
 // Changelog
+// 23/01/2017 | O fallback foi incluído aqui por este ser o primeiro arquivo a
+//              importado da GEM
 // 17/03/2016 | Unidade alterada de rem para em, pois "rem" dá bug no Safari
 //              Mais detalhes em: http://zellwk.com/blog/media-query-units/
 // 26/11/2015 | Retirado do arquivo de config.scss para deixá-lo mais leve e
 //              de fácil manipulação, uma vez que a intenção é que não se crie
 //              mais breakpoints.
+// =============================================================================
+
+// =============================================================================
+// FALLBACK
+// como este é o primeiro arquivo a ser importado, tive incluir o fallback aqui
+// =============================================================================
+@import "+fallback";
+
+
+// =============================================================================
+// BREAKPOINTS
 // =============================================================================
 
 $breakpoints: (
