@@ -12,11 +12,12 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 // -----------------------------------------------------------------------------
 // form_radio_check.scss
 // Criado em: 11/11/2015
-// Última alteração em: 23/09/2016
+// Última alteração em: 17/01/2017
 // -----------------------------------------------------------------------------
 // Este arquivo formata os radio buttons
 // ----------------------------------------------------------------------------
 // Changelog
+// 17/01/2017 | Criação de classe para fundos de formulário
 // 23/09/2016 | Corrigido erro que o .label não preenchia no tipo-3
 // 08/09/2016 | Padronização do conteúdo base do mixin
 // 02/09/2016 | Criada classe .label para simular o label
@@ -43,6 +44,7 @@ FORMULÁRIOS | RADIO BUTTON, CHECKBOX
 $form-tipo: tipo-1 !default; // 3 tipos
 $label-tipo: flutuante !default; // flutuante | colado
 $form-radio-check-personaliza: sim !default;
+$form-fundo-campos: transparent !default;
 
 // =============================================================================
 // SVG - como usar no ::before
@@ -83,6 +85,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
         padding-left: 2em;
       }
     }
+
     @if $form-radio-check-personaliza == "sim" {
       @include display-flex;
       @include align-self(flex-end);
@@ -90,12 +93,14 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
         margin-right: .5em;
       }
     }
+
     @include flex-grow(1);
     input:checked ~ & {
       font-weight: bold;
       color: cor(formulario, ativo);
     }
   }
+
   // ---------------------------------------------------------------------------
   // INPUT
   // ---------------------------------------------------------------------------
@@ -110,12 +115,14 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
 // MIXIN | RADIO BUTTON
 // =============================================================================
 @mixin form-radio($var: $form-radio-check-personaliza) {
+
   @if $var == "sim" {
     label, .label {
       &::before {
         content: url(data:image/svg+xml,#{$svg-radio});
       }
     }
+
     input:checked ~ label::before, input:checked ~ .label::before {
       content: url(data:image/svg+xml,#{$svg-radio-ok});
     }
@@ -126,6 +133,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
 // MIXIN | CHECKBOX
 // =============================================================================
 @mixin form-checkbox($var: $form-radio-check-personaliza) {
+
   @if $var == "sim" {
     label, .label {
       &::before {
@@ -144,6 +152,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
 @mixin form-radio-check($tipo) {
   @include form-base;
   input { @include form-radio-check--basico(input); }
+
   // ---------------------------------------------------------------------------
   // TIPO 1
   // ---------------------------------------------------------------------------
@@ -153,6 +162,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
       border-bottom: $borda-form dotted;
     }
   }
+
   // ---------------------------------------------------------------------------
   // TIPO 2
   // ---------------------------------------------------------------------------
@@ -162,13 +172,14 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
       border-bottom: $borda-form solid;
     }
   }
+
   // ---------------------------------------------------------------------------
   // TIPO 3
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-3 {
     label, .label {
       @include form-radio-check--basico(label);
-      background: cor(fundo, x-claro);
+      background: $form-fundo-campos;
       border: $borda-form solid;
       padding: .45em;
       padding-right: .9em;
@@ -176,6 +187,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
         margin-left: .4em;
       }
     }
+
     input:checked ~ label, input:checked ~ .label {
       background: cor(formulario, fundo);
     }
@@ -186,6 +198,7 @@ $svg-radio-ok: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20wi
 // CLASSES
 // =============================================================================
 @if index($uso-classes, form) {
+
 /*
 --------------------------------------------------------------------------------
 RADIO BUTTON
@@ -195,6 +208,7 @@ RADIO BUTTON
     @include form-radio-check($form-tipo);
     @include form-radio;
   }
+
 /*
 --------------------------------------------------------------------------------
 CHECKBOX

@@ -12,11 +12,12 @@ FORMULÁRIOS | SELECT
 // -----------------------------------------------------------------------------
 // form_select.scss
 // Criado em: 12/11/2015
-// Última alteração em: 26/01/2017
+// Última alteração em: 13/02/2017
 // -----------------------------------------------------------------------------
 // Este arquivo formata o select
 // -----------------------------------------------------------------------------
 // Changelog
+// 13/02/2017 | Criação de variável para fundo de formulários
 // 26/01/2017 | Mudada cor de fundo padrão (antes, branca) para transparente,
 //              permitindo ficar em fundos diferentes
 // 25/11/2016 | Desfeita a alteração anterior (a visualização ficou errada)
@@ -51,6 +52,7 @@ FORMULÁRIOS | SELECT
 $form-tipo: tipo-1 !default; // 3 tipos
 $label-tipo: flutuante !default; // flutuante | colado
 $form-radio-check-personaliza: sim !default;
+$form-fundo-campos: transparent !default;
 
 // =============================================================================
 // SVG
@@ -70,8 +72,8 @@ $form-radio-check-personaliza: sim !default;
 // =============================================================================
 $svg-seta-fina: "%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220.5%2032.5%2020%2020%22%3E%0A%20%20%3Cpath%20fill%3D%22%23#{$svg-cor}%22%20d%3D%22M7.8%2040.6c-0.2-0.2-0.5-0.2-0.8%200%20-0.2%200.2-0.2%200.5%200%200.8l3.2%203.1c0.2%200.2%200.6%200.2%200.8%200l3.2-3.1c0.2-0.2%200.2-0.5%200-0.7%20-0.2-0.2-0.5-0.2-0.8%200l-2.7%202.5%20-2.7-2.5V40.6z%22%2F%3E%0A%3C%2Fsvg%3E%0A";
 $select-svg-bg: url("data:image/svg+xml;utf8,#{$svg-seta-fina}") no-repeat right center;
-$select-gradiente: $select-svg-bg, linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, transparent 21px);
-$select-bg-simples: $select-svg-bg, transparent;
+$select-gradiente: $select-svg-bg, linear-gradient(to left, cor(formulario, fundo) 20px, cor(formulario) 21px, $form-fundo-campos 21px);
+$select-bg-simples: $select-svg-bg, $form-fundo-campos;
 
 // =============================================================================
 // MIXIN | SELECT
@@ -80,9 +82,8 @@ $select-bg-simples: $select-svg-bg, transparent;
   @include appearance(none);
   border: 0;
   border-radius: 0;
-  line-height: 1.6;
+
   font-size: $tamanho-fonte-form;
-  padding: .25em;
   padding-right: 2em;
   color: cor(texto);
   @content;
@@ -92,96 +93,127 @@ $select-bg-simples: $select-svg-bg, transparent;
 // MIXIN | TIPOS
 // =============================================================================
 @mixin form-select($tipo) {
+
   // ---------------------------------------------------------------------------
   // TIPO 1
   // ---------------------------------------------------------------------------
   @if $tipo == tipo-1 {
     @include form-base(flex);
+
     select {
       @include form-select--basico {
         background: $select-bg-simples;
         border-bottom: $borda-form dotted;
+        line-height: 1.45;
+
         // OBRIGATÓRIO
         &:required {
           background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat left center, $select-bg-simples;
           background-size: rem($form-obrigatorio) * .9, auto;
           text-indent: rem($form-obrigatorio);
           box-shadow: 0 3px 0 lighten($svg-placeholder-original, 15%);
+
           // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
           &:valid {
             background: $select-bg-simples;
             text-indent: 0;
             box-shadow: none;
           }
+
         }
+
       }
+
     }
+
     @include form-texto__label($label-tipo) {
       @if $label-tipo == "colado" {
         border-bottom: 1px dotted cor(formulario);
       }
     }
+
   }
+
   // ---------------------------------------------------------------------------
   // TIPO 2
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-2 {
     @include form-base(flex);
+
     select {
       @include form-select--basico {
         background: $select-bg-simples;
         border-bottom: $borda-form solid;
+        line-height: 1.45;
+
         // OBRIGATÓRIO
         &:required {
           background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat left center, $select-bg-simples;
           background-size: rem($form-obrigatorio) * .9, auto;
           padding-left: rem($form-obrigatorio);
           box-shadow: 0 3px 0 lighten($svg-placeholder-original, 15%);
+
           // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
           &:valid {
             background: $select-bg-simples;
             padding-left: 0;
             box-shadow: none;
           }
+
         }
+
       }
+
     }
+
     @include form-texto__label($label-tipo) {
       @if $label-tipo == "colado" {
         border-bottom: 1px solid cor(formulario);
       }
     }
+
   }
+
   // ---------------------------------------------------------------------------
   // TIPO 3
   // ---------------------------------------------------------------------------
   @else if $tipo == tipo-3 {
     @include form-base(flex);
+
     select {
       @include form-select--basico {
         background: $select-gradiente;
         border: $borda-form solid;
+        padding: .35em;
         padding-left: .2em;
+        line-height: 1.6;
+
         @if $label-tipo == "colado" {
           &:focus ~ label {
             background: cor(formulario, ativo);
           }
         }
+
         // OBRIGATÓRIO
         &:required {
           background: url("data:image/svg+xml;utf8,#{$svg-obrigatorio}") no-repeat .2em center, $select-gradiente;
           background-size: rem($form-obrigatorio), auto, auto;
           padding-left: rem($form-obrigatorio) + .35rem;
           outline: 2px solid lighten($svg-placeholder-original, 15%);
+
           // QUANDO PREENCHE O CAMPO OBRIGATÓRIO
           &:valid {
             background: $select-gradiente;
             padding-left: inherit;
             outline: 0;
           }
+
         }
+
       }
+
     }
+
     @include form-texto__label($label-tipo) {
       @if $label-tipo == "colado" {
         background: cor(formulario);
@@ -189,7 +221,9 @@ $select-bg-simples: $select-svg-bg, transparent;
         line-height: 2.2;
       }
     }
+
   }
+
 }
 
 // =============================================================================
