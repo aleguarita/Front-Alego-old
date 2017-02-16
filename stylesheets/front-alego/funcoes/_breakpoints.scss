@@ -1,0 +1,26 @@
+// =============================================================================
+// FUNÇÃO: BREAKPOINTS
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Função para criação de media queries
+// Alteranativamente existe um mixin pronto (em _mixins.scss) já pensando
+// em mobile first.
+// =============================================================================
+
+@function breakpoint($media) {
+	@if map-has-key($breakpoints, $media) {
+		@return map-get($breakpoints, $media);
+	}
+
+	@warn "ERRO NO SASS"
+	+ "=================================================================="
+	+ "  Medida de Media Query (#{$media}) não encontrada"
+	+ "  Escolha entre pequeno, medio, grande ou extra-grande"
+	+ "==================================================================";
+
+  @return null;
+}

@@ -1,0 +1,22 @@
+// =============================================================================
+// FUNÇÕES: Z
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Chama o z-index.
+// Se o nome não estiver definido no mapa $z, pega a quantidade de elementos de
+// $z e incrementa 1
+// -----------------------------------------------------------------------------
+// Você pode usar esta função da seguinte forma:
+// z-index: z(nome);
+// -----------------------------------------------------------------------------
+// Alternativamente pode-se usar a função padrão do Sass:
+// z-index: index($z, nome);
+// =============================================================================
+
+@function z($nome) {
+  @return if(index($z, $nome), index($z, $nome), length($z) + 1);
+}
