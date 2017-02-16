@@ -1,0 +1,38 @@
+// =============================================================================
+// MIXINS: PREFIXO
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Acrescenta prefixo de browser no CSS3.
+// Fonte: http://css-tricks.com/snippets/sass/mixin-prefix-properties/
+// -----------------------------------------------------------------------------
+// Como usar:
+// Por fazer uso de mapas, as $declaracoes devem aparecer dentro de parênteses
+// separados por vírgula. Os prefixos não precisam dessa divisão.
+// Exemplo:
+// .seletor {
+// 	@include prefixo((column-count: 3, column-row: 1.5em), webkit moz);
+// }
+// Para melhorar a leitura, separe com ENTER
+// .seletor {
+// 	@include prefixo((
+// 		column-count: 3,
+// 		column-row: 1.5em),
+// 	webkit moz);
+// }
+// O ideal é usar este mixin dentro de outros, ao invés de usar direto no CSS.
+// Desta forma, quando acontecer de cair algum prefixo, só precisa alterar em
+// Um lugar.
+// =============================================================================
+@mixin prefixo($declaracoes, $prefixos: ()) {
+	@each $propriedade, $valor in $declaracoes {
+		@each $prefixo in $prefixos {
+			#{'-' + $prefixo + '-' + $propriedade}: $valor;
+		}
+		// Exibição padrão, sem prefixo
+		#{$propriedade}: $valor;
+	}
+}

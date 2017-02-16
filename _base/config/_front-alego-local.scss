@@ -81,17 +81,17 @@
 // Configurações gerais
 @import "../../stylesheets/front-alego/breakpoints";
 @import "../../stylesheets/front-alego/funcoes";
-// @import "../../stylesheets/front-alego/mixins";
+@import "../../stylesheets/front-alego/mixins";
 
 // Configuração básica
-// @import "+config";
-// @import "cores";
+@import "+config";
+@import "cores";
 
 // Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
-// @import "../../stylesheets/front-alego/cores_status";
-// @import "variaveis";
-// @import "z-index";
+@import "../../stylesheets/front-alego/cores_status";
+@import "variaveis";
+@import "z-index";
 // @import "simbolos";
-
+//
 // @import "../../stylesheets/front-alego/+arquivos-local.scss"; // Todos os demais arquivos

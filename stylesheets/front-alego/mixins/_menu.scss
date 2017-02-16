@@ -1,0 +1,50 @@
+// =============================================================================
+// MIXINS: MENU
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Cria a estrutura básica do menu e do submenu. Evidentemente, sem formatação
+// -----------------------------------------------------------------------------
+// $tipo: se o menu é vertical (padrão) ou horizontal
+// =============================================================================
+
+// =============================================================================
+// MENU
+// =============================================================================
+@mixin menu($tipo: vertical) {
+	@if $tipo == horizontal {
+		@include lista-sem-marcador(flex);
+	}
+
+	@else {
+		@include lista-sem-marcador;
+	}
+
+	margin: 0;
+  z-index: z(menu);
+}
+
+// =============================================================================
+// SUBMENU
+// =============================================================================
+@mixin submenu($tipo: vertical) {
+  @include lista-sem-marcador;
+  position: absolute;
+  display: none;
+  margin: 0;
+  z-index: z(submenu);
+
+  @if $tipo != horizontal {
+    top: 0;
+    transform: translateX(100%);
+    width: 100%;
+  }
+
+  a:hover ~ &, &:hover {
+    display: block;
+  }
+
+}

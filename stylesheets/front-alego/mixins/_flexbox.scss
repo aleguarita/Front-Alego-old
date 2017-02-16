@@ -1,0 +1,81 @@
+// =============================================================================
+// MIXINS: FLEXBOX
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Inclui os prefixos para o funcionamento do Flexbox
+// Os valores padrão já pensa no uso mais comum (e é por isso que prefiro isso
+// ao bourbon).
+// -----------------------------------------------------------------------------
+// Como usar:
+// .classe {
+// 	@include flex-direction(column);
+// }
+// =============================================================================
+
+// =============================================================================
+// No flex container
+// =============================================================================
+@mixin display-flex($largura: null) {
+	display: -webkit-flex;	// Safari
+	display:  -ms-flexbox;	// IE 10
+	display:         flex;
+
+	@if $largura != null {
+		width: $largura;
+	}
+}
+
+@mixin flex-direction($flex-direction: column) {
+	@include prefixo((flex-direction: $flex-direction), webkit);
+}
+
+@mixin flex-wrap($wrap: wrap) {
+	@include prefixo((flex-wrap: $wrap), webkit);
+}
+
+@mixin flex-flow($flex-direction: column, $flex-wrap: wrap) {
+	@include prefixo((flex-flow: $flex-direction $flex-wrap), webkit);
+}
+
+@mixin justify-content($justify-content: center) {
+	@include prefixo((justify-content: $justify-content), webkit);
+}
+
+@mixin align-items($align-items: center) {
+	@include prefixo((align-items: $align-items), webkit);
+}
+
+@mixin align-content($align-content: center) {
+	@include prefixo((align-content: $align-content), webkit);
+}
+
+// =============================================================================
+//	No flex-item
+// =============================================================================
+@mixin order($order: auto) {
+	@include prefixo((order: $order), webkit);
+}
+
+@mixin flex-grow($flex-grow: 1) {
+	@include prefixo((flex-grow: $flex-grow), webkit);
+}
+
+@mixin flex-shrink($flex-shrink: 1) {
+	@include prefixo((flex-shrink: $flex-shrink), webkit);
+}
+
+@mixin flex-basis($flex-basis: 100%) {
+	@include prefixo((flex-basis: $flex-basis), webkit);
+}
+
+@mixin flex($flex: 1) {
+	@include prefixo((flex: $flex), webkit);
+}
+
+@mixin align-self($align-self: auto) {
+	@include prefixo((align-self: $align-self), webkit);
+}
