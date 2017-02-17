@@ -10,12 +10,13 @@ CLASSES FIXAS
 // -----------------------------------------------------------------------------
 // classes.scss
 // Criado em: 21/10/2015
-// Alterado em: 02/02/2107
+// Alterado em: 17/02/2107
 // -----------------------------------------------------------------------------
 // Aqui ficam as classes globais do css, que vão aparecer inalteradas pelo
 // sistema.
 // -----------------------------------------------------------------------------
 // Changelog
+// 17/02/2017 | Acrescentado parâmetros na classe de .elipse conforme o Bourbon
 // 02/02/2017 | Criação da classe de .ellipsis para links que quebram layout
 // 10/11/2016 | Inclusão de !important (shame on you) nas classes de margem
 //              (como a classe pode ser aplicada ou não, isso serve para
@@ -157,4 +158,8 @@ $tamanho-fonte: (
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  max-width: 100%;
+  display: inline-block;
+  word-wrap: normal;
 }

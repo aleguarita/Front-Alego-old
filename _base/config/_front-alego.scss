@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 20/01/2017
+	Última alteração: 17/02/2017
 	------------------------------------------------------------------------------
 */
 // font-alego-local.scss
@@ -36,6 +36,7 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 17/02/2017 | Eliminada a necessidade do bourbon
 // 20/01/2017 | Não importa mais tipografia e fontes por aqui e sim direto na GEM
 // 19/01/2017 | Mudada localização de tipografia.scss da pasta config para a
 //              padrão do sistema
@@ -70,10 +71,6 @@
 // 19/10/2015 | Nova estruturação de arquivos
 // 07/01/2015 | Primeira forma de organizar arquivos
 // =============================================================================
-
-// Bourbon: http://bourbon.io
-// Atenção: acrescentar a gem "bourbon" no Gemfile
-@import "bourbon"; // (se usado no rails)
 
 // Configurações gerais
 @import "front-alego/breakpoints";
