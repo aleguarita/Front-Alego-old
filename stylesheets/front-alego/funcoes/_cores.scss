@@ -1,0 +1,78 @@
+// =============================================================================
+// FUNÇÕES: CORES
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Funções de cores para chamar as cores personalizadas
+// =============================================================================
+
+// =============================================================================
+// CORES DE STATUS
+// -----------------------------------------------------------------------------
+// cor-status() para cores de status de sistema
+// exemplo:
+// 		background: cor-status(ok);
+// =============================================================================
+
+@function cor-status($cor, $tipo: null, $valor: 0) {
+
+  // se não definir o tipo
+  @if $tipo == null {
+    @return map-get($cor-status, $cor);
+  }
+
+  // verifica se a cor é claro ou clara
+  @else if str-slice($tipo, 1, 1) == "c" {
+    @return tint(map-get($cor-status, $cor), strip-units($valor) * 1%);
+  }
+
+  // verifica se a cor é escura ou escuro
+  @else if str-slice($tipo, 1, 1) == "e" {
+    @return shade(map-get($cor-status, $cor), strip-units($valor) * 1%);
+  }
+}
+
+// =============================================================================
+// COR
+// -----------------------------------------------------------------------------
+// cor() para usar dentro do sistema e vai ser o mais usado. Este tema vai
+// variar conforme o tema escolhido. Deve-se chamar o tipo a ser usado (texto,
+// fundo, borda) e qual o sub-tipo (exemplo: input). Se não definir, assume-se
+// o sub-tipo "padrão"
+// exemplo:
+// 		h1 { color: cor(texto, titulo); }
+// =============================================================================
+@function cor($tipo, $cor: "padrao") {
+  // verifica que se tem o tipo (exemplo: texto, fundo)
+  @if map-has-key(
+    map-get(
+      $temas, #{$cores-tema}
+    ), $tipo
+  ) {
+
+    // se tiver o tipo checa se tem a cor
+    @if map-has-key(
+      map-get(
+        map-get(
+          $temas, #{$cores-tema}
+        ), $tipo
+      ), $cor
+    ) {
+      @return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);
+    }
+
+    // caso não tenha a cor definida
+    @else {
+      @return magenta;
+    }
+  }
+
+  // caso não tenha o tipo definido
+  @else {
+    @return cyan;
+  }
+
+}

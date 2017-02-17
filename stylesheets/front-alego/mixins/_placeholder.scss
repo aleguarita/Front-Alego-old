@@ -1,0 +1,29 @@
+// =============================================================================
+// MIXINS: PLACEHOLDER
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Faz o placeholder de formulários.
+// Não estou usado o @prefixo acima pois a forma de usar prefixo é diferente
+// -----------------------------------------------------------------------------
+// Como usar:
+// .seletor {
+// 	@include placeholder {
+// 		formatação
+// 	}
+// }
+// =============================================================================
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {  /* Firefox 19+ */
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+}

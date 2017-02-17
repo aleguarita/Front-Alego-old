@@ -1,0 +1,26 @@
+// =============================================================================
+// MIXINS: ITEM CHECADO
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Para criar listas que abrem e fecham e ainda exibem o título ou para criar
+// caixas que mudam o estilo quando selecionada.
+// O HTML deve incluir um checkbox no mesmo nível hierárquico do conteúdo que
+// será formatado. Note que o checkbox será invisível.
+// O conteúdo deve aparecer depois do checkbox.
+// Exte mixin deverá ser incluído dentro do seletor do checkbox.
+// -----------------------------------------------------------------------------
+// $seletor: o seletor que será usada para o conteúdo. Escreva entre aspas.
+// Ex.: ".classe"
+// =============================================================================
+@mixin item-checado($seletor) {
+  display: none;
+
+  &:checked ~ #{$seletor} {
+    @content;
+  }
+	
+}

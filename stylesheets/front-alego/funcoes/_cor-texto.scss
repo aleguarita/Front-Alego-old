@@ -1,0 +1,37 @@
+// =============================================================================
+// FUNÇÃO: COR TEXTO
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Analisa o brilho da cor de fundo. Se for clara, coloca um texto escuro,
+// se a cor de fundo for escura, escolhe um texto claro.
+// Além da cor de fundo, você pode determinar as cores que vai voltar
+// -----------------------------------------------------------------------------
+// $cor-fundo: a cor de fundo utilizada na análise
+// $texto-claro: a cor clara do texto. Por padrão é branca.
+// $texto-escuro: a cor escura do texto. Por padrão é preta.
+// -----------------------------------------------------------------------------
+// Exemplo de uso:
+// $fundo: paleta(padroes, preto);
+// .classe {
+//   background: $fundo;
+//   color: cor-texto($fundo);
+// }
+// Neste exemplo a variável $fundo determina qual o fundo e a cor do texto
+// é a padrão da função.
+// =============================================================================
+
+@function cor-texto(
+	$cor-fundo,
+	$texto-claro: paleta(cinza, claro, 100%),
+	$texto-escuro: paleta(cinza, escuro, 100%)
+	) {
+		@if (lightness($cor-fundo) > 50) {
+			@return $texto-escuro;
+		} @else {
+			@return $texto-claro;
+		}
+}

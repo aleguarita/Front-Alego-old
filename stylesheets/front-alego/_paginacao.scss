@@ -17,6 +17,7 @@ PAGINAÇÃO
 // Definição da paginação. Formata o tipo padrão gerado pelo Rails.
 // -----------------------------------------------------------------------------
 // Changelog
+// 17/02/2017 | Retirado mixin de display: flex
 // 29/09/2016 | Inclusão do dir-pagination-controls
 // 13/09/2016 | Atualizado para angular
 // 							Acrescentada opção de arredondar a borda (tipo-2)
@@ -234,8 +235,8 @@ $paginacao-padding: ($paginacao-fonte * .4) ($paginacao-fonte * 1);
 		@include paginacao($paginacao-tipo);
 	}
 	dir-pagination-controls {
-		@include display(flex);
-		@include justify-content($paginacao-posicao);
+		display: flex;
+		justify-content: $paginacao-posicao;
 		width: 100%;
 	}
 }

@@ -1,0 +1,20 @@
+// =============================================================================
+// MIXINS: LISTA SEM MARCADOR
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Formata listas para serem sem marcadores. Pode exibir como flex ou não
+// =============================================================================
+@mixin lista-sem-marcador($flex: null) {
+
+	list-style: none;
+	padding-left: 0;
+
+	@if $flex != null {
+		display: flex;
+	}
+	
+}

@@ -1,0 +1,27 @@
+// =============================================================================
+// MIXINS: TEXTO SELECIONADO
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Este mixin serve para alterar o padrão do texto selecionado no browser
+// (quando o usuário seleciona para copiar e colar, por exemplo)
+// =============================================================================
+@mixin texto-selecionado(
+	$fundo: cor(fundo, escuro),
+	$texto: cor(texto, claro))
+{
+
+	&::selection {
+		background-color: $fundo;
+		color: $texto;
+	}
+
+	&::-moz-selection {
+		background-color: $fundo;
+		color: $texto;
+	}
+
+}

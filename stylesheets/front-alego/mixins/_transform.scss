@@ -1,0 +1,24 @@
+// =============================================================================
+// MIXINS: TRANSFORM
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// CHANGELOG:
+// 16/02/2017 | Criado arquivo com o que havia antes
+// 						  Retirado o mixin de prefixo e usado parâmetro normal
+// -----------------------------------------------------------------------------
+// Aplica prefixo no transform
+// ATUALIZADO: MIXIN APENAS PARA RETROCOMPATIBILIDADE, NÃO É MAIS NECESSÁRIO
+// USO DE PREFIXO PARA ESTA PROPRIEDADE
+// -----------------------------------------------------------------------------
+@mixin transform($transform) {
+	// @include prefixo((transform: $transform), webkit);
+	transform: $transform;
+}
+@mixin transform-origin($origem) {
+	// @include prefixo((transform-origin: $origem), webkit);
+	transform-origin: $origem;
+}

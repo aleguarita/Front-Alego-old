@@ -1,0 +1,20 @@
+// =============================================================================
+// FUNÇÕES: TINT AND SHADE
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Função orginária do Bourbon
+// Tint: acrescenta branco (melhor que lightness)
+// Shade: acrescenta preto
+// =============================================================================
+
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}
+
+@function shade($color, $percent) {
+  @return mix(#000, $color, $percent);
+}

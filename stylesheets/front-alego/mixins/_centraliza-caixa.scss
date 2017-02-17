@@ -1,0 +1,25 @@
+// =============================================================================
+// MIXINS: CENTRALIZA CAIXA
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Centraliza uma caixa em valor absoluto. Ótimo para login. A vantagem é que
+// por não usar de flexbox, o HTML fica mais limpo. Não precisa usar em modal
+// (que está usando flexbox)
+// -----------------------------------------------------------------------------
+// Os valores de $largura e $altura são opcionais. Se não utilizados a caixa
+// vai crescer conforme o conteúdo
+// =============================================================================
+@mixin centraliza-caixa($largura: null, $altura: null) {
+	width: $largura;
+	height: $altura;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	max-width: 100%;
+	max-height: 100%;
+	transform: translate(-50%, -50%);
+}

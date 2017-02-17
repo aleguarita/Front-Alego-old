@@ -1,0 +1,30 @@
+// =============================================================================
+// MIXINS: MEDIA TIPO
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Para determinar propriedades responsivas
+// -----------------------------------------------------------------------------
+// Como usar:
+// Este mixin faz uso da função breakpoint (ver o arquivo). Basta digitar o
+// mixin e chamar o breakpoint pré-estabelecido lá.
+// .seletor {
+// 	@include media-tipo(medio) {
+// 		insira aqui a configuração
+// 	}
+// }
+// Se preferir colocar medida como no máximo aquela largura, use:
+// .seletor {
+// 	@include media-tipo(medio, max) {
+// 		insira aqui a configuração
+// 	}
+// }
+// =============================================================================
+@mixin media-tipo($breakpoint, $medida: min) {
+	@media (#{$medida}-width: breakpoint($breakpoint)) {
+		@content;
+	}
+}

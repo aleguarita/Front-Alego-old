@@ -4,23 +4,24 @@
 // Framework da Assembleia Legislativa
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
-// funcoes.scss
 // Criado em: 15/01/2015
-// Última alteração em: 20/01/2017
+// Última alteração em: 16/02/2017
 // -----------------------------------------------------------------------------
-// Este arquivo agrupa todos as funções utilizadas pelo sistema que já não façam
-// parte de algum arquivo específico (por exemplo, o arquivo z-index tem uma
-// função para determinar o z-index do elemento).
+// Este arquivo agrupa todos as funções utilizadas pelo framework. Funções
+// próprias do sistema devem ser acrescentadas na pasta /extra do seu sistema
 //
-// Funções que afetam diretamente um recurso específico como a tipografia ou
-// formulários estarão nos arquivos respectivos (exemplo: cores em
-// cores.scss)
-//
-// Acrescente novas funções sempre no final e com explicação do que fazem e
-// deixe um comentário explicado para quê serve, como funciona e como usar
+// Acrescente novas funções em arquivos separados na pasta /funcoes e
+// importe aqui
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog:
+// 16/02/2017 | Cada função agora tem um arquivo próprio na pasta "funcoes"
+// 16/02/2017 | Devido a uma depreciação do Bourbon e acrescentei as seguintes
+//               funções:
+//               * strip-units
+//               * rem
+//               * em
+//               * modular-scale
 // 20/01/2017 | Nova forma de evitar erros futuros nas cores: se o grupo de
 //               cores não estiver definido aparecerá a cor magenta;
 //               se a cor não estiver definido aparecerá ciano
@@ -45,140 +46,17 @@
 // =============================================================================
 
 // =============================================================================
-// CORES | Paletas
-// -----------------------------------------------------------------------------
-// Funções de cores para chamar as cores da paleta. São 4 funções para cada
-// tipo especial de cor
-// -----------------------------------------------------------------------------
-// paleta-padrao() para as cores padrão (cores_status.scss)
-// exemplo:
-// 		color: paleta-padrao(cinza-50);
-// -----------------------------------------------------------------------------
-// cor-status() para cores de status de sistema
-// exemplo:
-// 		background: cor-status(ok);
-// -----------------------------------------------------------------------------
-// paleta() para as paletas personalizadas (cores.scss). Deve chamar a cor e
-// o tom. Se não chamar o tom, assume-se o tom "principal"
-// exemplo:
-// 		background: paleta(basica, x-clara);
-// -----------------------------------------------------------------------------
-// cor() para usar dentro do sistema e vai ser o mais usado. Este tema vai
-// variar conforme o tema escolhido. Deve-se chamar o tipo a ser usado (texto,
-// fundo, borda) e qual o sub-tipo (exemplo: input). Se não definir, assume-se
-// o sub-tipo "padrão"
-// exemplo:
-// 		h1 { color: cor(texto, titulo); }
+// FUNÇÕES ESSENCIAIS PARA O FRONT-ALEGO
 // =============================================================================
-@function paleta($cor, $tipo: null, $valor: 0) {
-  @if $tipo == null {
-    @return map-get($paleta, $cor);
-  } @else if str-slice($tipo, 1, 1) == "c" {
-    @return tint(map-get($paleta, $cor), strip-units($valor) * 1%);
-  } @else if str-slice($tipo, 1, 1) == "e" {
-    @return shade(map-get($paleta, $cor), strip-units($valor) * 1%);
-  }
-}
-@function cor-status($cor, $tipo: null, $valor: 0) {
-	// se não definir o tipo
-  @if $tipo == null {
-    @return map-get($cor-status, $cor);
-		// verifica se a cor é claro ou clara
-  } @else if str-slice($tipo, 1, 1) == "c" {
-    @return tint(map-get($cor-status, $cor), strip-units($valor) * 1%);
-		// verifica se a cor é escura ou escuro
-  } @else if str-slice($tipo, 1, 1) == "e" {
-    @return shade(map-get($cor-status, $cor), strip-units($valor) * 1%);
-  }
-}
-@function cor($tipo, $cor: "padrao") {
-  // verifica que se tem o tipo (exemplo: texto, fundo)
-  @if map-has-key(
-    map-get(
-      $temas, #{$cores-tema}
-    ), $tipo
-  ) {
-    // se tiver o tipo checa se tem a cor
-    @if map-has-key(
-      map-get(
-        map-get(
-          $temas, #{$cores-tema}
-        ), $tipo
-      ), $cor
-    ) {
-      @return map-get(map-get(map-get($temas, #{$cores-tema}), $tipo), $cor);
-    }
-    // caso não tenha a cor definida
-    @else {
-      @return magenta;
-    }
-  }
-  // caso não tenha o tipo definido
-  @else {
-    @return cyan;
-  }
+@import 'funcoes/unidades';
+@import 'funcoes/modular-scale';
+@import 'funcoes/tint-shade';
+@import 'funcoes/paleta';
+@import 'funcoes/cores';
 
-}
-//	============================================================================
-//	DETECTA A COR DE FUNDO
-//	----------------------------------------------------------------------------
-//	Analisa o brilho da cor de fundo. Se for clara, coloca um texto escuro,
-//	se a cor de fundo for escura, escolhe um texto claro.
-//	Além da cor de fundo, você pode determinar as cores que vai voltar
-//	----------------------------------------------------------------------------
-//	$cor-fundo: a cor de fundo utilizada na análise
-//	$texto-claro: a cor clara do texto. Por padrão é branca.
-//	$texto-escuro: a cor escura do texto. Por padrão é preta.
-//	----------------------------------------------------------------------------
-//	Exemplo de uso:
-//	$fundo: paleta(padroes, preto);
-//	.classe {
-//		background: $fundo;
-//		color: cor-texto($fundo);
-//	}
-//	Neste exemplo a variável $fundo determina qual o fundo e a cor do texto
-//	é a padrão da função.
-//	============================================================================
-@function cor-texto(
-	$cor-fundo,
-	$texto-claro: paleta(cinza, claro, 100%),
-	$texto-escuro: paleta(cinza, escuro, 100%)
-	) {
-		@if (lightness($cor-fundo) > 50) {
-			@return $texto-escuro;
-		} @else {
-			@return $texto-claro;
-		}
-}
-
-//	===========================================================================
-//  BREAKPOINT
-//  ---------------------------------------------------------------------------
-//  Função para criação de media queries
-//	Alteranativamente existe um mixin pronto (em _mixins.scss) já pensando
-//	em mobile first.
-//	===========================================================================
-@function breakpoint($media) {
-	@if map-has-key($breakpoints, $media) {
-		@return map-get($breakpoints, $media);
-	}
-	@warn "ERRO NO SASS"
-	+ "=================================================================="
-	+ "  Medida de Media Query (#{$media}) não encontrada"
-	+ "  Veja quais são as medidas em _variaveis.scss"
-	+ "==================================================================";
-	@return null;
-}
 // =============================================================================
-// Z-INDEX
+// FUNÇÕES ADICIONAIS ÚTEIS
 // =============================================================================
-// Chama o z-index.
-// Você pode usar esta função da seguinte forma:
-// z-index: z(nome);
-//
-// Alternativamente pode-se usar a função padrão do Sass:
-// z-index: index($z, nome);
-// -----------------------------------------------------------------------------
-@function z($nome) {
-  @return if(index($z, $nome), index($z, $nome), length($z) + 1);
-}
+@import 'funcoes/breakpoints';
+@import 'funcoes/z';
+@import 'funcoes/cor-texto';

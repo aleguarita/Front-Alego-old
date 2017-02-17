@@ -1,0 +1,34 @@
+// =============================================================================
+// MIXINS: OVERLAY
+// -----------------------------------------------------------------------------
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// Criado em: 16/02/2017
+// -----------------------------------------------------------------------------
+// Cria uma camada transparente que ocupa todo o viewport. Pode ser utilizada
+// em modal, por exemplo
+// -----------------------------------------------------------------------------
+// Uso: $full: determina se ocupa a tela inteira. Por padrão é "sim". Se colocar
+// qualquer outro valor ele vai pegar o tamanho do elemento pai
+// =============================================================================
+
+@mixin overlay($full: sim) {
+	position: fixed;
+	overflow: hidden;
+
+	@if $full == sim {
+		width: 100vw;
+		height: 100vh;
+		top: 0vh;
+		left: 0vw;
+	}
+
+	@else {
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+}
