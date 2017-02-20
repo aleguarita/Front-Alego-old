@@ -8,11 +8,13 @@
 // -----------------------------------------------------------------------------
 // +fallback.scss
 // Criado em: 20/01/2017
-// Última alteração em: 23/01/2017
+// Última alteração em: 20/02/2017
 // -----------------------------------------------------------------------------
 // Inclusão de variáveis antigas aqui para não dar erro retroativo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 22/02/2017 | Mapa de cores de status acrescentado (usando hexadecimal, que
+//               são as cores configuradas por padrão)
 // 23/01/2017 | Acrescentadas variáveis padrão
 // 20/01/2017 | Criado o arquivo
 // =============================================================================
@@ -58,3 +60,17 @@ $rd: 3px !default;
 // =============================================================================
 $fonte-serifa: serif !default;
 $fonte-sem-serifa: sans-serif !default;
+
+
+// =============================================================================
+// CORES DE ALERTA DO SISTEMA
+// =============================================================================
+$cor-status: (
+	erro: #ed1c24,
+	urgente: #ed1c24,
+	sucesso: #39b54a,
+	ok: #39b54a,
+	alerta: #f9bc16,
+	aviso: #f9bc16,
+	notice: #a6a6a6,
+);

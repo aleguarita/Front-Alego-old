@@ -8,17 +8,20 @@
 // -----------------------------------------------------------------------------
 // imports.scss
 // Criado em: 25/01/2017
-// Última alteração: 16/02/2017
+// Última alteração: 20/02/2017
 // -----------------------------------------------------------------------------
 // Este arquivo contém os imports dos arquivos desta pasta que não dependem da
 // pasta de config/ e, portanto, são importados todos de uma vez e são comuns
 // à versão local ou rails
 // -----------------------------------------------------------------------------
 // Changelog:
+// 20/02/2017 | Incluído cores_status
 // 16/02/2017 | Inclusão dos Timing Functions
 // 25/01/2017 | Criado o arquivo
 // =============================================================================
 
+// Cores de status
+@import "cores_status";
 
 // Tipografia
 @import "tipografia";
