@@ -5,7 +5,7 @@
 	Colaboradores: Alessandro Guimarães, André Barca e Renato Brandão
 	------------------------------------------------------------------------------
 	Criado em: 07/01/2015
-	Última alteração: 17/02/2017
+	Última alteração: 20/02/2017
 	------------------------------------------------------------------------------
 */
 // font-alego-local.scss
@@ -36,6 +36,10 @@
 // 		para visualizar os elementos usados
 // -----------------------------------------------------------------------------
 // Changelog:
+// 20/02/2017 | Eliminado o import de simbolos.scss (se vc utiliza símbolos sem
+//               SVG, inclua manualmente)
+//              Todos os arquivos da pasta front-alego estão indexados em arquivos
+//                específicos
 // 17/02/2017 | Eliminada a necessidade do bourbon
 // 20/01/2017 | Não importa mais tipografia e fontes por aqui e sim direto na GEM
 // 19/01/2017 | Mudada localização de tipografia.scss da pasta config para a
@@ -73,23 +77,17 @@
 // =============================================================================
 
 // ATENÇÃO, QUANDO FOR LOCAL ALTERE O ARQUIVO DE front_alego/+arquivos
-// na última linha comente @import fontes_rails
 
 
 // Configurações gerais
-@import "../../stylesheets/front-alego/breakpoints";
-@import "../../stylesheets/front-alego/funcoes";
-@import "../../stylesheets/front-alego/mixins";
+@import "../../stylesheets/front-alego/+arquivos-inicial";
 
 // Configuração básica
-@import "+config";
-@import "cores";
-
-// Arquivos básicos e de configuração gerais
 // NÃO ALTERE A ORDEM
-@import "../../stylesheets/front-alego/cores_status";
+@import "cores";
+@import "+config";
+
 @import "variaveis";
 @import "z-index";
-@import "simbolos";
 
 @import "../../stylesheets/front-alego/+arquivos-local.scss"; // Todos os demais arquivos
