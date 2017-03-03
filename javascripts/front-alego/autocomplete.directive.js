@@ -31,6 +31,8 @@
                     if (!ui.item) {
                         $(this).val("");
                         ctrl.$setViewValue(null);
+                    }else {
+                        ctrl.$setViewValue(ui.item.id);
                     }
                 }
             }

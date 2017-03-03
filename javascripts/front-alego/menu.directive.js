@@ -54,7 +54,6 @@
           else {
             gruposFechados.push(grupo);
           }
-          console.log(gruposFechados);
         }
 
         function grupoFechado(grupo) {
