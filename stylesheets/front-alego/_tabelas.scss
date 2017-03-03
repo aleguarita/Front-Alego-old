@@ -12,11 +12,12 @@ TABELAS
 // -----------------------------------------------------------------------------
 // tabelas.scss
 // Criado em: 05/02/2015
-// Última alteração: 02/02/2017
+// Última alteração: 03/03/2017
 // -----------------------------------------------------------------------------
 // Definições padrão das tabelas e classes modelo
 // -----------------------------------------------------------------------------
 // Changelog
+// 03/03/2017 | Largura total para upload de arquivo
 // 02/02/2017 | Retirado o input-file-name do escopo da formatação de inputs
 // 							gerais. Isso fazia a página ficar com um scroll horizontal
 // 01/02/2017 | Incluído o input file (com parâmetro "upload-file-name")
@@ -236,9 +237,10 @@ $tab-resp-tamanho: pequeno !default; // pequeno | medio
 		}
 
 		.form-file__info {
-			// all: inherit; // incompatível com IE/EDGE :(
 			border-width: 0;
 			text-transform: uppercase;
+			display: block;
+			width: 100%;
 		}
 
 	}

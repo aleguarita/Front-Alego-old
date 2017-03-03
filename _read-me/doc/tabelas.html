@@ -31,7 +31,7 @@
           <dd><strong><samp>&lt;th&gt;</samp></strong>. Use nas colunas de título (<samp>&lt;th&gt;</samp>). <strong>X</strong> é substituído pelo nome que você criou dentro do arquivo de <span class="arquivo">config</span> e determina a largura desta coluna. No momento já temos criada a <strong>.col--acoes</strong></dd>
       </dl>
 
-      <p><span class="texto--erro">Atenção: </span> dentro da <samp>.tab--form</samp> que possuir <samp>&lt;input type="file"&gt;</samp> acrescente o tag para o texto de formulário conforme explicado em <a href="#form" class="link--readme">formulários</a>.</p>
+      <p><strong class="texto--erro">Atenção: </strong> dentro da <samp>.tab--form</samp> que possuir <samp>&lt;input type="file"&gt;</samp> acrescente o label (com <samp>for</samp>) para o texto de formulário conforme explicado em <a href="#form" class="link--readme">formulários</a>. Este label vai ocupar o espaço da célula toda para melhor usabilidade.</p>
 
       <h2>Regras para a tabela responsiva</h2>
       <p>No arquivo de <samp class="local"><svg class="ico"><use xlink:href="../images/ico.svg#documento" /></svg>config/+config.scss</samp> é possível determinar o tipo de media query usado para isso (o padrão é tamanho máximo, mas você pode decidir por orientação para sempre exibir "responsiva" quando a largura da tela for menor que a altura).</p>
