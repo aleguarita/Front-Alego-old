@@ -7,7 +7,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 13/01/2015
-// Última alteração: 16/02/2017
+// Última alteração: 03/03/2017
 // -----------------------------------------------------------------------------
 // Este arquivo agrupa todos os mixins utilizados pelo framework. Mixins
 // próprios do sistema devem ser criados na pasta /extra
@@ -16,6 +16,7 @@
 // IMPORTANTE: este comentário deve sempre começar com // e não /*
 // -----------------------------------------------------------------------------
 // Changelog
+// 03/03/2017 | Inclusão do mixin de transition para fallback
 // 16/02/2017 | Os mixins agora estão na pasta /mixins
 // 02/09/2016 | Retirado o pointer-events do overlay, pois estava impedindo o
 // 							uso do mouse na modal
@@ -60,6 +61,7 @@
 @import 'mixins/transform';
 @import 'mixins/flexbox';
 @import 'mixins/appearance';
+@import 'mixins/transition';
 
 // =============================================================================
 // ÚTILITÁRIOS e FACILITADORES
