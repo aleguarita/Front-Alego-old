@@ -24,18 +24,21 @@
     </span>
   </div>
 
-  <a ng-if="linkNewTitulo" ui-sref="{{linkNewState}}" class="barra-ferramentas__acao" title="{{linkNewTitulo}}">
-    <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#mais") %>"></svg>
-  </a>
+  <div class="barra-ferramentas__acoes-fim">
+    <a ng-if="linkNewTitulo" ui-sref="{{linkNewState}}" class="barra-ferramentas__acao" title="{{linkNewTitulo}}">
+      <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#mais") %>"></svg>
+      </a>
 
-  <a ng-if="linkShowTitulo" ui-sref="{{linkShowState}}" class="barra-ferramentas__acao" title="{{linkShowTitulo}}">
-    <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#olho")%>"></use></svg>
-  </a>
+      <a ng-if="linkShowTitulo" ui-sref="{{linkShowState}}" class="barra-ferramentas__acao" title="{{linkShowTitulo}}">
+        <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#olho")%>"></use></svg>
+      </a>
 
-  <a ng-if="linkEditTitulo" ui-sref="{{linkEditState}}" class="barra-ferramentas__acao" title="{{linkEditTitulo}}">
-    <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#lapis") %>"></use></svg>
-  </a>
+      <a ng-if="linkEditTitulo" ui-sref="{{linkEditState}}" class="barra-ferramentas__acao" title="{{linkEditTitulo}}">
+        <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#lapis") %>"></use></svg>
+      </a>
 
-  <div ng-transclude></div>
+      <div ng-transclude></div>
+  </div>
+
 
 </section>

@@ -11,12 +11,13 @@ FORMULÁRIOS | ELEMENTOS COMUM
 // -----------------------------------------------------------------------------
 // form_comum.scss
 // Criado em: 11/11/2015
-// Última alteração em: 17/01/2017
+// Última alteração em: 06/03/2017
 // -----------------------------------------------------------------------------
 // Este arquivo contém os elementos comum à todos os formulários, como
 // variáveis, placeholders e mixins
 // -----------------------------------------------------------------------------
 // Changelog
+// 06/03/2017 | Mudança da cor padrão de transparente para branco
 // 17/01/2017 | Acréscimo de uma variável para gerar o fundo dos campos
 // 08/12/2016 | Retirado border: 0; de button.form__ico e movido apenas para
 //              .form__ico para corrigir a ausência de linha
@@ -58,7 +59,7 @@ $form-tipo: tipo-1 !default; // 3 tipos
 $label-tipo: flutuante !default; // flutuante | colado
 $form-radio-check-personaliza: sim !default;
 $form-obrigatorio: 16 !default;
-$form-fundo-campos: transparent !default;
+$form-fundo-campos: cor(fundo, x-claro) !default;
 
 // =============================================================================
 // VARIÁVEIS

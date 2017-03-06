@@ -5,7 +5,7 @@
 // Autor: Alessandro Guarita
 // -----------------------------------------------------------------------------
 // Criado em: 20/10/2015
-// Última alteração em: 13/02/2017
+// Última alteração em: 06/03/2017
 // -----------------------------------------------------------------------------
 // Define as diversas configurações do front-end da Alego.
 // Aqui você vai definir os tipos de tabela, formulário e assim por diante, além
@@ -13,6 +13,8 @@
 // arquivo
 // -----------------------------------------------------------------------------
 // CHANGELOG
+// 06/03/2017 | Alterada a cor de fundo de formulários de transparente para
+//              branco
 // 13/02/2017 | Inclusão de variável para determinar o fundo dos campos dos
 //              formulários
 // 01/02/2017 | Inclusão do valor 0 para abas, enxugar o código
@@ -122,7 +124,7 @@ $form-tipo: tipo-3; // 3 tipos
 $label-tipo: flutuante; // flutuante | colado
 $form-radio-check-personaliza: sim;
 $form-obrigatorio: 16; // tamanho do SVG de obrigatório (*) em px
-$form-fundo-campos: transparent; // fundo das caixas de texto
+$form-fundo-campos: cor(fundo, x-claro); // fundo das caixas de texto
 
 $botao-tipo: tipo-5; // 6 tipos
 $botao-secundario: $botao-tipo; // 6 tipos + $botao-tipo

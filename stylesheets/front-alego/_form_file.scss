@@ -11,7 +11,7 @@ FORMULÁRIOS | FILE
 // -----------------------------------------------------------------------------
 // form_arquivo.scss
 // Criado em: 14/12/2016
-// Alterado em: 13/02/2017
+// Alterado em: 06/03/2017
 // -----------------------------------------------------------------------------
 // Este arquivo formata os arquivos de input de arquivo. Para que o texto seja
 // substituído por uma mensagem válida é necessário chamar o javascript
@@ -19,6 +19,7 @@ FORMULÁRIOS | FILE
 // Este arquivo depende da existência do _form_texto.scss
 // ----------------------------------------------------------------------------
 // Changelog
+// 06/03/2017 | Mudança da cor padrão de transparente para branco
 // 13/02/2017 | Criação de classe para fundo de formulários
 // 10/02/2017 | Correção do campo obrigatório
 // 14/12/2016 | Criação do arquivo
@@ -30,7 +31,7 @@ FORMULÁRIOS | FILE
 $form-tipo: tipo-1 !default; // 3 tipos
 $label-tipo: flutuante !default; // flutuante | colado
 $form-radio-check-personaliza: sim !default;
-$form-fundo-campos: transparent !default;
+$form-fundo-campos: cor(fundo, x-claro) !default;
 
 // =============================================================================
 // MIXIN | FORM-FILE__INFO
