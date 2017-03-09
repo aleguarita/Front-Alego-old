@@ -1,0 +1,161 @@
+// =============================================================================
+// CORES: ELEMENTOS
+// =============================================================================
+// Framework da Assembleia Legislativa
+// Autor: Alessandro Guarita
+// -----------------------------------------------------------------------------
+// cores.scss
+// Criado em: 07/01/2015
+// Última alteração: 08/03/2017
+// -----------------------------------------------------------------------------
+// Os elementos de cores do sistema ficam aqui. As cores são definidas em nas
+// paletas no arquivo cores-paletas.
+// JAMAIS coloque uma cor diretamente em outro arquivo e sim chame através da
+// função cor(). Isso possibilita mudar o tema rapidamente através deste arquivo
+// Para alterar o tema faça isso no arquivo config
+// -----------------------------------------------------------------------------
+// CHANGELOG:
+// 08/03/2017 | Mudança na forma de trabalhar as cores
+// 							separado paletas e temas
+// 21/12/2016 | Acrescentada cores da barra de ferramentas
+// 06/09/2016 | Simplificada cores das tabelas
+// 05/09/2016 | Reformulação nos botões (menos cores pra configurar)
+// 01/08/2016 | acrescentado footer da tabela
+// 06/07/2016 | Acrescentado "label" nos formulários
+// 09/05/2016 | Acrescentado "datepicker" nos temas
+// 14/04/2016 | Retirado branco e preto para utilizar cinza
+// 13/04/2016 | Unificação da paleta-padrao com paleta
+// 28/03/2016 | Inclusão de abas
+// 08/03/2016 | Inclusão de mais um tipo de link (claro)
+// 11/12/2015 | A paleta de cores agora aceita apenas um cor de cada e a função
+// 							cor() cria as variações tonais.
+// 							Arquivos _cores_paletas.scss e _cores_temas.scss mesclados
+// 							em apenas um arquivo: _cores.scss
+// 03/12/2015 | Reduzida paleta de paginação para três elementos
+// 							Acrescentado tema cinza
+// 17/11/2015 | Separado paletas de temas
+// 21/10/2015 | Criação dos temas
+//  						Criação de grupos de elementos dentro dos temas
+// 20/10/2015 | Alterado a forma de trabalhar
+// 07/01/2015 | Criado o arquivo
+// =============================================================================
+
+// =============================================================================
+// ELEMENTOS
+// -----------------------------------------------------------------------------
+// Cada elemento do sistema está no mapa $cores abaixo em sub-mapas de cores
+// específicas, conforme o nome.
+// Você pode acrescentar novos sub-mapas seguindo os modelos abaixo.
+
+// * Elementos do sistema (aqueles usados diretamente no sistema)
+
+// Altere e acrescente as cores conforme sua necessidade, mas jamais RETIRE.
+// =============================================================================
+$cores: (
+	// =============================================================================
+	// ELEMENTOS GENÉRICOS
+	// -----------------------------------------------------------------------------
+	// Para cores que podem ser utilizadas em qualquer elemento do sistema
+	// =============================================================================
+	texto: (
+		padrao: paleta(cinza, escuro, 100),
+		claro: paleta(cinza, claro, 100),
+		medio: paleta(cinza),
+		destaque: paleta(secundaria),
+		titulo: paleta(secundaria),
+	),
+
+	fundo: (
+		padrao: paleta(basica),
+		claro: paleta(basica, clara, 25),
+		x-claro: paleta(cinza, claro, 100),
+		escuro: paleta(basica, escura, 70),
+		sombra: paleta(cinza, escuro, 100),
+	),
+
+	borda: (
+		padrao: paleta(basica),
+		variante: paleta(secundaria),
+	),
+
+	// =============================================================================
+	// ELEMENTOS ESPECÍFICOS
+	// -----------------------------------------------------------------------------
+	// Usadas para seletores específicos e já utilizados no Front-Alego
+	// =============================================================================
+	link: (
+		padrao: paleta(basica),
+		hover: paleta(basica, clara, 25),
+	),
+	formulario: (
+		padrao: paleta(basica, escura, 25),
+		label: paleta(basica, escura, 25),
+		placeholder: paleta(basica, clara, 25),
+		ativo: paleta(basica, escura, 75),
+		fundo: paleta(basica, clara, 75),
+	),
+	botao: (
+		padrao: paleta(secundaria),
+		secundario: paleta(basica),
+	),
+	tabela: (
+		borda: paleta(basica),
+		fundo: paleta(basica, clara, 75),
+		titulo: paleta(basica, escura, 50),
+		footer: paleta(basica, escura, 25),
+	),
+	lista: (
+		padrao: paleta(basica),
+		clara: paleta(basica, clara, 75),
+		escura: paleta(basica, escura, 50),
+	),
+	modal: (
+		fundo: paleta(cinza, claro, 100),
+		titulo-fundo: paleta(basica, escura, 25),
+		titulo-texto: paleta(cinza, escura, 30),
+	),
+	paginacao: (
+		padrao: paleta(secundaria),
+		clara: paleta(secundaria, clara, 25),
+		escura: paleta(secundaria, escura, 25),
+	),
+	breadcrumbs: (
+		link: paleta(secundaria, clara, 25),
+		atual: paleta(secundaria, escura, 25),
+	),
+	card: (
+		fundo: paleta(cinza, claro, 100),
+		borda: paleta(basica),
+		titulo: paleta(basica, escura, 50),
+		destaque: paleta(basica, escura, 25),
+	),
+	secao-lista: (
+		padrao: paleta(basica, escura, 25),
+		clara: paleta(basica, clara, 75),
+	),
+	abas: (
+		padrao: paleta(secundaria),
+		inativa: paleta(secundaria, clara, 50),
+		fundo-inativo: paleta(secundaria, clara, 85),
+	),
+	datepicker: (
+		padrao: paleta(basica, escura, 25),
+		claro: paleta(basica, clara, 25),
+		escuro: paleta(basica, escura, 50),
+		contraste: paleta(secundaria, clara, 25),
+	),
+	barra-ferramentas: (
+		fundo: paleta(basica, clara, 75),
+		fundo-bt: paleta(basica, escura, 45),
+		fundo-bt-hover: paleta(basica, escura, 75),
+		texto-bt: paleta(cinza, clara, 100),
+		texto-bt-hover: paleta(cinza, clara, 100),
+	),
+
+	// =============================================================================
+	// ELEMENTOS DO SISTEMA
+	// -----------------------------------------------------------------------------
+	// Cores personalizadas do sistema
+	// =============================================================================
+
+);
