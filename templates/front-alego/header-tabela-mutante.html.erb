@@ -6,7 +6,7 @@
 
   <h2 class="barra-ferramentas__titulo">{{titulo}}</h2>
 
-  <form method="GET" ng-submit="busca()" class="barra-ferramentas__busca form-texto" ng-show="deveExibirControlesTabela()">
+  <form method="GET" ng-submit="busca()" class="barra-ferramentas__busca form-texto" ng-show="deveExibirBusca()">
     <input type="search" ng-model="termo" placeholder="Pesquisa " />
     <button ng-click="busca()" class="form__ico">
       <svg class="ico"><use xlink:href="<%= asset_path("ico.svg#lupa") %>"></use></svg>
@@ -14,7 +14,7 @@
   </form>
 
   <!-- ESTE ELEMENTO ADICIONA OS CONTROLES ENTRE TABELA E CARD -->
-  <div class="form-icones barra-ferramentas__tabela-mutante" ng-show="deveExibirControlesTabela()">
+  <div class="form-icones barra-ferramentas__tabela-mutante" ng-show="!deveEsconderControlesTabela()">
     <span ng-click="mudarPreferencia('tabela')" ng-class="{'ativo': modo == 'tabela'}" class="barra-ferramentas__ico">
       <svg class="ico"><use xlink:href="<%= asset_path('ico.svg#lista') %>" ></use></svg>
     </span>

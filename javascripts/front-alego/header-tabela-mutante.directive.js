@@ -21,11 +21,13 @@
         linkEditState: "@",
         exibirBotaoVoltar: "@",
         busca: "=",
-        termo: "="
+        termo: "=",
+        esconderControlesTabela: "@"
       },
       controller: ['$scope','$rootScope',function($scope, $rootScope) {
         $scope.mudarPreferencia = mudarPreferencia;
-        $scope.deveExibirControlesTabela = deveExibirControlesTabela;
+        $scope.deveEsconderControlesTabela = deveEsconderControlesTabela;
+        $scope.deveExibirBusca = deveExibirBusca;
         $scope.voltar = voltar;
 
         $scope.modo = $window.localStorage.getItem('preferencia_visualizacao_conteudo');
@@ -34,7 +36,11 @@
           $scope.modo = "tabela";
         }
 
-        function deveExibirControlesTabela() {
+        function deveEsconderControlesTabela() {
+          return $scope.esconderControlesTabela !== undefined;
+        }
+
+        function deveExibirBusca() {
           return  $scope.busca !== undefined;
         }
 
